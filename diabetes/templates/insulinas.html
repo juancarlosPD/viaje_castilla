@@ -1,0 +1,489 @@
+{% extends "baseDiabetes.html" %}
+{% block titulo %} Insulinas {% endblock %}
+{% block cabecera %}Insulinas {% endblock %}
+{% load static %}
+{% block imgCabecera %} <img src="{% static 'img/insulina.jpg' %}" alt="" class="img-fluid"> {% endblock %}
+{% block contenido %}
+
+
+{% load static %}
+
+<div class="row mt-4">
+    <div class="col-md-3">        
+        <ul>
+            <li><a href="{% url 'palomares' %}"class="text-success", style="text-decoration:none ;" >Esquema fármacos Palomares</a></li>
+            <li><a href="#"class="text-success", style="text-decoration:none ;" >Tabla duración efecto</a>
+                <ul>
+                    <li><a href="#prandiales"class="text-success", style="text-decoration:none ;" >Prandiales</a></li>
+                    <li><a href="#basales"class="text-success", style="text-decoration:none ;" >Basales</a></li>
+                    <li><a href="#mezclas"class="text-success", style="text-decoration:none ;" >Pre-mezclas</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-3">
+        <ul>
+            <li><a href="#dispositivos"class="text-success", style="text-decoration:none ;" >Dispositivos</a></li>
+    </div>
+</div>
+<hr class="my-5">
+<div class="row mb-4">
+    <div class="col-md-4 border">
+        <div class="row text-center bg-success text-light mb-3"><h5>Basales</h5></div>
+        
+        <h6>INTERMEDIAS (humanas)</h6>
+        <div>
+            <ul>
+                <li><a href="" class="text-success", style="text-decoration:none ;">Insulatard Flexpen</a></li>
+                <li><a href="" class="text-success", style="text-decoration:none ;">Humulina NPH KwikPen</a></li>
+            </ul>
+        </div>
+
+        <h6>PROLONGADAS (análogos)</h6>
+        <div>
+            <ul>
+                <li><a href="" class="text-success", style="text-decoration:none ;">LeveMir FlexPen / InnoLet</a></li>
+                <li><a href="" class="text-success", style="text-decoration:none ;">Lantus SoloStar / JuniorStar</a></li>
+                <li><a href="" class="text-success", style="text-decoration:none ;">Semglee® KwikPen</a></li>
+                <li><a href="" class="text-success", style="text-decoration:none ;">Abasaglar KwikPen</a></li>
+                <li><a href="" class="text-success", style="text-decoration:none ;">Toujeo SoloStar / DoubleStar</a></li>
+                <li><a href="" class="text-success", style="text-decoration:none ;">Tresiba 100 y 200 FlexTouch</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-4 border">
+        <div class="row text-center bg-success text-light mb-3"><h5>Prandiales</h5></div>
+        <h6>RÁPIDAS (humanas)</h6>
+        <div>
+            <ul>
+                <li><a href="" class="text-success", style="text-decoration:none ;">Actrapid InnoLet</a></li>
+                
+            </ul>
+        </div>
+
+        <h6>ULTRARÁPIDAS (análogos)</h6>
+        <div>
+            <ul>
+                <li><a href="" class="text-success", style="text-decoration:none ;">Humalog KwikPen 100 / KwikPen 200 / Junior KwikPen</a></li>
+                <li><a href="" class="text-success", style="text-decoration:none ;">NovoRapid Flexpen / Penfill / Pumpcart</a></li>
+                <li><a href="" class="text-success", style="text-decoration:none ;">Apidra SoloStar / JuniorStar</a></li>
+                <li><a href="" class="text-success", style="text-decoration:none ;">Fiasp FlexTouch</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-4 border">
+        <div class="row text-center bg-success text-light mb-3"><h5>Premezclas</h5></div>
+        <h6>HUMANAS</h6>
+        <div>
+            <ul>
+                <li><a href="" class="text-success", style="text-decoration:none ;">Mixtard 30 InnoLet</a></li>
+                <li><a href="" class="text-success", style="text-decoration:none ;">Humulina 30:70 KwikPen</a></li>
+            </ul>
+        </div>
+
+        <h6>ANÁLOGOS</h6>
+        <div>
+            <ul>
+                <li><a href="" class="text-success", style="text-decoration:none ;">NovoMix 30, 50 y 70 FlexPen</a></li>
+                <li><a href="" class="text-success", style="text-decoration:none ;">Humalog Mix 25 y 50 KwikPen</a></li>                
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="row align-items-center vertical-align-center text-center py-3 border justify-content-between my-5" style="background-color:#E2F6F6 ;">
+    <div class="col-md-11">
+        <h5 class="text-center pt-2" id="prandiales">INSULINAS PRANDIALES</h5>
+    </div>
+</div>  
+<div class="row mt-5 justify-content-center"> 
+    <table class="table table-striped mx-2 border">
+        
+        <tr class="table-success ">
+            <th class="border border-dark">Farmacocinética</th>
+            <th class="border border-dark">Tipo</th>
+            <th class="border border-dark">Presentación</th>
+            <th class="border border-dark">Inicio de acción</th>
+            <th class="border border-dark">Pico máximo</th>
+            <th class="border border-dark">Duración</th>                          
+        </tr>
+        <tr>
+            <th class="border border-dark" rowspan="11">Ultrarápida</th>                
+            <td class="border border-dark" rowspan="3">Lispro</td>
+            <td class="border border-dark">Humalog® KwikPen</td>
+            <td class="border border-dark" rowspan="11">5-15 min</td>
+            <td class="border border-dark" rowspan="11">45-47 min</td>
+            <td class="border border-dark" rowspan="11">2-4 h</td>                                          
+        </tr>
+        <tr>            
+            <td class="border border-dark">Humalog® 200 KwikPen</td>                                                    
+        </tr>
+        <tr>            
+            <td class="border border-dark">Humalog® Junior KwikPen</td>                                                    
+        </tr>
+        <tr> 
+            <td class="border border-dark" rowspan="6">Aspart</td>           
+            <td class="border border-dark">Novorapid® Flexpen</td>                                                    
+        </tr>
+        <tr>                       
+            <td class="border border-dark">Novorapid® Penfill</td>                                                    
+        </tr>
+        <tr> 
+            <td class="border border-dark">Novorapid® Pumpcart</td>                                                    
+        </tr>
+        <tr> 
+            <td class="border border-dark">Fiasp FlexTouch</td>                                                    
+        </tr>
+        <tr> 
+            <td class="border border-dark">Fiasp Penfill</td>                                                    
+        </tr>
+        <tr> 
+            <td class="border border-dark">Fiasp Pumpcart</td>                                                    
+        </tr>
+        <tr> 
+            <td class="border border-dark" rowspan="2">Glulisina</td>           
+            <td class="border border-dark">Apidra SoloStart</td>                                                    
+        </tr>
+        <tr> 
+            <td class="border border-dark">Apidra JuniorStart</td>                                                    
+        </tr>
+        <tr>
+            <th class="border border-dark">Rápida</th>                
+            <td class="border border-dark">Regular</td>
+            <td class="border border-dark">Actrapid® Innolet</td>
+            <td class="border border-dark">30 min</td>
+            <td class="border border-dark">2-4 h</td>
+            <td class="border border-dark">5-8 h</td>                                          
+        </tr>
+    </table>
+    <p>Todas las insulinas se presentan en concentraciones de 100 U/ml, excepto Humalog® KwikPen: 200 U/ml.</p>
+</div>
+<div class="row align-items-center vertical-align-center text-center py-3 border justify-content-between my-5" style="background-color:#E2F6F6 ;">
+    <div class="col-md-11">
+        <h5 class="text-center pt-2" id="basales">INSULINAS basales</h5>
+    </div>
+</div> 
+<div class="row mt-5 justify-content-center"> 
+      
+    <table class="table table-striped mx-2 border">
+        
+        <tr class="table-success ">
+            <th class="border border-dark">Farmacocinética</th>
+            <th class="border border-dark">Tipo</th>
+            <th class="border border-dark">Presentación</th>
+            <th class="border border-dark">Inicio de acción</th>
+            <th class="border border-dark">Pico máximo</th>
+            <th class="border border-dark">Duración</th>                          
+        </tr>
+        <tr>
+            <th class="border border-dark" rowspan="2">Intermedia</th>                
+            <td class="border border-dark" rowspan="2">NPH</td>
+            <td class="border border-dark">Insulatard® Flexpen</td>
+            <td class="border border-dark" rowspan="2">2 h</td>
+            <td class="border border-dark" rowspan="2">4-8 h</td>
+            <td class="border border-dark" rowspan="2">12 h</td>                                          
+        </tr>
+        <tr> 
+            <td class="border border-dark">Humulina NPH KwikPen</td>                                                    
+        </tr>
+        <tr>
+            <th class="border border-dark" rowspan="10">Prolongadas</th>                
+            <td class="border border-dark" rowspan="2">Detemir</td>
+            <td class="border border-dark">Levemir® Flexpen</td>
+            <td class="border border-dark" rowspan="2">2 h</td>
+            <td class="border border-dark" rowspan="2">Sin pico</td>
+            <td class="border border-dark" rowspan="2">12-18 h</td>                                          
+        </tr>
+        <tr>
+            <td class="border border-dark">Levemir® Innolet</td>
+        </tr>
+        <tr>
+            <td class="border border-dark" rowspan="5">Glargina</td>
+            <td class="border border-dark">Lantus SoloStar (100)</td>
+            <td class="border border-dark" rowspan="3">2 h</td>
+            <td class="border border-dark" rowspan="3">Sin pico</td>            
+            <td class="border border-dark" rowspan="3">20-24 h</td>                                          
+        </tr>
+        <tr>
+            <td class="border border-dark text-danger">Abasaglar® Kwikpen (100). Biosimilar</td>
+        </tr>
+        <tr>
+            <td class="border border-dark text-danger">Semglee Kwikpen (100). Biosimilar</td>
+        </tr>
+        <tr>
+            <td class="border border-dark">Toujeo SoloStar (300)</td>
+            <td class="border border-dark" rowspan="2">2 h</td>
+            <td class="border border-dark" rowspan="2">Sin pico</td>
+            <td class="border border-dark" rowspan="2">>36 h</td>
+        </tr>
+        <tr>
+            <td class="border border-dark">Toujeo DoubleStar (300)</td>
+        </tr>
+        <tr>
+            <td class="border border-dark" rowspan="2">Degludec</td>
+            <td class="border border-dark">Tresiba 100 FlexTouch</td>
+            <td class="border border-dark" rowspan="2">2 h</td>
+            <td class="border border-dark" rowspan="2">Sin pico</td>            
+            <td class="border border-dark" rowspan="2">>40 h</td>                                          
+        </tr>
+        <tr>
+            <td class="border border-dark">Tresiba 200 FlexTouch</td>
+        </tr>
+    </table>
+    <p>Todas las insulinas se presentan en concentraciones de 100 U/ml, excepto Toujeo®: 300 U/ml y Tresiba: 200 U/ml.</p>
+</div>
+<div class="row align-items-center vertical-align-center text-center py-3 border justify-content-between my-5" style="background-color:#E2F6F6 ;">
+    <div class="col-md-11">
+        <h5 class="text-center pt-2" id="mezclas">INSULINAS PRE-MEZCLAS</h5>
+    </div>
+</div> 
+<div class="row mt-5 justify-content-center"> 
+      
+    <table class="table table-striped mx-2 border">
+        
+        <tr class="table-success ">
+            <th class="border border-dark">Farmacocinética</th>
+            <th class="border border-dark">Tipo</th>
+            <th class="border border-dark">Presentación</th>
+            <th class="border border-dark">Inicio de acción</th>
+            <th class="border border-dark">Pico máximo</th>
+            <th class="border border-dark">Duración</th>                          
+        </tr>
+        <tr>
+            <th class="border border-dark" rowspan="2">Humanas</th>                
+            <td class="border border-dark" rowspan="2">Regular + NPH</td>
+            <td class="border border-dark">Mixtard 30 InnoLet</td>
+            <td class="border border-dark" rowspan="2">30 min</td>
+            <td class="border border-dark" rowspan="4">Doble</td>
+            <td class="border border-dark" rowspan="4">12 h</td>                                          
+        </tr>
+        <tr>
+            <td class="border border-dark">Humulina 30:70 KwikPen</td>
+        </tr>
+        <tr>
+            <th class="border border-dark" rowspan="2">Análogos</th>                
+            <td class="border border-dark" >Aspart + NPA</td>
+            <td class="border border-dark">NovoMix 30, 50 y 70 FlexPen</td>
+            <td class="border border-dark" rowspan="2">10-15 min</td>                                                      
+        </tr>
+        <tr>
+            <td class="border border-dark" >Lispro + NPL</td>
+            <td class="border border-dark">Humalog Mix 25 y 50 KwikPen</td>
+        </tr>
+    </table>
+    <p>El número que aparece (si sólo hay uno) o el primero que aparece (si hay dos), hace referencia a la proporción
+        de insulina prandial que lleva la mezcla.</p>
+</div>
+
+<div class="row align-items-center vertical-align-center text-center py-3 border justify-content-between my-5" style="background-color:#E2F6F6 ;">
+    <div class="col-md-11">
+        <h5 class="text-center pt-2" id="dispositivos">DISPOSITIVOS</h5>
+    </div>
+</div>
+<hr> 
+<h3>FLEXPEN</h3>
+<hr>
+<div class="row d-flex justify-content-between mt-5">  
+        
+    <div class="col-md-5 mt-1  text-center">
+                       
+                <figure class="text-start">
+                    <img src="{% static 'img/dispositivos/flexpen.png' %}" alt="" class="img-fluid">
+                    
+                </figure>
+                <a href="https://www.coflugo.org/docs/accuhaler.pdf" class="card-link link-success" target="_blank">Uso</a>
+                <a href="https://www.youtube.com/watch?v=7phdhJ_0Hn0" class="card-link link-success" target="_blank">Vídeo</a> 
+    </div>
+    <div class="col-md-4 mt-1  px-5">
+        <h5>INSULINAS: </h5>
+        <ul>
+            <li>Novorapid 30</li>
+            <li>Novorapid 70</li>
+            <li>Insulatard</li>
+            <li>Novomix 50</li>
+            <li>Levemir</li>            
+        </ul>
+        
+    </div>
+    <hr class="mt-5">
+    <h3>FLEXTOUCH</h3>
+<hr>
+<div class="row d-flex justify-content-between mt-5">  
+        
+    <div class="col-md-6 mt-1  text-center">
+                       
+                <figure class="text-start">
+                    <img src="{% static 'img/dispositivos/flextouch.jpg' %}" alt="" class="img-fluid">
+                    
+                </figure>
+                <a href="https://www.coflugo.org/docs/accuhaler.pdf" class="card-link link-success" target="_blank">Uso</a>
+                <a href="https://www.youtube.com/watch?v=7phdhJ_0Hn0" class="card-link link-success" target="_blank">Vídeo</a> 
+    </div>
+    <div class="col-md-4 mt-1  px-5">
+        <h5>INSULINAS: </h5>
+        <ul>
+            <li>Tresiba</li>
+            <li>Fiasp</li>
+        </ul>
+        
+    </div>
+</div>
+<hr class="mt-5">
+<h3>INNOLET</h3>
+<hr>
+<div class="row d-flex justify-content-between mt-5">  
+        
+    <div class="col-md-6 mt-1  text-center">
+                       
+                <figure  class="text-start">
+                    <img src="{% static 'img/dispositivos/innolet.jpg' %}" alt="" class="img-fluid">
+                    
+                </figure>
+                <a href="https://www.coflugo.org/docs/accuhaler.pdf" class="card-link link-success" target="_blank">Uso</a>
+                <a href="https://www.youtube.com/watch?v=7phdhJ_0Hn0" class="card-link link-success" target="_blank">Vídeo</a> 
+    </div>
+    <div class="col-md-4 mt-1  px-5">
+        <h5>INSULINAS: </h5>
+        <ul>
+            <li>Actrapid</li>
+            <li>Mixtard 30</li>
+            <li>Levemir</li>
+        </ul>
+        
+    </div>
+</div>
+<hr class="mt-5">
+
+<h3>JUNIORSTART</h3>
+<hr>
+<div class="row d-flex justify-content-between mt-5">  
+        
+    <div class="col-md-6 mt-1  text-center">
+                       
+                <figure  class="text-start">
+                    <img src="{% static 'img/dispositivos/juniorstart.jpg' %}" alt="" class="img-fluid">
+                    
+                </figure>
+                <a href="https://www.coflugo.org/docs/accuhaler.pdf" class="card-link link-success" target="_blank">Uso</a>
+                <a href="https://www.youtube.com/watch?v=7phdhJ_0Hn0" class="card-link link-success" target="_blank">Vídeo</a> 
+    </div>
+    <div class="col-md-4 mt-1  px-5">
+        <h5>INSULINAS: </h5>
+        <ul>
+            <li>Apidra</li>
+            <li>Lantus</li>            
+        </ul>
+        
+    </div>
+</div>
+<hr class="mt-5">
+<h3>KWIKPEN</h3>
+<hr>
+<div class="row d-flex justify-content-between mt-5">  
+        
+    <div class="col-md-6 mt-1  text-center">
+                       
+                <figure  class="text-start">
+                    <img src="{% static 'img/dispositivos/kwikpen.png' %}" alt="" class="img-fluid">
+                    
+                </figure>
+                <a href="https://www.coflugo.org/docs/accuhaler.pdf" class="card-link link-success" target="_blank">Uso</a>
+                <a href="https://www.youtube.com/watch?v=7phdhJ_0Hn0" class="card-link link-success" target="_blank">Vídeo</a> 
+    </div>
+    <div class="col-md-3 mt-1  px-5">
+        <h5>INSULINAS: </h5>
+        <ul>
+            <li>Humalog</li>
+            <li>Humalog Mix 25</li>
+            <li>Humalog Mix 50</li>
+            <li>Humalog Junior</li>
+        </ul>
+        
+    </div>
+    <div class="col-md-3 mt-1  px-5">
+        <br>
+        <ul>
+            <li>Humalog 200</li>
+            <li>Abasaglar</li>
+            <li>Humulina NPH</li>
+            <li>Humulina 30:70</li>
+        </ul>
+        
+    </div>
+</div>
+
+<hr class="mt-5">
+<h3>INNOLET</h3>
+<hr>
+<div class="row d-flex justify-content-between mt-5">  
+        
+    <div class="col-md-6 mt-1  text-center">
+                       
+                <figure  class="text-start">
+                    <img src="{% static 'img/dispositivos/innolet.jpg' %}" alt="" class="img-fluid">
+                    
+                </figure>
+                <a href="https://www.coflugo.org/docs/accuhaler.pdf" class="card-link link-success" target="_blank">Uso</a>
+                <a href="https://www.youtube.com/watch?v=7phdhJ_0Hn0" class="card-link link-success" target="_blank">Vídeo</a> 
+    </div>
+    <div class="col-md-4 mt-1  px-5">
+        <h5>INSULINAS: </h5>
+        <ul>
+            <li>Actrapid</li>
+            <li>Mixtard 30</li>
+            <li>Levemir</li>
+        </ul>
+        
+    </div>
+</div>
+
+<hr class="mt-5">
+<h3>NOVOPEN</h3>
+<hr>
+<div class="row d-flex justify-content-between mt-5">  
+        
+    <div class="col-md-6 mt-1  text-center">
+                       
+                <figure  class="text-start">
+                    <img src="{% static 'img/dispositivos/novopen.jpg' %}" alt="" class="img-fluid">
+                    
+                </figure>
+                <a href="{% static 'doc/dispositivos/novopen.pdf' %}" class="card-link link-success" target="_blank">Pdf</a>
+                <a href="https://www.youtube.com/watch?v=4tigxtHiLKw" class="card-link link-success" target="_blank">Vídeo</a> 
+    </div>
+    <div class="col-md-4 mt-1  px-5">
+        <h5>INSULINAS: </h5>
+        <ul>
+            <li>Novorapid Penfill (cartuchos)</li>
+            
+        </ul>
+        
+    </div>
+</div>
+
+<hr class="mt-5">
+<h3>SOLOSTAR</h3>
+<hr>
+<div class="row d-flex justify-content-between mt-5">  
+        
+    <div class="col-md-6 mt-1  text-center">
+                       
+                <figure  class="text-start">
+                    <img src="{% static 'img/dispositivos/solostar.png' %}" alt="" class="img-fluid">
+                    
+                </figure>
+                <a href="{% static 'doc/dispositivos/solostar.pdf' %}" class="card-link link-success" target="_blank">Pdf</a>
+                <a href="https://www.youtube.com/watch?v=m7f5A-cXLhc" class="card-link link-success" target="_blank">Vídeo</a> 
+    </div>
+    <div class="col-md-4 mt-1  px-5">
+        <h5>INSULINAS: </h5>
+        <ul>
+            <li>Apidra</li>
+            <li>Lantus</li>
+            <li>Toujeo</li>            
+        </ul>        
+    </div>
+</div>
+
+
+{% endblock %}

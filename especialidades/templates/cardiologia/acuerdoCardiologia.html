@@ -1,0 +1,10 @@
+{% extends "baseEspecialidades.html" %}
+{% block titulo %} cardiologia {% endblock %}
+{% block cabecera %}Cardiologia {% endblock %}
+{% load static %}
+{% block imgCabecera %} <img src="{% static 'img/cardiologia1.jpg' %}" alt="" class="img-fluid"> {% endblock %}
+
+{% block contenido %}
+<embed class="mt-5" src="{% static 'doc/acuerdoCardiologia_V02_221017.pdf' %}" type="application/pdf" width="100%" height="600px" />
+
+{% endblock %}

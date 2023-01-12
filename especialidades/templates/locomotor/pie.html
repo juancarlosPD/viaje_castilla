@@ -1,0 +1,65 @@
+{% extends "locomotor/baseLocomotor.html" %}
+
+{% block titulo %} pie {% endblock %}
+{% load static %}
+
+{% block cabecera %} Pie {% endblock %}
+{% block imgCabecera %} <img src="{% static 'img/pie.jpg' %}" alt="" class="img-fluid"> {% endblock %}
+
+{% block contenido %}
+
+<div class="row align-items-center vertical-align-center text-center py-5 ">
+    <div class="col-md-3">
+        <h6><a href="{% url 'exploracionPie' %}" class="text-success", style="text-decoration:none ;">Exploración del pie (pdf)</a></h6>
+        
+    </div>
+    <div class="col-md-3">
+        <h6 class="text-success"><span  data-bs-toggle="modal" data-bs-target="#floridablanca">
+            Prescripción de plantillas</span></h6>
+            
+            <!-------------------------------------------- MODAL -->
+            <div class="modal fade" id="floridablanca" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header bg-success text-light">
+                        <h5 class="modal-title" id="exampleModalLabel">Renovación de plantillas </h5>                            
+                        
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <a href="{% url 'plantillas' %}" class="text-success", style="text-decoration:none ; color: azure;">Correo plantillas (pdf)</a>
+                <div class="modal-body container-fluid">
+                    <div class="row">
+                        <div class="col-md-12 border text-start"> 
+                            <strong><u>Indicaciones:</u></strong> 
+                            <ul>
+                                <li>Pacientes con pie patológico neuropático o diabético que presenten riesgo de ulceración.</li>
+                                <li>Pacientes con graves deformaciones dolorosas del pie por enfermedad reumática</li>
+                                <li>Pacientes con importantes  secuelas dolorosas tras cirugía del pie, durante un periodo máximo de 24 meses</li>
+                            </ul>
+                            <strong><u>Requisitos</u></strong>
+                            
+                            <ul>
+                                <li>Comprobar el deterioro de la órtesis plantar </li>
+                                <li>Estar indicada su renovación</li>
+                                <li>Realizar radiología anteroposterior y lateral de pie en carga</li>
+                            </ul>
+                            <strong><u>Procedimiento</u></strong>
+                            <p>A través de Teleconsulta</p>
+                            
+                        </div>
+    
+                    </div>
+                    
+                </div>
+                
+                </div>
+            </div>
+            </div>
+    
+            <!---------------------------------------------------------------------------------------------------------- -->
+    </div>
+</div>
+
+
+
+{% endblock %}

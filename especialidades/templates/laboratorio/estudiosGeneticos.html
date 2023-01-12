@@ -1,0 +1,23 @@
+{% extends "laboratorio/baseLaboratorio.html" %}
+
+{% block titulo %} laboratorio {% endblock %}
+{% load static %}
+
+{% block cabecera %} Laboratorio {% endblock %}
+{% block imgCabecera %} <img src="{% static 'img/analisis.jpg' %}" alt="" class="img-fluid"> {% endblock %}
+
+{% block contenido %}
+
+<h3 class="text-center my-5">SOLICITUD DE ESTUDIOS GENÉTICOS</h3>
+<hr>
+<p>Se establece la Teleconsulta como método de comunicación entre Atención
+    Primaria y el Servicio de Genética.</p>
+<p>La vía de acceso a través de Teleconsulta será Unidad de Genética (Análisis Clínicos)
+    indicando en el motivo de consulta “Consejo Genético”</p>
+    <p>En la <strong>Teleconsulta</strong>  se realizará una breve anamnesis con los datos más relevantes (relación
+        familiar con el caso, presencia o no de síntomas relacionados con la enfermedad a estudiar…) y cualquier otro dato que pueda considerarse de interés, siendo imprescindible en envío de
+        la documentación (informe hospitalario de hospitales públicos del SNS) dónde se indica
+        el estudio genético a familiares. El envío de esta documentación se hará a través de
+        Capptura en la propia teleconsulta.</p>
+
+{% endblock %}

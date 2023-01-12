@@ -1,0 +1,19 @@
+{% extends "hematologia/baseHematologia.html" %}
+
+{% block titulo %} hematologia {% endblock %}
+{% load static %}
+
+{% block cabecera %} HEMATOLOGÍA {% endblock %}
+{% block imgCabecera %} <img src="{% static 'img/hematologia.jpg' %}" alt="" class="img-fluid"> {% endblock %}
+
+{% block contenido %}
+<div class="row mt-4">
+    <div class="col-md-5">
+        <p><a href="{% url 'sintrom' %} "class="text-success", style="text-decoration:none ;" >Esquema SINTROM</a>
+            
+    </div>
+    
+</div>
+<hr class="mt-5">
+
+{% endblock %}

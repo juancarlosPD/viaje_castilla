@@ -1,0 +1,15 @@
+.left,.right {
+        width: 100px;
+        height: 100px;
+        transition: .5s;
+        float: left;
+        box-shadow: -2px 2px 0 rgb(234, 58, 58);
+    }
+  
+.left {
+        transform: rotate(45deg);
+    }
+  
+.right {
+        transform: rotate(-135deg);
+    }

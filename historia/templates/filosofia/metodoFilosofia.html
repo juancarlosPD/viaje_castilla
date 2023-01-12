@@ -1,0 +1,31 @@
+{% extends "filosofia/baseFilosofia.html" %}
+{% load static %}
+{% block titulo %} metodo {% endblock %}
+{% block cabecera %} El método de la filosofía {% endblock %}
+{% block imgCabecera %} <img src="{% static 'images/pensador.jpg' %}" alt="" class="img-fluid">  {% endblock %}
+
+{% block contenido %}
+
+<p class="mt-5">La filosofía se puede dividir en 2 grandes partes:</p>
+<div>
+    <ul>
+        <li><strong>Ontología. </strong>Estudio de los objetos</li>
+        <li><strong>Gnoseología. </strong>Estudio de los métodos del conocimiento de los objetos</li>
+    </ul>
+</div>
+
+<p>Grandes métodos de conocimiento en filosofía:</p>
+<div>
+    <ul>
+        <li><strong>Mayéutica (interrogación). </strong>Método usado por Sócrates. LLegar a una explicación satisfactoria a partir de hacer y hacerse preguntas. Pregunta a un general que es la valentía y le va rebatiendo cada respuesta hasta hacerlo dar una contestación satisfactoria.</li>
+        <li><strong>Dialéctica. </strong>Platón. Es una evolución de la mayeútica. Partimos de una intuición o primera idea (tesis). A partir de muchas discusiones sobre esa idea (antítesis) llegamos a una idea nueva (síntesis) </li>
+        <li><strong>Lógica. </strong>Aristóteles. De una afirmación general y mediante otra afirmación se llega a una afirmación particular que luego hay que demostrar. Es equivalente a deducción racional, silogismo, intuición.</li>
+        <li><strong>Disputa. </strong>Santo Tomás de Aquino. Edad Media. El método consta de 2 partes: intuición primaria + discusión dialéctica. Aplica con rigor el método del silogismo de Aristóteles pero además reune todas las ideas previas de pensadores anteriores sobre el tema y las confronta unas con otras. Pone más énfasis en esta segunda parte que se puede considerar una reviviscencia de la dialéctica de Platón. </li>
+        <li><strong>Intuición. </strong>Descartes. Renacimiento. El acento cae ahora no tanto sobre la discusión posterior a la intuición sino sobre la intuición misma. El método es preintuitivo y su objeto es lograr la inntuición. Para ello divide el objeto en partes (analítica) hasta que una parte nos da una idea general del objeto (intuición)</li>
+    </ul>
+</div>
+
+
+
+
+{% endblock %}

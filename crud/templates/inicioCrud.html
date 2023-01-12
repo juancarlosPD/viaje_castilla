@@ -1,0 +1,52 @@
+{% extends "baseCRUD.html" %}
+{% load static %}
+{% block titulo %} pacientes {% endblock %}
+{% block cabecera %} Pacientes SS Ballesteros {% endblock %}
+{% block imgCabecera %} <img src="{% static 'img/pacientes.jpg' %}" alt="" class="img-fluid">  {% endblock %}
+
+{% block contenido %}
+
+<div class="row align-items-center justify-content-center  mt-5">
+                   
+    <div class="col-md-2 form-group text-center border" style="background-color:#FDF2E9 ;">
+        <div class="row">
+           <h6 class="text-start">PACIENTES</h6>
+        </div>
+        <div class="row text-start">
+            <a href="{% url 'listarPacientes' %} " class="text-success" style="text-decoration:none ;">Listar pacientes</a>
+            <a href="{% url 'CrearPaciente' %} " class="text-success" style="text-decoration:none ;">Crear paciente</a> 
+            <hr class="my-3">
+            <h6 class="text-start">PROCESOS</h6>
+            <a href="{% url 'diabeticos' %} " class="text-success" style="text-decoration:none ;">Diabéticos</a>
+            <a href="{% url 'epoc' %} " class="text-success" style="text-decoration:none ;">EPOC</a>  
+        
+        </div>
+        
+    </div>
+    <div class="col-md-2 form-group text-center border" style="background-color:#E8F8F5 ;">
+        <div class="row">
+           <h6 class="text-start">FÁRMACOS</h6>
+        </div>
+        <div class="row text-start">
+            <a href="{% url 'listarFarmacos' %} " class="text-success" style="text-decoration:none ;">Listar fármacos</a>
+            <a href=" " class="text-success" style="text-decoration:none ;">Crear fármaco</a> 
+            
+        </div>
+        
+    </div>
+    <div class="col-md-2 form-group text-center border" style="background-color:#FCF3CF ;">
+        <div class="row">
+           <h6 class="text-start">PATOLOGÍAS</h6>
+        </div>
+        <div class="row text-start">
+            <a href="{% url 'listarPatologias' %} " class="text-success" style="text-decoration:none ;">Listar patologías</a>
+            <a href=" " class="text-success" style="text-decoration:none ;">Crear patología</a> 
+        </div>
+        
+    </div>
+    
+    
+</div>
+
+
+{% endblock %}

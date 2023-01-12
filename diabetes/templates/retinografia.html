@@ -1,0 +1,23 @@
+{% extends "baseDiabetes.html" %}
+{% block titulo %} retinografia {% endblock %}
+{% block cabecera %}Retinografías {% endblock %}
+{% load static %}
+{% block imgCabecera %} <img src="{% static 'img/retinografia.jpg' %}" alt="" class="img-fluid"> {% endblock %}
+
+{% block contenido %}
+
+<div class="row mt-4">
+    <div class="col-md-5">
+        <p><strong>Documentos</strong> </p>
+        <ul>
+            <li><a href="{% url 'solicitudRetinografias' %} "class="text-success", style="text-decoration:none ;" >Solicitud retinografia</a></li>
+            <li><a href="{% url 'lecturaRetinografias' %} "class="text-success", style="text-decoration:none ;" >Lectura sistemática de retinografías</a></li>
+            <li><a href="{% url 'retinopatias' %} "class="text-success", style="text-decoration:none ;" >Retinopatías</a></li>
+        </ul>
+        
+    </div>
+</div>
+
+
+
+{% endblock %}

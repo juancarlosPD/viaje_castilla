@@ -1,0 +1,60 @@
+{% extends "bases/baseHistoria.html" %}
+
+{% load static %}
+
+{% block titulo %} siglo xvii {% endblock %}
+
+{% block cabecera %} Siglo XVII {% endblock %}
+
+{% block imgCabecera %} <img class="img-fluid" src="{% static 'images/sigloXVII/feliipeIV.jpg' %}" alt=""> {% endblock %}
+
+{% block contenido %}
+
+
+    
+        <div class="row mb-3 justify-content-center align-items-center mt-5">
+            <div class="col-md-4 ">
+                <div class="row mb-2 justify-content-center align-items-center">
+                    <div class="col-md-6">
+                        <a href="{% url 'felipeIII' %}" style="text-decoration:none ;">
+                        <figure>                        
+                            <img class="img-fluid" src="{% static 'images/sigloXVII/felipeIII.jpg' %}" alt="">
+                            <figcaption class="mt-4 text-center"> <strong>Felipe III (1598 y 1621)</strong> </figcaption>                
+                        </figure></a>
+                        <p></p>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-md-4 ">
+                <div class="row mb-2 justify-content-center align-items-center">
+                    <div class="col-md-6">
+                        <a href="{% url 'felipeIV' %}" style="text-decoration:none ;">
+                            <figure>
+                                <img class="img-fluid" src="{% static 'images/sigloXVII/feliipeIV.jpg' %}" alt="">
+                                <figcaption class="mt-4 text-center"> <strong>Felipe IV (1621 y 1665)</strong> </figcaption>                
+                            </figure>
+                        </a>
+                        <p></p>
+                    </div>
+                </div>
+                
+            </div>
+    
+            <div class="col-md-4 ">
+                <div class="row mb-2 justify-content-center align-items-center">
+                    <div class="col-md-6">
+                        <figure>
+                            <a href="{% url 'carlosII' %}" style="text-decoration:none ;">
+                            <img class="img-fluid" src="{% static 'images/sigloXVII/carloosII.jpg' %}" alt="">
+                            <figcaption class="mt-4 text-center"> <strong>Carlos II (1665 y 1700)</strong> </figcaption>                
+                        </figure></a>
+                        <p></p>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+
+{% endblock %}

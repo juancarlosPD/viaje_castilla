@@ -1,0 +1,412 @@
+{% extends "nefrologia/baseNefrologia.html" %}
+
+{% block titulo %} ajuste farmacos {% endblock %}
+
+{% load static %}
+
+{% block cabecera %} Ajuste de fármacos en la IRC {% endblock %}
+{% block imgCabecera %} <img id="inicio" src="{% static 'img/urologia.jpg' %}" alt="" class="img-fluid"> {% endblock %}
+
+{% block contenido %}
+<div class="row mt-4 align-items-center">
+    <p ><strong>ÍNDICE</strong> </p>
+    <div class="col-md-5 ">        
+        <ul>            
+            <li><a href="#antibioticos1" class="text-success", style="text-decoration:none ;" >Antibióticos 1 (Aminoglucósidos, Varbapemen, Cefalosporinas)</a></li>
+            <li><a href="#antibioticos2" class="text-success", style="text-decoration:none ;" >Antibióticos 2 (Fluorquinolonas, Macrólidos, Miscelánea)</a></li>
+            <li><a href="#antibioticos3" class="text-success", style="text-decoration:none ;" >Antibióticos 3 (Penicilinas, Tetraciclinas)</a></li>
+            <li><a href="#antimicrobianos" class="text-success", style="text-decoration:none ;">Antifúngicos, Antiparásitarios y Tuberculostáticos</a></li>
+            <li><a href="#antivirales1" class="text-success", style="text-decoration:none ;">Antivirales 1</a></li>
+            <li><a href="#antivirales2" class="text-success", style="text-decoration:none ;">Antivirales 2</a></li>
+            <li><a href="#antiinflamatorios" class="text-success", style="text-decoration:none ;" >Antiinflamatorios</a></li>
+            <li><a href="#analgesicos" class="text-success", style="text-decoration:none ;" >Analgésicos y opioides</a></li>
+        </ul>        
+    </div>
+    <div class="col-md-4 ">
+        <ul>         
+            <li><a href="#psicolepticos" class="text-success", style="text-decoration:none ;" >Psicolépticos</a></li>
+            <li><a href="#antidepresivos" class="text-success", style="text-decoration:none ;" >Antidepresivos</a></li>
+            <li><a href="#otrosPsicofarmacos" class="text-success", style="text-decoration:none ;" >Otros psicofármacos. Antiepilépticos.</a></li>
+            <li><a href="#antiHTA1" class="text-success", style="text-decoration:none ;" >Diuréticos, alfa y beta bloqueantes, antiadrenérgicos</a></li>
+            <li><a href="#antiHTA2" class="text-success", style="text-decoration:none ;" >IECA, ARA II, ant Calcio</a></li>
+            <li><a href="#CV" class="text-success", style="text-decoration:none ;" >Cardiovascular</a></li>
+            <li><a href="#ACO" class="text-success", style="text-decoration:none ;" >Anticoagulantes y antiagregantes</a></li>
+            <li><a href="#endocrino" class="text-success", style="text-decoration:none ;" >Endocrino</a></li>
+        </ul>    
+           
+    </div>
+    <div class="col-md-3 ">
+        <ul>            
+            <li><a href="#ADO" class="text-success", style="text-decoration:none ;" >Antidiabéticos orales</a></li>
+            <li><a href="#antireumaticos" class="text-success", style="text-decoration:none ;" >Antirreumáticos</a></li>
+            <li><a href="#digestivos" class="text-success", style="text-decoration:none ;" >Digestivos</a></li>
+            <li><a href="#miscelanea" class="text-success", style="text-decoration:none ;" >Miscelánea</a></li>
+        </ul>      
+    </div>
+    
+    
+</div>
+
+<div class="row align-items-center vertical-align-center text-center py-3 my-5 border" style="background-color:#E2F6F6 ;">
+    <div class="col-12">
+        <h5 class="text-center pt-2 mx-4">ANTIBIÓTICOS</h5> 
+    </div>  
+</div>
+
+<div class="row align-items-center vertical-align-center text-center mb-5">
+    <div class="col-md-12 mb-5">
+        <img id="antibioticos1" src="{% static 'img/nefrologia/antibioticosIRC1.jpg' %}" class="card-img-top" alt="...">
+        <img id="antibioticos2" src="{% static 'img/nefrologia/antibioticosIRC2.jpg' %}" class="card-img-top" alt="...">
+        <img id="antibioticos3" src="{% static 'img/nefrologia/antibioticosIRC3.jpg' %}" class="card-img-top" alt="...">
+    </div>
+</div>
+
+<div class="row align-items-center vertical-align-center text-center py-3 my-5 border" style="background-color:#E2F6F6 ;">
+    <div class="col-11">
+        <h5 id="antimicrobianos" class="text-center pt-2 mx-4">ANTIFÚNGICOS, ANTIPARASITARIOS y TUBERCULOSTATICOS</h5> 
+    </div>
+    <div class="col-1">
+        <a href="#inicio" class="text-danger", style="text-decoration:none ;" >
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-reply" viewBox="0 0 16 16">
+                <path d="M6.598 5.013a.144.144 0 0 1 .202.134V6.3a.5.5 0 0 0 .5.5c.667 0 2.013.005 3.3.822.984.624 1.99 1.76 2.595 3.876-1.02-.983-2.185-1.516-3.205-1.799a8.74 8.74 0 0 0-1.921-.306 7.404 7.404 0 0 0-.798.008h-.013l-.005.001h-.001L7.3 9.9l-.05-.498a.5.5 0 0 0-.45.498v1.153c0 .108-.11.176-.202.134L2.614 8.254a.503.503 0 0 0-.042-.028.147.147 0 0 1 0-.252.499.499 0 0 0 .042-.028l3.984-2.933zM7.8 10.386c.068 0 .143.003.223.006.434.02 1.034.086 1.7.271 1.326.368 2.896 1.202 3.94 3.08a.5.5 0 0 0 .933-.305c-.464-3.71-1.886-5.662-3.46-6.66-1.245-.79-2.527-.942-3.336-.971v-.66a1.144 1.144 0 0 0-1.767-.96l-3.994 2.94a1.147 1.147 0 0 0 0 1.946l3.994 2.94a1.144 1.144 0 0 0 1.767-.96v-.667z"/>
+            </svg>        
+        </a>
+        
+    </div>        
+      
+</div>
+
+<div class="row align-items-center vertical-align-center text-center mb-5">
+    <div class="col-md-12 mb-5">
+        <img src="{% static 'img/nefrologia/antimicrobianosIRC.jpg' %}" class="card-img-top" alt="...">        
+    </div>
+</div>
+
+<div class="row align-items-center vertical-align-center text-center py-3 my-5 border" style="background-color:#E2F6F6 ;">
+    <div class="col-11">
+        <h5 id="antivirales" class="text-center pt-2 mx-4">ANTIVIRALES</h5> 
+    </div>
+    <div class="col-1">
+        <a href="#inicio" class="text-danger", style="text-decoration:none ;" >
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-reply" viewBox="0 0 16 16">
+                <path d="M6.598 5.013a.144.144 0 0 1 .202.134V6.3a.5.5 0 0 0 .5.5c.667 0 2.013.005 3.3.822.984.624 1.99 1.76 2.595 3.876-1.02-.983-2.185-1.516-3.205-1.799a8.74 8.74 0 0 0-1.921-.306 7.404 7.404 0 0 0-.798.008h-.013l-.005.001h-.001L7.3 9.9l-.05-.498a.5.5 0 0 0-.45.498v1.153c0 .108-.11.176-.202.134L2.614 8.254a.503.503 0 0 0-.042-.028.147.147 0 0 1 0-.252.499.499 0 0 0 .042-.028l3.984-2.933zM7.8 10.386c.068 0 .143.003.223.006.434.02 1.034.086 1.7.271 1.326.368 2.896 1.202 3.94 3.08a.5.5 0 0 0 .933-.305c-.464-3.71-1.886-5.662-3.46-6.66-1.245-.79-2.527-.942-3.336-.971v-.66a1.144 1.144 0 0 0-1.767-.96l-3.994 2.94a1.147 1.147 0 0 0 0 1.946l3.994 2.94a1.144 1.144 0 0 0 1.767-.96v-.667z"/>
+            </svg>        
+        </a>
+        
+    </div>        
+      
+</div>
+
+<div class="row align-items-center vertical-align-center text-center mb-5">
+    <div class="col-md-12 mb-5">
+        <img id="antivirales1" src="{% static 'img/nefrologia/antivirales1IRC.jpg' %}" class="card-img-top" alt="...">
+              
+    </div>
+    
+    <div class="col-md-12 mb-5">
+        <img id="antivirales2" src="{% static 'img/nefrologia/antivirales2IRC.jpg' %}" class="card-img-top" alt="...">
+                  
+    </div>
+</div>
+
+<div class="row align-items-center vertical-align-center text-center py-3 my-5 border" style="background-color:#E2F6F6 ;">
+    <div class="col-11">
+        <h5 id="antiinflamatorios" class="text-center pt-2 mx-4">ANTIINFLAMATORIOS</h5> 
+    </div>
+    <div class="col-1">
+        <a href="#inicio" class="text-danger", style="text-decoration:none ;" >
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-reply" viewBox="0 0 16 16">
+                <path d="M6.598 5.013a.144.144 0 0 1 .202.134V6.3a.5.5 0 0 0 .5.5c.667 0 2.013.005 3.3.822.984.624 1.99 1.76 2.595 3.876-1.02-.983-2.185-1.516-3.205-1.799a8.74 8.74 0 0 0-1.921-.306 7.404 7.404 0 0 0-.798.008h-.013l-.005.001h-.001L7.3 9.9l-.05-.498a.5.5 0 0 0-.45.498v1.153c0 .108-.11.176-.202.134L2.614 8.254a.503.503 0 0 0-.042-.028.147.147 0 0 1 0-.252.499.499 0 0 0 .042-.028l3.984-2.933zM7.8 10.386c.068 0 .143.003.223.006.434.02 1.034.086 1.7.271 1.326.368 2.896 1.202 3.94 3.08a.5.5 0 0 0 .933-.305c-.464-3.71-1.886-5.662-3.46-6.66-1.245-.79-2.527-.942-3.336-.971v-.66a1.144 1.144 0 0 0-1.767-.96l-3.994 2.94a1.147 1.147 0 0 0 0 1.946l3.994 2.94a1.144 1.144 0 0 0 1.767-.96v-.667z"/>
+            </svg>        
+        </a></li>
+        
+    </div>        
+      
+</div>
+
+<div class="row align-items-center vertical-align-center text-center mb-5">
+    <div class="col-md-12 mb-5">
+        <img src="{% static 'img/nefrologia/antiinflamatoriosIRC.jpg' %}" class="card-img-top" alt="...">        
+    </div>
+</div>
+
+<div class="row align-items-center vertical-align-center text-center py-3 my-5 border" style="background-color:#E2F6F6 ;">
+    <div class="col-11">
+        <h5 id="analgesicos" class="text-center pt-2 mx-4">ANALGÉSICOS Y OPIOIDES</h5> 
+    </div>
+    <div class="col-1">
+        <a href="#inicio" class="text-danger", style="text-decoration:none ;" >
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-reply" viewBox="0 0 16 16">
+                <path d="M6.598 5.013a.144.144 0 0 1 .202.134V6.3a.5.5 0 0 0 .5.5c.667 0 2.013.005 3.3.822.984.624 1.99 1.76 2.595 3.876-1.02-.983-2.185-1.516-3.205-1.799a8.74 8.74 0 0 0-1.921-.306 7.404 7.404 0 0 0-.798.008h-.013l-.005.001h-.001L7.3 9.9l-.05-.498a.5.5 0 0 0-.45.498v1.153c0 .108-.11.176-.202.134L2.614 8.254a.503.503 0 0 0-.042-.028.147.147 0 0 1 0-.252.499.499 0 0 0 .042-.028l3.984-2.933zM7.8 10.386c.068 0 .143.003.223.006.434.02 1.034.086 1.7.271 1.326.368 2.896 1.202 3.94 3.08a.5.5 0 0 0 .933-.305c-.464-3.71-1.886-5.662-3.46-6.66-1.245-.79-2.527-.942-3.336-.971v-.66a1.144 1.144 0 0 0-1.767-.96l-3.994 2.94a1.147 1.147 0 0 0 0 1.946l3.994 2.94a1.144 1.144 0 0 0 1.767-.96v-.667z"/>
+            </svg>        
+        </a></li>
+        
+    </div>        
+      
+</div>
+
+<div class="row align-items-center vertical-align-center text-center mb-5">
+    <div class="col-md-12 mb-5">
+        <img src="{% static 'img/nefrologia/analgesicosIRC.jpg' %}" class="card-img-top" alt="...">        
+    </div>
+</div>
+
+<div class="row align-items-center vertical-align-center text-center py-3 my-5 border" style="background-color:#E2F6F6 ;">
+    <div class="col-11">
+        <h5 id="psicolepticos" class="text-center pt-2 mx-4">PSICOLÉPTICOS</h5> 
+    </div>
+    <div class="col-1">
+        <a href="#inicio" class="text-danger", style="text-decoration:none ;" >
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-reply" viewBox="0 0 16 16">
+                <path d="M6.598 5.013a.144.144 0 0 1 .202.134V6.3a.5.5 0 0 0 .5.5c.667 0 2.013.005 3.3.822.984.624 1.99 1.76 2.595 3.876-1.02-.983-2.185-1.516-3.205-1.799a8.74 8.74 0 0 0-1.921-.306 7.404 7.404 0 0 0-.798.008h-.013l-.005.001h-.001L7.3 9.9l-.05-.498a.5.5 0 0 0-.45.498v1.153c0 .108-.11.176-.202.134L2.614 8.254a.503.503 0 0 0-.042-.028.147.147 0 0 1 0-.252.499.499 0 0 0 .042-.028l3.984-2.933zM7.8 10.386c.068 0 .143.003.223.006.434.02 1.034.086 1.7.271 1.326.368 2.896 1.202 3.94 3.08a.5.5 0 0 0 .933-.305c-.464-3.71-1.886-5.662-3.46-6.66-1.245-.79-2.527-.942-3.336-.971v-.66a1.144 1.144 0 0 0-1.767-.96l-3.994 2.94a1.147 1.147 0 0 0 0 1.946l3.994 2.94a1.144 1.144 0 0 0 1.767-.96v-.667z"/>
+            </svg>        
+        </a></li>
+        
+    </div>        
+      
+</div>
+
+<div class="row align-items-center vertical-align-center text-center mb-5">
+    <div class="col-md-12 mb-5">
+        <img src="{% static 'img/nefrologia/psicolepticosIRC.jpg' %}" class="card-img-top" alt="...">        
+    </div>
+</div>
+<div class="row align-items-center vertical-align-center text-center py-3 my-5 border" style="background-color:#E2F6F6 ;">
+    <div class="col-11">
+        <h5 id="antidepresivos" class="text-center pt-2 mx-4">ANTIDEPRESIVOS</h5> 
+    </div>
+    <div class="col-1">
+        <a href="#inicio" class="text-danger", style="text-decoration:none ;" >
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-reply" viewBox="0 0 16 16">
+                <path d="M6.598 5.013a.144.144 0 0 1 .202.134V6.3a.5.5 0 0 0 .5.5c.667 0 2.013.005 3.3.822.984.624 1.99 1.76 2.595 3.876-1.02-.983-2.185-1.516-3.205-1.799a8.74 8.74 0 0 0-1.921-.306 7.404 7.404 0 0 0-.798.008h-.013l-.005.001h-.001L7.3 9.9l-.05-.498a.5.5 0 0 0-.45.498v1.153c0 .108-.11.176-.202.134L2.614 8.254a.503.503 0 0 0-.042-.028.147.147 0 0 1 0-.252.499.499 0 0 0 .042-.028l3.984-2.933zM7.8 10.386c.068 0 .143.003.223.006.434.02 1.034.086 1.7.271 1.326.368 2.896 1.202 3.94 3.08a.5.5 0 0 0 .933-.305c-.464-3.71-1.886-5.662-3.46-6.66-1.245-.79-2.527-.942-3.336-.971v-.66a1.144 1.144 0 0 0-1.767-.96l-3.994 2.94a1.147 1.147 0 0 0 0 1.946l3.994 2.94a1.144 1.144 0 0 0 1.767-.96v-.667z"/>
+            </svg>        
+        </a></li>
+        
+    </div>        
+      
+</div>
+
+<div class="row align-items-center vertical-align-center text-center mb-5">
+    <div class="col-md-12 mb-5">
+        <img src="{% static 'img/nefrologia/antidepresivosIRC.jpg' %}" class="card-img-top" alt="...">        
+    </div>
+</div>
+
+<div class="row align-items-center vertical-align-center text-center py-3 my-5 border" style="background-color:#E2F6F6 ;">
+    <div class="col-11">
+        <h5 id="otrosPsicofarmacos" class="text-center pt-2 mx-4">OTROS PSICOFÁRMACOS. ANTIEPILÉPTICOS</h5> 
+    </div>
+    <div class="col-1">
+        <a href="#inicio" class="text-danger", style="text-decoration:none ;" >
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-reply" viewBox="0 0 16 16">
+                <path d="M6.598 5.013a.144.144 0 0 1 .202.134V6.3a.5.5 0 0 0 .5.5c.667 0 2.013.005 3.3.822.984.624 1.99 1.76 2.595 3.876-1.02-.983-2.185-1.516-3.205-1.799a8.74 8.74 0 0 0-1.921-.306 7.404 7.404 0 0 0-.798.008h-.013l-.005.001h-.001L7.3 9.9l-.05-.498a.5.5 0 0 0-.45.498v1.153c0 .108-.11.176-.202.134L2.614 8.254a.503.503 0 0 0-.042-.028.147.147 0 0 1 0-.252.499.499 0 0 0 .042-.028l3.984-2.933zM7.8 10.386c.068 0 .143.003.223.006.434.02 1.034.086 1.7.271 1.326.368 2.896 1.202 3.94 3.08a.5.5 0 0 0 .933-.305c-.464-3.71-1.886-5.662-3.46-6.66-1.245-.79-2.527-.942-3.336-.971v-.66a1.144 1.144 0 0 0-1.767-.96l-3.994 2.94a1.147 1.147 0 0 0 0 1.946l3.994 2.94a1.144 1.144 0 0 0 1.767-.96v-.667z"/>
+            </svg>        
+        </a></li>
+        
+    </div>        
+      
+</div>
+
+<div class="row align-items-center vertical-align-center text-center mb-5">
+    <div class="col-md-12 mb-5">
+        <img src="{% static 'img/nefrologia/otrosPsicofarmacosIRC.jpg' %}" class="card-img-top" alt="...">        
+    </div>
+</div>
+
+<div class="row align-items-center vertical-align-center text-center py-3 my-5 border" style="background-color:#E2F6F6 ;">
+    <div class="col-11">
+        <h5 id="antiHTA1" class="text-center pt-2 mx-4">DIURÉTICOS, ALFA Y BETA BLOQUEANTES, ANTIADRENÉRGICOS</h5> 
+    </div>
+    <div class="col-1">
+        <a href="#inicio" class="text-danger", style="text-decoration:none ;" >
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-reply" viewBox="0 0 16 16">
+                <path d="M6.598 5.013a.144.144 0 0 1 .202.134V6.3a.5.5 0 0 0 .5.5c.667 0 2.013.005 3.3.822.984.624 1.99 1.76 2.595 3.876-1.02-.983-2.185-1.516-3.205-1.799a8.74 8.74 0 0 0-1.921-.306 7.404 7.404 0 0 0-.798.008h-.013l-.005.001h-.001L7.3 9.9l-.05-.498a.5.5 0 0 0-.45.498v1.153c0 .108-.11.176-.202.134L2.614 8.254a.503.503 0 0 0-.042-.028.147.147 0 0 1 0-.252.499.499 0 0 0 .042-.028l3.984-2.933zM7.8 10.386c.068 0 .143.003.223.006.434.02 1.034.086 1.7.271 1.326.368 2.896 1.202 3.94 3.08a.5.5 0 0 0 .933-.305c-.464-3.71-1.886-5.662-3.46-6.66-1.245-.79-2.527-.942-3.336-.971v-.66a1.144 1.144 0 0 0-1.767-.96l-3.994 2.94a1.147 1.147 0 0 0 0 1.946l3.994 2.94a1.144 1.144 0 0 0 1.767-.96v-.667z"/>
+            </svg>        
+        </a></li>
+        
+    </div>        
+      
+</div>
+
+<div class="row align-items-center vertical-align-center text-center mb-5">
+    <div class="col-md-12 mb-5">
+        <img src="{% static 'img/nefrologia/antiHTA1IRC.jpg' %}" class="card-img-top" alt="...">        
+    </div>
+</div>
+<div class="row align-items-center vertical-align-center text-center py-3 my-5 border" style="background-color:#E2F6F6 ;">
+    <div class="col-11">
+        <h5 id="antiHTA2" class="text-center pt-2 mx-4">IECA, ARA II, ANTAGONISTAS DEL CALCIO</h5> 
+    </div>
+    <div class="col-1">
+        <a href="#inicio" class="text-danger", style="text-decoration:none ;" >
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-reply" viewBox="0 0 16 16">
+                <path d="M6.598 5.013a.144.144 0 0 1 .202.134V6.3a.5.5 0 0 0 .5.5c.667 0 2.013.005 3.3.822.984.624 1.99 1.76 2.595 3.876-1.02-.983-2.185-1.516-3.205-1.799a8.74 8.74 0 0 0-1.921-.306 7.404 7.404 0 0 0-.798.008h-.013l-.005.001h-.001L7.3 9.9l-.05-.498a.5.5 0 0 0-.45.498v1.153c0 .108-.11.176-.202.134L2.614 8.254a.503.503 0 0 0-.042-.028.147.147 0 0 1 0-.252.499.499 0 0 0 .042-.028l3.984-2.933zM7.8 10.386c.068 0 .143.003.223.006.434.02 1.034.086 1.7.271 1.326.368 2.896 1.202 3.94 3.08a.5.5 0 0 0 .933-.305c-.464-3.71-1.886-5.662-3.46-6.66-1.245-.79-2.527-.942-3.336-.971v-.66a1.144 1.144 0 0 0-1.767-.96l-3.994 2.94a1.147 1.147 0 0 0 0 1.946l3.994 2.94a1.144 1.144 0 0 0 1.767-.96v-.667z"/>
+            </svg>        
+        </a></li>
+        
+    </div>        
+      
+</div>
+
+<div class="row align-items-center vertical-align-center text-center mb-5">
+    <div class="col-md-12 mb-5">
+        <img src="{% static 'img/nefrologia/antiHTA2IRC.jpg' %}" class="card-img-top" alt="...">        
+    </div>
+</div>
+<div class="row align-items-center vertical-align-center text-center py-3 my-5 border" style="background-color:#E2F6F6 ;">
+    <div class="col-11">
+        <h5 id="CV" class="text-center pt-2 mx-4">CARDIOVASCULAR</h5> 
+    </div>
+    <div class="col-1">
+        <a href="#inicio" class="text-danger", style="text-decoration:none ;" >
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-reply" viewBox="0 0 16 16">
+                <path d="M6.598 5.013a.144.144 0 0 1 .202.134V6.3a.5.5 0 0 0 .5.5c.667 0 2.013.005 3.3.822.984.624 1.99 1.76 2.595 3.876-1.02-.983-2.185-1.516-3.205-1.799a8.74 8.74 0 0 0-1.921-.306 7.404 7.404 0 0 0-.798.008h-.013l-.005.001h-.001L7.3 9.9l-.05-.498a.5.5 0 0 0-.45.498v1.153c0 .108-.11.176-.202.134L2.614 8.254a.503.503 0 0 0-.042-.028.147.147 0 0 1 0-.252.499.499 0 0 0 .042-.028l3.984-2.933zM7.8 10.386c.068 0 .143.003.223.006.434.02 1.034.086 1.7.271 1.326.368 2.896 1.202 3.94 3.08a.5.5 0 0 0 .933-.305c-.464-3.71-1.886-5.662-3.46-6.66-1.245-.79-2.527-.942-3.336-.971v-.66a1.144 1.144 0 0 0-1.767-.96l-3.994 2.94a1.147 1.147 0 0 0 0 1.946l3.994 2.94a1.144 1.144 0 0 0 1.767-.96v-.667z"/>
+            </svg>        
+        </a></li>
+        
+    </div>        
+      
+</div>
+
+<div class="row align-items-center vertical-align-center text-center mb-5">
+    <div class="col-md-12 mb-5">
+        <img src="{% static 'img/nefrologia/cardioVascularIRC.jpg' %}" class="card-img-top" alt="...">        
+    </div>
+</div>
+<div class="row align-items-center vertical-align-center text-center py-3 my-5 border" style="background-color:#E2F6F6 ;">
+    <div class="col-11">
+        <h5 id="ACO" class="text-center pt-2 mx-4">ANTICOAGULANTES ORALES Y ANTIAGREGANTES</h5> 
+    </div>
+    <div class="col-1">
+        <a href="#inicio" class="text-danger", style="text-decoration:none ;" >
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-reply" viewBox="0 0 16 16">
+                <path d="M6.598 5.013a.144.144 0 0 1 .202.134V6.3a.5.5 0 0 0 .5.5c.667 0 2.013.005 3.3.822.984.624 1.99 1.76 2.595 3.876-1.02-.983-2.185-1.516-3.205-1.799a8.74 8.74 0 0 0-1.921-.306 7.404 7.404 0 0 0-.798.008h-.013l-.005.001h-.001L7.3 9.9l-.05-.498a.5.5 0 0 0-.45.498v1.153c0 .108-.11.176-.202.134L2.614 8.254a.503.503 0 0 0-.042-.028.147.147 0 0 1 0-.252.499.499 0 0 0 .042-.028l3.984-2.933zM7.8 10.386c.068 0 .143.003.223.006.434.02 1.034.086 1.7.271 1.326.368 2.896 1.202 3.94 3.08a.5.5 0 0 0 .933-.305c-.464-3.71-1.886-5.662-3.46-6.66-1.245-.79-2.527-.942-3.336-.971v-.66a1.144 1.144 0 0 0-1.767-.96l-3.994 2.94a1.147 1.147 0 0 0 0 1.946l3.994 2.94a1.144 1.144 0 0 0 1.767-.96v-.667z"/>
+            </svg>        
+        </a></li>
+        
+    </div>        
+      
+</div>
+
+<div class="row align-items-center vertical-align-center text-center mb-5">
+    <div class="col-md-12 mb-5">
+        <img src="{% static 'img/nefrologia/ACOIRC.jpg' %}" class="card-img-top" alt="...">        
+    </div>
+</div>
+
+<div class="row align-items-center vertical-align-center text-center py-3 my-5 border" style="background-color:#E2F6F6 ;">
+    <div class="col-11">
+        <h5 id="endocrino" class="text-center pt-2 mx-4">ENDOCRINO</h5> 
+    </div>
+    <div class="col-1">
+        <a href="#inicio" class="text-danger", style="text-decoration:none ;" >
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-reply" viewBox="0 0 16 16">
+                <path d="M6.598 5.013a.144.144 0 0 1 .202.134V6.3a.5.5 0 0 0 .5.5c.667 0 2.013.005 3.3.822.984.624 1.99 1.76 2.595 3.876-1.02-.983-2.185-1.516-3.205-1.799a8.74 8.74 0 0 0-1.921-.306 7.404 7.404 0 0 0-.798.008h-.013l-.005.001h-.001L7.3 9.9l-.05-.498a.5.5 0 0 0-.45.498v1.153c0 .108-.11.176-.202.134L2.614 8.254a.503.503 0 0 0-.042-.028.147.147 0 0 1 0-.252.499.499 0 0 0 .042-.028l3.984-2.933zM7.8 10.386c.068 0 .143.003.223.006.434.02 1.034.086 1.7.271 1.326.368 2.896 1.202 3.94 3.08a.5.5 0 0 0 .933-.305c-.464-3.71-1.886-5.662-3.46-6.66-1.245-.79-2.527-.942-3.336-.971v-.66a1.144 1.144 0 0 0-1.767-.96l-3.994 2.94a1.147 1.147 0 0 0 0 1.946l3.994 2.94a1.144 1.144 0 0 0 1.767-.96v-.667z"/>
+            </svg>        
+        </a></li>
+        
+    </div>        
+      
+</div>
+
+
+<div class="row align-items-center vertical-align-center text-center mb-5">
+    <div class="col-md-12 mb-5">
+        <img src="{% static 'img/nefrologia/endocrinosIRC.jpg' %}" class="card-img-top" alt="...">        
+    </div>
+</div>
+<div class="row align-items-center vertical-align-center text-center py-3 my-5 border" style="background-color:#E2F6F6 ;">
+    <div class="col-11">
+        <h5 id="ADO" class="text-center pt-2 mx-4">ANTIDIABÉTICOS ORALES</h5> 
+    </div>
+    <div class="col-1">
+        <a href="#inicio" class="text-danger", style="text-decoration:none ;" >
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-reply" viewBox="0 0 16 16">
+                <path d="M6.598 5.013a.144.144 0 0 1 .202.134V6.3a.5.5 0 0 0 .5.5c.667 0 2.013.005 3.3.822.984.624 1.99 1.76 2.595 3.876-1.02-.983-2.185-1.516-3.205-1.799a8.74 8.74 0 0 0-1.921-.306 7.404 7.404 0 0 0-.798.008h-.013l-.005.001h-.001L7.3 9.9l-.05-.498a.5.5 0 0 0-.45.498v1.153c0 .108-.11.176-.202.134L2.614 8.254a.503.503 0 0 0-.042-.028.147.147 0 0 1 0-.252.499.499 0 0 0 .042-.028l3.984-2.933zM7.8 10.386c.068 0 .143.003.223.006.434.02 1.034.086 1.7.271 1.326.368 2.896 1.202 3.94 3.08a.5.5 0 0 0 .933-.305c-.464-3.71-1.886-5.662-3.46-6.66-1.245-.79-2.527-.942-3.336-.971v-.66a1.144 1.144 0 0 0-1.767-.96l-3.994 2.94a1.147 1.147 0 0 0 0 1.946l3.994 2.94a1.144 1.144 0 0 0 1.767-.96v-.667z"/>
+            </svg>        
+        </a></li>
+        
+    </div>        
+      
+</div>
+
+<div class="row align-items-center vertical-align-center text-center mb-5">
+    <div class="col-md-12 mb-5">
+        <img src="{% static 'img/nefrologia/ADOIRC.jpg' %}" class="card-img-top" alt="...">        
+    </div>
+</div>
+<div class="row align-items-center vertical-align-center text-center mb-5">
+    <div class="col-md-12 mb-5">
+        <img src="{% static 'img/nefrologia/ADO2IRC.jpg' %}" class="card-img-top" alt="...">        
+    </div>
+</div>
+
+<div class="row align-items-center vertical-align-center text-center py-3 my-5 border" style="background-color:#E2F6F6 ;">
+    <div class="col-11">
+        <h5 id="antireumaticos" class="text-center pt-2 mx-4">ANTIREUMATICOS</h5> 
+    </div>
+    <div class="col-1">
+        <a href="#inicio" class="text-danger", style="text-decoration:none ;" >
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-reply" viewBox="0 0 16 16">
+                <path d="M6.598 5.013a.144.144 0 0 1 .202.134V6.3a.5.5 0 0 0 .5.5c.667 0 2.013.005 3.3.822.984.624 1.99 1.76 2.595 3.876-1.02-.983-2.185-1.516-3.205-1.799a8.74 8.74 0 0 0-1.921-.306 7.404 7.404 0 0 0-.798.008h-.013l-.005.001h-.001L7.3 9.9l-.05-.498a.5.5 0 0 0-.45.498v1.153c0 .108-.11.176-.202.134L2.614 8.254a.503.503 0 0 0-.042-.028.147.147 0 0 1 0-.252.499.499 0 0 0 .042-.028l3.984-2.933zM7.8 10.386c.068 0 .143.003.223.006.434.02 1.034.086 1.7.271 1.326.368 2.896 1.202 3.94 3.08a.5.5 0 0 0 .933-.305c-.464-3.71-1.886-5.662-3.46-6.66-1.245-.79-2.527-.942-3.336-.971v-.66a1.144 1.144 0 0 0-1.767-.96l-3.994 2.94a1.147 1.147 0 0 0 0 1.946l3.994 2.94a1.144 1.144 0 0 0 1.767-.96v-.667z"/>
+            </svg>        
+        </a></li>
+        
+    </div>        
+      
+</div>
+
+<div class="row align-items-center vertical-align-center text-center mb-5">
+    <div class="col-md-12 mb-5">
+        <img src="{% static 'img/nefrologia/antirreumaticosIRC.jpg' %}" class="card-img-top" alt="...">        
+    </div>
+</div>
+
+<div class="row align-items-center vertical-align-center text-center py-3 my-5 border" style="background-color:#E2F6F6 ;">
+    <div class="col-11">
+        <h5 id="digestivos" class="text-center pt-2 mx-4">DIGESTIVOS</h5> 
+    </div>
+    <div class="col-1">
+        <a href="#inicio" class="text-danger", style="text-decoration:none ;" >
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-reply" viewBox="0 0 16 16">
+                <path d="M6.598 5.013a.144.144 0 0 1 .202.134V6.3a.5.5 0 0 0 .5.5c.667 0 2.013.005 3.3.822.984.624 1.99 1.76 2.595 3.876-1.02-.983-2.185-1.516-3.205-1.799a8.74 8.74 0 0 0-1.921-.306 7.404 7.404 0 0 0-.798.008h-.013l-.005.001h-.001L7.3 9.9l-.05-.498a.5.5 0 0 0-.45.498v1.153c0 .108-.11.176-.202.134L2.614 8.254a.503.503 0 0 0-.042-.028.147.147 0 0 1 0-.252.499.499 0 0 0 .042-.028l3.984-2.933zM7.8 10.386c.068 0 .143.003.223.006.434.02 1.034.086 1.7.271 1.326.368 2.896 1.202 3.94 3.08a.5.5 0 0 0 .933-.305c-.464-3.71-1.886-5.662-3.46-6.66-1.245-.79-2.527-.942-3.336-.971v-.66a1.144 1.144 0 0 0-1.767-.96l-3.994 2.94a1.147 1.147 0 0 0 0 1.946l3.994 2.94a1.144 1.144 0 0 0 1.767-.96v-.667z"/>
+            </svg>        
+        </a></li>
+        
+    </div>        
+      
+</div>
+
+<div class="row align-items-center vertical-align-center text-center mb-5">
+    <div class="col-md-12 mb-5">
+        <img src="{% static 'img/nefrologia/digestivosIRC.jpg' %}" class="card-img-top" alt="...">        
+    </div>
+</div>
+<div class="row align-items-center vertical-align-center text-center py-3 my-5 border" style="background-color:#E2F6F6 ;">
+    <div class="col-11">
+        <h5 id="miscelanea" class="text-center pt-2 mx-4">MISCELÁNEA</h5> 
+    </div>
+    <div class="col-1">
+        <a href="#inicio" class="text-danger", style="text-decoration:none ;" >
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-reply" viewBox="0 0 16 16">
+                <path d="M6.598 5.013a.144.144 0 0 1 .202.134V6.3a.5.5 0 0 0 .5.5c.667 0 2.013.005 3.3.822.984.624 1.99 1.76 2.595 3.876-1.02-.983-2.185-1.516-3.205-1.799a8.74 8.74 0 0 0-1.921-.306 7.404 7.404 0 0 0-.798.008h-.013l-.005.001h-.001L7.3 9.9l-.05-.498a.5.5 0 0 0-.45.498v1.153c0 .108-.11.176-.202.134L2.614 8.254a.503.503 0 0 0-.042-.028.147.147 0 0 1 0-.252.499.499 0 0 0 .042-.028l3.984-2.933zM7.8 10.386c.068 0 .143.003.223.006.434.02 1.034.086 1.7.271 1.326.368 2.896 1.202 3.94 3.08a.5.5 0 0 0 .933-.305c-.464-3.71-1.886-5.662-3.46-6.66-1.245-.79-2.527-.942-3.336-.971v-.66a1.144 1.144 0 0 0-1.767-.96l-3.994 2.94a1.147 1.147 0 0 0 0 1.946l3.994 2.94a1.144 1.144 0 0 0 1.767-.96v-.667z"/>
+            </svg>        
+        </a></li>
+        
+    </div>        
+      
+</div>
+
+<div class="row align-items-center vertical-align-center text-center mb-5">
+    <div class="col-md-12 mb-5">
+        <img src="{% static 'img/nefrologia/miscelaneaIRC.jpg' %}" class="card-img-top" alt="...">        
+    </div>
+</div>
+
+
+
+
+
+
+
+{% endblock %}

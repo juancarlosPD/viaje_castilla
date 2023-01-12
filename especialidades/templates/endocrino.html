@@ -1,0 +1,445 @@
+{% extends "endocrino/baseEndocrino.html" %}
+
+{% block titulo %} endocrino {% endblock %}
+{% load static %}
+
+{% block cabecera %} Endocrino {% endblock %}
+{% block imgCabecera %} <img src="{% static 'img/tiroides.jpeg' %}" alt="" class="img-fluid"> {% endblock %}
+
+{% block contenido %}
+
+<div class="row align-items-center vertical-align-center text-center my-3 ">
+    <h3 class="text-center " id="tiroides">TIROIDES</h3>    
+</div>
+<hr>
+
+<div class="row justify-content-center">
+    
+    <div class="col-md-4 border bg-light mt-2">
+        <p class="bg-success text-light text-center">TSH baja:</p> 
+        <div>
+            <ul>
+                <li>T4 alta: Hipertiroidismo primario</li>
+                <li>T4 normal: Hipertiroidismo latente</li>
+                <li>T4 baja: Hipotiroidismo secundario</li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-4 border mt-2">
+        <p class="bg-success text-light text-center">TSH alta:</p>
+        <div>
+            <ul>
+                <li>T4 alta: Hipertiroidismo secundario</li>
+                <li>T4 normal: Hipotiroidismo subclínico</li>
+                <li>T4 baja: Hipotiroidismo primario</li>
+            </ul>
+        </div>
+    </div>
+    
+</div>
+<div class="row p-4 justify-content-center">
+    <div class="col-md-10 mt-4">
+        <figure>
+            <img src="{% static 'img/tiroidesEmbarazo1.png' %}" class="card-img-top" alt="...">
+            <figcaption><strong>TSI</strong> : Ig estimulante del tiroides</figcaption> 
+            <figcaption><strong>anti-TPO:</strong> Ac antiperoxidasa tiroidea</figcaption>
+        
+        </figure>
+
+        
+    </div>
+    
+    
+   
+</div>
+<div class="row mt-4">
+    <h4>Hipotiroidismo</h4> 
+    <hr>
+    <p><strong>Causas</strong></p>
+    <div>
+        <ul>
+            <li>Primario (afectación de la glándula tiroides) el 95%.
+                <ul>
+                    <li>Su causa más frecuente es la tiroiditis de Hashimoto (Ac antiperoxidasa + y ac antitiroglobulina +). </li>
+                    <li>Iatrogénico. Postiroidectomia, tratamiento con I-131, radiación externa</li>
+                    <li>Fármacos: amiodarona, litio, hierro, carbamazepina, rifampicina, antitiroideos.</li>
+                </ul>                 
+            </li>
+            <li>Secundario (bajada de la TSH). Por adenoma hipofisiario. </li>
+            <li>Terciario (bajada de la TRH). Por problemas hipotalámicos.</li>
+        </ul>
+    </div>
+    <p><strong>Hipotiroidismo subclínico</strong></p>
+    <div>
+        <ul>
+            <li>Es necesario repetir la analítica para confirmar el diagnóstico</li>
+            <li>Hay controversia para el tratamiento. Se acepta si:
+                <ul>
+                    <li>TSH > 10</li>
+                    <li>Ac antiperoxidasa +</li>
+                    <li>Presencia de bocio</li>
+                    <li>Presencia de síntomas inespecíficos</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <h4>Hipertiroidismo</h4> 
+    <hr>
+    <p><strong>Causas</strong></p>
+    <div>
+        <ul>
+            <li>Casi siempre es primario por enfermedad de Graves Basedow (85%). se caracteriza por:
+                <ul>
+                    <li>Causa autoinmune (TSI: inmunoglobulina estimulante del tiroides) </li>
+                    <li>Bocio difuso + hipertiroidismo + oftalmopatia + mixedema pretibial</li>
+                    
+                </ul>                 
+            </li>
+            <li>Tiroiditis subaguda: Hipertiroidismo transitorio. </li>
+            <li>Síndrome de Job Basedow. Hipertiroidismo en pacientes con bocio endémico tratados con iodo.</li>
+        </ul>
+    </div>
+    <p><strong>Tratamiento</strong></p>
+    <div>
+        <ul>
+            <li>Carbimazol, metimazol, propiluracilo</li>
+            <li>Propranolol</li>
+            <li>Ioduros</li>
+            <li>Ablación si fracasn los anteriores: I-131 o quirúrgico.</li>
+        </ul>
+    </div>
+
+    <h4>Bocio</h4> 
+    <hr>
+    <div>
+        <ul>
+            <li>Aumento de la glándula por aumento de su sensibilidad a la TSH</li>
+            <li>Puede ser difuso o nodular (único o múltiple)</li>
+            <li>Puede deberse a:
+                <ul>
+                    <li>Bocio simple eutiroideo. Hormonas normales</li>
+                    <li>Bocio multinodular no tóxico</li>
+                    <li>Hipotiroidismo</li>
+                    <li>Tiroiditis subaguda</li>
+                </ul>
+            </li>
+            <li>Es asintomático y no produce hipo ni hipertiroidismo</li>
+            <li>Los síntomas son estéticos y compresivos
+                <ul>
+                    <li>Signo de Pemberton. Al elevar los brazos se produce congestión facial.</li>
+                    <li>No produce ronquera. Si aparece descartar neoplasia.</li>
+                </ul>
+            </li>
+            <li>Clasificación:
+                <ul>
+                    <li>Oa. No visible ni palpable</li>
+                    <li>Ob. No visible pero sí palpable</li>
+                    <li>I. Palpable y visible en hiperextensión</li>
+                    <li>II. Visible en posición normal</li>
+                    <li>III. Visible a distancia</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <h4>Nódulo tiroideo solitario</h4> 
+    <hr>
+    <div>
+        <p>Se hace <u>PAAF:</u> </p>
+        <div>
+            <ol>
+                <li>Benigna: Seguimiento anual</li>
+                <li>Hiperplasia folicular. Se hace gammagrafía
+                    <ul>
+                        <li>Caliente: seguimiento anual (adenoma tóxico)</li>
+                        <li>Fría: cirugía</li>
+                    </ul>
+                </li>
+                <li>Maligna: cirugía</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="row align-items-center vertical-align-center text-center my-3 ">
+        <div class="col-md-11">
+            <h3 class="text-center " id="paratiroides">PARATIROIDES</h3>
+        </div>
+        <div class="col-md-1">
+            <img src="{% static 'img/paratiroides.png' %}" class="card-img-top">
+        </div>
+            
+    </div>
+    <hr>
+    <h4>Hiperparatiroidismo &#8593; PTH + &#8593; calcemia + &#8595; fosfatemia</h4> 
+    <hr>
+    <div>
+        <p><u>Hiperparatiroidismo primario</u></p>
+        <ul>
+            <li>&#8593; de PTH por un adenoma de paratiroides. </li>
+            <li>Es la enfermedad endocrina más frecuente tras DM y tiroides</li>
+            <li>Mujeres postmenopáusicas</li>
+            <li>Cursa con:
+                <ul>
+                    <li>&#8593; PTH</li>
+                    <li>Hipercalcemia e hipercalciuria</li>
+                    <li>Hipofosfatemia</li>
+                    <li>Acidosis hipoclorémica</li>
+                </ul>
+            </li>
+            
+        </ul>
+        <p><u>Hipercalcemia</u></p>
+            <div>
+                <ul>
+                    <li>QT corto</li>
+                    <li>Nefrocalcinosis</li>
+                    <li>HTA</li>
+                    <li>Disminución reflejos osteotendinosos</li>
+                    <li>Estreñimiento</li>
+                    <li>Pancreatitis</li>
+                    <li>Acidosis tubular enal</li>
+                </ul>
+            </div>
+        <p><u>Hiperparatiroidismo secundario</u></p>
+        <div>
+            <ul>
+                <li>Tras insuficiencia renal crónica se produce hipocalcemia e hipofosfatemia</li>
+                <li>Aumento de PTH para compensar</li>
+            </ul>
+        </div>
+    </div>
+
+    <h4>Hipoparatiroidismo: &#8595; PTH + &#8595; calcemia + &#8593; fosfatemia</h4> 
+    <hr>
+    <div>
+        <ul>
+            <li>Su causa más frecuente es la cirugía de tiroides</li>
+        </ul>
+        <p><u>Hipocalcemia</u></p>
+        La Clínica aparece cuando < 7:
+        <ul>
+            <li>Tetania: parestesias y espasmos peribucales y en pies y manos</li>
+            <li><strong>Signo de Trouseau:</strong> Hinchar manguito por encima de la sistólica durante 3 minutos &#8594; espasmo del carpo</li>
+            <li><strong>Signo de Chvostek:</strong>  &#8594; Reflejo mandibular exaltado</li>
+            <li>QT prolongado</li>
+            <li>El tto es calcio + vitamina D</li>
+            
+        </ul>   
+    </div>
+
+    <div class="row align-items-center vertical-align-center text-center my-3 ">
+        <div class="col-md-11">
+            <h3 class="text-center " id="suprarrenales">SUPRARENALES</h3>
+        </div>
+        <div class="col-md-1">
+            <img src="{% static 'img/suprarenales.jpg' %}" class="card-img-top">
+        </div>
+            
+    </div>
+    <hr>
+    <div class="row justify-content-center">
+    
+        <div class="col-md-4 border bg-light mt-2">
+            <p class="bg-success text-light text-center">Médula</p> 
+            <div>
+                <ul>
+                    <li>Catecolaminas</li>
+                    <br><br>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-4 border mt-2">
+            <p class="bg-success text-light text-center">Corteza</p>
+            <div>
+                <ul>
+                    <li>Zona fasciculada: glucocorticoides</li>
+                    <li>Zona glomerular: mineralcorticoides</li>
+                    <li>Zona reticular: andrógenos</li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    <h4 class="mt-4">Síndrome de Cushing</h4> 
+    <hr>
+    <p>La causa frecuente es el <strong>Chusing iatrogénico</strong>:</p>
+    <div>
+        <ul>
+            <li>&#8595; ACTH</li>
+            <li>&#8595; cortisol plasmático y cortisol urinario</li>
+            <li>Dosis máxima de 7,5 mg/día de prednisona no suprime eje</li>
+        </ul>
+    <p><strong>Enfermedad de Cushing</strong></p>
+    <div>
+        <ul>
+            <li>Casi siempre por adenoma de hipófisis</li>
+            <li>Hay ↑ crónico de ACTH</li>
+            <li>Hay hiperplasia suprarrenal bilateral</li>
+        </ul>
+    </div>
+    <p><strong>Diagnóstico</strong></p>
+    <div>
+        <ul>
+            <li>Hay ↑ cortisol libre orina > 120</li>
+            <li>Imposibilidad para suprimir la producción cortisol con 1-2 mg de dexametasona</li>
+        </ul>
+    </div>
+    </div>
+    <h4 class="mt-4">Insuficiencia suprarrenal</h4> 
+    <hr>
+    <p><strong>Primaria </strong>(Addison): ↑ ACTH:</p>
+    <div>
+        <ul>
+            <li>El 75% por ac antisuprarrenal</li>
+            <li>El 20 % por TBC</li>
+            <li>Dosis máxima de 7,5 mg/día de prednisona no suprime eje</li>
+        </ul>
+    </div>
+    <p><strong>Secundaria</strong> ↓ ACTH:</p>
+    <div>
+        <ul>
+            <li>La causa + fcte es la interrupción brusca de un tratamiento prolongado con corticoides</li>            
+        </ul>
+    </div>
+    <p><strong>CLINICA:</strong>  Astenia + hiperpigmentación</p>
+    <div>
+        <ul>
+            <li>↓ cortisol: debilidad, hipoglucemia, hipotesión</li>
+            <li>↓ aldosterona: hipotensión ortostática + acidosis metabólica</li>
+            <li>↓ andrógenos: ↓ libido + transtornos menstruales</li>            
+        </ul>
+    </div>
+    <p><strong>DIAGNÓSTICO:</strong>  El cortisol es bajo y la ACTH:</p>
+    <div>
+        <ul>
+            <li>Alta: Primaria</li>
+            <li>Baja: Secundaria</li>
+                        
+        </ul>
+    </div>
+    <h4 class="mt-4">Hiperaldosteronismo</h4> 
+    <hr>
+    <div>
+        <ul>
+            <li>La producción de aldosterona no corre a cargo de ACTH sino del sistema renina-angiostensina-aldosterona</li>
+            <li>Su función es regular el líquido extracelular reabsorbiendo Na y eliminando K</li>
+            <li><strong>DIAGNÓSTICO</strong>
+                <ul>
+                    <li>Clínica de HTA con hipopotasemia y alcalosis metabólica</li>
+                    <li>Se confirma con medición de renina y aldosterona antes y después de sobrecarga salina</li>
+                    <li>Luego TAC: diagnóstico etiológico en el 80% casos:
+                        <ul>
+                            <li>Adenoma corteza suprarrenal ***</li>
+                            <li>Hiperplasia adrenocortical bilateral idiomática</li>
+                        </ul>
+                    </li>
+                </ul>
+            <li><strong>TRATAMIENTO</strong>
+                <ul>
+                    <li>Adenoma: quirúrgico</li>
+                    <li>Hiperplasia: contraindicada cirugía. Tratamiento médico:
+                        <ul>
+                            <li>Dexametasona si es sensible a corticoides</li>
+                            <li>Espironolactona si no lo es (lo más frecuente)</li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </li>
+            
+        </ul>
+    </div>
+    <h4 class="mt-4">Feocromocitoma</h4> 
+    <hr>
+    <div>
+        <ul>
+            <li>30-50 años</li>
+            <li>Más frecuente que sean únicos y en el lado derecho</li>
+        </ul>
+    </div>
+    <p><strong>CLÍNICA</strong></p>
+    <div>
+        <ul>
+            <li>HTA sistólica y diastólica grave, mantenida (30%) o paroxística (60%)</li>
+            <li>Triada clásica: cefalea + sudoración + palpitaciones</li>
+            <li>La asociación de HTA + hiperglucemia es muy típica</li>
+        </ul>
+    </div>
+    <p><strong>DIAGNÓSTICO</strong></p>
+    <div>
+        <ul>
+            <li>Metabolitos de catecolaminas en orina de 24 h : vanilmandélico, metanefrinas o catecolaminas totales.</li>
+            
+        </ul>
+    </div>
+    <div class="row align-items-center vertical-align-center text-center my-3 ">
+        <div class="col-md-11">
+            <h3 class="text-center " id="urgencias">URGENCIAS ENDOCRINOLÓGICAS</h3>
+        </div>
+        <div class="col-md-1">
+            <img src="{% static 'img/urgencias.jpg_large' %}" class="card-img-top">
+        </div>
+            
+    </div>
+    <hr>
+    <h4>Coma mixedematoso</h4>
+    <hr>
+    <div>
+        <ul>
+            <li>Hipotermia (menor 35ºC), bradicardia, hipotensión, coma</li>
+            <li>Suele ocurrir en pacientes no diagnosticados que se somenten a cirugía, frío, enfermedades agudas, sedantes…</li>
+            <li>Dar primero hidrocortisona y luego levotiroxina</li>
+        </ul>
+    </div>
+    <h4>Tirotoxicosis</h4>
+    <hr>
+    <div>
+        <ul>
+            <li>Agravamiento súbito de un hipertiroidismo desencadenado por infecciones, cirugía,…</li>
+            <li>Hipertermia (>41ºC), taquicardia, irritabilidad, hipotensión, delirio, coma</li>
+            <li>Tratamiento:
+                <ul>
+                    <li>Líquidos + complejo B + glucosa</li>
+                    <li>Hidrocortisona. Baja la fiebre + mantiene TA + inhibe paso de T4 a T3</li>
+                    <li>Oxígeno, digital</li>
+                    <li>Bloqueadores de la síntesis hormonal: metimazol, propranolol iv</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <h4>Hiperparatiroidismo</h4>
+    <hr>
+    <div>
+        <ul>
+            <li>Clínica de hipocalcemia</li>
+            <li>Tratamiento:
+                <ul>
+                    <li>Calcio + vit D orales en forma leve</li>
+                    <li>Gluconato de calcio iv en las agudas</li>
+                    
+                </ul>
+            </li>
+            <li>La hipoalbuminemia se acompaña de hipocalcemia pero el calcio iónico (el activo) es normal. Por tanto asintomática y no tratable.</li>
+        </ul>
+    </div>
+    <h4>Insuficiencia suprarenal aguda</h4>
+    <hr>
+    <div>
+        <ul>
+            <li>Stress agudo en suprarrenal hipoactiva (por toma crónica de corticoides , p.e)</li>
+            <li>Clínica de deshidratación + hipotensión + shock y coma</li>
+            <li>Tratamiento con cortisol iv a dosis altas → 100 mg / iv/ 6-8 h</li>
+        </ul>
+    </div>
+    <h4>Feocromocitoma</h4>
+    <hr>
+    <div>
+        <ul>
+            <li>Dar primero bloqueadores alfa (prazosín, doxazocina) y luego beta (propranolol)</li>
+            
+        </ul>
+    </div>
+    
+
+{% endblock %}

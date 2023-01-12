@@ -1,0 +1,23 @@
+{% extends "baseCentroSalud.html" %}
+{% load static %}
+{% block titulo %} farmacia {% endblock %}
+{% block cabecera %} Farmacia {% endblock %}
+{% block imgCabecera %} <img src="{% static 'img/ado.png' %}" alt="" class="img-fluid"> {% endblock %}
+
+{% block contenido %}
+
+<div class="row mt-4">
+    <div class="col-md-5">
+        <p><strong>Documentos de farmacia</strong> </p>
+        <ul>
+            <li><a href="{% url 'visados' %} "class="text-success", style="text-decoration:none ;" >Visados</a></li>
+            
+                        
+        </ul>
+        
+    </div>
+</div>
+
+
+
+{% endblock %}

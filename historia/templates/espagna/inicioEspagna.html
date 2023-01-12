@@ -1,0 +1,26 @@
+{% extends "bases/baseHistoria.html" %}
+
+{% load static %}
+
+{% block titulo %} Inicio España {% endblock %}
+
+{% block contenido %}
+
+<div class="row mb-3 mt-5 text-center">
+    <div class="col-md-2 "><a href="{% url 'sigloXVI' %}" style="text-decoration:none ;">Siglo XVI</a> </div>
+    <div class="col-md-2 "><a href="{% url 'sigloXVII' %}" style="text-decoration:none ;">Siglo XVII</a> </div>
+    <div class="col-md-2 "><a href="{% url 'sigloXVIII' %}" style="text-decoration:none ;">Siglo XVIII</a></div>
+    <div class="col-md-2 "><a href="{% url 'sigloXIX' %}" style="text-decoration:none ;">Siglo XIX</a> </div>
+    <div class="col-md-2 "><a href="{% url 'sigloXX' %}" style="text-decoration:none ;">Siglo XX</a></div>
+    <div class="col-md-2 "></div>
+    <div class="col-md-2 "></div>
+</div>
+<div class="row text-center justify-content-center align-items-center">
+    <div class="col-md-6">
+        <img class="img-fluid" src="{% static 'images/homeEspagna1.jpg' %}" alt="">
+    </div>
+    
+</div>
+
+
+{% endblock %}

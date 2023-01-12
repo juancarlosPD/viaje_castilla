@@ -1,0 +1,104 @@
+{% extends "locomotor/baseLocomotor.html" %}
+
+{% block titulo %} rodilla {% endblock %}
+{% load static %}
+
+{% block cabecera %} Rodilla {% endblock %}
+{% block imgCabecera %} <img src="{% static 'img/rodilla.jpg' %}" alt="" class="img-fluid"> {% endblock %}
+
+{% block contenido %}
+
+<div class="row align-items-center vertical-align-center text-center py-5 ">
+    <div class="col-md-3">
+        <a href="{% url 'exploracionRodilla' %}" class="text-success", style="text-decoration:none ;">Exploración de la rodilla (pdf)</a>
+    </div>    
+    <div class="col-md-3">
+        <a href="https://www.youtube.com/watch?v=T0suL2r1cgc" class="text-success", style="text-decoration:none ;" target="_blank">Vídeo exploración rodilla</a>
+    </div>
+    <div class="col-md-3">
+        <a href="{% url 'ejerciciosRodilla' %}" class="text-success", style="text-decoration:none ;">Ejercicios rodilla (pdf)</a>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <h5><strong>ARTROSIS DE RODILLA</strong></h5>
+    <p>El diagnóstico de artrosis se basa en la clínica y la radiología y no existe correlación entre la
+        gravedad de las alteraciones radiológicas y la intensidad del dolor.</p>
+    <p>Los SÍNTOMAS de la artrosis que generalmente vamos a encontrar son:</p>
+    <div>
+        <ul>
+            <li><strong>Dolor de características mecánicas</strong>, que se agudiza con el uso de la articulación,
+                empeora a lo largo del día y mejora en reposo. Su inicio suele ser insidioso, al
+                principio fluctuante, se hace más persistente a medida que avanza la enfermedad.
+                 Cuando aparece en reposo o despierta al paciente (de características
+                    inflamatorias) deben descartarse otros procesos. 
+            </li>
+            <li><strong>Rigidez</strong> ligera de predominio matutino o tras un período de inactividad, sin síntomas
+                generales como adelgazamiento o fiebre.</li>
+            <li><strong>Incapacidad funcional</strong>. Puede ocasionar problemas para la deambulación o la
+                realización de tareas de la vida diaria.</li>
+        </ul>
+    </div>
+
+    <p>La RADIOGRAFÍA simple es la técnica de imagen más utilizada y en función de los hallazgos
+        radiológicos la clasificamos en:</p>
+    <div>
+        <ul>
+            <li><strong>Grado I (dudosa):</strong> Dudoso estrechamiento del espacio articular y/o posibles osteofitos.</li>
+            <li><strong>Grado II (mínima):</strong> Posible estrechamiento del espacio articular y/o presencia de osteofitos aislados. </li>
+            <li><strong>Grado III (moderada):</strong> Estrechamiento del espacio articular, osteofitosis múltiple, leve
+                esclerosis y posible deformidad de los extremos de los huesos.</li>
+            <li><strong>Grado IV (severa):</strong> Marcado estrechamiento del espacio articular, abundantes
+                osteofitos, esclerosis grave y deformidad de los extremos de los huesos.</li>
+        </ul>
+    </div>
+</div>
+
+<div class="row p-2 justify-content-center">
+
+    <div class="col-md-2 text-center">      
+        <figure>
+            <img src="{% static 'img/artrosisRodillaI.png' %}" alt="" class="img-fluid">
+            <figcaption class="text-center">Grado I</figcaption>
+        </figure>
+    </div>
+    <div class="col-md-2 text-center">      
+        <figure>
+            <img src="{% static 'img/artrosisRodillaII.png' %}" alt="" class="img-fluid">
+            <figcaption class="text-center">Grado II</figcaption>
+        </figure>
+    </div>
+    <div class="col-md-2 text-center">      
+        <figure>
+            <img src="{% static 'img/artrosisRodillaIII.png' %}" alt="" class="img-fluid">
+            <figcaption class="text-center">Grado III</figcaption>
+        </figure>
+    </div>
+    <div class="col-md-2 text-center">      
+        <figure>
+            <img src="{% static 'img/artrosisRodillaIV.png' %}" alt="" class="img-fluid">
+            <figcaption class="text-center">Grado IV</figcaption>
+        </figure>
+    </div>
+</div>
+
+<P><strong><u>INDICACIONES DE DERIVACIÓN</u></strong> </P>
+<p>Toda derivación se hará através de teleconsulta</p> 
+<div>
+    <ul>
+        <li><strong>Gonartrosis Grado I:</strong> Sin respuesta clínica a medidas higiénico dietéticas y
+            farmacológicas para el dolor.
+            <p>Se entregarán las <a href="{% url 'ejerciciosRodilla' %}" class="text-info", style="text-decoration:none ;">tablas de ejercicio</a> utilizadas por Aparato Locomotor</p>
+        </li>
+        <li><strong>Gonartrosis Grado II-III:</strong> Sin respuesta clínica a medidas higiénico dietéticas, tratamiento
+            oral analgésico e intraarticular con corticoides. Se utilizarán analgésicos y AINES
+            según escala del dolor de la OMS.</li>
+        <li><strong>Gonartrosis Grado IV:</strong> Para valoración quirúrgica o lavado articular de pacientes que no
+            hayan obtenido respuesta clínica a medidas higiénico dietéticas, tratamiento oral
+            analgésico e intraarticular con corticoides.</li>
+        <li><strong>Signos de alarma:</strong> Bloqueo articular, derrame articular inflamatorio,
+            aumento de temperatura local y fiebre asociada.</li>
+    </ul>
+</div>
+
+{% endblock %}

@@ -1,0 +1,361 @@
+{% extends "bases/basesigloXIX.html" %}
+
+{% load static %}
+
+{% block titulo %} La Restauración {% endblock %}
+{% block cabecera %} La Restauración {% endblock %}
+
+{% block contenido %}
+
+<div class="container  mt-5 justify-content-center">
+    <div class="row justify-content-center">
+          
+        <div class="col-2 ">
+            <div class="row border-1 rounded my-2 text-center py-4 mx-1" style="background-color:#E74C3C ; color:white">
+                <a href="#alfonsoXII" style="text-decoration:none ; color: white;" data-bs-toggle="collapse"  aria-expanded="false" aria-controls="revolucionGloriosa">      
+                    <div class="row text-center">                                    
+                        <img class="img-fluid mt-4" style="width:270px ; height:165px ;" src="{% static 'images/sigloXIX/alfonsoXII1.jpg' %}" alt="">
+                        <figcaption class="text-center mt-3">ALFONSO XII</figcaption>
+                        <span class="text-center">(1874-1885)</span> 
+                    </div>               
+                </a>
+            </div>
+            <div class="row rounded text-start collapse" id="alfonsoXII">
+                <span><a href="#inicio" class="text-primary d-block ps-4", style="text-decoration:none ;">Inicio</a></span>
+                <span><a href="#turnismo" class="text-primary d-block ps-4", style="text-decoration:none ;">Turnismo</a></span>
+                <span><a href="#gconservadores" class="text-primary d-block ps-4", style="text-decoration:none ;">Cánovas (1875-1880)</a></span>
+                <span><a href="#gprogresistas" class="text-primary d-block ps-4", style="text-decoration:none ;">Sagasta (1881-1890)</a></span>
+                <span><a href="{% url 'constituciones' %}" class="text-primary d-block ps-4", style="text-decoration:none ;">Constitución 1876</a></span>
+                <span><a href="" class="text-primary d-block ps-4", style="text-decoration:none ;">Paz de Zanjón 1878</a></span>
+                <span><a href="#" class="text-dark d-block ps-4", style="text-decoration:none ;">Fundación PSOE (1879)</a></span>
+            </div>                        
+        </div>    
+        <div class="col-2 ">
+            <div class="row border-1 rounded my-2 mx-1 text-center py-4 mx-1" style="background-color:#066725 ; color:white">
+                <a href="#gobiernoProvisional" style="text-decoration:none ; color: white;" data-bs-toggle="collapse"  aria-expanded="false" aria-controls="gobiernoProvisional">   
+                    <div class="row text-center">                                    
+                        <img class="img-fluid mt-4" style="width:270px ; height:165px ;" src="{% static 'images/sigloXIX/mariaCristinaHasburgo.jpg' %}" alt="">
+                        <figcaption class="text-center mt-3">MARÍA CRISTINA</figcaption>
+                        <span class="text-center">(1885-1902)</span> 
+                    </div>
+                </a>
+            </div>
+            <div class="row rounded text-start  collapse" id="gobiernoProvisional">
+                <span><a href="#gprogresistas" class="text-primary d-block ps-4", style="text-decoration:none ;">Sagasta (1881-1890)</a></span>
+                <span><a href="#" class="text-dark d-block ps-4", style="text-decoration:none ;">Nace Alfonso XIII (96)</a></span>
+                <span><a href="#" class="text-dark d-block ps-4", style="text-decoration:none ;">Se funda UGT en 1888</a></span>
+                <span><a href="{% url 'guerraCuba' %}" class="text-primary d-block ps-4", style="text-decoration:none ;">Guerra de Cuba 95</a></span>
+                <span><a href="#" class="text-dark d-block ps-4", style="text-decoration:none ;">Asesinato Cánovas 97</a></span>
+                <span><a href="#crisis98" class="text-primary d-block ps-4", style="text-decoration:none ;">Crisis del 98</a></span>
+                <span><a href="#oposicionRestauracion" class="text-primary d-block ps-4", style="text-decoration:none ;">Oposición restauración</a></span>
+                
+            </div>                       
+        </div>
+        
+    
+        <div class="col-2 ">
+            <div class="row border-1 rounded my-2 text-center py-4 mx-1" style="background-color:#590e96 ; color:white">
+                <a href="{% url 'alfonsoXIII' %}" style="text-decoration:none ; color: white;" >      
+                    <div class="row text-center">
+                    <img class="img-fluid mt-4" style="width:270px ; height:165px ;" src="{% static 'images/sigloXIX/alfonsoXIII.jpg' %}" alt="">
+                    <figcaption class="text-center mt-3">ALFONSO XIII</figcaption>
+                    <span class="text-center">(1902-1930)</span>
+                   
+                    <br>
+                    </div>        
+                </a> 
+            </div>
+                        
+        </div>        
+    </div>
+    <div class="row align-items-center vertical-align-center text-center py-3 my-5 border" style="background-color:#E2F6F6 ;">
+        
+        <h5 class="text-center pt-2" id="inicio">Inicio</h5>
+            
+    </div>
+   
+    <p class="row mt-5 justify-content-center">El pronunciamiento del general Martínez Campos en Sagunto (diciembre de 1874) precipitó los acontecimientos al proclamar rey a Alfonso XII (hijo de Isabel II). Serrano se exilió y Cánovas presidió un Ministerio de Regencia para aguardar la llegada del nuevo rey. Terminaba así el Sexenio Democrático y daba comienzo la Restauración borbónica </p>
+      
+    <div class="row">
+        <div class="col-md-3">
+            <figure>
+                <img class="img-fluid" src="{% static 'images/sigloXIX/canovas1.jpg' %} " title="Asesinado en 1897">
+                <figcaption class="text-center">Cánovas del Castillo</figcaption>
+            </figure>
+           
+        </div>
+        <div class="col-md-9">
+            <p>El artífice del sistema político de la <strong>Restauración</strong> fue Antonio <strong>Cánovas del Castillo</strong>, político que procedía de la Unión Liberal y que lideró el partido alfonsino durante el Sexenio Demo­crático. Consiguió atraer a las élites políticas y sociales contrarias al absolutismo y al republicanismo y <strong>preparó el retorno de los borbones</strong> : en 1870 logró la renuncia de Isabel II al trono español a favor de su hijo Alfonso, que en 1874 firmó el <strong>Manifiesto de Sandhurst</strong>, en el cual aceptaba ser rey de España.</p>
+            <p>Aunque Cánovas quería que el príncipe Alfonso se convirtiera en rey por petición popular, el regreso de los borbones se produjo tras el pronunciamiento del general Martínez Campos en Sagunto el 29 de diciembre de 1874. El 9 de enero de 1875, el joven rey entró en España por Barcelona y el día 14 llegaba a Madrid.</p>
+            <p>Entre 1875 y 1880 Cánovas asumió el gobierno para controlar el nuevo régimen y abrirlo a los sectores desencantados del Sexenio y a los carlistas más moderados. Una de sus primeras tareas fue acabar con los conflictos pendientes:</p>
+            <div>
+                <ul>
+                    <li>Entre finales de 1875 y principios de 1876 liquidó la presencia carlista en el centro, en el Levante y en el pirineo catalán. Los ejércitos alfonsinos extinguirán más tarde la sublevación en Navarra y en el País Vasco, dando por finalizada la contienda.</li>
+                    <li>La Guerra de Cuba finalizará con la paz de Zanjón (1878). Tras ella, Cuba se convirtió en una provincia española con derecho de representación en Cortes, se abolió la esclavitud y se concedió una amnistía. Sin embargo, la tensión se mantendrá hasta 1898.</li>
+                </ul>
+            </div>
+            
+            
+        </div>
+    </div>
+    <p>Para asegurar la estabilidad de la Restauración, Cánovas diseñó un régimen bipartidista inspirado en el modelo inglés. Los dos gran­des partidos que aglutinaron a las diferentes fuerzas políticas, se ajustaron a la legalidad que él mismo había diseñado y dominaron la escena política durante la Restauración fueron el Conservador y el Liberal, que representaban, respectivamente, a la derecha y a la izquierda dentro del liberalismo. Los partidos antimonárquicos, antiliberales y antinacionales quedaron, en un principio, fuera del sistema.</p>
+
+    <div class="row align-items-center vertical-align-center text-center py-3 my-5 border" style="background-color:#E2F6F6 ;">
+        
+        <h5 class="text-center pt-2" id="turnismo">El Sistema Canovista de la restauración</h5>
+            
+    </div>
+    
+    <div class="row justify-content-center">
+        <div class="col-md-10 ">
+            <figure>
+                <img class="img-fluid" src="{% static 'images/sigloXIX/sistemaCanovista.png' %}" alt="">
+                                
+            </figure>
+        </div>
+    </div>
+    <div class="row">
+        
+        <div class="col-md-12">
+            <p>Cánovas sigue como <strong>modelo</strong> el sistema bipartidista inglés. Buscaba como <strong>objetivo</strong> no excluir a los progresistas del poder, principal motivo de los pronunciamientos militares con Isabel II, evitar la injerencia de los militares en la política, ya que no es necesario para cambiar el partido en el gobierno y evitar que los partidos republicanos lleguen al poder..  </p>
+            <p>Los 2 partidos que se turnan son:</p>
+            <div>
+                <ul>
+                    <li>El liberal-conservador, conocido como <strong>conservador, de Cánovas,</strong> con los antiguos moderados y el ala derecha de la Unión Liberal.</li>
+                    <li>El liberal-fusionista, conocido como <strong>liberal, de Práxedes Mateo Sagasta</strong>. Era fruto de la unión entre los antiguos progresistas y el ala izquierda de la Unión liberal </li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    <p>El <strong>turnismo pacífico</strong> se apoyaba en un <strong>sistema electoral corrupto</strong> en el que los dos grandes partidos acordaban los resultados electorales. Funcionaba así</p>
+    <p>El sistema funcionaba así:</p>
+    <div>
+        <ul>
+            <li><strong>Turno pactado</strong>. Cuando un gobierno estaba muy desgastado (por una crisis económica, militar o por algún escándalo), el monarca y los dirigentes de ambos partidos (oligarquía política), pactaban la alternancia en el poder.</li>
+            <li><strong>Nuevo gobierno.</strong> El rey cambiaba el gobierno y este convocaba elecciones. El nuevo gobierno controlaba la burocracia: <strong>nombraba al ministro de gobernación y a los gobernadores civiles provinciales</strong> con el fin de preestablecer los resultados electorales a su gusto.</li>
+            <li><strong>Encasillado</strong>. El gobierno diseñaba las listas con el número y el nombre de los diputados que debían ganar las elecciones en cada distrito. De esta forma se preestablecía el resultado electoral. El ministro de gobernación indicaba los resultados electorales con antelación a los <strong>caciques</strong> locales (nobles terratenientes y/o altos cargos políticos con poder económico en las ciudades). Una vez informados, los caciques indicaban a sus redes clientelares lo que debían votar. Se establecía que el partido ganador sacara entre un 60 y un 70% el opositor entre un 30 y un 20% y se permitía una representación simbólica al resto de partidos de un 10%.</li>
+            <li><strong>Caciquismo</strong>. Eran los más ricos y poderosos, normalmente grandes propietarios agrícolas, sometiendo a su autoridad al  resto de los oligarcas de su zona.</li>
+            <li><strong>Clientelismo</strong>. Personas a las que el cacique protegía y en contrapartida, ellos votaban como les indicaba el cacique. Presionaban de varias formas: 
+amenazándoles con quitarles el trabajo (si no les despedían),
+concediendo alguna licencia municipal (licencias para construir, cesiones municipales, etc.), 
+prometiendo algo (quitarles impuestos, librarlos de las quintas) ofreciéndoles dinero público (malversación), etc.  
+Los principales “clientes” de un cacique rural eran el maestro, el cura y el guardia civil. Como el voto no es secreto, el cacique puede controlar lo que vota cada uno.</li>
+            <li><strong>Pucherazo y fraude electoral</strong>, si lo anterior no era suficiente, hacían fraude para ajustar los resultados a lo que se les solicitaba:
+Añadían más votos de la candidatura elegida, y luego registraban a difuntos para cuadrar los votos,
+urnas de doble fondo, cambio de urnas, secuestro de las urnas por el gobernador civil para que él mismo haga el recuento,
+instalación de las urnas en la sede del partido que va a ganar y prohibición de la entrada a quien no sea socio.
+            </li>
+            <li> <strong>Repetición de elecciones.</strong> Si lo anterior no era suficiente, el gobernador civil anulaba las elecciones en esa circunscripción y se volvían a repetir. </li>    
+        </ul>
+    </div>
+    <p>Durante 25 años, Cánovas y Sagasta se turnan en el poder.</p>
+
+    <div class="row align-items-center vertical-align-center text-center py-3 my-5 border" style="background-color:#E2F6F6 ;">
+        
+        <h5 class="text-center pt-2" id="gconservadores">Gobiernos conservadores (1875-81) (1890-92) (95-97)</h5>
+            
+    </div>
+
+    
+    <div class="row">
+        
+        <div class="col-md-10">
+            <div>
+                <ul>
+                    <li>Sistema de la restauración: <strong>Constitución del 76</strong> y sistema electoral fraudulento</li>
+                    <li><strong>La ley de reclutamiento 1878.</strong>  Mantiene la redención pagando: el pago por exención del servicio militar. Establece 3 años de servicio militar activo (o mili) y otros 6 de reserva </li>
+                    <li><strong>Derecho de asociación.</strong> limitado a las asociaciones que reconozcan la monarquía constitucional vigente (1875) anulando el derecho de libre asociación amplio de 1868. </li>
+                    <li><strong>Ley de Imprenta (1879).</strong> Se limitaba la creación de nuevos periódicos (se necesitaba permiso de las autoridades) y se establecían las ideas cuya defensa era delito.</li>
+                    <li>Ley de reunión limitaciones al derecho a manifestarse.</li>
+                    <li> Manuel Orovio vuelve a prohibir la libertad de cátedra preocupados por la difusión del darwinismo.</li>
+                    <li><strong>Fin de la guerra carlista (1872-76). Martínez Campos</strong> vence a los carlistas en Cataluña y se disuelve el gobierno carlista de Estella.  El general se queda como gobernador militar en esa región. El gobierno aprovecha para eliminar los últimos privilegios forales de las provincias  vascongadas (pagar impuestos, exención de las quintas o servicio militar). En 1878, para compensar lo anterior, se concede a las provincias vascongadas un régimen de autonomía fiscal, es decir que recaudan sus propios impuestos. Desde entonces los carlistas seguirán por la vía legal parlamentaria con la denominación de tradicionalistas. </li>
+                    <li><strong>Fin de la guerra de los 10 años en Cuba</strong>, o Guerra del 68 (1868-78). La guerra comenzó con el grito de Yara , una proclama de un grupo de patriotas/independentistas y terminó con la Paz de Zanjón. Cánovas envió a <strong>Martínez Campos</strong> con 70.000 soldados en 1876. Tras dos años de enfrentamientos y negociaciones, se firmó la Paz de Zanjón en 1878. Los cubanos se rindieron y a cambio el gobierno de Madrid les garantiza la amnistía y se compromete a ir realizando numerosas reformas: amnistía, fin de esclavitud, autonomía, libre formación de partidos políticos, libertad de expresión, 4 diputados a las cortes. </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <figure>
+                    <img class="img-fluid" src="{% static 'images/sigloXIX/martinezCampos.jpg' %}" alt="">
+                    <figcaption class="text-center">Martínez Campos</figcaption>
+            </figure>
+        </div>
+    </div>
+    
+    <div class="row align-items-center vertical-align-center text-center py-3 my-5 border" style="background-color:#E2F6F6 ;">
+        
+        <h5 class="text-center pt-2" id="gprogresistas">Gobiernos liberales (1881-90)  (1892-95)  (97-99)</h5>
+            
+    </div>
+    <div>
+        <ul>
+            <li><strong>Libertad de asociación (1881)</strong>, decreto que autoriza las asociaciones obreras. Lo que permitió la legalización de agrupaciones anarquistas y socialistas pero aun no los sindicatos que se legalizaron con la ley de asociaciones políticas de 1887.  </li>
+            <li><strong>Ley sindical 87</strong>, libertad para la creación de sindicatos obreros. Se funda la UGT al año siguiente. </li>
+            <li><strong>Nueva ley de Imprenta (1883)</strong> de Sagasta, más liberal, eliminaba la censura y las limitaciones previas, simplemente había que registrar la publicación. Se eliminaban los delitos de opinión de la ley anterior.</li>
+            <li>Fin de la esclavitud (1886) en Cuba. </li>
+            <li><strong>Código civil de 1889.</strong>Por primera vez incorpora la posibilidad de matrimonio civil. Se mantendrá vigente con variaciones hasta 1976.</li>
+            <li><strong>Pacto del Pardo.</strong> Tras la muerte prematura del rey por cólera, comienza la regencia de su viuda María Cristina de Habsburgo. Se acuerda de cesión de poder de un partido a otro.</li>
+            <li><strong>Primera Guerra de Melilla (1893-94)</strong>, Primera Guerra del Rif, o Guerra de Margallo. Margallo, el gobernador de Melilla, en medio de unas tensas relaciones manda construir una fortaleza al lado de una mezquita y de un cementerio musulmán. Los habitantes de la región del Rif (rifeños) se sublevan y atacan la ciudad de Melilla. Intentan tomarla con superioridad numérica. Al igual que en la anterior Guerra de África (59-60), empezó por una ataque rifeño. A diferencia de aquella en este caso no fue en Ceuta y en este caso el sultán sí que intentó reprimir a los rifeños, pero los refuerzos del sultán fueron insuficientes.  </li>
+            <div>
+                <ul>
+                    <li>Los rifeños no entran en Melilla por la artillería y el armamento, Margallo muere en los combates, España manda refuerzos.</li>
+                    <li>Mandan a Martínez Campos y a buques que bombardean a los rifeños</li>
+                    <li>La carencia de armamento pesado, les hace firmar la paz.</li>
+                    <li>Extiende zona de control alrededor de Melilla y el sultán de Marruecos es obligado a pagar unos tributos por no haber controlado esas provincias que están bajo su dominio.</li>
+                </ul>
+            </div>
+        </ul>
+    </div>
+    
+    <div class="row align-items-center vertical-align-center text-center py-3 my-5 border" style="background-color:#E2F6F6 ;">
+        
+        <h5 class="text-center pt-2" id="oposicionRestauracion">La oposición política al régimen de la Restauración</h5>
+            
+    </div>
+    
+    <p><u>El carlismo</u></p>
+    <p>Tras su derrota militar en 1876 cambiaron su estrategia: se presentan como la única fuerza política defensora de la unidad religiosa, frente a la libertad de cultos recogida en la Constitución de 1876. Aunque Ramón Cabrera reconocerá a Alfonso XII, el sector carlista más integrista crea en 1888 el Partido Católico Nacional, liderado por Ramón Nocedal, caracterizado por su antiliberalismo y la defensa de la tradición y de la religión católica.</p>
+    
+    <p><u>Los republicanos</u></p>
+    <p>Estaban muy desunidos tras la experiencia del Sexenio democrático. <strong>Castelar</strong> lideraba el <strong>Partido Republicano Posibilista</strong>, el más moderado, que colaborará con el par­tido de Sagasta. El Partido Republicano <strong>Partido Republicano Progresista</strong>, de Ruiz Zorrilla y <strong>Salmerón</strong>, mantuvo el republicanismo más radical, que pretendía cambiar el régimen mediante acciones subversivas. <strong>Pi y Margall</strong> lideró el <strong>Partido Republicano Federal</strong>, que tenía gran influencia entre las clases medias y los traba­jadores urbanos, y aspiraba a una república federal; fue el único que se mantuvo unido hasta 1931. La representación republicana en las Cortes fue escasa, pues el máximo número de diputados que llegaron a obtener fue de 47 en 1893, sobre un total de unos 400.</p>
+    
+    <p><p><u>El movimiento obrero</u></p></p>
+    <p>La Restauración ilegalizó las organizaciones obreras, aunque la apertura durante los periodos de gobierno del partido liberal permitió la expansión de las asociaciones obreras y su definitiva legalización con la Ley de Asociaciones (1887). En España se dieron las dos tendencias del movimiento obrero: la anarquista y la socialista.</p>
+    <p>Los <strong>anarquistas</strong> se organizaron en la Federación de Trabajadores de la Región Española (FTRE) en 1887. Tuvieron una importante implantación entre los jornaleros andaluces y los obreros catalanes. La continua represión del movimiento obrero favoreció que un sector del anarquismo optara por la “acción directa”, realizando atentados terroristas contra los pilares del sistema capitalista. Ejemplos significativos fueron la bomba en el Liceo de Barcelona (1893) y el asesinato de Cánovas (1897).</p>
+    <p>El <strong>socialismo</strong> se limitaba en 1874 a unos reducidos núcleos de seguidores de las ideas de Marx. Los núcleos obreros madrileños de orientación marxista, encabezados por Pablo Iglesias, fundaron en 1879 el Partido Socialista Obrero Español (PSOE), legalizado en 1881. El PSOE, partidario de la revolución social, tenía su mayor implantación en Madrid, Vizcaya y Asturias. La crisis económica de 1887, que provocó el cierre de fábricas y el in­cremento del paro, llevó al PSOE a crear una organización sindical. El resultado fue la fundación en 1888 de la Unión General de Trabajadores (UGT), cuyo fin era la mejora de las condiciones de vida y de trabajo de los obreros, y los medios para obtener sus reivindicaciones serán la negociación, las demandas al poder político y la huelga.</p>
+    
+    <p><p><u>Los movimientos nacionalistas</u></p></p>
+    <div class="row">
+        <div class="col-md-2">
+            <figure >
+                <img class="img-fluid" src="{% static 'images/sigloXIX/sabinoArana.jpg' %}" alt="">
+                <figcaption class="text-center">Sabino Arana</figcaption>                                
+            </figure>
+            <figure class="mt-4">
+                <img class="img-fluid" src="{% static 'images/sigloXIX/pratRiba.jfif' %}" alt="">
+                <figcaption class="text-center">Prat de la Riba</figcaption>                                
+            </figure>
+            <figure class="mt-4 ">
+                <img class="img-fluid" src="{% static 'images/sigloXIX/blasInfante.jpg' %}" alt="">
+                <figcaption class="text-center">Blas Infante</figcaption>                                
+            </figure>
+        </div>
+        <div class="col-md-9">
+            <p>Al consagrar el sistema de la Restauración el centralismo en su Constitución, se fomentó el desarrollo de movimientos nacionalistas o “regionalismos periféricos”, que, en un principio, tuvieron objetivos moderados, como la creación de ins­tituciones propias o la consecución de la autonomía administrativa, pero, con el tiempo, se radicalizaron reclamando la independencia de sus territorios, a los que consideraban auténticas naciones.</p>
+            <p>En <strong>Cataluña</strong>. Hacia 1830, dentro del contexto cultural del Romanticismo y en el marco de un Estado liberal español surgió en Cataluña un amplio movimiento cultural y literario, conocido como la <strong>Renaixença</strong> . Su finalidad era la recuperación de la lengua y de las señas de identidad de la cultura catalana, pero carecía de aspiraciones y de proyectos políticos, siendo sus objetivos puramente culturales. Las primeras formulaciones catalanistas con un contenido político vinieron de la mano de <strong>Valentí Almirall,</strong> que inició su actividad política en el republicanismo federal de Pi y Margall, y que, en <strong>1882</strong>, fundó el <strong>Centre Catalá.</strong> Su objetivo era conseguir que la burguesía catalana rompiese con los partidos españoles. En 1885 presentaron al monarca Alfonso XII el Memorial de Greuges (o Agravios), un texto en defensa de los intereses catalanes, a favor del mantenimiento del derecho civil catalán (por entonces se estaba procediendo a la codificación del Código Civil español) y de la industria catalana (temerosa del librecambismo).
+Más adelante se funda, en <strong>1891, la Unió Catalanista.</strong> De ella parte, en la asamblea celebrada en Manresa, la aprobación de las llamadas Bases de Manresa (1892), con las que el regionalismo catalán se transforma en nacionalismo. Considera a Cataluña como una entidad autónoma dentro de España, dotándola de competencias propias separadas del poder central.
+Tras la crisis de 1898 se acrecentó el interés entre parte de la burguesía catalana por tener su propia representación política. Así, en <strong>1901</strong>  se constituyó un nuevo partido político, la <strong>Lliga Regionalista de Catalunya</strong> , con un programa conservador, a favor de la autonomía para Cataluña. En las elecciones generales de 1901, la Lliga triunfaba en Barcelona. También lograban representación los republicanos de Lerroux. Empezaban a establecerse, sencillamente, un nuevo periodo en la historia política de Cataluña: el turno de conservadores y liberales empezaba a romperse por la competencia de regionalistas y republicanos.</p>
+            <p>El <strong>nacionalismo vasco. </strong> La aparición del nacionalismo vasco se vio propulsado por el fuerismo y el proceso de industrialización. Los fueros vascos, que permitían a las provincias vascas mantener una situación de gobierno y administración diferenciada frente al resto del territorio español, tras la guerra carlista de 1872 a 1876, fueron abolidos por ley de 21 de julio de 1876. En cuanto a la industrialización, con los cambios económicos y la llegada de inmigrantes, estaba afectando a la tradicional identidad vasca. Para romper con esta
+situación surge el nacionalismo vasco, creado por <strong>Sabino Arana</strong> (1865-1903), defensor de la cultura autóctona vasca,
+consideraba que la inmigración ponía en peligro el euskera, las tradiciones y la etnia vasca. Al defender la pureza racial del
+pueblo vasco, adquirió, sin embargo, una imagen xenófoba. En <strong>1895</strong> fundaba el <strong>Partido Nacionalista Vasco</strong> en
+Bilbao. Dio el nombre de Euzkadi a su patria vasca y se declaró independentista con respecto a España. Esta
+postura se suavizó tras su fallecimiento aceptándose la vía hacia la autonomía. Era, sin duda, una forma de adaptación a los cambios en afiliación que vivirá el partido:
+de los primeros seguidores de Arana --la pequeña burguesía bilbaína tradicional--, el partido había ampliado sus bases incorporando a la burguesía moderna e industrial.
+Sobre otro regionalismo, el gallego, tuvo que esperar a los comienzos del siglo XX, para que el galleguismo tuviera un peso político.</p>
+            <p>El <strong>nacionalismo gallego</strong> no logró construir una fuerza política galleguista homogénea. Los pensadores nacionalistas (Manuel Murguía, Alfredo Brañas) no pretendían alcanzar un Estado inde­pendiente, sino un modelo jurídico-político de descentralización designado con el término de autonomía.</p>
+            <p>El <strong>regionalismo andaluz</strong> comenzó con los movimientos cantonalistas de 1873, pero no se consolidó en un partido anda­lucista burgués, posiblemente por la vinculación de la burguesía andaluza con el poder central y por la deriva del movimiento obrero anda­luz hacia el anarquismo, contrario a todo pacto con la burguesía. Su principal teórico fue <strong>Blas Infante.</strong></p>
+
+        </div>
+    </div>
+    <div class="row align-items-center vertical-align-center text-center py-3 my-5 border" style="background-color:#E2F6F6 ;">
+        
+        <h5 class="text-center pt-2" id="crisis98">La Crisis del 98 y la liquidación del imperio colonial.</h5>
+            
+    </div>
+    <div class="row my-3 border" style="background-color: #FEF5E7 ;" id="guerraCuba">    
+        <h6 class="my-2">Pérdida de las colonias</h6>    
+    </div>
+    
+
+    <div class="row">
+        <div class="col-md-8">
+            <p>En <strong>Cuba</strong> La insurrección comenzó con el <strong>“Grito de Baire”</strong> (febrero de <strong>1895</strong>), dirigida por Antonio Maceo, Máximo Gómez y José Martí. El gobierno de <strong>Cánovas envió al general Martínez Campos</strong> para combatir la revuelta y buscar una salida negociada, pero al fracasar <strong>fue sustituido por el “más enérgico” general Weyler</strong>, que recuperó gran parte del territorio, tras lo cual se inició una “guerra de desgaste” (1896-97), basada en la superioridad militar española y en la acción de los guerrilleros cubanos, apoyados por EE.UU.</p>
+            <p>Tras el asesinato de Cánovas (1897),<strong> Sagasta optó por la estrategia de la conciliación:</strong> relevó a Weyler y concedió a Cuba la autonomía política y arancelaria. La toma de posesión del gobierno autonómico cubano (enero de 1898) parecía que podía producir la pacificación definitiva, pero los independentistas no aceptaron el cese de las hostilidades, esperando la intervención de EE.UU, que tras proponer la compra de la isla (Sagasta y Mª Cristina se negaron), lanzó un ultimátum que amenazaba con la guerra si España no renunciaba a la soberanía. Finalmente lo hizo por el hundimiento del acorazado Maine, al responsabilizar a España de su voladura.  Tras la debacle de la flota del almirante Cervera en el puerto de Santiago, España perdía la guerra.</p>
+        </div>
+        <div class="col-md-4">
+            <figure>
+                <img class="img-fluid" src="{% static 'images/sigloXIX/maine.jpg' %}" alt="">
+                <figcaption class="text-center">Hundimiento del Maine</figcaption>
+            </figure>
+        </div>
+        
+        
+        <p>En las <strong>Filipinas</strong>, José Rizal lideró el descontento contra España, al frente de la Liga Filipina (1892). La guerra se inició en 1896, pero dos años después el ejército español había conseguido dominar la situación. Ante la inminente guerra entre Estados Unidos y España, la flota norteamericana en Hong Kong se dirigió a las Filipinas para apoyar a los insurrectos. El desarrollo de las operaciones fue rápido, dada la superioridad militar de los norteamericanos, que tomaron Cavite, destrozando la flota española, tras lo cual se hicieron con el control de Manila.</p>
+        <p>En la <strong>Paz de París</strong> (diciembre de 1898), España reconocía la independencia de Cuba, y cedía Puerto Rico, Filipinas y la isla de Guam a Estados Unidos, a cambio de una compensación de 20 millones de dólares. En junio de 1899, España cedió a Alemania las islas Marianas, las Carolinas y las Palaos, por 15 millones de dólares.</p>
+        <div class="row my-3 border" style="background-color: #FEF5E7 ;" id="guerraCuba">    
+            <h6 class="my-2">Repercusiones de la caida del imperio</h6>    
+        </div>
+        <p>La destrucción del mito imperial que supuso el desastre de 1898 sumió a la sociedad española en un estado de desencanto y frustración. Además, la prensa extranjera presentó a España como una nación moribunda, con un ejército ineficaz, un sistema político corrupto y políticos incompetentes, visión que cuajó en muchos españoles. La pérdida de las últimas colonias tuvo importantes <strong>repercusiones:</strong> </p>
+        <div class="row">
+            <div class="col-md-9">
+                <ul>
+                    <li><strong>Pérdidas humanas:</strong> se calcula que murieron unos <strong>120.000 soldados</strong> españoles, tragedia a la que se añadía la desmoralización de un país consciente de su debilidad y de lo inútil del sacrificio.</li>
+                    <li><strong>Repercusiones políticas.</strong> A pesar de la envergadura del «desastre», el sistema de la Restauración sobrevivió. Conservadores y liberales se adaptaron a los nuevos tiempos con el ascenso de nuevos dirigentes como Silvela y Maura, en el lado conservador, y Montero Ríos y Canalejas, en el bando liberal.</li>
+                    <li>Tampoco hubo <strong>crisis económica</strong> a pesar de la pérdida de los mercados coloniales y de los gastos por la guerra. En los primeros años del nuevo siglo se redujo la Deuda pública, hubo una inflación baja y una considerable inversión proveniente de capitales repatriados.</li>
+                    <li>La crisis del 98 fue, sobre todo, <strong>ideológica</strong>, causó un importante impacto entre la población y favoreció la aparición de movimientos que criticaron el sistema de la Restauración y defendieron la regeneración de la vida política española. En este sentido, destacan:
+                    <ul>
+                        <li><strong>El regeneracionismo</strong>, representado por <strong>Joaquín Costa</strong>, partidario de dejar atrás los mitos de un pasado glorioso, modernizar la economía y la sociedad y alfabetizar a la población ("escuela y despensa y siete llaves al sepulcro del Cid"). También defendía la necesidad de desmantelar el sistema caciquil para lograr la transparencia electoral.</li>
+                        <li><strong>La Generación del 98.</strong> La Crisis del 98 cohesionó a un grupo de intelectuales, conocido como la Generación del 98 (Unamuno, Pío Baroja, Azorín…), caracterizado por su profundo pesimismo, su crítica al atraso nacional y su reflexión sobre el sentido de España y su papel en la Historia.</li>
+                        
+                    </ul>
+                </li>
+                <li>La derrota provocó un importante cambio en la mentalidad de los militares, que serán partidarios de posturas más autoritarias y de retomar la injerencia del ejército en la vida política española, convencidos de que la derrota se debía a la ineficacia de los políticos y del parlamentarismo.</li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <figure>
+                    <img class="img-fluid" src="{% static 'images/sigloXIX/joaquinCosta.jpg' %} " alt="">
+                    <figcaption class="text-center">Joaquín Costa</figcaption>
+                </figure>
+            </div>
+            
+        </div>
+    </div>
+
+    <h3 class="mt-5">Recursos </h3>
+    <hr>
+    <p><p><u>Películas</u></p></p>
+    <div>    
+        <ul>
+            <li><a href="https://gloria.tv/post/76xDSYUSYmxV4qw7m8riVXH48" target="_blank">¿Dónde vas, Alfonso XII? (1958)</a>. Película que centrada en el romance entre Alfonso XII y María Mercedes de Orleans.</li>
+            <li><a href="">Los últimos de Filipinas (2016)</a>.  Protagonizada por Luis Tosar. Buena película y alto rigor histórico en descripción del episodio conocido como el sitio de Baler durante la guerra de Filipinas. </li>
+            <li><a href="https://academiaplay.es/20-peliculas-perfectas-para-aprender-historia/" target="_blank">Las mejores películas para aprender historia</a></li>
+        </ul>
+    </div>
+    <p><p><u>Documentales</u></p></p>
+        <div>
+            <ul>
+                <li><a href="https://www.youtube.com/watch?v=w9M07RSReOA/" target="_blank">La mano negra. Academia Play</a></li>
+                <li><a href="https://www.youtube.com/watch?v=l4j5huLtQzg" target="_blank">Serie Reyes de España</a></li>
+                <li><a href="https://www.youtube.com/watch?v=sVNdLSY1HDo&t=4s" target="_blank">AcademiaPlay. Guerra de Cuba y desastre del 98.</a></li>
+                <li><a href="https://www.youtube.com/watch?v=r5NXOvDl2zQ&t=496s" target="_blank">AcademiaPlay. Historia de Cataluña.</a></li>
+                <li><a href="https://www.youtube.com/watch?v=K9m79nGOoa4" target="_blank">AcademiaPlay. Historia del País Vasco.</a></li>
+            </ul>
+        </div>
+    <p><p><u>Podcast</u></p></p>
+    <div>
+        <ul>
+            <li>Memorias de un tambor. <a href="https://www.youtube.com/watch?v=99V_GMjyhz0" target="_blank">Donde vas Alfonso II</a>. </li>
+            <li>Memorias de un tambor. <a href="https://memoriasdeuntambor.com/una-historia-de-cataluna" target="_blank">Una Historia de Cataluña</a>. </li>
+        </ul>
+    </div>
+    <p><p><u>Web</u></p></p>
+    <div>
+        <ul>
+            <li><a href="https://www.profesorfrancisco.es/p/indice.html" target="_blank">Profesor Francisco</a>. Profesor de Historia, Filosofía y Arte</li>
+            <li><a href="https://ayeryhoyrevista.com/category/desconfinando-la-historia/" target="_blank">Ayer y hoy</a></li>
+            <li><a href="https://www.educaciongratuita.es/examenes/pruebas-evaluacion-bachillerato-acceso-universidad/examenes-selectividad-historia-de-espana.php#temario" target="_blank">Temario de Historia de España para selectividad</a></li>
+            <li><a href="https://www.actticsociales.com/h%C2%AA-cont-de-espa%C3%B1a-2-%C2%BA-bach/bloque-10-la-ii-rep%C3%BAblica-y-la-guerra-civil/" target="_blank">EBAU Extremadura</a></li>
+            <li><a href="http://perseo.sabuco.com/historia/atlas%20hespana.htm" target="_blank">Atlas de Historia de España</a></li>
+            <li><a href="http://bachiller.sabuco.com/historia/hespana.htm" target="_blank">Historia de España</a>. Bachiller. Sabuco</li>
+            <li><a href="http://sauce.pntic.mec.es/~prul0001/Temas.htm" target="_blank">Apuntes de Historia de España</a></li>
+            <li><a href="http://www.bne.es/es/Catalogos/BibliotecaDigitalHispanica/Inicio/index.html" target="_blank">Biblioteca Nacional</a></li>
+            <li><a href="https://www.lavanguardia.com/historiayvida/historia-contemporanea" target="_blank">Historia y vida</a></li>
+            <li><a href="https://www.artehistoria.com/es/content/historia-de-espan%CC%83a" target="_blank">ArteHistoria</a>. Historia de España</li>
+        </ul>
+    </div>
+</div>
+
+
+{% endblock %}

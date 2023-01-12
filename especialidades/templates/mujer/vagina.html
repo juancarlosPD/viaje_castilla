@@ -1,0 +1,342 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <title> vagina </title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS v5.0.2 -->
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'librerias/jquery-ui-1.13.1.custom/jquery-ui.min.css' %}">
+        <script src="{% static 'librerias/jquery-ui-1.13.1.custom/jquery-ui.min.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    </head>
+    <body>
+        <header>
+            <div class="row align-items-center justify-content-center" id="logotipo">
+                <div class="col-md-2 ">
+                    <figure>
+                        
+                        <img src="{% static 'img/logo.png' %}" alt="" class="img-fluid">
+                    </figure>
+                </div>
+                <div class="col-md-7 text-center ">
+                    <h1>Enfermedades de la vagina</h1>
+                </div>
+                <div class="col-md-2 text-center ">
+                    <img src="{% static 'img/vagina.jpg' %}" alt="" class="img-fluid">
+                </div>
+                
+                
+                
+            </div>           
+            
+        </header>
+        
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark mt-1 px-3">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="{% url 'inicio' %}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+                    <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+                    </svg>
+                 Inicio
+                </a>
+              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                  
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'inicioEspecialidades' %}">Especialidades</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'mujer' %}">Mujer</a>
+                  </li>              
+                  
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#candidiasis" style="color:orange ;">Candidiasis</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#vaginosis" style="color:orange ;">Vaginosis</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#trichomonas" style="color:orange ;">Trichomonas</a>
+                  </li>
+                  
+                </ul>
+              </div>
+            </div>
+          </nav>
+
+        <div class="container">
+            <div class="row">
+                <div class="row align-items-center vertical-align-center text-center my-3 ">
+                    <h3 class="text-center " >VULVOVAGINITIS</h3>
+                    <hr>    
+                </div>
+                <div class="row">
+                    <table class="table table-striped mx-2 border">
+                        
+                        <tr class="table-success ">
+                            <th class="border border-dark"></th>
+                            <th class="border border-dark">Candidiasis</th>
+                            <th class="border border-dark">Vaginosis</th>
+                            <th class="border border-dark">Tricomoniasis</th>
+                                            
+                        </tr>
+                        <tr>
+                            <th class="border border-dark">Etiologia</th>                
+                            <td class="border border-dark">Cándida. 
+                                <ul>
+                                    <li>Gestación</li>
+                                    <li>Antibióticos</li>
+                                    <li>DM</li>
+                                    <li>Inmunosupresión</li>
+                                    <li>Estrógenos locales. Espermicidas</li>
+                                </ul>
+                            </td>
+                            <td class="border border-dark">Garderella. Polimicrobiana.
+                                <ul>
+                                    <li>Afroamericanas</li>
+                                    <li>Tabaco</li>
+                                    <li>Duchas vaginales</li>
+                                    <li>Nº de parejas</li>
+                                </ul>
+                            </td>
+                            <td class="border border-dark">Trichomonas. ETS</td>
+                        </tr>
+                        
+                        <tr class="table-success ">
+                            <th class="border border-dark">Flujo</th>
+                            <td class="border border-dark">
+                                <ul>
+                                    <li>Blanco en grumos fácil de desprender</li>
+                                    <li>Sobre todo prmenstrual</li>
+                                </ul>
+                            </td>
+                            <td class="border border-dark">
+                                <ul>
+                                    <li>Incremento secrección</li>
+                                    <li>Acuoso blanquecino-gris</li>
+                                    <li>Maloliente (pescado)</li>
+                                </ul>
+                            </td>
+                            <td class="border border-dark">
+                                <ul>
+                                    <li>Amarillo-verdoso</li>
+                                    <li>Mal olor</li>
+                                </ul>
+                            </td>
+                                            
+                        </tr>
+                        <tr>
+                            <th class="border border-dark">Clínica</th>
+                            <td class="border border-dark">
+                                <ul>
+                                    <li>Prurito, ardor</li>
+                                    <li>Dolor, disuria, dispareunia</li>
+                                    <li>Eritema. Edema piel y mucosa</li>
+                                </ul>
+                            </td>
+                            <td class="border border-dark">
+                                <ul>
+                                    <li>La mayoría asintomáticas</li>
+                                </ul>
+                            </td>
+                            <td class="border border-dark">
+                                <ul>
+                                    <li>2/3 asintomáticas</li>
+                                    <li>Prurito intenso vulvovaginal</li>
+                                    <li>Irritación vulvar</li>
+                                </ul>
+                            </td>
+                                            
+                        </tr>
+                        <tr class="table-success ">
+                            <th class="border border-dark">Tratamiento</th>
+                            <td class="border border-dark">
+                                <ul>
+                                    <li>Solo en sintomáticas</li>
+                                    <li>Laurimic (fenticonazol) caps vaginales de 200(3 días) o de 600 (1 día)</li>
+                                    <li>Sertoconazol (Ginedermofix) 20 mg/g crema vaginal</li>
+                                    <li>Itraconazol. 200 mg/ 12 h durante 1 día o 200 mg/ 24 h durante 3 días</li>  
+                                    <li>Recurrente. Fluconazol. Comenzar con 150 mg los días 1, 4 y 7 del tratamiento. A continuación dar 150 mg semanales durante 6 mesesS</li>                      
+                                </ul>
+                            </td>
+                            <td class="border border-dark">
+                                <ul>
+                                    <li>Decualinio (Fluomizin) 1 cp vaginal / 24 h / 6 días. Antiséptico</li>
+                                    <li>Metronidazol (Flagyl) 500 cp vaginales durante 10-20 días. Evitar ingeata de alcohol hasta pasadas 24 h</li>
+                                    <li>Clindamicina (Dalacin) Óvulos 100 mg. 1 óvulo al acostarse durante 3 día</li>
+                                    <li>Metronidazol 300 mg oral. 1 cp/ 12 h / 5-7 días. Evitar ingeata de alcohol hasta pasadas 24 h desde la finalización del tto</li>
+                                    <li>Clindamicina oral. 150-300 mg /6h / 6 días</li>
+                                </ul>
+                            </td>
+                            <td class="border border-dark">
+                                <ul>
+                                    <li>Metronidazol 300 mg oral. 1 cp/ 12 h / 5-7 días. Evitar ingeata de alcohol hasta pasadas 24 h desde la finalización del tto</li>
+                                    <li>Tratar al compañero sexual con la misma pauta. Evitar relaciones sexuales hasta 48 h después del fin del tto.</li>
+                                    
+                                </ul>
+                            </td>
+                                            
+                        </tr>
+                        <tr class="table-success ">
+                            <th class="border border-dark">Embarazo</th>
+                            <td class="border border-dark">
+                                <ul>
+                                    <li>Clotrimazol 20mg/g crema vaginal</li>
+                                    <li>Clotrimazol comp vaginales de 100 ( 6 días) o de 500 (1 día)</li>
+                                    
+                                </ul>
+                            </td>
+                            <td class="border border-dark">
+                                <ul>
+                                    <li>Solo si es sintomática</li>
+                                    <li>Decualinio (Fluomizin) 1 cp vaginal / 24 h / 6 días. Antiséptico</li>
+                                    
+                                </ul>
+                            </td>
+                            <td class="border border-dark">
+                                <ul>
+                                    <li>Metronidazol 300 mg oral. 1 cp/ 12 h / 5-7 días. Evitar ingeata de alcohol hasta pasadas 24 h desde la finalización del tto</li>
+                                    <li>Evitar en 1º trimestre</li>
+                                </ul>
+                            </td>
+                                            
+                        </tr>
+                    </table>
+                    <div class="row align-items-center vertical-align-center text-center my-3 ">
+                        <h3 class="text-center " id="Candidiasis">CANDIDIASICA</h3>
+                        <hr>    
+                    </div>
+                    
+                    <div>
+                        <ul>
+                            <li>Es la vulvovaginitis más frecuente</li>
+                            <li>Candida albicans es la responsable del 90% de la vaginitis candidiasicas</li>
+                            <li>La presencia de candida en vagina no es sinónimo de vaginitis. Es preciso que se asocie a inflamación vulvar.</li>
+                            <li><u>Clasificación:</u>
+                                <ul>
+                                    <li>No complicada</li>
+                                    <li>Complicada: Diabetes, gestante, inmunosupresión, recurrente</li>
+                                    <li>Recidivante: 4 o más episodios en un año. Se relaciona con DM, embarazo, ACO, geles espermicidas, inmunodeficiencia, antibióticos.</li>
+                                </ul>
+                            </li>
+                            <li><u>Clinica:</u>
+                                <ul>
+                                    <li>Secrección vaginal en grumos con aspecto de yogurt</li>
+                                    <li>Prurito, disuria, dispareunia, escozor en genitales</li>
+                                    <li>Eritema en la mucisa vaginal con leucorrea blanca fácil de desprender</li>
+                                </ul>
+                            </li>
+                            <li><u>Tratamiento:</u>
+                                <ul>
+                                    <li>Tipos de tto:
+                                        <ul>
+                                            <li><strong>Óvulos: </strong>
+                                                <ul>
+                                                    <li>Laurimic (fenticonazol) caps vaginales de 200(3 días) o de 600 (1 día)</li>
+                                                    <li>Clotrimazol comp vaginales de 100 ( 6 días) o de 500 (1 día)</li>
+                                                    <li>Sertaconazol comp vaginales 500 (1 día)</li>
+                                                </ul>
+                                            </li>
+                                            <li><strong>Crema vaginal: </strong> 
+                                                <ul>
+                                                    <li>Clotrimazol 20mg/g crema vaginal</li>
+                                                    <li>Sertoconazol (Ginedermofix) 20 mg/g crema vaginal</li>                                        
+                                                </ul>
+                                            </li>
+                                            <li><strong>Oral: </strong> 
+                                                <ul>
+                                                    <li>Fluconazol:
+                                                        <ul>
+                                                            <li>Candidiasis vaginal o balanitis aguda: 150 mg en dosis unica</li>
+                                                            <li>Candidiasis recurrente: Comenzar con 150 mg los días 1, 4 y 7 del tratamiento. A continuación dar 150 mg semanales durante 6 meses</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>Itraconazol. 200 mg/ 12 h durante 1 día o 200 mg/ 24 h durante 3 días</li>
+                                                    <li>Ketoconazol:
+                                                        <ul>
+                                                            <li>Candidiasis no complicada: 400 mg/ 24 h/3-5 días al acostarse</li>
+                                                            <li>Candidiasis complicada o recurrente: 400 mg / 24 h durante 7-14 días al acostarse</li>
+                                                            
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>No complicada. Tto tópico (óvulos o cremas).</li>
+                                    <li>Embarazo. Antimicóticos tópicos: clotrimazol, miconazol (blasgina óvulos).</li>
+                                    <li>Recidivante. Tto oral + óvulos + crema vaginal 
+                                        <ul>
+                                            <li>Ketoconazol 400 mg / 24 h durante 7-14 días al acostarse</li>
+                                            <li>Fluconazol. Comenzar con 150 mg los días 1, 4 y 7 del tratamiento. A continuación dar 150 mg semanales durante 6 mesesS</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>  
+                        </ul>
+                    </div>
+                    <div class="row align-items-center vertical-align-center text-center my-3 ">
+                        <h3 class="text-center " id="vaginosis">VAGINOSIS BACTERIANA</h3>
+                        <hr>    
+                    </div>
+                    
+                    <div>
+                        <ul>
+                            <li>Concepto. Infeccion por comensales vaginales. El más frecuente es garderella vaginalis.</li>
+                            <li>Se llama vaginosis por la ausencia de inflamación</li>
+                            <li>Clínica: Flujo aumentado acuoso, blanquecino grisaceo (puede variar) y con mal olor ( a pescado).</li>
+                            <li>Tratamiento. Solo las sintomáticas. Opciones: 
+                                <ul>
+                                    <li>Decualinio (Fluomizin) 1 cp vaginal / 24 h / 6 días. Es una agente antiinfeccioso y antiséptico. El único que se puede usar en el embarazo</li>
+                                    <li>Metronidazol (Flagyl) 500 cp vaginales durante 10-20 días. Evitar ingeata de alcohol hasta pasadas 24 h desde la finalización del tto</li>
+                                    <li>Clindamicina (Dalacin):
+                                        <ul>
+                                            <li>Crema vaginal (20 mg/g). 1 aplicación /24 h / 7 días al acostarse</li>
+                                            <li>Óvulos 100 mg. 1 óvulo al acostarse durante 3 días</li>
+                                        </ul>
+                                    </li>
+                                    <li>Metronidazol 300 mg oral. 1 cp/ 12 h / 5-7 días. Evitar ingeata de alcohol hasta pasadas 24 h desde la finalización del tto</li>
+                                    <li>Clindamicina oral. 150-300 mg /6h / 6 días </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="row align-items-center vertical-align-center text-center my-3 ">
+                        <h3 class="text-center " id="trichomonas">VULVOVAGINITIS POR TRICHOMONAS</h3>
+                        <hr>    
+                    </div>
+                    
+                    <div>
+                        <ul>
+                            <li>Concepto. Protozoo parásito de la vagina.</li>
+                            <li>Enfermedad de transmision sexual cada vez menos frecuente. 2/3 asintomáticos</li>
+                            <li>Clínica: Flujo maloliente de color amarillo verdoso con irritación vulvar y prurito intenso.</li>
+                            <li>Tratamiento. Solo las sintomáticas. Opciones: 
+                                <ul>
+                                    <li>Metronidazol 300 mg oral. 1 cp/ 12 h / 5-7 días. Evitar ingeata de alcohol hasta pasadas 24 h desde la finalización del tto</li>
+                                    <li>Tratar al compañero sexual con la misma pauta</li>
+                                    <li>Se puede usar en el embarazo aunque se recomienda evitarlo en el primer trimestre</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="footer card-footer text-muted border mt-3">
+            Juan Carlos Perea
+        </div>
+      
+        <!-- Bootstrap JavaScript Libraries -->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    </body>
+</html>

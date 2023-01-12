@@ -1,0 +1,14 @@
+{% extends "locomotor/baseLocomotor.html" %}
+
+{% block titulo %} hombro {% endblock %}
+{% load static %}
+
+{% block cabecera %} Hombro {% endblock %}
+{% block imgCabecera %} <img src="{% static 'img/mano.jpg' %}" alt="" class="img-fluid"> {% endblock %}
+
+{% block contenido %}
+
+<embed class="mt-5" src="{% static 'doc/exploracionMano.pdf' %}" type="application/pdf" width="100%" height="600px" />
+
+
+{% endblock %}

@@ -1,0 +1,393 @@
+{% extends "baseDiabetes.html" %}
+{% block titulo %} Insulinizacion {% endblock %}
+{% load static %}
+{% block cabecera %}Insulinización {% endblock %}
+{% block imgCabecera %} <img src="{% static 'img/insulina.webp' %}" alt="" class="img-fluid"> {% endblock %}
+
+{% block contenido %}
+<div class="row my-5 justify-content-center">
+    <div class="col-md-10 text-center">
+        <img src="{% static 'img/progresionTtoDm.png' %}" class="img-fluid">
+    </div>
+</div>
+<hr class="my-5">
+<div class="row mt-4">
+    <div class="col-md-3">        
+        <ul>
+            <li><a href="#inicioInsulinizacion "class="text-success", style="text-decoration:none ;" >Inicio de insulinización</a></li>
+            <li><a href="#situacionB "class="text-success", style="text-decoration:none ;" >Glucemia basal controlada pero HBA1C fuera de objetivo</a></li>
+            <li><a href="#basalPlus "class="text-success", style="text-decoration:none ;" >Estrategia basal plus y bolo basal</a></li>
+            <li><a href="#ingreso "class="text-success", style="text-decoration:none ;" >Ingreso hospitalario </a></li>
+            
+            
+        </ul>
+        
+    </div>
+    
+    <div class="col-md-3">        
+        <ul>
+            <li><a href="{% url 'algoritmoredGDPS' %} "class="text-success", style="text-decoration:none ;" >Algoritmo redGDPS</a></li>
+            <li><a href="{% url 'insulinizacionGDPS' %} "class="text-success", style="text-decoration:none ;" >Insulinización redGDPS 2022</a></li>
+            <li><a href="{% url 'insulinizacionSaedyn' %} "class="text-success", style="text-decoration:none ;" >Protocolo insulinización Saedyn</a></li>
+            <li><a href="#cambioGlargina "class="text-success", style="text-decoration:none ;" >Cambio a insulina glargina </a></li>
+        </ul>
+    </div>
+</div>
+
+
+
+<div class="row align-items-center vertical-align-center text-center py-3 border justify-content-between my-5" style="background-color:#E2F6F6 ;">
+    <div class="col-md-11">
+        <h5 class="text-center pt-2" id="inicioInsulinizacion">A- INICIO DE INSULINIZACIÓN BASAL</h5>
+    </div>
+</div>      
+<div class="row my-2 align-items-center text-center justify-content-center " >
+    
+    <div class="col-md-8">        
+        <img src="{% static 'img/a.png' %}" alt="" class="img-fluid">
+        <ul class="text-start mt-4">
+            <li><strong>Comenzar con 10 U (ó 0,2 U/Kg en obesos):</strong> 
+                <ul>
+                    <li>NPH o detemir antes de acostarse</li>
+                    <li>Glargina 100 U/ml, 300 U/ml o degludec a cualquier hora</li>                    
+                </ul>
+            </li>
+            <li><strong>Aumentar la dosis de insulina cada 3 días</strong> (siempre que no
+                haya hipoglucemias):  
+                <ul>
+                    <li>En 2 U hasta alcanzar glucemia basal < 130 mg/dl</li>
+                    <li>En 4 U cuando glucemias basales > 180 mg/dl</li>                    
+                </ul>
+            </li>
+            <li><strong>Disminuir la dosis de insulina cada 3-5 días.</strong> 
+                <ul>
+                    <li>En 2 U cuando 2-3 días consecutivos la GB es menor de 80 mg/dl</li>
+                    <li>En hipoglucemias disminuir dosis 4 U o 10% de la dosis de
+                        insulina basal</li>                    
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="row my-2 align-items-center text-center " >      
+    <div class="col-md-12 ">
+        <h3 class="py-3" id="metformina">LECTURA DEL PERFIL GLUCÉMICO</h3>
+    </div>
+</div>
+<div class="row align-items-center vertical-align-center text-center my-3 justify-content-center " >  
+    <div class="col-md-8">    
+    <table class="table table-striped mx-2">
+        
+        <tr class="table-success ">
+            <th class="border border-dark">Antes Desayuno</th>
+            <th class="border border-dark">2 h DD</th>
+            <th class="border border-dark">Antes Comida</th>
+            <th class="border border-dark">2 h DC</th>
+            <th class="border border-dark ">Antes Cena</th>
+            <th class="border border-dark">2 h DC</th>       
+        </tr>
+        <tr>
+            <td class="border border-dark" style="background-color:#F7DC6F ;">95</td>
+            <td class="border border-dark"></td>
+            <td class="border border-dark"></td>
+            <td class="border border-dark" style="background-color:#A3E4D7 ;">220</td>
+            <td class="border border-dark"></td>
+            <td class="border border-dark"></td>                           
+        </tr>
+        <tr>
+            <td class="border border-dark" style="background-color:#F7DC6F ;">70</td>
+            <td class="border border-dark"></td>
+            <td class="border border-dark"></td>
+            <td class="border border-dark" style="background-color:#A3E4D7 ;">215</td>
+            <td class="border border-dark"></td>
+            <td class="border border-dark"></td>                           
+        </tr>
+        <tr>
+            <td class="border border-dark" style="background-color:#F7DC6F ;">75</td>
+            <td class="border border-dark"></td>
+            <td class="border border-dark"></td>
+            <td class="border border-dark" style="background-color:#A3E4D7 ;">195</td>
+            <td class="border border-dark"></td>
+            <td class="border border-dark"></td>                           
+        </tr>
+    </table>
+    <p class="text-start">La lectura se realiza por columnas:</p>
+    <div class="text-start">
+        <ul>
+            <li>Si hay variabilidad en los datos de una columna la causa está en la dieta</li>
+            <li>Si los valores son similares pero están muy altos 2 h después de la comida la causa es un déficit de insulina.</li>
+            
+        </ul>
+    </div>
+</div>
+<div class="row align-items-center vertical-align-center text-center py-3 border justify-content-between my-5" style="background-color:#E2F6F6 ;">
+    <div class="col-md-11">
+        <h5 class="text-center pt-2" id="situacionB">B- GLUCEMIA BASAL CONTROLADA PERO HBA1C FUERA DE OBJETIVO</h5>
+    </div>
+</div>
+<div class="row mt-2 align-items-center text-center justify-content-center " >
+    <p class="text-start">Si en 3-4 meses no se consiguen los objetivos glucémicos de HbA1c habría que plantearse la intensificación terapéutica. Antes es conveniente intentar conseguir unas glucemias basales adecuadas.</p>
+    <div class="col-md-8">        
+        <img src="{% static 'img/b.png' %}" alt="" class="img-fluid">
+        <ul class="text-start mt-4">
+            <li><sup>a</sup> Si tratamiento previo con iDPP4, suspender dicho tratamiento</li>
+            <li><sup>b</sup> Insulina prandial o premezclas</li>
+        </ul>
+    </div>     
+</div>
+<div class="row align-items-center vertical-align-center text-center py-3 border justify-content-between my-5" style="background-color:#E2F6F6 ;">
+    <div class="col-md-11">
+        <h5 class="text-center pt-2" id="basalPlus">C- ESTRATEGIA BASAL PLUS Y BOLO BASAL</h5>        
+    </div>    
+</div>
+<div>
+    <ul class="text-start">
+        <li>Iniciar sustituyendo fármacos secretagogos orales por 4 U de análogo de insulina rápida (ó 10% de la
+            dosis de basal) en la toma principal o la toma que genera más hiperglucemia posprandial</li>
+        
+        <li>Añadir progresivamente el 2º o 3er bolus: misma dosis de bolus de la otra toma (4 UI de análogo de insulina
+                rápida ó 10 % de la dosis de basal) en la toma que genera más hiperglucemia posprandial</li>
+            <li><strong>Ajustes:</strong> según glucemia capilar antes de las comidas:
+                <ul>
+                    <li>< 80: -2 UI</li>
+                    <li>80-150: Mantener dosis</li>
+                    <li>150-200: +1 UI</li>
+                    <li>200-250: + 2 UI</li>
+                    <li>250-300: + 3 UI</li>
+                    <li>300-350: + 4 UI</li>
+                    <li>350-400: + 5 UI</li>
+                    <li>>400: + 6 UI</li>
+                </ul>
+            </li>
+        
+    </ul>
+</div>
+
+<div class="row align-items-center vertical-align-center text-center py-3 border justify-content-between my-5" style="background-color:#E2F6F6 ;">
+    <div class="col-md-11">
+        <h5 class="text-center pt-2" id="ingreso">D- INGRESO HOSPITALARIO</h5>
+    </div>
+</div>
+<div class="border py-3 text-start mb-3" style="color:black ; background-color:beige" id="dosisTotal"><strong>1º- CÁLCULO DE LA DOSIS</strong> </div>
+<div class="row text-start align-items-center">
+    <h6 class="my-3"><u>TERAPIAS NO INSULÍNICAS (0,3-0,5 UI/kg de peso)</u> </h6>
+    <div class="col-md-4 border bg-light">
+       <strong>Glucemia al ingreso:</strong> 
+        <div>
+            <ul>
+                <li>Glucemias basales < 150 &rarr;  0,3 U / Kg / día</li>
+                <li>Glucemias basales entre 150-200 &rarr;  0,4 U / Kg / día</li>
+                <li>Glucemias basales > de 200 &rarr;  0,5 U / Kg / día</li>
+            </ul>
+        </div>
+    </div>  
+    
+    
+    <div class="col-md-1 text-center">
+        <img src="{% static 'img/igual.webp' %}" class="img-fluid">
+    </div>
+    <div class="col-md-1">
+      Dosis total
+    </div>
+    
+    
+    
+</div>
+<div class="row text-start align-items-center">
+    <h6 class="text-start mt-5"><u>INSULINA</u></h6>
+    <div class="col-md-4 border bg-light">
+        Suma total de UI/día de insulina en domicilio
+    </div>    
+    
+    <div class="col-md-1 text-center">
+        <img src="{% static 'img/igual.webp' %}" class="img-fluid">
+    </div>
+    <div class="col-md-1">
+      Dosis total
+    </div>
+<h6 class="text-start mt-5"><u>INSULINA + TERAPIAS NO INSULÍNICAS</u> </h6>
+<div class="col-md-4 border bg-light">
+    Suma total de UI/día de insulina en domicilio
+</div>
+
+<div class="col-md-1 text-center">
+    <img src="{% static 'img/mas.jpg' %}" class="img-fluid">
+</div>
+<div class="col-md-2 text-center">
+    20 % de lo calculado
+</div>
+<div class="col-md-1 text-center">
+    <img src="{% static 'img/igual.webp' %}" class="img-fluid">
+</div>
+<div class="col-md-1">
+  Dosis total
+</div>
+
+<div class="border py-3 text-start my-4" style="color:black ; background-color:beige"><strong>2º- DISTRIBUCIÓN DE LA DOSIS</strong> </div>
+<div class="col-md-4 border bg-light mx-1">
+    <h6>COME</h6>
+    <div>
+        <ul>
+            <li>Basal = <a href="#dosisTotal "class="text-primary", style="text-decoration:none ;" >Dosis total</a> / 2 </li>
+            <li>Bolus = <a href="#dosisTotal "class="text-primary", style="text-decoration:none ;" >Dosis total</a> / 2 
+                <ul>
+                    <li>Desayuno 30 % + <span  data-bs-toggle="modal" data-bs-target="#pautaCorreccion" class="text-danger">Pauta de corrección</span></li>
+                    <li>Comida 40% + <span  data-bs-toggle="modal" data-bs-target="#pautaCorreccion" class="text-danger">Pauta de corrección</span></li>
+                    <li>Cena 30% + <span  data-bs-toggle="modal" data-bs-target="#pautaCorreccion" class="text-danger">Pauta de corrección</span></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="col-md-4 border bg-light">
+    <h6>NO COME</h6>
+    <div>
+        <ul>
+            <li>Basal = <a href="#dosisTotal "class="text-primary", style="text-decoration:none ;" >Dosis total</a> / 2 </li> 
+            <li>Bolus = <span  data-bs-toggle="modal" data-bs-target="#pautaCorreccion" class="text-danger">Pauta de corrección</span> cada 4-6 h</li>               
+        </ul>
+        <br><br><br>
+    </div>
+</div>
+
+<div class="border py-3 text-start my-4" style="color:black ; background-color:beige"><strong>3º- AJUSTES</strong> </div>
+
+<div class="row">
+    <h6><u>HIPERGLUCEMIA</u></h6>
+    <div>
+        <ul>
+            <li><strong>Basal</strong> o en ayunas (mayor de 140) sin hipoglucemia nocturna: &uarr; 20% la insulina basal</li>
+            <li><strong>Preprandial</strong> sin hipoglucemias desde la comida previa:
+                <ul>
+                    <li>Comida: &uarr; 10-20 % la dosis de rápida del desayuno</li>
+                    <li>Cena: &uarr; 10-20 % la dosis de rápida de la comida</li>
+                    <li>Post-cena o al acostarse: &uarr; 10-20 % la dosis de rápida de la cena</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <h6><u>HIPOGLUCEMIA</u></h6>
+    <div>
+        <ul>
+            <li>Nocturna o basal: &darr; 10-20% la insulina basal</li>
+            <li>Durante la mañana: &darr; 10-20% la dosis de rápida del desayuno</li>
+            <li>Durante la tarde: &darr; 10-20% la dosis de rápida de la comida</li>
+            <li>Post-cena o al acostarse: &darr; 10-20% la dosis de rápida de la cena</li>
+        </ul>
+    </div>
+    
+</div>
+
+<div class="border py-3 text-start my-4" style="color:black ; background-color:beige"><strong>4º- TRATAMIENTO DE LA HIPOGLUCEMIA</strong> (glucemia capilar < 70 mg/dl) </div>
+<h6><u>PACIENTE CONSCIENTE Y PUDE INGERIR</u> (elegir una opción):</h6>
+<div>
+    <ol>
+        <li><strong>1ª elección</strong> (recomendada). Geles con 15 gr de glucosa</li>
+        <li><strong>2ª elección</strong> (equivalencias) como 2 sobres de azúcar o 175 ml de zumo o refresco azucarado o 300 ml de leche</li>
+    </ol>
+</div>
+<h6><u>PACIENTE INCONSCIENTE Y/O NO PUDE INGERIR</u></h6>
+<div>
+    <ul>
+        <li><strong>Con vía venosa: </strong>30 ml de glucosa al 33% o 20 ml al 50% + suero glucosado al 5% (500 ml/ 6h)</li>
+        <li><strong>Sin vía venosa: </strong>1 mg de glucagón IM o SC</li>
+    </ul>
+</div>
+
+<p>Reevaluar la glucemia capilar en 15 minutos y repetir la pauta previa si es menor de 70.</p>
+
+<div class="row align-items-center vertical-align-center text-center py-3 border justify-content-between my-5" style="background-color:#E2F6F6 ;">
+    <div class="col-md-11">
+        <h5 class="text-center pt-2" id="cambioGlargina">CAMBIO A INSULINA GLARGINA</h5>
+    </div>
+</div>
+
+
+<div class="col-md-1 vertical-align-center">
+    
+        <!-------------------------------------------- MODAL -->
+        <div class="modal fade" id="pautaCorreccion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-light">
+                    <h5 class="modal-title" id="exampleModalLabel">Pauta de corrección (dosis adicional de insulina)</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+            <div class="modal-body container-fluid">
+                <div class="row">
+                    <div class="col-md-12 text-start"> 
+                        <table class="table table-striped mx-2">
+        
+                            <tr class="table-success ">
+                                <th class="border border-dark">Glucemia capilar</th>
+                                <th class="border border-dark">< 40 U/día ó < 60 kg></th>
+                                <th class="border border-dark">40-80 U/día ó 60-90 kg</th>
+                                <th class="border border-dark"> 80 U/día ó > 90 kg</th>                            
+                            </tr>
+                            <tr>
+                                <td class="border border-dark" style="background-color:#F7DC6F ;">< 80 mg/dl</td>
+                                <td class="border border-dark text-center">-1</td>
+                                <td class="border border-dark text-center">-1</td>
+                                <td class="border border-dark text-center">-2</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-dark" style="background-color:#F7DC6F ;">80-129</td>
+                                <td class="border border-dark text-center">0</td>
+                                <td class="border border-dark text-center">0</td>
+                                <td class="border border-dark text-center">0</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-dark" style="background-color:#F7DC6F ;">130-149</td>
+                                <td class="border border-dark text-center">0</td>
+                                <td class="border border-dark text-center">+1</td>
+                                <td class="border border-dark text-center">+1</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-dark" style="background-color:#F7DC6F ;">150-199</td>
+                                <td class="border border-dark text-center">+1</td>
+                                <td class="border border-dark text-center">+1</td>
+                                <td class="border border-dark text-center">+2</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-dark" style="background-color:#F7DC6F ;">200-249</td>
+                                <td class="border border-dark text-center">+2</td>
+                                <td class="border border-dark text-center">+3</td>
+                                <td class="border border-dark text-center">+4</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-dark" style="background-color:#F7DC6F ;">250-299</td>
+                                <td class="border border-dark text-center">+3</td>
+                                <td class="border border-dark text-center">+5</td>
+                                <td class="border border-dark text-center">+7</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-dark" style="background-color:#F7DC6F ;">300-349</td>
+                                <td class="border border-dark text-center">+4</td>
+                                <td class="border border-dark text-center">+7</td>
+                                <td class="border border-dark text-center">+10</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-dark" style="background-color:#F7DC6F ;">> 349</td>
+                                <td class="border border-dark text-center">+5</td>
+                                <td class="border border-dark text-center">+8</td>
+                                <td class="border border-dark text-center">+12</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </div>
+                
+            </div>
+            
+            </div>
+        </div>
+        </div>
+
+        <!---------------------------------------------------------------------------------------------------------- -->
+    
+</div>
+
+
+
+{% endblock %}

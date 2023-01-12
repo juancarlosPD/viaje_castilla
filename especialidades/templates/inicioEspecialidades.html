@@ -1,0 +1,180 @@
+{% extends "baseEspecialidades.html" %}
+
+{% block titulo %} Inicio Especialidades {% endblock %}
+{% block cabecera %} Especialidades {% endblock %}
+
+{% block contenido %}
+
+
+{% load static %}
+<div class="contenedorDiabetes container d-flex vertical-align-center ">
+    <div class="row align-items-center py-5">
+    
+        <div class="col-md-3 ">           
+            <a href="{% url 'digestivo' %} "> 
+                
+                <img src="{% static 'img/digestivo.jpg' %}" alt="" class="card-img-top" style="height:180px ;">
+            </a>
+            <div class="card-body mx-2">
+                <h5 class="card-title text-center">Aparato Digestivo</h5>
+            </div>                
+        </div>
+
+        <div class="col-md-3 ">            
+            <a href="{% url 'laboratorio' %}">
+                <img  src="{% static 'img/analisis.jpg' %}" class="img-fluid" alt="..." style="height:180px ;">
+            </a>
+            <div class="card-body mx-2">
+                <h5 class="card-title text-center">Análisis Clínicos</h5>
+            </div>        
+        </div>
+
+        <div class="col-md-3 ">            
+            <a href="{% url 'locomotor' %}">
+                <img src="{% static 'img/locomotor.jpg' %}" class="img-fluid" alt="..." style="height:180px ;">
+            </a>
+            <div class="card-body mx-2">
+                <h5 class="card-title">Aparato Locomotor</h5>
+            </div>               
+        </div>
+
+       <div class="col-md-3 ">            
+            <a href="{% url 'cardiologia' %}">
+                <img src="{% static 'img/cardiologia1.jpg' %}" class="img-fluid" alt="..." style="height:180px ;" >
+            </a>
+            <div class="card-body mx-2 ">
+                <h5 class="card-title text-center">Cardiología</h5>
+            </div>
+       </div>
+    <div class="row align-items-center justify-content-center py-5">
+        <div class="col-md-3 ">            
+            <a href="{% url 'cirugia' %}">
+                <img src="{% static 'img/cirugia.jpg' %}" class="img-fluid" alt="..." style="height:180px ;" >
+            </a>
+            <div class="card-body mx-2 ">
+                <h5 class="card-title text-center">Cirugia</h5>
+            </div>
+       </div>
+        <div class="col-md-3 ">            
+            <a href="{% url 'endocrino' %}">
+                <img src="{% static 'img/tiroides.jpeg' %}" class="card-img-top" alt="..." style="height:180px ;">
+            </a>
+            <div class="card-body mx-2 py-2">
+                <h5 class="card-title text-center">Endocrinología</h5>
+            </div>          
+                    
+        </div>
+        <div class="col-md-3 ">            
+            <a href="{% url 'hematologia' %}">
+                <img src="{% static 'img/hematologia.jpg' %}" class="card-img-top" alt="..." style="height:180px ;">
+            </a>
+            <div class="card-body mx-2 py-2">
+                <h5 class="card-title text-center">Hematología</h5>
+            </div>
+        </div>
+        <div class="col-md-3 ">            
+            <a href="{% url 'mujer' %}">
+                <img src="{% static 'img/ginecologia.jpg' %}" class="card-img-top" alt="..." style="height:180px ;">
+            </a>
+            <div class="card-body mx-2 py-2">
+                <h5 class="card-title text-center">Mujer</h5>
+            </div>           
+        </div>        
+
+    </div>
+
+    <div class="row align-items-center justify-content-center py-5">
+        <div class="col-md-3 ">
+            <a href="{% url 'interna' %}">
+                <img src="{% static 'img/interna1.jpg' %}" class="card-img-top" alt="..." style="height:180px ;">
+            </a>
+            <div class="card-body mx-2 py-2">
+                <h5 class="card-title text-center">Medicina Interna</h5>
+            </div> 
+       </div>
+        <div class="col-md-3 ">            
+            <a href="{% url 'nefrologia' %}">
+                <img src="{% static 'img/urologia.jpg' %}" class="card-img-top" alt="..." style="height:180px ;">
+            </a>
+            <div class="card-body mx-2 py-2">
+                <h5 class="card-title text-center">Nefrologia</h5>
+            </div>                   
+        </div>
+        <div class="col-md-3 ">            
+            <a href="{% url 'neumologia' %}">
+                <img src="{% static 'img/neumologia.jpg' %}" class="card-img-top" alt="..." style="height:180px ;">
+            </a>
+            <div class="card-body mx-2 py-2">
+                <h5 class="card-title text-center">Neumología</h5>
+            </div>          
+        </div>
+        <div class="col-md-3 ">            
+            <a href="{% url 'neurologia' %}">
+                <img src="{% static 'img/neurologia.jpeg' %}" class="card-img-top" alt="..." style="height:180px ;">
+            </a>
+            <div class="card-body mx-2 py-2">
+                <h5 class="card-title text-center">Neurologia</h5>
+            </div>  
+        </div>
+        
+        
+        
+       
+    </div>
+    <div class="row align-items-center justify-content-center py-5">
+        <div class="col-md-3 ">           
+            <a href="{% url 'oftalmologia' %}">
+                <img src="{% static 'img/oftalmologia2.jpg' %}" class="card-img-top" alt="..." style="height:180px ;">
+            </a>
+            <div class="card-body mx-2 py-2">
+                <h5 class="card-title text-center">Oftalmologia</h5>
+            </div>  
+        </div>
+        <div class="col-md-3 ">           
+            <a href="{% url 'paliativos' %}">
+                <img src="{% static 'img/paliativos.jpg' %}" class="card-img-top" alt="..." style="height:180px ;">
+            </a>
+            <div class="card-body mx-2 py-2">
+                <h5 class="card-title">Paliativos</h5>
+            </div>
+        </div>        
+        <div class="col-md-3 ">            
+            <a href="{% url 'reumatologia' %}">
+                <img src="{% static 'img/reumatologia1.jpg' %}" class="card-img-top" alt="..." style="height:180px ;">
+            </a>
+            <div class="card-body mx-2 py-2">
+                <h5 class="card-title text-center">Reumatología</h5>
+            </div>        
+       </div>
+       <div class="col-md-3 ">            
+        <a href="{% url 'radiologia' %}">
+            <img src="{% static 'img/radiologia.jpg' %}" class="card-img-top" alt="..." style="height:180px ;">
+        </a>
+        <div class="card-body mx-2 py-2">
+            <h5 class="card-title text-center">Radiologia</h5>
+        </div>
+    </div>
+        
+    </div>
+    
+    <div class="row align-items-center justify-content-center py-5">
+        <div class="col-md-3 ">            
+            <a href="{% url 'urologia' %}">
+                <img src="{% static 'img/urologia1.jpg' %}" class="card-img-top" alt="..." style="height:180px ;">
+            </a>
+            <div class="card-body mx-2 py-2">
+                <h5 class="card-title text-center">Urología</h5>
+            </div>
+        </div>
+
+    </div>
+
+        
+                
+    
+
+</div>
+
+
+
+{% endblock %}

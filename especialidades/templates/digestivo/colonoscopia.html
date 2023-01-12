@@ -1,0 +1,189 @@
+{% extends "digestivo/baseDigestivo.html" %}
+
+{% block titulo %} colonoscopia {% endblock %}
+{% load static %}
+
+{% block cabecera %} Colonoscopia {% endblock %}
+{% block imgCabecera %} <img src="{% static 'img/colonoscopia.jpg' %}" alt="" class="img-fluid"> {% endblock %}
+
+{% block contenido %}
+
+<h3 class="text-center my-4">Indicaciones de colonoscopia</h3>
+<ol>
+    <li><strong>SOSPECHA DE CÁNCER COLORRECTAL (CCR)</strong> 
+        <p>La sospecha de cáncer colorectal viene establecida por:</p>
+        <ul>
+            <li><strong>Rectorragia</strong>: Es la emisión de sangre roja por el ano, de forma aislada o con las
+                heces, mientras que la <strong>hematoquecia</strong> es la sangre roja (rojo vinoso) en las heces.
+                <p>Se considera un origen distal de la rectorragia cuando esta es rutilante, con
+                    frecuencia intermitente, que mancha el papel o goteo con independencia de la
+                    deposición y cuya causa más frecuente es la patología anorrectal, como:</p>
+                <ul>
+                    <li>Hemorroides: Sangre roja al final de la deposición, sobre la deposición
+                        o solo detectada al limpiarse. Se acompaña de dolor, prurito y escozor
+                        anal.</li>
+                    <li>Fisura anal: Sangre roja al limpiarse, de escasa cuantía que no se
+                        mezcla con las heces. Se acompaña de prurito y dolor, que puede ser de
+                        alta intensidad y duración (hasta varias horas después de la defecación)</li>
+                    <li>Abscesos o fístulas perianales: Debe derivarse a Cirugía salvo que
+                        exista alta sospecha de Enfermedad Inflamatoria Crónica Intestinal
+                        (diarrea acompañante, pérdida de peso, dolor abdominal, fiebre,
+                        alteraciones analíticas de parámetros inflamatorios…)</li>                    
+                </ul>
+                <p>Toda exteriorización de sangrado deberá ser valorada desde el punto de vista
+                    de la repercusión hemodinámica en el paciente, que, en caso de presentarla, o cuando por sus características e intensidad se prevé que pudiera ocurrir, se
+                    remitirá al Servicio de Urgencias para su valoración</p>
+                <p>La solicitud de colonoscopia y/o derivación, en los casos leves o sin sospecha
+                    de que presente o vaya a presentar repercusión hemodinámica, variará en
+                    función de:</p>
+                <ul>
+                    <li>Hematoquecia, con independencia de la edad: La solicitud de
+                        colonoscopia corresponderá a Atención Primaria, pudiéndose derivar a
+                        digestivo y/o cirugía según los resultados obtenidos.</li>
+                    <li>Pacientes > 50 años con rectorragia de características distales: La
+                        solicitud de colonoscopia corresponderá a Atención Primaria,
+                        pudiéndose derivar a digestivo y/o cirugía según los resultados
+                        obtenidos.</li>
+                    <li>Pacientes < 50 años con rectorragia de características distales con
+                        signos o síntomas de valor diagnóstico de CCR o factores de riesgo de
+                        CCP. La solicitud de colonoscopia corresponderá a Atención Primaria,
+                        pudiéndose derivar a digestivo y/o cirugía según los resultados
+                        obtenidos.</li>
+                    <li>Pacientes < 50 años con rectorragia de características distales, sin
+                        signos o síntomas de elevado valor diagnóstico de CCR
+                        (acompañado de síntomas oclusivos, masa abdominal o rectal palpable,
+                        anemia microcítica o cambio de ritmo intestinal) y sin factores de
+                        riesgo de CCR (antecedentes personales de EICI, pólipos
+                        adenomatosos o antecedentes familiares de cáncer colorectal) serán
+                        derivados a Cirugía (Coloproctología)</li>
+                </ul>
+            </li>
+            <li><strong>Anemia ferropénica</strong> (en mujeres en edad fértil, descartar previamente causa
+                ginecológica) y test de sangre oculta en heces positivo.
+                <p>La solicitud de colonoscopia corresponderá a Atención Primaria, pudiéndose
+                    derivar a digestivo y/o cirugía según los resultados obtenidos.</p>
+                <p>La anemia crónica sin exteriorización de sangrado ni clínica gastrointestinal y
+                    con test de sangre oculta en heces negativo debe remitirse a Medicina Interna
+                    para estudio.</p>
+            
+            </li>
+            <li><strong>Alteración del hábito intestinal</strong> de más de 6 semanas de evolución y:
+                <ul>
+                    <li>Edad < 40 años: Debe ir acompañado de anemia o hemorragia digestiva
+                        baja.</li>
+                    <li>Edad ≥ 40 años: Debe ir acompañado de test de sangre oculta +</li>
+                    <p>La solicitud de colonoscopia corresponderá a Atención Primaria, pudiéndose
+                        derivar a digestivo y/o cirugía según los resultados obtenidos.</p>
+                    <p>La alteración del ritmo intestinal que no cumpla los criterios de sospecha de
+                        CCR será remitida a digestivo para completar estudio</p>
+                </ul>
+            </li>
+            <li><strong>Masa palpable </strong>en recto o fosa iliaca derecha y/o hallazgo compatible con CCR
+                por otra técnica diagnóstica.
+                <p>En ambos casos podrá solicitarse la colonoscopia por Atención Primaria, si
+                    bien, la alta probabilidad de que precise estudios posteriores aconseja la
+                    derivación preferente a digestivo para completar estudio.</p>
+            </li>
+        </ul>
+    </li>
+    <li><strong>ANTECEDENTES FAMILIARES DE PRIMER GRADO DE CCR</strong> 
+        <p>Se consideran familiares de primer grado padre, madre o hermanos.</p>
+        <p>La indicación de colonoscopia se hará cuando haya uno o más familiares de primer
+            grado diagnosticados de adenocarcinoma de recto o colon.</p>
+        <p>En toda solicitud de colonoscopia por antecedentes familiares de cáncer de colon
+            deberá comprobarse de manera fehaciente (informes médicos, resultados de anatomía
+            patológica del caso índice…) que se trata de cáncer de colon.</p>
+        <p>Las indicaciones e intervalos para la colonoscopia, corresponderán a Atención
+            Primaria y dependerá de:</p>
+            <div class="table-responsive mt-4">
+                <table class=" table table-striped my-2" id="">
+                
+                    <thead>
+                        <tr>
+                            <th>Parentesco familiar afecto más próximo</th>
+                            <th>Nº familiares afectados</th>
+                            <th>Edad diagnóstico</th>
+                            <th>Inicio</th>
+                            <th>Repetir cada</th>
+                                 
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            <td>Primer grado (padre, hermanos, hijos) </td>
+                            <td> 1</td>
+                            <td>>= 60 años </td>
+                            <td> 40 años </td>
+                            <td> 10 años </td>
+                        </tr>
+                        <tr>
+                            <td>Primer grado (padre, hermanos, hijos) </td>
+                            <td> 1</td>
+                            <td> < 60 años </td>
+                            <td> 40 años </td>
+                            <td> 5 años </td>
+                        </tr>
+                        <tr>
+                            <td>Primer grado (padre, hermanos, hijos) </td>
+                            <td> 2</td>
+                            <td>  </td>
+                            <td> 40 años </td>
+                            <td> 5 años </td>
+                        </tr>
+                    <tbody>
+                </table>
+            <p>En caso de familiar < 50 años, se calcula restando 10 años a la edad del más joven
+                diagnosticado de CCR</p>        
+    </li>
+    <li><strong>ANTECEDENTES PERSONALES DE ADENOMAS COLORECTALES</strong>
+    <p>En los pacientes con antecedentes de extirpación de pólipos adenomatosos el inicio de
+        las sucesivas exploraciones de seguimiento dependerá de los hallazgos de la
+        colonoscopia basal y siguientes.</p>
+    <p><strong> Atención Primaria </strong> solicitará las correspondientes colonoscopias de control y
+        seguimiento en todos los pacientes de bajo riesgo y en aquellos de riesgo moderado
+        o alto con indicación de colonoscopia de control a los 5 años.</p>
+    <p>Si una vez iniciado el seguimiento por AP en cualquiera de las colonoscopias de
+        control se detectase la presencia de adenomas de riesgo moderado o alto, se procederá
+        a la derivación a digestivo para su control y seguimiento.</p>
+    <p>La presencia de pólipos hiperplásicos pequeños y escasos en una colonoscopia no
+        tienen significado patológico, considerándose normal. En caso contrario, tanto por
+        tamaño (> 10 mm) o por número (> 30) serán derivados a digestivo para estudio por
+        posible poliposis hiperplásica familiar.</p>
+    <p>Los <strong>adenomas se estratifican</strong> en:</p>
+    <ul>
+        <li>Riesgo bajo: Por la presencia de 1-2 adenomas, ambos < 10 mm y con datos
+            histológicos de ser tubulares o con displasia de bajo grado</li>
+        <li>Riesgo medio: Por la presencia de 3-4 adenomas, todos < 10 mm o la presencia
+            de un número menor de adenomas, pero al menos uno entre 10-19 mm.
+            <p>También se considera riesgo medio la presencia de componente velloso o
+                displasia de alto grado en alguno de los adenomas analizados tras extirpación.</p>
+        </li>
+        <li>Riesgo alto: Por la presencia de 5 o más adenomas < 10 mm o la presencia de
+            un número menor de adenomas, pero al menos uno de > 20 mm.</li>
+    </ul>
+
+    </li>
+    <div class="row-6 text-center justify-content-center my-5">
+        <img src="{% static 'img/colonoscopiaBasal.png' %}">
+    </div>
+
+    <li class="mt-3"><strong>ANTECEDENTES PERSONALES DE CCR</strong>
+    <p>Tras el alta por parte de Oncología y Cirugía, Atención Primaria solicitará
+        colonoscopia de control cada 5 años a los pacientes con antecedentes de cáncer
+        colorectal.</p>
+    <p>La edad de finalización será entre los 75-80 años dependiendo de los hallazgos en
+        colonoscopias previas, la comorbilidad y los deseos del paciente.</p>
+    <p>Toda <strong> solicitud de Colonoscopia </strong>al Servicio de Digestivo se hará enviando el documento
+        de solicitud de Exploración de Aparato Digestivo <a href="{% url 'peticionEndoscopia' %}">(Anexo 1)</a> debidamente
+        cumplimentado por correo interno a la Secretaría de Aparato Digestivo (Edificio
+        Consultas Externas)</p>
+    <p>Aquellos pacientes que soliciten la realización de <strong>colonoscopia con sedación profunda</strong> deberán ser remitidos a digestivo con consulta presencial, no siendo válido el sistema de
+        teleconsulta para este tipo de peticiones.</p>
+    
+    </li>
+    
+</ol>
+
+
+{% endblock %}

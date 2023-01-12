@@ -1,0 +1,55 @@
+{% extends "filosofia/baseFilosofia.html" %}
+{% load static %}
+{% block titulo %} filosofia {% endblock %}
+{% block cabecera %} Filosofía {% endblock %}
+{% block imgCabecera %} <img src="{% static 'images/pensador.jpg' %}" alt="" class="img-fluid">  {% endblock %}
+
+{% block contenido %}
+
+<div class="row mt-5">
+    <div class="col-md-4 border-end border-top" >
+        <ul>
+            <li><a href="{% url 'metodoFilosofia' %} "class="text-success", style="text-decoration:none ;" >El método de la filosofía</a></li>
+            <li><a href="{% url 'intuicion' %} "class="text-success", style="text-decoration:none ;" >La intuición</a></li>
+            <li><a href=" "class="text-success", style="text-decoration:none ;" >Ingreso en la ontología</a></li>
+            <li><a href=" "class="text-success", style="text-decoration:none ;" >La metafísica de Parménides</a></li>
+            <li><a href=" "class="text-success", style="text-decoration:none ;" >El realismo de las ideas de Platón</a></li>
+            <li><a href=" "class="text-success", style="text-decoration:none ;" >El realismo aristotélico</a></li>
+            <li><a href=" "class="text-success", style="text-decoration:none ;" >La metafísica realista</a></li>
+            <li><a href=" "class="text-success", style="text-decoration:none ;" >Origen del idealismo</a></li>
+        </ul>
+        
+    </div>
+    <div class="col-md-4 border-end border-top" >
+        <ul>
+            <li><a href=" "class="text-success", style="text-decoration:none ;" >El sistema de Descartes</a></li>
+            <li><a href=" "class="text-success", style="text-decoration:none ;" >Fenomenología del conocimiento</a></li>
+            <li><a href=" "class="text-success", style="text-decoration:none ;" >El racionalismo</a></li>
+            <li><a href=" "class="text-success", style="text-decoration:none ;" >La metafísica del racionalismo</a></li>
+            <li><a href=" "class="text-success", style="text-decoration:none ;" >El problema del idealismo trascendental</a></li>
+            <li><a href=" "class="text-success", style="text-decoration:none ;" >La estética trascendental</a></li>
+            <li><a href=" "class="text-success", style="text-decoration:none ;" >La estética trascendental (II)</a></li>
+            <li><a href=" "class="text-success", style="text-decoration:none ;" >Analítica trascendental</a></li>
+        </ul>
+        
+    </div>
+
+    <div class="col-md-4 border-top" >
+        <li><a href=" "class="text-success", style="text-decoration:none ;" >Dialéctica trascendental</a></li>
+        <li><a href=" "class="text-success", style="text-decoration:none ;" >Fundamentos morales de la metafísica</a></li>
+        <li><a href=" "class="text-success", style="text-decoration:none ;" >El idealismo después de Kant</a></li>
+        <li><a href=" "class="text-success", style="text-decoration:none ;" >Entrada en la ontología</a></li>
+        <li><a href=" "class="text-success", style="text-decoration:none ;" >De lo real e ideal</a></li>
+        <li><a href=" "class="text-success", style="text-decoration:none ;" >Ontología de los valores</a></li>
+        <li><a href=" "class="text-success", style="text-decoration:none ;" >Ontología de la vida</a></li>
+        
+        
+        
+        
+    </div>
+
+<hr>
+
+
+
+{% endblock %}

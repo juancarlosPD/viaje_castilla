@@ -1,0 +1,18 @@
+{% extends "urologia/baseUrologia.html" %}
+{% load static %}
+{% block titulo %} acuerdo urologia {% endblock %}
+
+{% block cabecera %} Acuerdo Urología {% endblock %}
+
+{% block imgCabecera %} <img src="{% static 'img/urologia1.jpg' %}" class="img-fluid"> {% endblock %}
+
+{% block contenido %}
+
+
+
+
+
+<!-- <embed id='pdf' src="doc/anexo1.pdf"></embed> -->
+<embed class="mt-5" src="{% static 'doc/acuerdoUrologia.pdf' %}" type="application/pdf" width="100%" height="600px" />
+
+{% endblock %}

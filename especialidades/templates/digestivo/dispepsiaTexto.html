@@ -1,0 +1,75 @@
+{% extends "baseEspecialidades.html" %}
+
+{% block titulo %} dispepsia {% endblock %}
+{% load static %}
+{% block cabecera %} Dispepsia y ERGE {% endblock %}
+
+{% block imgCabecera %} <img src="{% static 'img/dispepsia.jpg' %}" alt="" class="img-fluid"> {% endblock %}
+{% block contenido %}
+
+
+
+
+<div class="row align-items-center vertical-align-center  py-5 ">
+    
+    <div class="col-md-12 ">
+        <p>La <strong>dispepsia</strong> se define como la presencia en hemiabdomen superior de dolor, molestia,
+            ardor, nausea, vómito, sensación de hinchazón o plenitud postprandial o cualquier otro
+            síntoma que se considere originado en el tracto gastrointestinal superior.</p>
+
+        <p>El <strong>reflujo</strong> (paso del contenido del estómago al esófago) y la PIROSIS (ardor o quemazón
+            retroesternal) junto con el dolor torácico por reflujo o los síntomas extraesofágicos
+            relacionados con el reflujo (tos, laringitis, asma, erosión dental) son síntomas que forman
+            parte de la ERGE</p>
+        
+        <u><strong>TRATAMIENTO</strong></u>:
+        <ul> 
+            <li>Evitar el consumo de café, alcohol, tabaco, y en general, cualquier alimento que siente mal.</li>
+            <li><strong>IBP</strong>: En ausencia de síntomas de alarma, se recomienda su uso durante 4 semanas a
+                dosis estándar, y si respuesta parcial o insuficiente doblar la dosis durante otras 4
+                semanas más.
+            <p>Si hay mejoría se puede retirar el tratamiento, y si hubiera recaída, ajustar a la mínima
+                dosis eficaz para controlar los síntomas.</p>
+            </li>
+            <li><strong>Procinéticos</strong>: Estarían indicados en los casos dónde la clínica predominante sea de
+                distrés postprandial (plenitud o saciedad precoz, distensión abdominal, nausea o
+                eructos) y puede añadirse a IBP.</li>
+        </ul>
+        <u><strong>PRUEBAS DIAGNÓSTICAS</strong></u>.
+        <ul>
+            <li><strong>Test de Ag H. Pylori en heces</strong>: En pacientes con dispepsia, menores de 45 años, sin
+                síntomas de alarma y con fracaso del tratamiento. En caso de resultado positivo se
+                iniciará tratamiento erradicador.</li>
+            <li><strong>ECO abdominal</strong>: En caso dolor de cualquier localización y/o de tumoración
+                abdominal palpable asociada a la dispepsia. La petición se hará al servicio de
+                radiología.</li>
+            <li><strong>Analítica</strong>: Con Hemograma y Bioquímica con perfil hepático (hay un <strong>perfil dispepsia</strong> en analítica ). En todos los casos.</li>
+            <li><a href="{% url 'peticionEndoscopia' %}" class="text-success" style="text-decoration:none ;"><strong>EDA</strong></a> : En pacientes con clínica compatible con dispepsia o ERGE, sin síntomas de
+                alarma, con resultado de test de Ag en heces de H. Pylori negativo (en dispepsia) y
+                con fracaso de tratamiento.</li>
+        </ul>
+        <u><strong>EN FUNCIÓN DEL RESULTADO</strong></u>
+        <ul>
+            <li><strong>EDA normal</strong>: Seguimiento por Primaria con tratamiento sintomático. En caso de
+                persistencia clínica valorar derivar a digestivo para completar estudio con otras
+                técnicas (pH-metría).</li>
+            <li><strong>EDA positiva con resultado de Hernia</strong>: En caso de persistencia clínica valorar
+                derivar a digestivo para valorar opciones de cirugía.</li>
+            <li><strong>EDA positiva con resultado de Esofagitis</strong>: Los grados A y B se siguen en primaria
+                con doble dosis de IBP. La persistencia de síntomas a pesar del tratamiento, así como
+                los grados C y D se derivarán a digestivo.</li>
+        </ul>
+
+        <u><strong>CRITERIOS DE DERIVACIÓN</strong></u>
+        <ol>
+            <li>Presencia de síntomas de alarma (Disfagia, Vómitos persistentes, Hemorragia
+                Gastrointestinal, Anemia ferropénica, Pérdida de peso o Tumoración abdominal).</li>
+            <li>Dispepsia persistente con pruebas normales.</li>
+            <li>Fracaso de tratamiento (tras 8 semanas con doble dosis) sin endoscopia reciente.</li>
+        </ol>
+
+        
+    </div>
+</div>
+
+{% endblock %}

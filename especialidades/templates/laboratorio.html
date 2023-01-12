@@ -1,0 +1,194 @@
+{% extends "laboratorio/baseLaboratorio.html" %}
+
+{% block titulo %} laboratorio {% endblock %}
+{% load static %}
+
+{% block cabecera %} Laboratorio {% endblock %}
+{% block imgCabecera %} <img src="{% static 'img/analisis.jpg' %}" alt="" class="img-fluid"> {% endblock %}
+
+{% block contenido %}
+
+<div class="row mt-4">
+    <div class="col-md-5">
+        <p><a href="{% url 'analisisClinicos' %} "class="text-success", style="text-decoration:none ;" >Documento Análisis Clínicos</a>
+        
+    </div>
+    <div class="col-md-5">
+        <p><a href="{% url 'perfilesAnaliticos' %} "class="text-success", style="text-decoration:none ;" >Perfiles analíticos</a>
+        
+    </div>
+</div>
+<hr class="mt-5">
+<h3 class="text-center my-4">PERFILES ANALÍTICOS</h3>
+<hr>
+<h5><u>Estudio de anemia</u></h5>
+<span>Hemograma + Glucosa muestra 4.</span> <br>
+<span>Solo se hace si Hb está baja.</span> <br>
+<strong>Glucosa muestra 4:</strong>
+
+<ul>
+    <li>Anemia Microcitica (VCM < 80): Ferritina, transferrina, hierro.    </li>
+    <li>Anemia Macrocítica (VCM  > 100): Vitamina B12, ácido fólico, bilirrubina, LDL, TSH. </li>
+    <li>Anemia Normocítica (VCM  > 80 y < 100): Ferritina, transferrina, hierro, vitamina B12, ácido fólico, bilirrubina, LDL, haptoglobina.  </li>
+</ul>
+
+<h5><u>Control de anemia ferropénica</u></h5>
+<span>Hemograma + Glucosa muestra 5. </span>
+<ul>
+    <li>Solo se hace si hace más de 2 meses de la última analítica y la ferritina era < 60.
+        
+    </li>
+    <li><strong>Glucosa muestra 5:</strong> Ferritina</li>
+    
+</ul>
+
+<h5><u>Control de anemia crónica</u></h5>
+Hemograma + Glucosa muestra 6  <br>
+Solo se hace si Hemoglobina baja y última ferritina hace más de 3 meses.
+<p><strong>Glucosa muestra 6</strong>: ferritina, hierro, transferrina, índice de saturación de la transferrina</p>
+
+<h5><u>Hemosiderosis</u></h5>
+Hemograma + Glucosa muestra 8  <br>
+Solo se hace si última ferritina hace más de 6 meses.
+<p><strong>Glucosa muestra 8</strong>: GGT, ferritina, hierro, triglicéridos.</p>
+
+<h5><u>Control de Alopecia y trastornos tróficos</u></h5>
+Hemograma + Glucosa muestra 7  <br>
+Solo se hace si última ferritina hace más de 12 meses.
+<p><strong>Glucosa muestra 7</strong>: Ferritina.</p>
+
+<h5><u>Trastorno cognitivo AP</u></h5>
+Hemograma + Glucosa muestra 9  <br>
+Solo se hace si última B12 hace más de 6 meses y valores < 150.
+<p><strong>Glucosa muestra 9</strong>: Vitamina B12 y ácido fólico.</p>
+
+<h5><u>Sospecha de hepatitis aguda</u></h5>
+Hemograma + Glucosa muestra 1  <br>
+Solo se hace si última B12 hace más de 6 meses y valores < 150.
+<p><strong>Glucosa muestra 1</strong>: VSG, coagulación, GGT, FA, ALT.</p>
+Parámetros condicionados:
+<ul>
+    <li>Ac anti ag superficie Hepatitis B: Si AST o ALT >150</li>
+    <li>Ac ant virus Hep. C: Si AST o ALT >150 </li>
+    <li>Bilirrubina: Si AST o ALT >150 </li>
+    <li>Antigeno de superficie Virus Hep B: Si Ac anti ag superficie Hepatitis B negativo</li>
+    <li>Ac anti HBc: Si Ac anti ag superficie Hepatitis B negativo</li>
+    <li>Anticuerpos virus Hep A: SI HCV, HBSAG y CORE neg </li>
+</ul>
+
+<h5><u>Disnea/Insuficiencia Cardiaca.</u></h5>
+<p>Hemograma con fórmula y recuento, glucosa,
+    creatinina, sodio, potasio, THS, perfil lipídico, transaminasas y NT-proBNP.</p>
+
+<h5><u>Dispepsia AP.</u></h5>
+<p>Hemograma con fórmula y recuento, glucosa, creatinina, sodio,
+    potasio, transaminasas (ALT y AST), Bilirrubina, enzimas de colestasis (γGT y
+    Fosfatasa Alcalina) y ferritina.</p>
+
+<h5><u>COVID persistente</u></h5>
+<p>Hemograma con fórmula y recuento, glucosa, creatinina,
+    sodio, potasio, transaminasas (ALT y AST), Creatinquinasa, perfil tiroideo y ferritina.</p>
+
+
+
+
+
+
+
+
+<h3 class="text-center my-5">NUEVOS PARÁMETROS ANALÍTICOS</h3>
+<hr>
+<ul>
+    <li><u><strong>Péptido natriurético cerebral (NT-proBNP):</strong></u>
+        <p>Debe usarse ante la sospecha de insuficiencia cardíaca (disnea y crepitantes) </p>
+        <p>Un resultado negativo permitiría descartar prácticamente la enfermedad. El nivel
+            recomendado del NT-proBNP para <strong>descartar</strong> es:
+        <ul>
+            <li>< 125 pg/ml en menores de 75 años</li>
+            <li>< 450 pg/ml en mayores de 75.</li>
+        </ul>
+            
+        </p>
+        
+            
+    </li>
+    <li><u> <strong>Vitamina D (25-Hidroxivitamina D):</strong> </u>
+        <p>La determinación de vitamina D no está indicada en el cribado de déficit de vitamina
+            D en población general</p>
+        <p>Sus indicaciones son:
+            <ul>
+                <li>Insuficiencia renal crónica</li>
+                <li>Síndrome de malabsorción</li>
+                <li>Insuficiencia hepática</li>
+                <li>Colestasis</li>
+                <li>Fármacos: antiepilépticos, antiretrovirales, corticoides, rifampicina</li>
+                <li>Otros: obesidad, baja exposición al sol, piel morena, institucionalizados</li>
+              
+            </ul>
+
+        </p>
+        <p>Deberá consignarse el Juicio Diagnóstico o en el apartado Datos de Interés
+            Analítico de la solicitud datos relacionados con la patología en la que se
+            encuadra</p>
+        <p>Se establecen 4 meses mínimo para una nueva solicitud.</p>
+
+    </li>
+    <li><strong><u>Ferritina:</u></strong>
+    <p>La ferritina además de un marcador de alta sensibilidad y especificidad en el
+        diagnóstico de ferropenia, es un reactante de fase aguda que puede elevarse en
+        procesos inflamatorios e infecciosos, enfermedad hepática o tumoral.</p>
+    <p>Está vinculada a determinados perfiles como Anemia Crónica,
+        COVID AP, Alopecia, Estudio de Anemia y Hemocromatosis</p>
+    <p>Podemos pedirla de forma aislada en:
+        <ul>
+            <li>Sospecha de enfermedad hepática o abuso de alcohol</li>
+            <li>Dietas estrictas (vegetariana o vegana)</li>
+            <li>Enfermedades que producen una malabsorción de hierro</li>
+            <li>Valorar pérdidas sanguíneas crónicas antes de que aparezca anemia.</li>
+            
+        </ul>
+    </p>
+    <p>Es obligatorio:
+        <ul>
+            <li>Poner en el Juicio Clínico o en apartado de Datos de Interés Analítico
+                información relacionada con la sospecha diagnóstica</li>
+            <li>No repetirla antes de 2 meses si resultado >60</li>
+        </ul>
+    </p>
+    </li>
+    <li><strong><u>Anticuerpos antitiroideos:</u></strong>
+    <p>Los anticuerpos pueden ser de varios tipos:
+        <ul>
+            <li><strong>Anticuerpos antiperoxidasa tiroidea (TPO):</strong> Pueden estar elevados tanto en
+                hipotiroidismo de causa autoinmune (Enfermedad de Hashimoto) como en
+                hipertiroidismo de causa autoinmune (Enfermedad de Graves).</li>
+            <li><strong>Anticuerpos antitiroglogulina (TG):</strong> Elevados en Enfermedad de
+                Hashimoto.</li>
+            <li><strong>Anticuerpos antireceptor de la hormona estimulantes del tiroides:</strong> Elevados
+                en Enfermedad de Graves.</li>
+        </ul>
+    </p>
+    <p>La utilidad de la determinación de los anticuerpos antitiroideos, además de para
+        conocer la etiología, sirve para hacer una correcta valoración terapéutica en los
+        pacientes con hipotiroidismo subclínico:
+        <ul>
+            <li>TSH entre 4.5 y 6.9 mU/L. Su valor condicionará el inicio o no de tratamiento sustitutivo.</li>
+            <li>TSH > 10 mU/L. Su valor orienta al diagnóstico etiológico del hipotiroidismo.</li>
+        </ul>
+    </p>
+    </li>
+    
+</ul>
+
+<div class="row p-4 justify-content-center">
+    <p><strong><u> Protocolo embarazo</strong></u></p>
+    <div class="col-md-10 mt-4">
+        <img src="{% static 'img/tiroidesEmbarazo1.png' %}" class="card-img-top" alt="...">
+    </div>
+    
+    
+   
+</div>
+
+
+{% endblock %}

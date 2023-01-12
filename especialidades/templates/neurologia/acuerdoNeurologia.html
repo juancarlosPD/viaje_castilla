@@ -1,0 +1,16 @@
+
+{% extends "neurologia/baseNeurologia.html" %}
+
+{% block titulo %} acuerdo neurologia {% endblock %}
+{% load static %}
+
+{% block cabecera %} Acuerdo Neurología {% endblock %}
+{% block imgCabecera %} <img src="{% static 'img/neurologia.jpeg' %}" alt="" class="img-fluid"> {% endblock %}
+
+{% block contenido %}
+
+<embed class="mt-5" src="{% static 'doc/acuerdoNeurologia.pdf' %}" type="application/pdf" width="100%" height="600px" />
+
+
+
+{% endblock %}

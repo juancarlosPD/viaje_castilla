@@ -1,0 +1,18 @@
+
+{% extends "basePersonal.html" %}
+{% load static %}
+{% block titulo %} personal {% endblock %}
+{% block cabecera %} Página personal {% endblock %}
+{% block imgCabecera %} <img src="" alt="" class="img-fluid">  {% endblock %}
+
+{% block contenido %}
+
+<div class="row align-items-center justify-content-between  mt-5">               
+    <div class="col-md-3 form-group text-center" >
+        <a href="{% url 'inicioHistoria' %} "class="navbar-brand mx-3 py-3 px-2", style="text-decoration:none ; background-color: green; color:white" >Historia</a>
+        <a href="{% url 'inicioFilosofia' %} "class="navbar-brand mx-3 py-3 px-2", style="text-decoration:none ; background-color: green; color:white" >Filosofía</a> 
+    </div>
+</div>
+
+
+{% endblock %}

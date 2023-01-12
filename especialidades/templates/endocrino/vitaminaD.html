@@ -1,0 +1,20 @@
+{% extends "endocrino/baseEndocrino.html" %}
+
+{% block titulo %} vitamina D {% endblock %}
+{% load static %}
+
+{% block cabecera %} Vitamina D {% endblock %}
+{% block imgCabecera %} <img src="{% static 'img/vitaminaD.jpeg' %}" alt="" class="img-fluid"> {% endblock %}
+
+{% block contenido %}
+
+<div class="row mt-4">
+    <div class="col-md-3">        
+        <ul>
+            <li><a href="{% url 'consensoVitaminaD' %}"class="text-success", style="text-decoration:none ;" >Documento consenso uso vitamina D</a></li>
+        </ul>
+    </div>
+</div>
+
+<hr>
+{% endblock %}

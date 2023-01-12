@@ -1,0 +1,17 @@
+{% extends "bases/baseHistoria.html" %}
+
+{% load static %}
+
+{% block titulo %} Siglo XVI {% endblock %}
+
+{% block contenido %}
+<div>
+    <ul>
+        <li><a href="{% url 'carlosI' %}">Carlos I</a></li>
+        <li><a href="{% url 'sucesionIsabelCatolica' %}">Sucesión de Isabel la Católica</a></li>
+        <li><a href="{% url 'felipeII' %}">Felipe II</a></li>
+        
+    </ul>
+</div>
+
+{% endblock %}

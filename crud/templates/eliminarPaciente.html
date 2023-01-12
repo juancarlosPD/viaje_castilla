@@ -1,0 +1,22 @@
+{% extends "baseCRUD.html" %}
+{% load static %}
+{% block titulo %} eliminar paciente {% endblock %}
+{% block cabecera %}Eliminar paciente {% endblock %}
+{% block imgCabecera %} <img src="{% static 'img/pacientes.jpg' %}" alt="" class="img-fluid">  {% endblock %}
+
+{% block contenido %}
+
+<div class="row justify-content-center">
+    <div class="col-md-5 mt-5">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <h6>Desea eliminar el registro {{ paciente.nombre }} {{ paciente.apellido1 }} {{ paciente.apellido2 }}</h2>
+            <button type="submit">Eliminar</button>
+            <a href="{% url 'listarPacientes' %}">Cancelar</a>
+        </form>
+    </div>
+</div>
+
+
+
+{% endblock %}

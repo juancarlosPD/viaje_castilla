@@ -1,0 +1,141 @@
+{% extends "paliativos/basePaliativos.html" %}
+
+{% block titulo %} paliativos {% endblock %}
+{% load static %}
+
+{% block cabecera %} CUIDADOS PALIATIVOS {% endblock %}
+{% block imgCabecera %} <img src="{% static 'img/paliativos.jpg' %}" alt="" class="img-fluid"> {% endblock %}
+
+{% block contenido %}
+
+<div class="row mt-4 jus">
+    <div class="col-md-3">
+        <p><strong>Documentos</strong> </p>
+        <ul>
+            <li><a href="{% url 'guiaSedacionPaliativa' %} "class="text-success", style="text-decoration:none ;" >Guía de sedación paliativa (CM)</a></li>
+        </ul>
+        
+    </div>
+    <div class="col-md-3">
+        <p><strong>Teléfonos</strong> </p>
+        <ul>
+            <li>Carmen: 511 888</li>
+        </ul>
+        
+    </div>
+
+</div>
+
+
+<div class="row align-items-center vertical-align-center text-center py-3 my-3 border" style="background-color:#E2F6F6 ;">
+        
+    <h5 class="text-center pt-2">SEDACIÓN PALIATIVA</h5>
+        
+</div>
+
+<p>Tomar la decisión de sedar a un paciente no es una tarea sencilla para un profesional. Implica reconocer
+    la incapacidad técnica para resolver el sufrimiento de otra forma, decidir disminuir la conciencia de un paciente de forma posiblemente
+    definitiva, enfrentarse a una conversación difícil con el paciente y los familiares, y prescribir medicamentos que pueden
+    tener rangos terapéuticos estrechos en un paciente frágil.</p> 
+<p>Siempre que hay confrontación entre la opinión del
+    paciente o la familia y el criterio del médico en este asunto, está
+    indicada la consulta urgente a un comité de ética asistencial.</p>
+
+<div class="row my-3 border bg-light">    
+    <h6 class="my-2">DEFINICIONES: </h6>    
+</div>
+<div class="row">
+    <p><strong>Consentimiento informado.</strong><br> La obligación del médico de dar al paciente una información clara y
+        comprensible tiene dos excepciones: la voluntad del enfermo de no
+        ser informado y la necesidad terapéutica (cuando el médico dispone
+        de razones objetivas de que la información puede perjudicar al
+        paciente gravemente en su salud). </p>
+    <p><strong>Enfermedad incurable avanzada</strong> <br>Enfermedad de curso gradual y progresivo, sin respuesta a los tratamientos
+        curativos disponibles, que evolucionará hacia la muerte
+        a corto o medio plazo en un contexto de fragilidad y pérdida de
+        autonomía progresivas. Cuando se prevé que ocurra la muerte a corto plazo (días, semanas) suele
+        emplearse también el término de enfermedad o situación terminal.</p>
+    <p><strong>Situación de agonía.</strong> <br> La que precede a la muerte cuando ésta se produce de forma gradual,
+        y en la que existe deterioro físico intenso, debilidad extrema, alta frecuencia
+        de trastornos cognitivos y de la conciencia, dificultad para la
+        relación y la ingesta, con pronóstico de vida en horas o pocos días.</p>
+    <p><strong>Síntoma refractario</strong> <br>Aquel que no puede ser adecuadamente controlado con los tratamientos
+        disponibles, aplicados por médicos expertos, en un plazo
+        de tiempo razonable. En estos casos el alivio del sufrimiento del
+        enfermo requiere la sedación paliativa.</p>
+    <p><strong>Cuidados paliativos.</strong> <br>Los cuidados paliativos afirman la vida y consideran la muerte como
+        un proceso normal; ni aceleran ni retrasan la muerte. Tienen por objeto
+        preservar la mejor calidad de vida posible hasta el final.</p>
+     
+</div>
+<div class="row my-3 border bg-light">    
+    <h6 class="my-2">INDICACIÓN DE LA SEDACIÓN PALIATIVA: </h6>    
+</div>
+<p>Existencia de un sufrimiento intolerable causado por síntomas refractarios.</p>
+
+<div class="row my-3 border bg-light">    
+    <h6 class="my-2">PROCEDIMIENTO: </h6>    
+</div>
+<ol>
+    <li>Asegurarse de que está indicada</li>
+    <li>Consentimiento informado. Hacerlo cuando el paciente aún esté capacitado.</li>
+    <li>Fármacos
+        <ul>
+            <li>Midazolam. Es la primera opción.</li>
+            <li>Neurolepticos: levomepromazina o clorpromacina</li>
+            <li>Otros: fenobarbital o propofol</li>
+        </ul>
+    </li>
+</ol>
+
+<h6><u>MIDAZOLAM</u> </h6>
+<ul>
+    <li>SUBCUTÁNEO
+        <ul>
+            <li><strong>Dosis de inducción</strong> es de 2,5 a 5 mg cada 4 horas vía SC</li>
+            <li>Si existe <strong>tolerancia a benzodiacepinas</strong> la dosis de inducción será de 5 a 10 mg.</li>
+            <li>El inicio de la acción por vía subcutánea requiere de 10 a 15 minutos la vida media del
+            midazolam puede fluctuar entre 2 y 5 horas.</li>
+            <li>Puede repetirse la dosis de rescate tantas veces como se precise hasta alcanzar la sedación</li>
+        </ul>
+    </li>
+    
+    <li>PERFUSIÓN.
+        <ul>
+            <li>La <strong>dosis de inducción</strong> se calcula administrando entre
+                1,5 y 3,5 mg en bolo lento, repitiendo la dosis cada 5 minutos hasta
+                alcanzar el nivel de sedación mínimo con el que se logre el control
+                del síntoma refractario. La suma de las dosis que han sido necesarias
+                se denomina dosis de inducción.</li>
+            <li><strong>Infusión continua.</strong> La dosis de inducción multiplicada por 6 será la dosis a administrar en infusión continua
+                durante las siguientes 24 horas</li>
+            <li><strong>Dosis de rescate. </strong>Las dosis de rescate serán las mismas que la dosis de inducción y se añadirán tantas veces como
+                sean precisas. </li>
+        </ul>
+    </li>
+</ul>
+<h6><u>LEVOPROMAZINA</u> </h6>
+<ul>
+    <li>SUBCUTÁNEO
+        <ul>
+            <li><strong>Dosis iniciales.</strong> De 12,5 a 25 mg cada 6 a 8 horas.</li>
+            <li><strong>Dosis diaria de infusión continua.</strong> Suma de las dosis administradas en las
+                primeras 24 horas, siendo habitualmente esta dosis de aproximadamente 100 mg diarios.</li>            
+        </ul>
+    </li>
+</ul>
+<h6><u>CLORPROMAZINA</u> </h6>
+<ul>
+    <li>INTRAVENOSA
+        <ul>
+            <li><strong>Dosis inciales.</strong> De 12,5 a 25 mg cada 6 a 8 horas.</li>
+            <li><strong>Dosis de mantenimiento.</strong> 12,5 a 50 mg cada 6 a 8 horas</li>
+            <li><strong>Dosis techo. </strong> 300 mg diarios </li>
+        </ul>
+    </li>
+    <li>Está contraindicada la administración de clorpromazina por vía subcutánea</li>
+    pág 25
+</ul>
+
+
+{% endblock %}

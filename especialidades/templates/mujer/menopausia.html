@@ -1,0 +1,157 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <title> menopausia </title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS v5.0.2 -->
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'librerias/jquery-ui-1.13.1.custom/jquery-ui.min.css' %}">
+        <script src="{% static 'librerias/jquery-ui-1.13.1.custom/jquery-ui.min.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    </head>
+    <body>
+        <header>
+            <div class="row align-items-center justify-content-center" id="logotipo">
+                <div class="col-md-2 ">
+                    <figure>
+                        
+                        <img src="{% static 'img/logo.png' %}" alt="" class="img-fluid">
+                    </figure>
+                </div>
+                <div class="col-md-7 text-center ">
+                    <h1>Menopausia</h1>
+                </div>
+                <div class="col-md-2 text-center ">
+                    <img src="{% static 'img/menopausia.webp' %}" alt="" class="img-fluid">
+                </div>
+                
+                
+                
+            </div>           
+            
+        </header>
+        
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark mt-1 px-3">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="{% url 'inicio' %}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+                    <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+                    </svg>
+                 Inicio
+                </a>
+              <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                  
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'inicioEspecialidades' %}">Especialidades</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'mujer' %}">Mujer</a>
+                  </li>              
+                  
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#fases" style="color:orange ;">Fases Climaterio</a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#sintomas" style="color:orange ;">Síntomas</a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#THS" style="color:orange ;">Terapia hormonal sustitutiva</a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'osteoporosis' %}" style="color:orange ;">Osteoporosis</a>
+                  </li>
+                  
+                  
+                </ul>
+              </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="row mt-5">
+                <p>La función ovárica cesa de una manera progresiva y paulatina. Se produce una deficiencia de hormonas sexuales, estrógenos y progestágenos, y la aparición de una serie de síntomas ligados a esa deficiencia hormonal.</p>
+                <p><strong>Climaterio.</strong> Es el periodo de transición desde la etapa reproductiva hasta la no reproductiva. Abarca, aproximadamente, desde un año antes (cuando comienzan a presentarse cambios hormonales y físicos) hasta otro después de la menopausia.</p>
+                <p><strong>Menopausia.</strong> Cese permanente de la menstruación, determinado de manera retrospectiva, después de 12 meses consecutivos de amenorrea, sin causas patológicas. Actualmente la edad media de presentación se establece en 48,5 +/- 3,8.</p> 
+                <p>La menopausia natural es consecuencia de la atresia total de los folículos ováricos. El cese de la actividad endocrina del ovario es progresivo, produciéndose una alteración de los niveles de hormonas del eje hipotálamo-hipófisis-ovario.</p>
+                <div class="row">
+                    <table class="table table-striped mx-2 border">
+                        
+                        <tr class="table-success ">
+                            <th class="border border-dark"></th>
+                            <th class="border border-dark">Estrógenos</th>
+                            <th class="border border-dark">FSH</th>
+                            <th class="border border-dark">LH</th>
+                            <th class="border border-dark">Ciclos menstruales</th>
+                                            
+                        </tr>
+                        <tr>
+                            <th class="border border-dark">Fase I</th>                
+                            <td class="border border-dark">Normal o &#8595;</td>
+                            <td class="border border-dark">&#8593;</td>
+                            <td class="border border-dark">Normal</td>
+                            <td class="border border-dark">Ciclos cortos</td>
+                        </tr>
+                        <tr>
+                            <th class="border border-dark">Fase II</th>                
+                            <td class="border border-dark">&#8595; &#8595;</td>
+                            <td class="border border-dark">&#8593; &#8593;</td>
+                            <td class="border border-dark">&#8595;</td>
+                            <td class="border border-dark">Amenorrea / hipermenorrea</td>
+                        </tr>
+                        <tr>
+                            <th class="border border-dark">Fase III</th>                
+                            <td class="border border-dark">&#8595; &#8595; &#8595; </td>
+                            <td class="border border-dark">&#8593; &#8593; &#8593;</td>
+                            <td class="border border-dark">FSH / LH > 1</td>
+                            <td class="border border-dark">Amenorrea</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="row align-items-center vertical-align-center text-center my-3 ">
+                <h3 class="text-center " id="fases">FASES DEL CLIMATERIO</h3>
+                <hr>    
+            </div>
+            <div>
+                <ul>
+                    <li><strong>Premenopausia.</strong> 2-8 años. Trastornos del ciclo</li>
+                    <li><strong>Menopausia.</strong> 50 +/- 2 años. Precoz < 40 años. Tardía > 55 años. Deben pasar al menos12 meses para poder definirla</40></li>
+                    <li><strong>Postmenopausia.</strong> 1-6 años</li>
+                    <li><strong>Perimenopausia.</strong> Época con síntomas. Desde 2-4 años antes hasta un año después.</li>
+                </ul>
+            </div>
+            <div class="row align-items-center vertical-align-center text-center my-3 ">
+                <h3 class="text-center " id="sintomas">MOTIVOS DE CONSULTA</h3>
+                <hr>    
+            </div>
+            <p>Los síntomas que se relacionan directamente con la menopausia, y son consecuencia del descenso de estrógenos son:</p>
+            <div>
+                <ul>
+                    <li>Síntomas vasomotores. La terapia hormonal (TH) de estrógenos con o sin gestágenos es eficaz para el control.</li>
+                    <li>Atrofia genitourinaria: síntomas vaginales (sequedad, prurito, dispareumia, sangrado postcoital), incontinencia urinaria e infecciones urinarias ITU de repetición.
+                        <ul>
+                            <li><strong>Atrofia vaginal.</strong> Estradiol intravaginal (estradiol 10 mcg 28 cp vaginales (Vagirux)). Dosis: 1 cp/ 24 h durante 2 semanas. Luego 1 cp 2 veces por semana.</li>
+                            <li><strong>Incontinencia urinaria.</strong>No hay evidencia para recomendar uso estrógenos.</li>
+                            <li><strong>ITU de repetición.</strong> No hay datos concluyentes de la eficacia de los estrógenos</li>
+                            <li><strong>Otros.</strong> Ciclos irregulares, sofocos, osteoporosis.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="row align-items-center vertical-align-center text-center my-3 ">
+                <h3 class="text-center " id="THS">TERAPIA HORMONAL SUSTITUTIVA</h3>
+                <hr>    
+            </div>
+            
+        </div>     

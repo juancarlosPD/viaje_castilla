@@ -1,0 +1,47 @@
+{% extends "reumatologia/baseReumatologia.html" %}
+
+{% block titulo %} reumatologia {% endblock %}
+{% load static %}
+
+{% block cabecera %} Reumatologia {% endblock %}
+{% block imgCabecera %} <img src="{% static 'img/reumatologia.jpg' %}" alt="" class="img-fluid"> {% endblock %}
+
+{% block contenido %}
+
+<div class="row justify-content-center">
+    <div class="col-md-6 mt-4 card bg-light">
+        <h4 class="text-center">Comunicación con Reumatologia</h4>
+        <div>
+            <ul>
+                <li>
+                    <a href="mailto:reumatologia.hrs.sspa@juntadeandalucia.es">Email: reumatologia.hrs.sspa@juntadeandalucia.es </a>
+                 </li>
+                <li>Teléfono: 671 568 322 (768322)</li>
+            </ul>
+        </div>
+    </div>
+
+    <hr class="mt-4">
+    
+    <div class="row align-items-center vertical-align-center text-center my-3 ">
+        
+        <h5 class="text-center " id="paratiroides">CRITERIOS DE DERIVACIÓN</h5>
+            
+    </div>
+    <hr>
+    <p>Sería prioritario la valoración de pacientes en base a la presencia de:</p>
+    <div>
+        <ul>
+            <li>Poliartritis Aguda</li>
+            <li>Poliartritis febril</li>
+            <li>Artritis no traumática</li>
+            <li>Artritis en manos con o sin lesiones cutáneas (psoriasis, Raynuad, lesiones vasculíticas,..)</li>
+            <li>Dolor inflamatorio en raquis que no cede a pesar de tratamiento con aines</li>
+            <li>Artralgias con alteraciones analíticas marcadas (VSG, PcR, FR, ANA, B27)</li>
+        </ul>
+    </div>
+    
+</div>
+
+
+{% endblock %}

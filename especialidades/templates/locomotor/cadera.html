@@ -1,0 +1,17 @@
+{% extends "locomotor/baseLocomotor.html" %}
+
+{% block titulo %} cadera {% endblock %}
+{% load static %}
+
+{% block cabecera %} Cadera {% endblock %}
+{% block imgCabecera %} <img src="{% static 'img/cadera.jpg' %}" alt="" class="img-fluid"> {% endblock %}
+
+{% block contenido %}
+
+<div class="row align-items-center vertical-align-center text-center py-5 ">
+    <div class="col-md-3">
+        <a href="{% url 'exploracionCadera' %}" class="text-success", style="text-decoration:none ;">Exploración de la cadera (pdf)</a>
+    </div>
+</div>
+
+{% endblock %}

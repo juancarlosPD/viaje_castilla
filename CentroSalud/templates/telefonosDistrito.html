@@ -1,0 +1,12 @@
+{% extends "baseCentroSalud.html" %}
+{% load static %}
+{% block titulo %} telefonos {% endblock %}
+{% block cabecera %}Teléfonos Distrito{% endblock %}
+{% block imgCabecera %} <img src="{% static 'img/telefono.jpg' %}" alt="" class="img-fluid ">  {% endblock %}
+
+{% block contenido %}
+
+<embed class="mt-5" src="{% static 'doc/telefonosDistrito.pdf' %}" type="application/pdf" width="100%" height="600px" />
+
+
+{% endblock %}

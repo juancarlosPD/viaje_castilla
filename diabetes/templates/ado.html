@@ -1,0 +1,1086 @@
+{% extends "baseDiabetes.html" %}
+{% block titulo %} ADO {% endblock %}
+{% block cabecera %}Antidiabéticos orales {% endblock %}
+{% load static %}
+{% block imgCabecera %} <img src="{% static 'img/ado.png' %}" alt="" class="img-fluid"> {% endblock %}
+
+{% block contenido %}
+<div class="row mt-4">
+    <div class="col-md-3">        
+        <ul>
+            <li><a href="{% url 'palomares' %}"class="text-success", style="text-decoration:none ;" >Esquema fármacos Palomares</a></li>
+        </ul>
+    </div>
+</div>
+<div class="row mt-4 justify-content-between">
+    
+    <div class="col-md-4 border">
+        <p id="inicio"><strong>Sensibilizan a la acción de la insulina</strong> </p>
+        <ul>
+            <li><a href="#metformina" class="text-success" style="text-decoration:none ;" > Metformina</a></li>
+            <li><a href="#pioglitazona" class="text-success" style="text-decoration:none ;"> Pioglitazona</a></li>                        
+        </ul>
+        <p><strong>Aumentan la secrección de insulina</strong> </p>
+        <ul>
+            <li><a href="#sulfonilureas"class="text-success" style="text-decoration:none ;" > Sulfonilureas: </a>Glimepirida, glipizida, gliclazida</li>
+            <li><a href="#repaglinida"class="text-success" style="text-decoration:none ;" > Glinidas: </a>Repaglinida, nateglinida</li>
+            
+                        
+        </ul>
+        
+    </div>
+    <div class="col-md-4 border">
+        <p id="inicio"><strong>Inhibidores de la reabsorción de glucosa</strong> </p>
+        <ul>
+            <li><a href="#iSGLT2" class="text-success" style="text-decoration:none ;" > Inhibidores SGLT-2: </a>Dapagliflozina, Empagliflozina, Canagliflozina, Ertugliflozina </li>
+            <li><a href="#iAG" class="text-success" style="text-decoration:none ;"> Inhibidores Alfa-Glucosidasas: </a>Acarbosa, Miglitol</li>                        
+        </ul>
+        
+        
+    </div>
+    <div class="col-md-4 border">
+        <p><strong>Efecto incretin</strong> </p>
+        <ul>
+            <li><a href="#iDPP4"class="text-success" style="text-decoration:none ;" > Inhibidores DPP4: </a>Sitagliptina, Vildagliptina, 
+                Saxagliptina, Linagliptina, Alogliptina</li>
+            <li><a href="#aGLP1"class="text-success" style="text-decoration:none ;" > Agonistas GLP1: </a>
+                <ul>
+                    <li>Exenatide (Byetta®) cada 12 h,</li>
+                    <li>Lixisenatide (Lyxumia®) cada 24 h,</li>
+                    <li>Liraglutide (Saxenda, Victoza®) cada 24 h,</li>
+                    <li>Semaglutide (Ozempic®) cada 7 días</li>
+                    <li>Dulaglutide (Trulicity®) cada 7 días</li>
+                    <li>Exenatide (Bydureon®) cada 7 días</li>
+                </ul>
+            </li>            
+                        
+        </ul>
+        
+    </div>
+</div>
+
+<div class="container">
+    
+{% comment %} <!----------------------------------------------------------------------------------------------------------------------------->
+<!------------------------SENSIBILIZAN ACCION INSULINA------------------------------------------------------------------------->
+<!-----------------------------------------------------------------------------------------------------------------------------> {% endcomment %}
+
+  
+
+<div class="row my-5 border align-items-center bg-success" style="color:white">      
+            <div class="col-md-6 ">
+                <h3 class="py-3" id="metformina">METFORMINA</h3>
+            </div>
+            <div class="col-md-2 text-center">
+                <span class="bg-success p-1" style="color: white;">Coste < 1 € / día</span>
+            </div>
+            <div class="col-md-2 text-center">
+                <span class="bg-danger p-1" style="color: white;">Baja glicada 1-1,5%</span>
+            </div>
+            <div class="col-md-1 text-center">
+                <img src="{% static 'img/higado.png'%}"  alt="...">
+            </div>
+            <div class="col-md-1 text-center">
+                <a href="#inicio" class="text-danger", style="text-decoration:none ;" >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-reply" viewBox="0 0 16 16">
+                        <path d="M6.598 5.013a.144.144 0 0 1 .202.134V6.3a.5.5 0 0 0 .5.5c.667 0 2.013.005 3.3.822.984.624 1.99 1.76 2.595 3.876-1.02-.983-2.185-1.516-3.205-1.799a8.74 8.74 0 0 0-1.921-.306 7.404 7.404 0 0 0-.798.008h-.013l-.005.001h-.001L7.3 9.9l-.05-.498a.5.5 0 0 0-.45.498v1.153c0 .108-.11.176-.202.134L2.614 8.254a.503.503 0 0 0-.042-.028.147.147 0 0 1 0-.252.499.499 0 0 0 .042-.028l3.984-2.933zM7.8 10.386c.068 0 .143.003.223.006.434.02 1.034.086 1.7.271 1.326.368 2.896 1.202 3.94 3.08a.5.5 0 0 0 .933-.305c-.464-3.71-1.886-5.662-3.46-6.66-1.245-.79-2.527-.942-3.336-.971v-.66a1.144 1.144 0 0 0-1.767-.96l-3.994 2.94a1.147 1.147 0 0 0 0 1.946l3.994 2.94a1.144 1.144 0 0 0 1.767-.96v-.667z"/>
+                    </svg>        
+                </a>
+            </div>
+            
+</div>
+<div class="row">
+    
+    <div class="col-md-3 border my-2">
+        <p><strong> MECANISMO ACCIÓN:</strong></p>
+
+        <ul>
+            <li>&darr; producción hepática glucosa</li>
+            <li>&uarr; captación periférica glucosa</li>
+            <li>&darr; absorción glucosa intestino</li>
+        </ul>
+    </div>
+    <div class="col-md-3 my-2 border">
+        <p><strong> VENTAJAS:</strong></p>
+
+        <ul>
+            <li>Eficacia elevada</li>
+            <li>Reducción ligera de peso</li>
+            <li>No hipoglucemias</li>
+            <li>Bajo coste</li>
+            <li>Reducción de eventos CV</li>
+            <li>Mejoría del perfil lipídico</li>
+        </ul>
+    </div>
+    <div class="col-md-3 border my-2">
+        <p><strong> EFECTOS ADVERSOS:</strong></p>
+
+        <ul>
+            <li>Gastrointestinales (diarrea)</li>
+            <li>Acidosis láctica</li>
+            <li>Malabsorción de B12</li>
+        </ul>
+    </div>
+    <div class="col-md-3 border my-2">
+        <p><strong> RESTRICCIONES DE USO:</strong></p>
+
+        <ul>
+            <li>FG < 30</li>
+            <li>IC descompensada</li>
+            <li>Insf Respiratoria</li>
+            <li>Insf hepática</li>
+            <li>Alcoholismo</li>
+            <li>Contrastes yodados</li>
+        </ul>
+    </div>
+    <div class="col-md-3 border my-2" style="background-color:#FCF3CF ;">
+        <p><strong> DOSIS:</strong></p>
+
+        <ul>
+            <li>Inicio con 500 mg cada 8 -12 horas</li>
+            <li>Dosis máxima 200 mg / 24 h</li>
+            <li>Presentaciones: cp 850 y 1000 mg</li>
+            
+        </ul>
+    </div>
+        
+    <p class="mt-4">Monitorizar la aparición de deficiencia de <strong>vitamina B12</strong> cuando los pacientes son tratados con metformina durante más de cuatro años</p>
+    <p>En pacientes con <strong>FG entre 30 y 40</strong> las complicaciones agudas (diarrea o vómitos intensos, fiebre o reducción de la ingesta de líquidos, uso de
+        contraste yodado o intervención quirúrgica) pueden producir deterioro funcional en la función renal y complicaciones derivadas del acumulo de metformina.</p>
+</div>
+<div class="row mt-4 justify-content-center">   
+    <table class="table table-striped mx-2 border">
+        
+        <tr class="table-success ">
+            <th class="border border-dark"></th>
+            <th class="border border-dark">FG &ge; 90</th>
+            <th class="border border-dark">FG &ge; 60-89</th>
+            <th class="border border-dark">FG &ge; 45-59</th>
+            <th class="border border-dark">FG &ge; 30-44</th>
+            <th class="border border-dark">FG &ge; 15-29</th>
+            <th class="border border-dark">FG &lt; 15</th>
+            
+                            
+        </tr>
+        <tr>
+            <th class="border border-dark">Metformina</th>                
+            <td class="border border-dark">500-850 mg/8-12h</td>
+            <td class="border border-dark" style="background-color:#ABEBC6 ;"> No ajuste </td>
+            <td class="border border-dark" style="background-color:#FCF3CF ;">Dosis max 2000</td>
+            <td class="border border-dark" style="background-color:#FCF3CF ;">No iniciar. Dosis máx 1000</td>
+            <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>
+            <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>                              
+        </tr>
+    </table>
+</div>
+
+<div class="row my-5 border align-items-center bg-success" style="color:white">      
+    <div class="col-md-5 ">
+        <h3 class="py-3" id="pioglitazona">PIOGLITAZONA</h3>
+    </div>
+    <div class="col-md-2 text-center">
+        <span class="bg-success p-1" style="color: white;">Coste < 1 € / día</span>
+    </div>
+    <div class="col-md-2 text-center">
+        <span class="bg-danger p-1" style="color: white;">Baja glicada 0,5-1,5%</span>
+    </div>
+    <div class="col-md-1 text-center">
+        <img src="{% static 'img/musculo.png'%}"  alt="...">
+    </div>
+    <div class="col-md-1 text-center">
+        <img src="{% static 'img/adipocito.png'%}"  alt="...">
+    </div>
+    <div class="col-md-1 text-center">
+        <a href="#inicio" class="text-danger", style="text-decoration:none ;" >
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-reply" viewBox="0 0 16 16">
+                <path d="M6.598 5.013a.144.144 0 0 1 .202.134V6.3a.5.5 0 0 0 .5.5c.667 0 2.013.005 3.3.822.984.624 1.99 1.76 2.595 3.876-1.02-.983-2.185-1.516-3.205-1.799a8.74 8.74 0 0 0-1.921-.306 7.404 7.404 0 0 0-.798.008h-.013l-.005.001h-.001L7.3 9.9l-.05-.498a.5.5 0 0 0-.45.498v1.153c0 .108-.11.176-.202.134L2.614 8.254a.503.503 0 0 0-.042-.028.147.147 0 0 1 0-.252.499.499 0 0 0 .042-.028l3.984-2.933zM7.8 10.386c.068 0 .143.003.223.006.434.02 1.034.086 1.7.271 1.326.368 2.896 1.202 3.94 3.08a.5.5 0 0 0 .933-.305c-.464-3.71-1.886-5.662-3.46-6.66-1.245-.79-2.527-.942-3.336-.971v-.66a1.144 1.144 0 0 0-1.767-.96l-3.994 2.94a1.147 1.147 0 0 0 0 1.946l3.994 2.94a1.144 1.144 0 0 0 1.767-.96v-.667z"/>
+            </svg>        
+        </a>
+    </div>
+    
+</div>
+<div class="row">
+    
+    <div class="col-md-3 border my-2">
+        <p><strong> MECANISMO ACCIÓN:</strong></p>
+        <ul>            
+            <li>&uarr; la sensibilidad a la insulina en músculo y adipocito</li>            
+        </ul>
+    </div>
+    <div class="col-md-3 my-2 border">
+        <p><strong> VENTAJAS:</strong></p>
+
+        <ul>
+            <li>No hipoglucemias</li>
+            <li>Administración única diaria</li>
+            <li>Mejoría del perfil lipídico y otros marcadores de riesgo CV</li>
+            <li>No contraindicadas en Insf renal</li>
+            <li>&darr; incidencia de neoplasias</li>
+        </ul>
+    </div>
+    <div class="col-md-3 border my-2">
+        <p><strong> EFECTOS ADVERSOS:</strong></p>
+
+        <ul>
+            <li>&uarr; de peso y edemas</li>
+            <li>&uarr; riesgo de ICC</li>
+            <li>&uarr; riesgo de fracturas por fragilidad (mujer)</li>
+            <li>&uarr; riesgo de carc. de vejiga ??</li>
+        </ul>
+    </div>
+    <div class="col-md-3 border my-2">
+        <p><strong> RESTRICCIONES DE USO:</strong></p>
+
+        <ul>
+            <li>Insuficiencia cardíaca</li>
+            <li>Antecedentes de edemas</li>
+            <li>Hematuria no diagnosticada</li>
+            
+        </ul>
+    </div>
+    <div class="col-md-3 my-2 border" style="background-color:#FCF3CF ;">
+        <p><strong> DOSIS:</strong></p>
+
+        <ul>
+            <li>Inicio 15-30 mg en una única toma</li>
+            <li>Dosis máxima 45 mg/ 24 h</li>
+            <li>Presentaciones: cp de 15 y 30 mg</li>
+        
+        </ul>
+    </div>
+</div>
+<div class="row mt-4 justify-content-center">   
+    <table class="table table-striped mx-2 border">
+        
+        <tr class="table-success ">
+            <th class="border border-dark"></th>
+            <th class="border border-dark">FG &ge; 90</th>
+            <th class="border border-dark">FG &ge; 60-89</th>
+            <th class="border border-dark">FG &ge; 45-59</th>
+            <th class="border border-dark">FG &ge; 30-44</th>
+            <th class="border border-dark">FG &ge; 15-29</th>
+            <th class="border border-dark">FG &lt; 15</th>
+            
+                            
+        </tr>
+        <tr>
+            <th class="border border-dark">Pioglitazona</th>                
+            <td class="border border-dark">15-30 mg / 24 h</td>
+            <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+            <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+            <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+            <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+            <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>                              
+        </tr>
+    </table>
+</div>
+
+<div class="row my-5 border align-items-center bg-success" style="color:white">      
+    <div class="col-md-6 ">
+        <h3 class="py-3" id="sulfonilureas">SULFONILUREAS</h3>
+    </div>
+    <div class="col-md-2 text-center">
+        <span class="bg-success p-1" style="color: white;">Coste < 1 € / día</span>
+    </div>
+    <div class="col-md-2 text-center">
+        <span class="bg-danger p-1" style="color: white;">Baja glicada 1-2 %</span>
+    </div>
+    <div class="col-md-1 text-center">
+        <img src="{% static 'img/pancreas.png'%}"  alt="...">
+    </div>
+    
+    <div class="col-md-1 text-center">
+        <a href="#inicio" class="text-danger", style="text-decoration:none ;" >
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-reply" viewBox="0 0 16 16">
+                <path d="M6.598 5.013a.144.144 0 0 1 .202.134V6.3a.5.5 0 0 0 .5.5c.667 0 2.013.005 3.3.822.984.624 1.99 1.76 2.595 3.876-1.02-.983-2.185-1.516-3.205-1.799a8.74 8.74 0 0 0-1.921-.306 7.404 7.404 0 0 0-.798.008h-.013l-.005.001h-.001L7.3 9.9l-.05-.498a.5.5 0 0 0-.45.498v1.153c0 .108-.11.176-.202.134L2.614 8.254a.503.503 0 0 0-.042-.028.147.147 0 0 1 0-.252.499.499 0 0 0 .042-.028l3.984-2.933zM7.8 10.386c.068 0 .143.003.223.006.434.02 1.034.086 1.7.271 1.326.368 2.896 1.202 3.94 3.08a.5.5 0 0 0 .933-.305c-.464-3.71-1.886-5.662-3.46-6.66-1.245-.79-2.527-.942-3.336-.971v-.66a1.144 1.144 0 0 0-1.767-.96l-3.994 2.94a1.147 1.147 0 0 0 0 1.946l3.994 2.94a1.144 1.144 0 0 0 1.767-.96v-.667z"/>
+            </svg>        
+        </a>
+    </div>
+    
+</div>
+<div class="row">
+    
+    <div class="col-md-3 border my-2">
+        <p><strong> MECANISMO ACCIÓN:</strong></p>
+        <ul>            
+            <li>&uarr; la secrección de insulina</li>            
+        </ul>
+    </div>
+    <div class="col-md-3 my-2 border">
+        <p><strong> VENTAJAS:</strong></p>
+
+        <ul>
+            <li>Amplia experiencia</li>
+            <li>Bajo coste</li>
+            <li>&darr; los eventos microvasculares</li>            
+        </ul>
+    </div>
+    <div class="col-md-3 border my-2">
+        <p><strong> EFECTOS ADVERSOS:</strong></p>
+
+        <ul>
+            <li>&uarr; de peso</li>
+            <li>Riesgo de hipoglucemias</li>            
+        </ul>
+    </div>
+    <div class="col-md-3 border my-2">
+        <p><strong> RESTRICCIONES DE USO:</strong></p>
+
+        <ul>
+            <li>FG < 45</li>
+            <li>Insuficiencia hepática grave</li>
+            <li>Alergia a sulfamidas</li>
+            
+        </ul>
+    </div>
+    <div class="col-md-6 my-2 border" style="background-color:#FCF3CF ;">
+        <p><strong> DOSIS:</strong></p>
+
+        <ul>
+            <li>Gliclazida 30-120 mg / día. Es la de menor riesgo de hipoglucemia</li>
+            <li>Glimepirida 1-6 mg / día</li>
+            <li>Glipizida 5 mg. Dosis 1-6 cp/24 h</li>
+        
+        </ul>
+    </div>
+</div>
+<div class="row mt-4 justify-content-center">   
+    <table class="table table-striped mx-2 border">
+        
+        <tr class="table-success ">
+            <th class="border border-dark"></th>
+            <th class="border border-dark">FG &ge; 90</th>
+            <th class="border border-dark">FG &ge; 60-89</th>
+            <th class="border border-dark">FG &ge; 45-59</th>
+            <th class="border border-dark">FG &ge; 30-44</th>
+            <th class="border border-dark">FG &ge; 15-29</th>
+            <th class="border border-dark">FG &lt; 15</th>
+            
+                            
+        </tr>
+        <tr>
+            <th class="border border-dark">Gliclazida</th>                
+            <td class="border border-dark">30 mg / 24 h</td>
+            <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+            <td class="border border-dark" style="background-color:#FCF3CF ;">Precaución</td>
+            <td class="border border-dark" style="background-color:#FCF3CF ;">Precaución</td>
+            <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>
+            <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>                              
+        </tr>
+        <tr>
+            <th class="border border-dark">Glipizida</th>                
+            <td class="border border-dark" >5 mg / 24 h</td>
+            <td class="border border-dark" style="background-color:#ABEBC6 ;">Inicio: 2,5 mg/24 h</td>
+            <td class="border border-dark" style="background-color:#FCF3CF ;">Precaución</td>
+            <td class="border border-dark" style="background-color:#FCF3CF ;">Precaución</td>
+            <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>
+            <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>                              
+        </tr>
+        <tr>
+            <th class="border border-dark">Glimepirida</th>                
+            <td class="border border-dark">1 mg / 24 h</td>
+            <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+            <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>
+            <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>
+            <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>
+            <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>                              
+        </tr>
+        <tr>
+            <th class="border border-dark">Glibenclamida</th>                
+            <td class="border border-dark">2,5-5 mg / 24 h</td>
+            <td class="border border-dark" style="background-color:#FCF3CF ;">Precaución</td>
+            <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>
+            <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>
+            <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>
+            <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>                              
+        </tr>
+    </table>
+</div>
+<div class="row my-5 border align-items-center bg-success" style="color:white">      
+    <div class="col-md-6 ">
+        <h3 class="py-3" id="repaglinida">REPAGLINIDA</h3>
+    </div>
+    <div class="col-md-2 text-center">
+        <span class="bg-success p-1" style="color: white;">Coste < 1 € / día</span>
+    </div>
+    <div class="col-md-2 text-center">
+        <span class="bg-danger p-1" style="color: white;">Baja glicada 1-2 %</span>
+    </div>
+    <div class="col-md-1 text-center">
+        <img src="{% static 'img/pancreas.png'%}"  alt="...">
+    </div>
+    
+    <div class="col-md-1 text-center">
+        <a href="#inicio" class="text-danger", style="text-decoration:none ;" >
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-reply" viewBox="0 0 16 16">
+                <path d="M6.598 5.013a.144.144 0 0 1 .202.134V6.3a.5.5 0 0 0 .5.5c.667 0 2.013.005 3.3.822.984.624 1.99 1.76 2.595 3.876-1.02-.983-2.185-1.516-3.205-1.799a8.74 8.74 0 0 0-1.921-.306 7.404 7.404 0 0 0-.798.008h-.013l-.005.001h-.001L7.3 9.9l-.05-.498a.5.5 0 0 0-.45.498v1.153c0 .108-.11.176-.202.134L2.614 8.254a.503.503 0 0 0-.042-.028.147.147 0 0 1 0-.252.499.499 0 0 0 .042-.028l3.984-2.933zM7.8 10.386c.068 0 .143.003.223.006.434.02 1.034.086 1.7.271 1.326.368 2.896 1.202 3.94 3.08a.5.5 0 0 0 .933-.305c-.464-3.71-1.886-5.662-3.46-6.66-1.245-.79-2.527-.942-3.336-.971v-.66a1.144 1.144 0 0 0-1.767-.96l-3.994 2.94a1.147 1.147 0 0 0 0 1.946l3.994 2.94a1.144 1.144 0 0 0 1.767-.96v-.667z"/>
+            </svg>        
+        </a>
+    </div>
+    
+</div>
+<div class="row">
+    
+    <div class="col-md-3 border my-2">
+        <p><strong> MECANISMO ACCIÓN:</strong></p>
+        <ul>            
+            <li>&uarr; la secrección de insulina</li>            
+        </ul>
+    </div>
+    <div class="col-md-3 my-2 border">
+        <p><strong> VENTAJAS:</strong></p>
+
+        <ul>
+            <li>Eficacia elevada</li>
+            <li>Bajo coste</li>
+            <li>No contraindicadas en Insuficiencia renal</li>
+            
+        </ul>
+    </div>
+    <div class="col-md-3 border my-2">
+        <p><strong> EFECTOS ADVERSOS:</strong></p>
+
+        <ul>
+            <li>&uarr; de peso</li>
+            <li>Riesgo de hipoglucemias</li>                        
+        </ul>
+    </div>
+    <div class="col-md-3 border my-2">
+        <p><strong> RESTRICCIONES DE USO:</strong></p>
+
+        <ul>            
+            <li>Hipoglucemia</li>            
+        </ul>
+    </div>
+    <div class="col-md-5 my-2 border" style="background-color:#FCF3CF ;">
+        <p><strong> DOSIS:</strong></p>
+
+        <ul>
+            <li>Inicio 0,5 mg cada 6-8 h (con las comidas principales)</li>
+            <li>Dosis máxima 4 mg por comida</li>
+            <li>Presentaciones: cp de 0,5-1-y 2 mg</li>
+        
+        </ul>
+    </div>
+</div>
+<div class="row mt-4 justify-content-center">   
+    <table class="table table-striped mx-2 border">
+        
+        <tr class="table-success ">
+            <th class="border border-dark"></th>
+            <th class="border border-dark">FG &ge; 90</th>
+            <th class="border border-dark">FG &ge; 60-89</th>
+            <th class="border border-dark">FG &ge; 45-59</th>
+            <th class="border border-dark">FG &ge; 30-44</th>
+            <th class="border border-dark">FG &ge; 15-29</th>
+            <th class="border border-dark">FG &lt; 15</th>
+            
+                            
+        </tr>
+        <tr>
+            <th class="border border-dark">Repaglinida</th>                
+            <td class="border border-dark">0,5-1 mg/8 h</td>
+            <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+            <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+            <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+            <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+            <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>                              
+        </tr>
+        
+    </table>
+</div>
+
+    <div class="row my-5 border align-items-center bg-success" style="color:white">      
+        <div class="col-md-5 ">
+            <h3 class="py-3" id="iDPP4">INHIBIDORES DPP4</h3>
+        </div>
+        <div class="col-md-2 text-center">
+            <span class="bg-success p-1" style="color: white;">Coste 1-2,5 € / día</span>
+        </div>
+        <div class="col-md-2 text-center">
+            <span class="bg-danger p-1" style="color: white;">Baja glicada 0,5-0,7 %</span>
+        </div>
+        <div class="col-md-1 text-center">
+            <img src="{% static 'img/pancreas.png'%}"  alt="...">
+        </div>
+        <div class="col-md-1 text-center">
+            <img src="{% static 'img/gastrico.png'%}"  alt="...">
+        </div>
+        <div class="col-md-1 text-center">
+            <a href="#inicio" class="text-danger", style="text-decoration:none ;" >
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-reply" viewBox="0 0 16 16">
+                    <path d="M6.598 5.013a.144.144 0 0 1 .202.134V6.3a.5.5 0 0 0 .5.5c.667 0 2.013.005 3.3.822.984.624 1.99 1.76 2.595 3.876-1.02-.983-2.185-1.516-3.205-1.799a8.74 8.74 0 0 0-1.921-.306 7.404 7.404 0 0 0-.798.008h-.013l-.005.001h-.001L7.3 9.9l-.05-.498a.5.5 0 0 0-.45.498v1.153c0 .108-.11.176-.202.134L2.614 8.254a.503.503 0 0 0-.042-.028.147.147 0 0 1 0-.252.499.499 0 0 0 .042-.028l3.984-2.933zM7.8 10.386c.068 0 .143.003.223.006.434.02 1.034.086 1.7.271 1.326.368 2.896 1.202 3.94 3.08a.5.5 0 0 0 .933-.305c-.464-3.71-1.886-5.662-3.46-6.66-1.245-.79-2.527-.942-3.336-.971v-.66a1.144 1.144 0 0 0-1.767-.96l-3.994 2.94a1.147 1.147 0 0 0 0 1.946l3.994 2.94a1.144 1.144 0 0 0 1.767-.96v-.667z"/>
+                </svg>        
+            </a>
+        </div>
+        
+    </div>
+    <div class="row">
+    
+        <div class="col-md-3 border my-2">
+            <p><strong> MECANISMO DE ACCIÓN:</strong></p>
+            <ul>            
+                <li>&uarr; secrección insulina</li>
+                <li>&darr; secrección glucagón</li>
+                <li>&uarr; tiempo vaciado gástrico</li>            
+            </ul>
+        </div>
+        <div class="col-md-3 my-2 border">
+            <p><strong>VENTAJAS:</strong></p>
+    
+            <ul>
+                <li>No hipoglucemia</li>
+                <li>No incremento de peso</li>                        
+            </ul>
+        </div>
+        <div class="col-md-3 border my-2">
+            <p><strong> EFECTOS ADVERSOS:</strong></p>
+    
+            <ul>
+                <li>Aumento de riesgo de IC (saxagliptina).</li>                
+            </ul>
+        </div>
+        <div class="col-md-3 border my-2">
+            <p><strong> RESTRICCIONES DE USO:</strong></p>
+            <ul  class="">
+                <li>IC (saxagliptina)</li>
+                <li>Ajuste de dosis en IR excepto linagliptina</li>
+                <li>No asociar con arGLP-1 (redundancia terapéutica).</li>
+                <li>Pancreatitis</li>                
+            </ul>
+        </div>
+    </div>
+    <div class="row mt-4 justify-content-center">   
+        <table class="table table-striped mx-2 border">
+            
+            <tr class="table-success ">
+                <th class="border border-dark"></th>
+                <th class="border border-dark">FG &ge; 90</th>
+                <th class="border border-dark">FG &ge; 60-89</th>
+                <th class="border border-dark">FG &ge; 45-59</th>
+                <th class="border border-dark">FG &ge; 30-44</th>
+                <th class="border border-dark">FG &ge; 15-29</th>
+                <th class="border border-dark">FG &lt; 15</th>
+                
+                                
+            </tr>
+            <tr>
+                <th class="border border-dark" >Linagliptina</th>                
+                <td class="border border-dark" >5 mg / 24 h</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>                              
+            </tr>
+            <tr>
+                <th class="border border-dark">Sitagliptina</th>                
+                <td class="border border-dark">100 mg / 24 h</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#FCF3CF ;">50 mg / 24 h</td>
+                <td class="border border-dark" style="background-color:#FCF3CF ;">25 mg / 24 h</td>
+                <td class="border border-dark" style="background-color:#FCF3CF ;">25 mg / 24 h</td>                              
+            </tr>
+            <tr>
+                <th class="border border-dark">Vildagliptina</th>                
+                <td class="border border-dark">50 mg / 12 h</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#FCF3CF ;">50 mg / 24 h</td>
+                <td class="border border-dark" style="background-color:#FCF3CF ;">50 mg / 24 h</td>
+                <td class="border border-dark" style="background-color:#FCF3CF ;">50 mg / 24 h</td>
+                <td class="border border-dark" style="background-color:#FCF3CF ;">50 mg / 24 h</td>                              
+            </tr>
+            <tr>
+                <th class="border border-dark">Saxagliptina</th>                
+                <td class="border border-dark">5 mg / 24 h</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#FCF3CF ;">5 mg / 24 h. Precaución.</td>
+                <td class="border border-dark" style="background-color:#FCF3CF ;">2,5 mg / 24 h</td>
+                <td class="border border-dark" style="background-color:#FCF3CF ;">2,5 mg / 24 h</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>                              
+            </tr>
+            <tr>
+                <th class="border border-dark">Alogliptina</th>                
+                <td class="border border-dark">25 mg / 24 h</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">Si FG < 50: 12,5 mg / 24 h</td>
+                <td class="border border-dark" style="background-color:#FCF3CF ;">12,5 mg / 24 h</td>
+                <td class="border border-dark" style="background-color:#FCF3CF ;">6,25 mg / 24 h</td>
+                <td class="border border-dark" style="background-color:#FCF3CF ;">6,25 mg/24h ??</td>                              
+            </tr>
+        </table>
+    </div>
+
+    <div class="row my-5 border align-items-center bg-success" style="color:white">      
+        <div class="col-md-4 ">
+            <h3 class="py-3" id="aGLP1">AGONISTAS GLP1</h3>
+        </div>
+        <div class="col-md-2 text-center">
+            <span class="bg-success p-1" style="color: white;">Coste > 4€/día</span>
+        </div>
+        <div class="col-md-2 text-center">
+            <span class="bg-danger p-1" style="color: white;">Baja glicada 1-1,5 %</span>
+        </div>
+        <div class="col-md-1 text-center">
+            <img src="{% static 'img/cerebro.png'%}"  alt="...">
+        </div>
+        <div class="col-md-1 text-center">
+            <img src="{% static 'img/pancreas.png'%}"  alt="...">
+        </div>
+        <div class="col-md-1 text-center">
+            <img src="{% static 'img/gastrico.png'%}"  alt="...">
+        </div>
+        <div class="col-md-1 text-center">
+            <a href="#inicio" class="text-danger", style="text-decoration:none ;" >
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-reply" viewBox="0 0 16 16">
+                    <path d="M6.598 5.013a.144.144 0 0 1 .202.134V6.3a.5.5 0 0 0 .5.5c.667 0 2.013.005 3.3.822.984.624 1.99 1.76 2.595 3.876-1.02-.983-2.185-1.516-3.205-1.799a8.74 8.74 0 0 0-1.921-.306 7.404 7.404 0 0 0-.798.008h-.013l-.005.001h-.001L7.3 9.9l-.05-.498a.5.5 0 0 0-.45.498v1.153c0 .108-.11.176-.202.134L2.614 8.254a.503.503 0 0 0-.042-.028.147.147 0 0 1 0-.252.499.499 0 0 0 .042-.028l3.984-2.933zM7.8 10.386c.068 0 .143.003.223.006.434.02 1.034.086 1.7.271 1.326.368 2.896 1.202 3.94 3.08a.5.5 0 0 0 .933-.305c-.464-3.71-1.886-5.662-3.46-6.66-1.245-.79-2.527-.942-3.336-.971v-.66a1.144 1.144 0 0 0-1.767-.96l-3.994 2.94a1.147 1.147 0 0 0 0 1.946l3.994 2.94a1.144 1.144 0 0 0 1.767-.96v-.667z"/>
+                </svg>        
+            </a>
+        </div>
+        
+    </div>
+    <div class="row">
+    
+        <div class="col-md-3 border my-2">
+            <p><strong> MECANISMO ACCIÓN:</strong></p>
+            <ul>            
+                <li>&uarr; secrección insulina</li>
+                <li>&darr; secrección glucagón</li>
+                <li>&uarr; tiempo vaciado gástrico</li>
+                <li>Anorexígeno</li>            
+            </ul>
+        </div>
+        <div class="col-md-3 my-2 border">
+            <p><strong> VENTAJAS:</strong></p>
+    
+            <ul>
+                <li>Eficacia elavada</li>
+                <li>No hipoglucemia</li>
+                <li>Reducción de peso, TA y lípidos</li>
+                <li>Beneficios CV</li>
+                               
+                
+            </ul>
+        </div>
+        
+        <div class="col-md-3 border my-2">
+            <p><strong> EFECTOS ADVERSOS:</strong></p>
+    
+            <ul>
+                <li>Gastrointestinales (diarrea, náuseas y vómitos).</li>
+                
+            </ul>
+        </div>
+        <div class="col-md-3 border my-2">
+            <p><strong> RESTRICCIONES DE USO:</strong></p>
+    
+            <ul>
+                <li>No financiado para IMC < 30</li>
+                <li>Pancreatitis</li>
+                <li>No asociar con iDPP-4 (redundancia terapéutica).</li>                
+            </ul>
+        </div>
+        <div class="col-md-6 border my-2">
+            <p><strong> FÁRMACOS DE ELECCIÓN:</strong></p>
+            <ul  class="">
+                <li><strong>Prevención primaria:</strong> dulaglutida.</li>
+                <li><strong>Prevención secundaria:</strong> semaglutida SC, liraglutida y dulaglutida.</li>
+                <li><strong>Para la pérdida de peso:</strong> semaglutida > liraglutida > dulaglutida > exenatida > lixisenatida.</li>
+                
+            </ul>
+        </div>
+    </div>
+    <div class="row mt-4 justify-content-center">   
+        <table class="table table-striped mx-2 border">
+            
+            <tr class="table-success ">
+                <th class="border border-dark"></th>
+                <th class="border border-dark">FG &ge; 90</th>
+                <th class="border border-dark">FG &ge; 60-89</th>
+                <th class="border border-dark">FG &ge; 45-59</th>
+                <th class="border border-dark">FG &ge; 30-44</th>
+                <th class="border border-dark">FG &ge; 15-29</th>
+                <th class="border border-dark">FG &lt; 15</th>
+                
+                                
+            </tr>
+            <tr>
+                <th class="border border-dark" id="dulaglutida">Dulaglutida (Trulicity)</th>                
+                <td class="border border-dark"><ul>
+                    <li>Inicio: 0,75 mg semanal</li>
+                    <li>Mantenimiento: 0,75 mg semanal </li>
+                </ul></td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>                              
+            </tr>
+            <tr>
+                <th class="border border-dark">Exenatida (Byetta)</th>                
+                <td class="border border-dark"><ul>
+                    <li>Inicio: 5µ / 12 h (1 mes)</li>
+                    <li>Mantenimiento: 10µ /12 h</li>
+                </ul></td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">Poca experiencia</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>                              
+            </tr>
+            <tr>
+                <th class="border border-dark">Exenatida Lar (Bydureon)</th>                
+                <td class="border border-dark"><ul>
+                    <li>Inicio: 2 mg /semana</li>
+                    <li>Mantenimiento: 2 mg /semana</li>
+                </ul></td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>                              
+            </tr>
+            <tr>
+                <th class="border border-dark">Liraglutida (Saxenda, Victoza)</th>                
+                <td class="border border-dark"><ul>
+                    <li>Inicio: 0.6 mg/24 h (7 días)</li>
+                    <li>Mantenimiento: 1.2 mg/24 h</li>
+                    <li>Máximo: 1.8 mg / 24 h</li>
+                </ul></td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>                               
+            </tr>
+            <tr>
+                <th class="border border-dark">Lixisenatida (Lyxumia)</th>                
+                <td class="border border-dark"><ul>
+                    <li>Inicio: 10 µ / 24 h / 14 días</li>
+                    <li>Mantenimiento: 20 µ  24 h </li>
+                </ul></td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>                              
+            </tr>
+
+            <tr>
+                <th class="border border-dark">Semaglutida oral (Rybelsus)</th>                
+                <td class="border border-dark">
+                    <ul>
+                        <li>Inicio: 3 mg/24 h durante 1 mes</li>
+                        <li>Dosis media: 7 mg / 24 h</li>
+                        <li>Dosis máxima: 14 mg/ 24 h</li>
+                    </ul>          
+                </td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">
+                    <ul>
+                        No ajuste
+                        
+                    </ul></td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;"><ul>
+                    No ajuste
+                    
+                </ul></td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;"><ul>
+                    No ajuste
+                    
+                </ul></td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">Poca experiencia</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>                              
+            </tr>
+            <tr>
+                <th class="border border-dark">Semaglutida (Ozempic)</th>                
+                <td class="border border-dark">
+                    <ul>
+                        <li>Inicio: 0.25 semanal (4 semanas)</li>
+                        <li>Dosis media: 0,5 semanal</li>
+                        <li>Dosis máxima: 1 mg semanal</li>
+                    </ul>          
+                </td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">
+                    <ul>
+                        <li>No ajuste</li>
+                        <li>Dosis máxima: 0,5 semanal</li>
+                    </ul></td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;"><ul>
+                    <li>No ajuste</li>
+                    <li>Dosis máxima: 0,5 semanal</li>
+                </ul></td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;"><ul>
+                    <li>No ajuste</li>
+                    <li>Dosis máxima: 0,5 semanal</li>
+                </ul></td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">Poca experiencia</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>                              
+            </tr>
+                        
+        </table>
+    </div>
+
+    <div class="row my-5 border align-items-center bg-success" style="color:white">      
+        <div class="col-md-6 ">
+            <h3 class="py-3" id="iSGLT2">INHIBIDORES SGLT2</h3>
+        </div>
+        <div class="col-md-2 text-center">
+            <span class="bg-success p-1" style="color: white;">Coste 1-2.5 €/día</span>
+        </div>
+        <div class="col-md-2 text-center">
+            <span class="bg-danger p-1" style="color: white;">Baja glicada 0.5-0.8 %</span>
+        </div>
+        <div class="col-md-1 text-center">
+            <img src="{% static 'img/rignon.png'%}"  alt="...">
+        </div>
+        
+        <div class="col-md-1 text-center">
+            <a href="#inicio" class="text-danger", style="text-decoration:none ;" >
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-reply" viewBox="0 0 16 16">
+                    <path d="M6.598 5.013a.144.144 0 0 1 .202.134V6.3a.5.5 0 0 0 .5.5c.667 0 2.013.005 3.3.822.984.624 1.99 1.76 2.595 3.876-1.02-.983-2.185-1.516-3.205-1.799a8.74 8.74 0 0 0-1.921-.306 7.404 7.404 0 0 0-.798.008h-.013l-.005.001h-.001L7.3 9.9l-.05-.498a.5.5 0 0 0-.45.498v1.153c0 .108-.11.176-.202.134L2.614 8.254a.503.503 0 0 0-.042-.028.147.147 0 0 1 0-.252.499.499 0 0 0 .042-.028l3.984-2.933zM7.8 10.386c.068 0 .143.003.223.006.434.02 1.034.086 1.7.271 1.326.368 2.896 1.202 3.94 3.08a.5.5 0 0 0 .933-.305c-.464-3.71-1.886-5.662-3.46-6.66-1.245-.79-2.527-.942-3.336-.971v-.66a1.144 1.144 0 0 0-1.767-.96l-3.994 2.94a1.147 1.147 0 0 0 0 1.946l3.994 2.94a1.144 1.144 0 0 0 1.767-.96v-.667z"/>
+                </svg>        
+            </a>
+        </div>
+        
+    </div>
+    <div class="row">
+    
+        <div class="col-md-3 border my-2">
+            <p><strong> MECANISMO ACCIÓN:</strong></p>
+            <ul>            
+                <li>&darr; reabsorción renal de glucosa</li>
+                            
+            </ul>
+        </div>
+        <div class="col-md-3 my-2 border">
+            <p><strong> VENTAJAS:</strong></p>
+    
+            <ul>
+                <li>No hipoglucemias</li>
+                <li>Reducción de peso, presión arterial y ácido úrico.</li>
+                <li>Beneficios CV, IC y renales. </li>       
+            </ul>
+        </div>
+        <div class="col-md-3 border my-2">
+            <p><strong> EFECTOS ADVERSOS:</strong></p>
+    
+            <ul>
+                <li>Infecciones genitourinarias de repetición.</li>
+                <li>Hipotensión</li>
+                <li>Riesgo de cetoacidosis diabética (cetoacidosis euglucémica).</li>
+                
+            </ul>
+        </div>
+        <div class="col-md-3 border my-2">
+            <p><strong> RESTRICCIONES DE USO:</strong></p>
+    
+            <ul>
+                <li>Antecedentes de amputación..</li>
+                <li>Hipotensión (precaución)</li>        
+            </ul>
+        </div>
+        <div class="col-md-3 border my-2">FÁRMACOS DE ELECCIÓN:</strong></p>
+            <ul  class="">
+                <li><strong>IC:</strong> dapagliflozina, empagliflozina.</li>
+                <li><strong>ERD:</strong> canagliflozina, dapagliflozina.</li>
+                <li><strong>ECVA:</strong> empagliflozina, canagliflozina.</li>
+                
+            </ul>
+        </div>
+    </div>
+
+    <div class="row mt-4 justify-content-center">   
+        <table class="table table-striped mx-2 border">
+            
+            <tr class="table-success ">
+                <th class="border border-dark"></th>
+                <th class="border border-dark">FG &ge; 90</th>
+                <th class="border border-dark">FG &ge; 60-89</th>
+                <th class="border border-dark">FG &ge; 45-59</th>
+                <th class="border border-dark">FG &ge; 30-44</th>
+                <th class="border border-dark">FG &ge; 15-29</th>
+                <th class="border border-dark">FG &lt; 15</th>
+                
+                                
+            </tr>
+            <tr>
+                <th class="border border-dark">Canagliflozina</th>                
+                <td class="border border-dark" >
+                    <ul>
+                        <li>Inicio: 100 mg / 24 h</li>
+                        <li>Dosis máxima: 300 mg/24 h</li>
+                    </ul>          
+                </td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;"><ul>
+                    <li>Iniciar: 100 mg/ 24 h</li>
+                    <li>Continuar: 100 mg/24 h</li>
+                </ul></td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;"><ul>
+                    <li>Iniciar: 100 mg/ 24 h</li>
+                    <li>Continuar: 100 mg/24 h</li>
+                </ul></td>
+                <td class="border border-dark" style="background-color:#FCF3CF ;"><ul>
+                    <li>No iniciar</li>
+                    <li>Continuar: 100 mg/24 h</li>
+                </ul></td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>                              
+            </tr>
+            <tr>
+                <th class="border border-dark">Empagliflozina</th>                
+                <td class="border border-dark">
+                    <ul>
+                        <li>Inicio: 10 mg / 24 h</li>
+                        <li>Dosis máxima: 25 mg/24 h</li>
+                    </ul>          
+                </td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;"><ul>
+                    <li>Iniciar: 10 mg / 24 h</li>
+                    <li>Continuar: 10 mg/ 24 h</li>
+                </ul></td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;"><ul>
+                    <li>Iniciar: 10 mg / 24 h</li>
+                    <li>Continuar: 10 mg/ 24 h</li>
+                </ul></td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada en FG<30**</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>                              
+            </tr>
+            <tr>
+                <th class="border border-dark">Ertugliflozina</th>                
+                <td class="border border-dark">
+                    <ul>
+                        <li>Inicio: 5 mg / 24 h</li>
+                        <li>Dosis máxima: 15 mg/24 h</li>
+                    </ul>          
+                </td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#FCF3CF ;">
+                    <ul>
+                        <li>Inicio: 5 mg</li>
+                        <li>Dosis máxima: 15 mg/24 h</li>
+                    </ul>
+                    
+                </td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada en FG < 45</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>                              
+            </tr>
+            <tr>
+                <th class="border border-dark">Dapagliflozina</th>                
+                <td class="border border-dark">
+                    <ul>
+                        <li>Inicio: 10 mg / 24 h</li>
+                        <li>Dosis máxima: 10 mg/24 h</li>
+                    </ul>          
+                </td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste. Eficacia hipoglucemiante limitada</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada en FG < 25</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>                              
+            </tr>
+        </table>
+        <p>** Para tratar la insuficiencia cardiaca puede usarse hasta FG<20.</p>
+    </div>
+        
+    <div class="row my-5 border align-items-center bg-success" style="color:white">      
+        <div class="col-md-6 ">
+            <h3 class="py-3" id="iAG">INHIBIDORES ALFA GLUCOSIDASAS</h3>
+        </div>
+        <div class="col-md-2 text-center">
+            <span class="bg-success p-1" style="color: white;">Coste - €/día</span>
+        </div>
+        <div class="col-md-2 text-center">
+            <span class="bg-danger p-1" style="color: white;">Baja glicada 0.3-0.7 %</span>
+        </div>
+        <div class="col-md-1 text-center">
+            <img src="{% static 'img/intestino.png'%}"  alt="...">
+        </div>
+        
+        <div class="col-md-1 text-center">
+            <a href="#inicio" class="text-danger", style="text-decoration:none ;" >
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-reply" viewBox="0 0 16 16">
+                    <path d="M6.598 5.013a.144.144 0 0 1 .202.134V6.3a.5.5 0 0 0 .5.5c.667 0 2.013.005 3.3.822.984.624 1.99 1.76 2.595 3.876-1.02-.983-2.185-1.516-3.205-1.799a8.74 8.74 0 0 0-1.921-.306 7.404 7.404 0 0 0-.798.008h-.013l-.005.001h-.001L7.3 9.9l-.05-.498a.5.5 0 0 0-.45.498v1.153c0 .108-.11.176-.202.134L2.614 8.254a.503.503 0 0 0-.042-.028.147.147 0 0 1 0-.252.499.499 0 0 0 .042-.028l3.984-2.933zM7.8 10.386c.068 0 .143.003.223.006.434.02 1.034.086 1.7.271 1.326.368 2.896 1.202 3.94 3.08a.5.5 0 0 0 .933-.305c-.464-3.71-1.886-5.662-3.46-6.66-1.245-.79-2.527-.942-3.336-.971v-.66a1.144 1.144 0 0 0-1.767-.96l-3.994 2.94a1.147 1.147 0 0 0 0 1.946l3.994 2.94a1.144 1.144 0 0 0 1.767-.96v-.667z"/>
+                </svg>        
+            </a>
+        </div>
+        
+    </div>
+    
+    <div class="row mt-4 justify-content-center">   
+        <table class="table table-striped mx-2 border">
+            
+            <tr class="table-success ">
+                <th class="border border-dark"></th>
+                <th class="border border-dark">FG &ge; 90</th>
+                <th class="border border-dark">FG &ge; 60-89</th>
+                <th class="border border-dark">FG &ge; 45-59</th>
+                <th class="border border-dark">FG &ge; 30-44</th>
+                <th class="border border-dark">FG &ge; 15-29</th>
+                <th class="border border-dark">FG &lt; 15</th>
+                
+                                
+            </tr>
+            <tr>
+                <th class="border border-dark">Acarbosa</th>                
+                <td class="border border-dark">
+                    <ul>
+                        <li>Inicio: 50 mg / 8 h</li>
+                        Mantenimiento: 100 mg / 8 h
+                        <li>Dosis máxima: 200 mg/ 8 h</li>
+                    </ul>          
+                </td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">CI si FG < 25</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>                              
+            </tr>
+            <tr>
+                <th class="border border-dark">Miglitol</th>                
+                <td class="border border-dark">
+                    <ul>
+                        <li>Inicio: 50 mg / 8 h</li>
+                        Mantenimiento: 100 mg / 8 h
+                        <li>Dosis máxima: 200 mg/ 8 h</li>
+                    </ul>          
+                </td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">CI si FG < 25</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>                              
+            </tr>
+        </table>
+    </div>
+
+
+
+       
+
+    
+
+                
+
+                
+            
+
+    
+
+                
+
+
+                
+        
+        
+        
+       
+
+</div>
+
+{% endblock %}
+
+
+

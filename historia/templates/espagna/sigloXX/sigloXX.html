@@ -1,0 +1,117 @@
+{% extends "bases/basesigloXX.html" %}
+
+{% load static %}
+
+{% block titulo %} siglo xx {% endblock %}
+
+{% block cabecera %} Siglo XX {% endblock %}
+
+{% block imgCabecera %}  {% endblock %}
+
+{% block contenido %}
+
+<div class="row justify-content-center mt-5">
+    <div class="col-8 border-1 rounded my-2 text-center py-4" style="background-color:#E74C3C ; color:white">
+        SIGLO XX
+    </div>
+    
+</div>
+<div class="row justify-content-center">
+    
+    
+</div>
+<div class="row justify-content-center">
+    
+        <div class="col-1 border-1 rounded my-2 text-center " style="background-color:#E74C3C ; color:white">
+            <a href="{% url 'alfonsoXIII' %}" class="text-light", style="text-decoration:none ;">    
+                <div class="row text-center">                                    
+                    <img class="img-fluid mt-4" style="width:135px ; height:125px ;" src="{% static 'images/sigloXX/alfonsoXIII.jpg' %}" alt="">
+                    <figcaption class="text-center mt-3">ALFONSO XIII</figcaption>
+                    <span class="text-center">(1902-1930)</span> 
+                </div>
+            </a>                       
+        </div>
+        <div class="col-1 border-1 rounded my-2 mx-1 text-center " style="background-color:#F39C12 ; color:white">
+            <a href="{% url 'primoRivera' %}" class="text-light", style="text-decoration:none ;">    
+                <div class="row text-center">                                    
+                    <img class="img-fluid mt-4" style="width:135px ; height:125px ;" src="{% static 'images/sigloXX/miguelPrimoRivera.jpg' %}" alt="">
+                    <figcaption class="text-center mt-3">PRIMO RIBERA</figcaption>
+                    <span class="text-center">(1925-1930)</span> 
+                </div>
+            </a>                       
+        </div>
+
+        <div class="col-1 border-1 rounded my-2 mx-1 text-center " style="background-color:#027849 ; color:white">
+            <a href="{% url 'segundaRepublica' %}" class="text-light", style="text-decoration:none ;">    
+                <div class="row text-center">                                    
+                    <img class="img-fluid mt-4" style="width:135px ; height:125px ;"src="{% static 'images/sigloXX/banderaSegundaRepublica.png' %}" alt="">
+                    <figcaption class="text-center mt-3">2ª REPUBLICA</figcaption>
+                    <span class="text-center">(1931-1936)</span> 
+                </div>
+            </a>                       
+        </div>
+        <div class="col-1 border-1 rounded my-2 mx-1 text-center " style="background-color:#590e96 ; color:white">
+            <a href="{% url 'guerraCivil' %}" class="text-light", style="text-decoration:none ;">    
+                <div class="row text-center">                                    
+                    <img class="img-fluid mt-4" style="width:135px ; height:125px ;" src="{% static 'images/sigloXX/caidaMiliciano.jpg' %}" alt="">
+                    <figcaption class="text-center mt-3">GUERRA CIVIL</figcaption>
+                    <span class="text-center">(1936-1939)</span> 
+                </div>
+            </a>                       
+        </div>
+        <div class="col-1 border-1 rounded my-2 mx-1 text-center " style="background-color:#2E86C1  ; color:white">
+            <a href="{% url 'franco' %}" class="text-light", style="text-decoration:none ;">    
+                <div class="row text-center">                                    
+                    <img class="img-fluid mt-4" style="width:135px ; height:125px ;" src="{% static 'images/sigloXX/franco.jpg' %}" alt="">
+                    <figcaption class="text-center mt-3">DICTADURA FRANCO</figcaption>
+                    <span class="text-center">(1939-1975)</span> 
+                </div>
+            </a>                       
+        </div>
+        <div class="col-1 border-1 rounded my-2 mx-1 text-center " style="background-color:#229954  ; color:white">
+            <a href="{% url 'transicion' %}" class="text-light", style="text-decoration:none ;">    
+                <div class="row text-center">                                    
+                    <img class="img-fluid mt-4" style="width:135px ; height:125px ;" src="{% static 'images/sigloXX/juanCarlosI.jpg' %}" alt="">
+                    <figcaption class="text-center mt-3 ">LA TRANSICIÓN.</figcaption>
+                    <span class="text-center">(1975-1982)</span> 
+                </div>
+            </a>                       
+        </div>
+        
+    
+</div>
+
+
+
+
+
+<div class="row  mt-3 justify-content-center text-center">
+    
+    <hr class="my-5">
+    
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <figure>
+                
+                <img class="img-fluid" src="{% static 'images/sigloXIX/resumenXIX1.jpg' %}" alt="">
+                            
+            </figure>
+        </div>
+        <div class="col-md-12">
+            <figure>
+                <img class="img-fluid" src="{% static 'images/sigloXIX/resumenXIX2.jpg' %}" alt="">
+                            
+            </figure>
+        </div>
+        <div class="col-md-12">
+            <figure>
+                <img class="img-fluid" src="{% static 'images/sigloXIX/resumenXIX3.jpg' %}" alt="">
+                            
+            </figure>
+        </div>
+    </div>
+    
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "baseCRUD.html" %}
+{% load static %}
+{% block titulo %} crear paciente {% endblock %}
+{% block cabecera %}Crear paciente {% endblock %}
+{% block imgCabecera %} <img src="{% static 'img/pacientes.jpg' %}" alt="" class="img-fluid">  {% endblock %}
+
+{% block contenido %}
+
+<div class="row justify-content-center">
+    <div class="col-md-5 mt-5">
+        <form action="" method="POST">
+            {% csrf_token %}
+
+            {% if error %}
+                <h2>{{ error }}</h2>
+            {% else %}
+                {{ paciente_form.as_p }}
+            {% endif %}
+            <button type="submit">Crear</button>
+        </form>
+    </div>
+</div>
+
+
+
+{% endblock %}

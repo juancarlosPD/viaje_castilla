@@ -1,0 +1,59 @@
+{% extends "baseCentroSalud.html" %}
+{% load static %}
+{% block titulo %} visados {% endblock %}
+{% block cabecera %} Visados {% endblock %}
+{% block imgCabecera %} <img src="{% static 'img/sello.jpg' %}" alt="" class="img-fluid"> {% endblock %}
+
+{% block contenido %}
+
+<div class="row my-5">
+    <a href="https://www.sspa.juntadeandalucia.es/servicioandaluzdesalud/profesionales/farmacia-y-prestaciones/gestion-de-medicamentos-y-productos-sanitarios" style="text-decoration:none ;" target="_blank">Visados en página web del SAS</a>
+</div>
+<div class="row">
+    <h4>Medicamentos</h4>
+    <div class="col-md-6 border">
+       <div class="row px-2 mb-3 border" style="background-color: rgb(3, 88, 30); color:white">INDICACIONES PARA LAS QUE SE FINANCIAN</div> 
+        <ul >
+            <li><a href="{% url 'visadoDiagnosticoHospitalario' %}" style="text-decoration:none ;" target="_blank">Diagnóstico hospitalario. Diciembre 2022</a></li>
+            <li><a href="{% url 'visadoOtros' %}" style="text-decoration:none ;" target="_blank">Otros medicamentos. Diciembre 2022</a></li>
+            <li><a href="{% url 'visadoCiertasIndicaciones' %}" style="text-decoration:none ;" target="_blank">Medicamentos financiados para ciertas indicaciones. Diciembre 2022</a></li>
+            <li><a href="{% url 'visadoVacunas' %}" style="text-decoration:none ;" target="_blank">Otras vacunas. Diciembre 2022 </a></li>
+            
+        </ul>
+    </div>
+    <div class="col-md-6 border">
+        <div class="row px-2 mb-3 border" style="background-color: rgb(3, 88, 30); color:white">PROTOCOLO DE VISADO DE MEDICAMENTOS</div>         
+        <ul>
+            <li><a href="{% url 'condicionesACO' %}" style="text-decoration:none ;" target="_blank">Condiciones de visado uso ACODs. Enero 2022 </a></li>
+            <li><a href="{% url 'informeACO' %}" style="text-decoration:none ;" target="_blank">Informe visado papel uso ACODs. Enero 2022</a></li>
+            <li><a href="{% url 'condicionesADO' %}" style="text-decoration:none ;" target="_blank">Condiciones de visado uso Antidiabéticos. Enero 2022</a></li>
+            <li><a href="{% url 'informeADO' %}" style="text-decoration:none ;" target="_blank">Informe visado papel uso Antidiabéticos. Enero 2022</a></li>
+            
+        </ul>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <h4>Productos dietéticos</h4>
+    <div class="col-md-6 border">
+       <div class="row px-2 mb-3 border" style="background-color: rgb(3, 88, 30); color:white">INDICACIONES PARA LAS QUE SE FINANCIAN</div> 
+        <ul >
+            <li><a href="{% url 'visadoNutricionEnteral' %}" style="text-decoration:none ;" target="_blank">Protocolo nutrición enteral y productos dietoterápicos. Julio 2022</a></li>
+            
+            
+        </ul>
+    </div>
+    <div class="col-md-6 border">
+        <div class="row px-2 mb-3 border" style="background-color: rgb(3, 88, 30); color:white">HOJA DE SOLICITUD</div>         
+        <ul>
+            <li><a href="{% url 'hojaSolicitudVisadoNutricionEnteral' %}" style="text-decoration:none ;" target="_blank">Hoja solicitud visado nutricion enteral y productos dietoterapicos </a></li>
+            
+            
+        </ul>
+    </div>
+</div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,308 @@
+{% extends "bases/basesigloXX.html" %}
+
+{% load static %}
+
+{% block titulo %} Alfonso XIII {% endblock %}
+{% block cabecera %} Alfonso XIII {% endblock %}
+{% block imgCabecera %} <img src="{% static 'images/sigloXX/alfonsoXIII.jpg' %}" class="card-img-top" alt="..."> {% endblock %}
+
+{% block contenido %}
+
+<div class="row justify-content-center">    
+          
+        <div class="col-2 ">
+            <div class="row border-1 rounded my-2 text-center py-4 mx-1" style="background-color:#E74C3C ; color:white">
+                <a href="#regeneracionismo" style="text-decoration:none ; color: white;" data-bs-toggle="collapse"  aria-expanded="false" aria-controls="revolucionGloriosa">      
+                    <div class="row text-center">                                    
+                        <img class="img-fluid mt-4" style="width:270px ; height:165px ;" src="{% static 'images/sigloXX/joaquinCosta1.jpg' %}" alt="">
+                        <figcaption class="text-center mt-3">REGENERACIONISMO</figcaption>
+                        <span class="text-center">(1902-1914)</span>
+                        <br>
+                        <br>
+                    </div>               
+                </a>
+            </div>
+            <div class="row rounded text-start collapse" id="regeneracionismo">
+                <span><a href="#problemas" class="text-primary d-block ps-4", style="text-decoration:none ;"> Grandes problemas. </a></span>
+                <span><a href="#crisis" class="text-primary d-block ps-4", style="text-decoration:none ;">Crisis de 1905-1906. </a></span>
+                <span><a href="#maura" class="text-primary d-block ps-4", style="text-decoration:none ;">Maura (1907-1909)</a></span>
+                <span><a href="#semanaTragica" class="text-primary d-block ps-4", style="text-decoration:none ;">Semana Trágica</a></span>
+                <span><a href="#canalejas" class="text-primary d-block ps-4", style="text-decoration:none ;">Canalejas (19010-1912)</a></span>
+                <span><a href="#sindicalismo" class="text-primary d-block ps-4", style="text-decoration:none ;">Sindicalismo</a></span>                
+            </div>                        
+        </div>    
+        <div class="col-2 ">
+            <div class="row border-1 rounded my-2 mx-1 text-center py-4 mx-1" style="background-color:#066725 ; color:white">
+                <a href="#crisisParlamentarismo" style="text-decoration:none ; color: white;" data-bs-toggle="collapse"  aria-expanded="false" aria-controls="gobiernoProvisional">   
+                    <div class="row text-center">                                    
+                        <img class="img-fluid mt-4" style="width:270px ; height:165px ;" src="{% static 'images/sigloXX/antonioMaura.jpg' %}" alt="">
+                        <figcaption class="text-center mt-3">CRISIS PARLAMENTARISMO</figcaption>
+                        <span class="text-center">(1914-1923)</span> 
+                    </div>
+                </a>
+            </div>
+            <div class="row rounded text-start  collapse" id="crisisParlamentarismo">
+                <span><a href="#guerraMundial" class="text-primary d-block ps-4", style="text-decoration:none ;">1ª Guerra Mundial</a></span>
+                <span><a href="#crisis17" class="text-primary d-block ps-4", style="text-decoration:none ;">La crisis de 1917</a></span>
+                <span><a href="#inestabilidadPolitica" class="text-primary d-block ps-4", style="text-decoration:none ;">La inestabilidad política</a></span>
+                <span><a href="#conflictividadSocial" class="text-primary d-block ps-4", style="text-decoration:none ;">Conflictividad Social</a></span>
+                <span><a href="#desastreAnnual" class="text-primary d-block ps-4", style="text-decoration:none ;">Desastre de Annual</a></span>
+                                
+            </div>                       
+        </div>
+        
+    
+        <div class="col-2 ">
+            <div class="row border-1 rounded my-2 text-center py-4 mx-1" style="background-color:#590e96 ; color:white">
+                <a href="{% url 'primoRivera' %}" style="text-decoration:none ; color: white;" >      
+                    <div class="row text-center">
+                    <img class="img-fluid mt-4" style="width:270px ; height:165px ;" src="{% static 'images/sigloXX/miguelPrimoRivera.jpg' %}" alt="">
+                    <figcaption class="text-center mt-3">PRIMO RIVERA</figcaption>
+                    <span class="text-center">(1923-1931)</span>
+                    <br>
+                    <br>
+                    </div>        
+                </a> 
+            </div>
+                        
+        </div>        
+    
+
+    
+</div>
+
+<div class="row mt-5" style="background-color:#FDF2E9 ;">
+    <p>El reinado de Alfonso XIII cubre el primer tercio del siglo XX. En él se intentó, por una parte, continuar y renovar la monarquía parlamentaria de la Restauración, pero, por otra parte, se enfrentó a constantes y crecientes problemas (políticos, regional, militar, social…) a los que no logró dar una solución acertada, contribuyendo, con ello, a ir minando poco a poco al propio régimen. La crisis de 1917 pudo haber servido para modernizarlo, en cambio, la solución adoptada consistente en organizar gobiernos de concentración sólo sirvió para alargar su final. El descrédito del sistema sirvió de argumento al general Miguel Primo de Rivera para dar un golpe de Estado en 1923. Recibido con cierta expectación terminó convirtiéndose en otro fracaso. Pero ahora la diferencia es que arrastró también a la Monarquía y el 14 de abril de 1931 se proclamaba la II República. </p>
+</div>
+<p> El reinado de Alfonso XIII comprende dos periodos claramente diferenciados: la crisis del régimen de la Restauración, que culmina en 1923, y la Dictadura del general Primo de Rivera, que puso fin al sistema parlamentario y acabó arrastrando en su fracaso, en 1931, a la propia Monarquía.  </p>
+<div class="row align-items-center vertical-align-center text-center py-3 my-5 border" style="background-color:#E2F6F6 ;">
+        
+    <h5 class="text-center pt-2" id="regeneracionismo">REGENERACIONISMO Y REVISIONISMO POLÍTICO: EVOLUCIÓN POLÍTICA DESDE 1902 A 1914</h5>
+        
+</div>
+<div class="row my-3 border" style="background-color: #FEF5E7 ;">    
+    <h6 class="my-2" id="problemas">Los grandes problemas del país</h6>    
+</div>
+<div class="row">
+    <div class="col-md-10">
+        <ol>
+            <li>Paulatina<strong> descomposición de los dos partidos dinásticos</strong> , provocada por la desaparición de los dirigentes históricos (Cánovas y Sagasta) y las luchas entre sus nuevos líderes por hacerse con el control del partido, tanto entre los conservadores como entre los liberales. Desde 1917, ningún partido era capaz de formar gobierno por sí solo, lo que llevó a recurrir a gobiernos de concentración donde participaban las facciones de los dos partidos del “turno”.</li>
+            <li><strong>Conflictividad social</strong> (incremento de las huelgas). El movimiento obrero va a adquirir una gran fuerza a través de los sindicatos (socialista y anarquista), en los que crece la afiliación. </li>
+            <li><strong>Cuestión religiosa</strong>. Socialistas, republicanos y un sector del partido liberal estaban a favor de limitar el número de congregaciones. La Iglesia católica había experimentado un fuerte avance dese el inicio de la Restauración. En síntesis, frente al resurgimiento del clericalismo se acentuó el anticlericalismo, que fue extendiéndose entre buena parte de la opinión pública urbana, y, sobre todo, entre las clases populares.</li>
+            <li><strong>Problema militar</strong>. La guerra de 1898 había demostrado la necesidad de introducir reformas en las Fuerzas Armadas, en las que sobraban oficiales y jefes y faltaban recursos materiales. A partir de ahora, hay que contar con un estamento militar herido, que atribuía toda la responsabilidad de la derrota a los políticos y que reivindicaba la vuelta al papel protagonista que el Ejército había desempeñado en el siglo XIX. Contra esta visión se enfrentarán sectores antimilitaristas y una prensa crítica que acusaba a los militares de la derrota. </li>
+            <li><strong>Problema regional/nacionalista</strong>. Durante el reinado se van afirmando corrientes autonómicas en Cataluña, País Vasco y Galicia, pero es en Cataluña donde el problema regional adquirirá mayor fuerza influyendo intensamente en la política general del país. Para los políticos conservadores y liberales de Madrid y del resto de España, y desde luego para los militares, nacionalismo equivalía a separatismo y a riesgo de disgregación de la Patria.  </li>
+            
+        </ol>
+    </div>
+    <div class="col-md-2">
+        <figure>
+            <img class="img-fluid" src="{% static 'images/sigloXX/alfonsoXIII1.jpg' %} " alt="">
+            <figcaption class="text-center">Alfonso XIII</figcaption>
+        </figure>
+    </div>
+    <p class="mx-3">6.<strong> Problema de Marruecos.</strong> Tras la derrota del 98, España pudo incorporarse a la etapa final del reparto del continente africano, donde se decidía el futuro colonial de Marruecos. A España se le ofreció la zona norte de Marruecos (el Rif), quedando el resto para Francia. Por fin, en 1912, oficialmente, Francia y España establecieron en Marruecos sus respectivos protectorados. La actuación colonial en Marruecos fue aplaudida por los militares al permitirles restaurar el prestigio perdido tras la crisis del 98; ahora bien, el Rif era un territorio accidentado, de difícil penetración, donde las cabilas o tribus de bereberes mostraban su hostilidad a ser dominadas, lo que obligaba al envío de tropas. El territorio cedido había que conquistarlo por las armas, pero las derrotas militares, que las hubo, repercutieron en la política interior del país provocando crisis de gobierno.</p>
+    <div class="row my-3 border" style="background-color: #FEF5E7 ;">    
+        <h6 class="my-2" id="crisis">La crisis de 1905-1906</h6>    
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <p>Alfonso XIII accedió al trono en 1902 y entre este año y 1905 gobernaron los conservadores, y entre 1905 y 1906 los liberales; no obstante, en estos cinco años hubo cinco gobiernos conservadores y cinco liberales. Este hecho traduce las divisiones internas de ambos partidos, motivadas básicamente por la lucha por el liderazgo. Así, en los comienzos del reinado, debido a esta inestabilidad, se vieron frustradas las tentativas de regeneración de la vida política. Habrá que esperar al gobierno de Maura, que se puso en marcha en 1907, para que los planteamientos regeneracionistas constituyan la base de la política de los gobiernos.  </p>
+    <p>Paralelamente, el catalanismo empezaba a adquirir fuerza política. En 1901, se había fundado la Lliga Regionalista, partido liderado por Prat de la Riba y Francesc Cambó. De ideología conservadora, encontró un fuerte apoyo entre la burguesía catalana. Su crecimiento electoral fue rápido, y en 1905 ganó las elecciones municipales en Barcelona de forma aplastante.  </p>
+    <p>Mientras, las relaciones entre el Ejército y la prensa venían siendo tirantes. Días después de las elecciones municipales se produjo un grave incidente que demostraba la fuerza del poder militar dentro del Estado. En un semanario satírico catalán ¡Cu-cut! se publicó un chiste antimilitarista, considerado ofensivo por muchos militares. Unos trescientos oficiales de la guarnición de Barcelona decidieron vengar lo que consideraban un ataque directo, asaltando y destruyendo las instalaciones del semanario ¡Cu-cut! y el de la Veu de Catalunya, diario cercano a la Lliga Regionalista. Los autores de estos ataques recibieron el apoyo de las guarniciones del resto de España. La protesta fue más allá: el estamento militar exigió al gobierno una ley de jurisdicciones, según la cual los delitos contra el Ejército y la Patria quedarían bajo control de los tribunales militares. El gobierno, entonces liberal, presidido por Segismundo Moret, accedió a ello aprobándose esa ley en 1906. Con ella sufría un retroceso una de las características de la Restauración de Cánovas: la primacía del poder civil sobre el militar.</p>
+        </div>
+        <div class="col-md-4">
+            <figure>
+                <img class="img-fluid" src="{% static 'images/sigloXX/partidos1902.jpg' %} " alt="">
+                <figcaption class="text-center">Partidos políticos entre 1902 y 1923</figcaption>
+            </figure>
+        </div>
+    </div>
+    
+
+    <div class="row my-3 border" style="background-color: #FEF5E7 ;">    
+        <h6 class="my-2" id="maura">El regeneracionismo de Maura (1907-1909) </h6>    
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <p> Entre 1907 y 1912 se van a desarrollar las dos actuaciones del regeneracionismo desde dentro del sistema con la idea de enfrentarse a sus “males”, incorporando reformas políticas y sociales. Dos políticos, el conservador Antonio Maura (1907-1909) y el liberal José Canalejas (1910-1912), fueron los protagonistas de este impulso renovador, que al no verse completado no pudo evitarse el fin del sistema de la Restauración. </p>
+            <p>En enero de 1907 el rey nombró jefe de gobierno a Antonio Maura, ya líder del partido conservador. Sus intentos regeneracionistas quedarían expresados en la frase <i>hagamos la revolución desde arriba o nos la harán desde abajo</i>, con ello dejaba claro que era necesaria una reforma en profundidad de la vida pública y la mejora de las condiciones de vida de las clases populares para evitar cualquier levantamiento popular que hiciera peligrar el sistema.</p>
+            <p>Maura emprendió un ambicioso programa de gobierno con medidas de inversión pública, aprobándose la Ley de Protección de la Industria Nacional. Para atender a las demandas sociales, en 1908 se estableció el Instituto Nacional de Previsión, antecedente de la Seguridad Social. Con anterioridad se había regulado el descanso dominical y la jornada laboral de mujeres y niños. </p>
+            
+            
+        </div>
+        <div class="col-md-2">
+            <figure>
+                <img class="img-fluid" src="{% static 'images/sigloXX/antonioMaura.jpg' %} " alt="">
+                <figcaption class="text-center">Antonio Maura</figcaption>
+            </figure>
+        </div>
+        <p>En el terreno político, Maura quiso acabar con el caciquismo. En esa dirección se aprobó la ley electoral de 1907; no obstante, la ley no pudo “descuajar” el caciquismo, algo tan arraigado en el sistema, pero también se opina que tuvo el efecto positivo de permitir una progresiva independización del electorado. </p>
+        <p>Pero la más ambiciosa reforma de Maura era la nueva Ley de Administración Local, que daba autonomía a los municipios, y por la que se creaban las mancomunidades provinciales, asociaciones regionales de las Diputaciones, un primer paso para un autogobierno regional. Sin embargo, la Ley no terminaba de encajar suficientemente entre los mismos conservadores y liberales. Y seguía sin aprobarse cuando la inesperada Semana Trágica de Barcelona de 1909 va a hacer caer al gobierno Maura.  </p>
+    </div>
+    <div class="row my-3 border" style="background-color: #FEF5E7 ;">    
+        <h6 class="my-2" id="semanaTragica">La Semana Trágica de Barcelona (1909) </h6>    
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <p>En los primeros años del siglo, en Barcelona venía desarrollándose el regionalismo/nacionalismo, el crecimiento de las movilizaciones obreras y el republicanismo entre sectores de la pequeña burguesía y de la clase trabajadora. Entre las fuerzas republicanas destacaba el recién creado Partido Republicano Radical, dirigido por Alejandro Lerroux.  Su programa, con fuerte apoyo electoral en Cataluña, era populista, anticlerical y “españolista”, es decir, anticatalanista</p>
+            <p>Precisamente, en una ciudad donde se respiraba un clima anticlerical y antimilitar, la movilización de los reservistas catalanes provocó la indignación popular. En efecto, la situación de Marruecos y los errores del gobierno van a provocar la crisis, un estallido de violencia, la llamada Semana Trágica de Barcelona.  En julio de 1909, los miembros de algunas cabilas próximas a Melilla atacaron a los trabajadores españoles de una de las compañías mineras. </p>
+            <p>El gobierno Maura decidió enviar al Ejército y aprovechar la ocasión para ensayar el plan de movilización de los reservistas. Ordenó la incorporación de éstos en Madrid y Barcelona. En ambas ciudades se produjeron fuertes protestas y manifestaciones protagonizadas por mujeres y madres de los alistados. En el puerto de Barcelona, durante el embarque, la multitud reunida para despedir a las tropas protestaban con gritos de “tirad los fusiles” y “que vayan los ricos a la guerra”.  </p>
+            
+        
+        </div>
+        <div class="col-md-4">
+            <figure>
+                <img class="img-fluid" src="{% static 'images/sigloXX/semanaTragica.jpg' %} " alt="">
+                <figcaption class="text-center">Semana trágica de Barcelona</figcaption>
+            </figure>
+        </div>
+        <p>El 26 de julio se iniciaba una huelga general en Barcelona, convocada por Solidaridad Obrera, integrada por sociedades obreras anarquistas, y que degeneró en una violenta insurrección revolucionaria, con más de 200 barricadas, paralización de la vida urbana, incendio de más de 50 conventos e iglesias. El paro fue total. El gobierno declaró el estado de guerra, mientras la huelga se extendía a las ciudades industriales vecinas. Entre el 26 de julio y el 1 de agosto se sucedieron asaltos y quemas de conventos, luchas callejeras, incendios y enfrentamientos entre huelguistas y miembros de la policía y el Ejército. Barcelona quedó aislada del exterior. </p>
+        <p>El balance fue de más de un centenar de muertos, numerosos heridos y edificios destruidos. Luego llegaron las detenciones en masa y los juicios. El más grave fue el procesamiento irregular, condena y ejecución del pedagogo y anarquista Francisco Ferrer y Guardia, fundador de la Escuela Moderna. Hoy parece demostrado que no participó en los hechos. Su ejecución se produjo en medio de una oleada de protestas internacionales. </p>
+        <p>Las consecuencias de la Semana Trágica fueron importantes. Provocó la caída de Maura, muy desprestigiado, que perdió el respaldo del rey, dando el gobierno a los liberales. Propició la Conjunción republicano-socialista, una alianza electoral que en 1910 consiguió un gran éxito y otorgó el primer escaño en las Cortes a Pablo Iglesias. También trajo consigo la desaparición de Solidaridad Obrera, pero a cambio se constituirá, en 1910-1911, el sindicato anarquista Confederación Nacional del Trabajo, llamado a tener una gran fuerza en nuestro país</p>
+    </div>
+    <div class="row my-3 border" style="background-color: #FEF5E7 ;">    
+        <h6 class="my-2" id="canalejas">El gobierno Canalejas, último intento regeneracionista (1910-1912).  </h6>    
+    </div>
+    <div class="row">
+        <div class="col-md-10">
+            <p>Entre 1910 y 1912 dirigió el gobierno José Canalejas, líder del partido liberal. Durante su mandato se suprimieron los impopulares consumos, siendo sustituidos por un impuesto progresivo sobre las rentas urbanas; se estableció el servicio militar obligatorio, eliminándose la redención a metálico, no obstante, se introdujo la posibilidad de reducción del servicio militar a cinco o diez meses previo pago, para cada caso, de 2.000 o 1.500 ptas.  </p>
+            <p>En el plano laboral, se reguló el trabajo nocturno femenino. Las Cortes aprobaron también la “ley del candado”, por la que se prohibía durante dos años la instalación de nuevas comunidades religiosas. Se pretendía negociar en ese plazo un acuerdo con el Vaticano, pero nunca llegaría a ultimarse. </p>
+            <p>Sobre la cuestión marroquí pudo darse el paso decisivo hacia el establecimiento del protectorado. Canalejas, en 1911, dio los pasos para la ocupación militar de la zona norte (el Rif), asignada a España para establecer su protectorado. Los límites quedaron definitivamente establecidos en 1912 con la firma con Francia, que correspondió a Romanones al ser asesinado Canalejas, del Tratado que delimitaba las zonas de protectorado franco-español en Marruecos.</p>
+            
+        
+        </div>
+        <div class="col-md-2">
+            <figure>
+                <img class="img-fluid" title="Asesinado en 1912" src="{% static 'images/sigloXX/canalejas.jpg' %} " alt="">
+                <figcaption class="text-center">José Canalejas</figcaption>
+            </figure>
+        </div>
+        <p>En 1912 Canalejas obtenía también otro gran éxito cuando el Congreso aprobó la Ley de Mancomunidades, que permitía un inicio de autogobierno y que satisfacía a una parte de los catalanistas. Pero el jefe de gobierno no llegó a ver aprobada la ley en el Senado: el 12 de noviembre caía asesinado en Madrid por los disparos de un radical anarquista.</p>
+        <p>Con la muerte de Canalejas desaparecería el intento de renovación del país desde la óptica del regeneracionismo, al tiempo que volvía la división al seno del partido liberal (García Prieto o Romanones).</p>
+        <p>Tras un corto gobierno de Romanones, el rey decidió aplicar el “turno”. Llama, en efecto, a los conservadores y tras la negativa de Maura a formar gobierno lo hará otro líder de los conservadores: Eduardo Dato (1913). Con él se aprobaba la Ley de Mancomunidades, a la que se acogió Cataluña (1914). Con ella se permitía establecer un órgano de coordinación de las cuatro Diputaciones provinciales. Su labor fue importante contribuyendo al fomento material y cultural de Cataluña.</p>
+        
+        <div class="row my-3 border" style="background-color: #FEF5E7 ;">    
+            <h6 class="my-2" id="sindicalismo">La evolución de los movimientos sociales: la expansión del sindicalismo. La fundación de la CNT</h6>    
+        </div>
+        <div class="col-md-10">
+            <p>Paralelamente a la coyuntura política, se produce una evolución lenta pero profunda de la economía y de la estructura social, que transforma el modo de vida de las gentes y que va haciendo de España un país muy distinto del que había al iniciarse el siglo. Ahora bien, las diferencias sociales seguían siendo muy llamativas y las condiciones de trabajo mejoraban con lentitud.</p>
+            <p>Los trabajadores tuvieron en el sindicalismo una vía de defensa y de movilización para mejorar sus condiciones de vida. El mundo obrero, siguiendo la línea marcada en la etapa anterior, la Restauración, se fue desarrollando en una doble vertiente. Una, la socialista, por medio de la UGT, con mayor desarrollo en Madrid y en el norte de España (Asturias y Vizcaya). La otra, la anarquista, se reorganizó, a principios del siglo XX, dando lugar al anarcosindicalismo, siendo Cataluña el lugar donde más se extendió. </p>
+        
+        </div>
+
+        <div class="col-md-2">
+            <figure>
+                <img class="img-fluid" src="{% static 'images/sigloXX/cnt.png' %} " alt="">
+                <figcaption class="text-center">Confederación Nacional de Trabajadores</figcaption>
+            </figure>
+        </div>
+        <p>En 1910 los anarcosindicalistas decidieron convocar en Barcelona un Congreso Nacional donde se acordó fundar la Confederación Nacional del Trabajo (CNT), que celebró su primer congreso en Barcelona en 1911. La CNT se declaraba apolítica y renegaba del Estado y de los partidos políticos. Recurría a la acción directa, es decir, entenderse directamente con los patronos al margen del marco legal vigente, sin aceptar la mediación estatal. Propugnaba la huelga como método de acción obrera; la UGT, en cambio, prefería agotar las vías de negociación antes que ir a la huelga.  Teniendo en cuenta que los ugetistas y los cenetistas diferían en métodos y en medios de acción revolucionaria, su actividad marchó en forma paralela y sólo ocasionalmente, como ahora veremos, en forma conjunta (1917-1920). </p>
+        
+    </div>
+
+    <div class="row align-items-center vertical-align-center text-center py-3 my-5 border" style="background-color:#E2F6F6 ;">
+        
+        <h5 class="text-center pt-2" id="regeneracionismo">LA CRISIS DEL PARLAMENTARISMO: EVOLUCIÓN POLÍTICA DESDE 1914 A 1923 </h5>
+            
+    </div>
+    <div class="row my-3 border" style="background-color: #FEF5E7 ;">    
+        <h6 class="my-2" id="guerraMundial"> El impacto de la Primera Guerra Mundial </h6>    
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <p>El estallido de la Primera Guerra Mundial, en agosto de 1914, fue seguido de una <strong>declaración de neutralidad</strong> del gobierno español, encabezado por Eduardo Dato, que obtuvo un respaldo prácticamente generalizado. La neutralidad, sin embargo, no impidió que la opinión pública se dividiera entre <strong>“aliadófilos”</strong> y <strong>“germanófilos”</strong>, ni que el tema se debatiera apasionadamente en las Cortes, la prensa y la calle. Las consecuencias económicas de la Guerra fueron muy importantes. Tras unos meses de recesión, a partir de 1915 se produjo un auténtico boom económico al convertirse España en suministradora de los países en guerra (alimentos, materias primas y productos industriales). </p>
+            <p>La <strong>producción industrial</strong>, por tanto, creció gracias al aumento de la demanda exterior y a la necesidad de sustituir importaciones con producción propia. La doble tendencia (expansión de las exportaciones con la disminución de las importaciones) provocó un cambio en la balanza comercial, con superávit entre 1915 y 1919. </p>
+            
+        </div>
+        <div class="col-md-4">
+            <figure>
+                <img class="img-fluid" src="{% static 'images/sigloXX/primeraGuerraMundial.jpg' %} " alt="">
+                <figcaption class="text-center">1ª Guerra Mundial</figcaption>
+            </figure>
+        </div>
+        <p>En definitiva, se crean o amplían empresas, se obtienen elevados beneficios empresariales, pero la expansión también produjo tensiones sociales. La Guerra, en efecto, con el incremento de las exportaciones y por los problemas para importar productos deficitarios, provocó un desabastecimiento del mercado interior con el consiguiente aumento de los precios, muy fuerte durante 1916, 1917 y 1918. La <strong>conflictividad social</strong>, en consecuencia, se acentuó facilitando el auge del movimiento obrero, reivindicando alzas salariales y la mejora de las condiciones de vida.</p>
+    </div>
+    
+    <div class="row my-3 border" style="background-color: #FEF5E7 ;">    
+        <h6 class="my-2" id="crisis17"> La crisis de 1917 </h6>    
+    </div>
+    <p>La llamada crisis del verano de 1917 puso de golpe sobre la mesa tres graves problemas, que dieron origen a una profunda crisis que amenazó a la misma supervivencia del sistema político de la Restauración. De forma consecutiva, entre los meses de junio y de agosto, sin conexión entre ellas, la primera protesta fue presentada por los militares  (actuación de las Juntas de Defensa), siguió con la protesta de la oposición política (reunión de la Asamblea de Parlamentarios) y acabó con la movilización obrera (convocatoria de huelga general).   </p>
+    <div class="row">
+        <div class="col-3" style="background-color:#F3BF92 ;">Las Juntas de Defensa </div>
+    </div>
+    <div class="row">
+        <div class="col-md-9">
+            <p>A comienzos de 1917 se constituían Juntas de Defensa en buena parte de las guarniciones del país integradas por oficiales de infantería. Se quejaban de cómo los militares con destino en Marruecos ascendían fácilmente; se mostraban en contra del ascenso por méritos de guerra, y a favor de la “escala cerrada” (ascenso por antigüedad); también defendían una subida de los salarios en un momento en que la inflación provocada por la Guerra venía erosionando los sueldos de los funcionarios.</p>
+            <p>El 1 de junio, la Junta de Infantería de Barcelona lanzaba un Manifiesto dirigido a otras guarniciones y que era un ultimátum al gobierno, para que aceptara sus reivindicaciones profesionales y económicas. El gobierno, presidido entonces por el liberal <strong>García Prieto</strong>, terminó dimitiendo, y el rey decidió recurrir al cambio de “turno” llamando a los conservadores con <strong>Dato</strong>. El nuevo gabinete reconoce a las Juntas como órganos representativos del Ejército y negocia con ellas sus reivindicaciones. </p>
+        </div>
+        <div class="col-md-3">
+            <figure>
+                <img class="img-fluid" title="Asesinado en 1921" src="{% static 'images/sigloXX/eduardoDato.jpg' %} " alt="">
+                <figcaption class="text-center">Eduardo Dato</figcaption>
+            </figure>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-3" style="background-color:#F3BF92 ;">La Asamblea de Parlamentarios </div>
+    </div>
+    <div class="row">
+        <div class="col-md-9">
+            <p>El segundo acto de la crisis de 1917 fue la Asamblea de Parlamentarios. Básicamente, resultó un intento por parte de los políticos de la oposición para cambiar el régimen político. </p>
+    <p>Desde febrero de 1917 las Cortes estaban cerradas por miedo a que se planteara el debate sobre los graves problemas por los que atravesaba el país. Cambó, jefe de la Lliga, decidió intervenir pidiendo al gobierno la apertura de las Cortes; en caso de recibir respuesta negativa del gobierno de Dato, había que proceder a convocar una asamblea de parlamentarios. El gobierno no hizo caso a esa petición y el 19 de julio, en Barcelona, se reunía una Asamblea de Parlamentarios de toda España que fue un fracaso. En efecto, de los 760 convocados solo asistieron 71, en su mayoría catalanistas, reformistas, republicanos y el socialista Pablo Iglesias. Sus acuerdos estaban en formar un gobierno provisional y la celebración de Cortes constituyentes. Pero las diferencias eran muchas. No contaban con el apoyo de las fuerzas tradicionales (conservadores y liberales), entre los grupos de izquierda y los catalanistas también había diferencias y las Juntas de Defensa tampoco admitían estas iniciativas. La Guardia Civil, siguiendo las instrucciones del gobierno, disolvió la Asamblea. Pero, sin duda, el miedo a la tercera protesta, la revolución social intentada con la huelga general de agosto, contribuyó a aparcar para otro momento las propuestas rupturistas de la Asamblea de Parlamentarios. Así, la Lliga Regionalista terminó pactando con el gobierno por temor al triunfo de una revolución obrera. </p>
+        </div>
+        <div class="col-md-3">
+            <figure>
+                <img class="img-fluid" src="{% static 'images/sigloXX/cambo.jpg' %} " alt="">
+                <figcaption class="text-center">Francés Cambo</figcaption>
+            </figure>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-3" style="background-color:#F3BF92 ;">La huelga general </div>
+    </div>
+    <p>En 1916 la UGT y la CNT acordaron trabajar juntos para obligar al gobierno a adoptar medidas contra el alza del coste de la vida y concluyeron que la huelga general era el mejor instrumento para presionar sobre ello. Al año siguiente la huelga se convierte en un proyecto revolucionario: en marzo de 1917, en una reunión conjunta de UGT-CNT se acuerda convocar una huelga general indefinida, en el plazo de tres meses, como estrategia para acabar con el régimen. En junio, tras las Juntas de Defensa, valoradas positivamente por las organizaciones obreras, la huelga general se veía como el instrumento para constituir un gobierno provisional, entre republicanos y socialistas, que convocara Cortes constituyentes.</p>
+    <p>Finalmente, se formó el comité de huelga, encargado de fijar su fecha (desde las 0 horas del 13 de agosto) y lanzar un Manifiesto al país, que fue redactado por Julián Besteiro. La huelga, sin embargo, fracasó. El temor a la revolución obrera hizo sus efectos. La Lliga desactivó la Asamblea de Parlamentarios y criticó la huelga. La ilusión de apoyo del Ejército se esfumó cuando los oficiales, al lado del gobierno y de la monarquía, lanzaban sus tropas contra los huelguistas. Madrid, Barcelona, Bilbao, Oviedo, Gijón y otras capitales quedaron paralizadas. El 18 de agosto la huelga estaba sofocada. El gobierno actuó con dureza, con un Ejército que se puso a su servicio. Hubo más de 70 muertos y más de 2.000 detenidos.  </p>
+    pLos sucesos de 1917 enseñaban que los sectores renovadores del país estaban de acuerdo en ir en contra del sistema, pero diferían respecto al contenido de la reforma. Es evidente que el Ejército, los parlamentarios y los obreros carecían de objetivos comunes. El gobierno Dato había triunfado, pero las Juntas de Defensa seguían sin ver satisfechas sus aspiraciones. Por su presión cae el gobierno Dato y nacen, por primera vez, los gobiernos de concentración.
+
+    <div class="row my-3 border" style="background-color: #FEF5E7 ;">    
+        <h6 class="my-2" id="crisis17">  El hundimiento del régimen de la Restauración (1918-1923) </h6>    
+    </div>
+    <p>Tras la crisis de 1917 culminó la descomposición de los partidos dinásticos. El fraccionamiento de ambos partidos dificultó el turno característico del sistema de la Restauración. Paralelamente, las reivindicaciones autonomistas se hicieron cada vez más fuertes mientras la conflictividad social se radicalizó a lo que contribuyó la crisis económica que sacudió a Europa tras la I Guerra Mundial. En este marco, el triunfo de la revolución bolchevique de octubre de 1917 en Rusia se convertía en otro proyecto ilusionante para los grupos revolucionarios, que, a su vez, atemorizaba a las clases medias y adineradas del país. A continuación vino, para cerrar el círculo, el “desastre” de Annual en la guerra de Marruecos, donde más de 13.000 soldados españoles eran masacrados por el líder rifeño Abd-el-Krim. </p>
+    <div class="row">
+        <div class="col-3" id="inestabilidadPolitica" style="background-color:#F3BF92 ;">La inestabilidad política </div>
+    </div>
+    <p>Desde 1918 se inician los gobiernos de concentración que caracterizan el periodo final del régimen, con la presencia de líderes de las distintas facciones en que iban dividiéndose los partidos conservador y liberal. Eran gobiernos inestables; en cinco años se sucedieron 12 gobiernos; de ellos, tres fueron presididos por García Prieto y otros tres por Maura, en los que, la Lliga catalana llegó a entrar en tres de ellos. En concreto, Cambó fue ministro en dos de los gobiernos de Maura. La Lliga abandonaba, pues, claramente, las posturas de izquierda y decidía colaborar en los gobiernos de Alfonso XIII: tras la huelga de 1917, y la permanente agitación social, estaba atemorizada y prefería la tranquilidad.</p>
+    <p>Pero la Lliga, al formar parte de los gobiernos de concentración, provocó, a su vez, una escisión en el nacionalismo catalán, apareciendo grupos a su izquierda. Así, en 1922, nacionalistas más radicales fundaban Acció Catalana. También, en ese año, Francesc Maciá fundaba Estat Català, a favor de la independencia de Cataluña. </p>
+    <div class="row">
+        <div class="col-3" id="conflictividadSocial" style="background-color:#F3BF92 ;">La conflictividad social </div>
+    </div>
+    <p>La crisis social, agudizada, como hemos visto, por la recesión económica y el influjo de la revolución rusa de 1917, favoreció el crecimiento de los sindicatos. La UGT aumentó su afiliación y la CNT todavía más, siendo Cataluña la zona de mayor presencia del anarcosindicalismo, con su secretario general Salvador Seguí (“el noi del sucre”). En Vizcaya, Asturias y Madrid se producían huelgas, pero era Barcelona la que más destacaba en conflictividad social. Todo comenzó con la huelga, en febrero de 1919, de la empresa eléctrica “La Canadiense”, en donde tuvo un papel destacado Salvador Seguí. La huelga duró cuarenta y cuatro días y paralizó al 70% de la industria barcelonesa. El gobierno, presidido por Romanones, forzó la negociación. Aprobó, además, la jornada máxima legal de trabajo en ocho horas diarias (48 horas semanales). </p>
+    <p>Sin embargo, el conflicto derivó en una autentica “guerra social” entre patronos y obreros. La patronal, en efecto, decidió responder con el cierre de empresas (lock-out), creó un cuerpo armado para defenderse (el Somatén o guardias cívicas armadas formadas por ciudadanos voluntarios, dispuestos a frenar el avance de los grupos obreros y sindicalistas de izquierdas) y buscó la colaboración de los sindicatos libres (contrarios a la CNT).  </p>
+    <p>Los actos terroristas y la violencia callejera, fruto del enfrentamiento entre pistoleros de uno y otro signo, sumieron a Barcelona en una espiral de violencia. Entre 1919 y 1921 el pistolerismo provocó en Barcelona numerosas muertes. La aplicación de la “ley de fugas” (provocar la evasión de un detenido para eliminarlo) agudizó también la tensión social. Como represalia cinco anarquistas ponían fin a la vida del presidente del gobierno, Eduardo Dato, ametrallando su coche oficial en Madrid en la Plaza de la Independencia (8 de marzo de 1921).</p>
+    <div class="row">
+        <div class="col-4" id="desastreAnnual" style="background-color:#F3BF92 ;">El “desastre” de Annual. Hacia la Dictadura.  </div>
+    </div>
+    <p>El panorama se agravó aún más con los sucesos de Marruecos, en el Rif, donde la guerra seguía abierta. El <strong>general Silvestre</strong>, comandante general de Melilla, decidió adentrarse hacia la parte central del Rif, feudo del líder guerrillero <strong>Abd-el-Krim.</strong> Alejado de los centros de aprovisionamiento el avance fue un grave error. Abd-el-Krim logró cercar a las tropas españolas en Annual (julio de 1921). Silvestre dio la orden de retirada y, en medio del caos, el Ejército perdía 13.000 soldados, incluido el general Silvestre. </p>
+    <p>El “desastre” de Annual tuvo graves consecuencias políticas y acabó siendo una de las causas del fin del régimen parlamentario. Desde los partidos de la oposición se pidieron responsabilidades al Ejército, al gobierno y a la propia monarquía. Por decisión del gobierno, el general Picasso elaboró un expediente para averiguar lo ocurrido en Annual. Pero todo quedará frenado cuando el general Miguel Primo de Rivera, Capitán General de Cataluña, decidió dar un golpe de Estado contra el gobierno y lanzaba su manifiesto (Al país y al Ejército, publicado el día 13). El monarca, consciente del descrédito de los partidos políticos, no opuso resistencia. Entre los aplausos de la Lliga y del Somatén, Primo de Rivera dejaba Barcelona y llegaba a Madrid el día 15, fecha en la que era nombrado por el rey presidente de un Directorio Militar, “encargado de la gobernación del Estado”. </p>
+
+
+</div>
+<h3 class="mt-5">Recursos </h3>
+    <hr>
+    <p><p><u>Películas</u></p></p>
+    <div>    
+        <ul>
+            <li><a href="https://www.youtube.com/watch?v=9mq8XCooL5k" target="_blank" style="text-decoration:none ;">El asesinato de Canalejas</a>.</li>
+            <li><a href="https://www.youtube.com/watch?v=qhezXHRWDj0" target="_blank" style="text-decoration:none ;">El desastre de Annual (Academia Play)</a>.</li>
+        </ul>
+    </div>
+
+
+
+
+
+
+
+{% endblock %}

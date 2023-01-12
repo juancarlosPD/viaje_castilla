@@ -1,0 +1,493 @@
+
+{% extends "baseDiabetes.html" %}
+{% load static %}
+{% block css %} <link rel="stylesheet" href="{% static 'css/estilosTtoAdo.css' %}">{% endblock %}
+{% block titulo %} ttoAdo {% endblock %}
+{% block cabecera %}Tratamiento DM II {% endblock %}
+{% block imgCabecera %} <img src="{% static 'img/ado.png' %}" alt="" class="img-fluid"> {% endblock %}
+
+{% block contenido %}
+
+<div class="row mt-4">
+    <div class="col-md-3"> 
+        <br>       
+        <ul>
+            <li><a href="{% url 'ttoDMSAS' %} "class="text-success", style="text-decoration:none ;" >Tratamiento DM II por el SASS</a></li>
+            <li><a href="{% url 'ttoSEMI' %} "class="text-success", style="text-decoration:none ;" >Tratamiento DM II por la SEMI</a></li>
+            <li><a href="{% url 'algoritmoredGDPS' %} "class="text-success", style="text-decoration:none ;" >Esquema de la redGDPS</a></li>
+        </ul>
+        
+    </div>
+    
+    <div class="col-md-3">
+        VISADOS        
+        <ul>
+            <li><a href="{% url 'condicionesVisado' %} "class="text-success", style="text-decoration:none ;" >Condiciones de visado de ADO</a></li>
+            <li><a href="{% url 'informeVisado' %} "class="text-success", style="text-decoration:none ;" >Informe de visado de ADO</a></li>
+        </ul>
+    </div>
+</div>
+<hr>
+<div class="row align-items-center justify-content-center py-5">
+    
+    <div class="col-md-8 ">        
+                <a href="{% url 'ado' %} "> 
+                    
+                    <img src="{% static 'img/tablaTtos.png' %}" alt="" class="img-fluid">
+                </a>   
+    </div>
+</div>
+
+<hr>
+
+<div class="row mt-4">
+    <p>1º- De elección <a href="{% url 'ado'%}#metformina" class="text-primary", style="text-decoration:none ;" >metformina</a> salvo contraindicación o intolerancia</p>
+    <p>2º- Elegir un <strong>segundo fármaco</strong> si:</p>
+    <div>
+        <ul>
+            <li>Pacientes asintomáticos al diagnóstico de la DM2 cuando se estime que con la metformina en
+                monoterapia no será posible conseguir el objetivo de control (por ejemplo, HbA1c superior al 1.5%
+                del objetivo individualizado de control).</li>
+            <li>Pacientes en monoterapia que no consigan los objetivos de control glucémico definidos, tras
+                valorar la adherencia y el refuerzo de las modificaciones del estilo de vida.</li>
+            <li>Pacientes con ECV establecida, insuficiencia cardiaca (IC) y enfermedad renal diabética (ERD),
+                independientemente del control glucémico, para reducir el riesgo de nuevos eventos CV/renales.</li>
+            
+        </ul>
+    </div>
+    
+</div>
+
+<div class="row justify-content-center mt-5">
+    <div class="col-2 border-1 rounded my-2 text-center py-4" style="background-color:#E74C3C ; color:white">
+        CLÍNICA PREDOMINANTE
+    </div>
+    
+</div>
+<div class="row justify-content-center">
+    
+    
+</div>
+<div class="row justify-content-center">
+    
+    <div class="col-1 border-1 rounded my-2 text-center py-4" style="background-color:#E74C3C ; color:white">
+        <div class="row">
+            <span  data-bs-toggle="modal" data-bs-target="#altoRCV">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                    <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                    
+                </svg>
+            </span>
+                <a href="#ARCV" class="text-light", style="text-decoration:none ;">Alto riesgo CV</a>                 
+            
+        </div>
+                        
+    </div>    
+   
+    <div class="col-1 border-1 rounded my-2 text-center py-4 mx-1" style="background-color:#066725 ; color:white">
+        <span  data-bs-toggle="modal" data-bs-target="#muyAltoRCV">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                
+            </svg> 
+            
+        </span><br>
+        <a href="#ARCV" class="text-light", style="text-decoration:none ;"> ECV establecida / Muy alto riesgo CV</a>
+    </div>
+    <div class="col-1 border-1 rounded my-2 text-center py-4" style="background-color:#590e96 ; color:white">
+        <span  data-bs-toggle="modal" data-bs-target="#ic">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                
+            </svg>       
+        </span>
+        <a href="#IC" class="text-light", style="text-decoration:none ;">Insuficiencia cardíaca</a>
+    </div>
+    <div class="col-1 border-1 rounded my-2 text-center py-4 mx-1" style="background-color:#F39C12 ; color:black">
+        
+            <span  data-bs-toggle="modal" data-bs-target="#erd"> 
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                    <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                    
+                </svg>
+            </span>
+            <a href="#ERD"  style="text-decoration:none ; color: black;">Enfermedad renal diabética</a>
+        
+        
+    </div>
+    <div class="col-1 border-1 rounded my-2 text-center py-4" style="background-color:#92df9c ; color:rgb(3, 3, 3)">
+        <a href="#OBESIDAD"  style="text-decoration:none ; color: black;">Sobrepeso / Obesidad</a>
+    </div>
+    <div class="col-1 border-1 rounded my-2 text-center py-4 mx-1 bg-success text-light" >
+        
+        <span  data-bs-toggle="modal" data-bs-target="#fragilidad"> 
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                
+            </svg>
+        </span>
+        <a href="#FRAGIL"  style="text-decoration:none ; color: white;">Fragilidad</a>
+    
+    
+</div>
+    
+
+<div class="row align-items-center vertical-align-center text-center py-3 border justify-content-between my-5" style="background-color:#E2F6F6 ;">
+    <div class="col-md-11">
+        <h5 class="text-center pt-2" id="ARCV">ECV ESTABLECIDA / ALTO RCV / MUY ALTO RCV</h5>Optar entre aGLP1 (de elección) o iSGLT2
+    </div>
+</div>
+<div class="border py-3 text-start mb-3 px-2" style="color:black ; background-color:beige" id="dosisTotal"><strong>1º- IMC > 30.  </strong>Usar un arGLP1</div>
+<div class="row">
+    <div class="col-10 mx-5">
+        <h6 style="color:#faf9f9 ; background-color: #2471A3" class="py-2 px-2">FG > 30:</h6>
+    </div>
+    <p class="mx-5">1- 
+        <a href="{% url 'ado'%}#aGLP1" class="text-primary", style="text-decoration:none ;" ><u>aGLP1</u></a> 
+        Elección preferente cuando la obesidad suponga un problema relevante añadido. Se aconsejan los siguientes:
+    </p>
+        <div class="mx-5">
+        <ul>
+            <li><strong>Prevención primaria</strong> (alto y muy alto RCV): Dulaglutida.</li>
+            <li><strong>Prevención secundaria</strong> (ECVA establecida): Semaglutida, liraglutida y dulaglutida.</li>
+            <li>Para la <strong>pérdida de peso:</strong> Semaglutida > liraglutida > dulaglutida > exenatida > lixisenatida.
+                </li>
+        </ul>
+        No recomendados en FG < 30 excepto la dulaglutida que se puede usar hasta FG 15.
+        </div>
+        <p class="mx-5 mt-3">2- 
+            <a href="{% url 'ado'%}#iSGLT2" class="text-primary", style="text-decoration:none ;" ><u>iSGLT2:</u> </a> 
+            
+        </p >
+            <div class="mx-5">
+                <ul>
+                    <li>Emplagliflozina y canagliflozina reducen eventos CV.</li>
+                    <li>Empagliflozina reduce la mortalidad CV y la mortalidad total.</li>
+                </ul>
+            </div>
+        </p>
+</div>
+
+<div class="row ">
+    <div class="col-10 mx-5">
+        <h6 style="color:#faf9f9 ; background-color: #2471A3" class="py-2 px-2 mt-3">FG < 30:</h6>
+    </div>
+    <div class="mx-5">
+        <ul>
+            <li>Los <a href="{% url 'ado'%}#aGLP1" class="text-primary", style="text-decoration:none ;" >aGLP1</a>. La dulaglutida se puede usar con FG > 15.</li>
+            <li><a href="{% url 'ado'%}#pioglitazona" class="text-primary", style="text-decoration:none ;" >Pioglitazona</a> reduce MACE como objetivo secundario; en población prediabética reduce ictus. Se puede usar en FG > 15.</li>
+            <li>Los <a href="{% url 'ado'%}#iDPP4" class="text-primary", style="text-decoration:none ;" >iDPP4</a>  han demostrado seguridad CV. La linagliptina no requiere ajuste de dosis en la IR</li>
+            <li><a href="{% url 'insulinas'%}#basales" class="text-primary", style="text-decoration:none ;" >Insulinas</a>  con seguridad CV: glargina y degludec </li>
+        </ul>
+    </div>
+</div>
+
+    
+<div class="border py-3 text-start my-5 px-2" style="color:black ; background-color:beige" id="dosisTotal"><strong>2º- IMC < 30.</strong> Usar un iSGLT2.
+
+</div>
+<div class="row">
+    <div class="col-10 mx-5">
+        <h6 style="color:#faf9f9 ; background-color: #2471A3" class="py-2 px-2">FG > 30:</h6>
+    </div>
+    <p class="mx-5 mt-1"> 
+        <a href="{% url 'ado'%}#iSGLT2" class="text-primary", style="text-decoration:none ;" ><u>iSGLT2:</u> </a> 
+        
+    </p >
+        <div class="mx-5">
+            <ul>
+                <li>Emplagliflozina y canagliflozina reducen eventos CV.</li>
+                <li>Empagliflozina reduce la mortalidad CV y la mortalidad total.</li>
+            </ul>
+        </div>
+</div>
+
+<div class="row">
+    <div class="col-10 mx-5">
+        <h6 style="color:#faf9f9 ; background-color: #2471A3" class="py-2 px-2">FG < 30:</h6>
+    </div>
+    <div class="mx-5">
+        <ul>
+            <li><a href="{% url 'ado'%}#pioglitazona" class="text-primary", style="text-decoration:none ;" >Pioglitazona</a> reduce MACE como objetivo secundario; en población prediabética reduce ictus. Se puede usar en FG > 15.</li>
+            <li>Los <a href="{% url 'ado'%}#iDPP4" class="text-primary", style="text-decoration:none ;" >iDPP4</a>  han demostrado seguridad CV. La linagliptina no requiere ajuste de dosis en la IR</li>
+            <li><a href="{% url 'insulinas'%}#basales" class="text-primary", style="text-decoration:none ;" >Insulinas</a>  con seguridad CV: glargina y degludec </li>
+        </ul>
+    </div>
+</div>
+
+<div class="row align-items-center vertical-align-center text-center py-3 border justify-content-between my-5" style="background-color:#E2F6F6 ;">
+    <div class="col-md-11">
+        <h5 class="text-center pt-2" id="IC">INSUFICIENCIA CARDÍACA</h5> De elección los <a href="{% url 'ado'%}#iSGLT2" class="text-primary", style="text-decoration:none ;" >iSGLT2</a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-10 mx-5">
+        <h6 style="color:#faf9f9 ; background-color: #2471A3" class="py-2 px-2">FG > 30:</h6>
+    </div>
+    <div class="mx-5">
+        <ul>
+            <li><strong>FEVI &#8804; 40:</strong> Empagliflozina o dapagliflozina</li>
+            <li><strong>FEVI > 40:</strong> Empagliflozina</li>
+        </ul>
+    </div>
+    
+</div>
+<div class="row">
+    <div class="col-10 mx-5">
+        <h6 style="color:#faf9f9 ; background-color: #2471A3" class="py-2 px-2">FG < 30:</h6>
+    </div>
+    <div class="mx-5">
+        <p>Han demostrado seguridad respecto a la hospitalización por insuficiencia cardíaca:</p>
+        <ul>
+            <li>Los <a href="{% url 'ado'%}#aGLP1" class="text-primary", style="text-decoration:none ;" >aGLP1</a>. La dulaglutida se puede usar con FG > 15.</li>
+            <li>Los <a href="{% url 'ado'%}#iDPP4" class="text-primary", style="text-decoration:none ;" >iDPP4 </a> excepto saxagliptina. La linagliptina no requiere ajuste de dosis en la IR</li>
+            <li><a href="{% url 'insulinas'%}#basales" class="text-primary", style="text-decoration:none ;" >Insulinas</a>: glargina y degludec </li>
+        </ul>
+    </div>
+</div>
+
+
+<div class="row align-items-center vertical-align-center text-center py-3 border justify-content-between my-5" style="background-color:#E2F6F6 ;">
+    <div class="col-md-11">
+        <h5 class="text-center pt-2" id="ERD">ENFERMEDAD RENAL DIABÉTICA</h5> De elección los <a href="{% url 'ado'%}#iSGLT2" class="text-primary", style="text-decoration:none ;" >iSGLT2</a>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-10 mx-5">
+        <h6 style="color:#faf9f9 ; background-color: #2471A3" class="py-2 px-2">FG > 30:</h6>
+    </div>
+    <div class="mx-5">
+        <ul>
+            <li>De elección un <a href="{% url 'ado'%}#iSGLT2" class="text-primary", style="text-decoration:none ;" >iSGLT2</a>: canagliflozina, dapagliflozina, empagliflozina.</li>
+            <li>Si no se puede poner un iSGLT2 usar un <a href="{% url 'ado'%}#aGLP1" class="text-primary", style="text-decoration:none ;" >arGLP1</a> 
+        </ul>
+    </div>
+    
+</div>
+<div class="row">
+    <div class="col-10 mx-5">
+        <h6 style="color:#faf9f9 ; background-color: #2471A3" class="py-2 px-2">FG < 30:</h6>
+    </div>
+    <div class="mx-5">    
+        <ul>
+            <li>Los <a href="{% url 'ado'%}#aGLP1" class="text-primary", style="text-decoration:none ;" >aGLP1</a>. La dulaglutida se puede usar con FG > 15.</li>
+            <li>Los <a href="{% url 'ado'%}#iDPP4" class="text-primary", style="text-decoration:none ;" >iDPP4 </a> excepto saxagliptina. La linagliptina no requiere ajuste de dosis en la IR</li>
+            <li><a href="{% url 'insulinas'%}#basales" class="text-primary", style="text-decoration:none ;" >Insulinas</a>: glargina y degludec </li>
+            <li><a href="{% url 'ado'%}#pioglitazona" class="text-primary", style="text-decoration:none ;" >Pioglitazona</a> Se puede usar en FG > 15. Riesgo de edemas.</li>
+            <li><a href="{% url 'ado'%}#repaglinida" class="text-primary", style="text-decoration:none ;" >Repaglinida</a> No ajuste en IR.</li>
+        </ul>
+    </div>
+</div>
+
+
+
+<div class="row align-items-center vertical-align-center text-center py-3 border justify-content-between my-5" style="background-color:#E2F6F6 ;">
+    <div class="col-md-11">
+        <h5 class="text-center pt-2" id="OBESIDAD">SOBREPESO / OBESIDAD</h5>
+    </div>
+</div>
+<div class="mx-5">
+    <ul>
+        <li><strong>IMC > 30</strong>: Usar un <a href="{% url 'ado'%}#aGLP1" class="text-primary", style="text-decoration:none ;" >arGLP1</a>. Para la pérdida de peso: Semaglutida > liraglutida > dulaglutida > exenatida > lixisenatida.  
+        <li><strong>IMC < 30</strong>: Usar un <a href="{% url 'ado'%}#iSGLT2" class="text-primary", style="text-decoration:none ;" >iSGLT2</a>.
+        <li><strong>No deben recomendarse</strong> fármacos que favorezcan el incremento de peso (sulfonilureas, repaglinida, pioglitazona, insulina).</li>
+    </ul>
+</div>
+
+<div class="row align-items-center vertical-align-center text-center py-3 border justify-content-between my-5" style="background-color:#E2F6F6 ;">
+    <div class="col-md-11">
+        <h5 class="text-center pt-2" id="FRAGIL">MAYOR DE 75 AÑOS FRÁGIL</h5>
+    </div>
+</div>
+<div class="mx-5">
+    <ul>
+        <li>Preferiblemente deben utilizarse los <a href="{% url 'ado'%}#iDPP4" class="text-primary", style="text-decoration:none ;" >iDPP-4</a>.  
+        <li>Los <a href="{% url 'ado'%}#iSGLT2" class="text-primary", style="text-decoration:none ;" >iSGLT2</a> deben emplearse con precaución por riesgo de hipovolemia.
+        <li>Los <a href="{% url 'ado'%}#aGLP1" class="text-primary", style="text-decoration:none ;" >arGLP1</a> pueden utilizarse en situaciones en las que la
+            pérdida de peso sea prioritaria, teniendo en cuenta la fragilidad del paciente.</li>
+        <li>Las sulfonilureas, repaglinida e insulina deben evitarse por el <strong>riesgo de hipoglucemias</strong>.</li>
+    </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!-------------------------------------------- MODAL alto RCV --------------------------------------------------------------->
+    <div class="modal fade" id="altoRCV" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header bg-success text-light">
+                <h5 class="modal-title" id="exampleModalLabel">Alto riesgo Cardiovascular</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+        <div class="modal-body container-fluid">
+            <div class="row">
+                <div class="col-md-12 text-start"> 
+                    DM2 > 1O años de evolución sin LOD y un factor de riesgo cardiovascular. 
+                </div>
+            </div>            
+        </div>        
+        </div>
+    </div>
+    </div>
+
+<!---------------------------------------------------------------------------------------------------------- -->
+
+<!-------------------------------------------- MODAL MUY ALTO RCV --------------------------------------------------------------->
+<div class="modal fade" id="muyAltoRCV" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header bg-success text-light">
+                <h5 class="modal-title" id="exampleModalLabel">Muy alto riesgo CV</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+        <div class="modal-body container-fluid">
+            <div class="row">
+                <div class="col-md-12 text-start"> 
+                    Alguno de los siguientes:
+                    <ul>
+                        <li>ECV establecida</li>
+                        <li>LOD (HVI, albuminuria, retinopatía, neuropatía)</li>
+                        <li>&ge; 3 FRCV</li>
+                        <li>DM1 >20 años de evolución</li>
+                    </ul>
+                </div>
+
+            </div>
+            
+        </div>
+        
+        </div>
+    </div>
+    </div>
+
+<!---------------------------------------------------------------------------------------------------------- -->
+
+<!-------------------------------------------- MODAL IC --------------------------------------------------------------->
+<div class="modal fade" id="ic" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-success text-light">
+                <h5 class="modal-title" id="exampleModalLabel">Insuficiencia cardíaca</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+        <div class="modal-body container-fluid">
+            <div class="row">
+                <div class="col-md-12  text-start"> 
+                    Concretamente FEVI < 45%
+                </div>
+
+            </div>
+            
+        </div>
+        
+        </div>
+    </div>
+    </div>
+
+<!---------------------------------------------------------------------------------------------------------- -->
+
+<!-------------------------------------------- MODAL ENFERMEDAD RENAL DIABÉTICA --------------------------------------------------------------->
+<div class="modal fade" id="erd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-success text-light">
+                <h5 class="modal-title" id="exampleModalLabel">Enfermedad renal diabética</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+        <div class="modal-body container-fluid">
+            <div class="row">
+                <div class="col-md-12 text-start">                     
+                    <ul>
+                        <li>FG entre 30-60</li>
+                        <li>Aclaramiento de creatinina > 30 y sobre todo > 300</li>
+                    </ul>
+                </div>
+
+            </div>
+            
+        </div>
+        
+        </div>
+    </div>
+    </div>
+
+<!---------------------------------------------------------------------------------------------------------- -->
+
+
+<!---------------------------------------------------------------------------------------------------------- -->
+
+<!-------------------------------------------- MODAL FRAGILIDAD --------------------------------------------------------------->
+<div class="modal fade" id="fragilidad" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header bg-success text-light">
+                <h5 class="modal-title" id="exampleModalLabel">Índice de fragilidad</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+        <div class="modal-body container-fluid">
+            <div class="row">
+                <div class="col-md-12 text-start"> 
+                    <table class="table table-striped mx-2">
+    
+                        <tr class="table-success ">
+                            <th class="border border-dark">Índice de fragilidad</th>
+                            <th class="border border-dark">Características</th>                                                        
+                        </tr>
+                        <tr>
+                            <td class="border border-dark text-center" >0</td>
+                            <td class="border border-dark ">Sanos (sin ECV, ICC ni ERD); evolución de la enfermedad corta; mayor expectativa de vida; tratamiento con modificación de estilos de vida o metformina</td>                            
+                        </tr>
+                        <tr>
+                            <td class="border border-dark text-center" >1-3</td>
+                            <td class="border border-dark ">Sanos; funcionalmente independientes, p. ej.: crónicos con su estado funcional y cognitivo intactos</td>                            
+                        </tr>
+                        <tr>
+                            <td class="border border-dark text-center" >4-5</td>
+                            <td class="border border-dark ">Funcionalmente dependientes (complejidad intermedia), p. ej.: pluripatológicos o con limitación para las actividades de la vida diaria o con deterioro cognitivo leve</td>                            
+                        </tr>
+                        <tr>
+                            <td class="border border-dark text-center" >6-8</td>
+                            <td class="border border-dark ">Frágiles con/sin demencia (muy complejos), p. ej.: larga evolución de la enfermedad o limitación para las actividades de la vida diaria, dependencia o deterioro cognitivo de moderado a grave</td>                            
+                        </tr>
+                        <tr>
+                            <td class="border border-dark text-center" >9</td>
+                            <td class="border border-dark ">Pacientes terminales/con expectativa de vida limitada. No se recomienda establecer objetivos de HbA1c. Evitar hiperglucemia sintomática e hipoglucemias</td>                            
+                        </tr>
+                        
+                        
+                    </table>
+                </div>
+
+            </div>
+            
+        </div>
+        
+        </div>
+    </div>
+    </div>
+
+<!---------------------------------------------------------------------------------------------------------- -->
+
+
+
+
+
+
+
+
+
+{% endblock %}

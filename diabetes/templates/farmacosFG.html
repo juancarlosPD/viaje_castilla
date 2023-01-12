@@ -1,0 +1,128 @@
+{% extends "baseDiabetes.html" %}
+{% load static %}
+{% block titulo %} Farmacos FG {% endblock %}
+{% block cabecera %}Fármacos y Filtrado Gomerular {% endblock %}
+{% block imgCabecera %} <img src="{% static 'img/rignones.jpg' %}" class="card-img-top" alt="..."> {% endblock %}
+
+
+{% block contenido %}
+
+
+
+
+
+<form action="{% url 'farmacosFG' %}" method="POST" class="form-inline" id="miFormulario" >
+    {% csrf_token %}
+    
+    <div class="row border rounded py-2 my-5" style="background-color:#E9F9ED;">
+        
+            
+            <div class="col-md-3 ">
+                <div class="mb-3 row">
+                    <div class="col-md-6 pt-4">
+                        <label for="" class="" data-bs-toggle="modal" data-bs-target="#FG" >Introduzca el FG </label>
+                    </div>
+                    
+                    <div class="col-md-3 pt-4">
+                        <input class="form-control text-center w-100"  type="text"  name="FG" id="FG"  required>
+                    </div>
+                </div>           
+                
+            </div>
+            <div class="col-md-1">
+                
+            </div>
+            <div class="col-md-2 ">
+                <label for="" class="pt-4" data-bs-toggle="modal" data-bs-target="#FG" >Introduzca el fármaco</label>
+            </div>
+            <div class="col-md-2">
+                <input class="mt-3 form-control text-center "  type="text"  name="farmaco"  id="farmaco" required>
+            </div>
+            <div class="col-md-2">
+                
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-success w-100 py-3 mt-2" id="btn" > Calcular</button>
+                
+            </div>
+                     
+        
+    </div>
+
+    
+
+    
+</form>
+
+<form action="" id="formularioResultado">
+    
+    <div class="row justify-content-center">
+        <div id="cuadroRespuestas" class="col-12 border border-5 border-success rounded my-3" style="background-color:#EFEBDD; min-height: 200px;">
+            <div class="row mb-3 bg-success py-3 justify-content-between" style="color:white ;">
+                <div class="col-md-4 border-end text-center" id="mF" name="mF" >
+                    FÁRMACO :  {{ farmaco }}  (      
+                    
+                    {% for marca in farmaco.marca.all %}
+                        {{ marca }}
+                    {% endfor %} )
+                </div>
+                <div class="col-md-1 border-end text-center" id="mFG" name="mFG"> FG : {{ FG }} </div>
+                <div class="col-2 border-end text-center" id="dosisC" name="dosisC">DOSIS: {{ dosis }}</div>
+                <div class="col-5 text-center " style="color:#F7DC6F ;" >
+                    <p name="comentarios" id="comentarios">
+                        {{ farmaco.comentarios }} 
+                    </p>
+                </div>
+                
+                
+            </div>
+        
+            <p id="respuesta1" name="respuesta1">{{ respuesta1 }}  </p>
+            <p id="respuesta2" name="respuesta2">{{ respuestaNoComenzar }}  </p>
+            <p id="respuesta3" name="respuesta3">{{ respuestaNoContinuar }}  </p>
+            <p id="respuesta4" name="respuesta4">{{ respuestaSegunFG }} </p>  
+        </div>
+        
+
+        
+    </div>
+</form>
+
+<div class="col-md-3">        
+    
+    <a href="{% url 'tablaFarmacosFG' %}"class="text-success", style="text-decoration:none ;" >Tabla Fármacos y filtrado glomerular</a>
+        
+    
+</div>
+
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/jquery.chained.js' %}"></script>
+<script src="{% static 'js/cambiaCB.js' %}"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="{% static 'js/main10.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+<script>
+    $( function() {
+        $("#farmaco").autocomplete({
+            source: "{% url 'autocomplete' %}",
+            minLength:2                    
+        });
+    }); 
+</script>
+<script src="{% static 'js/farmacosFG1.js' %}"></script>
+
+<script>
+    function limpiarFormulario() {
+      document.getElementById("miForm").reset();
+    }
+
+    //Evitar que se reenvía el formulario al actualizar
+    if (window.history.replaceState) { // verificamos disponibilidad
+    window.history.replaceState(null, null, window.location.href);
+}
+</script>
+
+
+
+{% endblock %}

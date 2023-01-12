@@ -1,0 +1,422 @@
+{% extends "baseDiabetes.html" %}
+{% block titulo %} ADO {% endblock %}
+{% block cabecera2 %} 
+<div class="row align-items-center justify-content-center mt-2 pt-3 pb-2 px-2 ">
+    <div class="col-md-3 border py-2 text-center" id= cuadroFG style="background-color:{{colorC}} ; color: {{colorT}};">Filtrado glomerular: {{ FG }}</div>
+</div>
+{% endblock %}
+{% load static %}
+{% block imgCabecera %} <img src="{% static 'img/ado.png' %}" alt="" class="img-fluid"> {% endblock %}
+
+{% block contenido %}
+
+<div class="row mt-4 justify-content-between">
+    
+    <div class="col-md-4 border">
+        <p id="inicio"><strong>Sensibilizan a la acción de la insulina</strong> </p>
+        <ul>
+            <li><a href="#metformina" class="text-success" style="text-decoration:none ;" > Metformina</a></li>
+            <li><a href="#pioglitazona" class="text-success" style="text-decoration:none ;"> Pioglitazona</a></li>                        
+        </ul>
+        <p><strong>Aumentan la secrección de insulina</strong> </p>
+        <ul>
+            <li><a href="#sulfonilureas"class="text-success" style="text-decoration:none ;" > Sulfonilureas: </a>Glimepirida, glipizida, gliclazida</li>
+            <li><a href="#repaglinida"class="text-success" style="text-decoration:none ;" > Glinidas: </a>Repaglinida, nateglinida</li>
+            
+                        
+        </ul>
+        
+    </div>
+    <div class="col-md-4 border">
+        <p id="inicio"><strong>Inhibidores de la reabsorción de glucosa</strong> </p>
+        <ul>
+            <li><a href="#iSGLT2" class="text-success" style="text-decoration:none ;" > Inhibidores SGLT-2: </a>Dapagliflozina, Empagliflozina, Canagliflozina, Ertugliflozina </li>
+            <li><a href="#iAG" class="text-success" style="text-decoration:none ;"> Inhibidores Alfa-Glucosidasas: </a>Acarbosa, Miglitol</li>                        
+        </ul>
+        
+        
+    </div>
+    <div class="col-md-4 border">
+        <p><strong>Efecto incretin</strong> </p>
+        <ul>
+            <li><a href="#iDPP4"class="text-success" style="text-decoration:none ;" > Inhibidores DPP4: </a>Sitagliptina, Vildagliptina, 
+                Saxagliptina, Linagliptina, Alogliptina</li>
+            <li><a href="#aGLP1"class="text-success" style="text-decoration:none ;" > Agonistas GLP1: </a>Exenatide (Byetta®), Lixisenatide (Lyxumia®), Liraglutide (Saxenda, Victoza®), Semaglutide (Ozempic®), Dulaglutide (Trulicity®), Exenatide (Bydureon®)
+                
+            </li>            
+                        
+        </ul>
+        
+    </div>
+</div>
+
+<div class="container">
+    
+    <div class="row mt-4 justify-content-center">   
+        <table class="table table-striped mx-2 ">
+            
+            <tr class="table-success ">
+                <th class="border border-dark"></th>
+                <th class="border border-dark">FG &ge; 90</th>
+                <th class="border border-dark">FG &ge; 60-89</th>
+                <th class="border border-dark">FG &ge; 45-59</th>
+                <th class="border border-dark">FG &ge; 30-44</th>
+                <th class="border border-dark">FG &ge; 15-29</th>
+                <th class="border border-dark">FG &lt; 15</th>
+                
+                                
+            </tr>
+            <tr>
+                <th class="border border-dark" id="metformina">Metformina</th>                
+                <td class="border border-dark">500-850 mg/8-12h</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;"> No ajuste </td>
+                <td class="border border-dark" style="background-color:#FCF3CF ;">Dosis max 2000</td>
+                <td class="border border-dark" style="background-color:#FCF3CF ;">No iniciar. Dosis máx 1000</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>                              
+            </tr>
+            <tr class="border-bottom border-dark" >
+                <th colspan="7" class="text-center" >GLITAZONAS</th>           
+            </tr>
+            <tr >
+                <th class="border border-dark" id="pioglitazona">Pioglitazona</th>                
+                <td class="border border-dark">15-30 mg / 24 h</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>                              
+            </tr>
+            <tr class="border-bottom border-dark">
+                <th colspan="7" class="text-center" id="sulfonilureas" >SULFONILUREAS</th>           
+            </tr>
+            <tr>
+                <th class="border border-dark">Gliclazida</th>                
+                <td class="border border-dark">30 mg / 24 h</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#FCF3CF ;">Precaución</td>
+                <td class="border border-dark" style="background-color:#FCF3CF ;">Precaución</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>                              
+            </tr>
+            <tr>
+                <th class="border border-dark">Glipizida</th>                
+                <td class="border border-dark" >5 mg / 24 h</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">Inicio: 2,5 mg/24 h</td>
+                <td class="border border-dark" style="background-color:#FCF3CF ;">Precaución</td>
+                <td class="border border-dark" style="background-color:#FCF3CF ;">Precaución</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>                              
+            </tr>
+            <tr>
+                <th class="border border-dark">Glimepirida</th>                
+                <td class="border border-dark">1 mg / 24 h</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>                              
+            </tr>
+            <tr>
+                <th class="border border-dark">Glibenclamida</th>                
+                <td class="border border-dark">2,5-5 mg / 24 h</td>
+                <td class="border border-dark" style="background-color:#FCF3CF ;">Precaución</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>                              
+            </tr>
+            <tr class="border-bottom border-dark">
+                <th colspan="7" class="text-center" style="background-color:white ;" >GLINIDAS</th>           
+            </tr>
+            <tr class="border border-dark border-top">
+                <th class="border border-dark" id="repaglinida">Repaglinida</th>                
+                <td class="border border-dark">0,5-1 mg/8 h</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>                              
+            </tr>
+            <tr class="border-bottom border-dark">
+                <th colspan="7" class="text-center" style="background-color:white ;" id="iDPP4">iDPP4</th>           
+            </tr>
+            <tr>
+                <th class="border border-dark" >Linagliptina</th>                
+                <td class="border border-dark" >5 mg / 24 h</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>                              
+            </tr>
+            <tr>
+                <th class="border border-dark">Sitagliptina</th>                
+                <td class="border border-dark">100 mg / 24 h</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#FCF3CF ;">50 mg / 24 h</td>
+                <td class="border border-dark" style="background-color:#FCF3CF ;">25 mg / 24 h</td>
+                <td class="border border-dark" style="background-color:#FCF3CF ;">25 mg / 24 h</td>                              
+            </tr>
+            <tr>
+                <th class="border border-dark">Vildagliptina</th>                
+                <td class="border border-dark">50 mg / 12 h</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#FCF3CF ;">50 mg / 24 h</td>
+                <td class="border border-dark" style="background-color:#FCF3CF ;">50 mg / 24 h</td>
+                <td class="border border-dark" style="background-color:#FCF3CF ;">50 mg / 24 h</td>
+                <td class="border border-dark" style="background-color:#FCF3CF ;">50 mg / 24 h</td>                              
+            </tr>
+            <tr>
+                <th class="border border-dark">Saxagliptina</th>                
+                <td class="border border-dark">5 mg / 24 h</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#FCF3CF ;">5 mg / 24 h. Precaución.</td>
+                <td class="border border-dark" style="background-color:#FCF3CF ;">2,5 mg / 24 h</td>
+                <td class="border border-dark" style="background-color:#FCF3CF ;">2,5 mg / 24 h</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>                              
+            </tr>
+            <tr>
+                <th class="border border-dark">Alogliptina</th>                
+                <td class="border border-dark">25 mg / 24 h</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">Si FG < 50: 12,5 mg / 24 h</td>
+                <td class="border border-dark" style="background-color:#FCF3CF ;">12,5 mg / 24 h</td>
+                <td class="border border-dark" style="background-color:#FCF3CF ;">6,25 mg / 24 h</td>
+                <td class="border border-dark" style="background-color:#FCF3CF ;">6,25 mg/24h ??</td>                              
+            </tr>
+            <tr class="border-bottom border-dark">
+                <th colspan="7" class="text-center" style="background-color:white ;" id="aGLP1">arGLP1</th>           
+            </tr>
+            <tr>
+                <th class="border border-dark">Semaglutida oral (Rybelsus)</th>                
+                <td class="border border-dark">
+                    <ul>
+                        <li>Inicio: 3 mg/24 h durante 1 mes</li>
+                        <li>Dosis media: 7 mg / 24 h</li>
+                        <li>Dosis máxima: 14 mg/ 24 h</li>
+                    </ul>          
+                </td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">
+                    <ul>
+                        No ajuste
+                        
+                    </ul></td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;"><ul>
+                    No ajuste
+                    
+                </ul></td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;"><ul>
+                    No ajuste
+                    
+                </ul></td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">Poca experiencia</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>                              
+            </tr>
+            <tr>
+                <th class="border border-dark">Semaglutida (Ozempic)</th>                
+                <td class="border border-dark">
+                    <ul>
+                        <li>Inicio: 0.25 semanal (4 semanas)</li>
+                        <li>Dosis media: 0,5 semanal</li>
+                        <li>Dosis máxima: 1 mg semanal</li>
+                    </ul>          
+                </td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">
+                    <ul>
+                        <li>No ajuste</li>
+                        <li>Dosis máxima: 0,5 semanal</li>
+                    </ul></td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;"><ul>
+                    <li>No ajuste</li>
+                    <li>Dosis máxima: 0,5 semanal</li>
+                </ul></td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;"><ul>
+                    <li>No ajuste</li>
+                    <li>Dosis máxima: 0,5 semanal</li>
+                </ul></td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">Poca experiencia</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>                              
+            </tr>
+            <tr>
+                <th class="border border-dark">Exenatida (Byetta)</th>                
+                <td class="border border-dark"><ul>
+                    <li>Inicio: 5µ / 12 h (1 mes)</li>
+                    <li>Mantenimiento: 10µ /12 h</li>
+                </ul></td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">Poca experiencia</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>                              
+            </tr>
+            <tr>
+                <th class="border border-dark">Exenatida Lar (Bydureon)</th>                
+                <td class="border border-dark"><ul>
+                    <li>Inicio: 2 mg /semana</li>
+                    <li>Mantenimiento: 2 mg /semana</li>
+                </ul></td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>                              
+            </tr>
+            <tr>
+                <th class="border border-dark">Liraglutida (Saxenda, Victoza)</th>                
+                <td class="border border-dark"><ul>
+                    <li>Inicio: 0.6 mg/24 h (7 días)</li>
+                    <li>Mantenimiento: 1.2 mg/24 h</li>
+                    <li>Máximo: 1.8 mg / 24 h</li>
+                </ul></td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>                               
+            </tr>
+            <tr>
+                <th class="border border-dark">Lixisenatida (Lyxumia)</th>                
+                <td class="border border-dark"><ul>
+                    <li>Inicio: 10 µ / 24 h / 14 días</li>
+                    <li>Mantenimiento: 20 µ  24 h </li>
+                </ul></td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>                              
+            </tr>
+            <tr>
+                <th class="border border-dark">Dulaglutida (Trulicity)</th>                
+                <td class="border border-dark"><ul>
+                    <li>Inicio: 0,75 mg semanal</li>
+                    <li>Mantenimiento: 0,75 mg semanal </li>
+                </ul></td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>                              
+            </tr>
+            <tr class="border-bottom border-dark">
+                <th colspan="7" class="text-center" style="background-color:white ;" id="aSGLT2">iSGLT2</th>           
+            </tr>
+            <tr>
+                <th class="border border-dark">Canagliflozina</th>                
+                <td class="border border-dark" >
+                    <ul>
+                        <li>Inicio: 100 mg / 24 h</li>
+                        <li>Dosis máxima: 300 mg/24 h</li>
+                    </ul>          
+                </td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;"><ul>
+                    <li>Iniciar: 100 mg/ 24 h</li>
+                    <li>Continuar: 100 mg/24 h</li>
+                </ul></td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;"><ul>
+                    <li>Iniciar: 100 mg/ 24 h</li>
+                    <li>Continuar: 100 mg/24 h</li>
+                </ul></td>
+                <td class="border border-dark" style="background-color:#FCF3CF ;"><ul>
+                    <li>No iniciar</li>
+                    <li>Continuar: 100 mg/24 h</li>
+                </ul></td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>                              
+            </tr>
+            <tr>
+                <th class="border border-dark">Empagliflozina</th>                
+                <td class="border border-dark">
+                    <ul>
+                        <li>Inicio: 10 mg / 24 h</li>
+                        <li>Dosis máxima: 25 mg/24 h</li>
+                    </ul>          
+                </td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;"><ul>
+                    <li>Iniciar: 10 mg / 24 h</li>
+                    <li>Continuar: 10 mg/ 24 h</li>
+                </ul></td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;"><ul>
+                    <li>Iniciar: 10 mg / 24 h</li>
+                    <li>Continuar: 10 mg/ 24 h</li>
+                </ul></td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada en FG<30**</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>                              
+            </tr>
+            <tr>
+                <th class="border border-dark">Ertugliflozina</th>                
+                <td class="border border-dark">
+                    <ul>
+                        <li>Inicio: 5 mg / 24 h</li>
+                        <li>Dosis máxima: 15 mg/24 h</li>
+                    </ul>          
+                </td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#FCF3CF ;">
+                    <ul>
+                        <li>Inicio: 5 mg</li>
+                        <li>Dosis máxima: 15 mg/24 h</li>
+                    </ul>
+                    
+                </td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada en FG < 45</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>                              
+            </tr>
+            <tr>
+                <th class="border border-dark">Dapagliflozina</th>                
+                <td class="border border-dark">
+                    <ul>
+                        <li>Inicio: 10 mg / 24 h</li>
+                        <li>Dosis máxima: 10 mg/24 h</li>
+                    </ul>          
+                </td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste. Eficacia hipoglucemiante limitada</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada en FG < 25</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>                              
+            </tr>
+            <tr class="border-bottom border-dark" style="background-color:white ;">
+                <th colspan="7" class="text-center" style="background-color:white ;" id="iAG" >INHIBIDORES DE LAS DISACARIDASAS INTESTINALES</th>           
+            </tr>
+            <tr>
+                <th class="border border-dark">Acarbosa</th>                
+                <td class="border border-dark">
+                    <ul>
+                        <li>Inicio: 50 mg / 8 h</li>
+                        Mantenimiento: 100 mg / 8 h
+                        <li>Dosis máxima: 200 mg/ 8 h</li>
+                    </ul>          
+                </td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">CI si FG < 25</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>                              
+            </tr>
+            <tr>
+                <th class="border border-dark">Miglitol</th>                
+                <td class="border border-dark">
+                    <ul>
+                        <li>Inicio: 50 mg / 8 h</li>
+                        Mantenimiento: 100 mg / 8 h
+                        <li>Dosis máxima: 200 mg/ 8 h</li>
+                    </ul>          
+                </td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#ABEBC6 ;">No ajuste</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">CI si FG < 25</td>
+                <td class="border border-dark" style="background-color:#F5B7B1 ;">No recomendada</td>                              
+            </tr>
+        </table>
+    </div>
+
+{% endblock %}
+
+
+

@@ -1,0 +1,24 @@
+{% extends "neumologia/baseNeumologia.html" %}
+
+{% block titulo %} neurologia {% endblock %}
+{% load static %}
+
+{% block cabecera %} NEUROLOGÍA {% endblock %}
+{% block imgCabecera %} <img src="{% static 'img/neurologia.jpeg' %}" alt="" class="img-fluid"> {% endblock %}
+
+{% block contenido %}
+
+<div class="row mt-4">
+    <div class="col-md-3"> 
+        <br>       
+        <ul>
+            <li><a href="{% url 'acuerdoNeurologia' %} "class="text-success", style="text-decoration:none ;" >Acuerdo neurología</a></li>
+            <li><a href="{% url 'ttoCefaleas' %} "class="text-success", style="text-decoration:none ;" >Tratamiento de las cefaleas</a></li>
+            
+        </ul>
+        
+    </div>
+</div>
+
+
+{% endblock %}

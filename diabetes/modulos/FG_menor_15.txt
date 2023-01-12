@@ -1,0 +1,15 @@
+
+linagliptina = Farmacos.objects.get(farmaco='Linagliptina')
+glargina = Farmacos.objects.get(farmaco='Insulina glargina')
+degludec = Farmacos.objects.get(farmaco='Insulina degludec')
+nuevoFarmaco1 = [linagliptina ]
+nuevoFarmaco2 = [glargina, degludec ]
+grupo1 = [nuevoFarmaco1][0][0].grupo
+grupo2 = [nuevoFarmaco2][0][0].grupo
+cabecera1= "Elegir entre:"
+dir1= "#iDPP4"
+dir2= "#basales"
+post1= "Se puede usar cualquier iDPP4 excepto saxagliptina. Todos requieren ajuste de dosis excepto linagliptina. Especialmente indicados en paciente frágil."
+post2 = "(en paciente con glicada lejos del objetivo)"                        
+pre1 = "Primera opción:"
+pre2 = "Segunda opción:"

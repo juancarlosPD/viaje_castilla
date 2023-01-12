@@ -1,0 +1,496 @@
+{% extends "bases/basesigloXIX.html" %}
+
+{% load static %}
+
+{% block titulo %} sexenio democratico {% endblock %}
+
+{% block cabecera %} El sexenio democrático (1868-1874) {% endblock %}
+
+{% block imgCabecera %}<img class="img-fluid" src="{% static 'images/sigloXIX/primeraRepublica.jpg' %}" alt="">  {% endblock %}
+
+{% block contenido %}
+
+<div class="row justify-content-center">
+          
+    <div class="col-2 ">
+        <div class="row border-1 rounded my-2 text-center py-4 mx-1" style="background-color:#E74C3C ; color:white">
+            <a href="#revolucionGloriosa" style="text-decoration:none ; color: white;" data-bs-toggle="collapse"  aria-expanded="false" aria-controls="revolucionGloriosa">      
+                <div class="row text-center">                                    
+                    <img class="img-fluid mt-4" style="width:270px ; height:165px ;" src="{% static 'images/sigloXIX/puenteAlcolea.jpg' %}" alt="">
+                    <figcaption class="text-center mt-3">REVOLUCIÓN GLORIOSA</figcaption>
+                    <span class="text-center">(1868)</span> 
+                </div>               
+            </a>
+        </div>
+        <div class="row rounded text-start collapse" id="revolucionGloriosa">
+            <span><a href="#inicioRevolucionGloriosa" class="text-primary d-block ps-4", style="text-decoration:none ;">Inicio</a></span>
+            <span><a href="#" class="text-dark d-block ps-4", style="text-decoration:none ;">Muerte de Narváez</a></span>
+            <span><a href="#" class="text-dark d-block ps-4", style="text-decoration:none ;">Pronunc. Prim y Topete</a></span>
+            <span><a href="#" class="text-dark d-block ps-4", style="text-decoration:none ;">Juntas y milicias</a></span>
+            <span><a href="#" class="text-dark d-block ps-4", style="text-decoration:none ;">Serrano toma mando</a></span>
+            <span><a href="#" class="text-dark d-block ps-4", style="text-decoration:none ;">Batalla puente Alcolea</a></span>
+        </div>                        
+    </div>    
+    <div class="col-2 ">
+        <div class="row border-1 rounded my-2 mx-1 text-center py-4 mx-1" style="background-color:#066725 ; color:white">
+            <a href="#gobiernoProvisional" style="text-decoration:none ; color: white;" data-bs-toggle="collapse"  aria-expanded="false" aria-controls="gobiernoProvisional">   
+                <div class="row text-center">                                    
+                    <img class="img-fluid mt-4" style="width:270px ; height:165px ;" src="{% static 'images/sigloXIX/generalSerrano2.jpg' %}" alt="">
+                    <figcaption class="text-center mt-3">GOBIERNO PROVISIONAL</figcaption>
+                    <span class="text-center">(1868-1870)</span> 
+                </div>
+            </a>
+        </div>
+        <div class="row rounded text-start  collapse" id="gobiernoProvisional">
+            <span><a href="#inicioGobiernoProvisional" class="text-primary d-block ps-4", style="text-decoration:none ;">Inicio</a></span>
+            <span><a href="#" class="text-dark d-block ps-4", style="text-decoration:none ;">Gobierno de Prim</a></span>
+            <span><a href="#primerasMedidas" class="text-primary d-block ps-4", style="text-decoration:none ;">Primeras medidas</a></span>
+            <span><a href="{% url 'guerraCuba' %}" class="text-primary d-block ps-4", style="text-decoration:none ;">Guerra de Cuba</a></span>
+            <span><a href="#constitucion1869" class="text-primary d-block ps-4", style="text-decoration:none ;">Constitución 1869</a></span>
+            <span><a href="#busquedaRey" class="text-primary d-block ps-4", style="text-decoration:none ;">Búsqueda nuevo rey</a></span>
+        </div>                       
+    </div>
+    
+
+    <div class="col-2 ">
+        <div class="row border-1 rounded my-2 text-center py-4 mx-1" style="background-color:#590e96 ; color:white">
+            <a href="#saboya" style="text-decoration:none ; color: white;" data-bs-toggle="collapse"  aria-expanded="false" aria-controls="saboya">      
+                <div class="row text-center">
+                <img class="img-fluid mt-4" style="width:270px ; height:165px ;" src="{% static 'images/sigloXIX/amadeoSaboya1.jpg' %}" alt="">
+                <figcaption class="text-center mt-3">AMADEO DE SABOYA</figcaption>
+                <span class="text-center">(1871-1873)</span>
+                <br>
+                <br>
+                </div>        
+            </a> 
+        </div>
+        <div class="row rounded text-start  collapse" id="saboya">
+            <span ><a href="#amadeoSaboya" class="text-primary d-block ps-4 ", style="text-decoration:none ;">Inicio Saboya</a></span>
+            <span><span class="text-dark d-block  ps-4", style="text-decoration:none ;">Asesinato de Prim</span></span>
+            <span><a href="#problemas" class="text-primary d-block ps-4", style="text-decoration:none ;">Problemas encontrados</a></span>
+            <span><span class="text-dark d-block ps-4", style="text-decoration:none ;">Abdicación</span></span>
+        </div>
+        
+    </div>
+    
+    <div class="col-2" >
+        <div class="row border-1 rounded my-2 text-center py-4 mx-1" style="background-color:#E74C3C ; color:white"">
+        <a data-bs-toggle="collapse" href="#republica" class="text-light", style="text-decoration:none ;" role="button" aria-expanded="false" aria-controls="republica">    
+            <div class="row text-center">                                    
+                <img class="img-fluid mt-4" style="width:270px ; height:165px ;" src="{% static 'images/sigloXIX/primeraRepublica.jpg' %}" alt="">
+                <figcaption class="mt-3">I REPÚBLICA</figcaption>               
+                <span class="text-center">(1873-1874)</span> 
+                <br>
+                <br>
+            </div>
+        </a>
+        </div>
+        <div class="row rounded text-start  collapse" id="republica">
+            <span><a href="#inicioRepublica" class="text-primary d-block ps-4", style="text-decoration:none ;">Inicio República</a></span>
+            <span><a href="#figueras" class="text-primary d-block ps-4", style="text-decoration:none ;">Estanislao Figueras</a></span>
+            <span><a href="#piMargall" class="text-primary d-block ps-4", style="text-decoration:none ;">Pi y Margall</a></span>
+            <span><a href="#salmeron" class="text-primary d-block ps-4", style="text-decoration:none ;">Nicolás Salmerón</a></span>
+            <span><a href="#castelar" class="text-primary d-block ps-4", style="text-decoration:none ;">Emilio Castelar</a></span>
+        </div>                       
+    </div>   
+    
+    
+    
+</div>
+
+
+
+<div class="row align-items-center vertical-align-center text-center py-3 my-5 border" style="background-color:#E2F6F6 ;">
+        
+    <h5 class="text-center pt-2" id="inicioRevolucionGloriosa">La revolución de 1868 ("La Gloriosa")</h5>
+        
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <ul>
+            <li><strong>En el 68 muere Narváez.</strong> Descabezados de sus líderes históricos, el nuevo gobernante, el <strong>moderado</strong> liberal González Bravo,<strong> no tiene apoyos</strong> y la situación social es muy crítica por la crisis.</li>
+            <li>El general <strong>Prim</strong> y el comandante del puerto de Cádiz, el brigadier <strong>Topete</strong>, inician en Cádiz el pronunciamiento con el manifiesto acabado: <strong>¡Viva España con honra, abajo los Borbones!</strong></li>
+            <li><strong>Se crean juntas locales revolucionarias y milicias urbanas "voluntarios por la libertad"</strong>. En ellas predominaban los demócratas y contaba con el apoyo popular (obreros y clases bajas urbanas). Hacen listas de reivindicaciones, más libertades, sufragio universal, fin del impuesto de consumo, fin de las quintas (reclutamiento por sorteo de jóvenes que no pudieran pagar la redención en metálico).</li>
+            <li>La <strong>dirección de los sublevados</strong> la asume el <strong>general Serrano</strong>, los representantes de las juntas locales quedan excluidos.</li>
+            <li><strong>Batalla del Puente de la Alcolea</strong> (Córdoba. 26-28 septiembre), Serrano vence al ejército enviado desde Madrid y la reina huye a Francia. Fijó su residencia en París, donde vivió hasta su muerte (1904). En 1870 abdicó la corona en su hijo Alfonso (el futuro Alfonso XII).</li>
+            
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <figure>
+            <img class="img-fluid" src="{% static 'images/sigloXIX/puenteAlcolea.jpg' %}" alt="">
+            <figcaption class="text-center"> Puente de Alcolea</figcaption>                
+        </figure>
+    </div>
+    
+</div>
+
+<div class="row align-items-center vertical-align-center text-center py-3 my-5 border" style="background-color:#E2F6F6 ;">
+        
+    <h5 class="text-center pt-2" id="inicioGobiernoProvisional">El Gobierno Provisional (1868-1870)</h5>
+        
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <figure class="border bg-dark text-light">
+            <img class="img-fluid" src="{% static 'images/sigloXIX/generalSerrano.jpg' %}" alt="">
+            <figcaption class="text-center text-warning"> <strong>General Serrano</strong> </figcaption>
+            <figcaption class="text-center">Héroe 1ª Guerra Carlista</figcaption>
+            <figcaption class="text-center">Liberal progresista</figcaption>
+            <figcaption class="text-center">Líder Unión Liberal (1867-)</figcaption>
+            <figcaption class="text-center">Presidente gobierno (1868/69/71/72)</figcaption>
+            <figcaption class="text-center">Presidente I República (1874)</figcaption>
+                        
+        </figure>
+    </div>
+    <div class="col-md-9">
+        <p>El 8 de octubre se formó un gobierno provisional <strong>presidido por Serrano</strong> (unionista) con Sagasta, Topete, Prim. Quedaron <strong>excluidos los demócratas</strong>, aunque se aprobaron diversos decretos que recogían buena parte del programa demócrata: libertad de asociación e imprenta y sufragio universal masculi­no.</p>
+        <p>Se aprobó la convocatoria de <strong>Cortes Constituyentes</strong> por sufragio universal masculino. En estas Cortes predominaron los <a href="{% url 'partidosPoliticos' %}" style="text-decoration:none ;">partidos</a> que apoyaban al Gobierno <strong>(unionistas, progresistas y demócratas)</strong>, además del partido Republicano. <strong>Moderados y carlistas fueron una minoría.</strong></p>    
+        <p>La tarea fundamental de las Cortes fue elaborar la <strong>Constitución de 1869</strong>, la más liberal de las aprobadas hasta entonces. En ella se proclamaba la soberanía nacional, se establecía una nítida división de poderes, se adoptaba el sufragio universal masculino y se incluía una amplia declaración de derechos. El Estado se declara­ba aconfesional y permitía la libertad de culto. La monarquía se mantenía como forma de Estado.</p>
+        
+        <div class="row my-3 border" style="background-color: #FEF5E7 ;">    
+            <h6 class="my-2" id="primerasMedidas">Primeras medidas</h6>    
+        </div>
+        <ul>
+            <li><strong>Disolución de las juntas revolucionarias</strong> y de la Milicia Nacional ( "voluntarios de la libertad") consideradas demasiado reivindicativas. </li>
+            <li><strong>Libertad de prensa, reunión, asociación y de cátedra</strong>: se repone en sus puestos docentes a los que habían sido expulsados por expresar sus ideas contrarias a la reina (Sagasta, Castelar, Giner de los Ríos).</li>
+            <li>Expulsión de los jesuitas.</li>
+            <li><strong>Sufragio universal masculino</strong> para los mayores de 25 años.</li>
+            <li>El gobierno provisional excluye a los demócratas y se pronuncia a favor de una <strong>monarquía constitucional.</strong></li>
+            <li>Se establecieron medidas para salir de la crisis, como una nueva unidad <a href="{% url 'monedas1868' %}" style="text-decoration:none ;">monetaria</a> (la “peseta”)</li>
+        </ul>           
+        
+    </div>
+    
+    <div class="row my-3 border" style="background-color: #FEF5E7 ;">    
+        <h6 class="my-2" id="constitucion1869"><a href="{% url 'constituciones' %}" style="text-decoration:none ;">Constitución</a> de 1869</h6>    
+    </div>        
+    
+    <div>
+        <ul>
+            <li>Soberanía nacional y lista de derechos individuales.</li>
+            <li>Sufragio universal masculino (mayores de 25 años).</li>
+            <li>Monarquía constitucional con división de poderes.
+                <ul>
+                    <li>El rey poder ejecutivo, pero limitado. Convocar cortes, disolverlas y nombrar ministros. Aparece el voto de censura contra el gobierno por parte de las cortes.</li>
+                    <li>Pero el poder legislativo es de las Cortes.  Con dos cámaras, un Congreso (elección directa) y un Senado (elección indirecta) para la representación territorial (aunque únicamente miembros de la nobleza, ejército, Iglesia o administración)</li>
+                    <li>Poder judicial independiente, oposiciones a jueces, aunque acaban siendo nombrados por el gobierno.</li>
+                </ul> 
+            </li>
+            <li>Ayuntamientos y diputaciones también se eligen por sufragio universal directo.</li>
+            <li>Libertad de enseñanza y de culto, pero se garantiza el sostenimiento de la Iglesia.</li>
+        </ul>
+    </div>
+    <div class="row my-3 border" style="background-color: #FEF5E7 ;">    
+        <h6 class="my-2" id="busquedaRey">Búsqueda de un nuevo rey</h6>    
+    </div>
+    
+    <div class="row">
+        <div class="col-md-2">
+            <figure class="border bg-dark text-light">
+                <img class="img-fluid" src="{% static 'images/sigloXIX/generalPrim.png' %}" alt="">
+                <figcaption class="text-center text-warning"> <strong>Juan Prim</strong> </figcaption>                    
+                <figcaption class="text-center">Diputado progresista (1841-69)</figcaption>                    
+                <figcaption class="text-center">Preside. gob. (1869-70)</figcaption>
+                            
+            </figure>
+        </div>
+        <div class="col-md-10">
+            <p>Prim presidió el gobierno y su principal labor fue buscar un nuevo rey. Sus candidatos eran:</p>
+            <div>
+                <ul>
+                    <li>Isabel II abdicó en su hijo <strong>Alfonso</strong> pero se descarta a los borbones porque acaban de ser derrocados. </li>
+                    <li><strong>Fernando II de Portugal</strong>. Había sido rey consorte, ahora reina su hijo. Posibilidad de unir las dos coronas peninsulares, primer candidato de Zorrilla. Pero rechaza la corona. </li>
+                    <li>Antonio María de Orleans, <strong>duque de Montpensier</strong>, hijo de Luis Felipe de Orleans (rey francés entre 1830-48 y casado con la infanta Luisa Fernanda de Borbón, hermana menor de Isabel II) había financiado el golpe de la revolución gloriosa. Pero se consideraba muy posicionado a favor de Serrano, además un duelo a muerte con su primo Enrique de Borbón (en el que falleció) supuso un gran desprestigio para su candidatura. </li>
+                    <li>La posibilidad de un candidato alemán <strong>Leopoldo de Hozenzollern</strong> (de la misma casa real que el Kaiser Guillermo II), primer candidato de Prim, pero es vetado por Francia. Su candidatura desencadena la guerra Franco prusiana que acaba con la derrota francesa y el fin del Segundo Imperio Francés.  </li>
+                    <li><strong>Amadeo de Saboya</strong>, hijo de Víctor Manuel II, padre de la unificación italiana, rey de Italia, y símbolo de la libertad política en Europa. Es el segundo candidato promocionado por el general Prim y Manuel Ruiz Zorrilla, pero el príncipe no acepta en un primer momento. Finalmente lo hace y llega a España el 30 de diciembre de 1870. Tres días antes su principal valedor, Prim, sufre un atentado que le provocó la muerte. Esto auguraba un mal comienzo a la monarquía democrática.</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="row align-items-center vertical-align-center text-center py-3 my-5 border" style="background-color:#E2F6F6 ;">
+        
+    <h5 class="text-center pt-2" id="amadeoSaboya">Monarquía de Amadeo I de Saboya (1871-1873)</h5>
+        
+</div>
+<p>El reinado de Amadeo I duró dos años. Tras jurar la Constitución, encargó a Serrano  formar gobierno. Amadeo fue rechazado por los carlistas, los isabelinos y los republicanos. Se encontró, pues, <strong>con pocos apoyos</strong> y tuvo que afrontar problemas como la <strong>Guerra de Cuba y la Tercera Guerra Carlista</strong>. Además, tras morir Prim, la coalición gubernamental empezó a disgregarse, provocando una <strong>gran inestabilidad política:</strong> en dos años se convocaron tres elecciones y se sucedieron seis gobiernos diferentes.</p>
+<div class="row">
+    <div class="col-md-3">
+        <figure>
+            <img class="img-fluid" src="{% static 'images/sigloXIX/amadeoSaboya.jpg' %}" alt="">
+            <figcaption class="text-center"> Amadeo de Saboya</figcaption>                
+        </figure>
+    </div>
+    
+    <div class="col-md-9">
+        
+        <div class="row my-3 border" style="background-color: #FEF5E7 ;">    
+            <h6 class="my-2" id="problemas">Problemas con los que se encuentra</h6>    
+        </div>
+        <div>
+            <ul>
+                <li><strong><a href="{% url 'guerraCuba' %}"> Guerra de Cuba</a></strong></li>
+                <li><strong>Tercera guerra carlista (1872–1876)</strong>. Alzamiento militar de los carlistas aprovechando la impopularidad del nuevo monarca. Carlos estableció su corte en Estella (Navarra), tomó el nombre de Carlos VII y llegó a dominar Navarra y Vascongadas. No serán derrotados hasta la Restauración de Alfonso XII, en 1876.</li>
+                <li><strong>Conspiraciones de los alfonsinos</strong>. La nobleza lo rechaza, es borbónica (alfonsina o carlista) y le hacen vacío. Borbónicos y republicanos se burlan de sus frecuentes infidelidades. </li>
+                <li><strong>Oposición de la Iglesia,</strong> que no podía aceptar la libertad de culto y a un monarca de una una casa real que tenía recluido al Papa en el Vaticano. </li>
+                <li>
+                    <span  data-bs-toggle="modal" data-bs-target="#obrero"><strong class="text-primary"> Movimiento obrero.</strong> </span>
+                    <!-------------------------------------------- MODAL MOVIMIENTO OBRERO -------------------------------------------------------->
+                    <div class="modal fade" id="obrero" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Movimiento obrero</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                        <figure>
+                                            <img class="img-fluid" src="{% static 'images/sigloXIX/anselmoLorenzo.png' %}" alt="">
+                                            <figcaption class="text-center"> Anselmo Lorenzo</figcaption>                
+                                        </figure>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <ul>
+                                                <li>En <strong>1868 Giuseppe Fanelli</strong> (socialista de tipo anarquista o libertario) llegó a Barcelona y colaboró en la creación de la <strong>FRE (Federación de la Región Española)</strong>. En ella se agrupan los numerosos sindicatos que ya existían. En Madrid se reúne con el toledano <strong>Anselmo Lorenzo</strong>, que se convirtió en uno de los líderes destacados de la FRE. En un primer momento la corriente dominante es la anarquista/libertaria y aunque se extendió a muchas ciudades el 80% eran catalanes.</li>
+                                                <li><strong>1870. Primer congreso de la FRE en Barcelona</strong>, fundación oficial como sección española de la I Internacional de trabajadores. Se fija la sede en Madrid, pero el 80% de sus afiliados son de Barcelona. Propuestas de mejora de las condiciones de vida de los trabajadores, usando la huelga como instrumento. Plan de expansión a más ciudades. </li>
+                                                <li><strong>1871.</strong>
+                                                    <ul>
+                                                        <li>La <strong>Comuna de París</strong> de marzo a mayo, primera experiencia de gobierno socialista de la historia. El miedo llega a España y comienza la persecución a los miembros de la FRE</li>
+                                                        <li>Ese mismo año en el <strong>Congreso de Londres de la I Internacional</strong>, Anselmo Lorenzo representa a la FRE y defiende las tesis anarquistas contra los marxistas.</li>
+                                                        <li>Llega <strong>Paul Lafargue</strong> a Madrid (cuñado de Marx y marxista) iniciando la corriente marxista en España. </li>
+                                                        
+                                                    </ul>
+                                                </li>
+                                            </ul>   
+                                        </div>
+                                                                                         
+
+                                    </div>
+                                    
+                                </div>
+                                
+                            </div>
+                            
+                        
+                        </div>
+                    </div>
+
+                    <!---------------------------------------------------------------------------------------------------------- -->
+                    La FRE siguió aumentando hasta llegar a los 50.000 afiliados en el 74, a pesar de sufrir:
+                    <div>
+                        <ul>
+                            <li><strong>Represión.</strong> La revolución de la comuna de París, asustó a los gobiernos de Amadeo, por lo que iniciaron la persecución a la FRE, prohibieron las reuniones y las huelgas y arrestaron a sus dirigentes. El consejo federal de la FRE se traslada a Lisboa. </li>
+                            <li><strong>División.</strong> En el congreso de Zaragoza (1872) el FRE se divide al igual que el Europeo, entre <strong>anarquistas (Cataluña y Andalucía)</strong> y los <strong>marxistas (la federación madrileña de Pablo Iglesias)</strong>, que son expulsados por ser minoría. </li>
+                        </ul>
+                    </div>
+                
+                </li>
+                <li><strong>Inestabilidad política.</strong> Fue la principal causa del fin del reinado. Hubo siete gobiernos cortos con Serrano, Sagasta y Zorrilla  y convocatoria de tres elecciones. </li>
+            </ul>
+            
+        </div>
+        
+    </div>
+    <p>Amadeo cada vez estaba más incómodo en el trono: el rechazo de la nobleza española, la falta de políticos en los que apoyarse incluso un atentado contra su vida. La gota que colmó el vaso fue la crisis del cuerpo de artillería. Zorrilla reformó el cuerpo de artillería después de decirle al rey le dijo que no lo haría. Amadeo se sintió engañado por el que se consideraba hombre de confianza. Sin nadie en quien confiar Amadeo decidió abdicar el 11 de febrero de 1873 y volvió a Italia. Ruiz Zorrilla no pudo convencerle de que cambiara de opinión.</p>
+</div>
+
+<div class="row align-items-center vertical-align-center text-center py-3 my-5 border" style="background-color:#E2F6F6 ;">
+        
+    <h5 class="text-center pt-2" id="inicioRepublica">La Primera República (Febrero 1873- Diciembre 1874)</h5>
+        
+</div>
+<div class="row">
+    <div class="col-md-9">
+        <p>La abdicación de Amadeo abrió paso a la proclamación de la Primera República por acuerdo entre los radicales, que tenían la mayoría en las Cortes, y los republicanos. Aunque las cortes eran mayoritariamente monárquicas, al no existir candidato alternativo, no tuvieron otra opción. El resultado de la votación fue abrumador: 258 votos a favor contra 32. El primer ejecutivo de coalición, integrado por cinco radicales y tres republicanos —Pi i Margall, Salmerón y Castelar—, sería presidido por el republicano federal Estanislao Figueras</p>
+        <p>La opción republicana se encontró con muchos obstáculos:</p>
+        <div>
+            <ul>
+                <li><strong>Ausencia de respaldo.</strong> Los republicanos carecían de respaldo social (partido no mayoritario en  ese momento) y de respaldo institucional (altos funcionarios contrarios a la república) y rechazo de la oligarquía. Se eligió la opción republicana porque no había alternativa. </li>
+                <li><strong>División interna en tres corrientes.</strong>
+                <ul>
+                    <li><strong>Unitarios.</strong> Empezaron siendo federales, pero el desorden político les hizo evolucionar hacia posiciones centralistas. Entre los defensores de esta posición están <strong>Estanislao Figueras</strong> (burguesía de Barcelona) o <strong>Emilio Castelar</strong>. </li> 
+                    <li><strong>Federales.</strong> Partidarios de la descentralización.  Sus modelos es la Suiza cantonalista y los EEUU federealistas, los dos únicos países que reconocieron a la I República. La experiencia de la Comuna de París (1871), había dividido a los federales en dos tendencias:
+                    <ul>
+                        <li><strong>Legales.</strong> Defienden una descentralización regulada desde arriba a partir de una Constitución y siguiendo cauces legales. Son miembros de esta corriente <strong>Pi y Margall o Nicolás Salmerón</strong></li>
+                        <li><strong>Intransigentes.</strong> Defienden una descentralización desde abajo influidos por las ideas del socialismo utópico de la I Internacional y la experiencia de la Comuna. Sin un líder claro.</li>
+                    </ul>
+                </li>
+                </ul>
+            </li>
+            </ul>
+        </div>
+        <p>Durante todo el periodo seguirá vigente la <strong>constitución del 69</strong>, ya que no llegó a aplicarse la constitución republicana. <strong>Varios gobiernos</strong>: 4 durante el 73, en muy poco tiempo, ya que ninguno tuvo poder para aplicar las reformas que les había llevado al poder debido al <strong>gran déficit del Estado</strong> que hacía imposible tener recursos para invertir en ninguna reforma. Lo poco que se ingresaba se usaba para pagar a los militares que estaban luchando contra los carlistas y contra los independentistas cubanos. </p>
+    </div>
+    <div class="col-md-3">
+        <figure>
+            <img class="img-fluid" src="{% static 'images/sigloXIX/primeraRepublica.jpg' %}" alt="">                                               
+        </figure>
+        <figure>
+            <img class="img-fluid" src="{% static 'images/sigloXIX/primeraRepublica1.jpg' %}" alt="">                                               
+        </figure>
+    </div>
+</div>
+
+
+
+<div class="row my-3 border" style="background-color: #FEF5E7 ;">    
+    <h6 class="my-2" id="figueras">Estanislao Figueras (12 febrero - 11 junio del 73)</h6>    
+</div>
+<div class="row text-start">
+    <div class="col-md-3">
+        <figure>
+            <img class="img-fluid" src="{% static 'images/sigloXIX/figueras1.jpg' %}" alt="">                                               
+        </figure>
+    </div>
+    <div class="col-md-9">
+        <p >Pasó del partido liberal progresista al demócrata y luego al republicano federal.</p>
+        <p>El nuevo ejecutivo se constituía sobre un verdadero polvorín político y social en que se había convertido el país:</p>
+        <div>
+            <ul>
+                <li>La guerra de Cuba</li>
+                <li>La tercera guerra carlista</li>
+                <li>La crisis económica internacional</li>
+                <li>La situación explosiva en el campo andaluz con ocupación de tierras de latifundio</li>
+                <li>Las huelgas obreras en los centros industriales de la periferia mediterránea (Cataluña, Valencia, Alicante…)</li>
+                <li>El descontento entre los sectores <strong>republicanos federales más radicalizados («intransigentes»)</strong> que no se fiaban de un gobierno con mayoría de antiguos monárquicos del Partido Radical y que se hicieron fuertes en las juntas locales revolucionarias que propugnaban constituir la República Federal desde abajo.</li>
+                <li>Los sectores más conservadores seguían conspirando</li>
+            </ul>
+        </div>
+        
+    
+    </div>
+    <p>En las elecciones de mayo triunfa el Partido Republicano Federal (aunque con una altísima abstención) y sale reforzada la tesis federal opuesta a la Figueras. Temiendo por su vida (le amenazan los republicanos intransigentes) y viendo que no cuenta con el apoyo de su propio partido decide abandonar.  Se dice que en la última reunión de gobierno dice: «Señores, voy a serles franco: estoy hasta los cojones de todos nosotros» y se exilia a Francia. Aunque no he podido acreditar la veracidad de esta anécdota. </p>
+</div>
+<div class="row my-3 border" style="background-color: #FEF5E7 ;">    
+    <h6 class="my-2" id="piMargall">Pi y Margall (11 junio del 73- 18 julio 1873)</h6>    
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <figure>
+            <img class="img-fluid" src="{% static 'images/sigloXIX/piMargall.jpg' %}" alt="">                                               
+        </figure>
+    </div>
+    <div class="col-md-9">
+        <p>En mayo de 1873 se celebraron elecciones a Cortes, que definieron una república federal, que presidió Pi y Margall. El nuevo Gobierno empezó a elaborar una Constitución, que no llegó a entrar en vigor, pero que recogía el ideario republicano: república federal, soberanía nacional, separación Iglesia y Estado, ampliación de las garantías y derechos de los ciudadanos. Pero la República federal fue desbordada por los republicanos más intransigentes, al promover un federalismo radical a partir del verano de 1873, dando lugar al cantonalismo, al formarse cantones (municipios autónomos) entre los que destacó el de Cartagena.</p>
+        <p>Elaboró <strong>leyes para aumentar los derechos laborales</strong> pero no tienen tiempo para poder aplicarse. </p>
+        <p>Encargó a Emilio Castelar redactar la <strong>Constitución de 1873</strong> que no llegó a aplicarse, funcionó la del 69. Pretendía contentar a los intransigentes y desactivar las sublevaciones republicanas. </p>
+        <p><strong>Distanciamiento con los federales intransigentes</strong>, ya que no propuso el fin del impuesto de consumos por la necesidad de aumentar los ingresos ni tampoco propuso el fin de las quintas más bien al contrario (para acabar con la guerra carlista propuso medidas para reforzar el poder del ejército). Los federales intransigentes consideraron esto un primer paso hacia la dictadura y acusaron de traidor a Pi y Margall. Entonces reclamaron la sublevación de los cantones con el fin de establecer la república federal de abajo a arriba. Querían hacer una revolución cantonal en Madrid como la Comuna de París, pero como vieron que les faltaba apoyo se trasladaron a Cartagena. </p>
+        
+    </div>
+</div>
+<p><strong>Revolución cantonal.</strong> Las juntas locales proclamaron repúblicas independientes de ámbito local  y territorial siguiendo la idea de los liberales y los anarquistas de poder de abajo a arriba. </p>
+<div>
+    <ul>
+        <li>En <strong>Levante</strong> Castellón, Valencia, Alicante, Alcoy, Torrevieja, Cartagena, Murcia, Jumilla y en <strong>Andalucía</strong>: Jaén, Bailén, Andújar, Granada, Loja, Málaga. Algeciras, Tarifa, Cádiz, Sevilla, Utrera, Córdoba, Coria. Algunos <strong>puntos aislados en el interior</strong> del país (Salamanca, Toro, Toledo, Ávila). <strong>No afectó a Asturias, ni al País Vasco–Navarro ni a  Cataluña</strong> donde domina el movimiento carlista.</li>
+        <li>Toman medidas muy revolucionarias, como grandes multas a los ricos (Cantón de Granada) ejecutan a alcaldes liberales y queman máquinas (Cantón de Alcoy) confiscan tierras a los terratenientes y los reparten a los campesinos (Cantón de Cartagena) </li>
+        <li>Los <strong>obreros y los anarquistas</strong> se unen a los movimientos revolucionarios y republicanos de los cantones. Pero como los republicanos rechazan los cambios económicos y laborales, se desilusionan y los abandonan. Desde entonces, el movimiento obrero se separa de la ideología republicana. A pesar de ello también sufren persecución. Se ilegalizan las asociaciones obreras desde 1874 hasta 1881.</li>
+        
+    </ul>
+</div>
+<p><strong>Pi y Margall solo quiere negociar y se niega a reprimir los cantones</strong>, pero la situación no se soluciona, al contrario se agrava y las sublevaciones cantonalista se extiende. Así que fue en julio fue sustituido por otro republicano federalista dispuesto a usar la fuerza: Nicolás Salmerón. La represión de Salmerón significó la ruptura entre el movimiento republicano y el movimiento obrero que se había adherido al movimiento cantonalista. </p>
+
+<div class="row my-3 border" style="background-color: #FEF5E7 ;">    
+    <h6 class="my-2" id="salmeron">Nicolás Salmerón (18 julio del 73- 7 septiembre 1873)</h6>    
+</div>
+<div class="row">
+    <div class="col-md-2">
+        <figure>
+            <img class="img-fluid" src="{% static 'images/sigloXIX/salmeron.jpg' %}" alt="">                                               
+        </figure>
+    </div>
+    <div class="col-md-9">
+        <p>Nicolás Salmerón, que sustituye a Pi y Margall en julio, dio un giro hacia la derecha, apoyándose en el ejército para sofocar el cantonalismo y frenar el avance carlista, pero su actuación sus­citó en las Cortes fuertes polémicas, lo que provocó su dimisión en septiembre.</p>
+        <p>Salmerón manda al ejército contra los cantones, el <strong>General Pavía</strong>  somete a los cantones andaluces y el <strong>General Martínez Campos</strong>
+        somete a los cantones levantinos. Cartagena, dirigida por el general Juan Contreras y Málaga, resisten. </p>
+        <p>Salmerón se enfrenta a los generales encabezados por el general Pavía y se niega a traspasarles el poder judicial. Los generales quieren procesar a sublevados cantonalistas con tribunales militares y no civiles para poder condenarles a <strong>penas de muerte</strong>. Finalmente el Congreso le dio la razón a los militares y les concedió la jurisdicción para juzgar a los cantonalistas. Entonces <strong>Salmerón dimitió por problemas de conciencia</strong>.  </p>
+    </div>
+</div>
+<div class="row my-3 border" style="background-color: #FEF5E7 ;">    
+    <h6 class="my-2">Emilio Castelar (7 septiembre 1873 - 3 de enero de 1874)</h6>    
+</div>
+
+<div class="row">
+    <div class="col-md-2">
+        <figure>
+            <img class="img-fluid" src="{% static 'images/sigloXIX/castelar.jpg' %}" alt="">                                               
+        </figure>
+    </div>
+    <div class="col-md-8">
+        <p>Emilio Castelar asumió la presi­dencia y actuó de forma <strong>autoritaria, recortando libertades</strong> y garantías constitucionales, por lo que su política también fue rechazada por el Parlamento.</p>
+        <p><strong>Firma las condenas de muerte de los cantonalistas.</strong> Se conquista Cartagena y Málaga. </p>
+        <p>Giro a la derecha para acercarse a los radicales (antiguos progresistas) y a los constitucionales (antiguos unionistas).  Refuerza al ejército (aumenta reclutamiento). Autoritarismo, disuelve las cortes y gobierna por decreto. Acusa a los cantonalistas de "separatistas", aún no existe el nacionalismo. </p>
+        <p>En enero <strong>reabrió las Cortes</strong>. Como la represión había sido muy dura se prevé que en las nuevas elecciones ganen claramente los republicanos federalistas contrarios a los unionistas. Para evitar la vuelta de los federalistas al poder se produce el <strong>golpe de Estado del general Pavía</strong> que ocupa el Congreso con la Guardia Civil. No hay ninguna resistencia ni institucional ni popular, ya que el movimiento obrero se había separado definitivamente del partido republicano federal. </p>
+    </div>
+    <div class="col-md-2">
+        <figure>
+            <img class="img-fluid" src="{% static 'images/sigloXIX/generalPavia.jpg' %}" alt="">
+            <figcaption class="text-center">General Pavía</figcaption>                                               
+        </figure>
+    </div>
+</div>
+<div class="row my-3 border" style="background-color: #FEF5E7 ;">    
+    <h6 class="my-2" id="castelar">General Serrano (3 enero 1874 - 30 de diciembre de 1874)</h6>    
+</div>
+
+<div class="row">
+    <div class="col-md-2">
+        <figure>
+            <img class="img-fluid" src="{% static 'images/sigloXIX/generalSerrano.jpg' %}" alt=""> 
+            <figcaption class="text-center">General Serrano</figcaption>                                              
+        </figure>
+    </div>
+    <div class="col-md-8">
+        <p>El 3 de enero de 1874 el general Pavía disolvió el Congreso y entregó el poder a Serrano, que se autoproclamó presidente vitalicio de la República, gobernando dictatorialmente durante doce meses. Al mismo tiempo, la Guerra de Cuba y la Tercera Guerra Carlista proseguían sin que el régimen les pusiera fin.</p>
+        <p>Oficialmente aun era un sistema republicano, pero sigue vigente la constitución del 69 y el general Serrano <strong>disuelve las Cortes y gobierna por decreto</strong> con los constitucionalistas (antiguos unionistas) y los radicales (antiguos progresistas). Por lo tanto esta república presidencialista será en la práctica una dictadura. </p>
+        <p><strong>Cánovas del Castillo</strong> funda el Partido (liberal) Conservador, donde aglutina a antiguos liberales moderados, radicales (antiguos progresistas) y a constitucionalistas (antiguos unionistas). </p>
+        <p>El 29 diciembre se produce el <strong>pronunciamiento de Martínez Campos</strong> en Sagunto y proclamación de Alfonso como rey.</p>
+        <div>
+            <ul>
+                <li><strong>Cánovas</strong>, artífice de la segunda restauración, formó un gobierno provisional. El partido alfonsino se convertirá en Partido Conservador y aglutinó a los antiguos liberales moderados. </li>
+                <li><strong>Sagasta</strong>, último jefe de gobierno con Serrano (finales del 74), aglutinó a los radicales y a los constitucionales (antiguos liberales progresistas y unionistas) hacia un nuevo partido, el Partido Liberal (Fusionista) </li>
+                
+            </ul>
+        </div>
+
+    </div>    
+    <div class="col-md-2">
+        <figure>
+            <img class="img-fluid" src="{% static 'images/sigloXIX/martinezCampos.jpg' %}" alt=""> 
+            <figcaption class="text-center">General Matínez Campos</figcaption>                                              
+        </figure>
+    </div>
+</div>
+<div class="row my-3 border" style="background-color: #FEF5E7 ;">    
+    <h6 class="my-2" id="castelar">Consecuencias del Sexenio Democrático</h6>    
+</div>
+
+<div>
+    <ul>
+        <li><strong>Desilusión de los campesinos y obreros  y desvinculación con los republicanos</strong> a los que habían apoyado al principio. Hay que tener presente que los dirigentes republicanos federales eran miembros de la pequeña burguesía y de profesiones liberales (profesores, periodistas, abogados, etc.) de clase media que defendían el federalismo a nivel teórico y pensando en el autogobierno local. Por eso cuando las clases bajas intentaron aplicarlo en la práctica y lo extendieron a la economía, se asustaron y se opusieron. </li>
+        <li><strong>Los militares</strong>, que hasta ese momento habían intervenido en sentido de propiciar reformas progresistas, en lo sucesivo se volverán conservadores por su miedo a los movimientos separatistas. </li>
+        <li>La fracaso cantonalista significó el <strong>desprestigio del federalismo y el fracaso carlista</strong> en Cataluña y vascongadas significó el desprestigio del tradicionalismo fuerista. Por ello a final en las décadas siguientes apareció una nueva ideología: el nacionalismo periférico o fraccionario en Cataluña y en Vizcaya.  </li>
+    </ul>
+</div>
+
+<div class="row align-items-center vertical-align-center text-center py-3 my-3 border" style="background-color:#E2F6F6 ;">
+        
+    <h5 class="text-center pt-2" id="narvaezGB">Curiosidades</h5>
+        
+</div>
+<div>
+    <ul>
+        <li><a href="{% url 'monedas1868' %}" style="text-decoration:none ;">Monedas en 1868</a></li>
+        
+    </ul>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,167 @@
+{% extends "bases/baseHistoria.html" %}
+
+{% load static %}
+
+{% block titulo %} siglo xix {% endblock %}
+
+{% block cabecera %} Siglo XIX {% endblock %}
+
+{% block imgCabecera %}<img class="img-fluid" src="{% static 'images/sigloXIX/2demayo.jpg' %}" alt="">  {% endblock %}
+
+{% block contenido %}
+
+<div class="row justify-content-center">
+    <div class="arrowRight">
+        <div class="row justify-content-center mt-1">
+    
+            <div class="border-1 rounded my-2 text-center " style="background-color:#E74C3C ; color:white; width:145px ; height:235px ;">
+                <a href="{% url 'carlosIV' %}" class="text-light", style="text-decoration:none ;">    
+                    <div class="row text-center">                                    
+                        <img class="img-fluid mt-4" style="width:135px ; height:125px ;" src="{% static 'images/sigloXIX/carlosIV1.png' %}" alt="">
+                        <figcaption class="text-center mt-3">CARLOS IV</figcaption>
+                        <span class="text-center">(1788-1808)</span> 
+                    </div>
+                </a>                       
+            </div>
+            <div class="border-1 rounded my-2 mx-1 text-center " style="background-color:#066725 ; color:white; width:145px ; height:235px ;">
+                <a href="{% url 'independencia' %}" class="text-light", style="text-decoration:none ;">    
+                    <div class="row text-center">                                    
+                        <img class="img-fluid mt-4" style="width:135px ; height:125px ;" src="{% static 'images/sigloXIX/empecinado.jpg' %}" alt="">
+                        <figcaption class="text-center mt-3">GUERRA INDEPEND.</figcaption>
+                        <span class="text-center">(1808-1814)</span> 
+                    </div>
+                </a>                       
+            </div>
+            <div class="border-1 rounded my-2 mx-1 text-center " style="background-color:#590e96 ; color:white; width:145px ; height:235px ;">
+                <a href="{% url 'monarquiaAbsoluta' %}" class="text-light", style="text-decoration:none ;">    
+                    <div class="row text-center">                                    
+                        <img class="img-fluid mt-4" style="width:135px ; height:125px ;"src="{% static 'images/sigloXIX/fernandoVII1.jpg' %}" alt="">
+                        <figcaption class="text-center mt-3">MONARQUÍA ABSOLUTA</figcaption>
+                        <span class="text-center">(1814-1833)</span> 
+                    </div>
+                </a>                       
+            </div>
+            <div class="border-1 rounded my-2 mx-1 text-center " style="background-color:#F39C12 ; color:white; width:145px ; height:235px ;">
+                <a href="{% url 'regencias' %}" class="text-light", style="text-decoration:none ;">    
+                    <div class="row text-center">                                    
+                        <img class="img-fluid mt-4" style="width:135px ; height:125px ;" src="{% static 'images/sigloXIX/mariaCristinaBorbon1.jpg' %}" alt="">
+                        <figcaption class="text-center mt-3">REGENCIAS</figcaption>
+                        <span class="text-center">(1833-1843)</span> 
+                    </div>
+                </a>                       
+            </div>
+            <div class="border-1 rounded my-2 mx-1 text-center " style="background-color:#2E86C1  ; color:white;width:145px ; height:235px ;">
+                <a href="{% url 'isabelII' %}" class="text-light", style="text-decoration:none ;">    
+                    <div class="row text-center">                                    
+                        <img class="img-fluid mt-4" style="width:135px ; height:125px ;" src="{% static 'images/sigloXIX/isabelII.jpg' %}" alt="">
+                        <figcaption class="text-center mt-3">ISABEL II</figcaption>
+                        <span class="text-center">(1843-1868)</span> 
+                    </div>
+                </a>                       
+            </div>
+            <div class="border-1 rounded my-2 mx-1 text-center " style="background-color:#229954  ; color:white; width:145px ; height:235px ;">
+                <a href="{% url 'sexenioDemocratico' %}" class="text-light", style="text-decoration:none ;">    
+                    <div class="row text-center">                                    
+                        <img class="img-fluid mt-4" style="width:135px ; height:125px ;" src="{% static 'images/sigloXIX/amadeoSaboya.jpg' %}" alt="">
+                        <figcaption class="text-center mt-3 ">SEXENIO DEMOCRAT.</figcaption>
+                        <span class="text-center">(1868-1874)</span> 
+                    </div>
+                </a>                       
+            </div>
+            <div class="border-1 rounded my-2 px-1 text-center " style="background-color:#E74C3C ; color:white; width:145px ; height:235px ;">
+                <a href="{% url 'restauracion' %}" class="text-light", style="text-decoration:none ;">    
+                    <div class="row text-center px-1">                                    
+                        <img class="img-fluid mt-4" style="width:135px ; height:125px ;" src="{% static 'images/sigloXIX/alfonsoXII1.jpg' %}" alt="">
+                        <figcaption class="text-center mt-3" style="font-size:0.9em ;">LA RESTAURACIÓN</figcaption>
+                        <span class="text-center">(1875-1902)</span> 
+                    </div>
+                </a>                       
+            </div> 
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="row justify-content-center my-5">
+    
+    <div class="col-1 border-1 rounded my-2 text-center " style="background-color:#E74C3C ; color:white">
+        <a href="{% url 'movimientoObrero' %}" class="text-light", style="text-decoration:none ;">    
+            <div class="row text-center">                                    
+                <img class="img-fluid mt-4" style="width:135px ; height:125px ;" src="{% static 'images/sigloXIX/marx.jpg' %}" alt="">
+                <figcaption class="text-center mt-3">MOVIMIENTO OBRERO</figcaption>
+                <span class="text-center">(1855-1917)</span> 
+            </div>
+        </a>                       
+    </div>
+    <div class="col-1 border-1 rounded my-2 mx-1 text-center " style="background-color:#066725 ; color:white">
+        <a href="{% url 'guerrasCarlistas' %}" class="text-light", style="text-decoration:none ;">    
+            <div class="row text-center">                                    
+                <img class="img-fluid mt-4" style="width:135px ; height:125px ;" src="{% static 'images/sigloXIX/carlosMariaIsidro.jpg' %}" alt="">
+                <figcaption class="text-center mt-3">GUERRAS CARLISTAS.</figcaption>
+                <span class="text-center">(1833-1879)</span> 
+            </div>
+        </a>                       
+    </div>
+    <div class="col-1 border-1 rounded my-2 mx-1 text-center " style="background-color:#590e96 ; color:white">
+        <a href="{% url 'constituciones' %}" class="text-light", style="text-decoration:none ;">    
+            <div class="row text-center">                                    
+                <img class="img-fluid mt-4" style="width:135px ; height:125px ;" src="{% static 'images/sigloXIX/constitucion.jpg' %}" alt="">
+                <figcaption class="text-center mt-3"><small> CONSTITUCIONES</small></figcaption>
+                <br> 
+            </div>
+        </a>                       
+    </div>
+    <div class="col-1 border-1 rounded my-2 mx-1 text-center " style="background-color:#F39C12 ; color:white">
+        <a href="{% url 'guerraCuba' %}" class="text-light", style="text-decoration:none ;">    
+            <div class="row text-center">                                    
+                <img class="img-fluid mt-4" style="width:135px ; height:125px ;" src="{% static 'images/sigloXIX/cespedes.jpg' %}" alt="">
+                <figcaption class="text-center mt-3">GUERRA CUBA.</figcaption>
+                <br>
+            </div>
+        </a>                       
+    </div>
+    <div class="col-1 border-1 rounded my-2 mx-1 text-center " style="background-color:#2E86C1 ; color:white">
+        <a href="{% url 'partidosPoliticos' %}" class="text-light", style="text-decoration:none ;">    
+            <div class="row text-center">                                    
+                <img class="img-fluid mt-4" style="width:135px ; height:125px ;" src="{% static 'images/sigloXIX/canovasC.jpg' %}" alt="">
+                <figcaption class="text-center mt-3">PARTIDOS POLITICOS.</figcaption>
+                <br>
+            </div>
+        </a>                       
+    </div>
+</div> 
+<div class="row  mt-5 justify-content-center text-center">
+    
+    
+    <div class="col-md-12">
+        <figure>
+            
+            <img class="img-fluid" src="{% static 'images/sigloXIX/resumenXIX1.jpg' %}" alt="">
+                        
+        </figure>
+    </div>
+    <div class="col-md-12">
+        <figure>
+            <img class="img-fluid" src="{% static 'images/sigloXIX/resumenXIX2.jpg' %}" alt="">
+                        
+        </figure>
+    </div>
+    <div class="col-md-12">
+        <figure>
+            <img class="img-fluid" src="{% static 'images/sigloXIX/resumenXIX3.jpg' %}" alt="">
+                        
+        </figure>
+    </div>
+</div> 
+    
+</div>
+
+
+{% endblock %}

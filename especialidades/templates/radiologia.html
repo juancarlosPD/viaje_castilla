@@ -1,0 +1,26 @@
+{% extends "baseEspecialidades.html" %}
+
+{% block titulo %} radiologia {% endblock %}
+
+{% block cabecera %} Radiología {% endblock %}
+{% load static %}
+
+{% block imgCabecera %}<img src="{% static 'img/radiologia.jpg' %}" class="img-fluid" alt="..." >  {% endblock %}
+
+
+{% block contenido %}
+
+<div class="row mt-4">
+    <div class="col-md-5">
+        <p><strong>Documentos</strong> </p>
+        <ul>
+            <li><a href="{% url 'solicitudEcografia' %} "class="text-success", style="text-decoration:none ;" >Solicitud de ecografías (mayo 2022)</a></li>
+            
+            
+        </ul>
+        
+    </div>
+</div>
+
+
+{% endblock %}

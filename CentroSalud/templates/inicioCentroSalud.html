@@ -1,0 +1,80 @@
+{% extends "baseCentroSalud.html" %}
+{% load static %}
+{% block titulo %} centro salud {% endblock %}
+{% block cabecera %} Centro de Salud {% endblock %}
+{% block imgCabecera %} <img src="{% static 'img/sanse.png' %}" alt="" class="img-fluid">  {% endblock %}
+
+{% block contenido %}
+
+<div class="row p-4 justify-content-start">
+    <div class="col-md-3 mt-4 border-start border-end ">
+        AMBULANCIA 
+        <ul class="mt-2">
+            <li><a href="{% static 'doc//POES/POE_trasporte_sanitario.pdf' %} "class="text-success", style="text-decoration:none ;" >POE transporte sanitario</a></li>
+            <li><a href="{% url 'peticionAmbulancia' %} "class="text-success", style="text-decoration:none ;" >Petición ambulancia</a></li>
+            
+        </ul>            
+    </div>
+    <div class="col-md-3 mt-4 border-end ">
+        DEFUNCIÓN
+        <ul class="mt-2">
+            <li><a href="{% static 'doc/POES/POE_CertificadoDefuncion.pdf' %} "class="text-success", style="text-decoration:none ;" >POE Certificado de defunción</a></li>
+            <li><a href="{% static 'doc/resumen_POE_Certificados_defuncion.pdf' %} "class="text-success", style="text-decoration:none ;" >Resumen POE Certificado de defunción</a></li>
+            <li><a href="{% url 'anexo1CD' %}"class="text-success", style="text-decoration:none ;" >Anexo 1. Constatación de muerte</a></li>
+        </ul>            
+    </div>
+    <div class="col-md-3 mt-4 border-end  ">
+        DESBUROCRATIZACIÓN
+        <ul class="mt-2">
+            <li><a href="{% url 'desburocratizacion' %}"class="text-success", style="text-decoration:none ;" >Desburocratización</a></li>
+            
+        </ul>            
+    </div>
+    <div class="col-md-3 mt-4 border-end  ">
+        INCAPACIDAD TEMPORAL
+        <ul class="mt-2">
+            <li><a href="{% url 'IT' %}"class="text-success", style="text-decoration:none ;" >Unidades especializadas IT</a></li>
+            
+        </ul>            
+    </div>
+    <div class="col-md-3 mt-4 border-end ">
+        OXIGENOTERAPIA (Oximesa)
+        <ul class="mt-2">
+            <li><a href="{% url 'manual_oximesa' %}"class="text-success", style="text-decoration:none ;" >Manual oximesa</a></li>
+            <li><a href="{% url 'solicitudOxigenoterapia' %}"class="text-success", style="text-decoration:none ;" >Solicitud oxigenoterapia</a></li>            
+        </ul>
+            
+    </div>
+    <div class="col-md-3 pt-4 border-start border-end ">
+        PREVENTIVA
+        <ul class="mt-2">
+            <li><a href="{% url 'estudio_contactos_ITS' %}"class="text-success", style="text-decoration:none ;" >Estudio de contactos ITS</a></li>
+            
+        </ul>
+            
+    </div>  
+    <div class="col-md-3 pt-4 border-start border-end ">
+        PROTECCIÓN DE DATOS
+        <ul class="mt-2">
+            <li><a href="{% url 'proteccion_datos' %}"class="text-success", style="text-decoration:none ;" >Guía de protección de datos</a></li>
+            
+        </ul>
+            
+    </div>
+    <div class="col-md-3 pt-4 border-start border-end ">
+        VIRUELA DEL MONO
+        <ul class="mt-2">
+            <li><a href="{% url 'viruela_mono' %}"class="text-success", style="text-decoration:none ;" >Viruela del mono</a></li>
+            <li><a href="{% url 'lesiones_cutaneas_vm' %}"class="text-success", style="text-decoration:none ;" >Lesiones cutáneas viruela del mono</a></li>
+        </ul>
+            
+    </div>
+              
+</div>
+
+
+
+
+
+
+{% endblock %}

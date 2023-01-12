@@ -1,0 +1,343 @@
+{% extends "baseDiabetes.html" %}
+{% block titulo %} ayudas tto {% endblock %}
+{% block cabecera %}Ayudas al tto de la DM II {% endblock %}
+{% load static %}
+{% block imgCabecera %} <img src="{% static 'img/ado.png' %}" alt="" class="img-fluid"> {% endblock %}
+{% block body %}onload="cargaPagina()" {% endblock %}
+
+
+{% block contenido %}
+
+<form action="{% url 'ayudasTto' %}" method="post" id="miForm">{% csrf_token %}
+
+    <div class="row my-2 py-4 border text-center" style="background-color: #FCFCF5;">
+                
+        <div class="col-md-4">
+            <h6 >1º- Modificar estilo de vida*</h6>
+        </div>
+        <div class="col-md-4" >
+            <h6 >2º- Metformina*</h6>
+        </div>
+        <div class="col-md-4">
+            <h6>3º-Añadir un nuevo fármaco</h6>
+        </div>        
+        
+    </div>
+ 
+
+
+    <div class="form-check ">
+        <div class="row justify-content-between vertical-align-end my-2">
+            <div class="col-md-6">
+                <input type="checkbox" class="custom-control-input mt-4" id="check_metformina" name="metformina" >
+                <label class="custom-control-label" for="customCheck1">¿Contraindicación o intolerancia a la metformina?</label>  
+            </div>
+            
+
+                  
+        </div>
+        
+    </div>
+    <div class="row mt-3 ">
+        <div class="col-md-4 card border bg-success pb-2" >
+            <h4 class="mt-2 text-center" style="color:white ;">¿Qué está tomando?</h4>
+            <!-- Alertas -->
+            
+
+            <div class="card-body border" >
+                <select class="form-select bg-black-50 mt-3 " name="farmaco1" id="farmaco1" >
+                    <option selected value="1" >Seleccione fármaco nº 1</option>
+                    {% for ado in ados %}
+                        <option value="{{ado.farmaco}}">{{ado.farmaco}}</option>
+                    {% endfor %}
+                    
+                </select>
+                <select class="form-select bg-black-50 mt-3 " name="farmaco2" id="farmaco2" >
+                    <option selected value="2">Seleccione fármaco nº 2</option>
+                    {% for ado in ados %}
+                        <option value="{{ado.farmaco}}" data-chained = "{{ado.farmaco1.id}}">{{ado.farmaco}}</option>
+                    {% endfor %}
+                </select>
+                <select class="form-select bg-black-50 mt-3 " name="farmaco3" id="farmaco3">
+                    <option selected value="3">Seleccione fármaco nº 3</option>
+                    {% for ado in ados %}
+                        <option value="{{ado.farmaco}}">{{ado.farmaco}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+        </div>
+        
+        <div class="col-md-4 card border pb-2" style="background-color:#EC7063 ;">
+            <h4 class="mt-2 text-center" style="color:white ;">Es necesario conocer</h4>
+            <div class="card-body border" style="background-color: #FCFCF5;">
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="check_cetosis" name="cetosis" >
+                    <label class="custom-control-label" for="customCheck1">
+                        <span  data-bs-toggle="modal" data-bs-target="#cetosis">
+                            <strong> Glucemia > 300, elevado catabolismo o cetosis *</strong> 
+                        </span>
+                    </label>
+                     <!-- MODAL CETOSIS -->
+                    <div class="modal fade" id="cetosis" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-md">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Cetosis</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                            <div class="modal-body container-fluid">
+                                    <div class="row">
+                                        
+                                        <div class="col">
+                                            <ul>
+                                                <li>Aumento del catabolismo (pérdida de peso)</li>
+                                                <li>Síntomas de hiperglucemia: pilidipsia, polifagia, poliuria</li>
+                                                <li>Presencia de cuerpos cetónicos en orina</li>
+                                            </ul>
+                                            
+                                        </div>
+                                    </div>
+                                
+                            </div>
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="row d-flex align-items-center vertical-align-center mt-3 justify-content-between">
+                    <div class="col-md-7">
+                        <label for="" class="" data-bs-toggle="modal" data-bs-target="#FG" >Filtrado glomerular</label>
+                    </div>
+                    <div class="col-md-3">
+                         <input class="form-control text-center"  type="text"  name="FG" id="FG" required > 
+                    </div>                
+                    
+                </div>
+                <div class="row d-flex align-items-center vertical-align-center mt-1 justify-content-between">
+                    <div class="col-md-7">
+                        <label for="" class="" data-bs-toggle="modal" data-bs-target="#glicada">Glicada actual</label>
+                    </div>
+                    <div class="col-md-3">
+                        <input class="form-control text-center " type="text" id="glicada" name="glicada" required > 
+                    </div>                
+                    
+                </div>
+    
+                <div class="row d-flex align-items-center vertical-align-center mt-1">
+                    <div class="col-md-7">
+                        <label for="" class="" data-bs-toggle="modal" data-bs-target="#objetivoGlicada" >Objetivo de glicada</label>
+                    </div>
+                    <div class="col-md-5 align-items-end">
+                        <select class="form-select" aria-label="Default select example"  name="objetivoGlicada" id="objetivoGlicada" required >
+                            <option value=""><label for="" class="text-white"></label></option>
+                            <option value="6.5">&lt;= 6,5 %</option>
+                            <option value="7">&lt;= 7 %</option>
+                            <option value="8">&lt;= 8 %</option>
+                            <option value="8.5">&lt;= 8,5 %</option>
+                            <option value="0">Ninguno</option>
+                        </select>
+                    </div>                
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 card border" style="background-color:#2471A3;color:white ">
+            <h4 class="mt-2 text-center "style="color:white">Situación clínica</h4>
+            <div class="card-body row  align-items-center border-top" >
+                <div class="row align-items-center" style="background-color: #FCFCF5;"></div>
+                    <div class="col-md-11">
+                        <select class="form-select bg-black-50 " name="predominante" id="pprincipal"></select>
+                    </div>
+                    
+                    <div class="col-md-1" id="infop">
+                        <span id="spanPp"  data-bs-toggle="modal" data-bs-target="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+                 <!-- MODAL ALTO RIESGO CV  -->
+                <div class="modal fade" id="rcv"  tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="color:black">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header" style="background-color:#CDCD97 ;">
+                                <h4 class="modal-title text-center" id="exampleModalLabel">Alto/Muy Alto riesgo CV</h4>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body container-fluid" style="background-color:#FAFADB ;">
+                                <div class="row">
+                                
+                                    <div class="col-md-12 border" style="background-color:#FDFEFE ;"> 
+                                        <h5>Alto riesgo CV</h5>
+                                        <p>DM2 > 10 años sin LOD y/o 1 FRCV adicional.</p>
+                                    </div>
+                                    <div class="col-md-12 border mt-1" style="background-color:#FDFEFE ;"> 
+                                        <h5>Muy alto riesgo CV</h5>
+                                        <div>
+                                            <ul>
+                                                <li>ECV establecida</li>
+                                                <li>LOD severa
+                                                    <ul>
+                                                        <li>FG&lt;45 independientemente del grado de albuminuria</li>
+                                                        <li>FG 45-59 y microalbuminuria (30-300 mg/g)</li>
+                                                        <li>Macroalbuminuria (> 300 mg/g)</li>
+                                                    </ul>
+                                                </li>
+                                                <li>Enfermedad microvascular (microalbuminuria, retinopatía, neuropatía)</li>
+                                                <li>3 o más FRCV.</li>
+                                            </ul>
+                                        </div>
+                                    
+                                </div>
+        
+                            </div>
+                            
+                        </div>
+                        
+                        </div>
+                    </div>
+                </div>
+                 <!-- MODAL INSUFICIENCIA CARDÍACA  -->
+                <div class="modal fade" id="ic" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="color:black">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                        <div class="modal-header" style="background-color:#CDCD97 ;">
+                        <h5 class="modal-title" id="exampleModalLabel">Insuficiencia cardíaca</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body container-fluid">
+                            <div class="row">
+                                
+                                <div class="col-md-12 border"> 
+                                    <p>Elegir esta opción en concreto cuando la fracción de eyección es &lt 40%</p>
+                                </div>
+        
+                            </div>
+                            
+                        </div>
+                        
+                        </div>
+                    </div>
+                </div>
+                <!-- MODAL INSUFICIENCIA RENAL CRÓNICA -->
+                <div class="modal fade" id="irc" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="color:black">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                        <div class="modal-header" style="background-color:#CDCD97 ;">
+                        <h5 class="modal-title" id="exampleModalLabel">Insuficiencia renal</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body container-fluid">
+                            <div class="row">
+                                
+                                <div class="col-md-12 border"> 
+                                    <figure>
+                                        <img class="img-fluid" src="{% static 'img/clasificacionIRC.jpg' %}" alt="">
+                                                    
+                                    </figure>
+                                </div>
+        
+                            </div>
+                            
+                        </div>
+                        
+                        </div>
+                    </div>
+                </div>
+        
+        
+            <div class="card-body row align-items-center" >    
+                <div class="col-md-11">
+                    <select class="form-select bg-black-50 " name="secundaria" id="psecundaria" ></select>
+                </div>
+                <div class="col-md-1 colorS" id="infos">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+                        <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                    </svg>
+                </div> 
+            </div>
+            <div class="card-body row align-items-center" >
+                <div class="col-md-11">
+                    <select class="form-select bg-black-50" name="terciaria" id="pterciaria" ></select>
+                </div>
+                <div class="col-md-1 colorT" id="infot">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+                        <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                    </svg>
+                </div>               
+                
+            </div>
+        </div>
+    </div>
+    <div class="row  justify-content-between mt-4">
+        <div class="col-md-3 form-group text-center" >
+            <button type="submit" class="btn btn-info text-white w-75" id="btnLimpiar" onclick="resetear()" >Limpiar formulario</button>
+        </div>               
+        <div class="col-md-3 form-group text-center" >
+            <button type="submit" class="btn btn-success text-white w-75" id="btnCalcular" >Calcular</button>
+        </div>
+        
+    </div>
+    <div class="row align-items-end justify-content-end mt-4">               
+        
+    </div>
+       
+    
+</form>
+<hr>
+Documentos consultados:
+<div class="row mt-4">
+    
+    <div class="col-md-3">        
+        <ul>
+            <li><a href="{% url 'ttoSEMI' %}"class="text-success", style="text-decoration:none ;" >Esquema tratamiento de la SEMI</a></li>
+            <li><a href="{% url 'ttoDMSAS' %}"class="text-success", style="text-decoration:none ;" >Tratamiento DM II del SAS</a></li>
+            <li><a href="{% url 'algoritmoredGDPS' %}"class="text-success", style="text-decoration:none ;" >Algoritmo de la redGDPS</a></li>
+        </ul>
+    </div>
+    
+</div>
+
+
+
+
+
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/jquery.chained.js' %}"></script>
+<script src="{% static 'js/cambiaCB.js' %}"></script>
+ <!--Sweetalert2  -->
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="{% static 'js/main2.js' %}"></script>
+
+
+
+<script>
+
+function cargaPagina(){
+    //secundaria = document.getElementById('psecundaria').value;
+    // $psecundaria.disabled=false;
+    //$psecundaria.innerHTML = secundaria;
+    //alert(secundaria);
+    // $pterciaria.disabled =false;
+    //$pterciaria.value = pterciaria;
+    
+    //document.getElementById('miForm').reset();
+   
+}
+function resetear(){
+    document.getElementById('miForm').reset();
+}
+
+</script>
+
+
+
+
+
+
+{% endblock %}

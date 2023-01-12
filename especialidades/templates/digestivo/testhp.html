@@ -1,0 +1,52 @@
+{% extends "baseEspecialidades.html" %}
+
+{% block titulo %} helicobacter {% endblock %}
+
+{% block cabecera %} Test de helicobacter pylori en heces {% endblock %}
+
+{% block contenido %}
+
+
+{% load static %}
+
+<div class="row align-items-center vertical-align-center text-center py-5 ">
+    <div class="col-md-2">
+        <h6 class="text-success"><span  data-bs-toggle="modal" data-bs-target="#floridablanca">
+            <strong> Preparación</strong> </span></h6>
+            <!-------------------------------------------- MODAL -->
+            <div class="modal fade" id="floridablanca" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header bg-success text-light">
+                        <h5 class="modal-title" id="exampleModalLabel">Preparación</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                <div class="modal-body container-fluid">
+                    <div class="row">
+                        <div class="col-md-12 border text-start"> 
+                            El paciente debe estar:
+                            <ul>
+                                <li>Al menos 15 días sin tomar IBP previo a la determinación de ag en heces</li>
+                                <li>Al menos un mes desde que se hizo el tratamiento antibiótico erradicador</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    
+                </div>
+                
+                </div>
+            </div>
+            </div>
+
+            <!---------------------------------------------------------------------------------------------------------- -->
+    </div>
+    <div class="col-md-2">
+        <a href="{% url 'infeccionhp' %}" class="text-success" style="text-decoration:none ;"><strong> Tratamiento erradicador</strong></a>
+    </div>
+    <div class="col-md-12 ">
+        <img src="{% static 'img/testhp.png' %}" alt="" class="img-fluid">
+    </div>
+</div>
+
+{% endblock %}
