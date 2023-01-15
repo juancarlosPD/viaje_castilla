@@ -303,97 +303,60 @@ infos.style.display = "none"
 infot.style.display = "none"
 
 
-function mostrarPatologias(arreglo, lugar){
-    let elementos = '<option selected disables>-------Seleccione-------</option>'
+// function mostrarPatologias(arreglo, lugar){
+//     let elementos = '<option selected disables>-------Seleccione-------</option>'
 
-    for(let i = 0; i<arreglo.length; i++){
-        elementos += '<option value ="' + arreglo[i] + '" >' +
-        arreglo[i] + '</option>'
-    }
+//     for(let i = 0; i<arreglo.length; i++){
+//         elementos += '<option value ="' + arreglo[i] + '" >' +
+//         arreglo[i] + '</option>'
+//     }
 
-    lugar.innerHTML = elementos;
-}
-mostrarPatologias(principales, $pprincipal);
+//     lugar.innerHTML = elementos;
+// }
+// mostrarPatologias(principales, $pprincipal);
 
 // ---------------------------PATOLOGÍA PRINCIPAL-------------------------------------------
 
-$pprincipal.addEventListener('change', function() {
-    let valorPrincipal = $pprincipal.value;
-    
-    $psecundaria.disabled=false;
-    $psecundaria.value=""; 
-    $pterciaria.value="";
-    $pterciaria.disabled=true;
-     
-    switch(valorPrincipal){
-        case 'Alto riesgo CV / Muy alto riesgo CV':            
-            let recortar0 = secundarios.slice(0,2);
-            mostrarPatologias(recortar0, $psecundaria);
-            infop.style.display = "";
-        break
-        case 'Insuficiencia cardíaca':
-        
-            let recortar4 = secundarios.slice(0,2);
-            mostrarPatologias(recortar4, $psecundaria);
-            infop.style.display = "";
-            
-        break
-        case 'Insuficiencia renal crónica':
-        
-            let recortar5 = secundarios.slice(0,0);
-            mostrarPatologias(recortar5, $psecundaria);
-            infop.style.display = "";
-            
-        break
-        case 'Sobrepeso/Obesidad':
-        
-            let recortar6 = secundarios.slice(0,2);
-            mostrarPatologias(recortar6, $psecundaria);
-            infop.style.display = "";
-            
-        break
-       
-    }
-})
+
 
 // ---------------------------PATOLOGÍA SECUNDARIA-------------------------------------------
 
-$psecundaria.addEventListener('change', function() {
-    let valorSecundario = $psecundaria.value;
-    let valorPrincipal = $pprincipal.value;
+// $psecundaria.addEventListener('change', function() {
+//     let valorSecundario = $psecundaria.value;
+//     let valorPrincipal = $pprincipal.value;
      
 
     
-    switch(valorPrincipal){
-        case 'Alto riesgo CV / Muy alto riesgo CV':
-            if (valorSecundario == 'IMC ≥ 30'){
-                let recortarS1 = terciarios.slice(0,3);
-                mostrarPatologias(recortarS1, $pterciaria);
-                $pterciaria.disabled=false;                 
-            }else if(valorSecundario == 'IMC < 30'){
-                let recortarS1 = terciarios.slice(0,2);
-                mostrarPatologias(recortarS1, $pterciaria);
-                $pterciaria.disabled=false;               
-            }
-        break
-        case 'Insuficiencia cardíaca':
-            if (valorSecundario == 'IMC ≥ 30'){
+//     switch(valorPrincipal){
+//         case 'Alto riesgo CV / Muy alto riesgo CV':
+//             if (valorSecundario == 'IMC ≥ 30'){
+//                 let recortarS1 = terciarios.slice(0,3);
+//                 mostrarPatologias(recortarS1, $pterciaria);
+//                 $pterciaria.disabled=false;                 
+//             }else if(valorSecundario == 'IMC < 30'){
+//                 let recortarS1 = terciarios.slice(0,2);
+//                 mostrarPatologias(recortarS1, $pterciaria);
+//                 $pterciaria.disabled=false;               
+//             }
+//         break
+//         case 'Insuficiencia cardíaca':
+//             if (valorSecundario == 'IMC ≥ 30'){
                 
-                    let recortarS1 = terciarios.slice(3,6);
-                    mostrarPatologias(recortarS1, $pterciaria);
-                    $pterciaria.disabled=false;
+//                     let recortarS1 = terciarios.slice(3,6);
+//                     mostrarPatologias(recortarS1, $pterciaria);
+//                     $pterciaria.disabled=false;
                 
-            }else if(valorSecundario == 'IMC < 30'){
+//             }else if(valorSecundario == 'IMC < 30'){
                 
-                    let recortarS1 = terciarios.slice(3,6);
-                    mostrarPatologias(recortarS1, $pterciaria);
-                    $pterciaria.disabled=false;
+//                     let recortarS1 = terciarios.slice(3,6);
+//                     mostrarPatologias(recortarS1, $pterciaria);
+//                     $pterciaria.disabled=false;
                 
-            }
-        break
+//             }
+//         break
             
-    }    
-})
+//     }    
+// })
 
 
 

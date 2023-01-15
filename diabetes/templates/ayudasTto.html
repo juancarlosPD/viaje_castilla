@@ -13,7 +13,7 @@
     <div class="row my-2 py-4 border text-center" style="background-color: #FCFCF5;">
                 
         <div class="col-md-4">
-            <h6 >1º- Modificar estilo de vida*</h6>
+            <h6 id="estiloVida">1º- Modificar estilo de vida*</h6>
         </div>
         <div class="col-md-4" >
             <h6 >2º- Metformina*</h6>
@@ -333,7 +333,65 @@ function resetear(){
     document.getElementById('miForm').reset();
 }
 
+function psecundaria(id){
+    $('#psecundaria').html("")
+    $('#psecundaria').val("")
+    $.ajax({
+            dataType: "json",
+            url: "{% url 'api-situacionSecundaria' %}",
+            data: {id:id},
+            success: function (data) {
+                console.log(data)
+                $('#psecundaria').append("<option>Seleccione una opción</option>")
+                var option = ""
+                $.each(data, function(key,value){
+                    console.log(value)
+                    option += "<option value="+value.id+">"+value.situacion+"</option>" 
+                })
+                $('#psecundaria').append(option)
+
+            },
+            error: function (error) {
+               alert('Ocurrió un error en el servidor');
+            }
+        });
+}
+
+
+function pprincipal(){
+    $.ajax({
+            dataType: "json",
+            url: "{% url 'api-situacionPrincipal' %}",
+            data: {},
+            success: function (data) {
+                console.log(data)
+                $('#pprincipal').append("<option>Seleccione una opción</option>")
+                var option = ""
+                $.each(data, function(key,value){
+                    console.log(value)
+                    option += "<option value="+value.id+">"+value.situacion+"</option>" 
+                })
+                $('#pprincipal').append(option)
+
+            },
+            error: function (error) {
+               alert('Ocurrió un error en el servidor');
+            }
+        });
+}
+
+jQuery(document).ready(function($){
+    pprincipal();
+    $("#pprincipal").on('change', function(){
+        var p = $("#pprincipal").val()
+        psecundaria(p)
+    })
+})
+
+
+
 </script>
+
 
 
 

@@ -21,7 +21,7 @@ class SituacionPrincipalApi(APIView):
         situacionprincipal = SituacionClinicaPrincipal.objects.all()
         list_situacionprincipal = list()
         for e in situacionprincipal:
-            list_situacionprincipal.append({'situacion':e.situacion})
+            list_situacionprincipal.append({'situacion':e.situacion, 'id':e.id})
 
         return Response(list_situacionprincipal)
 
@@ -29,14 +29,13 @@ class SituacionSecundariaApi(APIView):
 
     # @transaction.atomic()
     def get(self, request):
-        situacionprimaria = self.request.GET.get('id')
+        situacionprincipal = self.request.GET.get('id')
         situacionsecundaria = SituacionClinicaSecundaria.objects.all()
-        if situacionprimaria:
-            situacionsecundaria = situacionsecundaria.filter(situacion_principal__id=situacionprimaria)
+        if situacionprincipal:
+            situacionsecundaria = situacionsecundaria.filter(situacion_principal__id=situacionprincipal)
         list_situacionsecundaria = list()
         for e in situacionsecundaria:
-            list_situacionsecundaria.append({'situacion':e.situacion})
-
+            list_situacionsecundaria.append({'situacion':e.situacion, 'id':e.id})
         return Response(list_situacionsecundaria)
 
 class SituacionTerciariaApi(APIView):
@@ -49,6 +48,6 @@ class SituacionTerciariaApi(APIView):
             situacionterciaria = situacionterciaria.filter(situacion_secundaria__id=situacionsecundaria)
         list_situacionterciaria = list()
         for e in situacionterciaria:
-            list_situacionterciaria.append({'situacion':e.situacion})
+            list_situacionterciaria.append({'situacion':e.situacion, 'id':e.id})
 
         return Response(list_situacionterciaria)

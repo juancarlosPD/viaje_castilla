@@ -8,8 +8,8 @@ pterciaria = document.getElementById('pterciaria');
 
 farmaco2.disabled=true;
 farmaco3.disabled=true;
-psecundaria.disabled=true;
-pterciaria.disabled=true;
+// psecundaria.disabled=true;
+// pterciaria.disabled=true;
 
 
 farmaco1.addEventListener('change', function(){
