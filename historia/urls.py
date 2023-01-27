@@ -46,6 +46,7 @@ urlpatterns = [
     path('constituciones/', views.constituciones, name='constituciones'),
     path('partidosPoliticos/', views.partidosPoliticos, name='partidosPoliticos'),
     path('monedas1868/', views.monedas1868, name='monedas1868'),
+    path('escritoresxix/', views.escritoresxix, name='escritoresxix'),
 
     # ----------------------------SIGLO XX--------------------------
     path('sigloXX/', views.sigloXX, name='sigloXX'),

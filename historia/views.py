@@ -111,6 +111,9 @@ def partidosPoliticos(request):
 def monedas1868(request):    
     return render(request, 'espagna/sigloXIX/monedas1868.html')
 
+def escritoresxix(request):    
+    return render(request, 'espagna/sigloXIX/escritores.html')
+
 # ----------------------------SIGLO XX--------------------------
 def sigloXX(request):    
     return render(request, 'espagna/sigloXX/sigloXX.html')

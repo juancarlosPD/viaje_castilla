@@ -1,0 +1,94 @@
+{% extends "bases/basesigloXIX.html" %}
+
+{% load static %}
+
+{% block titulo %} escritores {% endblock %}
+
+{% block cabecera %} Escritores del siglo XIX {% endblock %}
+
+{% block imgCabecera %}<img class="img-fluid" src="{% static 'images/sigloXIX/escritores/galdos1.jpg' %}" alt="">  {% endblock %}
+
+{% block contenido %}
+
+<div class="row">
+    <div class="col-md-3 ">
+        <figure class="text-center" >
+            <img class="img-fluid" src="{% static 'images/sigloXIX/escritores/zorrilla.jpg' %}" alt="">
+            <figcaption class="text-center mt-2"> Zorrila (1817-1893)</figcaption>                
+        </figure>
+        <div class="row text-center">
+            <span>Romanticismo</span>
+            <span>D. Juan Tenorio</span>
+            
+        </div>
+    </div>
+    <div class="col-md-3 ">
+        <figure class="text-center" >
+            <img class="img-fluid" style="width: 180px; height: 260px;" src="{% static 'images/sigloXIX/escritores/clarin2.jpg' %}" alt="">
+            <figcaption class="text-center mt-2">Leopoldo Alas Clarín (1852-1901)</figcaption>                
+        </figure>
+        <div class="row text-center">
+            <span>Realismo</span>
+            <span>La Regenta</span>
+            
+        </div>
+    </div>
+    <div class="col-md-3 ">
+        <figure class="text-center" >
+            <img class="img-fluid" style="width: 180px; height: 260px;" src="{% static 'images/sigloXIX/escritores/juan_valera2.jpg' %}" alt="">
+            <figcaption class="text-center mt-2">Juan Valera (1824-1905)</figcaption>                
+        </figure>
+        <div class="row text-center">
+            <span>Político y diplomático</span>
+            <span>Pepita Jiménez</span>
+            
+        </div>
+    </div>
+    <div class="col-md-3 ">
+        <figure class="text-center" >
+            <img class="img-fluid" style="width: 180px; height: 260px;" src="{% static 'images/sigloXIX/escritores/galdos.jpg' %}" alt="">
+            <figcaption class="text-center mt-2">Benito Pérez Galdós (1843-1920)</figcaption>                
+        </figure>
+        <div class="row text-center">
+            <span>Escritor y político</span>
+            <span>Episodios Nacionales</span>
+            
+        </div>
+    </div>
+    
+</div>
+<div class="row mt-5 justify-content-center">
+    <div class="col-md-3 ">
+        <figure class="text-center" >
+            <img class="img-fluid" style="width: 180px; height: 260px;" src="{% static 'images/sigloXIX/escritores/becquer4.jpg' %}" alt="">
+            <figcaption class="text-center mt-2">Gustavo Adolfo Bécquer (1836-1870)</figcaption>                
+        </figure>
+        <div class="row text-center">
+            <span>Poeta</span>
+            <span>Posromanticismo</span>
+            <span>Rimas y leyendas</span>
+            
+        </div>
+    </div>
+    <div class="col-md-6">
+        <figure class="text-center" >
+            <img class="img-fluid" src="{% static 'images/sigloXIX/escritores/cafe_suizo.jpg' %}" alt="">
+            <figcaption class="text-center mt-2">Café suizo</figcaption>                
+        </figure>
+    </div>
+    <div class="col-md-3 ">
+        <figure class="text-center" >
+            <img class="img-fluid" style="width: 180px; height: 260px;" src="{% static 'images/sigloXIX/escritores/blasco_ibanez.jpg' %}" alt="">
+            <figcaption class="text-center mt-2">Vicente Blasco Ibáñez (1867-1928)</figcaption>                
+        </figure>
+        <div class="row text-center">
+            <span>Escritor y político republicano</span>
+            <span>Realismo</span>
+            <span>La Barraca. Cañas y barro</span>
+            
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
