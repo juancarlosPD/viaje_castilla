@@ -24,16 +24,3 @@ farmaco2.addEventListener('change', function(){
     
 })
 
-pprincipal.addEventListener('change', function(){
-
-    psecundaria.disabled=false;
-    pterciaria.value="";
-    pterciaria.disabled=true;            
-
-})
-
-psecundaria.addEventListener('change', function(){
-
-    pterciaria.disabled=false;            
-
-})

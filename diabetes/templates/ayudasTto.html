@@ -306,29 +306,22 @@ Documentos consultados:
 
 
 
-
+<!--JQUERY  -->
 <script src="{% static 'js/jquery.js' %}"></script>
 <script src="{% static 'js/jquery.chained.js' %}"></script>
-<script src="{% static 'js/cambiaCB.js' %}"></script>
- <!--Sweetalert2  -->
+<!--SELECT  -->
+<!-- <script src="{% static 'js/cboPatologias.js' %}"></script> -->
+<script src="{% static 'js/cboFarmacos.js' %}"></script>
+<!--SWEETALERT2  -->
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script src="{% static 'js/main2.js' %}"></script>
+<!--MAIN  -->
+<script src="{% static 'js/main.js' %}"></script>
 
 
 
 <script>
 
-function cargaPagina(){
-    //secundaria = document.getElementById('psecundaria').value;
-    // $psecundaria.disabled=false;
-    //$psecundaria.innerHTML = secundaria;
-    //alert(secundaria);
-    // $pterciaria.disabled =false;
-    //$pterciaria.value = pterciaria;
-    
-    //document.getElementById('miForm').reset();
-   
-}
+
 function resetear(){
     document.getElementById('miForm').reset();
 }
@@ -363,8 +356,9 @@ function pterciaria(id){
 }
 
 function psecundaria(id){
-    $('#psecundaria').html("")
-    $('#psecundaria').val("")    
+    $('#psecundaria').html("");
+    $('#psecundaria').val("");
+    $('#pterciaria').hide();    
 
     $.ajax({
             dataType: "json",
@@ -430,6 +424,7 @@ jQuery(document).ready(function($){
     
     $("#psecundaria").on('change', function(){
         $('#pterciaria').html("");   //Para limpiar el select
+        $('#pterciaria').hide(); 
         var p = $("#psecundaria").val(); 
         pterciaria(p);     
     })
