@@ -217,8 +217,8 @@ class SituacionClinicaPrincipal(models.Model):
 
 class SituacionClinicaSecundaria(models.Model):
     situacion = models.CharField(max_length=100, null=True, blank=True,  verbose_name="situacion")
-    activo = models.BooleanField(default=True)
-    situacion_principal = models.ManyToManyField(SituacionClinicaPrincipal)
+    activo = models.BooleanField(default=True)    
+    situacion_principal = models.ForeignKey(SituacionClinicaPrincipal, max_length=100, blank = True, null = True, on_delete=models.CASCADE, verbose_name="situacion")
 
     def __str__(self):
         return self.situacion
@@ -229,8 +229,8 @@ class SituacionClinicaSecundaria(models.Model):
 
 class SituacionClinicaTerciaria(models.Model):
     situacion = models.CharField(max_length=100, null=True, blank=True,  verbose_name="situacion")
-    activo = models.BooleanField(default=True)
-    situacion_secundaria = models.ManyToManyField(SituacionClinicaSecundaria)
+    activo = models.BooleanField(default=True)    
+    situacion_secundaria = models.ForeignKey(SituacionClinicaSecundaria, max_length=100, blank = True, null = True, on_delete=models.CASCADE, verbose_name="situacion")
     def __str__(self):
         return self.situacion
     class Meta:
