@@ -6,7 +6,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('crud.urls')),
     path('inicioCRUD', include('crud.urls')),
-    path('inicioHistoria/', include('historia.urls')),
+    path('historia/', include('historia.urls')),
     path('inicioEpoc/', include('epoc.urls')),
     path('inicioDiabetes/', include('diabetes.urls')),
     path('inicioEspecialidades/', include('especialidades.urls')),
