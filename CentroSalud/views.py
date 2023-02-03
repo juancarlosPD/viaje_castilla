@@ -91,6 +91,9 @@ def lesiones_cutaneas_vm(request):
 def estudio_contactos_ITS(request):    
     return render(request, 'estudio_contactos_ITS.html')
 
+def aerosolterapiaDiciembre2022(request):    
+    return render(request, 'aerosolterapiaDiciembre2022.html')
+
 # ---------------------VISADOS-----------------------------
 
 def condicionesACO(request):    
