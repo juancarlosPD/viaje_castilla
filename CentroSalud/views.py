@@ -94,6 +94,16 @@ def estudio_contactos_ITS(request):
 def aerosolterapiaDiciembre2022(request):    
     return render(request, 'aerosolterapiaDiciembre2022.html')
 
+def estreptococo(request):    
+    return render(request, 'estreptococo.html')
+
+def cistisina(request):    
+    return render(request, 'cistisina.html')
+
+def manualIT(request):    
+    return render(request, 'manualIT.html')
+
+
 # ---------------------VISADOS-----------------------------
 
 def condicionesACO(request):    

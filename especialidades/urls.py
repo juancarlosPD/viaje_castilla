@@ -43,7 +43,12 @@ urlpatterns = [
 
 
     # ----------------------HEMATOLOGIA--------------------------------------------------------------
-    path('sintrom/', views.sintrom, name='sintrom'),
+    
+    path('esquemaSintrom/', views.esquemaSintrom, name='esquemaSintrom'),
+    path('poeSintrom/', views.poeSintrom, name='poeSintrom'),
+    path('consejosPaciente/', views.consejosPaciente, name='consejosPaciente'),
+    path('informacionPaciente/', views.informacionPaciente, name='informacionPaciente'),
+    path('valoracionEnfermeria/', views.valoracionEnfermeria, name='valoracionEnfermeria'),
 
     # ----------------------M. INTERNA--------------------------------------------------------------
     path('acuerdoInterna/', views.acuerdoInterna, name='acuerdoInterna'),

@@ -96,8 +96,20 @@ def consensoVitaminaD(request):
 
 # -----------------HEMATOLOGIA-----------------------------
 
-def sintrom(request):    
-    return render(request, 'hematologia/sintrom.html')
+def esquemaSintrom(request):    
+    return render(request, 'hematologia/esquemaSintrom.html')
+
+def poeSintrom(request):    
+    return render(request, 'hematologia/poeSintrom.html')
+
+def consejosPaciente(request):    
+    return render(request, 'hematologia/consejosPaciente.html')
+
+def informacionPaciente(request):    
+    return render(request, 'hematologia/informacionPaciente.html')
+
+def valoracionEnfermeria(request):    
+    return render(request, 'hematologia/valoracionEnfermeria.html')
 
 
 

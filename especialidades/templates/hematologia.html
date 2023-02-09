@@ -8,12 +8,15 @@
 
 {% block contenido %}
 <div class="row mt-4">
-    <div class="col-md-5">
-        <p><a href="{% url 'sintrom' %} "class="text-success", style="text-decoration:none ;" >Esquema SINTROM</a>
-            
-    </div>
-    
+    <div class="col-md-4"><a href="{% url 'esquemaSintrom' %} "class="text-success", style="text-decoration:none ;" >ESQUEMA AJUSTE DOSIS</a></div>
+    <div class="col-md-4"><a href="{% url 'poeSintrom' %} "class="text-success", style="text-decoration:none ;" >POE sintrom</a></div>
 </div>
-<hr class="mt-5">
+<hr>
+<div class="row mt-3">
+    <div class="col-md-4"><a href="{% url 'consejosPaciente' %} "class="text-success", style="text-decoration:none ;" >Información al paciente</a></div>
+    <div class="col-md-4"><a href="{% url 'informacionPaciente' %} "class="text-success", style="text-decoration:none ;" >Consejos al paciente</a></div>
+    <div class="col-md-4"><a href="{% url 'valoracionEnfermeria' %} "class="text-success", style="text-decoration:none ;" >Cuidados de enfermería</a></div>
+</div>
+<hr class="my-3">
 
 {% endblock %}

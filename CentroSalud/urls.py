@@ -39,6 +39,9 @@ urlpatterns = [
     path('lesiones_cutaneas_vm/', views.lesiones_cutaneas_vm, name='lesiones_cutaneas_vm'),
     path('estudio_contactos_ITS/', views.estudio_contactos_ITS, name='estudio_contactos_ITS'),
     path('aerosolterapia/', views.aerosolterapiaDiciembre2022, name='aerosolterapiaDiciembre2022'),
+    path('estreptococo/', views.estreptococo, name='estreptococo'),
+    path('cistisina/', views.cistisina, name='cistisina'),
+    path('manualIT/', views.manualIT, name='manualIT'),
 
 
 
