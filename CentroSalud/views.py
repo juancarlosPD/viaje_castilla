@@ -28,6 +28,9 @@ def documentosImprimir(request):
 def telefonos(request):    
     return render(request, 'telefonos.html')
 
+def inicioTabaco(request):    
+    return render(request, 'inicioTabaco.html')
+
 def tabaco(request):    
     return render(request, 'tabaco.html')
 

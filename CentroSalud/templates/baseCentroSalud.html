@@ -28,7 +28,7 @@
                     <h1>{% block cabecera %}  {% endblock %}</h1>
                 </div>
                 
-                <div class="col-md-1 text-center ">
+                <div class="col-md-1 text-center my-2 ">
                     {% block imgCabecera %}  {% endblock %}
                 </div>
                 
@@ -51,7 +51,7 @@
                 <a class="navbar-brand mx-3" href="{% url 'acuerdoGestion' %}">Acuerdo Gestión</a>
                 <a class="navbar-brand mx-3" href="{% url 'vacunas' %}">Vacunas</a>
                 <a class="navbar-brand mx-3" href="{% url 'telefonos' %}">Teléfonos</a>
-                <a class="navbar-brand mx-3" href="{% url 'tabaco' %}">Tabaco</a>
+                <a class="navbar-brand mx-3" href="{% url 'inicioTabaco' %}">Tabaco</a>
                 <a class="navbar-brand mx-3" href="{% url 'IT' %}">IT</a>
                 <a class="navbar-brand mx-3" href="{% url 'documentosImprimir' %}">Listado documentos</a>
                 <a class="navbar-brand mx-3" href="{% url 'farmacia' %}">Farmacia</a>
@@ -70,7 +70,7 @@
                 </div>
             </div>
         </div>
-        <div class="footer card-footer text-muted border mt-5">
+        <div class="footer card-footer text-muted border mt-5 text-end">
             Juan Carlos Perea
         </div>
       
