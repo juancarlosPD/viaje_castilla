@@ -10,6 +10,7 @@ from django.views.generic import View, ListView, TemplateView, UpdateView, Creat
 from crud.forms import PacientesForm, PatologiasForm
 from crud.models import Pacientes, Farmacos, Patologias
 from django.urls import reverse_lazy
+import csv
 
 # -----------------VISTAS BASADAS EN CLASES----------------------------------------
 
@@ -116,9 +117,40 @@ def crearPaciente(request):
     return render(request, 'crearPaciente.html',{'paciente_form': paciente_form})
     
 
- 
+#  #########################  IMPORT ---  EXPORT  ##################################3
     
-  
+def export_csv(request):
+    queryset = Farmacos.objects.all()
+    options = Farmacos._meta
+    fields = [fields.name for fields in options.fields]
+
+    response = HttpResponse(content_type='text/csv')
+    response ['Content-Disposition'] = 'atachment; filename="farmacos.csv"'
+
+    writer = csv.writer(response)
+    writer.writerow([options.get_field(field).verbose_name for field in fields])
+
+    for obj in queryset:
+        writer.writerow([getattr(obj,field) for field in fields])
+
+    return response
+
+def exportP_csv(request):
+    queryset = Patologias.objects.all()
+    options = Patologias._meta
+    fields = [fields.name for fields in options.fields]
+
+    response = HttpResponse(content_type='text/csv')
+    response ['Content-Disposition'] = 'atachment; filename="patologias.csv"'
+
+    writer = csv.writer(response)
+    writer.writerow([options.get_field(field).verbose_name for field in fields])
+
+    for obj in queryset:
+        writer.writerow([getattr(obj,field) for field in fields])
+
+    return response
+
 
     
 

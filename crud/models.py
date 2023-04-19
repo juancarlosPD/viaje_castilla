@@ -93,19 +93,7 @@ class Marca(models.Model):
         verbose_name_plural = 'Marcas'
         ordering = ['marca']
 
-class Interacciones(models.Model):
-    farmaco = models.CharField(max_length=100,unique=True, blank=True, null=True, verbose_name="Fármaco")    
-    efecto = models.CharField(max_length=200, blank = True, null = True, verbose_name="Efecto")
-    gravedad = models.CharField(max_length=30,unique=True, blank=True, null=True, verbose_name="Gravedad")
-    
-    def __str__(self):
-        
-        return "%s" % (self.farmaco)
-
-    class Meta:
-        verbose_name = 'Interaccion'
-        verbose_name_plural = 'Interacciones'
-        ordering = ['farmaco']  
+  
 
 class Presentaciones(models.Model):
     presentacion = models.CharField(max_length=200, blank = True, null = True, verbose_name="Presentación")
@@ -123,12 +111,11 @@ class Farmacos(models.Model):
     farmaco = models.CharField(max_length=100, blank=False, null=False, unique=True, verbose_name="Fármaco", default="")
     grupo = models.CharField(max_length=100, blank=True, null=True, verbose_name="Grupo")
     subgrupo = models.CharField(max_length=100, blank=True, null=True, verbose_name="Subgrupo")
-    marca = models.ManyToManyField(Marca, verbose_name='Marca', blank=True)    
+    # marca = models.ManyToManyField(Marca, verbose_name='Marca', blank=True)    
     efecto = models.CharField(max_length=200, blank = True, null = True, verbose_name="Efecto")
     mecanismo_accion = models.TextField(max_length=250, blank=True, null=True, verbose_name="Mecanismo de acción")
-    presentaciones = models.ManyToManyField(Presentaciones, max_length=100, blank = True, verbose_name="Presentación")
-    interacciones = models.ForeignKey(Interacciones, max_length=100, blank = True, null = True, on_delete=models.CASCADE, verbose_name="Interacciones")
-    dosis_minima = models.FloatField(blank = True, null = True)
+    # presentaciones = models.ManyToManyField(Presentaciones, max_length=100, blank = True, verbose_name="Presentación")
+    dosis_minima = models.FloatField(blank = True, null = True, default='0')
     dosis_FG_mayor_90 = models.CharField(max_length=100, blank=True, null=True, verbose_name="Dosis mayor 90")
     dosis_60_89 = models.CharField(max_length=100, blank=True, null=True, verbose_name="Dosis 60-89")
     dosis_45_59 = models.CharField(max_length=100, blank=True, null=True, verbose_name="Dosis 45-59")

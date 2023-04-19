@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 
-from .models import Pacientes, Riesgo_Vascular, Patologias, Farmacos, Marca, Interacciones, Presentaciones, SituacionClinicaPrincipal, SituacionClinicaSecundaria, SituacionClinicaTerciaria
+from .models import Pacientes, Riesgo_Vascular, Patologias, Farmacos, Marca, Presentaciones, SituacionClinicaPrincipal, SituacionClinicaSecundaria, SituacionClinicaTerciaria
 
 class PacientesAdmin(admin.ModelAdmin):
     
@@ -30,7 +30,6 @@ admin.site.register(Riesgo_Vascular)
 admin.site.register(Patologias, PatologiasAdmin)
 admin.site.register(Farmacos)
 admin.site.register(Marca)
-admin.site.register(Interacciones)
 admin.site.register(Presentaciones)
 admin.site.register(SituacionClinicaPrincipal)
 admin.site.register(SituacionClinicaSecundaria)

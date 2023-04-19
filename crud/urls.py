@@ -1,7 +1,7 @@
 from django.urls import path, include
 from django.contrib.auth.views import LoginView
 from crud import views
-from crud.views import Inicio, InicioCRUD, ListarPacientes, CrearPaciente, ListarFarmacos, ListarPatologias, ListarDiabeticos, ListarEPOC
+from crud.views import Inicio, InicioCRUD, ListarPacientes, CrearPaciente, ListarFarmacos, ListarPatologias, ListarDiabeticos, ListarEPOC, export_csv
 from crud.models import Pacientes
  
 
@@ -21,6 +21,7 @@ urlpatterns = [
     path('CrearPaciente/', views.CrearPaciente.as_view(success_url='/listarPacientes/'), name='CrearPaciente'),
     path('EditarPaciente/<str:pk>', views.EditarPaciente.as_view(model=Pacientes, success_url='/listarPacientes/'), name='EditarPaciente'),        
     path('EliminarPaciente/<str:pk>', views.EliminarPaciente.as_view(model=Pacientes, success_url='/listarPacientes/'), name='EliminarPaciente'),
-    
+    path('exportar_farmacos', views.export_csv, name='exportar_farmacos'),
+    path('exportar_patologias', views.exportP_csv, name='exportar_patologias'),
 ]
 
