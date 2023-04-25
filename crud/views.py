@@ -8,9 +8,60 @@ from django.shortcuts import render, redirect
 from datetime import datetime, date
 from django.views.generic import View, ListView, TemplateView, UpdateView, CreateView, DeleteView
 from crud.forms import PacientesForm, PatologiasForm
-from crud.models import Pacientes, Farmacos, Patologias
+from .models import Pacientes, Farmacos, Patologias
 from django.urls import reverse_lazy
 import csv
+
+# django rest_framework
+from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView, DestroyAPIView, UpdateAPIView, RetrieveUpdateAPIView
+from .serializers import PacientesSerializer, Pacientes2Serializer, Pacientes3Serializer
+
+# -----------------API REST FRAMEWORK----------------------------------------
+
+class PacientesListApiView(ListAPIView):
+
+    serializer_class = PacientesSerializer
+
+    def get_queryset(self):
+        return Pacientes.objects.all()
+
+class Pacientes3ListApiView(ListAPIView):
+
+    serializer_class = Pacientes3Serializer
+
+    def get_queryset(self):
+        return Pacientes.objects.all()
+    
+class PacientesCreateView(CreateAPIView):
+
+    serializer_class = PacientesSerializer
+
+class PacientesDetailView(RetrieveAPIView):
+
+   serializer_class = PacientesSerializer
+   queryset = Pacientes.objects.filter()
+
+class PacientesDeleteView(DestroyAPIView):
+
+    serializer_class = PacientesSerializer
+    queryset = Pacientes.objects.all()
+
+# class PacientesUpdateView(UpdateAPIView):  Aquí recupera el paciente en blanco para que actualices todos los datos de nuevo
+
+#     serializer_class = PacientesSerializer
+#     queryset = Pacientes.objects.all()
+
+class PacientesUpdateView(RetrieveUpdateAPIView):
+
+    serializer_class = PacientesSerializer
+    queryset = Pacientes.objects.all()
+
+
+
+
+
+
+
 
 # -----------------VISTAS BASADAS EN CLASES----------------------------------------
 
@@ -21,10 +72,14 @@ class InicioCRUD(TemplateView):
     template_name = 'inicioCRUD.html'
 
 class ListarPacientes(ListView):				
-    model = Pacientes
-    template_name = 'listarPacientes.html'
-    queryset = Pacientes.objects.all
+    template_name = 'listarPacientes.html'    
     context_object_name = 'pacientes' # Para cambiar objects_list por pacientes   
+
+    def get_queryset(self):
+        return Pacientes.objects.all()
+    
+
+
 
 class ListarDiabeticos(ListView):				
     model = Pacientes

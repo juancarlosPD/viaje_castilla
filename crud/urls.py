@@ -23,5 +23,12 @@ urlpatterns = [
     path('EliminarPaciente/<str:pk>', views.EliminarPaciente.as_view(model=Pacientes, success_url='/listarPacientes/'), name='EliminarPaciente'),
     path('exportar_farmacos', views.export_csv, name='exportar_farmacos'),
     path('exportar_patologias', views.exportP_csv, name='exportar_patologias'),
-]
+    ] + [
+    
+    path('api/paciente/lista/', views.Pacientes3ListApiView.as_view(), ),
+    path('api/paciente/create/', views.PacientesCreateView.as_view(), ),
+    path('api/paciente/detail/<pk>', views.PacientesDetailView.as_view(), ),
+    path('api/paciente/delete/<pk>', views.PacientesDeleteView.as_view(), ),
+    path('api/paciente/update/<pk>', views.PacientesUpdateView.as_view(), ),
+    ]
 

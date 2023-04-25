@@ -111,7 +111,7 @@ class Farmacos(models.Model):
     farmaco = models.CharField(max_length=100, blank=False, null=False, unique=True, verbose_name="Fármaco", default="")
     grupo = models.CharField(max_length=100, blank=True, null=True, verbose_name="Grupo")
     subgrupo = models.CharField(max_length=100, blank=True, null=True, verbose_name="Subgrupo")
-    # marca = models.ManyToManyField(Marca, verbose_name='Marca', blank=True)    
+    marca = models.ManyToManyField(Marca, verbose_name='Marca', blank=True)    
     efecto = models.CharField(max_length=200, blank = True, null = True, verbose_name="Efecto")
     mecanismo_accion = models.TextField(max_length=250, blank=True, null=True, verbose_name="Mecanismo de acción")
     # presentaciones = models.ManyToManyField(Presentaciones, max_length=100, blank = True, verbose_name="Presentación")
