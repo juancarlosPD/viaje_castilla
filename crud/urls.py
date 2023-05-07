@@ -25,10 +25,15 @@ urlpatterns = [
     path('exportar_patologias', views.exportP_csv, name='exportar_patologias'),
     ] + [
     
-    path('api/paciente/lista/', views.Pacientes3ListApiView.as_view(), ),
+    path('api/paciente3/lista/', views.Pacientes3ListApiView.as_view(), ),
+    path('api/paciente/lista/', views.PacientesListApiView.as_view(), name="api/paciente/lista/"),
+    path('api/paciente/paginacion/', views.PacientesPaginacionList.as_view(), ),
+    path('api/farmaco/detail/<pk>', views.FarmacoDetailView.as_view(), name = 'farmaco_detalle'),
+    path('api/farmaco/lista/', views.FarmacosListApiLink.as_view(), name = 'lista_farmacos' ),
     path('api/paciente/create/', views.PacientesCreateView.as_view(), ),
-    path('api/paciente/detail/<pk>', views.PacientesDetailView.as_view(), ),
+    path('api/paciente/detail/<pk>', views.PacientesDetailView.as_view(), ),    
     path('api/paciente/delete/<pk>', views.PacientesDeleteView.as_view(), ),
     path('api/paciente/update/<pk>', views.PacientesUpdateView.as_view(), ),
+    path('numero_ansio/', views.NumeroAnsio.as_view(), ),
     ]
 

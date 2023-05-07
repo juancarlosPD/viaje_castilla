@@ -6,6 +6,7 @@ from datetime import datetime, date
 from django.contrib.auth.models import User
 from django.forms import NullBooleanField, model_to_dict
 import json
+from .managers import PacientesAnsio
 
 '''
 Valores más frecuentes:
@@ -71,7 +72,7 @@ class Patologias(models.Model):
 
     def __str__(self):
         
-        return "%s" % (self.patologia)
+        return str(self.id)+ ' - ' + str(self.patologia)
 
     class Meta:
         verbose_name = 'Patologia'
@@ -144,7 +145,7 @@ class Farmacos(models.Model):
 
     def __str__(self):
         
-        return "%s" % (self.farmaco)
+        return str(self.id) + ' - ' + str (self.farmaco)
 
     class Meta:
         verbose_name = 'Farmaco'
@@ -166,8 +167,10 @@ class Pacientes(models.Model):
     
     usuario = models.ForeignKey(User, verbose_name='Usuario', on_delete=models.CASCADE, blank=True, null=True)
     
+    objects = PacientesAnsio()
+
     def __str__(self):
-        fila = self.nuhsa + ' - ' + self.nombre + " " + self.apellido1 + "  " + self.apellido2
+        fila = str(self.nuhsa) + ' - ' + str(self.nombre) + " " + str(self.apellido1) + "  " + str(self.apellido2)
         # 
         return fila
 

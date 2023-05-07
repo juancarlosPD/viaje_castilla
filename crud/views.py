@@ -14,16 +14,29 @@ import csv
 
 # django rest_framework
 from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView, DestroyAPIView, UpdateAPIView, RetrieveUpdateAPIView
-from .serializers import PacientesSerializer, Pacientes2Serializer, Pacientes3Serializer
+from .serializers import PacientesSerializer1, PacientesSerializer, Pacientes3Serializer, FarmacoSerializer,  MarcaSerializer, PacientePagination, ContarAnsios
 
 # -----------------API REST FRAMEWORK----------------------------------------
 
 class PacientesListApiView(ListAPIView):
 
-    serializer_class = PacientesSerializer
+    serializer_class = PacientesSerializer1
 
     def get_queryset(self):
         return Pacientes.objects.all()
+    
+class PacientesPaginacionList(ListAPIView):
+
+    serializer_class = PacientesSerializer1
+    pagination_class = PacientePagination
+
+    def get_queryset(self):
+        return Pacientes.objects.all()
+    
+class FarmacoDetailView(RetrieveAPIView):
+
+   serializer_class = FarmacoSerializer
+   queryset = Pacientes.objects.filter()
 
 class Pacientes3ListApiView(ListAPIView):
 
@@ -32,18 +45,47 @@ class Pacientes3ListApiView(ListAPIView):
     def get_queryset(self):
         return Pacientes.objects.all()
     
+class FarmacosListApiView(ListAPIView):
+
+    serializer_class = FarmacoSerializer
+
+    def get_queryset(self):
+        return Farmacos.objects.filter(id=38)
+    
+class FarmacosListApiLink(ListAPIView):
+
+    serializer_class = FarmacoSerializer
+
+    def get_queryset(self):
+        return Farmacos.objects.filter(id=38)
+    
+class NumeroAnsio(ListAPIView):
+    serializer_class = ContarAnsios
+    def get_queryset(self):
+        return Pacientes.objects.cantidad_ansio()
+    
+class FarmacoDetailView(RetrieveAPIView):
+
+   serializer_class = FarmacoSerializer
+   queryset = Pacientes.objects.filter()
+
+
+
+
+
+    
 class PacientesCreateView(CreateAPIView):
 
-    serializer_class = PacientesSerializer
+    serializer_class = PacientesSerializer1
 
 class PacientesDetailView(RetrieveAPIView):
 
-   serializer_class = PacientesSerializer
+   serializer_class = PacientesSerializer1
    queryset = Pacientes.objects.filter()
 
 class PacientesDeleteView(DestroyAPIView):
 
-    serializer_class = PacientesSerializer
+    serializer_class = PacientesSerializer1
     queryset = Pacientes.objects.all()
 
 # class PacientesUpdateView(UpdateAPIView):  Aquí recupera el paciente en blanco para que actualices todos los datos de nuevo
@@ -53,7 +95,7 @@ class PacientesDeleteView(DestroyAPIView):
 
 class PacientesUpdateView(RetrieveUpdateAPIView):
 
-    serializer_class = PacientesSerializer
+    serializer_class = PacientesSerializer1
     queryset = Pacientes.objects.all()
 
 
