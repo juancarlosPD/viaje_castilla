@@ -1,0 +1,5 @@
+function listadoFarmacos(){
+    $.ajax({
+        url:
+    })
+}

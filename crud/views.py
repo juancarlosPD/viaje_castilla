@@ -11,6 +11,7 @@ from crud.forms import PacientesForm, PatologiasForm
 from .models import Pacientes, Farmacos, Patologias
 from django.urls import reverse_lazy
 import csv
+from import_export import resources
 
 # django rest_framework
 from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView, DestroyAPIView, UpdateAPIView, RetrieveUpdateAPIView
@@ -217,20 +218,28 @@ def crearPaciente(request):
 #  #########################  IMPORT ---  EXPORT  ##################################3
     
 def export_csv(request):
-    queryset = Farmacos.objects.all()
-    options = Farmacos._meta
-    fields = [fields.name for fields in options.fields]
 
-    response = HttpResponse(content_type='text/csv')
+    farmacos_resource = resources.modelresource_factory(model=Farmacos)()
+    dataset = farmacos_resource.export(encoding='utf-8')
+    response = HttpResponse(dataset.csv, content_type='text/csv')
     response ['Content-Disposition'] = 'atachment; filename="farmacos.csv"'
-
-    writer = csv.writer(response)
-    writer.writerow([options.get_field(field).verbose_name for field in fields])
-
-    for obj in queryset:
-        writer.writerow([getattr(obj,field) for field in fields])
-
     return response
+
+
+    # queryset = Farmacos.objects.all()
+    # options = Farmacos._meta
+    # fields = [fields.name for fields in options.fields]
+
+    # response = HttpResponse(content_type='text/csv')
+    # response ['Content-Disposition'] = 'atachment; filename="farmacos.csv"'
+
+    # writer = csv.writer(response)
+    # writer.writerow([options.get_field(field).verbose_name for field in fields])
+
+    # for obj in queryset:
+    #     writer.writerow([getattr(obj,field) for field in fields])
+
+    # return response
 
 def exportP_csv(request):
     queryset = Patologias.objects.all()
