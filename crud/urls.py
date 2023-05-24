@@ -6,11 +6,9 @@ from crud.models import Pacientes
  
 
 urlpatterns = [
-       
-    path('crearPaciente/', views.crearPaciente, name='crearPaciente'),
-    path('editarPaciente/<str:nuhsa>', views.editarPaciente, name='editarPaciente'),
     path('eliminarPaciente/<str:nuhsa>', views.eliminarPaciente, name='eliminarPaciente'),
-   
+     
+    ###################################################################################### 
     path('', Inicio.as_view(), name='inicio'),
     path('InicioCRUD/', InicioCRUD.as_view(), name='inicioCRUD'),
     path('listarPacientes/', ListarPacientes.as_view(), name='listarPacientes'),

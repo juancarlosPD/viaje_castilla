@@ -5,7 +5,7 @@ from django.urls import include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('crud.urls')),
-    path('inicioCRUD', include('crud.urls')),
+    path('inicioCRUD/', include('crud.urls')),
     path('historia/', include('historia.urls')),
     path('inicioEpoc/', include('epoc.urls')),
     path('inicioDiabetes/', include('diabetes.urls')),

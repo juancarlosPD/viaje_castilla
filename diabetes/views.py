@@ -9,102 +9,6 @@ from .models import Farmacos
 from django.views.generic import View, TemplateView, ListView
 from .modulos.FiltradoGlomerular import *
 
-
-
-
-def autocomplete(request):
-    if 'term' in request.GET:
-        farmacos = Farmacos.objects.filter(farmaco__icontains=request.GET.get('term'))
-        lista = list()
-        for farmaco in farmacos:
-            lista.append(farmaco.farmaco)
-        return JsonResponse(lista, safe=False)
-    return render(request, 'farmacosFG.html')
-
-
-
-def farmacosFG(request):
-    respuesta1 = ""
-    respuestaNoComenzar = ""  
-    respuestaNoContinuar = ""
-    respuestaSegunFG = ""
-    marca = ""
-    comentarios = ""
-    dosis =""
-    
-    FG = ""
-    farmaco = "" 
-      
-    if request.method =='POST':
-        farmacoInt = request.POST.get('farmaco', False)
-        FG = request.POST.get('FG', False)
-        farmaco = Farmacos.objects.get(farmaco=farmacoInt)
-        comentarios = farmaco.comentarios
-
-        if farmaco.subgrupo == 'arGLP1':             
-            marca = farmaco.marca
-        else:
-            marca =""   
-        
-        if int(FG) > 90 or int(FG) == 90:
-            respuestaSegunFG = farmaco.FG_mayor_90
-            dosis = farmaco.dosis_FG_mayor_90
-        elif int(FG) >59 and int(FG) < 90:
-            respuestaSegunFG = farmaco.FG_60_89
-            dosis = farmaco.dosis_60_89
-        elif int(FG) >44 and int(FG) < 60:
-            respuestaSegunFG = farmaco.FG_45_59
-            dosis = farmaco.dosis_45_59
-            if farmaco.farmaco == 'Alogliptina':
-                if int(FG) <50:
-                    dosis = "12,5 mg / 24 h"
-                else:
-                    dosis = farmaco.dosis_45_59
-            
-        elif int(FG) >29 and int(FG) < 45:
-            respuestaSegunFG = farmaco.FG_30_44
-            dosis = farmaco.dosis_30_44
-        elif int(FG) >14 and int(FG) < 30:
-            respuestaSegunFG = farmaco.FG_15_29
-            dosis = farmaco.dosis_15_29
-            if farmaco.farmaco == 'Dapagliflozina':
-                if int(FG) <25:
-                    dosis = "0"
-                else:
-                    dosis = farmaco.dosis_15_29
-
-            if farmaco.farmaco == 'Acarbosa':
-                if int(FG) <25:
-                    dosis = "0"
-                else:
-                    dosis = farmaco.dosis_15_29
-        elif int(FG) <15 :
-            respuestaSegunFG = farmaco.FG_menor_15
-            dosis = farmaco.dosis_FG_menor_15  
-        
-       
-        if int(FG) < int(farmaco.FG_quitar) or int(FG) == int(farmaco.FG_quitar):
-            respuesta1 = " EL PACIENTE NO PUEDE TOMAR ESTE FÁRMACO"
-            respuestaNoComenzar = f"Se recomienda NO COMENZAR con el fámaco cuando el FG baja de {farmaco.FG_no_iniciar + 1}"            
-            respuestaNoContinuar = f" Se recomienza NO CONTINUAR con el tratamiento cuando el FG baja de {farmaco.FG_quitar + 1} "
-        else:
-            respuesta1 = " EL PACIENTE PUEDE TOMAR ESTE FÁRMACO "
-            respuestaNoComenzar = ""
-            respuestaNoContinuar = ""    
-
-    return render(request, 'farmacosFG.html', 
-        {'respuesta1': respuesta1, 
-        # 'respuestaNoComenzar': respuestaNoComenzar, 
-        # 'respuestaNoContinuar': respuestaNoContinuar, 
-        'respuestaSegunFG' :respuestaSegunFG, 
-        'FG': FG, 
-        'farmaco':farmaco,
-        'marca': marca,
-        'comentarios': comentarios,
-        'dosis' : dosis})
-
-
-
 def ayudasTto(request):    
         
     ados = Farmacos.objects.filter(grupo = "ADO")
@@ -348,6 +252,7 @@ def ayudasTto(request):
         # ------------------Creamos la función tratamiento y recogemos datos--------------------
 
         def tratamiento():
+            url='ttos/ttoCetosisSi.html'  #Hay que poner un valor por defecto para que funcione
             nuevoFarmaco1 = ""
             dir1 = ""
             bajaGlicada1 = ""
@@ -538,7 +443,107 @@ def ayudasTto(request):
         # el contexto es necesario para que aparezcan los fármacos en el combobox
 
     
-  
+##################################################################################################
+##################################################################################################
+##################################################################################################
+
+
+def autocomplete(request):
+    if 'term' in request.GET:
+        farmacos = Farmacos.objects.filter(farmaco__icontains=request.GET.get('term'))
+        lista = list()
+        for farmaco in farmacos:
+            lista.append(farmaco.farmaco)
+        return JsonResponse(lista, safe=False)
+    return render(request, 'farmacosFG.html')
+
+
+
+def farmacosFG(request):
+    respuesta1 = ""
+    respuestaNoComenzar = ""  
+    respuestaNoContinuar = ""
+    respuestaSegunFG = ""
+    marca = ""
+    comentarios = ""
+    dosis =""
+    
+    FG = ""
+    farmaco = "" 
+      
+    if request.method =='POST':
+        farmacoInt = request.POST.get('farmaco', False)
+        FG = request.POST.get('FG', False)
+        farmaco = Farmacos.objects.get(farmaco=farmacoInt)
+        comentarios = farmaco.comentarios
+
+        if farmaco.subgrupo == 'arGLP1':             
+            marca = farmaco.marca
+        else:
+            marca =""   
+        
+        if int(FG) > 90 or int(FG) == 90:
+            respuestaSegunFG = farmaco.FG_mayor_90
+            dosis = farmaco.dosis_FG_mayor_90
+        elif int(FG) >59 and int(FG) < 90:
+            respuestaSegunFG = farmaco.FG_60_89
+            dosis = farmaco.dosis_60_89
+        elif int(FG) >44 and int(FG) < 60:
+            respuestaSegunFG = farmaco.FG_45_59
+            dosis = farmaco.dosis_45_59
+            if farmaco.farmaco == 'Alogliptina':
+                if int(FG) <50:
+                    dosis = "12,5 mg / 24 h"
+                else:
+                    dosis = farmaco.dosis_45_59
+            
+        elif int(FG) >29 and int(FG) < 45:
+            respuestaSegunFG = farmaco.FG_30_44
+            dosis = farmaco.dosis_30_44
+        elif int(FG) >14 and int(FG) < 30:
+            respuestaSegunFG = farmaco.FG_15_29
+            dosis = farmaco.dosis_15_29
+            if farmaco.farmaco == 'Dapagliflozina':
+                if int(FG) <25:
+                    dosis = "0"
+                else:
+                    dosis = farmaco.dosis_15_29
+
+            if farmaco.farmaco == 'Acarbosa':
+                if int(FG) <25:
+                    dosis = "0"
+                else:
+                    dosis = farmaco.dosis_15_29
+        elif int(FG) <15 :
+            respuestaSegunFG = farmaco.FG_menor_15
+            dosis = farmaco.dosis_FG_menor_15  
+        
+       
+        if int(FG) < int(farmaco.FG_quitar) or int(FG) == int(farmaco.FG_quitar):
+            respuesta1 = " EL PACIENTE NO PUEDE TOMAR ESTE FÁRMACO"
+            respuestaNoComenzar = f"Se recomienda NO COMENZAR con el fámaco cuando el FG baja de {farmaco.FG_no_iniciar + 1}"            
+            respuestaNoContinuar = f" Se recomienza NO CONTINUAR con el tratamiento cuando el FG baja de {farmaco.FG_quitar + 1} "
+        else:
+            respuesta1 = " EL PACIENTE PUEDE TOMAR ESTE FÁRMACO "
+            respuestaNoComenzar = ""
+            respuestaNoContinuar = ""    
+
+    return render(request, 'farmacosFG.html', 
+        {'respuesta1': respuesta1, 
+        # 'respuestaNoComenzar': respuestaNoComenzar, 
+        # 'respuestaNoContinuar': respuestaNoContinuar, 
+        'respuestaSegunFG' :respuestaSegunFG, 
+        'FG': FG, 
+        'farmaco':farmaco,
+        'marca': marca,
+        'comentarios': comentarios,
+        'dosis' : dosis})
+
+
+
+
+
+
 
 # ------------------------------------------------------------------------------------------------------
 #-------------------------------------------------------------------------------------------------------

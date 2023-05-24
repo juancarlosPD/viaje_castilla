@@ -8,7 +8,7 @@
 
 <div class="row justify-content-center">
     <div class="col-md-5 mt-5">
-        <form action="" method="POST">
+        <form action="" method="POST" id="formulario">
             {% csrf_token %}
 
             {% if error %}
@@ -22,5 +22,25 @@
 </div>
 
 
+<!--------------------------------------------- Crear con ajax (Vídeo 29 Algorisoft) -------------------------------------->
+<script>
+    $('form').on('submit', function(e){
+        // $.ajax({
+        //     url : "{% url 'listarPacientes' %}",  //URL donde mandaremos la petición
+        //     type: 'POST',
+        //     data: {nuhsa:'AN0145545000'},         // Información que mandamos
+        //     dataType: 'json'
+
+        // }).done(function(data) {
+        //     console.log(data);
+        // }).fail(function(jqXHR, textStatus, errorThrown) {
+        //     alert( textStatus + ' : ' + errorThrown);
+        // }).always(function(data) {
+            
+        // });
+        e.preventDefault();
+        alert("Hola");
+    });
+</script>
 
 {% endblock %}

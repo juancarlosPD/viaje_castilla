@@ -1,4 +1,5 @@
 from django.utils.decorators import method_decorator
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, JsonResponse
 from ast import Try
 from urllib import request
@@ -70,10 +71,6 @@ class FarmacoDetailView(RetrieveAPIView):
    serializer_class = FarmacoSerializer
    queryset = Pacientes.objects.filter()
 
-
-
-
-
     
 class PacientesCreateView(CreateAPIView):
 
@@ -121,19 +118,71 @@ class ListarPacientes(ListView):
     def get_queryset(self):
         return Pacientes.objects.all()
     
+    
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
 
+    def post(self, request, *args, **kwargs):
+        data={}
 
+        try:
+            #print(request.POST)  # Para ver lo que nos llega desde html (ajax en este caso)
+            prueba = request.POST # Para ver lo que nos llega. Es un diccionario
+            prueba = request.POST['nuhsa'] # Extraemos el único dato que nos trae el diccionario
+            dato = Pacientes.objects.get(nuhsa = prueba) #Traemos un objeto de Pacientes cuyo nuhsa coincida con prueba
+            data['nombre'] = dato.nombre
 
-class ListarDiabeticos(ListView):				
+        except Exception as e:
+            data['error'] = str(e)
+        
+        print(dato)
+        print(data)
+       
+        return JsonResponse(data) #Aquí tenemos que pasarle un objeto json, es decir un diccionario. Estos datos los saca en la consola
+    
+    
+class ListarDiabeticos(ListView):
     model = Pacientes
     template_name = 'listarPacientes.html'
-    queryset = Pacientes.objects.filter(riesgo_vascular=10)
-    context_object_name = 'pacientes' # Para cambiar objects_list por pacientes
+
+    #Las consultas las pasamos en:
+    def get_queryset(self):
+        return Pacientes.objects.filter(riesgo_vascular=10)
+        
+    
+    #El contexto lo pasamos en:
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["titulo"] = 'Listado de diabéticos'
+        return context
+    
+    #Si queremos cambiar el nombre que nos da por defecto para usarlo en el template
+    context_object_name = 'pacientes' # Para cambiar objects_list por pacientes	 
+
+    #Método dispatch. Se ejecuta al principio. Redirecciona a POST o GET según la petición
+    def dispatch(request, *args, **kwargs):
+
+        return super().dispatch(request, *args, **kwargs)
+    
+   
 
 class ListarEPOC(ListView):				
     model = Pacientes
     template_name = 'listarPacientes.html'
-    queryset = Pacientes.objects.filter(patologia=2)
+
+    #Las consultas las pasamos en:
+    @method_decorator(login_required)
+    def get_queryset(self):
+        return Pacientes.objects.filter(patologia=2)
+    
+    #El contexto lo pasamos en:
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["titulo"] = 'Listado de pacientes con EPOC'
+        return context
+    
+    #Si queremos cambiar el nombre que nos da por defecto para usarlo en el template
     context_object_name = 'pacientes' # Para cambiar objects_list por pacientes
 
 class ListarFarmacos(ListView):				
@@ -161,6 +210,14 @@ class CrearPaciente(CreateView):
     form_class = PacientesForm
     template_name = 'editarPacientes.html'    
     success_url: reverse_lazy('listarPacientes')
+
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
+
+    # def post(self, request, *args, **kwargs):
+    #     data = {'nombre': 'Juan Carlos'}
+    #     return JsonResponse(data)
     
 
 class EliminarPaciente(DeleteView):
@@ -168,29 +225,6 @@ class EliminarPaciente(DeleteView):
     success_url: reverse_lazy('listarPacientes')
     
 # -----------------VISTAS BASADAS EN FUNCIONES------------------------------------------------
-
-def inicio(request):
-    return render(request, 'inicio.html')
-
-def editarPaciente(request, nuhsa):
-    paciente_form = None
-    error = None
-    try:
-        paciente = Pacientes.objects.get(nuhsa=nuhsa)  #Usamos get porque get solo devuelve uno mientras que filter devuelve varios
-        nuhsa = paciente.nuhsa
-        if request.method =='GET':
-            paciente_form = PacientesForm(instance = paciente)
-        else:
-            paciente_form = PacientesForm(request.POST, instance=paciente)
-            if paciente_form.is_valid():
-                paciente_form.save()
-            return redirect('listarPacientes')
-        
-    except ObjectDoesNotExist as e:
-        error = e
-
-    return render(request, 'crearPaciente.html', {'paciente_form':paciente_form, 'error':error})
-    
 def eliminarPaciente(request, nuhsa):
     paciente = Pacientes.objects.get(nuhsa=nuhsa)
     nuhsa = paciente.nuhsa
@@ -200,19 +234,6 @@ def eliminarPaciente(request, nuhsa):
     return render(request, 'eliminarPaciente.html', {'paciente':paciente})
 
 
-def crearPaciente(request):
-    if request.method == 'POST':
-        paciente_form = PacientesForm(request.POST)
-        if paciente_form.is_valid():
-            paciente_form.save()
-            print(paciente_form)
-            return redirect('listarPacientes')
-            
-    else:
-        paciente_form =PacientesForm()
-
-    
-    return render(request, 'crearPaciente.html',{'paciente_form': paciente_form})
     
 
 #  #########################  IMPORT ---  EXPORT  ##################################3
@@ -220,26 +241,10 @@ def crearPaciente(request):
 def export_csv(request):
 
     farmacos_resource = resources.modelresource_factory(model=Farmacos)()
-    dataset = farmacos_resource.export(encoding='utf-8')
+    dataset = farmacos_resource.export()
     response = HttpResponse(dataset.csv, content_type='text/csv')
     response ['Content-Disposition'] = 'atachment; filename="farmacos.csv"'
     return response
-
-
-    # queryset = Farmacos.objects.all()
-    # options = Farmacos._meta
-    # fields = [fields.name for fields in options.fields]
-
-    # response = HttpResponse(content_type='text/csv')
-    # response ['Content-Disposition'] = 'atachment; filename="farmacos.csv"'
-
-    # writer = csv.writer(response)
-    # writer.writerow([options.get_field(field).verbose_name for field in fields])
-
-    # for obj in queryset:
-    #     writer.writerow([getattr(obj,field) for field in fields])
-
-    # return response
 
 def exportP_csv(request):
     queryset = Patologias.objects.all()

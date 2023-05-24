@@ -10,7 +10,7 @@ class FarmacosApi(APIView):
         farmacos = Farmacos.objects.all()
         list_farmacos = list()
         for e in farmacos:
-            list_farmacos.append({'farmaco':e.farmaco})
+            list_farmacos.append({'farmaco':e.farmaco, 'grupo':e.grupo, 'subgrupo':e.subgrupo})
 
         return Response(list_farmacos)
 

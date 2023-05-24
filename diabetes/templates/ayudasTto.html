@@ -3,7 +3,7 @@
 {% block cabecera %}Ayudas al tto de la DM II {% endblock %}
 {% load static %}
 {% block imgCabecera %} <img src="{% static 'img/ado.png' %}" alt="" class="img-fluid"> {% endblock %}
-{% block body %}onload="cargaPagina()" {% endblock %}
+{% block body %} {% endblock %}
 
 
 {% block contenido %}
@@ -303,6 +303,26 @@ Documentos consultados:
     
 </div>
 
+<!-- Quitar luego, son prácticas-->
+
+<hr class="mt-5">
+<div class="row mt--5">
+    <div class="col-10">
+        <table>
+            <thead>
+                <tr>                    
+                    <th>Farmaco</th>
+                    <th>Grupo</th>
+                    <th>Subgrupo</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody_Farmacos"></tbody>
+        <table>
+    </div>
+</div>
+
+
+
 
 
 
@@ -339,7 +359,7 @@ function pterciaria(id){
                     $('#pterciaria').append("<option>Seleccione una opción</option>");
                     var option = ""
                     $.each(data, function(key,value){
-                        console.log(value)
+                        
                         option += "<option value="+value.id+">"+value.situacion+"</option>" 
                     })
                     $('#pterciaria').append(option)
@@ -370,7 +390,7 @@ function psecundaria(id){
                     $('#psecundaria').append("<option>Seleccione una opción</option>")
                     var option = ""
                     $.each(data, function(key,value){
-                        console.log(value)
+                        
                         option += "<option value="+value.id+">"+value.situacion+"</option>" 
                     })
                     $('#psecundaria').append(option)
@@ -396,11 +416,11 @@ function pprincipal(){
             url: "{% url 'api-situacionPrincipal' %}",
             data: {},
             success: function (data) {
-                console.log(data)
+                
                 $('#pprincipal').append("<option>Seleccione una opción</option>")
                 var option = ""
                 $.each(data, function(key,value){
-                    console.log(value)
+                    
                     option += "<option value="+value.id+">"+value.situacion+"</option>" 
                 })
                 $('#pprincipal').append(option)
@@ -434,7 +454,67 @@ jQuery(document).ready(function($){
 
 </script>
 
+<!-- <script>
+    const listadoFarmacos=()=>{
+        $.ajax({
+            type:'GET',
+            url:'{% url "api-farmacos" %}',
+            contentType:'application/json',
+            async : true,
+            beforeSend: function(){
+                console.log("Antes de la petición");
+            },
+            success : function(data){
+                //console.log(data);
+                farmacos = data;
 
+            },
+            complete: function(){
+                console.log(`Farmacos listados: ${farmacos.length}`);
+            }, 
+            error: function(error){
+
+                console.log(error);
+            }
+            
+
+        })
+    };
+
+    $(document).ready(function($){
+        listadoFarmacos();
+    });
+
+
+</script> -->
+
+<script>
+    const listadoFarmacos=async()=>{
+        const response = await fetch("{% url 'api-farmacos' %}");
+        const farmacos = await response.json();
+        
+
+        let tableBody= ``;
+        
+        farmacos.forEach((farmaco, index) => {
+            tableBody += `<tr>
+                
+                <td>${farmaco.farmaco}</td>
+                <td>${farmaco.grupo}</td>
+                <td>${farmaco.subgrupo}</td>
+                
+                </tr>`;        
+        });
+        // document.getElementById("tableBody_Farmacos").innerHTML = tableBody;
+        tableBody_Farmacos.innerHTML = tableBody;
+    };
+
+   window.addEventListener("load", function(){
+        listadoFarmacos();
+   });
+
+
+</script>
 
 
 

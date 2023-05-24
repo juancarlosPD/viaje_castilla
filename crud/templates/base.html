@@ -1,0 +1,97 @@
+<html lang="es">
+<head>
+    {% load static %}  
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}{% endblock %}</title>
+    <!-- bootstrap -->    
+    <link rel="stylesheet" href="{% static 'css/lib/bootstrap/bootstrap.min.css' %}">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <!-- Datatables -->
+    <link href="https://cdn.datatables.net/v/bs5/dt-1.13.3/datatables.min.css" rel="stylesheet" />
+    <!-- Autocomplete -->
+    <link rel="stylesheet" href="{% static 'js/lib/jquery-ui-1.13.2.custom/jquery-ui.min.css' %}">
+    
+    <!-- CSS personales -->
+    <link rel="stylesheet" href="{% static 'css/prueba.css' %}">
+
+    <!-- Tamaños de GRID sm, md, lg, xl y xxl -->
+</head>
+<header>
+    <div class="row align-items-center justify-content-center" id="logotipo">
+        <div class="col-2 col-lg-1 ">
+            <figure>                
+                <img src="{% static 'img/logo.png' %}" alt="" class="img-fluid">
+            </figure>
+        </div>
+        <div class="col-8 text-center ">
+            <h1>{% block tituloCabecera %} {% endblock %}</h1>
+        </div>
+        
+        <div class="col-2 col-lg-1 text-center my-2">
+            {% block imgCabecera %}  {% endblock %}
+        </div>       
+    </div>    
+</header>
+<body >
+    
+    
+    
+    <div class="container">
+        {% block contenido %}
+
+        <table id="tablaPaises"></table>       
+
+        {% endblock %}
+    </div>
+    
+    
+
+    <!-- LIBRERIAS JS -->
+    <!-- bootstrap -->   
+        <script src="{% static 'js/lib/bootstrap/bootstrap.min.js' %}"></script>
+    <!-- jquery -->
+        <!-- <script src="{% static 'js/lib/jquery-3.6.3.min.js' %}"></script> -->
+        <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <!-- Datatables -->
+        <script src="https://cdn.datatables.net/v/bs5/dt-1.13.3/datatables.min.js"></script>
+    
+    
+    <!-- <script>
+        const listUsers=()=>{
+            $.ajax({
+                type:'GET',                
+                url:'https://jsonplaceholder.typicode.com/users',
+                contentType:'application/json',
+                async:true,
+                beforeSend: function(){
+                    console.log("Antes de la petición");
+                },
+                success:function(data){
+                    console.log(data);
+                },
+                complete: function(){
+                    console.log(`Solicitud completada: ${users.length} usuarios listados`)
+                },
+                error:function(error){
+                    console.log(error);
+                }
+            })
+        };
+
+        $(document).ready(function($){
+            listUsers();
+        }); -->
+        
+    </script>
+    {% block datatable %} {% endblock %}
+    
+   
+
+
+
+</body>
+{% block codigo %} {% endblock %}
+</html>
