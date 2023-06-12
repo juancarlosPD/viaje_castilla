@@ -1,0 +1,51 @@
+{% extends "base1.html" %}
+   
+
+{% load static %}
+{% block titulo %} {{titulo}} {% endblock %}
+{% block imgCabecera %} <img src="{% static 'img/candado.jpg' %}" alt="" class="img-fluid">  {% endblock %}
+{% block cabecera %}
+{{titulo}} 
+
+{% endblock %}
+
+
+
+{% block contenido %}
+
+<div class="col-4">
+    <div class="card">
+        <div class="card-body login-card-body">
+          <p class="login-box-msg">Introduce tus datos para iniciar sesión</p>
+    
+          <form action="../../index3.html" method="post">
+            <div class="input-group mb-3">
+              <input type="email" class="form-control" placeholder="Email">
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-envelope py-1"></span>
+                </div>
+              </div>
+            </div>
+            <div class="input-group mb-3">
+              <input type="password" class="form-control" placeholder="Password">
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-lock py-1"></span>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-5">
+              
+              <div class="col-12 d-grid gap-2">
+                <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-sign-in-alt mx-2" aria-hidden="true"></i>Iniciar sesión</button>
+              </div>
+              
+            </div>
+          </form>
+    
+    </div>
+</div>
+
+
+{% endblock %}

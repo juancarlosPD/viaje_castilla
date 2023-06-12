@@ -6,9 +6,7 @@ from crud.models import Pacientes
  
 
 urlpatterns = [
-    path('eliminarPaciente/<str:nuhsa>', views.eliminarPaciente, name='eliminarPaciente'),
-     
-    ###################################################################################### 
+    
     path('', Inicio.as_view(), name='inicio'),
     path('InicioCRUD/', InicioCRUD.as_view(), name='inicioCRUD'),
     path('listarPacientes/', ListarPacientes.as_view(), name='listarPacientes'),
@@ -19,10 +17,11 @@ urlpatterns = [
     path('CrearPaciente/', views.CrearPaciente.as_view(success_url='/listarPacientes/'), name='CrearPaciente'),
     path('EditarPaciente/<str:pk>', views.EditarPaciente.as_view(model=Pacientes, success_url='/listarPacientes/'), name='EditarPaciente'),        
     path('EliminarPaciente/<str:pk>', views.EliminarPaciente.as_view(model=Pacientes, success_url='/listarPacientes/'), name='EliminarPaciente'),
+    path('pacientes/form/', views.PacientesFormView.as_view(), name='PacientesForm'),
+    path('login/', views.LoginFormView.as_view(), name='login'),
     path('exportar_farmacos', views.export_csv, name='exportar_farmacos'),
     path('exportar_patologias', views.exportP_csv, name='exportar_patologias'),
-    ] + [
-    
+    ] + [    
     path('api/paciente3/lista/', views.Pacientes3ListApiView.as_view(), ),
     path('api/paciente/lista/', views.PacientesListApiView.as_view(), name="api/paciente/lista/"),
     path('api/paciente/paginacion/', views.PacientesPaginacionList.as_view(), ),

@@ -1,13 +1,14 @@
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse, JsonResponse
+from django.contrib.auth.views import LoginView
+from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from ast import Try
 from urllib import request
 from django.core.exceptions import ObjectDoesNotExist
 from django.views.decorators.csrf import csrf_protect, csrf_exempt
 from django.shortcuts import render, redirect
 from datetime import datetime, date
-from django.views.generic import View, ListView, TemplateView, UpdateView, CreateView, DeleteView
+from django.views.generic import View, ListView, TemplateView, UpdateView, CreateView, DeleteView, FormView
 from crud.forms import PacientesForm, PatologiasForm
 from .models import Pacientes, Farmacos, Patologias
 from django.urls import reverse_lazy
@@ -98,11 +99,6 @@ class PacientesUpdateView(RetrieveUpdateAPIView):
 
 
 
-
-
-
-
-
 # -----------------VISTAS BASADAS EN CLASES----------------------------------------
 
 class Inicio(TemplateView):
@@ -119,7 +115,7 @@ class ListarPacientes(ListView):
         return Pacientes.objects.all()
     
     
-    @method_decorator(csrf_exempt)
+    @method_decorator(csrf_exempt) # Para impedir que el csrf protega a esta clase
     def dispatch(self, request, *args, **kwargs):
         return super().dispatch(request, *args, **kwargs)
 
@@ -141,7 +137,6 @@ class ListarPacientes(ListView):
        
         return JsonResponse(data) #Aquí tenemos que pasarle un objeto json, es decir un diccionario. Estos datos los saca en la consola
     
-    
 class ListarDiabeticos(ListView):
     model = Pacientes
     template_name = 'listarPacientes.html'
@@ -161,20 +156,17 @@ class ListarDiabeticos(ListView):
     context_object_name = 'pacientes' # Para cambiar objects_list por pacientes	 
 
     #Método dispatch. Se ejecuta al principio. Redirecciona a POST o GET según la petición
-    def dispatch(request, *args, **kwargs):
-
+    def dispatch(self, request, *args, **kwargs):
         return super().dispatch(request, *args, **kwargs)
-    
-   
 
 class ListarEPOC(ListView):				
     model = Pacientes
     template_name = 'listarPacientes.html'
 
     #Las consultas las pasamos en:
-    @method_decorator(login_required)
+    
     def get_queryset(self):
-        return Pacientes.objects.filter(patologia=2)
+        return Pacientes.objects.filter(patologia__patologia='Fibromialgia')
     
     #El contexto lo pasamos en:
     def get_context_data(self, **kwargs):
@@ -190,7 +182,6 @@ class ListarFarmacos(ListView):
     template_name = 'listarFarmacos.html'
     queryset = Farmacos.objects.all
     context_object_name = 'farmacos' # Para cambiar objects_list por pacientes
-
     
 class ListarPatologias(ListView):				
     model = Patologias
@@ -203,7 +194,12 @@ class EditarPaciente(UpdateView):
     model = Pacientes
     form_class = PacientesForm
     template_name = 'editarPacientes.html'    
-    success_url: reverse_lazy('listarPacientes')  
+    success_url: reverse_lazy('listarPacientes')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["titulo"] = 'Editar paciente'
+        return context  
 
 class CrearPaciente(CreateView):
     model : Pacientes
@@ -211,30 +207,71 @@ class CrearPaciente(CreateView):
     template_name = 'editarPacientes.html'    
     success_url: reverse_lazy('listarPacientes')
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["titulo"] = 'Crear paciente'
+        return context
+
     @method_decorator(csrf_exempt)
     def dispatch(self, request, *args, **kwargs):
         return super().dispatch(request, *args, **kwargs)
 
-    # def post(self, request, *args, **kwargs):
-    #     data = {'nombre': 'Juan Carlos'}
-    #     return JsonResponse(data)
-    
+    def post(self, request, *args, **kwargs):
+        print(request.POST)
+        form = PacientesForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(self.success_url)
+        
+        self.object = None
+        context = self.get_context_data(**kwargs)
+        context['form'] = form
+        return render(request, self.template_name, context)
 
 class EliminarPaciente(DeleteView):
     model = Pacientes
+    template_name = 'eliminarPaciente.html'
     success_url: reverse_lazy('listarPacientes')
-    
-# -----------------VISTAS BASADAS EN FUNCIONES------------------------------------------------
-def eliminarPaciente(request, nuhsa):
-    paciente = Pacientes.objects.get(nuhsa=nuhsa)
-    nuhsa = paciente.nuhsa
-    if request.method == 'POST':        
-        paciente.delete()
-        return redirect('listarPacientes')
-    return render(request, 'eliminarPaciente.html', {'paciente':paciente})
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["titulo"] = 'Eliminar paciente'
+        return context  
+
+class PacientesFormView(FormView):
+    form_class = PacientesForm
+    template_name = 'editarPacientes.html'    
+    success_url= reverse_lazy('listarPacientes')
+
+    # Cuando el formulario es válido trabajamos con este método
+    def form_valid(self, form):
+        print(form)
+        print(form.is_valid())
+        return super().form_invalid(form)
 
 
+    # Cuando el formulario es inválido trabajamos con este otro método
+    def form_invalid(self, form):
+        print(form.errors)
+        print(form.is_valid())
+        return super().form_invalid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["titulo"] = 'Form | Pacientes'
+        return context      
     
+class LoginFormView(LoginView):
+    template_name = 'login1.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["titulo"] = 'Iniciar sesión'
+        return context  
+
+
+
 
 #  #########################  IMPORT ---  EXPORT  ##################################3
     

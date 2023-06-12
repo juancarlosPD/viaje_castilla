@@ -1,6 +1,8 @@
 from locale import normalize
 from django import forms
+from django.forms import ModelForm
 from crud.models import Pacientes, Patologias, Farmacos
+from django.contrib.auth.forms import AuthenticationForm, UsernameField
 
 class PacientesForm(forms.ModelForm):
     class Meta:
@@ -65,7 +67,17 @@ class PacientesForm(forms.ModelForm):
                 }
             )
         }
-    
+
+    def clean(self):
+        # En la variable cleande recogemos los datos del formulario
+        cleaned = super().clean()
+        # Luego aplicamos una validación
+        if len(cleaned['nuhsa']) <=8:
+            self.add_error('nuhsa', 'Le faltan caracteres en el NUHSA')
+
+        
+        return cleaned
+
 class PatologiasForm(forms.ModelForm):
     class Meta:
         model = Patologias
@@ -86,3 +98,17 @@ class PatologiasForm(forms.ModelForm):
                     'placeholder': 'CIE-9'
                 }
             )},
+
+# class AuthenticationForm(forms.Form):
+#     username = UsernameField(widget=forms.TextInput(attrs={'autofocus':True}))
+#     password = forms.CharField(
+#         label=("Password"),
+#         strip = False,
+#         widget=forms.PasswordInput(attrs={'autocomplete':'current-password'}),
+#     )
+
+#     error_messages = {
+#         'invalid_login': _(
+#             "Por favvor introduzca un "
+#         ),
+#     }

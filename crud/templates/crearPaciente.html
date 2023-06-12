@@ -1,7 +1,7 @@
 {% extends "baseCRUD.html" %}
 {% load static %}
 {% block titulo %} crear paciente {% endblock %}
-{% block cabecera %}Crear paciente {% endblock %}
+{% block cabecera %}{{titulo}} {% endblock %}
 {% block imgCabecera %} <img src="{% static 'img/pacientes.jpg' %}" alt="" class="img-fluid">  {% endblock %}
 
 {% block contenido %}
@@ -24,7 +24,7 @@
 
 <!--------------------------------------------- Crear con ajax (Vídeo 29 Algorisoft) -------------------------------------->
 <script>
-    $('form').on('submit', function(e){
+    //$('form').on('submit', function(e){
         // $.ajax({
         //     url : "{% url 'listarPacientes' %}",  //URL donde mandaremos la petición
         //     type: 'POST',
@@ -38,9 +38,9 @@
         // }).always(function(data) {
             
         // });
-        e.preventDefault();
-        alert("Hola");
-    });
+    //     e.preventDefault();
+    //     alert("Hola");
+    // });
 </script>
 
 {% endblock %}

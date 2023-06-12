@@ -174,9 +174,9 @@ class Pacientes(models.Model):
         # 
         return fila
 
-    # def toJSON(self):
-    #     item = model_to_dict(self, exclude['patologia', 'riesgo_vascular', 'farmaco'])        
-    #     return item
+    def toJSON(self):
+        item = model_to_dict(self)        
+        return item
     
     def edad(self):
         if self.fecha_nac:

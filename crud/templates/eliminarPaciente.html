@@ -2,7 +2,7 @@
 {% load static %}
 {% block titulo %} eliminar paciente {% endblock %}
 {% block cabecera %}Eliminar paciente {% endblock %}
-{% block imgCabecera %} <img src="{% static 'img/pacientes.jpg' %}" alt="" class="img-fluid">  {% endblock %}
+{% block imgCabecera %} <img src="" alt="" class="img-fluid">  {% endblock %}
 
 {% block contenido %}
 
@@ -17,6 +17,30 @@
     </div>
 </div>
 
+<script>
+    // $('form').on('submit', function(e){
+    //     e.preventDefault();
+    //     var parameters = $(this).serializeArray();
+    //     $.ajax({
+    //         url : window.location.pathname,  //URL donde mandaremos la petición
+    //         type: 'POST',
+    //         data: parameters,         // Información que mandamos
+    //         dataType: 'json'
 
+    //     }).done(function(data) {
+    //         console.log(data);
+    //         if (!data.hasOwnProperty('error')){
+    //             location.href = '{{ list_url }}';
+    //             return false;
+    //         }
+    //         message_error(data.error);
+    //     }).fail(function(jqXHR, textStatus, errorThrown) {
+    //         alert( textStatus + ' : ' + errorThrown);
+    //     }).always(function(data) {
+            
+    //     });
+        
+    // });
+</script>
 
 {% endblock %}
