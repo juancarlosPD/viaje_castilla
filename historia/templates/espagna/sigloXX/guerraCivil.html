@@ -8,7 +8,69 @@
 
 {% block contenido %}
 
+<div class="row justify-content-center">
+          
+    <div class="col-2 ">
+        <div class="row border-1 rounded my-2 text-center py-4 mx-1" style="background-color:#E74C3C ; color:white">
+            <a href="#alfonsoXII" style="text-decoration:none ; color: white;" data-bs-toggle="collapse"  aria-expanded="false" aria-controls="revolucionGloriosa">      
+                <div class="row text-center">                                    
+                    <img class="img-fluid mt-4" style="width:270px ; height:165px ;" src="{% static 'images/sigloXX/guerraCivil/dragonRapide.jpg' %}" alt="">
+                    <figcaption class="text-center mt-3">INICIOS DE LA GUERRA</figcaption>
+                    <span class="text-center">(1874-1885)</span> 
+                </div>               
+            </a>
+        </div>
+        <div class="row rounded text-start collapse" id="alfonsoXII">
+            <span><a href="#inicio" class="text-primary d-block ps-4", style="text-decoration:none ;">Fracaso inicial</a></span>
+            <span><a href="#turnismo" class="text-primary d-block ps-4", style="text-decoration:none ;">Bandos enfrentados</a></span>
+            <span><a href="#gconservadores" class="text-primary d-block ps-4", style="text-decoration:none ;">Las fuerzas militares</a></span>
+            <span><a href="#gprogresistas" class="text-primary d-block ps-4", style="text-decoration:none ;">La ayuda extranjera</a></span>
+        
+        </div>                        
+    </div>    
+    <div class="col-2 ">
+        <div class="row border-1 rounded my-2 mx-1 text-center py-4 mx-1" style="background-color:#066725 ; color:white">
+            <a href="#gobiernoProvisional" style="text-decoration:none ; color: white;" data-bs-toggle="collapse"  aria-expanded="false" aria-controls="gobiernoProvisional">   
+                <div class="row text-center">                                    
+                    <img class="img-fluid mt-4" style="width:270px ; height:165px ;" src="{% static 'images/sigloXIX/mariaCristinaHasburgo.jpg' %}" alt="">
+                    <figcaption class="text-center mt-3">MARÍA CRISTINA</figcaption>
+                    <span class="text-center">(1885-1902)</span> 
+                </div>
+            </a>
+        </div>
+        <div class="row rounded text-start  collapse" id="gobiernoProvisional">
+            <span><a href="#gprogresistas" class="text-primary d-block ps-4", style="text-decoration:none ;">Sagasta (1881-1890)</a></span>
+            <span><a href="#" class="text-dark d-block ps-4", style="text-decoration:none ;">Nace Alfonso XIII (96)</a></span>
+            <span><a href="#" class="text-dark d-block ps-4", style="text-decoration:none ;">Se funda UGT en 1888</a></span>
+            <span><a href="{% url 'guerraCuba' %}" class="text-primary d-block ps-4", style="text-decoration:none ;">Guerra de Cuba 95</a></span>
+            <span><a href="#" class="text-dark d-block ps-4", style="text-decoration:none ;">Asesinato Cánovas 97</a></span>
+            <span><a href="#crisis98" class="text-primary d-block ps-4", style="text-decoration:none ;">Crisis del 98</a></span>
+            <span><a href="#oposicionRestauracion" class="text-primary d-block ps-4", style="text-decoration:none ;">Oposición restauración</a></span>
+            
+        </div>                       
+    </div>
+    
 
+    <div class="col-2 ">
+        <div class="row border-1 rounded my-2 text-center py-4 mx-1" style="background-color:#590e96 ; color:white">
+            <a href="{% url 'alfonsoXIII' %}" style="text-decoration:none ; color: white;" >      
+                <div class="row text-center">
+                <img class="img-fluid mt-4" style="width:270px ; height:165px ;" src="{% static 'images/sigloXIX/alfonsoXIII.jpg' %}" alt="">
+                <figcaption class="text-center mt-3">ALFONSO XIII</figcaption>
+                <span class="text-center">(1902-1930)</span>
+               
+                <br>
+                </div>        
+            </a> 
+        </div>
+                    
+    </div>        
+</div>
+<div class="row align-items-center vertical-align-center text-center py-3 my-5 border" style="background-color:#E2F6F6 ;">
+    
+    <h5 class="text-center pt-2" id="inicio">Inicio</h5>
+        
+</div>
 
 
 
