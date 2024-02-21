@@ -1,0 +1,147 @@
+{% extends "bases/baseHistoria.html" %}
+
+{% load static %}
+
+{% block titulo %} Siglo XII {% endblock %}
+{% block cabecera %} Siglo XII {% endblock %}
+{% block imgCabecera %} <img class="img-fluid" src="{% static 'images/sigloXII/fernando_III_el_santo.jpg' %}" alt=""> {% endblock %}
+
+{% block contenido %}
+<!-- <div>
+  
+    <div class="row justify-content-center">
+        <div class="arrowRight">
+            <div class="row justify-content-center py-1">
+                <div class="border-1 rounded my-2 text-center " style="background-color:#590e96 ; color:white; width:145px ; height:235px ;"">
+                    <a href="{% url 'urraca' %}" class="text-light", style="text-decoration:none ;">    
+                        <div class="row text-center">                                    
+                            <img class="img-fluid mt-4" style="width:135px ; height:125px ;" src="{% static 'images/sigloXII/urraca.jpg' %}" alt="">
+                            <figcaption class="text-center mt-3">URRACA I</figcaption>
+                            <span class="text-center">Reina de León</span> 
+                            <span class="text-center">(1109-1126)</span> 
+                        </div>
+                    </a>                       
+                </div>
+        
+                <div class="border-1 rounded my-2 mx-1 text-center " style="background-color:#E74C3C ; color:white; width:145px ; height:235px ;">
+                    <a href="{% url 'alfonsoVII' %}" class="text-light", style="text-decoration:none ;">    
+                        <div class="row text-center">                                    
+                            <img class="img-fluid mt-4" style="width:135px ; height:125px ;" src="{% static 'images/sigloXII/alfonsoVII.png' %}" alt="">
+                            <figcaption class="text-center mt-3">ALFONSO VII</figcaption>
+                            <span class="text-center">Rey de León</span> 
+                            <span class="text-center">(1126 - 1157)</span> 
+                        </div>
+                    </a>                       
+                </div>
+                <div class="border-1 rounded my-2 mx-1 text-center " style="background-color:#066725 ; color:white; width:145px ; height:235px ;">
+                    <a href="{% url 'alfonsoVIII' %}" class="text-light", style="text-decoration:none ;">    
+                        <div class="row text-center">                                    
+                            <img class="img-fluid mt-4" style="width:135px ; height:125px ;" src="{% static 'images/sigloXII/alfonsoVIII.jpg' %}" alt="">
+                            <figcaption class="text-center mt-3">ALFONSO VIII</figcaption>
+                            <span class="text-center">Rey de Castilla</span>
+                            <span class="text-center">(1158-1214)</span> 
+                        </div>
+                    </a>                       
+                </div>                 
+    
+            </div>
+        </div>
+    </div>
+</div> -->
+<div class="row " >
+    
+    
+
+    <div class="row align-items-center vertical-align-center text-center py-3 my-2 " >
+        
+        <table class="table  mx-2 border">
+            
+            <tr class="table-success ">
+                <th class="border border-dark">MUSULMANES</th>
+                <th class="border border-dark">LEÓN</th>
+                <th class="border border-dark">CASTILLA</th>
+                <th class="border border-dark">NAVARRA</th>
+                <th class="border border-dark ">ARAGÓN</th>
+                <th class="border border-dark">CATALUÑA</th>               
+            </tr>
+            <tr>
+                <td rowspan="7" class="border border-dark" style="background-color: aquamarine;">Almohades 1145</td>                
+                <td colspan="2" class="border border-dark" style="background-color: #E74C3C; color: white;">Casa de Borgoña <p>Urraca I (1109 - 1126)</p><span>Alfonso VII (1126 - 1157)</span></td>
+                <td rowspan="3" colspan="2" class="border border-dark" style="background-color: cornflowerblue; color: white;">Alfonso I (1104 - 1134) </td>
+                <td rowspan="6" class="border border-dark" style="background-color: darkorange;">Ramón Berenguer IV (1131 - 1162).
+                    <p class="border mt-3" style="background-color: burlywood;">Se casa con Petronila, hija de Ramiro II de Aragón, se unen así Aragón y Cataluña.
+                        Nace así la Corona de Aragón.</p> </td>
+                                    
+                                
+            </tr>
+            <tr>
+                
+            </tr>
+            <tr>
+                
+            </tr>
+            <tr>
+                <td class="border border-dark" style="background-color: gold;">Fernando II (1157 - 1188)</td>
+                <td class="border border-dark" style="background-color: aqua;">Sancho III (1157 - 1158)</td>
+                <td class="border border-dark" style="background-color:gold;">García Ramírez IV (1134 - 1150)</td>
+                <td class="border border-dark" rowspan="3" style="background-color: aquamarine;">Ramiro II el Monje (1134 - 1137)</td>
+            </tr>
+            <tr>
+                <td class="border border-dark" rowspan="3" style="background-color: darkcyan; color: white;">Alfonso IX (1188 - 1230). 
+                    <p class="border mt-3" style="background-color: lightcyan; color: black;">Se casa con Berenguela
+                        hija de Alfonso VIII de ahí nace Fernando III.</p></td>
+                <td class="border border-dark" rowspan="3" style="background-color: brown; color: white;">Alfonso VIII (1158 - 1214)</td>
+                <td class="border border-dark" style="background-color: coral;">Sancho VI (1150 - 1194)</td>
+            </tr>
+            <tr>
+                <td class="border border-dark" rowspan="2" style="background-color: bisque;">Sancho VII (1194 - 1234)</td>
+            </tr>
+            <tr>
+                <td class="border border-dark" colspan="2" style="background-color: cadetblue; color: white;">Unión definitiva de Aragón y Cataluña
+                    <p>Alfonso II (1162 1196)</p>
+                    <span>Pedro II (1196 1213)</span></td>
+            </tr>
+            
+            </table>
+</div>
+       
+            
+                <!-- <div class="col-md-3 border">
+                    <a href="{% url 'urraca' %}" class="text-light", style="text-decoration:none ;">    
+                                                           
+                            <img class="img-fluid mt-4" style="width:135px ; height:125px ;"  src="{% static 'images/sigloXII/urraca.jpg' %}" alt="">
+                            <span>Urraca</span>
+                            <span >León</span> 
+                            <span >1109-1126</span> 
+                        
+                    </a>            
+                </div>
+                <div class="col-md-3 border">
+                    <a href="{% url 'alfonsoVII' %}" class="text-light", style="text-decoration:none ;">    
+                                                            
+                        <img class="img-fluid mt-4 text-center border" style="width:135px ; height:125px ;" src="{% static 'images/sigloXII/alfonsoVII.png' %}" alt="">
+                        <figcaption class="text-center">ALFONSO VII</figcaption>
+                        <figcaption class="text-center">1126 - 1157</figcaption>
+                             
+                        
+                    </a>           
+                </div>
+                <div class="col-md-4 border">
+                    <a href="{% url 'alfonsoVIII' %}" class="text-light", style="text-decoration:none ;">    
+                                                            
+                            <img class="img-fluid mt-4" style="width:135px ; height:125px ;" src="{% static 'images/sigloXII/alfonsoVIII.jpg' %}" alt="">
+                            <figcaption class="text-center mt-3">ALFONSO VIII</figcaption>
+                            <span class="text-center">Rey de Castilla</span>
+                            <span class="text-center">(1158-1214)</span> 
+                       
+                    </a>        
+                </div> -->
+                           
+            
+            
+       
+    
+
+</div>
+
+{% endblock %}

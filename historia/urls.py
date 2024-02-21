@@ -10,6 +10,12 @@ urlpatterns = [
     path('inicioEspagna/', views.inicioEspagna, name='inicioEspagna'),
     path('inicioInglaterra/', views.inicioInglaterra, name='inicioInglaterra'),
 
+    # ----------------------------SIGLO XII--------------------------
+    path('sigloXII/', views.sigloXII, name='sigloXII'),
+    path('urraca/', views.urraca, name='urraca'),
+    path('alfonsoVII/', views.alfonsoVII, name='alfonsoVII'),
+    path('alfonsoVIII/', views.alfonsoVIII, name='alfonsoVIII'),
+
     # ----------------------------SIGLO XVI--------------------------
     path('sigloXVI/', views.sigloXVI, name='sigloXVI'),
     path('sucesionIsabelCatolica/', views.sucesionIsabelCatolica, name='sucesionIsabelCatolica'),

@@ -46,6 +46,18 @@ def sigloXVIIng(request):
 def enriqueVIII(request):    
     return render(request, 'inglaterra/sigloXVI/enriqueVIII.html')
 
+# ----------------------------SIGLO XII--------------------------
+def sigloXII(request):    
+    return render(request, 'espagna/sigloXII/inicioSigloXII.html')
+
+def urraca(request):    
+    return render(request, 'espagna/sigloXII/urraca.html')
+
+def alfonsoVII(request):    
+    return render(request, 'espagna/sigloXII/alfonsoVII.html')
+
+def alfonsoVIII(request):    
+    return render(request, 'espagna/sigloXII/alfonsoVIII.html')
 
 
 # ----------------------------SIGLO XVII--------------------------
