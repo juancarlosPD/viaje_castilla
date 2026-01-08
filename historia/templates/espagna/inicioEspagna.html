@@ -6,23 +6,42 @@
 
 {% block contenido %}
 
-<div class="row mb-3 mt-5 text-center">
+<div class="row  mt-2 text-center">
     <div class="col-md-2 "><a href="{% url 'sigloXVI' %}" style="text-decoration:none ;">Siglo XVI</a> </div>
     <div class="col-md-2 "><a href="{% url 'sigloXVII' %}" style="text-decoration:none ;">Siglo XVII</a> </div>
     <div class="col-md-2 "><a href="{% url 'sigloXVIII' %}" style="text-decoration:none ;">Siglo XVIII</a></div>
     <div class="col-md-2 "><a href="{% url 'sigloXIX' %}" style="text-decoration:none ;">Siglo XIX</a> </div>
     <div class="col-md-2 "><a href="{% url 'sigloXX' %}" style="text-decoration:none ;">Siglo XX</a></div>
-    <div class="col-md-2 "></div>
+    <div class="col-md-2 ">Siglo XXI</div>
     <div class="col-md-2 "></div>
 </div>
 <div class="row text-center justify-content-center align-items-center">
-    <div class="col-md-2 "><a href="{% url 'sigloXII' %}" style="text-decoration:none ;">Siglo XII</a></div>
+    <div class="col-md-2 ">
+        <div class="row mt-5">Siglo XV</a></div>
+        <div class="row mt-5">Siglo XIV</a></div>
+        <div class="row mt-5">Siglo XIII</a></div>
+        <div class="row mt-5"><a href="{% url 'sigloXII' %}" style="text-decoration:none ;">Siglo XII</a></div>
+        <div class="row mt-5"><a href="{% url 'sigloXI' %}" style="text-decoration:none ;">Siglo XI</a></div>
+        <div class="row mt-5">Siglo X</a></div>
+        <div class="row mt-5">Siglo IX</a></div>
+    </div>
     <div class="col-md-8">
         <img class="img-fluid" src="{% static 'images/homeEspagna1.jpg' %}" alt="">
     </div>
-    <div class="col-md-2 "></div>
+    <div class="col-md-2 ">
+        <div class="row mt-5">Siglo I</a></div>
+        <div class="row mt-5">Siglo II</a></div>
+        <div class="row mt-5">Siglo III</a></div>
+        <div class="row mt-5">Siglo IV</a></div>
+        <div class="row mt-5">Siglo V</a></div>
+        <div class="row mt-5">Siglo VI</a></div>
+        <div class="row mt-5">Siglo VII</a></div>
+        <div class="row mt-5">Siglo VIII</a></div>
+    </div>
     
 </div>
+
+
 
 
 {% endblock %}

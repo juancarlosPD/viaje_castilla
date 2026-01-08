@@ -1,0 +1,433 @@
+{% extends "bases/basesigloXX.html" %}
+{% load static %}
+
+{% block titulo %} Verano de 1936 {% endblock %}
+{% block cabecera %} Verano 1936: división territorial {% endblock %}
+
+{% block imgCabecera %}
+<figure class="text-center">
+  <img class="img-fluid rounded-4 border shadow-sm"
+       src="{% static 'images/sigloXX/guerraCivil/calvo_sotelo.jpg' %}"
+       alt="Asesinato de Calvo Sotelo"
+       role="button"
+       data-bs-toggle="modal"
+       data-bs-target="#img_calvo_sotelo">
+</figure>
+{% endblock %}
+
+{% block contenido %}
+
+<style>
+  :root{
+    --xx-bg:#fbfbfc;
+    --xx-card:#ffffff;
+    --xx-border:rgba(0,0,0,.08);
+    --xx-shadow:0 10px 30px rgba(0,0,0,.08);
+    --xx-shadow-sm:0 6px 18px rgba(0,0,0,.06);
+
+    --hero-a:#1b2a41;
+    --hero-b:#2b3f63;
+
+    --c-blue:#0d6efd;
+    --c-green:#0a6b3a;
+    --c-amber:#f59e0b;
+    --c-red:#dc2626;
+    --c-slate:#334155;
+  }
+
+  .page-wrap{ background:var(--xx-bg); border-radius:1rem; padding:1rem; }
+
+  .hero{
+    background:linear-gradient(90deg,var(--hero-a),var(--hero-b));
+    color:#fff;border-radius:1rem;overflow:hidden;box-shadow:var(--xx-shadow);
+  }
+  .hero .lead{opacity:.92;}
+
+  .chip{
+    display:inline-flex;align-items:center;gap:.4rem;
+    padding:.25rem .65rem;border-radius:999px;
+    background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);
+    font-size:.85rem;white-space:nowrap;
+  }
+
+  .section-head{
+    border:1px solid var(--xx-border);
+    background:#eef7ff;border-radius:1rem;padding:1rem 1rem;
+    box-shadow:var(--xx-shadow-sm);
+  }
+  .section-head h2{ margin:0;font-size:1.1rem;font-weight:900;letter-spacing:.01em; }
+  .section-head .hint{ color:rgba(0,0,0,.65); margin:.25rem 0 0 0; font-size:.95rem; }
+
+  .content-card{
+    border:1px solid var(--xx-border);
+    border-radius:1rem;background:var(--xx-card);
+    padding:1rem 1rem;box-shadow:var(--xx-shadow-sm);
+  }
+
+  .callout{
+    border-left:6px solid #fd7e14;
+    background:#fff7ed;padding:1rem 1rem;border-radius:.9rem;
+    box-shadow:var(--xx-shadow-sm);
+  }
+
+  .mini-card{
+    border:1px solid var(--xx-border);
+    border-radius:1rem;background:#fff;
+    padding:.9rem; box-shadow:var(--xx-shadow-sm);
+    height:100%;
+  }
+  .mini-card .t{ font-weight:900; }
+  .mini-card .d{ color:rgba(0,0,0,.65); font-size:.92rem; margin-top:.15rem; }
+
+  .t-pill{
+    display:inline-flex; align-items:center; gap:.4rem;
+    padding:.25rem .6rem; border-radius:999px;
+    border:1px solid rgba(0,0,0,.1); background:#fff;
+    font-size:.85rem; margin-right:.35rem; margin-bottom:.35rem;
+  }
+
+  .anchor{ scroll-margin-top: 90px; }
+
+  /* Timeline simple (mini) */
+  .mini-timeline{ margin:0; padding:0; list-style:none; }
+  .mini-timeline li{
+    display:grid; grid-template-columns:18px 1fr; gap:.75rem;
+    padding:.55rem 0;
+  }
+  .mini-timeline li::before{
+    content:""; width:10px; height:10px; border-radius:999px;
+    background:var(--c-red);
+    margin-top:.35rem;
+    box-shadow:0 0 0 6px rgba(220,38,38,.10);
+  }
+
+  .kbd-link{
+    font-size:.85rem;
+    border:1px solid rgba(0,0,0,.12);
+    background:rgba(255,255,255,.85);
+    padding:.1rem .4rem;border-radius:.5rem;
+  }
+</style>
+<!-- HERO (MISMO ESTILO QUE GUERRA CIVIL) -->
+<section class="hero p-4 p-md-5 mb-4">
+  <div class="d-flex flex-column gap-3">
+
+    <div>
+      <h1 class="h3 mb-2 fw-bold">Verano de 1936</h1>
+
+      <div class="d-flex flex-wrap gap-2 mb-3">
+        <span class="chip">🗺️ División territorial</span>
+        <span class="chip">⚔️ Dos zonas enfrentadas</span>
+        <span class="chip">🏙️ Control de ciudades</span>
+        <span class="chip">🚉 Frentes y comunicaciones</span>
+      </div>
+
+      <p class="lead mb-0">
+        Tras el fracaso parcial del golpe, España queda <strong>dividida en dos grandes zonas</strong>.
+        Cada una desarrolla su propio poder político, militar y social. La posibilidad de
+        una solución rápida desaparece y el conflicto entra definitivamente en
+        <strong>fase de guerra civil</strong>.
+      </p>
+    </div>
+
+    <div class="row g-3">
+      <div class="col-md-4">
+        <div class="mini-card">
+          <div class="t">Qué ocurre</div>
+          <div class="d">
+            El control desigual del golpe provoca la formación de una
+            <strong>zona sublevada</strong> y una <strong>zona republicana</strong>,
+            con fronteras inestables y ciudades aisladas.
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="mini-card">
+          <div class="t">Por qué importa</div>
+          <div class="d">
+            La división territorial determina toda la guerra:
+            recursos, población, industria, puertos, comunicaciones
+            y posibilidades de ayuda exterior.
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="mini-card">
+          <div class="t">Qué provoca</div>
+          <div class="d">
+            Aparición de <strong>frentes estables</strong>, necesidad de organizar
+            ejércitos regulares y consolidación de dos proyectos políticos
+            incompatibles.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="row g-4">
+
+  <!-- ASIDE -->
+  <aside class="col-lg-4">
+    <div class="content-card">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <div class="fw-bold">En esta página</div>
+        <span class="badge text-bg-light border">Guía</span>
+      </div>
+
+      <a class="d-block text-decoration-none mb-1" href="#hecho">🧾 Hecho (resumen)</a>
+      <a class="d-block text-decoration-none mb-1" href="#claves">🔎 Claves para entenderlo</a>
+      <a class="d-block text-decoration-none mb-1" href="#zonas">🗺️ Las dos zonas</a>
+      <a class="d-block text-decoration-none mb-1" href="#frentes">🧭 Frentes y comunicaciones</a>
+      <a class="d-block text-decoration-none mb-1" href="#consecuencias">📌 Consecuencias</a>
+      <a class="d-block text-decoration-none mb-1" href="#cronologia">🧷 Mini-cronología</a>
+      <a class="d-block text-decoration-none mb-1" href="#paraestudiar">📝 Para estudiar</a>
+
+      <hr>
+
+      <div class="small text-muted">
+        Atajo: vuelve al timeline general con <span class="kbd-link">↩</span>
+      </div>
+
+      <a class="btn btn-sm btn-outline-primary mt-2"
+         href="{% url 'guerraCivil' %}#golpe1936">
+        ↩ Volver al timeline (Golpe 1936)
+      </a>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="col-lg-8">
+
+    <!-- HECHO -->
+    <div class="section-head anchor mb-3" id="hecho">
+      <h2>🧾 Hecho: qué ocurrió</h2>
+      <p class="hint">Del golpe fallido a la división del país en dos zonas.</p>
+    </div>
+
+    <div class="content-card mb-4">
+      <p class="mb-2">
+        Durante el <strong>verano de 1936</strong>, tras el fracaso parcial del golpe militar,
+        España queda <strong>fragmentada</strong>: el control del territorio se reparte entre
+        la <strong>zona republicana</strong> y la <strong>zona sublevada</strong>.
+        La frontera no es fija al principio, pero pronto se estabiliza en
+        <strong>frentes</strong> que condicionarán toda la guerra.
+      </p>
+      <p class="mb-0">
+        A efectos de estudio, este momento marca el paso decisivo:
+        la crisis política deja de ser un golpe “rápido” y se convierte en una
+        <strong>guerra prolongada</strong>, donde importan tanto las batallas como el control de
+        <strong>recursos, comunicaciones y retaguardia</strong>.
+      </p>
+
+      <div class="mt-3">
+        <span class="t-pill">🗺️ Dos zonas</span>
+        <span class="t-pill">🚉 Comunicaciones</span>
+        <span class="t-pill">⚔️ Frentes</span>
+      </div>
+    </div>
+
+    <!-- CLAVES -->
+    <div class="section-head anchor mb-3" id="claves">
+      <h2>🔎 Claves para entenderlo</h2>
+      <p class="hint">Qué debes explicar para que se entienda “por qué la guerra se alarga”.</p>
+    </div>
+
+    <div class="content-card mb-4">
+      <ul class="mb-0">
+        <li class="mb-2">
+          <strong>No fue una línea limpia</strong>: al principio hay islas de control, ciudades aisladas y corredores inciertos.
+        </li>
+        <li class="mb-2">
+          <strong>Territorio = capacidad de guerra</strong>: población, industria, agricultura, puertos y materias primas determinan el esfuerzo bélico.
+        </li>
+        <li class="mb-2">
+          <strong>Comunicaciones</strong>: dominar <em>ferrocarriles</em>, carreteras y puertos decide movilidad y abastecimiento.
+        </li>
+        <li>
+          <strong>Retaguardia</strong>: el control político y el orden interno en cada zona condicionan reclutamiento, economía y moral.
+        </li>
+      </ul>
+    </div>
+
+    <!-- LAS DOS ZONAS -->
+    <div class="section-head anchor mb-3" id="zonas">
+      <h2>🗺️ Las dos zonas: qué significa en la práctica</h2>
+      <p class="hint">No solo “quién manda”, sino con qué recursos y qué objetivos.</p>
+    </div>
+
+    <div class="content-card mb-4">
+      <div class="callout mb-3">
+        <div class="fw-bold mb-1">Idea clave</div>
+        <div class="small">
+          La división territorial crea <strong>dos proyectos de poder</strong> y dos sistemas de guerra:
+          mando, economía, propaganda y retaguardia evolucionan de forma distinta.
+        </div>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-md-6">
+          <div class="content-card" style="box-shadow:none;">
+            <div class="fw-bold mb-2">Zona republicana</div>
+            <ul class="mb-0">
+              <li class="mb-2"><strong>Base urbana</strong>: grandes ciudades y parte importante de la población.</li>
+              <li class="mb-2"><strong>Industria</strong>: relevante en varias áreas, pero con problemas de coordinación al inicio.</li>
+              <li class="mb-2"><strong>Retaguardia compleja</strong>: pluralidad política y tensiones internas en los primeros meses.</li>
+              <li><strong>Objetivo</strong>: sostener el Estado, organizar un ejército regular y evitar rupturas territoriales.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="content-card" style="box-shadow:none;">
+            <div class="fw-bold mb-2">Zona sublevada</div>
+            <ul class="mb-0">
+              <li class="mb-2"><strong>Control temprano</strong> de amplias áreas rurales y núcleos estratégicos.</li>
+              <li class="mb-2"><strong>Mando militar</strong>: tendencia más rápida a unificar autoridad y disciplina.</li>
+              <li class="mb-2"><strong>Corredores</strong>: prioridad en conectar territorios para sostener campañas.</li>
+              <li><strong>Objetivo</strong>: ganar la guerra por campañas, conquistar centros políticos y consolidar un nuevo poder.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-3">
+        <span class="t-pill">🏙️ Ciudades</span>
+        <span class="t-pill">🏭 Recursos</span>
+        <span class="t-pill">🧩 Retaguardia</span>
+        <span class="t-pill">🎯 Objetivos</span>
+      </div>
+    </div>
+
+    <!-- FRENTES -->
+    <div class="section-head anchor mb-3" id="frentes">
+      <h2>🧭 Frentes y comunicaciones</h2>
+      <p class="hint">Cómo el mapa se convierte en “líneas de guerra”.</p>
+    </div>
+
+    <div class="content-card mb-4">
+      <p class="mb-2">
+        A medida que avanza el verano de 1936, la guerra deja de ser una suma de golpes locales y pasa a estructurarse en
+        <strong>frentes continuos</strong>. Los intentos de romper el equilibrio se centran en:
+        <strong>conectar territorios</strong>, dominar <strong>nudos ferroviarios</strong> y asegurar <strong>puertos</strong>.
+      </p>
+      <ul class="mb-0">
+        <li class="mb-2"><strong>Movilidad</strong>: quien mueve tropas más rápido suele imponer el ritmo de la campaña.</li>
+        <li class="mb-2"><strong>Abastecimiento</strong>: la artillería, munición y víveres dependen de rutas seguras.</li>
+        <li><strong>Resultado</strong>: la guerra se “congela” en líneas y empieza una fase de campañas para romperlas.</li>
+      </ul>
+
+      <div class="mt-3">
+        <span class="t-pill">🚉 Ferrocarril</span>
+        <span class="t-pill">🛣️ Carreteras</span>
+        <span class="t-pill">⚓ Puertos</span>
+        <span class="t-pill">📦 Suministros</span>
+      </div>
+
+      <!-- IMAGEN SUGERIDA (la pondrás tú) -->
+      <figure class="mt-3 mb-0">
+        <img class="img-fluid rounded-4 border"
+             src="{% static 'images/sigloXX/guerraCivil/mapa_division_1936.jpg' %}"
+             alt="Mapa de división territorial (verano de 1936)"
+             role="button"
+             data-bs-toggle="modal"
+             data-bs-target="#mapa_division_1936">
+        <figcaption class="small text-muted mt-2">
+          Sugerencia: mapa de zonas (verano de 1936) + flechas de comunicaciones principales (clic para ampliar).
+        </figcaption>
+      </figure>
+    </div>
+
+    <!-- CONSECUENCIAS -->
+    <div class="section-head anchor mb-3" id="consecuencias">
+      <h2>📌 Consecuencias</h2>
+      <p class="hint">Qué cambia a partir de la división territorial.</p>
+    </div>
+
+    <div class="content-card mb-4">
+      <div class="callout mb-3">
+        <div class="fw-bold mb-1">Idea clave</div>
+        <div class="small">
+          La división territorial convierte el conflicto en una <strong>guerra de recursos y campañas</strong>:
+          no basta con “ganar un golpe”, hay que sostener frentes, producir, reclutar y abastecer.
+        </div>
+      </div>
+
+      <ul class="mb-0">
+        <li class="mb-2"><strong>Guerra larga</strong>: aparecen frentes y la victoria rápida se vuelve improbable.</li>
+        <li class="mb-2"><strong>Militarización</strong>: ambos bandos organizan ejércitos más regulares y cadenas de mando.</li>
+        <li class="mb-2"><strong>Retaguardia</strong>: economía, orden interno y propaganda pasan a ser decisivos.</li>
+        <li><strong>Escalada internacional</strong>: la división facilita buscar apoyo exterior y consolidar suministros.</li>
+      </ul>
+    </div>
+
+    <!-- MINI-CRONOLOGÍA -->
+    <div class="section-head anchor mb-3" id="cronologia">
+      <h2>🧷 Mini-cronología (para situarlo)</h2>
+      <p class="hint">Antes → división → siguiente fase.</p>
+    </div>
+
+    <div class="content-card mb-4">
+      <ul class="mini-timeline mb-0">
+        <li>
+          <div>
+            <strong>17–18 julio 1936</strong><br>
+            <span class="text-muted">Golpe de Estado: triunfo desigual → crisis generalizada.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Verano 1936</strong><br>
+            <span class="text-muted">División territorial y consolidación progresiva de dos zonas.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Final de 1936</strong><br>
+            <span class="text-muted">Campañas para conectar territorios y objetivo prioritario: Madrid.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- PARA ESTUDIAR -->
+    <div class="section-head anchor mb-3" id="paraestudiar">
+      <h2>📝 Para estudiar</h2>
+      <p class="hint">Plantilla rápida para redactarlo en un examen.</p>
+    </div>
+
+    <div class="content-card">
+      <div class="fw-bold mb-2">Esquema recomendado</div>
+      <ol class="mb-0">
+        <li><strong>Contexto</strong>: golpe fallido → control desigual del territorio.</li>
+        <li><strong>Hecho</strong>: formación de dos zonas y frentes en verano de 1936.</li>
+        <li><strong>Explicación</strong>: recursos + comunicaciones + retaguardia determinan la capacidad de guerra.</li>
+        <li><strong>Consecuencia</strong>: guerra larga y campañas para romper/rodear frentes (Madrid como objetivo).</li>
+      </ol>
+    </div>
+
+  </main>
+</div>
+
+{% comment %} MODAL MAPA DIVISIÓN 1936 (si lo usas) {% endcomment %}
+<div class="modal fade" id="mapa_division_1936" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content bg-dark">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-white ms-auto"
+                data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img class="img-fluid rounded"
+             src="{% static 'images/sigloXX/guerraCivil/mapa_division_1936.jpg' %}"
+             alt="División territorial (verano de 1936)">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

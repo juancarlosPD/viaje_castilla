@@ -1,0 +1,42 @@
+{% load static %}
+{% block titulo %} Inicio España {% endblock %}
+
+{% block contenido %}
+<div class="row text-center justify-content-center align-items-center mb-4">
+  <h1>Reyes de España (desde Castilla)</h1>
+  <p class="text-muted mb-0">Fernando I (1035) → actualidad</p>
+</div>
+
+<div class="row g-4">
+  {% for rey in reyes %}
+  <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+    <div class="card h-100 shadow-sm">
+      {% if rey.imagen %}
+        <img src="{{ rey.imagen.url }}" class="card-img-top" alt="{{ rey.nombre }}">
+        {% else %}
+        <img src="{% static 'historia/rey_placeholder.jpg' %}" class="card-img-top" alt="{{ rey.nombre }}">
+        {% endif %}
+
+      <div class="card-body">
+        <h5 class="card-title mb-1">{{ rey.orden }}. {{ rey.nombre }}</h5>
+        <div class="small text-muted mb-2">
+          {% if rey.reinado_texto %}{{ rey.reinado_texto }}{% endif %}
+          {% if rey.titulo %} · {{ rey.titulo }}{% endif %}
+        </div>
+        {% if rey.dinastia %}
+          <div class="badge bg-light text-dark border">{{ rey.dinastia }}</div>
+        {% endif %}
+        {% if rey.notas %}
+          <div class="mt-2 small">{{ rey.notas }}</div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+<div class="text-center mt-4">
+  <a class="btn btn-outline-dark" href="{% url 'reyes_timeline' %}">Ver en línea temporal</a>
+</div>
+{% endblock %}
+

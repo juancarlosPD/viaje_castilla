@@ -5,10 +5,15 @@ urlpatterns = [
     path('inicioPersonal/', views.inicioPersonal, name='inicioPersonal'),
     path('inicioFilosofia/', views.inicioFilosofia, name='inicioFilosofia'),
     path('inicioHistoria/', views.inicioHistoria, name='inicioHistoria'),
+    path('reyesEspagna/', views.reyesEspagna, name='reyesEspagna'),
 
     # ----------------------------HISTORIA--------------------------
     path('inicioEspagna/', views.inicioEspagna, name='inicioEspagna'),
     path('inicioInglaterra/', views.inicioInglaterra, name='inicioInglaterra'),
+
+     # ----------------------------SIGLO XI--------------------------
+    path('sigloXI/', views.sigloXI, name='sigloXI'),
+    path('alfonsoVI/', views.alfonsoVI, name='alfonsoVI'),
 
     # ----------------------------SIGLO XII--------------------------
     path('sigloXII/', views.sigloXII, name='sigloXII'),
@@ -63,9 +68,21 @@ urlpatterns = [
     path('franco/', views.franco, name='franco'),
     path('transicion/', views.transicion, name='transicion'),
 
+    # ------------------------GUERRA CIVIL
+    
+    path('sigloXX/guerra_civil/calvo_sotelo', views.calvo_sotelo, name='calvo_sotelo'),
+    path('sigloXX/guerra_civil/golpe_julio_36', views.golpe_17_julio_1936, name='golpe_17_julio_1936'),
+    path('sigloXX/guerra_civil/18_julio', views.golpe_18_julio, name='golpe_18_julio'),
+    path('sigloXX/guerra_civil/verano_36', views.verano_36, name='verano_36'),
+    path('sigloXX/guerra_civil/retaguardia', views.retaguardia, name='retaguardia'),
+
     # ----------------------------FILOSOFIA--------------------------
     path('metodoFilosofia/', views.metodoFilosofia, name='metodoFilosofia'),
     path('intuicion/', views.intuicion, name='intuicion'),
+
+     # ----------------------------REYES ESPAÑA--------------------------
+    path("reyes/", views.reyesEspagna, name="reyesEspagna"),
+    path("reyes/timeline/", views.reyes_timeline, name="reyes_timeline"),
     
 ]
 

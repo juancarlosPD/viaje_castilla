@@ -1,0 +1,52 @@
+{% extends "bases/baseHistoria.html" %}
+
+{% load static %}
+
+{% block titulo %} Alfonso VI {% endblock %}
+{% block cabecera %} Alfonso VI el Bravo (1040-1109) {% endblock %}
+{% block imgCabecera %} <img class="img-fluid" src="{% static 'images/sigloXI/alfonsoVI.jpg' %}" alt=""> {% endblock %}
+
+{% block contenido %}
+<div class="row justify-content-center">
+    <div class="col-5 border-1 rounded my-2 text-center py-4 mx-1" >
+        <h4>GENEALOGIA DE ARAGON</h4>
+        <a href="#mapaPeninsulaAlfonsoVI" class="text-light", style="text-decoration:none ;">    
+            <div class="row text-center">                                    
+                <img class="img-fluid mt-4"  src="{% static 'images/sigloXI/genealogiaAragonPamplona.jpg' %}" alt="">            
+                
+            </div>
+        </a>                               
+    </div>
+    <div class="col-6 border-1 rounded my-2 text-center py-4 mx-1" >
+        <h4>GENEALOGÍA DE CASTILLA</h4>
+        <a href="#genealogiaCastilla" class="text-light", style="text-decoration:none ;">    
+            <div class="row text-center">                                    
+                <img class="img-fluid mt-4"  src="{% static 'images/sigloXI/genealogiaCastilla.jpg' %}" alt="">
+                
+                
+            </div>
+        </a>
+    </div>
+    
+</div>
+<div class="row justify-content-center">
+    <div class="col-6 border-1 rounded my-2  py-4 mx-1" >
+        <h4>HECHOS MÁS IMPORTANTES DURANTE SU REINADO</h4>
+        <p class="mt-5">Conquista de Toledo (1085)</p>
+        <p>Batalla de Sagrajas (1085)</p>
+        <p>Batalla de Uclés (1108)</p>
+        <p>Muerte de su único hijo y heredero en la batalla de Uclés</p>
+       
+    </div>
+    <div class="col-5 border-1 rounded my-2 text-center py-4 mx-1" >
+        
+        <h4>MAPA PENÍNSULA CON ALFONSO VI</h4>
+        <a href="#mapaPeninsulaAlfonsoVI" class="text-light", style="text-decoration:none ;">    
+            <div class="row text-center">                                    
+                <img class="img-fluid mt-4"  src="{% static 'images/sigloXI/mapaPeninsula.jpg' %}" alt="">            
+                
+            </div>
+        </a>                               
+    </div>
+</div>
+{% endblock %}

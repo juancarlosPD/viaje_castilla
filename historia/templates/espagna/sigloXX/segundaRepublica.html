@@ -1,17 +1,664 @@
 {% extends "bases/basesigloXX.html" %}
-
 {% load static %}
 
-{% block titulo %} 2ª República {% endblock %}
-{% block cabecera %} Segunda República {% endblock %}
-{% block imgCabecera %} <img src="{% static 'images/sigloXX/banderaSegundaRepublica.png' %}" class="card-img-top" alt="..."> {% endblock %}
+{% block titulo %} II República {% endblock %}
+{% block cabecera %} II República (1931–1936) {% endblock %}
+{% block imgCabecera %}
+  <img src="{% static 'images/sigloXX/segundaRepublica/portada.jpg' %}" class="card-img-top" alt="II República">
+{% endblock %}
 
 {% block contenido %}
 
+<style>
+  :root{
+    --xx-bg: #fbfbfc;
+    --xx-card: #ffffff;
+    --xx-border: rgba(0,0,0,.08);
+    --xx-shadow: 0 10px 30px rgba(0,0,0,.08);
+    --xx-shadow-sm: 0 6px 18px rgba(0,0,0,.06);
 
+    --hero-a: #1b2a41;
+    --hero-b: #2b3f63;
 
+    --c-blue: #0d6efd;
+    --c-green: #0a6b3a;
+    --c-amber: #b45309;
+    --c-red: #dc2626;
+    --c-slate: #334155;
+  }
 
+  .page-wrap{
+    background: var(--xx-bg);
+    border-radius: 1rem;
+    padding: 1rem;
+  }
 
+  .hero{
+    background: linear-gradient(90deg, var(--hero-a), var(--hero-b));
+    color: #fff;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: var(--xx-shadow);
+  }
+  .hero .lead{ opacity: .92; }
 
+  .chip{
+    display:inline-flex;
+    align-items:center;
+    gap:.4rem;
+    padding:.25rem .65rem;
+    border-radius:999px;
+    background: rgba(255,255,255,.14);
+    border: 1px solid rgba(255,255,255,.22);
+    font-size:.85rem;
+    white-space:nowrap;
+  }
+
+  .toc-sticky{ position: sticky; top: 1rem; }
+  .toc-card{
+    border: 1px solid var(--xx-border);
+    border-radius: 1rem;
+    background: var(--xx-card);
+    box-shadow: var(--xx-shadow-sm);
+  }
+  .toc-link{
+    display:block;
+    padding:.35rem .25rem;
+    text-decoration:none;
+  }
+  .toc-link:hover{ text-decoration: underline; }
+
+  .section-head{
+    border: 1px solid var(--xx-border);
+    background: #eef7ff;
+    border-radius: 1rem;
+    padding: 1rem 1rem;
+    box-shadow: var(--xx-shadow-sm);
+  }
+  .section-head h2{
+    margin:0;
+    font-size: 1.1rem;
+    font-weight: 900;
+    letter-spacing:.01em;
+  }
+  .section-head .hint{
+    color: rgba(0,0,0,.65);
+    margin: .25rem 0 0 0;
+    font-size: .95rem;
+  }
+
+  .content-card{
+    border: 1px solid var(--xx-border);
+    border-radius: 1rem;
+    background: var(--xx-card);
+    padding: 1rem 1rem;
+    box-shadow: var(--xx-shadow-sm);
+  }
+
+  .callout{
+    border-left: 6px solid #fd7e14;
+    background: #fff7ed;
+    padding: 1rem 1rem;
+    border-radius: .9rem;
+    box-shadow: var(--xx-shadow-sm);
+  }
+
+  .kpi-grid{
+    display:grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: .75rem;
+  }
+  @media (min-width: 992px){
+    .kpi-grid{ grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  }
+  .kpi{
+    border: 1px solid var(--xx-border);
+    background: #fff;
+    border-radius: 1rem;
+    padding: .75rem;
+    box-shadow: var(--xx-shadow-sm);
+  }
+  .kpi .t{ font-weight: 900; font-size: .95rem; }
+  .kpi .d{ color: rgba(0,0,0,.65); font-size: .85rem; margin-top:.15rem; }
+
+  .figure img{
+    border-radius: .9rem;
+    box-shadow: var(--xx-shadow-sm);
+  }
+
+  .anchor{ scroll-margin-top: 90px; }
+
+  /* ==========================
+     TIMELINE (vertical)
+     ========================== */
+  .timeline{
+    position: relative;
+    margin: 0;
+    padding: 0;
+  }
+  .timeline::before{
+    content:"";
+    position:absolute;
+    left: 18px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, rgba(13,110,253,.35), rgba(220,38,38,.35));
+    border-radius: 3px;
+  }
+
+  .t-item{
+    position: relative;
+    display: grid;
+    grid-template-columns: 42px 1fr;
+    gap: .9rem;
+    padding: 0 0 1.25rem 0;
+  }
+
+  .t-dot{
+    position: relative;
+    width: 42px;
+    height: 42px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .t-dot::before{
+    content:"";
+    width: 16px;
+    height: 16px;
+    border-radius: 999px;
+    background: var(--c-blue);
+    box-shadow: 0 0 0 6px rgba(13,110,253,.12);
+    border: 2px solid #fff;
+    display:block;
+  }
+  .t-dot[data-color="blue"]::before{
+    background: var(--c-blue);
+    box-shadow: 0 0 0 6px rgba(13,110,253,.12);
+  }
+  .t-dot[data-color="amber"]::before{
+    background: #f59e0b;
+    box-shadow: 0 0 0 6px rgba(245,158,11,.14);
+  }
+  .t-dot[data-color="red"]::before{
+    background: var(--c-red);
+    box-shadow: 0 0 0 6px rgba(220,38,38,.12);
+  }
+  .t-dot[data-color="slate"]::before{
+    background: var(--c-slate);
+    box-shadow: 0 0 0 6px rgba(51,65,85,.12);
+  }
+
+  .t-card{
+    border: 1px solid var(--xx-border);
+    border-radius: 1rem;
+    background: var(--xx-card);
+    box-shadow: var(--xx-shadow-sm);
+    overflow: hidden;
+  }
+  .t-head{
+    padding: 1rem 1rem .75rem 1rem;
+    border-bottom: 1px solid rgba(0,0,0,.06);
+    background: linear-gradient(180deg, rgba(0,0,0,.02), rgba(0,0,0,0));
+  }
+  .t-title{
+    margin: 0 0 .15rem 0;
+    font-size: 1.05rem;
+    font-weight: 900;
+  }
+  .t-meta{
+    color: rgba(0,0,0,.62);
+    font-size: .9rem;
+    display:flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    align-items:center;
+  }
+  .t-badge{
+    font-weight: 800;
+    border: 1px solid rgba(0,0,0,.1);
+    background: rgba(255,255,255,.7);
+  }
+  .t-body{
+    padding: 1rem;
+  }
+  .t-cover{
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    display:block;
+  }
+
+  .t-pill{
+    display:inline-flex;
+    align-items:center;
+    gap:.4rem;
+    padding:.25rem .6rem;
+    border-radius:999px;
+    border:1px solid rgba(0,0,0,.1);
+    background:#fff;
+    font-size:.85rem;
+    margin-right:.35rem;
+    margin-bottom:.35rem;
+  }
+
+  /* mobile: line closer */
+  @media (max-width: 576px){
+    .timeline::before{ left: 16px; }
+    .t-item{ grid-template-columns: 38px 1fr; }
+    .t-dot{ width: 38px; height: 38px; }
+  }
+</style>
+
+<div class="page-wrap">
+
+  <!-- HERO -->
+  <section class="hero p-4 p-md-5 mb-4">
+    <div class="d-flex flex-column gap-3">
+      <div>
+        <h1 class="h3 mb-2 fw-bold">II República (1931–1936)</h1>
+
+        <div class="d-flex flex-wrap gap-2 mb-3">
+          <span class="chip">🗳️ Democracia y reformas</span>
+          <span class="chip">📜 Constitución 1931</span>
+          <span class="chip">🌾 Reforma agraria</span>
+          <span class="chip">🏫 Educación</span>
+          <span class="chip">⚡ Polarización</span>
+          <span class="chip">🧨 1936: crisis final</span>
+        </div>
+
+        <p class="lead mb-0">
+          Periodo de modernización política y social, marcado por reformas profundas,
+          resistencias y una creciente tensión que desemboca en la crisis de 1936.
+        </p>
+      </div>
+
+      <div class="kpi-grid">
+        <div class="kpi">
+          <div class="t">14 abril 1931</div>
+          <div class="d">Proclamación</div>
+        </div>
+        <div class="kpi">
+          <div class="t">1931</div>
+          <div class="d">Constitución</div>
+        </div>
+        <div class="kpi">
+          <div class="t">1933</div>
+          <div class="d">Cambio de mayoría</div>
+        </div>
+        <div class="kpi">
+          <div class="t">1936</div>
+          <div class="d">Frente Popular</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="row g-4">
+
+    <!-- TOC -->
+    <aside class="col-lg-4">
+      <div class="toc-sticky">
+        <div class="toc-card p-3 mb-4">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <h2 class="h6 mb-0 fw-bold">Índice</h2>
+            <span class="badge text-bg-light border">Timeline</span>
+          </div>
+
+          <a class="toc-link" href="#contexto">🧭 Contexto</a>
+          <a class="toc-link" href="#timeline">🕰️ Etapas (timeline)</a>
+          <a class="toc-link" href="#constitucion">📜 Constitución 1931</a>
+          <a class="toc-link" href="#reformas">🧩 Reformas clave</a>
+          <a class="toc-link" href="#resumen">✅ Esquema final</a>
+          <a class="toc-link" href="#recursos">📚 Recursos</a>
+
+          <div class="small text-muted mt-3">
+            💡 Consejo: abre los bloques del timeline y usa “Ir a...” para saltar.
+          </div>
+        </div>
+
+        <div class="callout">
+          <div class="fw-bold mb-1">Idea clave</div>
+          <div class="small">
+            Reformas ambiciosas + resistencias + conflicto social → polarización → crisis política en 1936.
+          </div>
+        </div>
+
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="col-lg-8">
+
+      <!-- CONTEXTO -->
+      <div class="section-head anchor mb-3" id="contexto">
+        <h2>🧭 Contexto: del final de la Monarquía a 1931</h2>
+        <p class="hint">Cómo se llega a la proclamación de la II República.</p>
+      </div>
+
+      <div class="content-card mb-4">
+        <p class="mb-2">
+          La proclamación de la II República (14 de abril de 1931) llega tras el desgaste del sistema de la Restauración,
+          la crisis de la Monarquía y el clima político posterior a la Dictadura de Primo de Rivera.
+        </p>
+        <p class="mb-0">
+          Se abre una etapa de reformas para modernizar el Estado, ampliar derechos y afrontar problemas estructurales,
+          en un contexto de alta movilización social y fuerte oposición de sectores afectados.
+        </p>
+      </div>
+
+      <!-- TIMELINE -->
+      <div class="section-head anchor mb-3" id="timeline">
+        <h2>🕰️ Timeline vertical de etapas</h2>
+        <p class="hint">Tres bloques grandes + hitos (abre/cierra para estudiar).</p>
+      </div>
+
+      <div class="timeline mb-4">
+
+        <!-- HITO: 14 abril 1931 -->
+        <section class="t-item anchor" id="proclamacion">
+          <div class="t-dot" data-color="slate" aria-hidden="true"></div>
+          <article class="t-card">
+            <img class="t-cover" src="{% static 'images/sigloXX/segundaRepublica/14_abril_1931.jpg' %}" alt="Proclamación 1931">
+            <header class="t-head">
+              <h3 class="t-title">Proclamación de la II República</h3>
+              <div class="t-meta">
+                <span class="badge t-badge text-bg-light">14 abril 1931</span>
+                <span>Inicio del nuevo régimen</span>
+              </div>
+            </header>
+            <div class="t-body">
+              <p class="mb-2">
+                La República se proclama tras la crisis de la Monarquía y el triunfo republicano-socialista en grandes ciudades.
+              </p>
+              <div>
+                <span class="t-pill">🗳️ Cambio político</span>
+                <span class="t-pill">🏛️ Nuevo marco institucional</span>
+                <span class="t-pill">📜 Camino a la Constitución</span>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <!-- BIENIO REFORMISTA -->
+        <section class="t-item anchor" id="bienio_reformista">
+          <div class="t-dot" data-color="blue" aria-hidden="true"></div>
+          <article class="t-card">
+            <img class="t-cover" src="{% static 'images/sigloXX/segundaRepublica/bienio_reformista.jpg' %}" alt="Bienio reformista">
+            <header class="t-head">
+              <h3 class="t-title">Bienio reformista</h3>
+              <div class="t-meta">
+                <span class="badge t-badge text-bg-primary">1931–1933</span>
+                <span>Constitución y reformas del Estado</span>
+              </div>
+            </header>
+            <div class="t-body">
+              <p class="mb-3">
+                Etapa de impulso reformista: modernización institucional, ampliación de derechos y reformas estructurales.
+                Genera apoyos intensos y también una oposición creciente.
+              </p>
+
+              <div class="accordion" id="accReformistaTL">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="hR1">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#cR1" aria-expanded="true" aria-controls="cR1">
+                      🧩 Reformas clave (resumen)
+                    </button>
+                  </h2>
+                  <div id="cR1" class="accordion-collapse collapse show" aria-labelledby="hR1" data-bs-parent="#accReformistaTL">
+                    <div class="accordion-body">
+                      <ul class="mb-0">
+                        <li><strong>🪖 Militar:</strong> subordinación al poder civil, reorganización.</li>
+                        <li><strong>⛪ Religiosa:</strong> Estado aconfesional y legislación laica.</li>
+                        <li><strong>🏫 Educativa:</strong> expansión de la escuela pública.</li>
+                        <li><strong>🌾 Agraria:</strong> intento de reforma del campo (tensión y lentitud).</li>
+                        <li><strong>🗺️ Autonomías:</strong> vía estatutaria y debate territorial.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="hR2">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cR2" aria-expanded="false" aria-controls="cR2">
+                      🔎 Lectura didáctica (qué se gana / qué se pierde)
+                    </button>
+                  </h2>
+                  <div id="cR2" class="accordion-collapse collapse" aria-labelledby="hR2" data-bs-parent="#accReformistaTL">
+                    <div class="accordion-body">
+                      <div class="row g-3">
+                        <div class="col-md-6">
+                          <div class="p-3 border rounded-4 h-100" style="background:#f8fbff;">
+                            <div class="fw-bold">✅ Objetivo</div>
+                            <div class="small text-muted">
+                              Modernizar el Estado y ampliar derechos en poco tiempo.
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="p-3 border rounded-4 h-100" style="background:#fff7ed;">
+                            <div class="fw-bold">⚠️ Riesgo</div>
+                            <div class="small text-muted">
+                              Resistencias fuertes, expectativas altas y conflictividad.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="mt-3">
+                <a class="btn btn-sm btn-outline-primary" href="#constitucion">Ir a Constitución</a>
+                <a class="btn btn-sm btn-outline-primary" href="#reformas">Ir a reformas</a>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <!-- BIENIO CONSERVADOR -->
+        <section class="t-item anchor" id="bienio_conservador">
+          <div class="t-dot" data-color="amber" aria-hidden="true"></div>
+          <article class="t-card">
+            <img class="t-cover" src="{% static 'images/sigloXX/segundaRepublica/bienio_conservador.jpg' %}" alt="Bienio conservador">
+            <header class="t-head">
+              <h3 class="t-title">Bienio conservador</h3>
+              <div class="t-meta">
+                <span class="badge t-badge" style="background:#f59e0b; color:#111827;">1933–1936</span>
+                <span>Revisión de reformas y tensión social</span>
+              </div>
+            </header>
+            <div class="t-body">
+              <p class="mb-3">
+                Cambia la mayoría política. Se revisan o frenan reformas, aumenta la confrontación y se agrava la polarización.
+              </p>
+
+              <div class="accordion" id="accConservadorTL">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="hC1">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#cC1" aria-expanded="true" aria-controls="cC1">
+                      🧨 Octubre de 1934
+                    </button>
+                  </h2>
+                  <div id="cC1" class="accordion-collapse collapse show" aria-labelledby="hC1" data-bs-parent="#accConservadorTL">
+                    <div class="accordion-body">
+                      <div class="row g-3 align-items-start">
+                        <div class="col-md-7">
+                          <p class="mb-0">
+                            Crisis grave con episodios insurreccionales y una respuesta represiva contundente.
+                            Su impacto alimenta la radicalización posterior y agrava la desconfianza entre bloques.
+                          </p>
+                        </div>
+                        <div class="col-md-5">
+                          <figure class="figure m-0">
+                            <img class="img-fluid" src="{% static 'images/sigloXX/segundaRepublica/octubre_1934.jpg' %}" alt="Octubre 1934">
+                            <figcaption class="text-center mt-2 text-muted">Octubre de 1934 (imagen a sustituir)</figcaption>
+                          </figure>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="hC2">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cC2" aria-expanded="false" aria-controls="cC2">
+                      ⚡ Polarización y violencia
+                    </button>
+                  </h2>
+                  <div id="cC2" class="accordion-collapse collapse" aria-labelledby="hC2" data-bs-parent="#accConservadorTL">
+                    <div class="accordion-body">
+                      <p class="mb-0">
+                        Aumenta la crispación, la movilización en la calle y los enfrentamientos.
+                        El parlamentarismo se debilita y se consolida un clima de choque.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-3">
+                <a class="btn btn-sm btn-outline-secondary" href="#frente_popular">Ir a Frente Popular</a>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <!-- FRENTE POPULAR -->
+        <section class="t-item anchor" id="frente_popular">
+          <div class="t-dot" data-color="red" aria-hidden="true"></div>
+          <article class="t-card">
+            <img class="t-cover" src="{% static 'images/sigloXX/segundaRepublica/frente_popular.jpg' %}" alt="Frente Popular">
+            <header class="t-head">
+              <h3 class="t-title">Frente Popular y crisis final</h3>
+              <div class="t-meta">
+                <span class="badge t-badge text-bg-danger">1936</span>
+                <span>Elecciones, gobierno y escalada de tensión</span>
+              </div>
+            </header>
+            <div class="t-body">
+              <p class="mb-3">
+                Vuelve el impulso reformista, pero en un contexto ya muy polarizado.
+                La violencia política aumenta y la estabilidad institucional se deteriora rápidamente.
+              </p>
+
+              <div class="callout">
+                <div class="fw-bold mb-1">Qué debes retener</div>
+                <p class="mb-0">
+                  La combinación de crisis de autoridad, miedo al golpe y temor a la revolución rompe la convivencia política.
+                </p>
+              </div>
+
+              <div class="mt-3">
+                <a class="btn btn-sm btn-outline-danger" href="#resumen">Ir a esquema final</a>
+              </div>
+            </div>
+          </article>
+        </section>
+
+      </div>
+
+      <!-- CONSTITUCIÓN -->
+      <div class="section-head anchor mb-3" id="constitucion">
+        <h2>📜 Constitución de 1931: rasgos esenciales</h2>
+        <p class="hint">Lo más preguntable / examinable.</p>
+      </div>
+
+      <div class="content-card mb-4">
+        <div class="row g-3 align-items-start">
+          <div class="col-md-8">
+            <ul class="mb-0">
+              <li><strong>Régimen democrático</strong> con soberanía popular.</li>
+              <li><strong>Amplios derechos</strong> y libertades públicas.</li>
+              <li><strong>Sufragio universal</strong> (incluye el voto femenino).</li>
+              <li><strong>Estado aconfesional</strong> y legislación laica.</li>
+              <li><strong>Posibilidad de autonomías</strong> (descentralización).</li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <figure class="figure m-0">
+              <img class="img-fluid" src="{% static 'images/sigloXX/segundaRepublica/constitucion_1931.jpg' %}" alt="Constitución 1931">
+              <figcaption class="text-center mt-2 text-muted">Constitución de 1931 (imagen a sustituir)</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <!-- REFORMAS -->
+      <div class="section-head anchor mb-3" id="reformas">
+        <h2>🧩 Reformas clave (mapa rápido)</h2>
+        <p class="hint">Cuatro bloques fáciles de memorizar.</p>
+      </div>
+
+      <div class="content-card mb-4">
+        <div class="row g-3">
+          <div class="col-md-6">
+            <div class="p-3 border rounded-4 h-100" style="background:#f8fbff;">
+              <div class="fw-bold">🪖 Militar</div>
+              <div class="small text-muted">Modernización y reducción del peso político del Ejército.</div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="p-3 border rounded-4 h-100" style="background:#f8fbff;">
+              <div class="fw-bold">⛪ Religiosa</div>
+              <div class="small text-muted">Estado aconfesional y medidas laicas.</div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="p-3 border rounded-4 h-100" style="background:#f8fbff;">
+              <div class="fw-bold">🏫 Educativa</div>
+              <div class="small text-muted">Escuela pública y alfabetización.</div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="p-3 border rounded-4 h-100" style="background:#f8fbff;">
+              <div class="fw-bold">🌾 Agraria</div>
+              <div class="small text-muted">Intento de reforma del campo; conflictos y resistencias.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RESUMEN -->
+      <div class="section-head anchor" id="resumen">
+        <h2>✅ Esquema final (para estudiar)</h2>
+        <p class="hint">La estructura completa en 4 líneas.</p>
+      </div>
+
+      <div class="content-card mt-3 mb-4">
+        <ol class="mb-0">
+          <li><strong>1931</strong>: Proclamación + Constitución → inicio del proyecto reformista.</li>
+          <li><strong>1931–1933</strong>: Reformas (militar, religiosa, educativa, agraria, autonomías) + resistencias.</li>
+          <li><strong>1933–1936</strong>: Cambio político → revisión/freno de reformas → crisis (Octubre 1934).</li>
+          <li><strong>1936</strong>: Frente Popular → tensión máxima → crisis institucional.</li>
+        </ol>
+      </div>
+
+      <!-- RECURSOS -->
+      <div class="section-head anchor" id="recursos">
+        <h2>📚 Recursos</h2>
+        <p class="hint">Pon aquí tus vídeos/lecturas.</p>
+      </div>
+
+      <div class="content-card mt-3">
+        <h3 class="h6 fw-bold mb-2">Vídeos / materiales</h3>
+        <ul class="mb-0">
+          <li><a href="#" target="_blank" rel="noopener" style="text-decoration:none;">[Añadir] Resumen II República (vídeo)</a></li>
+          <li><a href="#" target="_blank" rel="noopener" style="text-decoration:none;">[Añadir] Constitución 1931 (texto/explicación)</a></li>
+          <li><a href="#" target="_blank" rel="noopener" style="text-decoration:none;">[Añadir] Octubre 1934 (explicación)</a></li>
+        </ul>
+        <div class="small text-muted mt-2">
+          Consejo: mejor 3–5 recursos “buenos” que 20 enlaces.
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+</div>
 
 {% endblock %}
+

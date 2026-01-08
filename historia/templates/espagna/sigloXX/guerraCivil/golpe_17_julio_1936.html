@@ -1,0 +1,326 @@
+{% extends "bases/basesigloXX.html" %}
+{% load static %}
+
+{% block titulo %} 17 de julio de 1936 {% endblock %}
+{% block cabecera %} 17 de julio de 1936: inicio del alzamiento militar {% endblock %}
+
+{% block imgCabecera %}
+<figure class="text-center">
+  <img class="img-fluid rounded-4 border shadow-sm"
+       src="{% static 'images/sigloXX/guerraCivil/mapa_inicio.jpg' %}"
+       alt="Inicio del alzamiento militar (julio 1936)"
+       role="button"
+       data-bs-toggle="modal"
+       data-bs-target="#mapa_inicio">
+</figure>
+{% endblock %}
+
+{% block contenido %}
+
+<style>
+  :root{
+    --xx-bg:#fbfbfc;
+    --xx-card:#ffffff;
+    --xx-border:rgba(0,0,0,.08);
+    --xx-shadow:0 10px 30px rgba(0,0,0,.08);
+    --xx-shadow-sm:0 6px 18px rgba(0,0,0,.06);
+
+    --hero-a:#1b2a41;
+    --hero-b:#2b3f63;
+
+    --c-blue:#0d6efd;
+    --c-green:#0a6b3a;
+    --c-amber:#f59e0b;
+    --c-red:#dc2626;
+    --c-slate:#334155;
+  }
+
+  .page-wrap{ background:var(--xx-bg); border-radius:1rem; padding:1rem; }
+
+  .hero{
+    background:linear-gradient(90deg,var(--hero-a),var(--hero-b));
+    color:#fff;border-radius:1rem;overflow:hidden;box-shadow:var(--xx-shadow);
+  }
+  .hero .lead{opacity:.92;}
+
+  .chip{
+    display:inline-flex;align-items:center;gap:.4rem;
+    padding:.25rem .65rem;border-radius:999px;
+    background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);
+    font-size:.85rem;white-space:nowrap;
+  }
+
+  .section-head{
+    border:1px solid var(--xx-border);
+    background:#eef7ff;border-radius:1rem;padding:1rem 1rem;
+    box-shadow:var(--xx-shadow-sm);
+  }
+  .section-head h2{ margin:0;font-size:1.1rem;font-weight:900;letter-spacing:.01em; }
+  .section-head .hint{ color:rgba(0,0,0,.65); margin:.25rem 0 0 0; font-size:.95rem; }
+
+  .content-card{
+    border:1px solid var(--xx-border);
+    border-radius:1rem;background:var(--xx-card);
+    padding:1rem 1rem;box-shadow:var(--xx-shadow-sm);
+  }
+
+  .callout{
+    border-left:6px solid #fd7e14;
+    background:#fff7ed;padding:1rem 1rem;border-radius:.9rem;
+    box-shadow:var(--xx-shadow-sm);
+  }
+
+  .mini-card{
+    border:1px solid var(--xx-border);
+    border-radius:1rem;background:#fff;
+    padding:.9rem; box-shadow:var(--xx-shadow-sm);
+    height:100%;
+  }
+  .mini-card .t{ font-weight:900; }
+  .mini-card .d{ color:rgba(0,0,0,.65); font-size:.92rem; margin-top:.15rem; }
+
+  .t-pill{
+    display:inline-flex; align-items:center; gap:.4rem;
+    padding:.25rem .6rem; border-radius:999px;
+    border:1px solid rgba(0,0,0,.1); background:#fff;
+    font-size:.85rem; margin-right:.35rem; margin-bottom:.35rem;
+  }
+
+  .anchor{ scroll-margin-top: 90px; }
+
+  /* Timeline simple (mini) */
+  .mini-timeline{ margin:0; padding:0; list-style:none; }
+  .mini-timeline li{
+    display:grid; grid-template-columns:18px 1fr; gap:.75rem;
+    padding:.55rem 0;
+  }
+  .mini-timeline li::before{
+    content:""; width:10px; height:10px; border-radius:999px;
+    background:var(--c-red);
+    margin-top:.35rem;
+    box-shadow:0 0 0 6px rgba(220,38,38,.10);
+  }
+
+  .kbd-link{
+    font-size:.85rem;
+    border:1px solid rgba(0,0,0,.12);
+    background:rgba(255,255,255,.85);
+    padding:.1rem .4rem;border-radius:.5rem;
+  }
+</style>
+
+<div class="page-wrap">
+
+  <!-- HERO -->
+  <!-- HERO (MISMO ESTILO QUE GUERRA CIVIL) -->
+  
+<section class="hero p-4 p-md-5 mb-4">
+  <div class="d-flex flex-column gap-3">
+
+    <div>
+      <h1 class="h3 mb-2 fw-bold">17 de julio de 1936</h1>
+
+      <div class="d-flex flex-wrap gap-2 mb-3">
+        <span class="chip">⚡ Inicio del golpe</span>
+        <span class="chip">📍 Marruecos</span>
+        <span class="chip">🪖 Ejército de África</span>
+        <span class="chip">⏳ Punto de no retorno</span>
+      </div>
+
+      <p class="lead mb-0">
+        El alzamiento militar comienza en el <strong>Protectorado de Marruecos</strong>.
+        Lo que se concibe como un <strong>golpe rápido</strong> se transforma en el
+        inicio de una <strong>guerra civil</strong>.
+      </p>
+    </div>
+
+    <div class="row g-3">
+      <div class="col-md-4">
+        <div class="mini-card">
+          <div class="t">Qué ocurre</div>
+          <div class="d">
+            Sublevación de las tropas del Ejército de África contra el gobierno republicano.
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="mini-card">
+          <div class="t">Por qué importa</div>
+          <div class="d">
+            Marca el inicio real del golpe y compromete a las fuerzas militares más eficaces.
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="mini-card">
+          <div class="t">Qué provoca</div>
+          <div class="d">
+            La extensión inmediata del golpe y el paso de crisis política a guerra.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+  <div class="row g-4">
+
+    <!-- ASIDE -->
+    <aside class="col-lg-4">
+      <div class="content-card">
+        <div class="fw-bold mb-2">En esta página</div>
+
+        <a class="d-block text-decoration-none mb-1" href="#hecho">🧾 Qué ocurre</a>
+        <a class="d-block text-decoration-none mb-1" href="#porque">❓ Por qué es clave</a>
+        <a class="d-block text-decoration-none mb-1" href="#consecuencias">📌 Consecuencias inmediatas</a>
+        <a class="d-block text-decoration-none mb-1" href="#cronologia">🕰️ Cronología</a>
+
+        <hr>
+
+        <a class="btn btn-sm btn-outline-primary"
+           href="{% url 'guerraCivil' %}#golpe1936">
+          ↩ Volver al timeline general
+        </a>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="col-lg-8">
+
+      <!-- HECHO -->
+      <div class="section-head anchor mb-3" id="hecho">
+        <h2>🧾 Qué ocurre el 17 de julio</h2>
+        <p class="hint">El golpe comienza fuera de la Península.</p>
+      </div>
+
+      <div class="content-card mb-4">
+        <p>
+          El <strong>17 de julio de 1936</strong> se inicia el alzamiento militar en el
+          <strong>Protectorado español de Marruecos</strong>. Las tropas del
+          <strong>Ejército de África</strong>, consideradas las mejor preparadas,
+          se sublevan contra el gobierno de la Segunda República.
+        </p>
+
+        <p class="mb-0">
+          La elección de Marruecos no es casual: desde allí se pretende asegurar
+          fuerzas experimentadas para trasladarlas rápidamente a la Península
+          y provocar el colapso del régimen republicano.
+        </p>
+
+        <div class="mt-3">
+          <span class="t-pill">📍 Marruecos</span>
+          <span class="t-pill">🪖 Tropas profesionales</span>
+          <span class="t-pill">⚡ Inicio coordinado</span>
+        </div>
+      </div>
+
+      <!-- POR QUÉ IMPORTA -->
+      <div class="section-head anchor mb-3" id="porque">
+        <h2>❓ Por qué es un momento clave</h2>
+        <p class="hint">Aquí se cruza el umbral entre crisis y guerra.</p>
+      </div>
+
+      <div class="content-card mb-4">
+        <ul>
+          <li>
+            <strong>Marca el inicio real del golpe</strong>, aunque la mayoría de
+            sublevaciones en la Península se producirán el día 18.
+          </li>
+          <li>
+            Implica al <strong>Ejército de África</strong>, decisivo por su disciplina,
+            experiencia y liderazgo.
+          </li>
+          <li>
+            Demuestra que el golpe es <strong>planificado y coordinado</strong>,
+            no una reacción improvisada.
+          </li>
+          <li>
+            A partir de este momento, la posibilidad de una salida política
+            negociada se reduce drásticamente.
+          </li>
+        </ul>
+      </div>
+
+      <!-- CONSECUENCIAS -->
+      <div class="section-head anchor mb-3" id="consecuencias">
+        <h2>📌 Consecuencias inmediatas</h2>
+        <p class="hint">Efectos en cadena en menos de 48 horas.</p>
+      </div>
+
+      <div class="content-card mb-4">
+        <div class="callout mb-3">
+          <strong>Idea clave:</strong> el golpe ya no puede detenerse sin violencia generalizada.
+        </div>
+
+        <ul>
+          <li>
+            El <strong>18 de julio</strong> el alzamiento se extiende a la Península.
+          </li>
+          <li>
+            El gobierno pierde el control de parte del territorio.
+          </li>
+          <li>
+            Se forman <strong>dos zonas</strong> con poderes enfrentados.
+          </li>
+          <li>
+            El golpe fracasa como acción rápida y se transforma en
+            <strong>guerra civil</strong>.
+          </li>
+        </ul>
+      </div>
+
+      <!-- CRONOLOGÍA -->
+      <div class="section-head anchor mb-3" id="cronologia">
+        <h2>🕰️ Cronología inmediata</h2>
+        <p class="hint">Antes – durante – después.</p>
+      </div>
+
+      <div class="content-card">
+        <ul class="mini-timeline mb-0">
+          <li>
+            <div>
+              <strong>13 julio 1936</strong><br>
+              <span class="text-muted">Asesinato de Calvo Sotelo.</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>17 julio 1936</strong><br>
+              <span class="text-muted">Inicio del alzamiento en Marruecos.</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>18 julio 1936</strong><br>
+              <span class="text-muted">Extensión del golpe a la Península.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+{% comment %} MODAL MAPA {% endcomment %}
+<div class="modal fade" id="mapa_inicio" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content bg-dark">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-white ms-auto"
+                data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img class="img-fluid rounded"
+             src="{% static 'images/sigloXX/guerraCivil/mapa_inicio.jpg' %}"
+             alt="Mapa del inicio del golpe (julio 1936)">
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

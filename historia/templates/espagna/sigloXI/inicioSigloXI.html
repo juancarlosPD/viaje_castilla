@@ -1,0 +1,193 @@
+{% extends "bases/baseHistoria.html" %}
+
+{% load static %}
+
+{% block titulo %} Siglo XI {% endblock %}
+{% block cabecera %} Siglo XI {% endblock %}
+{% block imgCabecera %} <img class="img-fluid" src="{% static 'images/sigloXII/fernando_III_el_santo.jpg' %}" alt=""> {% endblock %}
+
+{% block contenido %}
+
+<div class="row " >
+    
+    <div class="row align-items-center vertical-align-center text-center py-1 my-1 " >
+        <div class="col-md-2"><a class="navbar-brand mx-3" href="{% url 'alfonsoVI' %}">Alfonso VI</a></div>
+        <div class="col-md-2"></div>
+        <div class="col-md-2"></div>
+        <div class="col-md-2"></div>
+        <div class="col-md-2"></div>
+        
+    </div>
+
+    <div class="row align-items-center vertical-align-center text-center py-1 my-1 " >
+        
+        <!-- <table class="table  mx-2 border">
+            
+            
+            <tr>
+                
+                
+                
+                                   
+                                
+            </tr>
+            
+            <tr>
+                
+                <td colspan="2" class="border border-dark" style="background-color: #E74C3C; color: white;">
+                    <p>1ª unión de León y Castilla</p>
+                    <p>Fernando I (1035 1065)</p>
+                    <p>Sancho II (1065 1072)</p>
+                    <p>Alfonso VI (1072 1109). Nace Portugal como reino.</p>
+                </td>
+                <td colspan="2" class="border border-dark" style="background-color: #E74C3C; color: white;">
+                    <p>2ª unión de Navarra y Aragón</p>
+                    <p>Sancho Ramírez (1076 1094)</p>
+                    <p>Pedro I (1094 1104)</p>
+                    
+                </td>
+
+            </tr>
+            
+            
+        </table> -->
+
+        <table class="table  mx-2 border">
+            
+            <tr class="table-success ">
+                <th class="border border-dark">MUSULMANES</th>
+                <th class="border border-dark">LEÓN</th>
+                <th class="border border-dark">CASTILLA</th>
+                <th class="border border-dark">NAVARRA</th>
+                <th class="border border-dark ">ARAGÓN</th>
+                <th class="border border-dark">CATALUÑA</th>               
+            </tr>
+            <tr>
+                <td rowspan="7" class="border border-dark" style="background-color: aquamarine; width:300px ;">
+                    <p class="text-start text-light">711-755. Emirato dependiente</p>
+                    <p class="text-start text-light">756-929. Emirato de Córdoba</p>
+                    <p class="text-start text-light">929-1031. Califato de Córdoba</p>
+                    <p class="text-start">1031-1085. Primeras taifas</p>
+                    <p class="text-start">1086-1140. Imperio almorávide</p>
+                    <p class="text-start text-light">1144-1145. Segundas taifas</p>
+                    <p class="text-start text-light">1140-1214. Imperio almohade.</p>
+                    <p class="text-start text-light">1212-1238. Terceras taifas</p>
+                    <p class="text-start text-light">1238-1492. Reino nazarí de Granada.</p>
+                    
+                </td>                
+                <td rowspan="2" class="border border-dark" style="background-color: #E74C3C; color: white;"> <p>Alfonso V (999 - 1028)</p><span>Bermudo III (1028 - 1037)</span></td>
+                <td rowspan="2" class="border border-dark" style="background-color: cornflowerblue; color: white;"><p>Sancho García (995 1017)</p><p>García Sánchez, muere en 1029 y hereda su hermana casada con Sancho III de Navarra.</p> </td>                    
+                <td colspan="2" class="border border-dark" style="background-color: darkorange;"><p>Sancho III el Mayor de Navarra, divide sus reinos a su muerte</p> </td>                
+                <td rowspan="7" class="border border-dark" style="background-color: brown; color: white;">
+                    <p>Berenguer Ramón I (1013 1035)</p>
+                    <p>Ramón Berenguer I (1035 1076)</p>
+                    <p>Berenguer Ramón II (1076 1096)</p>
+                    <p>Ramón Berenguer II (1076 1082)</p>
+                    <p>Ramón Berenguer III (1096 1131)</p>
+                </td>   
+            </tr>
+            <tr>
+                <td class="border border-dark" style="background-color: #E74C3C; color: white;">
+                    <p>García III (1035 - 1054)</p> 
+                    <p>Sancho IV (1054 - 1076)</p>
+                </td>
+                <td class="border border-dark" style="background-color: cornflowerblue; color: white;">
+                     <p>Ramiro I (1035 - 1063)</p>
+                     <p>Sancho Ramírez (1063 - 1094)</p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="border border-dark" style="background-color: gold; color: black;">
+                    <p>1ª unión de León y Castilla</p>
+                    <p>Fernando I (1035 1065)</p>
+                    <p>Sancho II (1065 1072)</p>
+                    <p>Alfonso VI (1072 1109). Nace Portugal como reino.</p>
+                </td>
+                <td colspan="2" class="border border-dark" style="background-color: darkcyan; color: white;">
+                    <p>2ª unión de Navarra y Aragón</p>
+                    <p>Sancho Ramírez (1076 1094)</p>
+                    <p>Pedro I (1094 1104)</p>
+                    
+                </td>
+            </tr>
+            
+        </table>
+</div>
+<h3 class="mt-5 text-center">Hechos cronológios más importantes</h3>
+<div class="row align-items-center vertical-align-center text-center py-3 my-5 border" style="background-color:#E2F6F6 ;">
+        
+    <h5 class="text-center pt-2" id="castilla_leon">CASTILLA y LEÓN</h5>
+        
+</div>
+<div class="text-start">
+    <div class="row  border" style="background-color: #FEF5E7 ;">    
+        <h6 class="my-2" id="fernandoI"><strong>Fernando I (1035-1065)</strong>. Era hijo de Sancho III el mayor de Navarra </h6>    
+    </div>
+   
+        
+        <div>
+            <ul>
+                <li>Es el primer rey de Castilla. </li>
+                <li>Venció a los leoneses en la batalla de Tamarón (1037), en la que murió su rey; alegando los derechos de su esposa Sancha al trono leonés vacante, Fernando se hizo coronar rey de León en 1038, uniendo por primera vez las dos coronas.</li>
+                <li>Luchó también contra su hermano García IV de Navarra, al que derrotó y dio muerte en la batalla de Atapuerca (1054).</li>
+                <li>Aprovechando la debilidad de al-Andalus, convertida en reinos de taifas, les cobró parias e inició la Reconquista de tierras portuguesas (conquista de Coímbra).</li>
+                <li>Al morir dejó sus estados repartidos entre sus hijos Alfonso VI (León), Sancho II (Castilla), García (Galicia), Urraca (Zamora) y Elvira (Toro).</li>
+            </ul>
+        </div>
+        <div class="row  border" style="background-color: #FEF5E7 ;">    
+            <h6 class="my-2" id="sanchoII"><strong>Sancho II (1065 1072)</strong>. Era hijo de Fernando I. </h6>    
+        </div>
+
+        <div class="row  border" style="background-color: #FEF5E7 ;">    
+            <h6 class="my-2" id="alfonsoVI"><strong>Alfonso VI (1072-1109)</strong>. Era hijo de Fernando I. </h6>    
+        </div>
+        
+        
+        <div>
+            <ul>
+                <li><strong>Conquista Toledo</strong> en 1085</li>
+                <li>Los reyes de taifas, alarmados, solicitaron la ayuda de los almorávides del norte de África, que logran derrotar a Alfonso VI en la batalla en la <strong>batalla de Sagrajas</strong>, en 1086 frenando así la Reconquista.</li>
+                <li>La <strong>batalla de Uclés</strong> (Cuenca) frente a los almorávides en el año 1108, se saldó con la derrota Alfonso VI y la muerte de su hijo Sancho.</li>
+                <li>Rodrigo Díaz de Vivar, el <strong>Cid Campeador</strong>, desterrado de Castilla por el rey Alfonso VI, logró apoderarse de Valencia y gobernarla hasta su muerte (1099) para terminar pasando a los almorávides.</li>
+            </ul>
+        </div>
+    
+</div>
+<div class="row align-items-center vertical-align-center text-center py-3 my-5 border" style="background-color:#E2F6F6 ;">
+        
+    <h5 class="text-center pt-2" id="aragon_navarra">ARAGÓN Y NAVARRA</h5>
+        
+</div>
+
+<div class="text-start">
+    <div class="row  border" style="background-color: #FEF5E7 ;">    
+        <h6 class="my-2" id="sanchoIII"><strong>Sancho III el Mayor de Navarra (1000-1035)</strong>. </h6>    
+    </div>
+    <ul>
+        <li>El siglo se inicia con la crisis del califato cordobés.</li>
+        <li>Bajo su mandato el reino de Navarra alcanza su mayor apogeo convirtiéndose en el Estado más influyente de la España cristiana.</li>
+        <li>Sancho III incorporó a Navarra los condados de Castilla y los de Sobrarbe y Ribagorza.</li>
+        <li>A su muerte, dividió el reino entre sus hijos: Navarra a García, el primogénito, Castilla a Fernando, que tomará el título de rey, Aragón a Ramiro, que también será rey y Sobrarbe y Ribagorza a Gonzalo.</li>
+        <li>Por tanto, se creaban dos nuevos reinos, Castilla y Aragón, que irán extendiéndose hacia el sur, ahogando a Navarra en la zona pirenaica sin posibilidad de expansión.</li>
+        <li>Navarra entra en crisis hasta el punto de ser repartida entre Castilla y Aragón</li>
+        
+    </ul>
+    <div class="row  border" style="background-color: #FEF5E7 ;">    
+        <h6 class="my-2" id="sanchoIII"><strong>Ramiro I (1035-1063)</strong>. </h6>    
+    </div>
+    <ul>
+        <li>Incorpora, a la muerte de su hermano Gonzalo, los condados de Sobrarbe y Ribagorza.</li>
+        <li>Hay que esperar a finales de siglo para que Pedro I (1094-1104), nieto de Ramiro I, ponga las bases con la conquista de Huesca (1096) y Barbastro (1100).</li>
+    </ul>
+</div>
+            
+               
+                           
+            
+            
+       
+    
+
+</div>
+
+{% endblock %}

@@ -50,9 +50,17 @@
 </div> -->
 <div class="row " >
     
-    
+    <div class="row align-items-center vertical-align-center text-center py-1 my-1 " >
+        <div class="col-md-2"><a class="navbar-brand mx-3" href="{% url 'alfonsoVII' %}">Alfonso VII</a></div>
+        <div class="col-md-2"><a class="navbar-brand mx-3" href="{% url 'alfonsoVIII' %}">Alfonso VIII</a></div>
+        <div class="col-md-2"></div>
+        <div class="col-md-2"></div>
+        <div class="col-md-2"></div>
+        <div class="col-md-2"></div>
+        
+    </div>
 
-    <div class="row align-items-center vertical-align-center text-center py-3 my-2 " >
+    <div class="row align-items-center vertical-align-center text-center py-1 my-1 " >
         
         <table class="table  mx-2 border">
             
@@ -65,7 +73,18 @@
                 <th class="border border-dark">CATALUÑA</th>               
             </tr>
             <tr>
-                <td rowspan="7" class="border border-dark" style="background-color: aquamarine;">Almohades 1145</td>                
+                <td rowspan="7" class="border border-dark" style="background-color: aquamarine; width:300px ;">
+                    <p class="text-start text-light">711-755. Emirato dependiente</p>
+                    <p class="text-start text-light">756-929. Emirato de Córdoba</p>
+                    <p class="text-start text-light">929-1031. Califato de Córdoba</p>
+                    <p class="text-start text-light">1031-1085. Primeras taifas</p>
+                    <p class="text-start">1086-1140. Imperio almorávide</p>
+                    <p class="text-start">1144-1145. Segundas taifas</p>
+                    <p class="text-start">1140-1214. Imperio almohade.</p>
+                    <p class="text-start text-light">1212-1238. Terceras taifas</p>
+                    <p class="text-start text-light">1238-1492. Reino nazarí de Granada.</p>
+                    
+                </td>                
                 <td colspan="2" class="border border-dark" style="background-color: #E74C3C; color: white;">Casa de Borgoña <p>Urraca I (1109 - 1126)</p><span>Alfonso VII (1126 - 1157)</span></td>
                 <td rowspan="3" colspan="2" class="border border-dark" style="background-color: cornflowerblue; color: white;">Alfonso I (1104 - 1134) </td>
                 <td rowspan="6" class="border border-dark" style="background-color: darkorange;">Ramón Berenguer IV (1131 - 1162).
@@ -103,39 +122,46 @@
             </tr>
             
             </table>
+
+            <h3 class="mt-5">Hechos cronológios más importantes</h3>
+            <h5 class="text-start">CASTILLA y LEÓN</h5>
+            <div class="row align-items-center vertical-align-center text-center py-3 my-5 border" style="background-color:#E2F6F6 ;">
+        
+                <h5 class="text-center pt-2" id="castilla_leon">CASTILLA y LEÓN</h5>
+                    
+            </div>
+            <div class="text-start">
+                
+                <ul>
+                    <li>Alfonso VII (1126-1157), nieto de Alfonso VI, decidió a su muerte repartir el reino entre sus hijos: Castilla, para Sancho III (1157-1158) y León, para Fernando II (1157-1188).</li>
+                    <li>La pronta muerte de Sancho III dejó como heredero a un niño, el futuro <strong>Alfonso VIII (1158-1214).</strong> 
+                    <div>
+                        <ul>
+                            <li>Conquistó Cuenca en 1177</li>
+                            <li>En 1195, los almohades le derrotan en la <strong>batalla de Alarcos</strong>.</li>
+                            <li>Esta victoria musulmana contribuyó a organizar una cruzada contra los almohades, predicada por el papa Inocencio III y puesta bajo la dirección de Alfonso VIII con la colaboración de Pedro II de Aragón, Sancho VII el Fuerte de Navarra y caballeros franceses y alemanes. El resultado fue la victoria cristiana de las <strong>Navas de Tolosa (1212)</strong> donde quedaron destrozados los almohades, que se hunden y disgregan.</li>
+                        </ul>
+                    </div>
+                    </li>
+                </ul>
+            </div>
+            <h5 class="text-start">ARAGÓN Y NAVARRA</h5>
+            <div class="text-start">
+                <ul>
+                    <li><strong>Alfonso I el Batallador (1104-1134)</strong> conquistó Zaragoza (1118) y el valle medio del Ebro.</li>
+                    <li>Al morir sin descendencia hubo una crisis sucesoria que fue aprovechada por la alta nobleza navarra para volver a convertir a Navarra en reino independiente de Aragón.</li>
+                    <li>A Alfonso I su hermano <strong>Ramiro II el Monje (1134-1137)</strong>, que tuvo una hija, Petronila</li>
+                    <li>Petronila se casó con el conde de Barcelona Ramón Berenguer IV y se formó así una nueva entidad política, la <strong>Corona de Aragón</strong>, constituida por la unión dinástica de Aragón y Cataluña.</li>
+                    <li><strong>Ramón Berenguer IV</strong> concluyó la Reconquista del valle del Ebro tomando Lérida y Tortosa (1148).</li>
+                    <li><strong>Alfonso II (1162-1196)</strong>, primer monarca de la Corona de Aragón, hijo de Ramón Berenguer IV y de Petronila, conquista Teruel (1171), con lo que dejaba abierto el camino hacia Valencia.</li>
+                    <li>Su hijo <strong>Pedro II (1196-1213)</strong> colaboró en la victoria de las Navas de Tolosa (1212).</li>
+                </ul>
+            </div>
+            
 </div>
        
             
-                <!-- <div class="col-md-3 border">
-                    <a href="{% url 'urraca' %}" class="text-light", style="text-decoration:none ;">    
-                                                           
-                            <img class="img-fluid mt-4" style="width:135px ; height:125px ;"  src="{% static 'images/sigloXII/urraca.jpg' %}" alt="">
-                            <span>Urraca</span>
-                            <span >León</span> 
-                            <span >1109-1126</span> 
-                        
-                    </a>            
-                </div>
-                <div class="col-md-3 border">
-                    <a href="{% url 'alfonsoVII' %}" class="text-light", style="text-decoration:none ;">    
-                                                            
-                        <img class="img-fluid mt-4 text-center border" style="width:135px ; height:125px ;" src="{% static 'images/sigloXII/alfonsoVII.png' %}" alt="">
-                        <figcaption class="text-center">ALFONSO VII</figcaption>
-                        <figcaption class="text-center">1126 - 1157</figcaption>
-                             
-                        
-                    </a>           
-                </div>
-                <div class="col-md-4 border">
-                    <a href="{% url 'alfonsoVIII' %}" class="text-light", style="text-decoration:none ;">    
-                                                            
-                            <img class="img-fluid mt-4" style="width:135px ; height:125px ;" src="{% static 'images/sigloXII/alfonsoVIII.jpg' %}" alt="">
-                            <figcaption class="text-center mt-3">ALFONSO VIII</figcaption>
-                            <span class="text-center">Rey de Castilla</span>
-                            <span class="text-center">(1158-1214)</span> 
-                       
-                    </a>        
-                </div> -->
+                
                            
             
             

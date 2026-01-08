@@ -1,0 +1,324 @@
+{% extends "bases/basesigloXX.html" %}
+{% load static %}
+
+{% block titulo %} Asesinato de Calvo Sotelo {% endblock %}
+{% block cabecera %} Asesinato de Calvo Sotelo (13 julio 1936) {% endblock %}
+
+{% block imgCabecera %}
+<figure class="text-center">
+  <img class="img-fluid rounded-4 border shadow-sm"
+       src="{% static 'images/sigloXX/guerraCivil/calvo_sotelo.jpg' %}"
+       alt="Asesinato de Calvo Sotelo"
+       role="button"
+       data-bs-toggle="modal"
+       data-bs-target="#img_calvo_sotelo">
+</figure>
+{% endblock %}
+
+{% block contenido %}
+
+<style>
+  :root{
+    --xx-bg:#fbfbfc;
+    --xx-card:#ffffff;
+    --xx-border:rgba(0,0,0,.08);
+    --xx-shadow:0 10px 30px rgba(0,0,0,.08);
+    --xx-shadow-sm:0 6px 18px rgba(0,0,0,.06);
+
+    --hero-a:#1b2a41;
+    --hero-b:#2b3f63;
+
+    --c-blue:#0d6efd;
+    --c-green:#0a6b3a;
+    --c-amber:#f59e0b;
+    --c-red:#dc2626;
+    --c-slate:#334155;
+  }
+
+  .page-wrap{ background:var(--xx-bg); border-radius:1rem; padding:1rem; }
+
+  .hero{
+    background:linear-gradient(90deg,var(--hero-a),var(--hero-b));
+    color:#fff;border-radius:1rem;overflow:hidden;box-shadow:var(--xx-shadow);
+  }
+  .hero .lead{opacity:.92;}
+
+  .chip{
+    display:inline-flex;align-items:center;gap:.4rem;
+    padding:.25rem .65rem;border-radius:999px;
+    background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);
+    font-size:.85rem;white-space:nowrap;
+  }
+
+  .section-head{
+    border:1px solid var(--xx-border);
+    background:#eef7ff;border-radius:1rem;padding:1rem 1rem;
+    box-shadow:var(--xx-shadow-sm);
+  }
+  .section-head h2{ margin:0;font-size:1.1rem;font-weight:900;letter-spacing:.01em; }
+  .section-head .hint{ color:rgba(0,0,0,.65); margin:.25rem 0 0 0; font-size:.95rem; }
+
+  .content-card{
+    border:1px solid var(--xx-border);
+    border-radius:1rem;background:var(--xx-card);
+    padding:1rem 1rem;box-shadow:var(--xx-shadow-sm);
+  }
+
+  .callout{
+    border-left:6px solid #fd7e14;
+    background:#fff7ed;padding:1rem 1rem;border-radius:.9rem;
+    box-shadow:var(--xx-shadow-sm);
+  }
+
+  .mini-card{
+    border:1px solid var(--xx-border);
+    border-radius:1rem;background:#fff;
+    padding:.9rem; box-shadow:var(--xx-shadow-sm);
+    height:100%;
+  }
+  .mini-card .t{ font-weight:900; }
+  .mini-card .d{ color:rgba(0,0,0,.65); font-size:.92rem; margin-top:.15rem; }
+
+  .t-pill{
+    display:inline-flex; align-items:center; gap:.4rem;
+    padding:.25rem .6rem; border-radius:999px;
+    border:1px solid rgba(0,0,0,.1); background:#fff;
+    font-size:.85rem; margin-right:.35rem; margin-bottom:.35rem;
+  }
+
+  .anchor{ scroll-margin-top: 90px; }
+
+  /* Timeline simple (mini) */
+  .mini-timeline{ margin:0; padding:0; list-style:none; }
+  .mini-timeline li{
+    display:grid; grid-template-columns:18px 1fr; gap:.75rem;
+    padding:.55rem 0;
+  }
+  .mini-timeline li::before{
+    content:""; width:10px; height:10px; border-radius:999px;
+    background:var(--c-red);
+    margin-top:.35rem;
+    box-shadow:0 0 0 6px rgba(220,38,38,.10);
+  }
+
+  .kbd-link{
+    font-size:.85rem;
+    border:1px solid rgba(0,0,0,.12);
+    background:rgba(255,255,255,.85);
+    padding:.1rem .4rem;border-radius:.5rem;
+  }
+</style>
+
+<div class="page-wrap">
+
+  <!-- HERO -->
+  <section class="hero p-4 p-md-5 mb-4">
+    <div class="d-flex flex-column gap-3">
+      <div>
+        <h1 class="h3 mb-2 fw-bold">Asesinato de Calvo Sotelo</h1>
+
+        <div class="d-flex flex-wrap gap-2 mb-3">
+          <span class="chip">🗓️ 13 julio 1936</span>
+          <span class="chip">⚠️ Escalada política</span>
+          <span class="chip">🧨 Punto de no retorno</span>
+          <span class="chip">📰 Impacto mediático</span>
+          <span class="chip">↘ Preludio del golpe</span>
+        </div>
+
+        <p class="lead mb-0">
+          Hecho clave del <strong>preludio de la Guerra Civil</strong>. Aquí tienes un resumen para estudiar:
+          <strong>qué ocurrió</strong>, <strong>por qué importó</strong> y <strong>qué desencadenó</strong>.
+        </p>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-md-4">
+          <div class="mini-card">
+            <div class="t">Qué pasa</div>
+            <div class="d">Asesinato del líder monárquico José Calvo Sotelo tras un clima de violencia política.</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="mini-card">
+            <div class="t">Por qué importa</div>
+            <div class="d">Rompe cualquier opción de desescalada y acelera apoyos al golpe en sectores clave.</div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="mini-card">
+            <div class="t">Qué provoca</div>
+            <div class="d">Contribuye a la legitimación del alzamiento y a la polarización definitiva.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="row g-4">
+    <!-- ASIDE -->
+    <aside class="col-lg-4">
+      <div class="content-card">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <div class="fw-bold">En esta página</div>
+          <span class="badge text-bg-light border">Guía</span>
+        </div>
+
+        <a class="d-block text-decoration-none mb-1" href="#hecho">🧾 Hecho (resumen)</a>
+        <a class="d-block text-decoration-none mb-1" href="#claves">🔎 Claves para entenderlo</a>
+        <a class="d-block text-decoration-none mb-1" href="#consecuencias">📌 Consecuencias</a>
+        <a class="d-block text-decoration-none mb-1" href="#cronologia">🧷 Mini-cronología</a>
+        <a class="d-block text-decoration-none mb-1" href="#paraestudiar">📝 Para estudiar</a>
+
+        <hr>
+
+        <div class="small text-muted">
+          Atajo: vuelve al timeline general con <span class="kbd-link">↩</span>
+        </div>
+
+        <a class="btn btn-sm btn-outline-primary mt-2"
+           href="{% url 'guerraCivil' %}#golpe1936">
+          ↩ Volver al timeline (Golpe 1936)
+        </a>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="col-lg-8">
+
+      <!-- HECHO -->
+      <div class="section-head anchor mb-3" id="hecho">
+        <h2>🧾 Hecho: qué ocurrió</h2>
+        <p class="hint">Un episodio que dispara la tensión y precipita decisiones.</p>
+      </div>
+
+      <div class="content-card mb-4">
+        <p class="mb-2">
+          El <strong>13 de julio de 1936</strong> es asesinado <strong>José Calvo Sotelo</strong>, figura destacada de la oposición monárquica.
+          El crimen ocurre en un contexto de <strong>violencia política creciente</strong> (enfrentamientos, represalias, atentados) y de
+          <strong>polarización</strong> entre bloques ideológicos.
+        </p>
+        <p class="mb-0">
+          A efectos de estudio, este hecho se interpreta como un <strong>catalizador</strong>:
+          no es “la causa única” de la guerra, pero sí un episodio que acelera la dinámica hacia el choque armado.
+        </p>
+
+        <div class="mt-3">
+          <span class="t-pill">⚠️ Violencia política</span>
+          <span class="t-pill">🧨 Catalizador</span>
+          <span class="t-pill">📰 Reacción pública</span>
+        </div>
+      </div>
+
+      <!-- CLAVES -->
+      <div class="section-head anchor mb-3" id="claves">
+        <h2>🔎 Claves para entenderlo</h2>
+        <p class="hint">Qué debes mirar para explicarlo con claridad en un examen.</p>
+      </div>
+
+      <div class="content-card mb-4">
+        <ul class="mb-0">
+          <li class="mb-2">
+            <strong>Clima previo</strong>: la Segunda República vive una fase de alta confrontación, con choque social e institucional.
+          </li>
+          <li class="mb-2">
+            <strong>Simbolismo</strong>: la víctima era un referente de la oposición; el hecho actúa como “prueba” de que la vía política es inviable para muchos.
+          </li>
+          <li class="mb-2">
+            <strong>Efecto dominó</strong>: endurece posiciones, refuerza discursos de urgencia y precipita apoyos al alzamiento.
+          </li>
+          <li>
+            <strong>Lectura histórica</strong>: se usa como argumento de legitimación y como punto de inflexión en relatos posteriores.
+          </li>
+        </ul>
+      </div>
+
+      <!-- CONSECUENCIAS -->
+      <div class="section-head anchor mb-3" id="consecuencias">
+        <h2>📌 Consecuencias</h2>
+        <p class="hint">Qué cambia a partir de aquí.</p>
+      </div>
+
+      <div class="content-card mb-4">
+        <div class="callout mb-3">
+          <div class="fw-bold mb-1">Idea clave</div>
+          <div class="small">
+            Acelera la crisis: <strong>menos margen</strong> para pactos, <strong>más presión</strong> por “soluciones de fuerza”.
+          </div>
+        </div>
+
+        <ul class="mb-0">
+          <li class="mb-2"><strong>Polarización definitiva</strong>: aumenta la desconfianza entre bloques y la lógica de represalias.</li>
+          <li class="mb-2"><strong>Movilización</strong>: refuerza la propaganda y la movilización política y social.</li>
+          <li class="mb-2"><strong>Preludio inmediato</strong>: pocos días después, el golpe se activa y la crisis se transforma en guerra.</li>
+          <li><strong>Memoria</strong>: el episodio se convierte en símbolo recurrente en interpretaciones y discursos.</li>
+        </ul>
+      </div>
+
+      <!-- MINI-CRONOLOGÍA -->
+      <div class="section-head anchor mb-3" id="cronologia">
+        <h2>🧷 Mini-cronología (para situarlo)</h2>
+        <p class="hint">Antes → hecho → después.</p>
+      </div>
+
+      <div class="content-card mb-4">
+        <ul class="mini-timeline mb-0">
+          <li>
+            <div>
+              <strong>Primavera–verano 1936</strong><br>
+              <span class="text-muted">Escalada de violencia política y tensión institucional.</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>13 julio 1936</strong><br>
+              <span class="text-muted">Asesinato de Calvo Sotelo (impacto inmediato en opinión pública y actores políticos).</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>17–18 julio 1936</strong><br>
+              <span class="text-muted">Inicio del golpe de Estado → estallido de la guerra.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- PARA ESTUDIAR -->
+      <div class="section-head anchor mb-3" id="paraestudiar">
+        <h2>📝 Para estudiar</h2>
+        <p class="hint">Plantilla rápida de redacción.</p>
+      </div>
+
+      <div class="content-card">
+        <div class="fw-bold mb-2">Esquema recomendado</div>
+        <ol class="mb-0">
+          <li><strong>Contexto</strong>: polarización y violencia política en 1936.</li>
+          <li><strong>Hecho</strong>: asesinato de Calvo Sotelo (fecha y relevancia política).</li>
+          <li><strong>Interpretación</strong>: catalizador que acelera apoyos y endurece posiciones.</li>
+          <li><strong>Consecuencia</strong>: preludio inmediato del golpe y del paso a conflicto armado.</li>
+        </ol>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+{% comment %} MODAL IMAGEN CABECERA {% endcomment %}
+<div class="modal fade" id="img_calvo_sotelo" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content bg-dark">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-white ms-auto"
+                data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img class="img-fluid rounded"
+             src="{% static 'images/sigloXX/guerraCivil/calvo_sotelo.jpg' %}"
+             alt="Asesinato de Calvo Sotelo (ampliado)">
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

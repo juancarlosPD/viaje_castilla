@@ -1,0 +1,134 @@
+{% extends "bases/baseHistoria.html" %}
+{% load static %}
+
+{% block titulo %} Línea temporal - Reyes de España {% endblock %}
+
+{% block contenido %}
+<div class="text-center mb-4">
+  <h1>Línea temporal de reyes</h1>
+  <p class="text-muted mb-0">Orden cronológico continuo</p>
+</div>
+
+<style>
+  .timeline { position: relative; margin: 2rem auto; max-width: 900px; }
+  .timeline::before { content:""; position:absolute; left: 16px; top:0; bottom:0; width:2px; background:#222; opacity:.2; }
+  .t-item { position: relative; padding-left: 48px; margin-bottom: 20px; }
+  .t-dot { position:absolute; left: 9px; top: 12px; width:14px; height:14px; border-radius:50%; background:#222; opacity:.55; }
+  .t-card { border:1px solid rgba(0,0,0,.12); border-radius:12px; background:#fff; }
+  .t-head { display:flex; gap:12px; align-items:flex-start; padding:12px; }
+  .t-img { width:56px; height:70px; object-fit:cover; border-radius:10px; border:1px solid rgba(0,0,0,.12); cursor:pointer; }
+  .t-title { margin:0; font-size:1.02rem; }
+  .t-title a { color: inherit; text-decoration:none; }
+  .t-title a:hover { text-decoration: underline; }
+  .t-sub { margin:0; font-size:.9rem; color: rgba(0,0,0,.6); }
+</style>
+
+<div class="timeline">
+{% for rey in reyes %}
+  <div class="t-item">
+    <span class="t-dot"></span>
+
+    <div class="t-card shadow-sm">
+      <div class="t-head">
+
+        {# IMAGEN → abre imagen en grande #}
+        {% if rey.imagen %}
+          <a href="{{ rey.imagen.url }}" target="_blank">
+            <img class="t-img" src="{{ rey.imagen.url }}" alt="{{ rey.nombre }}">
+          </a>
+        {% else %}
+          <img class="t-img" src="{% static 'historia/rey_placeholder.jpg' %}" alt="{{ rey.nombre }}">
+        {% endif %}
+
+        <div>
+          {# NOMBRE → Wikipedia #}
+          <p class="t-title">
+            <strong>
+              <a href="https://es.wikipedia.org/wiki/{{ rey.nombre|urlencode }}" target="_blank">
+                {{ rey.orden }}. {{ rey.nombre }}
+              </a>
+              {% if rey.apodo %}
+                <span class="text-muted fst-italic"> ({{ rey.apodo }})</span>
+              {% endif %}
+            </strong>
+          </p>
+
+          <p class="t-sub">
+            {% if rey.reinado_texto %}{{ rey.reinado_texto }} · {% endif %}
+            {% if rey.titulo %}{{ rey.titulo }}{% endif %}
+            {% if rey.dinastia %} · {{ rey.dinastia }}{% endif %}
+          </p>
+
+          {# ENLACE AL MODAL #}
+          {% if rey.resumen %}
+            <p class="t-sub mb-0">
+              <a href="#" data-bs-toggle="modal" data-bs-target="#modalRey{{ rey.id }}">
+                Ver resumen
+              </a>
+            </p>
+          {% endif %}
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  {# MODAL BOOTSTRAP 5 #}
+  {% if rey.resumen %}
+  <div class="modal fade" id="modalRey{{ rey.id }}" tabindex="-1" aria-labelledby="modalTitle{{ rey.id }}" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalTitle{{ rey.id }}">
+            {{ rey.nombre }}
+            {% if rey.apodo %}
+              <span class="fst-italic text-muted">({{ rey.apodo }})</span>
+            {% endif %}
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+
+        <div class="modal-body">
+          {% if rey.imagen %}
+            <div class="text-center mb-3">
+              <a href="{{ rey.imagen.url }}" target="_blank">
+                <img src="{{ rey.imagen.url }}" class="img-fluid rounded shadow-sm" style="max-height:320px;" alt="{{ rey.nombre }}">
+              </a>
+            </div>
+          {% endif %}
+
+          <p class="text-muted mb-2 text-center">
+            {% if rey.reinado_texto %}{{ rey.reinado_texto }} · {% endif %}
+            {% if rey.titulo %}{{ rey.titulo }}{% endif %}
+            {% if rey.dinastia %} · {{ rey.dinastia }}{% endif %}
+          </p>
+
+          <div>
+            {{ rey.resumen|safe }}
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <a href="https://es.wikipedia.org/wiki/{{ rey.nombre|urlencode }}" target="_blank" class="btn btn-outline-secondary">
+            Ver en Wikipedia
+          </a>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            Cerrar
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  {% endif %}
+{% endfor %}
+</div>
+
+<div class="text-center mt-4">
+  <a class="btn btn-outline-dark" href="{% url 'reyesEspagna' %}">
+    Volver a tarjetas
+  </a>
+</div>
+{% endblock %}
+

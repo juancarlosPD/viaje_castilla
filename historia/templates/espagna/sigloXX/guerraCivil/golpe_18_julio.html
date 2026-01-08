@@ -1,0 +1,384 @@
+{% extends "bases/basesigloXX.html" %}
+{% load static %}
+
+{% block titulo %} 18 de julio de 1936 {% endblock %}
+{% block cabecera %} 18 de julio de 1936: extensión del golpe {% endblock %}
+
+{% block imgCabecera %}
+<figure class="text-center">
+  <img class="img-fluid rounded-4 border shadow-sm"
+       src="{% static 'images/sigloXX/guerraCivil/mapa_inicio.jpg' %}"
+       alt="Inicio del alzamiento militar (julio 1936)"
+       role="button"
+       data-bs-toggle="modal"
+       data-bs-target="#mapa_inicio">
+</figure>
+{% endblock %}
+
+{% block contenido %}
+
+<style>
+  :root{
+    --xx-bg:#fbfbfc;
+    --xx-card:#ffffff;
+    --xx-border:rgba(0,0,0,.08);
+    --xx-shadow:0 10px 30px rgba(0,0,0,.08);
+    --xx-shadow-sm:0 6px 18px rgba(0,0,0,.06);
+
+    --hero-a:#1b2a41;
+    --hero-b:#2b3f63;
+
+    --c-blue:#0d6efd;
+    --c-green:#0a6b3a;
+    --c-amber:#f59e0b;
+    --c-red:#dc2626;
+    --c-slate:#334155;
+  }
+
+  .page-wrap{ background:var(--xx-bg); border-radius:1rem; padding:1rem; }
+
+  .hero{
+    background:linear-gradient(90deg,var(--hero-a),var(--hero-b));
+    color:#fff;border-radius:1rem;overflow:hidden;box-shadow:var(--xx-shadow);
+  }
+  .hero .lead{opacity:.92;}
+
+  .chip{
+    display:inline-flex;align-items:center;gap:.4rem;
+    padding:.25rem .65rem;border-radius:999px;
+    background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);
+    font-size:.85rem;white-space:nowrap;
+  }
+
+  .section-head{
+    border:1px solid var(--xx-border);
+    background:#eef7ff;border-radius:1rem;padding:1rem 1rem;
+    box-shadow:var(--xx-shadow-sm);
+  }
+  .section-head h2{ margin:0;font-size:1.1rem;font-weight:900;letter-spacing:.01em; }
+  .section-head .hint{ color:rgba(0,0,0,.65); margin:.25rem 0 0 0; font-size:.95rem; }
+
+  .content-card{
+    border:1px solid var(--xx-border);
+    border-radius:1rem;background:var(--xx-card);
+    padding:1rem 1rem;box-shadow:var(--xx-shadow-sm);
+  }
+
+  .callout{
+    border-left:6px solid #fd7e14;
+    background:#fff7ed;padding:1rem 1rem;border-radius:.9rem;
+    box-shadow:var(--xx-shadow-sm);
+  }
+
+  .mini-card{
+    border:1px solid var(--xx-border);
+    border-radius:1rem;background:#fff;
+    padding:.9rem; box-shadow:var(--xx-shadow-sm);
+    height:100%;
+  }
+  .mini-card .t{ font-weight:900; }
+  .mini-card .d{ color:rgba(0,0,0,.65); font-size:.92rem; margin-top:.15rem; }
+
+  .t-pill{
+    display:inline-flex; align-items:center; gap:.4rem;
+    padding:.25rem .6rem; border-radius:999px;
+    border:1px solid rgba(0,0,0,.1); background:#fff;
+    font-size:.85rem; margin-right:.35rem; margin-bottom:.35rem;
+  }
+
+  .anchor{ scroll-margin-top: 90px; }
+
+  /* Timeline simple (mini) */
+  .mini-timeline{ margin:0; padding:0; list-style:none; }
+  .mini-timeline li{
+    display:grid; grid-template-columns:18px 1fr; gap:.75rem;
+    padding:.55rem 0;
+  }
+  .mini-timeline li::before{
+    content:""; width:10px; height:10px; border-radius:999px;
+    background:var(--c-red);
+    margin-top:.35rem;
+    box-shadow:0 0 0 6px rgba(220,38,38,.10);
+  }
+
+  .kbd-link{
+    font-size:.85rem;
+    border:1px solid rgba(0,0,0,.12);
+    background:rgba(255,255,255,.85);
+    padding:.1rem .4rem;border-radius:.5rem;
+  }
+</style>
+
+<!-- HERO (MISMO ESTILO QUE GUERRA CIVIL) -->
+<section class="hero p-4 p-md-5 mb-4">
+  <div class="d-flex flex-column gap-3">
+
+    <div>
+      <h1 class="h3 mb-2 fw-bold">18 de julio de 1936</h1>
+
+      <div class="d-flex flex-wrap gap-2 mb-3">
+        <span class="chip">📣 Extensión del golpe</span>
+        <span class="chip">🏙️ Ciudades clave</span>
+        <span class="chip">📻 Bandos y proclamaciones</span>
+        <span class="chip">🗺️ España se divide</span>
+      </div>
+
+      <p class="lead mb-0">
+        El alzamiento iniciado en Marruecos se <strong>extiende a la península</strong>.
+        La sublevación triunfa en unas zonas y fracasa en otras: en pocas horas
+        el país queda <strong>fracturado en dos</strong> y el golpe deja de ser “rápido”
+        para convertirse en una <strong>guerra</strong>.
+      </p>
+    </div>
+
+    <div class="row g-3">
+      <div class="col-md-4">
+        <div class="mini-card">
+          <div class="t">Qué ocurre</div>
+          <div class="d">
+            La sublevación se activa en numerosas guarniciones; se declaran estados de guerra
+            y se intenta controlar capitales, puertos, radios y comunicaciones.
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="mini-card">
+          <div class="t">Por qué importa</div>
+          <div class="d">
+            El éxito parcial “congela” el golpe: al no imponerse en todo el territorio,
+            surge un frente interno y se abre una dinámica bélica.
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="mini-card">
+          <div class="t">Qué provoca</div>
+          <div class="d">
+            Consolidación de <strong>dos zonas</strong>, creación de mandos y retaguardias,
+            y primeras decisiones estratégicas: avanzar hacia objetivos decisivos.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="row g-4">
+
+  <!-- ASIDE -->
+  <aside class="col-lg-4">
+    <div class="content-card">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <div class="fw-bold">En esta página</div>
+        <span class="badge text-bg-light border">Guía</span>
+      </div>
+
+      <a class="d-block text-decoration-none mb-1" href="#hecho">🧾 Hecho (resumen)</a>
+      <a class="d-block text-decoration-none mb-1" href="#claves">🔎 Claves para entenderlo</a>
+      <a class="d-block text-decoration-none mb-1" href="#ciudades">🏙️ Ciudades y guarniciones</a>
+      <a class="d-block text-decoration-none mb-1" href="#fracaso">⚖️ Éxito y fracaso del golpe</a>
+      <a class="d-block text-decoration-none mb-1" href="#consecuencias">📌 Consecuencias</a>
+      <a class="d-block text-decoration-none mb-1" href="#cronologia">🧷 Mini-cronología</a>
+      <a class="d-block text-decoration-none mb-1" href="#paraestudiar">📝 Para estudiar</a>
+
+      <hr>
+
+      <div class="small text-muted">
+        Atajo: vuelve al timeline general con <span class="kbd-link">↩</span>
+      </div>
+
+      <a class="btn btn-sm btn-outline-primary mt-2"
+         href="{% url 'guerraCivil' %}#golpe1936">
+        ↩ Volver al timeline (Golpe 1936)
+      </a>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="col-lg-8">
+
+    <!-- HECHO -->
+    <div class="section-head anchor mb-3" id="hecho">
+      <h2>🧾 Hecho: qué ocurrió</h2>
+      <p class="hint">El golpe se extiende a la península y se decide su destino.</p>
+    </div>
+
+    <div class="content-card mb-4">
+      <p class="mb-2">
+        El <strong>18 de julio de 1936</strong>, el alzamiento militar iniciado el día anterior
+        en el Protectorado de Marruecos se <strong>extiende a la península</strong>.
+        Las guarniciones se sublevan siguiendo planes previos, proclamando el
+        <strong>estado de guerra</strong> y tratando de controlar los centros de poder.
+      </p>
+      <p class="mb-0">
+        El resultado es desigual: en unas ciudades el golpe triunfa con rapidez;
+        en otras fracasa gracias a la resistencia de fuerzas leales y a la movilización popular.
+        Esta disparidad convierte el golpe en una <strong>guerra civil abierta</strong>.
+      </p>
+
+      <div class="mt-3">
+        <span class="t-pill">📣 Estado de guerra</span>
+        <span class="t-pill">🏙️ Capitales</span>
+        <span class="t-pill">⚔️ Enfrentamientos</span>
+      </div>
+    </div>
+
+    <!-- CLAVES -->
+    <div class="section-head anchor mb-3" id="claves">
+      <h2>🔎 Claves para entenderlo</h2>
+      <p class="hint">Por qué el 18 de julio es decisivo.</p>
+    </div>
+
+    <div class="content-card mb-4">
+      <ul class="mb-0">
+        <li class="mb-2">
+          <strong>Momento crítico</strong>: en pocas horas se decide si el golpe triunfa o fracasa.
+        </li>
+        <li class="mb-2">
+          <strong>Control urbano</strong>: dominar capitales, cuarteles, radios y edificios oficiales es esencial.
+        </li>
+        <li class="mb-2">
+          <strong>Movilización social</strong>: sindicatos, partidos y milicias juegan un papel clave en muchas ciudades.
+        </li>
+        <li>
+          <strong>Fracaso parcial</strong>: la imposibilidad de imponerse en todo el país rompe la lógica del golpe rápido.
+        </li>
+      </ul>
+    </div>
+
+    <!-- CIUDADES -->
+    <div class="section-head anchor mb-3" id="ciudades">
+      <h2>🏙️ Ciudades y guarniciones</h2>
+      <p class="hint">Dónde triunfa y dónde fracasa el golpe.</p>
+    </div>
+
+    <div class="content-card mb-4">
+      <div class="callout mb-3">
+        <div class="fw-bold mb-1">Idea clave</div>
+        <div class="small">
+          El control de las <strong>grandes ciudades</strong> resulta determinante:
+          población, industria, comunicaciones y legitimidad política.
+        </div>
+      </div>
+
+      <ul class="mb-0">
+        <li class="mb-2">
+          <strong>Triunfo del golpe</strong>: zonas con fuerte control militar y menor resistencia organizada.
+        </li>
+        <li class="mb-2">
+          <strong>Fracaso del golpe</strong>: grandes ciudades donde fuerzas leales y movilización popular neutralizan a los sublevados.
+        </li>
+        <li>
+          <strong>Resultado inmediato</strong>: ciudades aisladas, territorios fragmentados y primeros combates urbanos.
+        </li>
+      </ul>
+
+      <div class="mt-3">
+        <span class="t-pill">🏙️ Capitales</span>
+        <span class="t-pill">📻 Radios</span>
+        <span class="t-pill">🚉 Nudos clave</span>
+      </div>
+    </div>
+
+    <!-- FRACASO -->
+    <div class="section-head anchor mb-3" id="fracaso">
+      <h2>⚖️ Éxito y fracaso del golpe</h2>
+      <p class="hint">Por qué el 18 de julio no decide la guerra… pero la hace inevitable.</p>
+    </div>
+
+    <div class="content-card mb-4">
+      <p class="mb-2">
+        El golpe del 18 de julio no logra su objetivo fundamental:
+        <strong>tomar el poder en todo el país</strong>.
+        En su lugar, genera una situación de doble poder territorial y político.
+      </p>
+      <ul class="mb-0">
+        <li class="mb-2"><strong>No hay victoria rápida</strong>: el tiempo juega ahora un papel decisivo.</li>
+        <li class="mb-2"><strong>Se crean frentes</strong>: las líneas de control se estabilizan progresivamente.</li>
+        <li><strong>La violencia se institucionaliza</strong>: nace la lógica de guerra.</li>
+      </ul>
+
+      <div class="mt-3">
+        <span class="t-pill">⚖️ Fracaso parcial</span>
+        <span class="t-pill">🧱 Frentes</span>
+        <span class="t-pill">⏳ Guerra larga</span>
+      </div>
+    </div>
+
+    <!-- CONSECUENCIAS -->
+    <div class="section-head anchor mb-3" id="consecuencias">
+      <h2>📌 Consecuencias</h2>
+      <p class="hint">Qué cambia a partir del 18 de julio.</p>
+    </div>
+
+    <div class="content-card mb-4">
+      <div class="callout mb-3">
+        <div class="fw-bold mb-1">Idea clave</div>
+        <div class="small">
+          El 18 de julio transforma una conspiración militar en una
+          <strong>guerra civil abierta</strong>.
+        </div>
+      </div>
+
+      <ul class="mb-0">
+        <li class="mb-2"><strong>División del país</strong> en dos zonas enfrentadas.</li>
+        <li class="mb-2"><strong>Militarización</strong> de la política y de la vida cotidiana.</li>
+        <li class="mb-2"><strong>Escalada bélica</strong>: necesidad de organizar ejércitos y retaguardias.</li>
+        <li><strong>Inicio del conflicto largo</strong> (1936–1939).</li>
+      </ul>
+    </div>
+
+    <!-- MINI-CRONOLOGÍA -->
+    <div class="section-head anchor mb-3" id="cronologia">
+      <h2>🧷 Mini-cronología (para situarlo)</h2>
+      <p class="hint">Antes → 18 de julio → después.</p>
+    </div>
+
+    <div class="content-card mb-4">
+      <ul class="mini-timeline mb-0">
+        <li>
+          <div>
+            <strong>13 julio 1936</strong><br>
+            <span class="text-muted">Asesinato de Calvo Sotelo: máxima tensión política.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>17 julio 1936</strong><br>
+            <span class="text-muted">Inicio del alzamiento en Marruecos.</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>18 julio 1936</strong><br>
+            <span class="text-muted">Extensión del golpe a la península → estallido de la guerra.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- PARA ESTUDIAR -->
+    <div class="section-head anchor mb-3" id="paraestudiar">
+      <h2>📝 Para estudiar</h2>
+      <p class="hint">Cómo explicarlo en un examen.</p>
+    </div>
+
+    <div class="content-card">
+      <div class="fw-bold mb-2">Esquema recomendado</div>
+      <ol class="mb-0">
+        <li><strong>Contexto</strong>: conspiración militar y crisis política.</li>
+        <li><strong>Hecho</strong>: extensión del golpe el 18 de julio de 1936.</li>
+        <li><strong>Explicación</strong>: éxito desigual en ciudades y guarniciones.</li>
+        <li><strong>Consecuencia</strong>: división territorial y guerra civil.</li>
+      </ol>
+    </div>
+
+  </main>
+</div>
+
+
+
+{% endblock %}

@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Rey
 
 def inicioPersonal(request):    
     return render(request, 'inicioPersonal.html')
@@ -10,6 +11,8 @@ def inicioFilosofia(request):
 def inicioHistoria(request):    
     return render(request, 'inicioHistoria.html')
 
+def reyesEspagna(request):    
+    return render(request, 'espagna/reyesEspagna.html')
 # -------------------HISTORIA-----------------------------------------
     
 def inicioEspagna(request):    
@@ -45,6 +48,13 @@ def sigloXVIIng(request):
 
 def enriqueVIII(request):    
     return render(request, 'inglaterra/sigloXVI/enriqueVIII.html')
+
+# ----------------------------SIGLO XI--------------------------
+def sigloXI(request):    
+    return render(request, 'espagna/sigloXI/inicioSigloXI.html')
+
+def alfonsoVI(request):    
+    return render(request, 'espagna/sigloXI/alfonsoVI.html')
 
 # ----------------------------SIGLO XII--------------------------
 def sigloXII(request):    
@@ -139,8 +149,28 @@ def primoRivera(request):
 def segundaRepublica(request):    
     return render(request, 'espagna/sigloXX/segundaRepublica.html')
 
+#----------------------------------- GUERRA CIVIL
+
 def guerraCivil(request):    
     return render(request, 'espagna/sigloXX/guerraCivil.html')
+
+def calvo_sotelo(request):    
+    return render(request, 'espagna/sigloXX/guerraCivil/calvo_sotelo.html')
+
+def golpe_17_julio_1936(request):    
+    return render(request, 'espagna/sigloXX/guerraCivil/golpe_17_julio_1936.html')
+
+def golpe_18_julio(request):    
+    return render(request, 'espagna/sigloXX/guerraCivil/golpe_18_julio.html')
+
+def verano_36(request):    
+    return render(request, 'espagna/sigloXX/guerraCivil/verano_36.html')
+
+def retaguardia(request):    
+    return render(request, 'espagna/sigloXX/guerraCivil/retaguardias.html')
+
+
+
 
 def franco(request):    
     return render(request, 'espagna/sigloXX/franco.html')
@@ -157,3 +187,12 @@ def intuicion(request):
 
 def metodoFilosofia(request):    
     return render(request, 'filosofia/metodoFilosofia.html')
+
+
+def reyes_cards(request):
+    reyes = Rey.objects.all()
+    return render(request, "espagna/reyesEspagna.html", {"reyes": reyes})
+
+def reyes_timeline(request):
+    reyes = Rey.objects.all()
+    return render(request, "espagna/reyes_timeline.html", {"reyes": reyes})

@@ -1,0 +1,414 @@
+{% extends "bases/basesigloXX.html" %}
+{% load static %}
+
+{% block titulo %} Verano 1936: poder en retaguardia y juntas {% endblock %}
+{% block cabecera %} Verano 1936: poder en retaguardia y juntas {% endblock %}
+
+{% block imgCabecera %}
+<figure class="text-center m-0">
+  <img class="img-fluid rounded-4 border shadow-sm"
+       src="{% static 'images/sigloXX/guerraCivil/retaguardia_juntas.jpg' %}"
+       alt="Retaguardia y juntas (verano 1936)"
+       role="button"
+       data-bs-toggle="modal"
+       data-bs-target="#img_retaguardia_juntas">
+</figure>
+{% endblock %}
+
+{% block contenido %}
+
+<style>
+  :root{
+    --xx-bg:#fbfbfc;
+    --xx-card:#ffffff;
+    --xx-border:rgba(0,0,0,.08);
+    --xx-shadow:0 10px 30px rgba(0,0,0,.08);
+    --xx-shadow-sm:0 6px 18px rgba(0,0,0,.06);
+
+    --hero-a:#0b1220;
+    --hero-b:#1b2a41;
+
+    --c-blue:#0d6efd;
+    --c-green:#0a6b3a;
+    --c-amber:#f59e0b;
+    --c-red:#dc2626;
+    --c-violet:#6d28d9;
+    --c-slate:#334155;
+  }
+
+  .page-wrap{ background:var(--xx-bg); border-radius:1rem; padding:1rem; }
+
+  .hero{
+    background:linear-gradient(90deg,var(--hero-a),var(--hero-b));
+    color:#fff;border-radius:1rem;overflow:hidden;box-shadow:var(--xx-shadow);
+  }
+  .hero .lead{opacity:.92;}
+
+  .chip{
+    display:inline-flex;align-items:center;gap:.4rem;
+    padding:.25rem .65rem;border-radius:999px;
+    background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);
+    font-size:.85rem;white-space:nowrap;
+  }
+
+  .content-card{
+    border:1px solid var(--xx-border);
+    border-radius:1rem;background:var(--xx-card);
+    padding:1rem 1rem;box-shadow:var(--xx-shadow-sm);
+  }
+  .toc-sticky{ position:sticky; top:1rem; }
+  .section-head{
+    border:1px solid var(--xx-border);
+    background:#eef7ff;border-radius:1rem;padding:1rem 1rem;
+    box-shadow:var(--xx-shadow-sm);
+  }
+  .section-head h2{ margin:0;font-size:1.1rem;font-weight:900;letter-spacing:.01em; }
+  .section-head .hint{ color:rgba(0,0,0,.65); margin:.25rem 0 0 0; font-size:.95rem; }
+
+  .callout{
+    border-left:6px solid #fd7e14;
+    background:#fff7ed;padding:1rem 1rem;border-radius:.9rem;
+    box-shadow:var(--xx-shadow-sm);
+  }
+
+  .anchor{ scroll-margin-top: 90px; }
+
+  .t-pill{
+    display:inline-flex; align-items:center; gap:.4rem;
+    padding:.25rem .6rem; border-radius:999px;
+    border:1px solid rgba(0,0,0,.1); background:#fff;
+    font-size:.85rem; margin-right:.35rem; margin-bottom:.35rem;
+  }
+
+  .mini-timeline{ list-style:none; padding-left:0; margin:0; }
+  .mini-timeline li{
+    display:flex; gap:.75rem; padding:.65rem .25rem;
+    border-bottom:1px dashed rgba(0,0,0,.10);
+  }
+  .mini-timeline li:last-child{ border-bottom:none; }
+  .mini-timeline li::before{
+    content:""; width:10px; height:10px; margin-top:.35rem;
+    border-radius:999px; background:rgba(13,110,253,.30);
+    box-shadow:0 0 0 6px rgba(13,110,253,.10);
+    flex:0 0 10px;
+  }
+
+  .kbd-link{
+    display:inline-flex; align-items:center; justify-content:center;
+    padding:.1rem .35rem; border:1px solid rgba(0,0,0,.18);
+    border-bottom-width:2px; border-radius:.35rem;
+    background:#fff; font-weight:700; font-size:.8rem;
+  }
+</style>
+
+<div class="page-wrap">
+
+  <!-- HERO -->
+  <section class="hero p-4 p-md-5 mb-4">
+    <div class="d-flex flex-column gap-3">
+
+      <div>
+        <h1 class="h3 mb-2 fw-bold">Verano 1936: poder en retaguardia y juntas</h1>
+
+        <div class="d-flex flex-wrap gap-2 mb-3">
+          <span class="chip">⚙️ Juntas y comités</span>
+          <span class="chip">🏛️ Gobierno en guerra</span>
+          <span class="chip">📦 Abastecimiento</span>
+          <span class="chip">📣 Propaganda</span>
+          <span class="chip">🧱 Control del territorio</span>
+        </div>
+
+        <p class="lead mb-0">
+          Tras el golpe fallido, la guerra se decide también en la <strong>retaguardia</strong>:
+          quién manda, cómo se organiza el orden público y cómo se sostiene el esfuerzo bélico.
+        </p>
+      </div>
+
+      <div class="content-card bg-transparent border-0 p-0 text-white">
+        <div class="d-flex flex-wrap gap-2">
+          <span class="chip">🗓️ Verano 1936</span>
+          <span class="chip">🎯 Vacío de poder → nuevas autoridades</span>
+          <span class="chip">🧩 Modelos distintos por zona</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="row g-4">
+
+    <!-- ASIDE -->
+    <aside class="col-lg-4">
+      <div class="toc-sticky">
+        <div class="content-card">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <div class="fw-bold">En esta página</div>
+            <span class="badge text-bg-light border">Guía</span>
+          </div>
+
+          <a class="d-block text-decoration-none mb-1" href="#hecho">🧾 Hecho (resumen)</a>
+          <a class="d-block text-decoration-none mb-1" href="#claves">🔎 Claves para entenderlo</a>
+          <a class="d-block text-decoration-none mb-1" href="#republicana">🏛️ Retaguardia republicana</a>
+          <a class="d-block text-decoration-none mb-1" href="#sublevada">🪖 Retaguardia sublevada</a>
+          <a class="d-block text-decoration-none mb-1" href="#juntas">⚙️ Juntas y órganos de poder</a>
+          <a class="d-block text-decoration-none mb-1" href="#consecuencias">📌 Consecuencias</a>
+          <a class="d-block text-decoration-none mb-1" href="#cronologia">🧷 Mini-cronología</a>
+          <a class="d-block text-decoration-none mb-1" href="#paraestudiar">📝 Para estudiar</a>
+
+          <hr>
+
+          <div class="small text-muted">
+            Atajo: vuelve al timeline general con <span class="kbd-link">↩</span>
+          </div>
+
+          <a class="btn btn-sm btn-outline-primary mt-2"
+             href="{% url 'guerraCivil' %}#golpe1936">
+            ↩ Volver al timeline (Golpe 1936)
+          </a>
+
+          <div class="callout mt-3">
+            <div class="fw-bold mb-1">Idea de examen</div>
+            <div class="small">
+              Retaguardia = <strong>poder + orden + recursos</strong>.
+              Sin esto, el frente no aguanta.
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="col-lg-8">
+
+      <!-- HECHO -->
+      <div class="section-head anchor mb-3" id="hecho">
+        <h2>🧾 Hecho: qué ocurrió</h2>
+        <p class="hint">El poder se reorganiza en la retaguardia mientras se forman los frentes.</p>
+      </div>
+
+      <div class="content-card mb-4">
+        <p class="mb-2">
+          Durante el <strong>verano de 1936</strong>, el fracaso del golpe militar provoca un
+          <strong>vacío de poder</strong> en muchas zonas. En la retaguardia de ambos bandos
+          surgen <strong>órganos improvisados de autoridad</strong> —juntas, comités y consejos—
+          que asumen funciones políticas, militares y de orden público.
+        </p>
+        <p class="mb-0">
+          Este proceso es clave para entender la guerra: mientras en el frente se combate,
+          en la retaguardia se decide <strong>cómo se gobierna, cómo se produce y quién manda</strong>.
+          La organización (o desorganización) inicial tendrá consecuencias duraderas.
+        </p>
+
+        <div class="mt-3">
+          <span class="t-pill">🏛️ Poder</span>
+          <span class="t-pill">⚙️ Juntas</span>
+          <span class="t-pill">🧱 Retaguardia</span>
+          <span class="t-pill">📦 Recursos</span>
+        </div>
+      </div>
+
+      <!-- CLAVES -->
+      <div class="section-head anchor mb-3" id="claves">
+        <h2>🔎 Claves para entenderlo</h2>
+        <p class="hint">Por qué la retaguardia es tan importante como el frente.</p>
+      </div>
+
+      <div class="content-card mb-4">
+        <ul class="mb-0">
+          <li class="mb-2"><strong>Vacío institucional</strong>: colapsa la autoridad estatal en muchos lugares → se crean poderes locales.</li>
+          <li class="mb-2"><strong>Guerra total</strong>: orden público, economía y propaganda pasan a ser parte del conflicto.</li>
+          <li class="mb-2"><strong>Modelos distintos</strong>: descentralización y pluralidad en una zona; mando militar y disciplina en la otra.</li>
+          <li><strong>Clave didáctica</strong>: “quién controla la retaguardia” explica la capacidad de sostener campañas largas.</li>
+        </ul>
+      </div>
+
+      <!-- REPUBLICANA -->
+      <div class="section-head anchor mb-3" id="republicana">
+        <h2>🏛️ Retaguardia republicana</h2>
+        <p class="hint">Pluralidad política y poder fragmentado en los primeros meses.</p>
+      </div>
+
+      <div class="content-card mb-4">
+        <div class="callout mb-3">
+          <div class="fw-bold mb-1">Idea clave</div>
+          <div class="small">
+            En la zona republicana, el poder se reparte entre <strong>Estado</strong>, <strong>partidos</strong> y <strong>organizaciones obreras</strong>.
+            Surgen situaciones de <strong>doble poder</strong> según territorios.
+          </div>
+        </div>
+
+        <ul class="mb-0">
+          <li class="mb-2"><strong>Comités y milicias</strong>: control local del orden y defensa, especialmente en áreas urbanas/industriales.</li>
+          <li class="mb-2"><strong>Revolución social</strong>: colectivizaciones y cambios en propiedad/gestión en algunas regiones.</li>
+          <li class="mb-2"><strong>Problema central</strong>: coordinación y mando unificado (militar y político) en los inicios.</li>
+          <li><strong>Objetivo doble</strong>: resistir el avance militar y, para parte de las fuerzas, impulsar reformas profundas.</li>
+        </ul>
+
+        <div class="mt-3">
+          <span class="t-pill">✊ Sindicatos</span>
+          <span class="t-pill">⚙️ Comités</span>
+          <span class="t-pill">🧩 Pluralidad</span>
+          <span class="t-pill">🪖 Milicias</span>
+        </div>
+      </div>
+
+      <!-- SUBLEVADA -->
+      <div class="section-head anchor mb-3" id="sublevada">
+        <h2>🪖 Retaguardia sublevada</h2>
+        <p class="hint">Centralización rápida, disciplina y mando militar.</p>
+      </div>
+
+      <div class="content-card mb-4">
+        <div class="callout mb-3">
+          <div class="fw-bold mb-1">Idea clave</div>
+          <div class="small">
+            En la zona sublevada se impone desde el inicio la <strong>autoridad militar</strong>:
+            mando jerárquico, control del orden y unificación progresiva del poder.
+          </div>
+        </div>
+
+        <ul class="mb-0">
+          <li class="mb-2"><strong>Juntas militares</strong>: órganos de autoridad en territorios ocupados o controlados.</li>
+          <li class="mb-2"><strong>Control político</strong>: eliminación de oposición y consolidación de un proyecto de “restauración del orden”.</li>
+          <li class="mb-2"><strong>Unificación</strong>: tendencia a concentrar mando político y militar para sostener campañas largas.</li>
+          <li><strong>Objetivo</strong>: victoria mediante disciplina, cohesión y control del territorio y la retaguardia.</li>
+        </ul>
+
+        <div class="mt-3">
+          <span class="t-pill">🪖 Ejército</span>
+          <span class="t-pill">📜 Orden</span>
+          <span class="t-pill">🎯 Centralización</span>
+          <span class="t-pill">🧱 Control</span>
+        </div>
+      </div>
+
+      <!-- JUNTAS -->
+      <div class="section-head anchor mb-3" id="juntas">
+        <h2>⚙️ Juntas y órganos de poder</h2>
+        <p class="hint">Gobernar en guerra: seguridad, abastecimiento y legitimidad.</p>
+      </div>
+
+      <div class="content-card mb-4">
+        <p class="mb-2">
+          Las <strong>juntas</strong>, comités y consejos aparecen como respuesta inmediata a la crisis.
+          Su función básica es mantener el <strong>control del territorio</strong> y sostener el esfuerzo bélico.
+        </p>
+
+        <div class="row g-3 mt-1">
+          <div class="col-md-6">
+            <div class="content-card p-3">
+              <div class="fw-bold mb-1">Funciones típicas</div>
+              <ul class="mb-0">
+                <li>Orden público y vigilancia.</li>
+                <li>Justicia y represión de disidencia.</li>
+                <li>Abastecimiento y racionamiento.</li>
+                <li>Propaganda y movilización.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="content-card p-3">
+              <div class="fw-bold mb-1">Clave de examen</div>
+              <div class="small text-muted">
+                “Quien domina la retaguardia domina el tiempo”: puede sostener campañas largas, reponer pérdidas y mantener moral.
+              </div>
+              <div class="mt-2">
+                <span class="t-pill">📦 Suministros</span>
+                <span class="t-pill">👮 Orden</span>
+                <span class="t-pill">📣 Propaganda</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONSECUENCIAS -->
+      <div class="section-head anchor mb-3" id="consecuencias">
+        <h2>📌 Consecuencias</h2>
+        <p class="hint">La organización interna decide capacidad militar.</p>
+      </div>
+
+      <div class="content-card mb-4">
+        <div class="callout mb-3">
+          <div class="fw-bold mb-1">Idea clave</div>
+          <div class="small">
+            La eficacia en retaguardia determina la <strong>resistencia</strong> y la <strong>potencia operativa</strong> en el frente.
+          </div>
+        </div>
+
+        <ul class="mb-0">
+          <li class="mb-2"><strong>Guerra larga</strong>: la improvisación inicial obliga a reorganizar el poder durante 1936–1937.</li>
+          <li class="mb-2"><strong>Militarización social</strong>: economía, vida cotidiana y cultura se integran en el esfuerzo bélico.</li>
+          <li class="mb-2"><strong>Violencia y represión</strong>: el control político se impone en ambas retaguardias.</li>
+          <li><strong>Legitimidad</strong>: cada bando construye su relato y sus estructuras de autoridad desde estos meses.</li>
+        </ul>
+      </div>
+
+      <!-- MINI-CRONOLOGÍA -->
+      <div class="section-head anchor mb-3" id="cronologia">
+        <h2>🧷 Mini-cronología (para situarlo)</h2>
+        <p class="hint">Golpe → vacío → nuevos poderes.</p>
+      </div>
+
+      <div class="content-card mb-4">
+        <ul class="mini-timeline mb-0">
+          <li>
+            <div>
+              <strong>17–18 julio 1936</strong><br>
+              <span class="text-muted">Golpe fallido → ruptura institucional y división territorial.</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Julio–agosto 1936</strong><br>
+              <span class="text-muted">Surgen juntas y comités: control del orden y del territorio.</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Final 1936</strong><br>
+              <span class="text-muted">Intentos de unificar mando y estabilizar frentes; la guerra se prolonga.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- PARA ESTUDIAR -->
+      <div class="section-head anchor mb-3" id="paraestudiar">
+        <h2>📝 Para estudiar</h2>
+        <p class="hint">Plantilla rápida de redacción.</p>
+      </div>
+
+      <div class="content-card">
+        <div class="fw-bold mb-2">Esquema recomendado</div>
+        <ol class="mb-0">
+          <li><strong>Contexto</strong>: golpe fallido y vacío institucional.</li>
+          <li><strong>Hecho</strong>: aparición de juntas/comités y poder en retaguardia.</li>
+          <li><strong>Comparación</strong>: modelo republicano (plural) vs sublevado (centralizado).</li>
+          <li><strong>Consecuencia</strong>: capacidad de sostener la guerra (orden, recursos, moral).</li>
+        </ol>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+{% comment %} MODAL IMAGEN CABECERA {% endcomment %}
+<div class="modal fade" id="img_retaguardia_juntas" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content bg-dark">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-white ms-auto"
+                data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img class="img-fluid rounded"
+             src="{% static 'images/sigloXX/guerraCivil/retaguardia_juntas.jpg' %}"
+             alt="Retaguardia y juntas (verano 1936) (ampliado)">
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

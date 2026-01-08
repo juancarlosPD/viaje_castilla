@@ -1,79 +1,907 @@
 {% extends "bases/basesigloXX.html" %}
-
 {% load static %}
 
-{% block titulo %} Guerra Civil {% endblock %}
-{% block cabecera %} Guerra Civil {% endblock %}
-{% block imgCabecera %} <img src="{% static 'images/sigloXX/caidaMiliciano.jpg' %}" class="card-img-top" alt="..."> {% endblock %}
+{% block titulo %} La Guerra Civil Española {% endblock %}
+{% block cabecera %} La Guerra Civil Española (1936–1939) {% endblock %}
+{% block imgCabecera %}
+            <figure class="text-center">
+                <img class="img-fluid rounded-4 border shadow-sm"
+                    src="{% static 'images/sigloXX/guerraCivil/muerte_miliciano.jpeg' %}"                    
+                    role="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#muerte_miliciano">                
+            </figure>
+  
+{% endblock %}
 
 {% block contenido %}
 
-<div class="row justify-content-center">
-          
-    <div class="col-2 ">
-        <div class="row border-1 rounded my-2 text-center py-4 mx-1" style="background-color:#E74C3C ; color:white">
-            <a href="#alfonsoXII" style="text-decoration:none ; color: white;" data-bs-toggle="collapse"  aria-expanded="false" aria-controls="revolucionGloriosa">      
-                <div class="row text-center">                                    
-                    <img class="img-fluid mt-4" style="width:270px ; height:165px ;" src="{% static 'images/sigloXX/guerraCivil/dragonRapide.jpg' %}" alt="">
-                    <figcaption class="text-center mt-3">INICIOS DE LA GUERRA</figcaption>
-                    <span class="text-center">(1874-1885)</span> 
-                </div>               
-            </a>
+<style>
+  :root{
+    --xx-bg:#fbfbfc;
+    --xx-card:#ffffff;
+    --xx-border:rgba(0,0,0,.08);
+    --xx-shadow:0 10px 30px rgba(0,0,0,.08);
+    --xx-shadow-sm:0 6px 18px rgba(0,0,0,.06);
+
+    --hero-a:#1b2a41;
+    --hero-b:#2b3f63;
+
+    --c-blue:#0d6efd;
+    --c-green:#0a6b3a;
+    --c-amber:#f59e0b;
+    --c-red:#dc2626;
+    --c-violet:#6d28d9;
+    --c-slate:#334155;
+  }
+
+  .page-wrap{ background:var(--xx-bg); border-radius:1rem; padding:1rem; }
+
+  .hero{
+    background:linear-gradient(90deg,var(--hero-a),var(--hero-b));
+    color:#fff;border-radius:1rem;overflow:hidden;box-shadow:var(--xx-shadow);
+  }
+  .hero .lead{opacity:.92;}
+
+  .chip{
+    display:inline-flex;align-items:center;gap:.4rem;
+    padding:.25rem .65rem;border-radius:999px;
+    background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);
+    font-size:.85rem;white-space:nowrap;
+  }
+
+  .toc-sticky{ position:sticky; top:1rem; }
+  .toc-card{
+    border:1px solid var(--xx-border);
+    border-radius:1rem;background:var(--xx-card);
+    box-shadow:var(--xx-shadow-sm);
+  }
+  .toc-link{
+    display:block;padding:.35rem .25rem;text-decoration:none;
+  }
+  .toc-link:hover{ text-decoration:underline; }
+  .toc-sub{ padding-left:.25rem; border-left:3px solid rgba(0,0,0,.06); margin-left:.15rem; }
+
+  .section-head{
+    border:1px solid var(--xx-border);
+    background:#eef7ff;border-radius:1rem;padding:1rem 1rem;
+    box-shadow:var(--xx-shadow-sm);
+  }
+  .section-head h2{ margin:0;font-size:1.1rem;font-weight:900;letter-spacing:.01em; }
+  .section-head .hint{ color:rgba(0,0,0,.65); margin:.25rem 0 0 0; font-size:.95rem; }
+
+  .content-card{
+    border:1px solid var(--xx-border);
+    border-radius:1rem;background:var(--xx-card);
+    padding:1rem 1rem;box-shadow:var(--xx-shadow-sm);
+  }
+
+  .callout{
+    border-left:6px solid #fd7e14;
+    background:#fff7ed;padding:1rem 1rem;border-radius:.9rem;
+    box-shadow:var(--xx-shadow-sm);
+  }
+
+  .kpi-grid{
+    display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem;
+  }
+  @media (min-width: 992px){ .kpi-grid{ grid-template-columns:repeat(4,minmax(0,1fr)); } }
+  .kpi{
+    border:1px solid var(--xx-border);background:#fff;border-radius:1rem;
+    padding:.75rem;box-shadow:var(--xx-shadow-sm);
+  }
+  .kpi .t{ font-weight:900; font-size:.95rem; }
+  .kpi .d{ color:rgba(0,0,0,.65); font-size:.85rem; margin-top:.15rem; }
+
+  .anchor{ scroll-margin-top: 90px; }
+
+  /* TIMELINE */
+  .timeline{ position:relative; margin:0; padding:0; }
+  .timeline::before{
+    content:""; position:absolute; left:18px; top:0; bottom:0; width:3px;
+    background:linear-gradient(to bottom, rgba(13,110,253,.30), rgba(245,158,11,.28), rgba(220,38,38,.26));
+    border-radius:3px;
+  }
+  .t-item{
+    position:relative; display:grid; grid-template-columns:42px 1fr;
+    gap:.9rem; padding:0 0 1.25rem 0;
+  }
+  .t-dot{ width:42px; height:42px; display:flex; align-items:center; justify-content:center; }
+  .t-dot::before{
+    content:""; width:16px; height:16px; border-radius:999px;
+    background:var(--c-blue); border:2px solid #fff;
+    box-shadow:0 0 0 6px rgba(13,110,253,.12);
+    display:block;
+  }
+  .t-dot[data-color="blue"]::before{ background:var(--c-blue); box-shadow:0 0 0 6px rgba(13,110,253,.12); }
+  .t-dot[data-color="green"]::before{ background:var(--c-green); box-shadow:0 0 0 6px rgba(10,107,58,.12); }
+  .t-dot[data-color="amber"]::before{ background:var(--c-amber); box-shadow:0 0 0 6px rgba(245,158,11,.14); }
+  .t-dot[data-color="violet"]::before{ background:var(--c-violet); box-shadow:0 0 0 6px rgba(109,40,217,.12); }
+  .t-dot[data-color="red"]::before{ background:var(--c-red); box-shadow:0 0 0 6px rgba(220,38,38,.12); }
+  .t-dot[data-color="slate"]::before{ background:var(--c-slate); box-shadow:0 0 0 6px rgba(51,65,85,.12); }
+
+  .t-card{
+    border:1px solid var(--xx-border);
+    border-radius:1rem;background:var(--xx-card);
+    box-shadow:var(--xx-shadow-sm); overflow:hidden;
+  }
+  .t-cover{ width:100%; height:190px; object-fit:cover; display:block; }
+  .t-head{
+    padding:1rem 1rem .75rem 1rem;
+    border-bottom:1px solid rgba(0,0,0,.06);
+    background:linear-gradient(180deg, rgba(0,0,0,.02), rgba(0,0,0,0));
+  }
+  .t-title{ margin:0 0 .15rem 0; font-size:1.05rem; font-weight:900; }
+  .t-meta{
+    color:rgba(0,0,0,.62); font-size:.9rem;
+    display:flex; flex-wrap:wrap; gap:.5rem; align-items:center;
+  }
+  .t-badge{ font-weight:800; border:1px solid rgba(0,0,0,.1); background:rgba(255,255,255,.7); }
+  .t-body{ padding:1rem; }
+  .t-pill{
+    display:inline-flex; align-items:center; gap:.4rem;
+    padding:.25rem .6rem; border-radius:999px;
+    border:1px solid rgba(0,0,0,.1); background:#fff;
+    font-size:.85rem; margin-right:.35rem; margin-bottom:.35rem;
+  }
+  .t-subtitle{
+    font-weight:900; font-size:.95rem; margin:.75rem 0 .35rem 0;
+  }
+  .t-list{ margin:0; padding-left:1.2rem; }
+  .t-list li{ margin:.25rem 0; }
+  .muted{ color:rgba(0,0,0,.65); }
+
+  @media (max-width:576px){
+    .timeline::before{ left:16px; }
+    .t-item{ grid-template-columns:38px 1fr; }
+    .t-dot{ width:38px; height:38px; }
+  }
+</style>
+
+<div class="page-wrap">
+
+  <!-- HERO -->
+  <section class="hero p-4 p-md-5 mb-4">
+    <div class="d-flex flex-column gap-3">
+      <div>
+        <h1 class="h3 mb-2 fw-bold">La Guerra Civil Española</h1>
+
+        <div class="d-flex flex-wrap gap-2 mb-3">
+          <span class="chip">⚡ Golpe (julio 1936)</span>
+          <span class="chip">🧭 Frentes y campañas</span>
+          <span class="chip">🏙️ Asedios</span>
+          <span class="chip">✈️ Intervención exterior</span>
+          <span class="chip">🕊️ Final (1939)</span>
         </div>
-        <div class="row rounded text-start collapse" id="alfonsoXII">
-            <span><a href="#inicio" class="text-primary d-block ps-4", style="text-decoration:none ;">Fracaso inicial</a></span>
-            <span><a href="#turnismo" class="text-primary d-block ps-4", style="text-decoration:none ;">Bandos enfrentados</a></span>
-            <span><a href="#gconservadores" class="text-primary d-block ps-4", style="text-decoration:none ;">Las fuerzas militares</a></span>
-            <span><a href="#gprogresistas" class="text-primary d-block ps-4", style="text-decoration:none ;">La ayuda extranjera</a></span>
-        
-        </div>                        
-    </div>    
-    <div class="col-2 ">
-        <div class="row border-1 rounded my-2 mx-1 text-center py-4 mx-1" style="background-color:#066725 ; color:white">
-            <a href="#gobiernoProvisional" style="text-decoration:none ; color: white;" data-bs-toggle="collapse"  aria-expanded="false" aria-controls="gobiernoProvisional">   
-                <div class="row text-center">                                    
-                    <img class="img-fluid mt-4" style="width:270px ; height:165px ;" src="{% static 'images/sigloXIX/mariaCristinaHasburgo.jpg' %}" alt="">
-                    <figcaption class="text-center mt-3">MARÍA CRISTINA</figcaption>
-                    <span class="text-center">(1885-1902)</span> 
-                </div>
-            </a>
+
+        <p class="lead mb-0">
+          Resumen organizado en un <strong>timeline vertical</strong>: qué ocurre, por qué importa y qué consecuencias tiene.
+        </p>
+      </div>
+
+      <div class="kpi-grid">
+        <div class="kpi">
+            <figure class="text-center">
+                <img class="img-fluid rounded-4 border shadow-sm"
+                    src="{% static 'images/sigloXX/guerraCivil/calvo_sotelo.jpg' %}"
+                    alt="Asesinato de Calvo Sotelo"
+                    role="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#calvo_sotelo">
+
+                
+            </figure>
+          <div class="t">17–18 julio 1936</div>
+          <div class="d text-center">Golpe de Estado y estallido del conflicto</div>
         </div>
-        <div class="row rounded text-start  collapse" id="gobiernoProvisional">
-            <span><a href="#gprogresistas" class="text-primary d-block ps-4", style="text-decoration:none ;">Sagasta (1881-1890)</a></span>
-            <span><a href="#" class="text-dark d-block ps-4", style="text-decoration:none ;">Nace Alfonso XIII (96)</a></span>
-            <span><a href="#" class="text-dark d-block ps-4", style="text-decoration:none ;">Se funda UGT en 1888</a></span>
-            <span><a href="{% url 'guerraCuba' %}" class="text-primary d-block ps-4", style="text-decoration:none ;">Guerra de Cuba 95</a></span>
-            <span><a href="#" class="text-dark d-block ps-4", style="text-decoration:none ;">Asesinato Cánovas 97</a></span>
-            <span><a href="#crisis98" class="text-primary d-block ps-4", style="text-decoration:none ;">Crisis del 98</a></span>
-            <span><a href="#oposicionRestauracion" class="text-primary d-block ps-4", style="text-decoration:none ;">Oposición restauración</a></span>
-            
-        </div>                       
+        <div class="kpi">
+            <figure class="text-center">
+                <img class="img-fluid rounded-4 border shadow-sm"
+                    src="{% static 'images/sigloXX/guerraCivil/guernica.jpg' %}"
+                    alt="Guernica. Picasso"
+                    role="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#guernica">                
+            </figure>
+          <div class="t">1937</div>
+          <div class="d text-center">Norte y grandes ofensivas</div>
+        </div>
+        <div class="kpi">
+            <figure class="text-center">
+                <img class="img-fluid rounded-4 border shadow-sm"
+                    src="{% static 'images/sigloXX/guerraCivil/batalla_Teruel.webp' %}"
+                    alt="Batalla de Teruel"
+                    role="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#batalla_teruel">                
+            </figure>
+          <div class="t">1938</div>
+          <div class="d text-center">Teruel y Ebro</div>
+        </div>
+        <div class="kpi">
+            <figure class="text-center">
+                <img class="img-fluid rounded-4 border shadow-sm"
+                    src="{% static 'images/sigloXX/guerraCivil/final_guerra.jpg' %}"
+                    alt="Final de la guerra"
+                    role="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#final_guerra">                
+            </figure>
+          <div class="t">1 abril 1939</div>
+          <div class="d text-center">Fin de la guerra</div>
+        </div>
+      </div>
     </div>
-    
+  </section>
 
-    <div class="col-2 ">
-        <div class="row border-1 rounded my-2 text-center py-4 mx-1" style="background-color:#590e96 ; color:white">
-            <a href="{% url 'alfonsoXIII' %}" style="text-decoration:none ; color: white;" >      
-                <div class="row text-center">
-                <img class="img-fluid mt-4" style="width:270px ; height:165px ;" src="{% static 'images/sigloXIX/alfonsoXIII.jpg' %}" alt="">
-                <figcaption class="text-center mt-3">ALFONSO XIII</figcaption>
-                <span class="text-center">(1902-1930)</span>
-               
-                <br>
-                </div>        
-            </a> 
+  <div class="row g-4">
+
+<aside class="col-lg-4">
+  <div class="toc-sticky">
+
+    <div class="toc-card p-3 mb-4">
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <h2 class="h6 mb-0 fw-bold">Índice</h2>
+        <span class="badge text-bg-light border">Cronología</span>
+      </div>
+
+      <a class="toc-link" href="#contexto">🧭 Contexto</a>
+      <a class="toc-link" href="#timeline">🕰️ Cronología (1936–1939)</a>
+
+      <div class="toc-sub mt-2">
+
+        <!-- 1) GOLPE -->
+        <div class="d-flex align-items-start gap-2">
+          <button class="toc-link btn btn-link p-0 text-start flex-grow-1"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#toc-golpe">
+            1) Golpe de Estado y estallido de la guerra
+          </button>
+          <a class="small text-muted text-decoration-none pt-1" href="#golpe1936">↘</a>
         </div>
-                    
-    </div>        
-</div>
-<div class="row align-items-center vertical-align-center text-center py-3 my-5 border" style="background-color:#E2F6F6 ;">
-    
-    <h5 class="text-center pt-2" id="inicio">Inicio</h5>
+        <div class="collapse ps-2 pb-2 mt-1" id="toc-golpe">
+          <a class="toc-link small" href="{% url 'calvo_sotelo' %}">• Asesinato de Calvo Sotelo</a>
+          <a class="toc-link small" href="{% url 'golpe_17_julio_1936' %}">• 17 julio 1936: inicio del alzamiento</a>
+          <a class="toc-link small" href="{% url 'golpe_18_julio' %}">• 18 julio 1936: extensión del golpe</a>
+          <a class="toc-link small" href="{% url 'verano_36' %}">• Verano 1936: división territorial</a>
+          <a class="toc-link small" href="{% url 'retaguardia' %}">• Poder en retaguardia y juntas</a>
+        </div>
+
+        <!-- 2) ÁFRICA -->
+        <div class="d-flex align-items-start gap-2 mt-2">
+          <button class="toc-link btn btn-link p-0 text-start flex-grow-1"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#toc-africa">
+            2) Ejército de África y avance hacia Madrid
+          </button>
+          <a class="small text-muted text-decoration-none pt-1" href="#africa1936">↘</a>
+        </div>
+        <div class="collapse ps-2 pb-2 mt-1" id="toc-africa">
+          <a class="toc-link small" href="#">• Traslado del Ejército de África</a>
+          <a class="toc-link small" href="#">• Puente aéreo y apoyo exterior</a>
+          <a class="toc-link small" href="#">• Avance por Andalucía y Extremadura</a>
+          <a class="toc-link small" href="#">• Objetivo estratégico: Madrid</a>
+        </div>
+
+        <!-- 3) MADRID -->
+        <div class="d-flex align-items-start gap-2 mt-2">
+          <button class="toc-link btn btn-link p-0 text-start flex-grow-1"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#toc-madrid">
+            3) Madrid resiste
+          </button>
+          <a class="small text-muted text-decoration-none pt-1" href="#madrid">↘</a>
+        </div>
+        <div class="collapse ps-2 pb-2 mt-1" id="toc-madrid">
+          <a class="toc-link small" href="#">• Batalla de Madrid</a>
+          <a class="toc-link small" href="#">• Defensa de la capital</a>
+          <a class="toc-link small" href="#">• No pasarán: propaganda y moral</a>
+          <a class="toc-link small" href="#">• Estabilización del frente</a>
+        </div>
+
+        <!-- 4) NORTE -->
+        <div class="d-flex align-items-start gap-2 mt-2">
+          <button class="toc-link btn btn-link p-0 text-start flex-grow-1"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#toc-norte">
+            4) Campaña del Norte
+          </button>
+          <a class="small text-muted text-decoration-none pt-1" href="#norte1937">↘</a>
+        </div>
+        <div class="collapse ps-2 pb-2 mt-1" id="toc-norte">
+          <a class="toc-link small" href="#">• Ofensiva sobre el País Vasco</a>
+          <a class="toc-link small" href="#">• Bombardeo de Guernica</a>
+          <a class="toc-link small" href="#">• Caída de Bilbao</a>
+          <a class="toc-link small" href="#">• Control industrial del Norte</a>
+        </div>
+
+        <!-- 5) 1937 -->
+        <div class="d-flex align-items-start gap-2 mt-2">
+          <button class="toc-link btn btn-link p-0 text-start flex-grow-1"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#toc-1937">
+            5) Grandes ofensivas de 1937
+          </button>
+          <a class="small text-muted text-decoration-none pt-1" href="#batallas1937">↘</a>
+        </div>
+        <div class="collapse ps-2 pb-2 mt-1" id="toc-1937">
+          <a class="toc-link small" href="#">• Batalla del Jarama</a>
+          <a class="toc-link small" href="#">• Batalla de Guadalajara</a>
+          <a class="toc-link small" href="#">• Ofensivas de desgaste</a>
+        </div>
+
+        <!-- 6) TERUEL -->
+        <div class="d-flex align-items-start gap-2 mt-2">
+          <button class="toc-link btn btn-link p-0 text-start flex-grow-1"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#toc-teruel">
+            6) Teruel: desgaste extremo
+          </button>
+          <a class="small text-muted text-decoration-none pt-1" href="#teruel1938">↘</a>
+        </div>
+        <div class="collapse ps-2 pb-2 mt-1" id="toc-teruel">
+          <a class="toc-link small" href="#">• Ofensiva republicana sobre Teruel</a>
+          <a class="toc-link small" href="#">• Combates en condiciones extremas</a>
+          <a class="toc-link small" href="#">• Contraofensiva y desgaste</a>
+        </div>
+
+        <!-- 7) EBRO -->
+        <div class="d-flex align-items-start gap-2 mt-2">
+          <button class="toc-link btn btn-link p-0 text-start flex-grow-1"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#toc-ebro">
+            7) Batalla del Ebro
+          </button>
+          <a class="small text-muted text-decoration-none pt-1" href="#ebro1938">↘</a>
+        </div>
+        <div class="collapse ps-2 pb-2 mt-1" id="toc-ebro">
+          <a class="toc-link small" href="#">• Cruce del Ebro</a>
+          <a class="toc-link small" href="#">• Batalla prolongada</a>
+          <a class="toc-link small" href="#">• Desgaste definitivo</a>
+        </div>
+
+        <!-- 8) FINAL -->
+        <div class="d-flex align-items-start gap-2 mt-2">
+          <button class="toc-link btn btn-link p-0 text-start flex-grow-1"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#toc-final">
+            8) Desenlace y fin del conflicto
+          </button>
+          <a class="small text-muted text-decoration-none pt-1" href="#final1939">↘</a>
+        </div>
+        <div class="collapse ps-2 pb-2 mt-1" id="toc-final">
+          <a class="toc-link small" href="#">• Caída de Cataluña</a>
+          <a class="toc-link small" href="#">• Golpe de Casado</a>
+          <a class="toc-link small" href="#">• Entrada en Madrid</a>
+          <a class="toc-link small" href="#">• 1 abril 1939: fin de la guerra</a>
+        </div>
+
+      </div>
+
+      <a class="toc-link mt-3" href="#recursos">📚 Recursos</a>
+
+      
+
+  </div>
+</aside>
+
+
+
+    <!-- MAIN -->
+    <main class="col-lg-8">
+
+      <!-- CONTEXTO -->
+      <div class="section-head anchor mb-3" id="contexto">
+        <h2>🧭 Contexto rápido</h2>
+        <p class="hint">De un golpe fallido a una guerra prolongada.</p>
+      </div>
+
+      <div class="content-card mb-4">
+        <p class="mb-2">
+          La Guerra Civil comienza tras el fracaso parcial del golpe militar de julio de 1936, que divide el territorio en dos zonas y
+          transforma una crisis política en un conflicto armado prolongado. A partir de ahí, la guerra evoluciona por campañas: intentos
+          de tomar objetivos clave, estabilización de frentes y ofensivas de desgaste.
+        </p>
         
+        <div class="row g-3 mt-2">
+  <div class="col-md-7">
+    <figure class="m-0">
+      <img class="img-fluid rounded-4 border"
+           src="{% static 'images/sigloXX/guerraCivil/dragon_rapide.jpg' %}"
+           alt="Mapa de zonas y control territorial en 1936"
+           role="button"
+           data-bs-toggle="modal"
+           data-bs-target="#dragon_rapide">
+      <figcaption class="small text-muted mt-2">
+        Dragon Rapide
+      </figcaption>
+      
+    </figure>
+  </div>
+
+  <div class="col-md-5">
+    <figure class="m-0">
+      <img class="img-fluid rounded-4 border"
+           src="{% static 'images/sigloXX/guerraCivil/no_pasaran.jpg' %}"
+           alt="Cartel o fotografía de época"
+           role="button"
+           data-bs-toggle="modal"
+           data-bs-target="#no_pasaran">
+      <figcaption class="small text-muted mt-2">
+        
+      </figcaption>
+    </figure>
+  </div>
 </div>
 
+      </div>
 
+      <!-- TIMELINE -->
+      <div class="section-head anchor mb-3" id="timeline">
+        <h2>🕰️ Timeline(1936–1939)</h2>
+        <p class="hint">Qué pasa, por qué importa y qué provoca después.</p>
+      </div>
 
+      <div class="timeline mb-4">
 
+        <!-- 1) GOLPE -->
+        <section class="t-item anchor" id="golpe1936">
+          <div class="t-dot" data-color="red" aria-hidden="true"></div>
+          <article class="t-card">
+            <div class="col-md-5 ">
+            <figure class="m-0 p-3 text-center ">
+                <img class="img-fluid rounded-4 border d-block mx-auto"
+                    style="max-width: 520px;"
+                    src="{% static 'images/sigloXX/guerraCivil/mapa_inicio.jpg' %}"
+                    alt="Mapa inicio de la guerra"
+                    role="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#mapa_inicio">
+                
+            </figure>
+            </div>
+            
+            
+            <header class="t-head">
+              <h3 class="t-title">1) Golpe de Estado y estallido de la guerra</h3>
+              <div class="t-meta">                
+                <span class="badge t-badge" style="background:#f59e0b; color:#111827;">17–18 julio 1936</span>
+                <span>Fracaso parcial → división territorial</span>
+              </div>
+            </header>
+            <div class="t-body">
+              <p class="mb-2">
+                El levantamiento militar no triunfa en todo el país. El resultado inmediato es la <strong>ruptura del orden político</strong> y la
+                aparición de <strong>dos zonas</strong> con estructuras de poder y objetivos diferentes. En pocas semanas, la lógica de “crisis” se
+                convierte en <strong>guerra</strong>: frentes, retaguardias, control de ciudades y comunicaciones.
+              </p>
 
+              <div class="t-subtitle">Claves para entenderlo</div>
+              <ul class="t-list">
+                <li><strong>División territorial</strong>: el control de capitales, puertos y ejes ferroviarios condiciona la guerra desde el inicio.</li>
+                <li><strong>Objetivos inmediatos</strong>: consolidar mandos, asegurar suministros y sumar apoyos dentro y fuera.</li>
+                <li><strong>Consecuencia</strong>: la victoria rápida se esfuma y el conflicto tiende a prolongarse.</li>
+              </ul>
+
+              <div class="mt-3">
+                <span class="t-pill">⚡ Ruptura institucional</span>
+                <span class="t-pill">🗺️ Zonas y frentes</span>
+                <span class="t-pill">🚉 Comunicaciones</span>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <!-- 2) ÁFRICA -->
+        <section class="t-item anchor" id="africa1936">
+          <div class="t-dot" data-color="amber" aria-hidden="true"></div>
+          <article class="t-card">
+            <img class="t-cover" src="{% static 'images/sigloXX/guerraCivil/1936_africa.jpg' %}" alt="Ejército de África y puente aéreo">
+            <header class="t-head">
+              <h3 class="t-title">2) El Ejército de África y el avance hacia Madrid</h3>
+              <div class="t-meta">
+                <span class="badge t-badge" style="background:#f59e0b; color:#111827;">Verano–otoño 1936</span>
+                <span>Consolidación y primeras campañas</span>
+              </div>
+            </header>
+            <div class="t-body">
+              <p class="mb-2">
+                Una prioridad estratégica es <strong>mover fuerzas</strong> y asegurar corredores para conectar territorios. La llegada y empleo de
+                unidades veteranas se traduce en avances rápidos y en un objetivo claro: <strong>la capital</strong>. Madrid es el centro político y
+                simbólico; su caída podía significar un desenlace temprano.
+              </p>
+
+              <div class="t-subtitle">Qué hay detrás</div>
+              <ul class="t-list">
+                <li><strong>Logística</strong>: transportar tropas, munición y víveres es tan decisivo como ganar batallas.</li>
+                <li><strong>Ritmo</strong>: la guerra se acelera con campañas intensas antes de que el frente se congele.</li>
+                <li><strong>Consecuencia</strong>: se fija el “gran objetivo” inicial: Madrid.</li>
+              </ul>
+
+              <div class="mt-3">
+                <span class="t-pill">✈️ Traslado de tropas</span>
+                <span class="t-pill">🧰 Logística</span>
+                <span class="t-pill">🏙️ Objetivo: Madrid</span>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <!-- 3) MADRID -->
+        <section class="t-item anchor" id="madrid">
+          <div class="t-dot" data-color="blue" aria-hidden="true"></div>
+          <article class="t-card">
+            <img class="t-cover" src="{% static 'images/sigloXX/guerraCivil/1936_1937_madrid.jpg' %}" alt="Defensa de Madrid">
+            <header class="t-head">
+              <h3 class="t-title">3) Madrid resiste</h3>
+              <div class="t-meta">
+                <span class="badge t-badge text-bg-primary">Finales 1936 – 1937</span>
+                <span>La guerra se hace larga</span>
+              </div>
+            </header>
+            <div class="t-body">
+              <p class="mb-2">
+                La resistencia de Madrid impide una victoria rápida. Se consolidan frentes y la guerra entra en una fase más larga:
+                <strong>asedios, desgaste</strong> y operaciones para rodear o romper posiciones. Madrid adquiere un valor simbólico enorme, y el conflicto
+                se vuelve “total”: afecta a retaguardia, economía y moral.
+              </p>
+              <figure class="mt-3 mb-2">
+  <img class="img-fluid rounded-4 border"
+       src="{% static 'images/sigloXX/guerraCivil/esquema_frentes_1937.jpg' %}"
+       alt="Esquema de frentes principales (1937)">
+  <figcaption class="small text-muted mt-2">
+    Esquema: estabilización de frentes y zonas clave (1937).
+  </figcaption>
+</figure>
+
+              <div class="t-subtitle">Por qué es un punto de inflexión</div>
+              <ul class="t-list">
+                <li><strong>Estabilización</strong>: aparecen líneas defensivas más sólidas y la guerra se “fija”.</li>
+                <li><strong>Desgaste</strong>: ya no basta con avanzar; hay que sostener ofensivas durante semanas/meses.</li>
+                <li><strong>Consecuencia</strong>: se buscan victorias en otros frentes para desequilibrar el conjunto.</li>
+              </ul>
+
+              <div class="mt-3">
+                <span class="t-pill">🏙️ Guerra urbana</span>
+                <span class="t-pill">🧱 Frente estable</span>
+                <span class="t-pill">📣 Moral y propaganda</span>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <!-- 4) NORTE -->
+        <section class="t-item anchor" id="norte1937">
+          <div class="t-dot" data-color="green" aria-hidden="true"></div>
+          <article class="t-card">
+            <img class="t-cover" src="{% static 'images/sigloXX/guerraCivil/1937_norte.jpg' %}" alt="Campaña del Norte 1937">
+            <header class="t-head">
+              <h3 class="t-title">4) Campaña del Norte</h3>
+              <div class="t-meta">
+                <span class="badge t-badge" style="background:rgba(10,107,58,.12); color:#065f46; border-color:rgba(10,107,58,.25);">1937</span>
+                <span>Control de recursos e industria</span>
+              </div>
+            </header>
+            <div class="t-body">
+              <p class="mb-2">
+                El Norte es clave por su <strong>capacidad industrial</strong>, puertos y comunicaciones. La campaña se orienta a controlar ese espacio,
+                reordenando el equilibrio del conflicto. A nivel didáctico, es un buen ejemplo de cómo los <strong>recursos</strong> y la <strong>economía</strong>
+                condicionan la guerra tanto como las decisiones militares.
+              </p>
+
+              <div class="t-subtitle">Ideas clave</div>
+              <ul class="t-list">
+                <li><strong>Objetivo</strong>: asegurar zonas con industria y abastecimiento.</li>
+                <li><strong>Efecto</strong>: aumenta la capacidad de sostener la guerra en el medio plazo.</li>
+                <li><strong>Consecuencia</strong>: el conflicto se inclina hacia campañas de mayor escala.</li>
+              </ul>
+
+              <div class="mt-3">
+                <span class="t-pill">🏭 Industria</span>
+                <span class="t-pill">🚢 Puertos</span>
+                <span class="t-pill">🗺️ Reordenación de frentes</span>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <!-- 5) BATALLAS 1937 -->
+        <section class="t-item anchor" id="batallas1937">
+          <div class="t-dot" data-color="slate" aria-hidden="true"></div>
+          <article class="t-card">
+            <img class="t-cover" src="{% static 'images/sigloXX/guerraCivil/1937_batallas.jpg' %}" alt="Grandes ofensivas 1937">
+            <header class="t-head">
+              <h3 class="t-title">5) Grandes ofensivas de 1937 (guerra de desgaste)</h3>
+              <div class="t-meta">
+                <span class="badge t-badge text-bg-light border">Verano–otoño 1937</span>
+                <span>Intentos de romper el frente</span>
+              </div>
+            </header>
+            <div class="t-body">
+              <p class="mb-2">
+                En 1937 se intensifican las operaciones para romper frentes o aliviar presión en zonas clave. Es una fase marcada por
+                <strong>ofensivas de gran tamaño</strong>, altas bajas y un aprendizaje acelerado en táctica, coordinación y logística. El resultado suele ser
+                un avance limitado frente a un coste humano alto: la guerra se convierte en <strong>desgaste</strong>.
+              </p>
+
+              <div class="t-subtitle">Qué estudiar aquí</div>
+              <ul class="t-list">
+                <li><strong>Ofensiva</strong> vs <strong>defensa</strong>: romper posiciones fortificadas requiere un esfuerzo enorme.</li>
+                <li><strong>Tiempo</strong>: semanas de combate pueden producir cambios pequeños en el mapa.</li>
+                <li><strong>Consecuencia</strong>: el año siguiente se busca un golpe decisivo a gran escala.</li>
+              </ul>
+
+              <div class="mt-3">
+                <span class="t-pill">⚔️ Ofensivas</span>
+                <span class="t-pill">🧩 Desgaste</span>
+                <span class="t-pill">🩸 Coste alto</span>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <!-- 6) TERUEL -->
+        <section class="t-item anchor" id="teruel1938">
+          <div class="t-dot" data-color="amber" aria-hidden="true"></div>
+          <article class="t-card">
+            <img class="t-cover" src="{% static 'images/sigloXX/guerraCivil/1938_teruel.jpg' %}" alt="Teruel 1938">
+            <header class="t-head">
+              <h3 class="t-title">6) Teruel: desgaste extremo</h3>
+              <div class="t-meta">
+                <span class="badge t-badge" style="background:#f59e0b; color:#111827;">Invierno 1937–1938</span>
+                <span>Clima, logística y resistencia</span>
+              </div>
+            </header>
+            <div class="t-body">
+              <p class="mb-2">
+                Teruel es una de las batallas más duras por el <strong>invierno</strong> y el combate prolongado. Ilustra cómo el clima y el abastecimiento
+                condicionan la capacidad de mantener posiciones. Tras Teruel, el desgaste acumulado influye en la siguiente gran fase del conflicto.
+              </p>
+
+              <div class="t-subtitle">Ideas clave</div>
+              <ul class="t-list">
+                <li><strong>Condiciones extremas</strong>: frío, suministros, fatiga y moral.</li>
+                <li><strong>Desgaste</strong>: afecta a la potencia operativa para ofensivas posteriores.</li>
+                <li><strong>Consecuencia</strong>: el conflicto entra en un tramo final con grandes decisiones.</li>
+              </ul>
+
+              <div class="mt-3">
+                <span class="t-pill">❄️ Invierno</span>
+                <span class="t-pill">🧰 Logística</span>
+                <span class="t-pill">🧱 Desgaste</span>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <!-- 7) EBRO -->
+        <section class="t-item anchor" id="ebro1938">
+          <div class="t-dot" data-color="violet" aria-hidden="true"></div>
+          <article class="t-card">
+            <img class="t-cover" src="{% static 'images/sigloXX/guerraCivil/1938_ebro.jpg' %}" alt="Ebro 1938">
+            <header class="t-head">
+              <h3 class="t-title">7) Batalla del Ebro</h3>
+              <div class="t-meta">
+                <span class="badge t-badge" style="background:rgba(109,40,217,.12); color:#4c1d95; border-color:rgba(109,40,217,.25);">1938</span>
+                <span>Última gran ofensiva</span>
+              </div>
+            </header>
+            <div class="t-body">
+              <p class="mb-2">
+                El Ebro es un hito decisivo por su escala y duración. Representa el intento más importante de cambiar el rumbo en el tramo final.
+                Tras esta batalla, el equilibrio se inclina de manera clara: el desgaste y las pérdidas condicionan el desenlace de 1939.
+              </p>
+
+              <div class="t-subtitle">Por qué es decisiva</div>
+              <ul class="t-list">
+                <li><strong>Escala</strong>: concentración de fuerzas y combates prolongados.</li>
+                <li><strong>Desgaste final</strong>: reduce la capacidad de sostener una guerra larga.</li>
+                <li><strong>Consecuencia</strong>: se abre el camino al desenlace del año siguiente.</li>
+              </ul>
+
+              <div class="mt-3">
+                <span class="t-pill">🌊 Operación mayor</span>
+                <span class="t-pill">🧩 Punto de inflexión</span>
+                <span class="t-pill">🩸 Desgaste</span>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <!-- 8) FIN -->
+        <section class="t-item anchor" id="final1939">
+          <div class="t-dot" data-color="red" aria-hidden="true"></div>
+          <article class="t-card">
+            <img class="t-cover" src="{% static 'images/sigloXX/guerraCivil/1939_fin.jpg' %}" alt="Final 1939">
+            <header class="t-head">
+              <h3 class="t-title">8) Desenlace y fin del conflicto</h3>
+              <div class="t-meta">
+                <span class="badge t-badge text-bg-danger">1939</span>
+                <span>Caída de los últimos frentes</span>
+              </div>
+            </header>
+            <div class="t-body">
+              <p class="mb-2">
+                En 1939 se produce el cierre del conflicto con la caída de los últimos frentes. A partir de ese momento se abre una nueva etapa
+                política, con profundas consecuencias institucionales, sociales y culturales.
+              </p>
+
+              <div class="t-subtitle">Qué remarcar</div>
+              <ul class="t-list">
+                <li><strong>Fin militar</strong> del conflicto y reordenación política.</li>
+                <li><strong>Consecuencias</strong>: exilio, represión, reconstrucción y memoria.</li>
+                <li><strong>Transición de época</strong>: el siglo XX español entra en una fase distinta.</li>
+              </ul>
+
+              <div class="mt-3">
+                <span class="t-pill">🏳️ Fin</span>
+                <span class="t-pill">🧭 Nueva etapa</span>
+                <span class="t-pill">📌 Consecuencias</span>
+              </div>
+            </div>
+          </article>
+        </section>
+
+      </div>
+
+      <!-- RECURSOS -->
+      <div class="section-head anchor" id="recursos">
+        <h2>📚 Recursos</h2>
+        <p class="hint">Añade aquí vídeos, mapas o lecturas para reforzar cada hito.</p>
+      </div>
+
+      <div class="content-card mt-3">
+        <h3 class="h6 fw-bold mb-2">Vídeos (añade los tuyos)</h3>
+        <ul class="mb-0">
+          <li><a href="#" target="_blank" rel="noopener" style="text-decoration:none;">[Añadir] Resumen general</a></li>
+          <li><a href="#" target="_blank" rel="noopener" style="text-decoration:none;">[Añadir] Batalla del Ebro</a></li>
+          <li><a href="#" target="_blank" rel="noopener" style="text-decoration:none;">[Añadir] Teruel</a></li>
+        </ul>
+      </div>
+
+    </main>
+
+  </div>
+</div>
+
+{% comment %} MODALES {% endcomment %}
+
+{% comment %} MODALES {% endcomment %}
+
+<div class="modal fade" id="muerte_miliciano" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content bg-dark">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-white ms-auto"
+                data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img class="img-fluid rounded"
+             src="{% static 'images/sigloXX/guerraCivil/muerte_miliciano.jpeg' %}"
+             alt="Muerte de un miliciano">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="calvo_sotelo" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content bg-dark">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-white ms-auto"
+                data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img class="img-fluid rounded"
+             src="{% static 'images/sigloXX/guerraCivil/calvo_sotelo.jpg' %}"
+             alt="Asesinato de Calvo Sotelo">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="guernica" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content bg-dark">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-white ms-auto"
+                data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img class="img-fluid rounded"
+             src="{% static 'images/sigloXX/guerraCivil/guernica.jpg' %}"
+             alt="Guernica (Picasso)">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="batalla_teruel" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content bg-dark">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-white ms-auto"
+                data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img class="img-fluid rounded"
+             src="{% static 'images/sigloXX/guerraCivil/batalla_Teruel.webp' %}"
+             alt="Batalla de Teruel">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="final_guerra" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content bg-dark">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-white ms-auto"
+                data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img class="img-fluid rounded"
+             src="{% static 'images/sigloXX/guerraCivil/final_guerra.jpg' %}"
+             alt="Final de la guerra">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="dragon_rapide" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content bg-dark">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-white ms-auto"
+                data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img class="img-fluid rounded"
+             src="{% static 'images/sigloXX/guerraCivil/dragon_rapide.jpg' %}"
+             alt="Dragon Rapide">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="no_pasaran" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content bg-dark">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-white ms-auto"
+                data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img class="img-fluid rounded"
+             src="{% static 'images/sigloXX/guerraCivil/no_pasaran.jpg' %}"
+             alt="No pasarán">
+      </div>
+    </div>
+  </div>
+</div>
+
+{% comment %} MODAL MAPA INICIO {% endcomment %}
+<div class="modal fade" id="mapa_inicio" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content bg-dark">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-white ms-auto"
+                data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img class="img-fluid rounded"
+             src="{% static 'images/sigloXX/guerraCivil/mapa_inicio.jpg' %}"
+             alt="Mapa de zonas tras el golpe de 1936">
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
