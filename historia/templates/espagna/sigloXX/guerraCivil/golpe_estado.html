@@ -1,0 +1,234 @@
+{% extends "bases/baseGuerraCivil.html" %}
+{% load static %}
+
+{% block titulo %} Golpe de Estado e inicio de la Guerra Civil {% endblock %}
+{% block cabecera %} Golpe de Estado e inicio de la Guerra Civil {% endblock %}
+
+{% block imgCabecera %}
+<figure class="text-center">
+  <img class="img-fluid rounded-4 border shadow-sm"
+       src="{% static 'images/sigloXX/guerraCivil/mapa_inicio.jpg' %}"
+       alt="España, julio de 1936: extensión del golpe"
+       role="button"
+       data-bs-toggle="modal"
+       data-bs-target="#modalMapaJulio">
+</figure>
+{% endblock %}
+
+{% block contenido %}
+
+<style>
+  :root{
+    --xx-bg:#fbfbfc;
+    --xx-card:#ffffff;
+    --xx-border:rgba(0,0,0,.08);
+    --xx-shadow:0 10px 30px rgba(0,0,0,.08);
+    --xx-shadow-sm:0 6px 18px rgba(0,0,0,.06);
+
+    --hero-a:#1b2a41;
+    --hero-b:#2b3f63;
+
+    --c-blue:#0d6efd;
+    --c-amber:#f59e0b;
+    --c-red:#dc2626;
+    --c-slate:#334155;
+  }
+
+  .page-wrap{ background:var(--xx-bg); border-radius:1rem; padding:1rem; }
+
+  .hero{
+    background:linear-gradient(90deg,var(--hero-a),var(--hero-b));
+    color:#fff;border-radius:1rem;overflow:hidden;box-shadow:var(--xx-shadow);
+  }
+  .hero .lead{opacity:.92;}
+
+  .chip{
+    display:inline-flex;align-items:center;gap:.4rem;
+    padding:.25rem .65rem;border-radius:999px;
+    background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);
+    font-size:.85rem;white-space:nowrap;
+  }
+
+  .content-card{
+    border:1px solid var(--xx-border);
+    border-radius:1rem;background:var(--xx-card);
+    padding:1rem 1rem;box-shadow:var(--xx-shadow-sm);
+  }
+
+  .section-head{
+    border:1px solid var(--xx-border);
+    background:#eef7ff;border-radius:1rem;padding:1rem 1rem;
+    box-shadow:var(--xx-shadow-sm);
+  }
+  .section-head h2{ margin:0;font-size:1.1rem;font-weight:900;letter-spacing:.01em; }
+  .section-head .hint{ color:rgba(0,0,0,.65); margin:.25rem 0 0 0; font-size:.95rem; }
+
+  /* Cards portal */
+  .portal-card{
+    border:1px solid var(--xx-border);
+    border-radius:1rem;background:#fff;
+    box-shadow:var(--xx-shadow-sm);
+    overflow:hidden;height:100%;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .portal-card:hover{
+    transform:translateY(-2px);
+    box-shadow:0 14px 32px rgba(0,0,0,.10);
+  }
+  .portal-img{
+    width:100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display:block;
+  }
+  .portal-body{ padding:1rem; }
+  .badge-soft{
+    display:inline-flex; align-items:center; gap:.4rem;
+    padding:.25rem .6rem; border-radius:999px;
+    font-size:.82rem;
+    border:1px solid rgba(0,0,0,.10);
+    background:#fff;
+    margin-right:.35rem;
+    margin-bottom:.35rem;
+  }
+  .badge-calvo{ box-shadow:0 0 0 6px rgba(220,38,38,.10) inset; }
+  .badge-17{ box-shadow:0 0 0 6px rgba(245,158,11,.12) inset; }
+  .badge-18{ box-shadow:0 0 0 6px rgba(13,110,253,.12) inset; }
+
+  .anchor{ scroll-margin-top: 90px; }
+
+  /* Mini timeline horizontal */
+  .mini-line{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:.75rem;
+  }
+  @media (min-width: 992px){
+    .mini-line{ grid-template-columns:1fr 1fr 1fr; }
+  }
+  .mini-step{
+    border:1px solid var(--xx-border);
+    border-radius:1rem;
+    background:#fff;
+    padding:.9rem;
+    box-shadow:var(--xx-shadow-sm);
+    height:100%;
+  }
+  .mini-step .k{ font-weight:900; }
+  .mini-step .d{ color:rgba(0,0,0,.65); font-size:.92rem; margin-top:.2rem; }
+</style>
+
+<div class="page-wrap">
+
+  
+
+  <!-- PORTAL -->
+
+
+  <div class="row g-4 mb-4">
+
+    <!-- Calvo Sotelo -->
+    <div class="col-lg-4">
+      <article class="portal-card">
+        <img class="portal-img"
+             src="{% static 'images/sigloXX/guerraCivil/calvo_sotelo_cadaver.jpg' %}"
+             alt="Asesinato de Calvo Sotelo (13 julio 1936)">
+        <div class="portal-body">
+          <div class="mb-2">
+            <span class="badge-soft badge-calvo">🩸 13 julio</span>
+            <span class="badge-soft badge-calvo">📌 Crisis</span>
+          </div>
+          <h3 class="h6 fw-bold mb-2">Asesinato de Calvo Sotelo</h3>
+          <p class="text-muted mb-3">
+            Un asesinato político que acelera la descomposición del orden público y dispara la percepción de “punto de no retorno”.
+          </p>
+          <a class="btn btn-outline-danger w-100"
+             href="{% url 'calvo_sotelo' %}">
+            Entrar en el episodio →
+          </a>
+        </div>
+      </article>
+    </div>
+
+    <!-- 17 julio -->
+    <div class="col-lg-4">
+      <article class="portal-card">
+        <img class="portal-img"
+             src="{% static 'images/sigloXX/guerraCivil/alzamiento_prensa.jpg' %}"
+             alt="17 de julio de 1936: inicio del alzamiento en Marruecos">
+        <div class="portal-body">
+          <div class="mb-2">
+            <span class="badge-soft badge-17">⚡ 17 julio</span>
+            <span class="badge-soft badge-17">📍 Marruecos</span>
+          </div>
+          <h3 class="h6 fw-bold mb-2">17 de julio: inicio del alzamiento</h3>
+          <p class="text-muted mb-3">
+            El golpe comienza en el Protectorado. Las tropas del Ejército de África toman la iniciativa.
+          </p>
+          <a class="btn btn-outline-warning w-100"
+             href="{% url 'golpe_17_julio_1936' %}">
+            Entrar en el episodio →
+          </a>
+        </div>
+      </article>
+    </div>
+
+    <!-- 18 julio -->
+    <div class="col-lg-4">
+      <article class="portal-card">
+        <img class="portal-img"
+             src="{% static 'images/sigloXX/guerraCivil/mapa_inicio.jpg' %}"
+             alt="18 de julio de 1936: extensión del golpe a la Península">
+        <div class="portal-body">
+          <div class="mb-2">
+            <span class="badge-soft badge-18">🕰️ 18 julio</span>
+            <span class="badge-soft badge-18">🗺️ Península</span>
+          </div>
+          <h3 class="h6 fw-bold mb-2">18 de julio: extensión del golpe</h3>
+          <p class="text-muted mb-3">
+            El golpe se expande. El fracaso del control inmediato abre un conflicto armado de larga duración.
+          </p>
+          <a class="btn btn-outline-primary w-100"
+             href="{% url 'golpe_18_julio' %}">
+            Entrar en el episodio →
+          </a>
+        </div>
+      </article>
+    </div>
+
+  </div>
+
+  <!-- VUELTA -->
+  <div class="content-card">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-2">
+      <div>
+        <div class="fw-bold">↩ Volver al timeline general</div>
+        <div class="text-muted small">Regresa al índice del Siglo XX / Guerra Civil.</div>
+      </div>
+      <a class="btn btn-sm btn-outline-primary"
+         href="">
+        Volver al timeline
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<!-- MODAL MAPA -->
+<div class="modal fade" id="modalMapaJulio" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content bg-dark">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-white ms-auto"
+                data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img class="img-fluid rounded"
+             src="{% static 'images/sigloXX/guerraCivil/mapa_inicio.jpg' %}"
+             alt="Mapa del inicio del golpe (julio 1936)">
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

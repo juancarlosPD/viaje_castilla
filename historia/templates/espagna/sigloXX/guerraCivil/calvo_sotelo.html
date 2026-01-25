@@ -1,4 +1,4 @@
-{% extends "bases/basesigloXX.html" %}
+{% extends "bases/baseGuerraCivil.html" %}
 {% load static %}
 
 {% block titulo %} Asesinato de Calvo Sotelo {% endblock %}
@@ -7,7 +7,7 @@
 {% block imgCabecera %}
 <figure class="text-center">
   <img class="img-fluid rounded-4 border shadow-sm"
-       src="{% static 'images/sigloXX/guerraCivil/calvo_sotelo.jpg' %}"
+       src="{% static 'images/sigloXX/guerraCivil/calvo_sotelo_cadaver.jpg' %}"
        alt="Asesinato de Calvo Sotelo"
        role="button"
        data-bs-toggle="modal"
@@ -88,7 +88,7 @@
 
   .anchor{ scroll-margin-top: 90px; }
 
-  /* Timeline simple (mini) */
+  /* Mini timeline */
   .mini-timeline{ margin:0; padding:0; list-style:none; }
   .mini-timeline li{
     display:grid; grid-template-columns:18px 1fr; gap:.75rem;
@@ -107,6 +107,20 @@
     background:rgba(255,255,255,.85);
     padding:.1rem .4rem;border-radius:.5rem;
   }
+
+  /* “Galería” simple para huecos de imágenes */
+  .ph{
+    border:1px dashed rgba(0,0,0,.22);
+    border-radius:1rem;
+    background:linear-gradient(180deg,#ffffff,#f6f7fb);
+    padding:.75rem;
+  }
+  .ph img{ max-height: 260px; object-fit: cover; background:#e9ecef; }
+  .ph .cap{ color:rgba(0,0,0,.65); font-size:.9rem; margin-top:.4rem; }
+  .sticky-aside {
+    position: sticky;
+    top: 1rem;          /* separación respecto al top */
+  }
 </style>
 
 <div class="page-wrap">
@@ -118,36 +132,59 @@
         <h1 class="h3 mb-2 fw-bold">Asesinato de Calvo Sotelo</h1>
 
         <div class="d-flex flex-wrap gap-2 mb-3">
-          <span class="chip">🗓️ 13 julio 1936</span>
-          <span class="chip">⚠️ Escalada política</span>
-          <span class="chip">🧨 Punto de no retorno</span>
-          <span class="chip">📰 Impacto mediático</span>
+          <span class="chip">🗓️ Madrugada del 13 julio 1936</span>
+          <span class="chip">⚠️ Violencia política</span>
+          <span class="chip">🚓 Fuerzas de seguridad implicadas</span>
+          <span class="chip">🧨 Punto de inflexión</span>
           <span class="chip">↘ Preludio del golpe</span>
         </div>
 
         <p class="lead mb-0">
-          Hecho clave del <strong>preludio de la Guerra Civil</strong>. Aquí tienes un resumen para estudiar:
-          <strong>qué ocurrió</strong>, <strong>por qué importó</strong> y <strong>qué desencadenó</strong>.
+          Episodio decisivo del <strong>preludio inmediato</strong> de la Guerra Civil: una <strong>detención irregular</strong> seguida de un
+          <strong>asesinato</strong> que precipita la crisis institucional y acelera las dinámicas hacia el alzamiento.
         </p>
       </div>
 
       <div class="row g-3">
         <div class="col-md-4">
           <div class="mini-card">
-            <div class="t">Qué pasa</div>
-            <div class="d">Asesinato del líder monárquico José Calvo Sotelo tras un clima de violencia política.</div>
+            <div class="t">Qué ocurre</div>
+            <figure class="text-center">
+                <img class="img-fluid rounded-4 border shadow-sm"
+                    src="{% static 'images/sigloXX/guerraCivil/guardia_asalto.png' %}"                    
+                    >                
+            </figure>
+            
+            <div class="d">
+              Un grupo mixto de <strong>Guardia de Asalto</strong> y <strong>militantes socialistas</strong> saca de su casa a Calvo Sotelo y
+              lo mata durante el traslado.
+            </div>
           </div>
         </div>
         <div class="col-md-4">
           <div class="mini-card">
             <div class="t">Por qué importa</div>
-            <div class="d">Rompe cualquier opción de desescalada y acelera apoyos al golpe en sectores clave.</div>
+            <figure class="text-center">
+                <img class="img-fluid rounded-4 border shadow-sm"
+                    src="{% static 'images/sigloXX/guerraCivil/cortes.jpg' %}"                    
+                    >                
+            </figure>
+            <div class="d">
+              Simboliza la <strong>quiebra de garantías</strong> (inviolabilidad parlamentaria/neutralidad del orden público) y endurece posiciones.
+            </div>
           </div>
         </div>
         <div class="col-md-4">
           <div class="mini-card">
-            <div class="t">Qué provoca</div>
-            <div class="d">Contribuye a la legitimación del alzamiento y a la polarización definitiva.</div>
+            <div class="t">Efecto histórico</div>
+            <figure class="text-center">
+                <img class="img-fluid rounded-4 border shadow-sm"
+                    src="{% static 'images/sigloXX/guerraCivil/generales.webp' %}"                    
+                    >                
+            </figure>
+            <div class="d">
+              Se usa como <strong>argumento de legitimación</strong> y acelera la espiral que desemboca en el golpe del 17–18 de julio.
+            </div>
           </div>
         </div>
       </div>
@@ -157,24 +194,26 @@
 
   <div class="row g-4">
     <!-- ASIDE -->
-    <aside class="col-lg-4">
-      <div class="content-card">
+    <aside class="col-lg-4 ">
+      <div class="content-card sticky-aside">
         <div class="d-flex justify-content-between align-items-center mb-2">
           <div class="fw-bold">En esta página</div>
-          <span class="badge text-bg-light border">Guía</span>
+          <span class="badge text-bg-light border" style="background:rgba(10,107,58,.12); color:#065f46; border-color:rgba(10,107,58,.25);">
+            Guía
+          </span>
         </div>
 
         <a class="d-block text-decoration-none mb-1" href="#hecho">🧾 Hecho (resumen)</a>
-        <a class="d-block text-decoration-none mb-1" href="#claves">🔎 Claves para entenderlo</a>
-        <a class="d-block text-decoration-none mb-1" href="#consecuencias">📌 Consecuencias</a>
-        <a class="d-block text-decoration-none mb-1" href="#cronologia">🧷 Mini-cronología</a>
-        <a class="d-block text-decoration-none mb-1" href="#paraestudiar">📝 Para estudiar</a>
-
+        <a class="d-block text-decoration-none mb-1" href="#contexto">🧭 Contexto y antecedentes</a>
+        <a class="d-block text-decoration-none mb-1" href="#operacion">🚓 La operación (cronología)</a>
+        <a class="d-block text-decoration-none mb-1" href="#responsables">🧩 Responsables e investigación</a>
+        <a class="d-block text-decoration-none mb-1" href="#reacciones">📌 Reacciones e impacto</a>
+        <a class="d-block text-decoration-none mb-1" href="#memoria">🗣️ Memoria y uso político</a>
+        
+        
         <hr>
 
-        <div class="small text-muted">
-          Atajo: vuelve al timeline general con <span class="kbd-link">↩</span>
-        </div>
+        
 
         <a class="btn btn-sm btn-outline-primary mt-2"
            href="{% url 'guerraCivil' %}#golpe1936">
@@ -189,136 +228,593 @@
       <!-- HECHO -->
       <div class="section-head anchor mb-3" id="hecho">
         <h2>🧾 Hecho: qué ocurrió</h2>
-        <p class="hint">Un episodio que dispara la tensión y precipita decisiones.</p>
+        <p class="hint">El asesinato de un diputado en un “dispositivo” irregular de seguridad.</p>
       </div>
 
       <div class="content-card mb-4">
         <p class="mb-2">
-          El <strong>13 de julio de 1936</strong> es asesinado <strong>José Calvo Sotelo</strong>, figura destacada de la oposición monárquica.
-          El crimen ocurre en un contexto de <strong>violencia política creciente</strong> (enfrentamientos, represalias, atentados) y de
-          <strong>polarización</strong> entre bloques ideológicos.
+          En la <strong>madrugada del 13 de julio de 1936</strong>, <strong>José Calvo Sotelo</strong> —diputado y figura destacada de la oposición monárquica—
+          fue sacado de su domicilio por un grupo compuesto por <strong>guardias de asalto</strong> y <strong>militantes socialistas</strong>,
+          con el pretexto de conducirlo a la <strong>Dirección General de Seguridad</strong>. Durante el traslado, recibió <strong>dos disparos en la nuca</strong>
+          y su cuerpo fue llevado al <strong>depósito del cementerio de La Almudena</strong>.
         </p>
         <p class="mb-0">
-          A efectos de estudio, este hecho se interpreta como un <strong>catalizador</strong>:
-          no es “la causa única” de la guerra, pero sí un episodio que acelera la dinámica hacia el choque armado.
+          El episodio se interpreta como un <strong>punto de inflexión</strong> en la crisis de 1936: no “causa” por sí solo la guerra,
+          pero acelera decisiones, legitima relatos de urgencia y estrecha el margen político antes del golpe del 17–18 de julio.
         </p>
 
         <div class="mt-3">
-          <span class="t-pill">⚠️ Violencia política</span>
-          <span class="t-pill">🧨 Catalizador</span>
-          <span class="t-pill">📰 Reacción pública</span>
+          <span class="t-pill">⚠️ Quiebra institucional</span>
+          <span class="t-pill">🚓 Violencia/orden público</span>
+          <span class="t-pill">🧨 Acelerador político</span>
         </div>
       </div>
 
-      <!-- CLAVES -->
-      <div class="section-head anchor mb-3" id="claves">
-        <h2>🔎 Claves para entenderlo</h2>
-        <p class="hint">Qué debes mirar para explicarlo con claridad en un examen.</p>
+      <!-- CONTEXTO -->
+      <div class="section-head anchor mb-3" id="contexto">
+        <h2>🧭 Contexto y antecedentes inmediatos</h2>
+        <p class="hint">Del ciclo de violencia política a la lógica de represalia.</p>
+      </div>
+
+      <!-- =======================
+     ANTECEDENTES (PREVIOS)
+======================== -->
+<section id="antecedentes" class="content-card mb-4">
+  
+  <p class="mt-3">
+    Para entender el asesinato de Calvo Sotelo (13 de julio de 1936) es imprescindible
+    reconstruir la cadena de violencia y represalias que se intensifica en los meses previos.
+    El encadenamiento más directo pasa por la figura del <strong>teniente de Asalto José Castillo</strong>,
+    su notoriedad tras los disturbios del <strong>funeral de Anastasio de los Reyes (16 abril 1936)</strong>
+    y su asesinato el <strong>12 de julio de 1936</strong>, que actúa como desencadenante inmediato de la represalia.
+  </p>
+
+  <!-- Subíndice interno -->
+  <div class="d-flex flex-wrap gap-2 mt-2">
+    <a href="#clima" class="btn btn-sm btn-outline-secondary">🌡️ Clima de violencia</a>
+    <a href="#funeral" class="btn btn-sm btn-outline-secondary">⚰️ Funeral y disturbios</a>
+    <a href="#castillo" class="btn btn-sm btn-outline-secondary">👮 Teniente Castillo</a>
+    
+    <a href="#asesinato-castillo" class="btn btn-sm btn-outline-secondary">🔫 Asesinato de Castillo</a>
+    <a href="#represalia" class="btn btn-sm btn-outline-secondary">⚠️ Lógica de represalia</a>
+  </div>
+
+  <hr class="my-4">
+
+  <!-- 1) Clima -->
+  <section id="clima" class="mb-4">
+    <h4>🌡️ 1) Escalada de violencia política (primavera–verano 1936)</h4>
+    <p class="mb-2">
+      Tras las elecciones de febrero de 1936, el deterioro del orden público y la polarización
+      política se agudizan: agresiones, atentados, choques entre militancias y una percepción
+      creciente de que la calle sustituye al Parlamento como escenario decisivo del conflicto.
+      La legitimidad del Estado se resiente porque cada bloque acusa al otro de actuar con impunidad.
+    </p>
+
+    <!-- Espacio para imagen -->
+    <figure class="text-center my-3">
+      <img class="img-fluid rounded-4 border shadow-sm"
+                    src="{% static 'images/sigloXX/guerraCivil/guardia_asalto.png' %}"                    
+                    >  
+      <img class="img-fluid rounded-4 border shadow-sm"
+           src="{% static 'images/sigloXX/fuerzas_orden.jpg' %}"
+           >
+      <figcaption class="small text-muted mt-2">
+        Fuerzas de orden en Madrid (1936).
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- 3) Funeral -->
+  <section id="funeral" class="mb-4">
+    <h4 >⚰️ 2) Asesinato de Anastasio de los Reyes (14 abril 1936)</h4>
+    <p class=""> El 14 de abril de 1936, durante los actos conmemorativos del V aniversario de la República, el alférez de la Guardia Civil <strong>Anastasio de los Reyes</strong> fue asesinado al increpar a un grupo de personas que abucheaban a la Guardia Civil que estaba desfilando
+
+    </p>
+    <p>El gobierno del Frente Popular, alerta ante los acontecimientos sucedidos y preocupado por una posible escalada de la violencia, ordenó que el entierro del alférez De los Reyes se celebrara en la intimidad, pero su hijo, David de los Reyes no estuvo de acuerdo.</p>
+    <p class="mb-2">
+     El día 16 de abril La comitiva fúnebre fue atacada con pistolas y ametralladoras en diversas ocasiones por las calles de la ciudad, lo que provocó que los asistentes al sepelio se defendiesen haciendo uso de sus armas de fuego reglamentarias. 
+    </p>
+    <p>Al llegar la comitiva fúnebre a la plaza de Manuel Becerra fue disuelta por las fuerzas del orden público al 
+      servicio del gobierno del Frente Popular mediante el uso de armas de fuego. 
+      Las fuerzas de orden público, los Guardias de Asalto, estaban mandados por el <strong>teniente Castillo</strong>. 
+      Durante los incidentes fueron asesinadas seis personas de la comitiva (entre ellas <strong>Sáenz de Heredia</strong>, de 24 años, era primo del fundador de la Falange José Antonio Primo de Rivera) y se contaron 32 heridos de gravedad. </p>
+
+    
+
+    <!-- Espacio para imagen -->
+    
+  </section>
+  <div class="row g-3 mt-2">
+  <div class="col-md-6">
+    <figure class="m-0">
+      <img class="img-fluid rounded-4 border"
+           src="{% static 'images/sigloXX/guerraCivil/funeral_anastasio_cortejo.jpg' %}"
+           alt="Mapa de zonas y control territorial en 1936"
+           role="button"
+           data-bs-toggle="modal"
+           data-bs-target="#dragon_rapide">
+      <figcaption class="small text-muted mt-2">
+        Comitiva fúnebre en el entierro de Anastasio de los Reyes
+      </figcaption>
+      
+    </figure>
+  </div>
+
+  <div class="col-md-6">
+    <figure class="m-0">
+      <img class="img-fluid rounded-4 border"
+           src="{% static 'images/sigloXX/guerraCivil/esquela_anastasio_reyes.webp' %}"
+           alt="Cartel o fotografía de época"
+           role="button"
+           data-bs-toggle="modal"
+           data-bs-target="#no_pasaran">
+      <figcaption class="small text-muted mt-2">
+        
+      </figcaption>
+    </figure>
+  </div>
+</div>
+
+  <!-- 2) Castillo -->
+  <section id="castillo" class="mb-4 mt-4">
+    <h4 class="h4">👮 3) Asesinato del teniente Castillo</h4>
+    <p class="mb-2">
+      El <strong>teniente José Castillo</strong>, oficial de la <strong>Guardia de Asalto</strong>, era una figura
+      conocida en el Madrid de 1936. Se le atribuían vínculos con ambientes socialistas y con
+      las milicias de izquierda (especialmente en el entorno de las Juventudes Socialistas),
+      lo que le convirtió en objetivo de odio para la extrema derecha. Su papel en operaciones
+      de mantenimiento del orden lo situó en el centro de la tensión política.
+    </p>
+
+      <p class="mb-0">
+          Castillo se encaminaba a su puesto de trabajo en el cuartel de Pontejos en Madrid. 
+          Al doblar la esquina de la confluencia entre la calle Augusto Figueroa y Fuencarral, cuatro pistoleros lo asesinaron.</p> 
+          <p>Con certeza, a fecha de hoy no se puede afirmar quién le disparó.</p>
+          <p><strong>Paul Preston y Gabriel Jackson</strong> sugieren que los falangistas podrían estar detrás del asesinato
+          en represalia por los hechos ocurridos en los llamados incidentes del entierro del alférez
+          Anastasio de los Reyes. En aquel episodio, Castillo habría ordenado abrir fuego contra la
+          multitud, resultando muerto, entre otros, Andrés Saez de Heredia, primo del fundador de la
+          Falange, José Antonio Primo de Rivera.</p> <p>Por otro lado, <strong>Ian Gibson</strong> plantea la posibilidad de que
+          los carlistas fueran los responsables, ya que acusaban a Castillo de haber disparado a
+          quemarropa al joven carlista José Luis Llaguno Hacha en los mismos incidentes.
+        </p>
+
+    
+      <div class="row g-3 mt-2">
+ <div class="row g-4 align-items-start">
+
+  <!-- Retrato Teniente Castillo -->
+  <div class="col-md-6 d-flex justify-content-center">
+    <figure class="m-0 text-center w-100">
+      <img class="img-fluid rounded-4 border shadow-sm mx-auto d-block"
+           style="max-width: 180px;"
+           src="{% static 'images/sigloXX/guerraCivil/teniente_castillo_1.jpg' %}"
+           alt="Retrato del teniente José del Castillo"
+           role="button"
+           data-bs-toggle="modal"
+           data-bs-target="#dragon_rapide">
+      <figcaption class="small text-muted mt-2">
+        Teniente Castillo
+      </figcaption>
+    </figure>
+  </div>
+
+  <!-- Lugar del asesinato -->
+  <div class="col-md-6">
+    <figure class="m-0 text-center">
+      <img class="img-fluid rounded-4 border shadow-sm"
+           style="max-height: 320px; object-fit: cover;"
+           src="{% static 'images/sigloXX/guerraCivil/calle_asesinato_castillo.jpg' %}"
+           alt="Ermita del Humilladero de Nuestra Señora de la Soledad, Madrid"
+           role="button"
+           data-bs-toggle="modal"
+           data-bs-target="#no_pasaran">
+      <figcaption class="small text-muted mt-2">
+        Ermita del Humilladero de Nuestra Señora de la Soledad, en la esquina de las calles Fuencarral y Augusto Figueroa.  
+        A sus puertas fue asesinado el teniente Castillo.
+      </figcaption>
+    </figure>
+  </div>
+
+</div>
+
+
+  </section>
+
+ 
+
+ 
+
+  <!-- 5) Represalia -->
+  <section id="represalia" class="mb-0">
+    <h6 class="h4">⚠️ 4) La lógica de represalia: del crimen de Castillo al de Calvo Sotelo</h4>
+    <p class="mb-2">
+      La muerte de Castillo provoca conmoción entre compañeros de la Guardia de Asalto y
+      militantes socialistas. En las horas siguientes se gesta una <strong>respuesta vengativa</strong>
+      que busca un objetivo político “equivalente” del campo contrario. La elección de
+      <strong>Calvo Sotelo</strong> como figura representativa de la oposición monárquica y
+      parlamentaria convierte la represalia en un hecho de enorme impacto: ya no se trata
+      de violencia callejera entre militancias, sino de una operación con apariencia de
+      <strong>actuación policial</strong>, lo que simboliza —a ojos de muchos contemporáneos—
+      la quiebra de la neutralidad del Estado.
+    </p>
+
+    
+  </section>
+</section>
+
+
+
+      <!-- OPERACIÓN -->
+      <div class="section-head anchor mb-3" id="operacion">
+        <h2>🚓 La operación </h2>
+        
       </div>
 
       <div class="content-card mb-4">
-        <ul class="mb-0">
-          <li class="mb-2">
-            <strong>Clima previo</strong>: la Segunda República vive una fase de alta confrontación, con choque social e institucional.
-          </li>
-          <li class="mb-2">
-            <strong>Simbolismo</strong>: la víctima era un referente de la oposición; el hecho actúa como “prueba” de que la vía política es inviable para muchos.
-          </li>
-          <li class="mb-2">
-            <strong>Efecto dominó</strong>: endurece posiciones, refuerza discursos de urgencia y precipita apoyos al alzamiento.
-          </li>
-          <li>
-            <strong>Lectura histórica</strong>: se usa como argumento de legitimación y como punto de inflexión en relatos posteriores.
-          </li>
-        </ul>
+        
+        <div class="content-card mb-4">
+        <p class="mb-2">
+          La reconstrucción más difundida atribuye el liderazgo operativo al <strong>capitán Fernando Condés</strong> (de paisano)
+          y señala a <strong>Luis Cuenca</strong> como autor material de los disparos. El grupo incluía <strong>guardias de asalto</strong>
+          y <strong>militantes socialistas</strong> (“La Motorizada”), en un contexto de represalia inmediata tras la muerte de Castillo.
+        </p>
+        <div class="row g-4 align-items-start">
+          <div class="col-lg-8"> 
+
+            <h6 class="fw-bold mb-2">Cronología esencial</h6>
+            <ul class="mb-4">
+              <li>Su objetivo inicial era dirigirse al domicilio de un militante falangista, aunque la dirección consignada resultó ser incorrecta.</li>
+              <li>Se dirigieron al domicilio del líder de la oposición, <strong>José María Gil Robles</strong>, pero éste tampoco se encontraba en su casa</li> 
+              <li>Van a la residencia del líder del partido monárquico Renovación Española, <strong>Antonio Goicoechea</strong>, que tampoco se
+              encontraba en su hogar</li>
+              <li>Finalmente, como recurso último, se dirigieron a la vivienda del diputado monárquico <strong>José Calvo Sotelo. </strong> 
+              El grupo armado simula registro y se comunica detención. El grupo llegó al domicilio del político gallego alrededor de las 2 o las 3 de la madrugada. En un
+              principio, por el relato de Enriqueta, la hija mayor de Calvo Sotelo, el detenido rechazó la idea de
+              acompañarlos. Sin embargo, al mostrarle su acreditación de guardia civil, el político
+              decidió ir con ellos.</li>
+              <li>Según <strong>Riu Tomás</strong>, en su libro La Guerra Civil Española, se despidió de su familia prometiendo
+              comunicarse apenas llegara a la Dirección General de Seguridad, concluyendo su despedida
+              con las palabras, a no ser que estos señores me lleven para darme cuatro tiros.</li>
+              <li><strong>Traslado:</strong> No había
+              recorrido 200 metros el vehículo en el que viajaba Calvo Sotelo, cuando desde el asiento de
+              atrás le asestaron dos disparos en la nuca al político monárquico.</li>
+              <li><strong>Depósito:</strong> el cadáver es dejado en el depósito del cementerio (La Almudena).</li>
+              <li><strong>Consecuencias.</strong> Tras cometer el asesinato, Condés, en la sede del PSOE, habló con el diputado socialista Juan
+              Simeón Vidarte, quien atónito al recibir la noticia se negó a prestarle su apoyo legal en caso de
+              que fuera detenido. Luis Cuenca, el autor material del asesinato y escolta del líder socialista
+              Indalecio Prieto, contactó con Julián Zugazagoitia, el director del diario El Socialista. Al
+              enterarse de la noticia, Zugazagoitia exclamó horrorizado, esto es la guerra.</li>
+            </ul>
+
+            
+
+          </div>
+
+          <div class="col-lg-4">
+            <figure class="border rounded-3 p-2 bg-light text-center">
+              <img
+                src="{% static 'images/sigloXX/guerraCivil/calvo_sotelo_foto.jpg' %}"
+                alt="José Calvo Sotelo (retrato) — imagen a insertar"
+                class="img-fluid rounded-2 d-block mx-auto"
+                style="max-height: 220px; object-fit: cover; background: #e9ecef;"
+              >
+              <figcaption class="small text-muted mt-2">
+                <strong>Imagen 1:</strong> José Calvo Sotelo.
+              </figcaption>
+            </figure>
+
+            <figure class="border rounded-3 p-2 bg-light text-center mt-3">
+              <img
+                src="{% static 'images/sigloXX/guerraCivil/calvo_sotelo_cadaver.jpg' %}"
+                alt="Fotografía del cadáver — opcional"
+                class="img-fluid rounded-2 d-block mx-auto"
+                style="max-height: 220px; object-fit: cover; background: #e9ecef;"
+              >
+              <figcaption class="small text-muted mt-2">
+                <strong>Imagen 2:</strong> Fotografía del cadáver.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
+        
       </div>
 
-      <!-- CONSECUENCIAS -->
-      <div class="section-head anchor mb-3" id="consecuencias">
-        <h2>📌 Consecuencias</h2>
-        <p class="hint">Qué cambia a partir de aquí.</p>
+       
+
+        
       </div>
+
+      <!-- RESPONSABLES -->
+      <div class="section-head anchor mb-3" id="responsables">
+        <h2>🧩 Responsables e investigación</h2>
+        <p class="hint">Participación, atribuciones y límites de la depuración.</p>
+      </div>
+
+      <div class="content-card mb-4">
+
+        <div class="callout mb-3">
+          <strong>Idea clave</strong><br>
+          El impacto histórico del asesinato no reside solo en la autoría material, sino en la
+          <strong>implicación de agentes del orden público</strong> y en la
+          <strong>incapacidad del Estado republicano para investigar y depurar responsabilidades</strong>
+          en un contexto de crisis extrema.
+        </div>
+
+        <p class="mb-3">
+          El asesinato de <strong>José Calvo Sotelo</strong> planteó de inmediato un problema central:
+          la identificación de responsabilidades y la capacidad real del Estado para investigarlas.
+          La complejidad del caso radica tanto en la <strong>composición del grupo ejecutor</strong>
+          como en las <strong>limitaciones políticas e institucionales</strong> que afectaron a la investigación.
+        </p>
+
+        <p class="mb-3">
+          La reconstrucción historiográfica coincide en señalar la participación de un
+          <strong>grupo mixto</strong>, integrado por <strong>miembros de las fuerzas de seguridad</strong>
+          —principalmente de la Guardia de Asalto— y <strong>militantes socialistas</strong>
+          vinculados al entorno del PSOE y la UGT. La actuación se enmarca en una lógica de
+          <strong>represalia inmediata</strong> tras el asesinato del teniente José Castillo,
+          lo que explica el carácter decidido pero políticamente explosivo de la operación.
+        </p>
+
+        <div class="row g-3 mb-3">
+          <div class="col-md-6">
+            <div class="mini-card h-100">
+              <div class="t">Atribuciones operativas</div>
+              <div class="d">
+                La organización del grupo se asocia habitualmente al capitán
+                <strong>Fernando Condés</strong>, mientras que el disparo mortal se atribuye
+                de forma recurrente a <strong>Luis Cuenca</strong>, militante socialista
+                integrado en el operativo.
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="mini-card h-100">
+              <div class="t">Clave histórica</div>
+              <div class="d">
+                Más allá de la autoría material, lo decisivo fue la
+                <strong>participación de agentes del orden público</strong>,
+                que convirtió el crimen en símbolo de
+                <strong>quiebra de la neutralidad institucional</strong>.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="mb-3">
+          La <strong>investigación oficial</strong> iniciada tras el asesinato se vio rápidamente
+          condicionada por la polarización política, el temor a una escalada inmediata de violencia
+          y la proximidad de la conspiración militar. Aunque se produjeron
+          <strong>diligencias preliminares y detenciones</strong>, la investigación quedó
+          <strong>incompleta y fragmentaria</strong>, sin una depuración efectiva de responsabilidades.
+        </p>
+
+        <p class="mb-3">
+          El estallido del golpe de Estado los días <strong>17–18 de julio de 1936</strong>
+          interrumpió de facto cualquier posibilidad de esclarecimiento judicial en el marco
+          de la legalidad republicana. Desde ese momento, el asesinato dejó de ser un caso penal
+          para convertirse en un <strong>argumento político</strong> dentro de la dinámica del conflicto.
+        </p>
+
+        <div class="border rounded-3 p-3 bg-light mb-3">
+          <strong>Límites de la depuración</strong>
+          <ul class="mb-0 mt-2">
+            <li>Debilidad estructural del Estado para imponer el monopolio legítimo de la violencia.</li>
+            <li>Politización extrema del aparato de seguridad y de la investigación.</li>
+            <li>Colapso del marco legal tras el inicio de la sublevación militar.</li>
+          </ul>
+        </div>
+
+        <p class="mb-0">
+          Desde una perspectiva histórica, estos límites resultan tan relevantes como el crimen mismo.
+          El asesinato de Calvo Sotelo fue utilizado por sectores contrarios a la República como
+          <strong>argumento de legitimación del golpe</strong>, al presentarse no como un delito individual,
+          sino como prueba de un supuesto colapso del orden legal. La imposibilidad de investigar y sancionar
+          el crimen en condiciones normales reforzó la idea de que la vía institucional estaba agotada
+          y aceleró el paso de la crisis política al conflicto armado.
+        </p>
+
+      </div>
+
+
+      
+
+    
+      <!-- =======================
+     REACCIONES E IMPACTO
+======================== -->
+      <div class="section-head anchor mb-3" id="reacciones">
+        <h2>📌 Reacciones e impacto</h2>
+        <p class="hint">Cómo cambia el clima político en cuestión de horas.</p>
+      </div>
+
+      <div class="content-card mb-4">
+
+        <div class="callout mb-3">
+          <div class="fw-bold mb-1">Idea clave</div>
+          <div class="small">
+            El asesinato actúa como un <strong>acelerador inmediato</strong>: en pocas horas
+            la política se reordena en torno a <strong>miedo, indignación</strong> y <strong>lógica de represalia</strong>,
+            estrechando el margen para soluciones institucionales.
+          </div>
+        </div>
+
+        <p class="mb-3">
+          La noticia del asesinato de <strong>José Calvo Sotelo</strong> (13 de julio de 1936) produce un impacto fulminante.
+          No se trata solo de un crimen político, sino de un episodio que muchos contemporáneos interpretan como
+          <strong>quiebra de garantías</strong> y señal de que el Estado ya no controla plenamente el orden público.
+          En cuestión de horas, el debate deja de girar sobre reformas o pactos y pasa a centrarse en
+          <strong>seguridad, autoridad y supervivencia política</strong>.
+        </p>
+
+        <div class="row g-3 mb-3">
+          <div class="col-md-4">
+            <div class="mini-card h-100">
+              <div class="t">Shock y polarización</div>
+              <div class="d">
+                La conmoción se traduce en un salto de la conversación pública hacia
+                <strong>lecturas extremas</strong>: “golpe inminente” para unos,
+                “Estado fallido” para otros. Se reduce el espacio para posiciones intermedias.
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="mini-card h-100">
+              <div class="t">Crisis de legitimidad</div>
+              <div class="d">
+                El elemento decisivo es la percepción de que han intervenido
+                <strong>agentes vinculados a fuerzas de seguridad</strong>.
+                Esto erosiona la idea de neutralidad institucional y dispara la desconfianza.
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="mini-card h-100">
+              <div class="t">Efecto sobre decisiones</div>
+              <div class="d">
+                Para sectores ya conspiradores, el hecho se interpreta como confirmación de urgencia:
+                acelera apoyos, endurece compromisos y reduce “tiempos de espera”.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="border rounded-3 p-3 bg-light mb-3">
+          <div class="fw-bold mb-2">Qué cambia “en horas”</div>
+          <ul class="mb-0">
+            <li class="mb-2">
+              <strong>Se impone la lógica de seguridad</strong>: el orden público desplaza a la negociación como eje del debate.
+            </li>
+            <li class="mb-2">
+              <strong>Se endurecen los marcos morales</strong>: el adversario deja de ser rival político y pasa a ser amenaza existencial.
+            </li>
+            <li class="mb-2">
+              <strong>Se normaliza la excepcionalidad</strong>: crece la aceptación social de “soluciones de fuerza” como salida.
+            </li>
+            <li>
+              <strong>La propaganda gana centralidad</strong>: el hecho se convierte en prueba definitiva dentro de relatos opuestos.
+            </li>
+          </ul>
+        </div>
+
+        <p class="mb-3">
+          El efecto inmediato también es <strong>emocional</strong>: miedo a nuevas represalias, sensación de impunidad y presión
+          sobre líderes y autoridades. En este clima, cada actor lee el episodio como confirmación de su diagnóstico previo,
+          consolidando una dinámica circular: <strong>inseguridad → radicalización → más inseguridad</strong>.
+        </p>
+
+        <!-- Mini cronología de reacción (útil para estudiar) -->
+        <div class="content-card p-0" style="border:none; box-shadow:none;">
+          <div class="fw-bold mb-2">Mini-cronología de reacciones</div>
+          <ul class="mini-timeline mb-0">
+            <li>
+              <div>
+                <strong>Horas 0–6</strong><br>
+                <span class="text-muted">Conmoción, rumores, búsqueda de responsables, lectura del hecho como quiebra institucional.</span>
+              </div>
+            </li>
+            <li>
+              <div>
+                <strong>Horas 6–24</strong><br>
+                <span class="text-muted">Endurecimiento de discursos, movilización y uso propagandístico; caída del margen para desescalada.</span>
+              </div>
+            </li>
+            <li>
+              <div>
+                <strong>Días siguientes</strong><br>
+                <span class="text-muted">El episodio se integra como argumento legitimador y como acelerador de decisiones ya en marcha.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Espacios para imágenes -->
+        <div class="row g-3 mt-3">
+          <div class="col-md-6">
+            <figure class="border rounded-3 p-2 bg-light text-center m-0">
+              <img
+                src="{% static 'images/sigloXX/guerraCivil/prensa_reaccion.jpg' %}"
+                alt="Placeholder: titulares de prensa sobre el asesinato y reacción pública"
+                class="img-fluid rounded-2 d-block mx-auto"
+                style="max-height:260px; object-fit:contain; background:#fff;">
+              
+            </figure>
+          </div>
+
+          <div class="col-md-6">
+            <figure class="border rounded-3 p-2 bg-light text-center m-0">
+              <img
+                src="{% static 'images/sigloXX/guerraCivil/cortes_debate.webp' %}"
+                alt="Placeholder: escena parlamentaria o documento sobre inviolabilidad y crisis institucional"
+                class="img-fluid rounded-2 d-block mx-auto"
+                style="max-height:260px; object-fit:contain; background:#fff;">
+              
+            </figure>
+          </div>
+
+          
+        </div>
+
+      </div>
+
 
       <div class="content-card mb-4">
         <div class="callout mb-3">
           <div class="fw-bold mb-1">Idea clave</div>
           <div class="small">
-            Acelera la crisis: <strong>menos margen</strong> para pactos, <strong>más presión</strong> por “soluciones de fuerza”.
+            El asesinato reduce el margen de “salida política”: aumenta la presión por soluciones de fuerza y acelera apoyos
+            a la conspiración en sectores ya predispuestos.
           </div>
         </div>
 
         <ul class="mb-0">
-          <li class="mb-2"><strong>Polarización definitiva</strong>: aumenta la desconfianza entre bloques y la lógica de represalias.</li>
-          <li class="mb-2"><strong>Movilización</strong>: refuerza la propaganda y la movilización política y social.</li>
-          <li class="mb-2"><strong>Preludio inmediato</strong>: pocos días después, el golpe se activa y la crisis se transforma en guerra.</li>
-          <li><strong>Memoria</strong>: el episodio se convierte en símbolo recurrente en interpretaciones y discursos.</li>
+          <li class="mb-2"><strong>Conmoción pública</strong> y escalada retórica inmediata.</li>
+          <li class="mb-2"><strong>Desconfianza institucional</strong>: si el orden público aparece politizado, el conflicto se desborda.</li>
+          <li class="mb-2"><strong>Efecto acelerador</strong>: el golpe del 17–18 de julio llega pocos días después, con un clima ya “sin frenos”.</li>
+          <li><strong>Polarización</strong>: el hecho se convierte en símbolo, reforzando relatos irreconciliables.</li>
         </ul>
       </div>
 
-      <!-- MINI-CRONOLOGÍA -->
-      <div class="section-head anchor mb-3" id="cronologia">
-        <h2>🧷 Mini-cronología (para situarlo)</h2>
-        <p class="hint">Antes → hecho → después.</p>
+      <!-- MEMORIA -->
+      <div class="section-head anchor mb-3" id="memoria">
+        <h2>🗣️ Memoria y uso político</h2>
+        <p class="hint">Del acontecimiento al símbolo: cómo se “lee” después.</p>
       </div>
 
       <div class="content-card mb-4">
-        <ul class="mini-timeline mb-0">
-          <li>
-            <div>
-              <strong>Primavera–verano 1936</strong><br>
-              <span class="text-muted">Escalada de violencia política y tensión institucional.</span>
-            </div>
-          </li>
-          <li>
-            <div>
-              <strong>13 julio 1936</strong><br>
-              <span class="text-muted">Asesinato de Calvo Sotelo (impacto inmediato en opinión pública y actores políticos).</span>
-            </div>
-          </li>
-          <li>
-            <div>
-              <strong>17–18 julio 1936</strong><br>
-              <span class="text-muted">Inicio del golpe de Estado → estallido de la guerra.</span>
-            </div>
-          </li>
-        </ul>
+        <p class="mb-2">
+          Desde 1936 el asesinato se integra en narrativas políticas como un <strong>“punto de no retorno”</strong>.
+          Durante la guerra y el franquismo se utiliza como <strong>argumento de legitimación</strong> del alzamiento,
+          y en la historiografía posterior se analiza como episodio donde convergen <strong>violencia</strong>, <strong>Estado</strong> y <strong>milicias</strong>.
+        </p>
+        
       </div>
 
-      <!-- PARA ESTUDIAR -->
-      <div class="section-head anchor mb-3" id="paraestudiar">
-        <h2>📝 Para estudiar</h2>
-        <p class="hint">Plantilla rápida de redacción.</p>
-      </div>
+          
 
-      <div class="content-card">
-        <div class="fw-bold mb-2">Esquema recomendado</div>
-        <ol class="mb-0">
-          <li><strong>Contexto</strong>: polarización y violencia política en 1936.</li>
-          <li><strong>Hecho</strong>: asesinato de Calvo Sotelo (fecha y relevancia política).</li>
-          <li><strong>Interpretación</strong>: catalizador que acelera apoyos y endurece posiciones.</li>
-          <li><strong>Consecuencia</strong>: preludio inmediato del golpe y del paso a conflicto armado.</li>
-        </ol>
-      </div>
+     
 
     </main>
   </div>
 </div>
 
-{% comment %} MODAL IMAGEN CABECERA {% endcomment %}
-<div class="modal fade" id="img_calvo_sotelo" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-    <div class="modal-content bg-dark">
-      <div class="modal-header border-0">
-        <button type="button" class="btn-close btn-close-white ms-auto"
-                data-bs-dismiss="modal" aria-label="Cerrar"></button>
-      </div>
-      <div class="modal-body text-center">
-        <img class="img-fluid rounded"
-             src="{% static 'images/sigloXX/guerraCivil/calvo_sotelo.jpg' %}"
-             alt="Asesinato de Calvo Sotelo (ampliado)">
-      </div>
-    </div>
-  </div>
+
+
+
+
+
 </div>
+
+
+
+
+ 
+
 
 {% endblock %}

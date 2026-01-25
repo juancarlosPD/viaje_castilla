@@ -1,4 +1,4 @@
-{% extends "bases/basesigloXX.html" %}
+{% extends "bases/baseGuerraCivil.html" %}
 {% load static %}
 
 {% block titulo %} 17 de julio de 1936 {% endblock %}
@@ -107,6 +107,11 @@
     background:rgba(255,255,255,.85);
     padding:.1rem .4rem;border-radius:.5rem;
   }
+
+  .sticky-aside{
+    position: sticky;
+    top: 90px;   /* ajusta según tu navbar */
+  }
 </style>
 
 <div class="page-wrap">
@@ -136,8 +141,14 @@
 
     <div class="row g-3">
       <div class="col-md-4">
-        <div class="mini-card">
-          <div class="t">Qué ocurre</div>
+        <div class="mini-card">          
+          <figure class="text-center">
+                <img class="img-fluid rounded-4 border shadow-sm"
+                    src="{% static 'images/sigloXX/guerraCivil/alzamiento_prensa.jpg' %}"                    
+                    role="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#">                
+            </figure>
           <div class="d">
             Sublevación de las tropas del Ejército de África contra el gobierno republicano.
           </div>
@@ -146,18 +157,31 @@
 
       <div class="col-md-4">
         <div class="mini-card">
-          <div class="t">Por qué importa</div>
+          <figure class="text-center">
+                <img class="img-fluid rounded-4 border shadow-sm"
+                    src="{% static 'images/sigloXX/guerraCivil/franco_ceuta.jpg' %}"                    
+                    role="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#">                
+            </figure>
+          
           <div class="d">
-            Marca el inicio real del golpe y compromete a las fuerzas militares más eficaces.
+           El general Franco llega a Ceuta.
           </div>
         </div>
       </div>
 
       <div class="col-md-4">
         <div class="mini-card">
-          <div class="t">Qué provoca</div>
+           <figure class="text-center">
+                <img class="img-fluid rounded-4 border shadow-sm"
+                    src="{% static 'images/sigloXX/guerraCivil/protectorado_marruecos.png' %}"                    
+                    role="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#protectorado">                
+            </figure>
           <div class="d">
-            La extensión inmediata del golpe y el paso de crisis política a guerra.
+            Mapa del protectorado español en Marruecos.
           </div>
         </div>
       </div>
@@ -171,13 +195,37 @@
 
     <!-- ASIDE -->
     <aside class="col-lg-4">
-      <div class="content-card">
+      <div class="content-card sticky-aside">
         <div class="fw-bold mb-2">En esta página</div>
 
-        <a class="d-block text-decoration-none mb-1" href="#hecho">🧾 Qué ocurre</a>
-        <a class="d-block text-decoration-none mb-1" href="#porque">❓ Por qué es clave</a>
-        <a class="d-block text-decoration-none mb-1" href="#consecuencias">📌 Consecuencias inmediatas</a>
+        <a class="d-block text-decoration-none mb-1" href="#hecho">❓ Qué ocurre</a>
+        <a class="d-block text-decoration-none mb-1" href="#contexto">📜 Protectorado español en Marruecos</a>
+        <a class="d-block text-decoration-none mb-1" href="#consecuencias">📌 Hechos</a>
         <a class="d-block text-decoration-none mb-1" href="#cronologia">🕰️ Cronología</a>
+
+      <div class="content-card">
+        <ul class="mini-timeline mb-0">
+          <li>
+            <div>
+              <a class="link-dark  text-reset" href="{% url 'calvo_sotelo' %}"><strong>13 julio 1936</strong><br></a>            
+                <span class="text-muted"> Asesinato de Calvo Sotelo. </span>            
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>17 julio 1936</strong><br>
+              <span class="text-muted">Inicio del alzamiento en Marruecos.</span>
+            </div>
+          </li>
+          <li>
+            <div>
+              <a class="link-dark  text-reset" href="{% url 'golpe_18_julio' %}"><strong>18 julio 1936</strong><br></a>            
+                <span class="text-muted">Extensión del golpe a la Península.. </span>            
+            </div>
+            
+          </li>
+        </ul>
+      </div>
 
         <hr>
 
@@ -193,11 +241,12 @@
 
       <!-- HECHO -->
       <div class="section-head anchor mb-3" id="hecho">
-        <h2>🧾 Qué ocurre el 17 de julio</h2>
+        <h2>❓ Qué ocurre el 17 de julio</h2>
         <p class="hint">El golpe comienza fuera de la Península.</p>
       </div>
 
       <div class="content-card mb-4">
+        <p>La rebelión militar de Melilla fue el primer movimiento del golpe de Estado en España de julio de 1936, que significó el inicio de la guerra civil española.</p> 
         <p>
           El <strong>17 de julio de 1936</strong> se inicia el alzamiento militar en el
           <strong>Protectorado español de Marruecos</strong>. Las tropas del
@@ -205,10 +254,16 @@
           se sublevan contra el gobierno de la Segunda República.
         </p>
 
-        <p class="mb-0">
+        <p >
           La elección de Marruecos no es casual: desde allí se pretende asegurar
           fuerzas experimentadas para trasladarlas rápidamente a la Península
           y provocar el colapso del régimen republicano.
+        </p>
+        <p>
+          La rebelión militar debía empezar el día 18 según indicaciones del general Mola, pero empezaría el día 17 
+          debido a un registro policial en el centro de la conspiración. Aunque este hecho no perturbó sus planes, a la larga sí afectaría a otras partes de la conspiración.
+          Antes de terminar el día 17, los militares sublevados se habían hecho con el control de toda la ciudad y sus alrededores, 
+          dando el pistoletazo de salida a la rebelión del Marruecos español.
         </p>
 
         <div class="mt-3">
@@ -219,88 +274,172 @@
       </div>
 
       <!-- POR QUÉ IMPORTA -->
-      <div class="section-head anchor mb-3" id="porque">
-        <h2>❓ Por qué es un momento clave</h2>
-        <p class="hint">Aquí se cruza el umbral entre crisis y guerra.</p>
+      <div class="section-head anchor mb-3" id="contexto">
+        <h2>📜 Protectorado español de Marruecos</h2>        
       </div>
 
       <div class="content-card mb-4">
-        <ul>
-          <li>
-            <strong>Marca el inicio real del golpe</strong>, aunque la mayoría de
-            sublevaciones en la Península se producirán el día 18.
-          </li>
-          <li>
-            Implica al <strong>Ejército de África</strong>, decisivo por su disciplina,
-            experiencia y liderazgo.
-          </li>
-          <li>
-            Demuestra que el golpe es <strong>planificado y coordinado</strong>,
-            no una reacción improvisada.
-          </li>
-          <li>
-            A partir de este momento, la posibilidad de una salida política
-            negociada se reduce drásticamente.
-          </li>
-        </ul>
+        <p>La del <strong>Protectorado marroquí</strong> era la mayor guarnición española de todo el ejército, 
+          consecuencia de lo conflictivo de la zona (y, especialmente, tras la sangrienta guerra del Rif). 
+          Por tanto, en los planes conspirativos del general Mola contra el gobierno del Frente Popular,
+          la guarnición africana era uno de los elementos claves.</p>
+          
+          <div class="row">
+            <div class="col-9">
+              <p>La sublevación militar que daría lugar a la guerra civil española empezaría en Melilla. </p>
+              <p>Aunque en <strong>Melilla</strong> gobernaba el Frente Popular, las posibilidades del gobierno de Madrid frente a una intentona golpista
+              eran mínimas, dado que la mayoría de los oficiales de la guarnición estaban comprometidos con la conspiración militar, 
+              a excepción del comandante en jefe de la Circunscripción Oriental, el general de brigada <strong>Manuel Romerales Quintero</strong>, 
+              y unos pocos militares fieles al gobierno.</p> 
+              <p><strong>En el resto de Marruecos</strong>, el comandante en jefe del Ejército de África, <strong>Agustín Gómez Morato</strong>, 
+              o el alto comisario de Marruecos, Arturo Álvarez-Buylla Godino, eran fieles al gobierno.</p>
+              <p>Por otro lado, los trabajadores españoles en Marruecos no disponían de armas para defenderse en caso de que estallara 
+              una rebelión militar.​</p>
+            </div>
+            <div class="col-3 border">
+              <figure class="text-center my-3">                
+                <img class="img-fluid rounded-4  shadow-sm"
+                    src="{% static 'images/sigloXX/guerraCivil/agustin_gomez_morato.jpg' %}"
+                    >
+                <figcaption class="small text-muted mt-2">
+                  Agustín Gómez Morato.
+                  <p>Comandante en jefe de ejército de África</p>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+          
       </div>
 
       <!-- CONSECUENCIAS -->
       <div class="section-head anchor mb-3" id="consecuencias">
-        <h2>📌 Consecuencias inmediatas</h2>
+        <h2>📌 Hechos</h2>
         <p class="hint">Efectos en cadena en menos de 48 horas.</p>
       </div>
 
       <div class="content-card mb-4">
         <div class="callout mb-3">
-          <strong>Idea clave:</strong> el golpe ya no puede detenerse sin violencia generalizada.
+          <strong>La conspiración en Melilla</strong> 
         </div>
 
-        <ul>
+        <div class="row">
+          <div class="col-9">
+            <ul>
           <li>
-            El <strong>18 de julio</strong> el alzamiento se extiende a la Península.
+            Durante la mañana del 17 de julio los conspiradores celebraron una reunión en la sala de la comisión cartográfica 
+            de la guarnición para ultimar los planes. Durante el encuentro el coronel <strong> Juan Seguí</strong>, jefe local de Falange y también 
+            líder de la sublevación en el Marruecos oriental, comunicó a los conspiradores el momento en que comenzaría 
+            la sublevación: 5 de la mañana del 18 de julio.
           </li>
           <li>
-            El gobierno pierde el control de parte del territorio.
+            En el último momento uno de los dirigentes locales de Falange, Álvaro González, informó sobre los planes de la conspiración al dirigente local del partido Unión Republicana (UR),
           </li>
           <li>
-            Se forman <strong>dos zonas</strong> con poderes enfrentados.
+            Por la tarde, los oficiales golpistas volvieron a la sala de cartografía y procedieron a repartir las armas que habían guardado allí clandestinamente. Fue entonces cuando llegó a las inmediaciones el <strong> teniente Zaro</strong>, que procedió a rodear el edificio con soldados y guardias de asalto.
           </li>
           <li>
-            El golpe fracasa como acción rápida y se transforma en
-            <strong>guerra civil</strong>.
+           <strong>Darío Gazapo</strong> (miembro de la falange) llama por teléfono para que una unidad de la Legión extranjera acudiera a auxiliarle. Cuando los legionarios llegaron al lugar, Zaro y sus hombres se vieron superados numéricamente, y se rindieron.
           </li>
-        </ul>
+        </ul> 
+          </div>
+          <div class="col-2">
+            <figure class="text-center my-3">                
+                <img class="img-fluid rounded-4 border shadow-sm"
+                    src="{% static 'images/sigloXX/guerraCivil/juan_segui.jpg' %}"
+                    >
+                <figcaption class="small text-muted mt-2">
+                  Coronel Juan Seguí.
+                </figcaption>
+              </figure>
+              <figure class="text-center my-3">                
+                <img class="img-fluid rounded-4 border shadow-sm"
+                    src="{% static 'images/sigloXX/guerraCivil/dario_gazapo.jpg' %}"
+                    >
+                <figcaption class="small text-muted mt-2">
+                  Darío Gazapo.
+                </figcaption>
+              </figure>
+          </div>
+        </div>
+
+                
+         <div class="callout mb-3">
+          <strong>El golpe triunfa en Melilla</strong> 
+          
+        </div>
+        <div class="row">
+          <div class="col-9">
+            <ul>
+            <li>El coronel Seguí terminó por obligar al general Romerales (comandante militar de Melilla) a que se rindiera sin oponer resistencia.</li>
+            <li>Acto seguido, los oficiales sublevados declararon el estado de guerra y ocuparon todos los edificios públicos de Melilla en nombre del general Franco como comandante en jefe del Marruecos español</li>
+            <li>En Melilla también fueron clausurados la Casa del Pueblo socialista y los demás centros de partidos del Frente Popular, deteniendo además a los dirigentes republicanos y de izquierdas.​</li>
+              <li>En las cercanías de la Casa del Pueblo y en los barrios obreros tuvieron lugar pequeños enfrentamientos, pero la rebelión había sorprendido a los trabajadores y estos carecían de armas. A continuación, todos los detenidos que se habían resistido a la rebelión fueron fusilados, incluidos el general Romerales, el delegado del gobierno y el alcalde de la ciudad. Aquella misma noche del 17 de julio, los sublevados ejecutaron a 189 civiles y militares. Unos días después, el 20 de julio, estos abrieron un primer campo de concentración cerca de Melilla.</li>
+          </ul>
+          </div>
+          
+          <div class="col-3">
+            <figure class="text-center my-3">                
+                <img class="img-fluid rounded-4 border shadow-sm"
+                    src="{% static 'images/sigloXX/guerraCivil/general_romerales.jpg' %}"
+                    >
+                <figcaption class="small text-muted mt-2">
+                  General Romerales.
+                  <p>Comandante Melilla</p>
+                </figcaption>
+              </figure>
+          </div>
+        </div>
+        <p>El presidente del Gobierno es informado de los sucesos de Melilla y avisa al general Agustín Gómez Morato, jefe del Ejército de África, y que se encuentra en Larache. Éste vuela a Melilla para pacificar a los sublevados, pero es detenido por los sublevados en cuanto aterriza. El coronel Luis Soláns quedó al frente de la Comandancia Militar de Melilla.​ En la madrugada del 18 de julio de 1936 Soláns envió un telegrama a la Comandancia Militar de Las Palmas dirigido al general Francisco Franco, anunciándole que ya eran dueños de la ciudad de Melilla.</p>
+        
+         <div class="callout mb-3">
+          <strong>La última resistencia: El Atalayón</strong> 
+        </div>
+        <div class="row">
+          <div class="col-7 mt-4">
+              <ul>
+                <li>A pocos kilómetros de Melilla se encontraba la Base de Hidroaviones del Atalayón, al mando del capitan Leret Ruiz que permanece fiel a la República. </li>
+                <li>El capitán resiste durante tres horas el asedio de los rebeldes, que finalmente capturan la base. Fue fusilado al poco de rendirse, en la madrugada del 18, semidesnudo y con un brazo roto</li>
+                
+              </ul>
+          </div>
+          <div class="col-5">
+             <figure class="text-center my-4 ">                
+                <img class="img-fluid rounded-4  shadow-sm"
+                    src="{% static 'images/sigloXX/guerraCivil/atalayon.jpg' %}"
+                    >
+                <figcaption class="small text-muted mt-2">                 
+                  <p>Base de hidroaviones El Atalayon</p>
+                </figcaption>
+              </figure>
+          </div>
+        </div>
+        <div class="callout mb-3">
+          <strong>Ceuta</strong> 
+        </div>
+        <div class="row">
+          <div class="col-9">
+            <ul>
+              <li>Una vez que Melilla estuvo asegurada por los golpistas, el coronel Seguí se puso en contacto con los tenientes coroneles Sáenz de Buruaga y Juan Yagüe, encargados de la conspiración militar en Tetuán y Ceuta, respectivamente.​También telegrafió al general Franco, explicándole por qué el "Alzamiento" en Melilla había comenzado antes de la hora convenida. Por su parte, Sáenz de Buruaga y Yagüe pasaron a la acción, improvisando la rebelión doce horas antes de lo que estaba previsto.​</li>
+              <li>En Ceuta, a las 23:00 horas del día 17 el <strong>teniente coronel Yagüe</strong> se había apoderado fácilmente de la ciudad con su 2.ª Bandera de la Legión, sin necesidad de realizar ni un solo tiro.</li>
+            </ul>
+          </div>
+          <div class="col-3">
+            <figure class="text-center ">                
+                <img class="img-fluid rounded-4  shadow-sm"
+                    src="{% static 'images/sigloXX/guerraCivil/yague.jpg' %}"
+                    >
+                <figcaption class="small text-muted mt-2">                 
+                  <p>Teniente coronel Yague</p>
+                </figcaption>
+              </figure>
+          </div>
+        </div>
+        
+      
+        
       </div>
 
-      <!-- CRONOLOGÍA -->
-      <div class="section-head anchor mb-3" id="cronologia">
-        <h2>🕰️ Cronología inmediata</h2>
-        <p class="hint">Antes – durante – después.</p>
-      </div>
-
-      <div class="content-card">
-        <ul class="mini-timeline mb-0">
-          <li>
-            <div>
-              <strong>13 julio 1936</strong><br>
-              <span class="text-muted">Asesinato de Calvo Sotelo.</span>
-            </div>
-          </li>
-          <li>
-            <div>
-              <strong>17 julio 1936</strong><br>
-              <span class="text-muted">Inicio del alzamiento en Marruecos.</span>
-            </div>
-          </li>
-          <li>
-            <div>
-              <strong>18 julio 1936</strong><br>
-              <span class="text-muted">Extensión del golpe a la Península.</span>
-            </div>
-          </li>
-        </ul>
-      </div>
+     
 
     </main>
   </div>
@@ -318,6 +457,23 @@
         <img class="img-fluid rounded"
              src="{% static 'images/sigloXX/guerraCivil/mapa_inicio.jpg' %}"
              alt="Mapa del inicio del golpe (julio 1936)">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODALES -->
+ <div class="modal fade" id="protectorado" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content bg-dark">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-white ms-auto"
+                data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img class="img-fluid rounded"
+             src="{% static 'images/sigloXX/guerraCivil/protectorado_marruecos.png' %}"
+             alt="Protectorado español en Marruecos">
       </div>
     </div>
   </div>

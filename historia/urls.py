@@ -69,7 +69,7 @@ urlpatterns = [
     path('transicion/', views.transicion, name='transicion'),
 
     # ------------------------GUERRA CIVIL
-    
+    path('sigloXX/guerra_civil/golpe_estado', views.golpe_estado, name='golpe_estado'),
     path('sigloXX/guerra_civil/calvo_sotelo', views.calvo_sotelo, name='calvo_sotelo'),
     path('sigloXX/guerra_civil/golpe_julio_36', views.golpe_17_julio_1936, name='golpe_17_julio_1936'),
     path('sigloXX/guerra_civil/18_julio', views.golpe_18_julio, name='golpe_18_julio'),

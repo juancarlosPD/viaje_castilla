@@ -1,5 +1,6 @@
-{% extends "bases/basesigloXX.html" %}
+{% extends "bases/baseGuerraCivil.html" %}
 {% load static %}
+
 
 {% block titulo %} La Guerra Civil Española {% endblock %}
 {% block cabecera %} La Guerra Civil Española (1936–1939) {% endblock %}
@@ -125,7 +126,13 @@
     border-radius:1rem;background:var(--xx-card);
     box-shadow:var(--xx-shadow-sm); overflow:hidden;
   }
-  .t-cover{ width:100%; height:190px; object-fit:cover; display:block; }
+  .t-cover{
+  width: 100%;
+  height: 260px;        /* el alto que tú quieras */
+  object-fit: contain;  /* clave: no recorta */
+  display: block;
+   background: #ffffff;
+}
   .t-head{
     padding:1rem 1rem .75rem 1rem;
     border-bottom:1px solid rgba(0,0,0,.06);
@@ -183,7 +190,7 @@
         <div class="kpi">
             <figure class="text-center">
                 <img class="img-fluid rounded-4 border shadow-sm"
-                    src="{% static 'images/sigloXX/guerraCivil/calvo_sotelo.jpg' %}"
+                    src="{% static 'images/sigloXX/guerraCivil/calvo_sotelo_cadaver.jpg' %}"
                     alt="Asesinato de Calvo Sotelo"
                     role="button"
                     data-bs-toggle="modal"
@@ -242,7 +249,7 @@
     <div class="toc-card p-3 mb-4">
       <div class="d-flex justify-content-between align-items-center mb-2">
         <h2 class="h6 mb-0 fw-bold">Índice</h2>
-        <span class="badge text-bg-light border">Cronología</span>
+        <span class="badge text-bg-light border" style="background:rgba(10,107,58,.12); color:#065f46; border-color:rgba(10,107,58,.25);">Cronología</span>
       </div>
 
       <a class="toc-link" href="#contexto">🧭 Contexto</a>
@@ -453,30 +460,29 @@
       <div class="timeline mb-4">
 
         <!-- 1) GOLPE -->
+   <!-- 1) GOLPE -->
         <section class="t-item anchor" id="golpe1936">
           <div class="t-dot" data-color="red" aria-hidden="true"></div>
+
           <article class="t-card">
-            <div class="col-md-5 ">
-            <figure class="m-0 p-3 text-center ">
-                <img class="img-fluid rounded-4 border d-block mx-auto"
-                    style="max-width: 520px;"
-                    src="{% static 'images/sigloXX/guerraCivil/mapa_inicio.jpg' %}"
-                    alt="Mapa inicio de la guerra"
-                    role="button"
-                    data-bs-toggle="modal"
-                    data-bs-target="#mapa_inicio">
-                
+            <figure class="m-0 p-3 text-center">
+              <img
+                class="img-fluid rounded-4 d-block mx-auto t-cover t-cover--wide"
+                src="{% static 'images/sigloXX/guerraCivil/mapa_inicio.jpg' %}"
+                alt="Mapa inicio de la guerra"
+                role="button"
+                data-bs-toggle="modal"
+                data-bs-target="#mapa_inicio">
             </figure>
-            </div>
-            
-            
+
             <header class="t-head">
               <h3 class="t-title">1) Golpe de Estado y estallido de la guerra</h3>
-              <div class="t-meta">                
-                <span class="badge t-badge" style="background:#f59e0b; color:#111827;">17–18 julio 1936</span>
+              <div class="t-meta">
+                <span class="badge t-badge" style="background:rgba(10,107,58,.12); color:#065f46; border-color:rgba(10,107,58,.25);">17–18 julio 1936</span>
                 <span>Fracaso parcial → división territorial</span>
               </div>
             </header>
+
             <div class="t-body">
               <p class="mb-2">
                 El levantamiento militar no triunfa en todo el país. El resultado inmediato es la <strong>ruptura del orden político</strong> y la
@@ -500,15 +506,19 @@
           </article>
         </section>
 
+
         <!-- 2) ÁFRICA -->
         <section class="t-item anchor" id="africa1936">
           <div class="t-dot" data-color="amber" aria-hidden="true"></div>
           <article class="t-card">
-            <img class="t-cover" src="{% static 'images/sigloXX/guerraCivil/1936_africa.jpg' %}" alt="Ejército de África y puente aéreo">
+            
             <header class="t-head">
-              <h3 class="t-title">2) El Ejército de África y el avance hacia Madrid</h3>
+              
+              <img class="t-cover mt-4" src="{% static 'images/sigloXX/guerraCivil/ejercito_africa.webp' %}" alt="Ejército de África y puente aéreo">
+              <h3 class="t-title mt-4">2) El Ejército de África y el avance hacia Madrid</h3>
               <div class="t-meta">
-                <span class="badge t-badge" style="background:#f59e0b; color:#111827;">Verano–otoño 1936</span>
+                
+                <span class="badge t-badge" style="background:rgba(10,107,58,.12); color:#065f46; border-color:rgba(10,107,58,.25);S">Verano–otoño 1936</span>
                 <span>Consolidación y primeras campañas</span>
               </div>
             </header>
@@ -539,11 +549,11 @@
         <section class="t-item anchor" id="madrid">
           <div class="t-dot" data-color="blue" aria-hidden="true"></div>
           <article class="t-card">
-            <img class="t-cover" src="{% static 'images/sigloXX/guerraCivil/1936_1937_madrid.jpg' %}" alt="Defensa de Madrid">
+            <img class="t-cover mt-4" src="{% static 'images/sigloXX/guerraCivil/no_pasaran_1.jpg' %}" alt="Defensa de Madrid">
             <header class="t-head">
               <h3 class="t-title">3) Madrid resiste</h3>
               <div class="t-meta">
-                <span class="badge t-badge text-bg-primary">Finales 1936 – 1937</span>
+                <span class="badge t-badge text-bg-primary" style="background:rgba(10,107,58,.12); color:#065f46; border-color:rgba(10,107,58,.25);S">Finales 1936 – 1937</span>
                 <span>La guerra se hace larga</span>
               </div>
             </header>
@@ -554,13 +564,11 @@
                 se vuelve “total”: afecta a retaguardia, economía y moral.
               </p>
               <figure class="mt-3 mb-2">
-  <img class="img-fluid rounded-4 border"
-       src="{% static 'images/sigloXX/guerraCivil/esquema_frentes_1937.jpg' %}"
-       alt="Esquema de frentes principales (1937)">
-  <figcaption class="small text-muted mt-2">
-    Esquema: estabilización de frentes y zonas clave (1937).
-  </figcaption>
-</figure>
+                <img class="t-cover mt-4" src="{% static 'images/sigloXX/guerraCivil/frente_1937.png' %}" alt="Esquema de frentes 1937">
+                <figcaption class="small text-muted mt-2">
+                  Esquema: estabilización de frentes y zonas clave (1937).
+                </figcaption>
+              </figure>
 
               <div class="t-subtitle">Por qué es un punto de inflexión</div>
               <ul class="t-list">
@@ -582,7 +590,7 @@
         <section class="t-item anchor" id="norte1937">
           <div class="t-dot" data-color="green" aria-hidden="true"></div>
           <article class="t-card">
-            <img class="t-cover" src="{% static 'images/sigloXX/guerraCivil/1937_norte.jpg' %}" alt="Campaña del Norte 1937">
+            <img class="t-cover" src="{% static 'images/sigloXX/guerraCivil/campagna_norte.png' %}" alt="Campaña del Norte 1937">
             <header class="t-head">
               <h3 class="t-title">4) Campaña del Norte</h3>
               <div class="t-meta">
@@ -617,11 +625,11 @@
         <section class="t-item anchor" id="batallas1937">
           <div class="t-dot" data-color="slate" aria-hidden="true"></div>
           <article class="t-card">
-            <img class="t-cover" src="{% static 'images/sigloXX/guerraCivil/1937_batallas.jpg' %}" alt="Grandes ofensivas 1937">
+            <img class="t-cover" src="{% static 'images/sigloXX/guerraCivil/ruinas_belchite.jpg' %}" alt="Ruinas de Belchite">
             <header class="t-head">
               <h3 class="t-title">5) Grandes ofensivas de 1937 (guerra de desgaste)</h3>
               <div class="t-meta">
-                <span class="badge t-badge text-bg-light border">Verano–otoño 1937</span>
+                <span class="badge t-badge text-bg-light border" style="background:rgba(10,107,58,.12); color:#065f46; border-color:rgba(10,107,58,.25);S">Verano–otoño 1937</span>
                 <span>Intentos de romper el frente</span>
               </div>
             </header>
@@ -652,11 +660,11 @@
         <section class="t-item anchor" id="teruel1938">
           <div class="t-dot" data-color="amber" aria-hidden="true"></div>
           <article class="t-card">
-            <img class="t-cover" src="{% static 'images/sigloXX/guerraCivil/1938_teruel.jpg' %}" alt="Teruel 1938">
+            <img class="t-cover" src="{% static 'images/sigloXX/guerraCivil/teruel_1938.jpg' %}" alt="Teruel 1938">
             <header class="t-head">
               <h3 class="t-title">6) Teruel: desgaste extremo</h3>
               <div class="t-meta">
-                <span class="badge t-badge" style="background:#f59e0b; color:#111827;">Invierno 1937–1938</span>
+                <span class="badge t-badge" style="background:rgba(10,107,58,.12); color:#065f46; border-color:rgba(10,107,58,.25);">Invierno 1937–1938</span>
                 <span>Clima, logística y resistencia</span>
               </div>
             </header>
@@ -686,11 +694,11 @@
         <section class="t-item anchor" id="ebro1938">
           <div class="t-dot" data-color="violet" aria-hidden="true"></div>
           <article class="t-card">
-            <img class="t-cover" src="{% static 'images/sigloXX/guerraCivil/1938_ebro.jpg' %}" alt="Ebro 1938">
+            <img class="t-cover" src="{% static 'images/sigloXX/guerraCivil/batalla_ebro.webp' %}" alt="Ebro 1938">
             <header class="t-head">
               <h3 class="t-title">7) Batalla del Ebro</h3>
               <div class="t-meta">
-                <span class="badge t-badge" style="background:rgba(109,40,217,.12); color:#4c1d95; border-color:rgba(109,40,217,.25);">1938</span>
+                <span class="badge t-badge" style="background:rgba(10,107,58,.12); color:#065f46; border-color:rgba(10,107,58,.25);">1938</span>
                 <span>Última gran ofensiva</span>
               </div>
             </header>
@@ -720,11 +728,11 @@
         <section class="t-item anchor" id="final1939">
           <div class="t-dot" data-color="red" aria-hidden="true"></div>
           <article class="t-card">
-            <img class="t-cover" src="{% static 'images/sigloXX/guerraCivil/1939_fin.jpg' %}" alt="Final 1939">
+            <img class="t-cover" src="{% static 'images/sigloXX/guerraCivil/fin_conflicto.jpg' %}" alt="Final 1939">
             <header class="t-head">
               <h3 class="t-title">8) Desenlace y fin del conflicto</h3>
               <div class="t-meta">
-                <span class="badge t-badge text-bg-danger">1939</span>
+                <span class="badge t-badge text-bg-danger" style="background:rgba(10,107,58,.12); color:#065f46; border-color:rgba(10,107,58,.25);">1939</span>
                 <span>Caída de los últimos frentes</span>
               </div>
             </header>
@@ -801,7 +809,7 @@
       </div>
       <div class="modal-body text-center">
         <img class="img-fluid rounded"
-             src="{% static 'images/sigloXX/guerraCivil/calvo_sotelo.jpg' %}"
+             src="{% static 'images/sigloXX/guerraCivil/calvo_sotelo_cadaver.jpg' %}"
              alt="Asesinato de Calvo Sotelo">
       </div>
     </div>

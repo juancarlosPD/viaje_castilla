@@ -154,6 +154,9 @@ def segundaRepublica(request):
 def guerraCivil(request):    
     return render(request, 'espagna/sigloXX/guerraCivil.html')
 
+def golpe_estado(request):    
+    return render(request, 'espagna/sigloXX/guerraCivil/golpe_estado.html')
+
 def calvo_sotelo(request):    
     return render(request, 'espagna/sigloXX/guerraCivil/calvo_sotelo.html')
 

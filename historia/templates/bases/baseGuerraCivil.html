@@ -1,0 +1,88 @@
+{% extends "bases/basesigloXX.html" %}
+{% load static %}
+
+{% block nav %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+  <div class="container">
+
+    <!-- Marca -->
+    <a class="navbar-brand fw-semibold d-flex align-items-center gap-2" href="">
+      <span>Guerra Civil</span>
+    </a>
+
+    <!-- Botón móvil (abre offcanvas) -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#gcOffcanvas"
+      aria-controls="gcOffcanvas" aria-label="Abrir menú">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Menú normal (desktop) -->
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto gap-lg-2">
+
+        <li class="nav-item"><a class="nav-link" href="{% url 'golpe_estado' %}">Golpe de estado</a></li>
+        <li class="nav-item"><a class="nav-link" href="">Avance hacia Madrid</a></li>
+        <li class="nav-item"><a class="nav-link" href="">Madrid resiste</a></li>
+        <li class="nav-item"><a class="nav-link" href="">Campaña del Norte</a></li>
+        <li class="nav-item"><a class="nav-link" href="">Ofensivas 1937</a></li>
+        <li class="nav-item"><a class="nav-link" href="">Teruel</a></li>
+        <li class="nav-item"><a class="nav-link" href="">Batalla del Ebro</a></li>
+        <li class="nav-item"><a class="nav-link" href="">Desenlace</a></li>
+
+        <!-- Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="gcDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Recursos
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="gcDropdown">
+            <li><a class="dropdown-item" href="">Bibliografía</a></li>
+            <li><a class="dropdown-item" href="">Mapas</a></li>
+            <li><a class="dropdown-item" href="">Galería</a></li>
+          </ul>
+        </li>
+
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+<!-- Offcanvas móvil -->
+<div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="gcOffcanvas" aria-labelledby="gcOffcanvasLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="gcOffcanvasLabel">Guerra Civil</h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+  </div>
+  <div class="offcanvas-body">
+
+    <div class="list-group list-group-flush">
+      <a class="list-group-item list-group-item-action bg-dark text-white border-secondary"
+         href="">🕰️ Cronología</a>
+
+      <a class="list-group-item list-group-item-action bg-dark text-white border-secondary"
+         href="">📜 Antecedentes</a>
+
+      <a class="list-group-item list-group-item-action bg-dark text-white border-secondary"
+         href="">⚔️ El golpe</a>
+
+      <a class="list-group-item list-group-item-action bg-dark text-white border-secondary"
+         href="">🗺️ Frentes</a>
+
+      <a class="list-group-item list-group-item-action bg-dark text-white border-secondary"
+         href="">🧩 Violencia y represión</a>
+    </div>
+
+    <hr class="border-secondary my-3">
+
+    <div class="list-group list-group-flush">
+      <a class="list-group-item list-group-item-action bg-dark text-white border-secondary"
+         href="">📚 Bibliografía</a>
+      <a class="list-group-item list-group-item-action bg-dark text-white border-secondary"
+         href="">🧭 Mapas</a>
+      <a class="list-group-item list-group-item-action bg-dark text-white border-secondary"
+         href="">🖼️ Galería</a>
+    </div>
+
+  </div>
+</div>
+{% endblock nav %}

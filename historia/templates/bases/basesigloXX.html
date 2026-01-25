@@ -18,6 +18,7 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
         <script src="{% static 'librerias/jquery-ui-1.13.1.custom/jquery-ui.min.js' %}"></script>       
         <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+        
 
         {% block head %} {% endblock %}
 
@@ -45,6 +46,9 @@
             </div>           
             
         </header>
+        {% block nav %}
+            <!-- aquí tu nav “general” actual -->
+        
         <div class="row justify-content-center">
             <div class="col-md-11 text-center align-items-center justify-content-center">
                 <nav class="navbar navbar-expand navbar-dark bg-dark mx-3 px-3" >
@@ -84,7 +88,7 @@
             </div>
             
         </div>
-        
+        {% endblock nav %}
 
         <div class="container justify-content-center mt-5">
             
