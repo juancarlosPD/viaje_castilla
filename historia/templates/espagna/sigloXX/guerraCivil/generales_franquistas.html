@@ -1,0 +1,408 @@
+{% extends "bases/baseGuerraCivil.html" %}
+{% load static %}
+
+{% block titulo %} Mandos del Ejército Nacional (1936–1939) {% endblock %}
+{% block cabecera %} Mandos y generales del Ejército Nacional{% endblock %}
+
+{% block imgCabecera %}
+
+{% endblock %}
+
+{% block contenido %}
+
+<style>
+  :root{
+    --gc-card-bg: rgba(255,255,255,.92);
+    --gc-border: rgba(0,0,0,.12);
+  }
+  .gc-grid{
+    display:grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1rem;
+  }
+  .gc-card{
+    grid-column: span 12;
+    background: var(--gc-card-bg);
+    border: 1px solid var(--gc-border);
+    border-radius: 1.25rem;
+    overflow:hidden;
+    box-shadow: 0 .5rem 1.25rem rgba(0,0,0,.08);
+  }
+  @media (min-width: 768px){
+    .gc-card{ grid-column: span 6; }
+  }
+  @media (min-width: 1200px){
+    .gc-card{ grid-column: span 4; }
+  }
+  .gc-card figure{ margin:0; }
+  .gc-card img{
+    width:100%;
+    height: 280px;
+    object-fit: cover;
+    object-position: top center; /* 👈 clave: prioriza rostro/busto */
+   }
+  .gc-caption{
+    padding: .9rem 1rem 1rem 1rem;
+  }
+  .gc-name{
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin-bottom: .25rem;
+  }
+  .gc-meta{
+    font-size: .95rem;
+    color: #333;
+    margin-bottom: .35rem;
+  }
+  .gc-role{
+    font-size: .92rem;
+    color:#444;
+  }
+  .gc-badges{
+    margin-top: .6rem;
+    display:flex;
+    flex-wrap:wrap;
+    gap:.4rem;
+  }
+  .gc-badge{
+    font-size:.78rem;
+    padding:.2rem .55rem;
+    border-radius: 999px;
+    border: 1px solid rgba(0,0,0,.12);
+    background: rgba(0,0,0,.03);
+  }
+</style>
+
+<div class="container my-4">
+
+  <div class="p-3 p-md-4 rounded-4 border shadow-sm bg-white">
+    <h2 class="h4 mb-2">Generales</h2>
+    
+  </div>
+
+  <div class="gc-grid mt-4">
+
+    <!-- 1) Franco -->
+    <article class="gc-card">
+      <figure>
+        <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/franco.webp' %}"
+             alt="Francisco Franco">
+        <figcaption class="gc-caption">
+          <div class="gc-name">Francisco Franco</div>
+          <div class="gc-meta"><strong>Región / Frente:</strong> Marruecos; Andalucía occidental; dirección general desde Salamanca</div>
+          <div class="gc-role"><strong>Rol:</strong> Generalísimo y Jefe del Estado; coordina la conducción estratégica de la guerra desde finales de 1936.</div>
+          <div class="gc-badges">
+            <span class="gc-badge">Ejército de África</span>
+            <span class="gc-badge">Dirección estratégica</span>
+          </div>
+        </figcaption>
+      </figure>
+    </article>
+
+    <!-- 2) Mola -->
+    <article class="gc-card">
+      <figure>
+        <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/mola.jpg' %}"
+             alt="Emilio Mola">
+        <figcaption class="gc-caption">
+          <div class="gc-name">Emilio Mola</div>
+          <div class="gc-meta"><strong>Región / Frente:</strong> Navarra; norte peninsular</div>
+          <div class="gc-role"><strong>Rol:</strong> Principal organizador del golpe; dirige operaciones en el Norte hasta su muerte (1937).</div>
+          <div class="gc-badges">
+            <span class="gc-badge">Navarra</span>
+            <span class="gc-badge">Frente Norte</span>
+          </div>
+        </figcaption>
+      </figure>
+    </article>
+
+    <!-- 3) Sanjurjo -->
+    <article class="gc-card">
+      <figure>
+        <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/sanjurjo.webp' %}"
+             alt="José Sanjurjo">
+        <figcaption class="gc-caption">
+          <div class="gc-name">José Sanjurjo</div>
+          <div class="gc-meta"><strong>Región / Frente:</strong> Previsto para incorporarse desde Portugal/Marruecos; no llega a intervenir</div>
+          <div class="gc-role"><strong>Rol:</strong> Figura simbólica del alzamiento; muere en accidente aéreo (20 de julio de 1936).</div>
+          <div class="gc-badges">
+            <span class="gc-badge">Liderazgo simbólico</span>
+            <span class="gc-badge">Julio 1936</span>
+          </div>
+        </figcaption>
+      </figure>
+    </article>
+
+    <!-- 4) Queipo de Llano -->
+    <article class="gc-card">
+      <figure>
+        <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/queipo_llano.webp' %}"
+             alt="Gonzalo Queipo de Llano">
+        <figcaption class="gc-caption">
+          <div class="gc-name">Gonzalo Queipo de Llano</div>
+          <div class="gc-meta"><strong>Región / Frente:</strong> Andalucía occidental (Sevilla, Huelva, Córdoba)</div>
+          <div class="gc-role"><strong>Rol:</strong> Control del sur; uso intensivo de la radio como herramienta de propaganda y guerra psicológica.</div>
+          <div class="gc-badges">
+            <span class="gc-badge">Andalucía</span>
+            <span class="gc-badge">Radio/propaganda</span>
+          </div>
+        </figcaption>
+      </figure>
+    </article>
+
+    <!-- 5) Goded -->
+    <article class="gc-card">
+      <figure>
+        <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/general_goded.jpg' %}"
+             alt="Manuel Goded">
+        <figcaption class="gc-caption">
+          <div class="gc-name">Manuel Goded</div>
+          <div class="gc-meta"><strong>Región / Frente:</strong> Baleares y Cataluña</div>
+          <div class="gc-role"><strong>Rol:</strong> Papel destacado en el alzamiento; fracaso en Barcelona, captura y fusilamiento.</div>
+          <div class="gc-badges">
+            <span class="gc-badge">Cataluña</span>
+            <span class="gc-badge">Baleares</span>
+          </div>
+        </figcaption>
+      </figure>
+    </article>
+
+    <!-- 6) Yagüe -->
+    <article class="gc-card">
+      <figure>
+        <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/yague.webp' %}"
+             alt="Juan Yagüe">
+        <figcaption class="gc-caption">
+          <div class="gc-name">Juan Yagüe</div>
+          <div class="gc-meta"><strong>Región / Frente:</strong> Extremadura; Madrid; Aragón</div>
+          <div class="gc-role"><strong>Rol:</strong> Mando de columnas del Ejército de África; avance rápido en el oeste peninsular.</div>
+          <div class="gc-badges">
+            <span class="gc-badge">Extremadura</span>
+            <span class="gc-badge">Ejército de África</span>
+          </div>
+        </figcaption>
+      </figure>
+    </article>
+
+    <!-- 7) Varela -->
+    <article class="gc-card">
+      <figure>
+        <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/varela.jpg' %}"
+             alt="José Enrique Varela">
+        <figcaption class="gc-caption">
+          <div class="gc-name">José Enrique Varela</div>
+          <div class="gc-meta"><strong>Región / Frente:</strong> Andalucía; Toledo; Madrid</div>
+          <div class="gc-role"><strong>Rol:</strong> Protagonista de operaciones en el eje Toledo–Madrid; figura relevante en el primer ciclo de campañas.</div>
+          <div class="gc-badges">
+            <span class="gc-badge">Toledo</span>
+            <span class="gc-badge">Madrid</span>
+          </div>
+        </figcaption>
+      </figure>
+    </article>
+
+    <!-- 8) Fidel Dávila -->
+    <article class="gc-card">
+      <figure>
+        <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/davila.jpg' %}"
+             alt="Fidel Dávila Arrondo">
+        <figcaption class="gc-caption">
+          <div class="gc-name">Fidel Dávila Arrondo</div>
+          <div class="gc-meta"><strong>Región / Frente:</strong> Norte (País Vasco, Cantabria, Asturias)</div>
+          <div class="gc-role"><strong>Rol:</strong> Coordinación superior en la campaña del Norte, especialmente tras 1937.</div>
+          <div class="gc-badges">
+            <span class="gc-badge">Frente Norte</span>
+            <span class="gc-badge">Coordinación</span>
+          </div>
+        </figcaption>
+      </figure>
+    </article>
+
+    <!-- 9) Cabanellas -->
+    <article class="gc-card">
+      <figure>
+        <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/cabanellas.jpg' %}"
+             alt="Miguel Cabanellas">
+        <figcaption class="gc-caption">
+          <div class="gc-name">Miguel Cabanellas</div>
+          <div class="gc-meta"><strong>Región / Frente:</strong> Aragón</div>
+          <div class="gc-role"><strong>Rol:</strong> Presidente de la Junta de Defensa Nacional (1936); peso institucional en los inicios del conflicto.</div>
+          <div class="gc-badges">
+            <span class="gc-badge">Aragón</span>
+            <span class="gc-badge">Junta de Defensa</span>
+          </div>
+        </figcaption>
+      </figure>
+    </article>
+
+    <!-- 10) Saliquet -->
+    <article class="gc-card">
+      <figure>
+        <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/saliquet.jpg' %}"
+             alt="Andrés Saliquet">
+        <figcaption class="gc-caption">
+          <div class="gc-name">Andrés Saliquet</div>
+          <div class="gc-meta"><strong>Región / Frente:</strong> Castilla y León; frente de Madrid</div>
+          <div class="gc-role"><strong>Rol:</strong> Mando de fuerzas del área centro en fases de presión sobre Madrid.</div>
+          <div class="gc-badges">
+            <span class="gc-badge">Centro</span>
+            <span class="gc-badge">Madrid</span>
+          </div>
+        </figcaption>
+      </figure>
+    </article>
+
+    <!-- 11) Kindelán -->
+    <article class="gc-card">
+      <figure>
+        <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/kindelan.jpg' %}"
+             alt="Alfredo Kindelán">
+        <figcaption class="gc-caption">
+          <div class="gc-name">Alfredo Kindelán</div>
+          <div class="gc-meta"><strong>Región / Frente:</strong> Aviación (ámbito nacional)</div>
+          <div class="gc-role"><strong>Rol:</strong> Jefe de la Aviación Nacional; coordinación del esfuerzo aéreo y su integración operativa.</div>
+          <div class="gc-badges">
+            <span class="gc-badge">Aviación</span>
+            <span class="gc-badge">Ámbito nacional</span>
+          </div>
+        </figcaption>
+      </figure>
+    </article>
+
+    <!-- 12) Orgaz -->
+    <article class="gc-card">
+      <figure>
+        <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/orgaz.jpg' %}"
+             alt="Luis Orgaz Yoldi">
+        <figcaption class="gc-caption">
+          <div class="gc-name">Luis Orgaz Yoldi</div>
+          <div class="gc-meta"><strong>Región / Frente:</strong> Marruecos; posteriormente Andalucía</div>
+          <div class="gc-role"><strong>Rol:</strong> Apoyo a la articulación inicial del esfuerzo militar; vinculado al dispositivo del sur.</div>
+          <div class="gc-badges">
+            <span class="gc-badge">Marruecos</span>
+            <span class="gc-badge">Andalucía</span>
+          </div>
+        </figcaption>
+      </figure>
+    </article>
+
+    <!-- 13) Aranda -->
+    <article class="gc-card">
+      <figure>
+        <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/aranda.jpg' %}"
+             alt="Antonio Aranda">
+        <figcaption class="gc-caption">
+          <div class="gc-name">Antonio Aranda</div>
+          <div class="gc-meta"><strong>Región / Frente:</strong> Asturias (Oviedo)</div>
+          <div class="gc-role"><strong>Rol:</strong> Defensa de Oviedo durante meses, con fuerte valor simbólico y operativo en el Norte.</div>
+          <div class="gc-badges">
+            <span class="gc-badge">Oviedo</span>
+            <span class="gc-badge">Asturias</span>
+          </div>
+        </figcaption>
+      </figure>
+    </article>
+
+  </div>
+  <div class="p-3 p-md-4 rounded-4 border shadow-sm bg-white mt-4">
+    <h2 class="h4 mb-2">Otros mandos destacados</h2>
+    
+  </div>
+
+  <div class="row">
+
+    <div class="col-4 mt-3">
+        <article class="gc-card ">
+            <figure>
+            <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/kindelan.jpg' %}" alt="Alfredo Kindelán">
+            <figcaption class="gc-caption">
+                <div class="gc-name">Alfredo Kindelán</div>
+                <div class="gc-meta"><strong>Región / Frente:</strong> Aviación (ámbito nacional)</div>
+                <div class="gc-role"><strong>Rol:</strong> Jefe de la Aviación Nacional; coordinación del esfuerzo aéreo durante el conflicto.</div>
+                <div class="gc-badges">
+                <span class="gc-badge">Aviación</span><span class="gc-badge">Ámbito nacional</span>
+                </div>
+            </figcaption>
+            </figure>
+        </article>
+    </div>
+
+        <!-- Moscardó (Alcázar) -->
+        <div class="col-4  mt-3">
+        <article class="gc-card">
+            <figure>
+            <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/moscardo.png' %}" alt="José Moscardó">
+            <figcaption class="gc-caption">
+                <div class="gc-name">José Moscardó</div>
+                <div class="gc-meta"><strong>Región / Frente:</strong> Toledo (Alcázar)</div>
+                <div class="gc-role"><strong>Rol:</strong> Defensa del Alcázar; figura de enorme proyección simbólica desde 1936.</div>
+                <div class="gc-badges">
+                <span class="gc-badge">Alcázar</span><span class="gc-badge">Símbolo</span>
+                </div>
+            </figcaption>
+            </figure>
+        </article>
+        </div>
+
+        <!-- Millán-Astray (propaganda/retaguardia) -->
+        <div class="col-4 mt-3">
+        <article class="gc-card">
+            <figure>
+            <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/millan_astray.webp' %}" alt="José Millán-Astray">
+            <figcaption class="gc-caption">
+                <div class="gc-name">José Millán-Astray</div>
+                <div class="gc-meta"><strong>Región / Frente:</strong> Salamanca (retaguardia)</div>
+                <div class="gc-role"><strong>Rol:</strong> Fundador de la Legión; papel destacado en propaganda y construcción simbólica del bando nacional.</div>
+                <div class="gc-badges">
+                <span class="gc-badge">Legión</span><span class="gc-badge">Propaganda</span>
+                </div>
+            </figcaption>
+            </figure>
+        </article>
+        </div>
+
+        <!-- García Morato (As de caza) -->
+        <div class="col-4 mt-3">
+        <article class="gc-card">
+            <figure>
+            <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/morato.jpg' %}" alt="Joaquín García-Morato">
+            <figcaption class="gc-caption">
+                <div class="gc-name">Joaquín García-Morato</div>
+                <div class="gc-meta"><strong>Región / Frente:</strong> Aire (Madrid, Norte, Levante)</div>
+                <div class="gc-role"><strong>Rol:</strong> Principal as de la caza nacional; icono mediático del componente aéreo de la guerra.</div>
+                <div class="gc-badges">
+                <span class="gc-badge">Caza</span><span class="gc-badge">Aviación</span>
+                </div>
+            </figcaption>
+            </figure>
+        </article>
+        </div>
+
+        <!-- Muñoz Grandes (mando emergente) -->
+        <div class="col-4 mt-3">
+        <article class="gc-card">
+            <figure>
+            <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/munoz_grandes.jpg' %}" alt="Agustín Muñoz Grandes">
+            <figcaption class="gc-caption">
+                <div class="gc-name">Agustín Muñoz Grandes</div>
+                <div class="gc-meta"><strong>Región / Frente:</strong> Madrid; posteriormente Aragón</div>
+                <div class="gc-role"><strong>Rol:</strong> Mando de gran notoriedad por méritos de guerra; ejemplo de ascenso y proyección durante el conflicto.</div>
+                <div class="gc-badges">
+                <span class="gc-badge">Tropas de choque</span><span class="gc-badge">Ascenso</span>
+                </div>
+            </figcaption>
+            </figure>
+        </article>
+        </div>
+
+    </div>
+
+
+  </div>
+  
+
+</div>
+
+</div>
+
+{% endblock %}

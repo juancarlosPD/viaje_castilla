@@ -172,6 +172,9 @@ def verano_36(request):
 def retaguardia(request):    
     return render(request, 'espagna/sigloXX/guerraCivil/retaguardias.html')
 
+def generales_franquistas(request):    
+    return render(request, 'espagna/sigloXX/guerraCivil/generales_franquistas.html')
+
 
 
 
