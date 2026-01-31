@@ -41,6 +41,18 @@
     object-fit: cover;
     object-position: top center; /* 👈 clave: prioriza rostro/busto */
    }
+   .gc-card img.sanjurjo{
+        width: 65%;
+        height: 280px;
+        display: block;          /* 👈 clave */
+        margin: 0 auto;          /* 👈 centra horizontalmente */
+        object-fit: cover;
+        object-position: top center;
+    }
+   .gc-card img.portrait{
+      object-fit: contain;
+      background: #f3f3f3;
+    }
   .gc-caption{
     padding: .9rem 1rem 1rem 1rem;
   }
@@ -70,27 +82,73 @@
     border-radius: 999px;
     border: 1px solid rgba(0,0,0,.12);
     background: rgba(0,0,0,.03);
+
+    
   }
+  .gc-section-title{
+  padding: .95rem 1.1rem;
+  background: rgba(13,110,253,.06);          /* azul Bootstrap muy suave */
+  border: 1px solid rgba(13,110,253,.18);
+  border-radius: 1.25rem;
+  box-shadow: 0 .35rem .9rem rgba(0,0,0,.05);
+}
+
+.gc-section-title h2{
+  font-size: 1.55rem;
+  font-weight: 800;
+  letter-spacing: .2px;
+}
+
+.gc-section-icon{
+  width: 2.1rem;
+  height: 2.1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: .9rem;
+  background: rgba(13,110,253,.10);
+  border: 1px solid rgba(13,110,253,.20);
+  font-size: 1.15rem;
+}
+
+.gc-section-subtitle{
+  margin-top: .25rem;
+  color: rgba(0,0,0,.60);
+  font-size: .95rem;
+}
+
+.gc-badge-soft{
+  background: rgba(13,110,253,.10);
+  color: rgba(13,110,253,.90);
+  border: 1px solid rgba(13,110,253,.18);
+  font-weight: 600;
+}
+
 </style>
 
 <div class="container my-4">
-
-  <div class="p-3 p-md-4 rounded-4 border shadow-sm bg-white">
-    <h2 class="h4 mb-2">Generales</h2>
-    
+  <div class="gc-section-title mb-3">
+    <div class="d-flex align-items-center gap-2">
+      <span class="gc-section-icon" aria-hidden="true">🎖️</span>
+      <h2 class="mb-0">Generales</h2>
+      <span class="badge gc-badge-soft ms-1">1936–1939</span>
+    </div>
   </div>
 
+  
   <div class="gc-grid mt-4">
 
     <!-- 1) Franco -->
     <article class="gc-card">
       <figure>
-        <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/franco.webp' %}"
+        <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/franco.png' %}"
              alt="Francisco Franco">
         <figcaption class="gc-caption">
-          <div class="gc-name">Francisco Franco</div>
+          <div class="gc-name">Francisco Franco (43 años)</div>
           <div class="gc-meta"><strong>Región / Frente:</strong> Marruecos; Andalucía occidental; dirección general desde Salamanca</div>
           <div class="gc-role"><strong>Rol:</strong> Generalísimo y Jefe del Estado; coordina la conducción estratégica de la guerra desde finales de 1936.</div>
+          <div class="gc-role"><strong>Fallecimiento: </strong>1975</div> 
+          <div class="gc-role"><strong>Rango máximo: </strong>Generalísimo de los Ejércitos</div>
           <div class="gc-badges">
             <span class="gc-badge">Ejército de África</span>
             <span class="gc-badge">Dirección estratégica</span>
@@ -102,12 +160,14 @@
     <!-- 2) Mola -->
     <article class="gc-card">
       <figure>
-        <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/mola.jpg' %}"
+        <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/mola1.png' %}"
              alt="Emilio Mola">
         <figcaption class="gc-caption">
-          <div class="gc-name">Emilio Mola</div>
+          <div class="gc-name">Emilio Mola (49 años)</div>
           <div class="gc-meta"><strong>Región / Frente:</strong> Navarra; norte peninsular</div>
           <div class="gc-role"><strong>Rol:</strong> Principal organizador del golpe; dirige operaciones en el Norte hasta su muerte (1937).</div>
+          <div class="gc-role"><strong>Fallecimiento: </strong>1937</div> 
+          <div class="gc-role"><strong>Rango máximo: </strong>General</div>
           <div class="gc-badges">
             <span class="gc-badge">Navarra</span>
             <span class="gc-badge">Frente Norte</span>
@@ -119,12 +179,14 @@
     <!-- 3) Sanjurjo -->
     <article class="gc-card">
       <figure>
-        <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/sanjurjo.webp' %}"
+        <img class="sanjurjo center" src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/sanjurjo1.png' %}"
              alt="José Sanjurjo">
         <figcaption class="gc-caption">
-          <div class="gc-name">José Sanjurjo</div>
+          <div class="gc-name">José Sanjurjo (64 años)</div>
           <div class="gc-meta"><strong>Región / Frente:</strong> Previsto para incorporarse desde Portugal/Marruecos; no llega a intervenir</div>
           <div class="gc-role"><strong>Rol:</strong> Figura simbólica del alzamiento; muere en accidente aéreo (20 de julio de 1936).</div>
+          <div class="gc-role"><strong>Fallecimiento: </strong>1936</div> 
+          <div class="gc-role"><strong>Rango máximo: </strong>General</div>
           <div class="gc-badges">
             <span class="gc-badge">Liderazgo simbólico</span>
             <span class="gc-badge">Julio 1936</span>
@@ -136,12 +198,14 @@
     <!-- 4) Queipo de Llano -->
     <article class="gc-card">
       <figure>
-        <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/queipo_llano.webp' %}"
+        <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/queipo1.png' %}"
              alt="Gonzalo Queipo de Llano">
         <figcaption class="gc-caption">
-          <div class="gc-name">Gonzalo Queipo de Llano</div>
+          <div class="gc-name">Gonzalo Queipo de Llano (61 años)</div>
           <div class="gc-meta"><strong>Región / Frente:</strong> Andalucía occidental (Sevilla, Huelva, Córdoba)</div>
           <div class="gc-role"><strong>Rol:</strong> Control del sur; uso intensivo de la radio como herramienta de propaganda y guerra psicológica.</div>
+          <div class="gc-role"><strong>Fallecimiento: </strong>1951</div> 
+          <div class="gc-role"><strong>Rango máximo: </strong>Teniente General</div>
           <div class="gc-badges">
             <span class="gc-badge">Andalucía</span>
             <span class="gc-badge">Radio/propaganda</span>
@@ -153,12 +217,14 @@
     <!-- 5) Goded -->
     <article class="gc-card">
       <figure>
-        <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/general_goded.jpg' %}"
+        <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/goded1.png' %}"
              alt="Manuel Goded">
         <figcaption class="gc-caption">
-          <div class="gc-name">Manuel Goded</div>
+          <div class="gc-name">Manuel Goded (54 años)</div>
           <div class="gc-meta"><strong>Región / Frente:</strong> Baleares y Cataluña</div>
           <div class="gc-role"><strong>Rol:</strong> Papel destacado en el alzamiento; fracaso en Barcelona, captura y fusilamiento.</div>
+          <div class="gc-role"><strong>Fallecimiento: </strong>1936</div> 
+          <div class="gc-role"><strong>Rango máximo: </strong>General</div>
           <div class="gc-badges">
             <span class="gc-badge">Cataluña</span>
             <span class="gc-badge">Baleares</span>
@@ -167,32 +233,19 @@
       </figure>
     </article>
 
-    <!-- 6) Yagüe -->
-    <article class="gc-card">
-      <figure>
-        <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/yague.webp' %}"
-             alt="Juan Yagüe">
-        <figcaption class="gc-caption">
-          <div class="gc-name">Juan Yagüe</div>
-          <div class="gc-meta"><strong>Región / Frente:</strong> Extremadura; Madrid; Aragón</div>
-          <div class="gc-role"><strong>Rol:</strong> Mando de columnas del Ejército de África; avance rápido en el oeste peninsular.</div>
-          <div class="gc-badges">
-            <span class="gc-badge">Extremadura</span>
-            <span class="gc-badge">Ejército de África</span>
-          </div>
-        </figcaption>
-      </figure>
-    </article>
+    
 
     <!-- 7) Varela -->
     <article class="gc-card">
       <figure>
-        <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/varela.jpg' %}"
+        <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/varela1.png' %}"
              alt="José Enrique Varela">
         <figcaption class="gc-caption">
-          <div class="gc-name">José Enrique Varela</div>
+          <div class="gc-name">José Enrique Varela (45 años)</div>
           <div class="gc-meta"><strong>Región / Frente:</strong> Andalucía; Toledo; Madrid</div>
           <div class="gc-role"><strong>Rol:</strong> Protagonista de operaciones en el eje Toledo–Madrid; figura relevante en el primer ciclo de campañas.</div>
+          <div class="gc-role"><strong>Fallecimiento: </strong>1951</div> 
+          <div class="gc-role"><strong>Rango máximo: </strong>Capitán General</div>
           <div class="gc-badges">
             <span class="gc-badge">Toledo</span>
             <span class="gc-badge">Madrid</span>
@@ -204,12 +257,14 @@
     <!-- 8) Fidel Dávila -->
     <article class="gc-card">
       <figure>
-        <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/davila.jpg' %}"
+        <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/davila2.png' %}"
              alt="Fidel Dávila Arrondo">
         <figcaption class="gc-caption">
-          <div class="gc-name">Fidel Dávila Arrondo</div>
+          <div class="gc-name">Fidel Dávila Arrondo (58 años)</div>
           <div class="gc-meta"><strong>Región / Frente:</strong> Norte (País Vasco, Cantabria, Asturias)</div>
           <div class="gc-role"><strong>Rol:</strong> Coordinación superior en la campaña del Norte, especialmente tras 1937.</div>
+          <div class="gc-role"><strong>Fallecimiento: </strong>1962</div> 
+          <div class="gc-role"><strong>Rango máximo: </strong>Capitán General</div>
           <div class="gc-badges">
             <span class="gc-badge">Frente Norte</span>
             <span class="gc-badge">Coordinación</span>
@@ -221,12 +276,14 @@
     <!-- 9) Cabanellas -->
     <article class="gc-card">
       <figure>
-        <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/cabanellas.jpg' %}"
+        <img class="sanjurjo" src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/cabanellas1.png' %}"
              alt="Miguel Cabanellas">
         <figcaption class="gc-caption">
-          <div class="gc-name">Miguel Cabanellas</div>
+          <div class="gc-name">Miguel Cabanellas (64 año)</div>
           <div class="gc-meta"><strong>Región / Frente:</strong> Aragón</div>
           <div class="gc-role"><strong>Rol:</strong> Presidente de la Junta de Defensa Nacional (1936); peso institucional en los inicios del conflicto.</div>
+          <div class="gc-role"><strong>Fallecimiento: </strong>1938</div> 
+          <div class="gc-role"><strong>Rango máximo: </strong>Teniente General</div>
           <div class="gc-badges">
             <span class="gc-badge">Aragón</span>
             <span class="gc-badge">Junta de Defensa</span>
@@ -238,12 +295,14 @@
     <!-- 10) Saliquet -->
     <article class="gc-card">
       <figure>
-        <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/saliquet.jpg' %}"
+        <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/saliquet2.png' %}"
              alt="Andrés Saliquet">
         <figcaption class="gc-caption">
-          <div class="gc-name">Andrés Saliquet</div>
+          <div class="gc-name">Andrés Saliquet (59 años)</div>
           <div class="gc-meta"><strong>Región / Frente:</strong> Castilla y León; frente de Madrid</div>
           <div class="gc-role"><strong>Rol:</strong> Mando de fuerzas del área centro en fases de presión sobre Madrid.</div>
+          <div class="gc-role"><strong>Fallecimiento: </strong>1959</div> 
+          <div class="gc-role"><strong>Rango máximo: </strong>Teniente General</div>
           <div class="gc-badges">
             <span class="gc-badge">Centro</span>
             <span class="gc-badge">Madrid</span>
@@ -252,32 +311,19 @@
       </figure>
     </article>
 
-    <!-- 11) Kindelán -->
-    <article class="gc-card">
-      <figure>
-        <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/kindelan.jpg' %}"
-             alt="Alfredo Kindelán">
-        <figcaption class="gc-caption">
-          <div class="gc-name">Alfredo Kindelán</div>
-          <div class="gc-meta"><strong>Región / Frente:</strong> Aviación (ámbito nacional)</div>
-          <div class="gc-role"><strong>Rol:</strong> Jefe de la Aviación Nacional; coordinación del esfuerzo aéreo y su integración operativa.</div>
-          <div class="gc-badges">
-            <span class="gc-badge">Aviación</span>
-            <span class="gc-badge">Ámbito nacional</span>
-          </div>
-        </figcaption>
-      </figure>
-    </article>
+    
 
     <!-- 12) Orgaz -->
     <article class="gc-card">
       <figure>
-        <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/orgaz.jpg' %}"
+        <img class="sanjurjo" src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/orgaz1.png' %}"
              alt="Luis Orgaz Yoldi">
         <figcaption class="gc-caption">
-          <div class="gc-name">Luis Orgaz Yoldi</div>
+          <div class="gc-name">Luis Orgaz Yoldi (54 años)</div>
           <div class="gc-meta"><strong>Región / Frente:</strong> Marruecos; posteriormente Andalucía</div>
           <div class="gc-role"><strong>Rol:</strong> Apoyo a la articulación inicial del esfuerzo militar; vinculado al dispositivo del sur.</div>
+          <div class="gc-role"><strong>Fallecimiento: </strong>1946</div> 
+          <div class="gc-role"><strong>Rango máximo: </strong>Teniente General</div>
           <div class="gc-badges">
             <span class="gc-badge">Marruecos</span>
             <span class="gc-badge">Andalucía</span>
@@ -289,12 +335,14 @@
     <!-- 13) Aranda -->
     <article class="gc-card">
       <figure>
-        <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/aranda.jpg' %}"
+        <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/aranda1.png' %}"
              alt="Antonio Aranda">
         <figcaption class="gc-caption">
-          <div class="gc-name">Antonio Aranda</div>
+          <div class="gc-name">Antonio Aranda (48 años)</div>
           <div class="gc-meta"><strong>Región / Frente:</strong> Asturias (Oviedo)</div>
           <div class="gc-role"><strong>Rol:</strong> Defensa de Oviedo durante meses, con fuerte valor simbólico y operativo en el Norte.</div>
+          <div class="gc-role"><strong>Fallecimiento: </strong>1979</div> 
+          <div class="gc-role"><strong>Rango máximo: </strong>Teniente General</div>
           <div class="gc-badges">
             <span class="gc-badge">Oviedo</span>
             <span class="gc-badge">Asturias</span>
@@ -304,38 +352,71 @@
     </article>
 
   </div>
-  <div class="p-3 p-md-4 rounded-4 border shadow-sm bg-white mt-4">
-    <h2 class="h4 mb-2">Otros mandos destacados</h2>
-    
+  <div class="gc-section-title my-3">
+    <div class="d-flex align-items-center gap-2">
+      <span class="gc-section-icon" aria-hidden="true">🪖</span>
+      <h2 class="mb-0">Otros mandos destacados</h2>
+      <span class="badge gc-badge-soft ms-1">1936–1939</span>
+    </div>
   </div>
+  
+  
 
   <div class="row">
 
     <div class="col-4 mt-3">
         <article class="gc-card ">
             <figure>
-            <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/kindelan.jpg' %}" alt="Alfredo Kindelán">
+            <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/kindelan1.png' %}" alt="Alfredo Kindelán">
             <figcaption class="gc-caption">
-                <div class="gc-name">Alfredo Kindelán</div>
-                <div class="gc-meta"><strong>Región / Frente:</strong> Aviación (ámbito nacional)</div>
+                <div class="gc-name">Alfredo Kindelán (57 años)</div>
+                <div class="gc-role"><strong>Rango: </strong>General de Brigada (aviación)</div>
+                <div class="gc-meta"><strong>Región / Frente:</strong> Nivel nacional</div>                
                 <div class="gc-role"><strong>Rol:</strong> Jefe de la Aviación Nacional; coordinación del esfuerzo aéreo durante el conflicto.</div>
+                <div class="gc-role"><strong>Fallecimiento: </strong>1962</div> 
+                <div class="gc-role"><strong>Rango máximo: </strong>Teniente General del Aire</div>
                 <div class="gc-badges">
                 <span class="gc-badge">Aviación</span><span class="gc-badge">Ámbito nacional</span>
+                
                 </div>
             </figcaption>
             </figure>
         </article>
+    </div>
+      <!-- 6) Yagüe -->
+      <div class="col-4  mt-3">
+      <article class="gc-card">
+        <figure>
+          <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/yague.png' %}"
+              alt="Juan Yagüe">
+          <figcaption class="gc-caption">
+            <div class="gc-name">Juan Yagüe (45 años)</div>
+            <div class="gc-role"><strong>Rango: </strong>Coronel</div>
+            <div class="gc-meta"><strong>Región / Frente:</strong> Extremadura; Madrid; Aragón</div>
+            <div class="gc-role"><strong>Rol:</strong> Mando de columnas del Ejército de África; avance rápido en el oeste peninsular.</div>
+            <div class="gc-role"><strong>Fallecimiento: </strong>1952</div> 
+            <div class="gc-role"><strong>Rango máximo: </strong>Teniente General</div>
+            <div class="gc-badges">
+              <span class="gc-badge">Extremadura</span>
+              <span class="gc-badge">Ejército de África</span>
+            </div>
+          </figcaption>
+        </figure>
+      </article>
     </div>
 
         <!-- Moscardó (Alcázar) -->
         <div class="col-4  mt-3">
         <article class="gc-card">
             <figure>
-            <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/moscardo.png' %}" alt="José Moscardó">
+            <img class="sanjurjo" src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/moscardo1.png' %}" alt="José Moscardó">
             <figcaption class="gc-caption">
-                <div class="gc-name">José Moscardó</div>
+                <div class="gc-name">José Moscardó (57 años)</div>
+                <div class="gc-role"><strong>Rango: </strong>Coronel</div>
                 <div class="gc-meta"><strong>Región / Frente:</strong> Toledo (Alcázar)</div>
                 <div class="gc-role"><strong>Rol:</strong> Defensa del Alcázar; figura de enorme proyección simbólica desde 1936.</div>
+                <div class="gc-role"><strong>Fallecimiento: </strong>1956</div> 
+                <div class="gc-role"><strong>Rango máximo: </strong>Teniente General</div>
                 <div class="gc-badges">
                 <span class="gc-badge">Alcázar</span><span class="gc-badge">Símbolo</span>
                 </div>
@@ -348,11 +429,14 @@
         <div class="col-4 mt-3">
         <article class="gc-card">
             <figure>
-            <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/millan_astray.webp' %}" alt="José Millán-Astray">
+            <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/millan_astray1.png' %}" alt="José Millán-Astray">
             <figcaption class="gc-caption">
-                <div class="gc-name">José Millán-Astray</div>
+                <div class="gc-name">José Millán-Astray (57 años)</div>
+                <div class="gc-role"><strong>Rango: </strong>Coronel</div>
                 <div class="gc-meta"><strong>Región / Frente:</strong> Salamanca (retaguardia)</div>
                 <div class="gc-role"><strong>Rol:</strong> Fundador de la Legión; papel destacado en propaganda y construcción simbólica del bando nacional.</div>
+                <div class="gc-role"><strong>Fallecimiento: </strong>1954</div> 
+                <div class="gc-role"><strong>Rango máximo: </strong>Greneral de Brigada (honorífico)</div>
                 <div class="gc-badges">
                 <span class="gc-badge">Legión</span><span class="gc-badge">Propaganda</span>
                 </div>
@@ -365,11 +449,14 @@
         <div class="col-4 mt-3">
         <article class="gc-card">
             <figure>
-            <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/morato.jpg' %}" alt="Joaquín García-Morato">
+            <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/morato1.png' %}" alt="Joaquín García-Morato">
             <figcaption class="gc-caption">
-                <div class="gc-name">Joaquín García-Morato</div>
+                <div class="gc-name">Joaquín García-Morato (32 años)</div>
+                <div class="gc-role"><strong>Rango: </strong>Capitán de Aviación</div>
                 <div class="gc-meta"><strong>Región / Frente:</strong> Aire (Madrid, Norte, Levante)</div>
                 <div class="gc-role"><strong>Rol:</strong> Principal as de la caza nacional; icono mediático del componente aéreo de la guerra.</div>
+                <div class="gc-role"><strong>Fallecimiento: </strong>1939</div> 
+                <div class="gc-role"><strong>Rango máximo: </strong>Comandante (ascenso póstumo)</div>
                 <div class="gc-badges">
                 <span class="gc-badge">Caza</span><span class="gc-badge">Aviación</span>
                 </div>
@@ -382,11 +469,14 @@
         <div class="col-4 mt-3">
         <article class="gc-card">
             <figure>
-            <img src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/munoz_grandes.jpg' %}" alt="Agustín Muñoz Grandes">
+            <img class="sanjurjo" src="{% static 'images/sigloXX/guerraCivil/generales_franquistas/grandes1.png' %}" alt="Agustín Muñoz Grandes">
             <figcaption class="gc-caption">
-                <div class="gc-name">Agustín Muñoz Grandes</div>
+                <div class="gc-name">Agustín Muñoz Grandes (40 años)</div>
+                <div class="gc-role"><strong>Rango: </strong>Comandante</div>
                 <div class="gc-meta"><strong>Región / Frente:</strong> Madrid; posteriormente Aragón</div>
                 <div class="gc-role"><strong>Rol:</strong> Mando de gran notoriedad por méritos de guerra; ejemplo de ascenso y proyección durante el conflicto.</div>
+                <div class="gc-role"><strong>Fallecimiento: </strong>1970</div> 
+                <div class="gc-role"><strong>Rango máximo: </strong>Teniente General</div>
                 <div class="gc-badges">
                 <span class="gc-badge">Tropas de choque</span><span class="gc-badge">Ascenso</span>
                 </div>

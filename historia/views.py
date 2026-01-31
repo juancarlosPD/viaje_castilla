@@ -175,6 +175,8 @@ def retaguardia(request):
 def generales_franquistas(request):    
     return render(request, 'espagna/sigloXX/guerraCivil/generales_franquistas.html')
 
+def generales_republicanos(request):    
+    return render(request, 'espagna/sigloXX/guerraCivil/generales_republicanos.html')
 
 
 

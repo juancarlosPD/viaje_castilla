@@ -1,0 +1,267 @@
+{% extends "bases/baseGuerraCivil.html" %}
+{% load static %}
+
+{% block titulo %} Mandos del Ejército Republicano (1936–1939) {% endblock %}
+{% block cabecera %} Mandos y generales del Ejército Republicano{% endblock %}
+
+{% block imgCabecera %}
+
+{% endblock %}
+
+{% block contenido %}
+
+<style>
+  :root{
+    --gc-card-bg: rgba(255,255,255,.92);
+    --gc-border: rgba(0,0,0,.12);
+  }
+  .gc-grid{
+    display:grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1rem;
+  }
+  .gc-card{
+    grid-column: span 12;
+    background: var(--gc-card-bg);
+    border: 1px solid var(--gc-border);
+    border-radius: 1.25rem;
+    overflow:hidden;
+    box-shadow: 0 .5rem 1.25rem rgba(0,0,0,.08);
+  }
+  @media (min-width: 768px){
+    .gc-card{ grid-column: span 6; }
+  }
+  @media (min-width: 1200px){
+    .gc-card{ grid-column: span 4; }
+  }
+  .gc-card figure{ margin:0; }
+  .gc-card img{
+    width:100%;
+    height: 280px;
+    object-fit: cover;
+    object-position: top center; /* 👈 clave: prioriza rostro/busto */
+   }
+   .gc-card img.portrait{
+      object-fit: contain;
+      background: #f3f3f3;
+    }
+  .gc-caption{
+    padding: .9rem 1rem 1rem 1rem;
+  }
+  .gc-name{
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin-bottom: .25rem;
+  }
+  .gc-meta{
+    font-size: .95rem;
+    color: #333;
+    margin-bottom: .35rem;
+  }
+  .gc-role{
+    font-size: .92rem;
+    color:#444;
+  }
+  .gc-badges{
+    margin-top: .6rem;
+    display:flex;
+    flex-wrap:wrap;
+    gap:.4rem;
+  }
+  .gc-badge{
+    font-size:.78rem;
+    padding:.2rem .55rem;
+    border-radius: 999px;
+    border: 1px solid rgba(0,0,0,.12);
+    background: rgba(0,0,0,.03);
+
+    
+  }
+  .gc-section-title{
+  padding: .95rem 1.1rem;
+  background: rgba(13,110,253,.06);          /* azul Bootstrap muy suave */
+  border: 1px solid rgba(13,110,253,.18);
+  border-radius: 1.25rem;
+  box-shadow: 0 .35rem .9rem rgba(0,0,0,.05);
+}
+
+.gc-section-title h2{
+  font-size: 1.55rem;
+  font-weight: 800;
+  letter-spacing: .2px;
+}
+
+.gc-section-icon{
+  width: 2.1rem;
+  height: 2.1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: .9rem;
+  background: rgba(13,110,253,.10);
+  border: 1px solid rgba(13,110,253,.20);
+  font-size: 1.15rem;
+}
+
+.gc-section-subtitle{
+  margin-top: .25rem;
+  color: rgba(0,0,0,.60);
+  font-size: .95rem;
+}
+
+.gc-badge-soft{
+  background: rgba(13,110,253,.10);
+  color: rgba(13,110,253,.90);
+  border: 1px solid rgba(13,110,253,.18);
+  font-weight: 600;
+}
+
+</style>
+
+<div class="container my-4">
+  <div class="gc-section-title mb-3">
+    <div class="d-flex align-items-center gap-2">
+      <span class="gc-section-icon" aria-hidden="true">🎖️</span>
+      <h2 class="mb-0">Generales</h2>
+      <span class="badge gc-badge-soft ms-1">1936–1939</span>
+    </div>
+  </div>
+
+  
+  <div class="gc-grid mt-4">
+
+    <article class="gc-card">
+  <figure>
+    <img class="portrait" src="{% static 'images/sigloXX/guerraCivil/generales_republicanos/miaja.png' %}" alt="">
+    <figcaption class="gc-caption">
+      <div class="gc-name">José Miaja Menant (57 años)</div>
+      <div class="gc-meta"><strong>Región / Frente:</strong> Madrid · Centro</div>
+      <div class="gc-role"><strong>Rol:</strong> Jefe de la Defensa de Madrid</div>
+      <div class="gc-role"><strong>Fallecimiento:</strong> 1958</div>
+      <div class="gc-role"><strong>Rango máximo:</strong> General</div>
+      <div class="gc-badges">
+        <span class="gc-badge">Madrid</span>
+        <span class="gc-badge">Defensa</span>
+      </div>
+    </figcaption>
+  </figure>
+</article>
+
+<article class="gc-card">
+  <figure>
+    <img class="portrait" src="{% static 'images/sigloXX/guerraCivil/generales_republicanos/rojo.png' %}" alt="">
+    <figcaption class="gc-caption">
+      <div class="gc-name">Vicente Rojo Lluch (47 años)</div>
+      <div class="gc-meta"><strong>Región / Frente:</strong> Estado Mayor · Todos los frentes</div>
+      <div class="gc-role"><strong>Rol:</strong> Jefe del Estado Mayor Central</div>
+      <div class="gc-role"><strong>Fallecimiento:</strong> 1966</div>
+      <div class="gc-role"><strong>Rango máximo:</strong> General</div>
+      <div class="gc-badges">
+        <span class="gc-badge">Estratega</span>
+        <span class="gc-badge">Estado Mayor</span>
+      </div>
+    </figcaption>
+  </figure>
+</article>
+
+<article class="gc-card">
+  <figure>
+    <img src="{% static 'images/sigloXX/guerraCivil/generales_republicanos/riquelme.png' %}" alt="">
+    <figcaption class="gc-caption">
+      <div class="gc-name">José Riquelme y López-Bago (60 años)</div>
+      <div class="gc-meta"><strong>Región / Frente:</strong> Madrid</div>
+      <div class="gc-role"><strong>Rol:</strong> Jefe de la I División Orgánica</div>
+      <div class="gc-role"><strong>Fallecimiento:</strong> 1942</div>
+      <div class="gc-role"><strong>Rango máximo:</strong> General</div>
+      <div class="gc-badges">
+        <span class="gc-badge">Madrid</span>
+        <span class="gc-badge">Lealtad</span>
+      </div>
+    </figcaption>
+  </figure>
+</article>
+
+<article class="gc-card">
+  <figure>
+    <img class="portrait" src="{% static 'images/sigloXX/guerraCivil/generales_republicanos/pozas.png' %}" alt="">
+    <figcaption class="gc-caption">
+      <div class="gc-name">Sebastián Pozas Perea (60 años)</div>
+      <div class="gc-meta"><strong>Región / Frente:</strong> Centro · Cataluña</div>
+      <div class="gc-role"><strong>Rol:</strong> Inspector General del Ejército</div>
+      <div class="gc-role"><strong>Fallecimiento:</strong> 1946</div>
+      <div class="gc-role"><strong>Rango máximo:</strong> General</div>
+      <div class="gc-badges">
+        <span class="gc-badge">Organización</span>
+        <span class="gc-badge">Ejército Popular</span>
+      </div>
+    </figcaption>
+  </figure>
+</article>
+
+<article class="gc-card">
+  <figure>
+    <img class="portrait" src="{% static 'images/sigloXX/guerraCivil/generales_republicanos/modesto.png' %}" alt="">
+    <figcaption class="gc-caption">
+      <div class="gc-name">Juan Modesto Guilloto (33 años)</div>
+      <div class="gc-meta"><strong>Región / Frente:</strong> Jarama · Brunete · Ebro</div>
+      <div class="gc-role"><strong>Rol:</strong> Jefe del Ejército del Ebro</div>
+      <div class="gc-role"><strong>Fallecimiento:</strong> 1969</div>
+      <div class="gc-role"><strong>Rango máximo:</strong> General</div>
+      <div class="gc-badges">
+        <span class="gc-badge">Ebro</span>
+        <span class="gc-badge">Milicias</span>
+      </div>
+    </figcaption>
+  </figure>
+</article>
+
+<article class="gc-card">
+  <figure>
+    <img class="portrait" src="{% static 'images/sigloXX/guerraCivil/generales_republicanos/lister.png' %}" alt="">
+    <figcaption class="gc-caption">
+      <div class="gc-name">Enrique Líster Forján (29 años)</div>
+      <div class="gc-meta"><strong>Región / Frente:</strong> Madrid · Aragón · Ebro</div>
+      <div class="gc-role"><strong>Rol:</strong> Jefe de División</div>
+      <div class="gc-role"><strong>Fallecimiento:</strong> 1994</div>
+      <div class="gc-role"><strong>Rango máximo:</strong> General</div>
+      <div class="gc-badges">
+        <span class="gc-badge">PCE</span>
+        <span class="gc-badge">Ebro</span>
+      </div>
+    </figcaption>
+  </figure>
+</article>
+
+<article class="gc-card">
+  <figure>
+    <img class="portrait" src="{% static 'images/sigloXX/guerraCivil/generales_republicanos/mangada.png' %}" alt="">
+    <figcaption class="gc-caption">
+      <div class="gc-name">Julián Mangada Rosenörn (71 años)</div>
+      <div class="gc-meta"><strong>Región / Frente:</strong> Madrid · Guadarrama</div>
+      <div class="gc-role"><strong>Rol:</strong> Jefe de columna republicana</div>
+      <div class="gc-role"><strong>Fallecimiento:</strong> 1946</div>
+      <div class="gc-role"><strong>Rango máximo:</strong> General</div>
+      <div class="gc-badges">
+        <span class="gc-badge">Milicias</span>
+        <span class="gc-badge">Guadarrama</span>
+      </div>
+    </figcaption>
+  </figure>
+</article>
+
+
+  
+  
+  
+
+  
+
+
+  </div>
+  
+
+</div>
+
+</div>
+
+{% endblock %}
