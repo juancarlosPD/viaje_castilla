@@ -1,0 +1,195 @@
+{% extends "bases/baseGuerraCivil.html" %}
+{% load static %}
+
+{% block titulo %} mapas {% endblock %}
+{% block cabecera %} Principales mapas de la Guerra Civil{% endblock %}
+
+{% block imgCabecera %}
+
+{% endblock %}
+
+{% block contenido %}
+
+<style>
+  :root{
+    --gc-card-bg: rgba(255,255,255,.92);
+    --gc-border: rgba(0,0,0,.12);
+  }
+  .gc-grid{
+    display:grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1rem;
+  }
+  .gc-card{
+    grid-column: span 12;
+    background: var(--gc-card-bg);
+    border: 1px solid var(--gc-border);
+    border-radius: 1.25rem;
+    overflow:hidden;
+    box-shadow: 0 .5rem 1.25rem rgba(0,0,0,.08);
+  }
+  @media (min-width: 768px){
+    .gc-card{ grid-column: span 6; }
+  }
+  @media (min-width: 1200px){
+    .gc-card{ grid-column: span 4; }
+  }
+  .gc-card figure{ margin:0; }
+  .gc-card img{
+    width:100%;
+    height: 280px;
+    object-fit: cover;
+    object-position: top center; /* 👈 clave: prioriza rostro/busto */
+   }
+   .gc-card img.portrait{
+      object-fit: contain;
+      background: #f3f3f3;
+    }
+  .gc-caption{
+    padding: .9rem 1rem 1rem 1rem;
+  }
+  .gc-name{
+    font-weight: 700;
+    font-size: 1.05rem;
+    margin-bottom: .25rem;
+  }
+  .gc-meta{
+    font-size: .95rem;
+    color: #333;
+    margin-bottom: .35rem;
+  }
+  .gc-role{
+    font-size: .92rem;
+    color:#444;
+  }
+  .gc-badges{
+    margin-top: .6rem;
+    display:flex;
+    flex-wrap:wrap;
+    gap:.4rem;
+  }
+  .gc-badge{
+    font-size:.78rem;
+    padding:.2rem .55rem;
+    border-radius: 999px;
+    border: 1px solid rgba(0,0,0,.12);
+    background: rgba(0,0,0,.03);
+
+    
+  }
+  .gc-section-title{
+  padding: .95rem 1.1rem;
+  background: rgba(13,110,253,.06);          /* azul Bootstrap muy suave */
+  border: 1px solid rgba(13,110,253,.18);
+  border-radius: 1.25rem;
+  box-shadow: 0 .35rem .9rem rgba(0,0,0,.05);
+}
+
+.gc-section-title h2{
+  font-size: 1.55rem;
+  font-weight: 800;
+  letter-spacing: .2px;
+}
+
+.gc-section-icon{
+  width: 2.1rem;
+  height: 2.1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: .9rem;
+  background: rgba(13,110,253,.10);
+  border: 1px solid rgba(13,110,253,.20);
+  font-size: 1.15rem;
+}
+
+.gc-section-subtitle{
+  margin-top: .25rem;
+  color: rgba(0,0,0,.60);
+  font-size: .95rem;
+}
+
+.gc-badge-soft{
+  background: rgba(13,110,253,.10);
+  color: rgba(13,110,253,.90);
+  border: 1px solid rgba(13,110,253,.18);
+  font-weight: 600;
+}
+
+</style>
+
+<div class="container my-4">
+  <div class="gc-section-title mb-3">
+    <div class="d-flex align-items-center gap-2">
+      <span class="gc-section-icon" aria-hidden="true">🎖️</span>
+      <h2 class="mb-0">Principales mapas de la guerra civil</h2>
+      
+  </div>
+</div>
+<div class="gc-grid mt-4">
+
+    
+    <article class="gc-card">
+      <figure>
+        <img class="portrait" src="{% static 'images/sigloXX/guerraCivil/mapas/julio_36_2.jpg' %}" alt="">
+        <figcaption class="gc-caption">
+          <div class="text-center">Julio de 1936</div>
+              
+        </figcaption>
+      </figure>
+    </article>
+    <article class="gc-card">
+      <figure>
+        <img class="portrait" src="{% static 'images/sigloXX/guerraCivil/mapas/septiembre36.png' %}" alt="">
+        <figcaption class="gc-caption">
+          <div class="text-center">Septiembre de 1936</div>
+              
+        </figcaption>
+      </figure>
+    </article>
+    <article class="gc-card">
+      <figure>
+        <img class="portrait" src="{% static 'images/sigloXX/guerraCivil/mapas/octubre37.png' %}" alt="">
+        <figcaption class="gc-caption">
+          <div class="text-center">Octubre de 1937</div>
+              
+        </figcaption>
+      </figure>
+    </article>
+    <article class="gc-card">
+      <figure>
+        <img class="portrait" src="{% static 'images/sigloXX/guerraCivil/mapas/julio38.png' %}" alt="">
+        <figcaption class="gc-caption">
+          <div class="text-center">Julio de 1938</div>
+              
+        </figcaption>
+      </figure>
+    </article>
+    <article class="gc-card">
+      <figure>
+        <img class="portrait" src="{% static 'images/sigloXX/guerraCivil/mapas/febrero39.png' %}" alt="">
+        <figcaption class="gc-caption">
+          <div class="text-center">Febrero de 1939</div>
+              
+        </figcaption>
+      </figure>
+    </article>
+    
+    
+    
+    
+  </div>
+  
+  
+  
+
+  
+
+
+</div>  
+
+</div>
+
+</div>
+
+{% endblock %}

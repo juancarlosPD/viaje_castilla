@@ -178,6 +178,16 @@ def generales_franquistas(request):
 def generales_republicanos(request):    
     return render(request, 'espagna/sigloXX/guerraCivil/generales_republicanos.html')
 
+def galeria(request):    
+    return render(request, 'espagna/sigloXX/guerraCivil/galeria.html')
+
+def gobierno(request):    
+    return render(request, 'espagna/sigloXX/guerraCivil/gobierno.html')
+
+def mapas(request):    
+    return render(request, 'espagna/sigloXX/guerraCivil/mapas.html')
+
+
 
 
 def franco(request):    

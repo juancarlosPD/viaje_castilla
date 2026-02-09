@@ -119,7 +119,13 @@
     border:1px solid rgba(0,0,0,.12);
     background:#fff;
     color:#111;
-    font-weight:700;
+    font-weight:700;  
+  }
+  .morato{
+    max-height: 80vh;   /* 👈 limita altura a 80% de la pantalla */
+    width: auto;        /* mantiene proporción */
+    max-width: 100%;    /* no se sale del modal */
+    object-fit: contain;
   }
 </style>
 
@@ -153,7 +159,7 @@
           <div class="mini-card">
             <figure class="text-center">
               <img class="img-fluid rounded-4 border shadow-sm"
-                   src="{% static 'images/sigloXX/guerraCivil/bando.jpg' %}"
+                   src="{% static 'images/sigloXX/guerraCivil/bando.png' %}"
                    alt="Bando de guerra (julio de 1936)"
                    role="button"
                    data-bs-toggle="modal"
@@ -169,7 +175,7 @@
           <div class="mini-card">
             <figure class="text-center">
               <img class="img-fluid rounded-4 border shadow-sm"
-                   src="{% static 'images/sigloXX/guerraCivil/radio.jpg' %}"
+                   src="{% static 'images/sigloXX/guerraCivil/radio.png' %}"
                    alt="Radio y propaganda (1936)"
                    role="button"
                    data-bs-toggle="modal"
@@ -300,13 +306,34 @@
       </div>
 
       <div class="content-card mb-4">
+        <div class="row">
+          <div class="col-8">
+            <ul>
+              <li>El 15 de julio el avión Dragon Rapide llega aeródromo de Gando en la isla de Gran Canaria.</li>
+              <li>El 17 Franco, acompañado de su esposa y de su hija, se traslada allí desde Tenerife con la excusa de asistir entierro del general <strong data-bs-toggle="modal"
+                        data-bs-target="#balmes">Amado Balmes</strong>.</li>
+              <li>Terminado el sepelio la mujer y la hija del general Franco son escoltadas al Puerto de la Luz, donde embarcan rumbo a Lisboa.</li>
+              <li>A primeras horas del sábado 18 de julio el general Franco sale del hotel donde ha pasado la noche y se dirige a la Comandancia Militar de Las Palmas desde donde proclama el estado de guerra en todo el archipiélago.</li>
+              
+                
+            </ul>
+          </div>
+          <div class="col-4">
+            <figure>
+              <img class="img-fluid rounded morato"
+                src="{% static 'images/sigloXX/guerraCivil/franco_canarias.png' %}"
+                alt="Franco en Canarias">
+                
+              <figcaption class="text-white text-center">Franco en Canarias</figcaption>
+            </figure>   
+          </div>
+        </div>
         <ul>
-          <li>Franco decreta la sublevación en Canarias a las 5:15 de la madrugada.</li>
-          <li>A las 7:10 envía un telegrama al Ejército de África declarando su adhesión a la sublevación</li>
-          <li>A las 14:30 despega de allí a bordo del Dragon Rapide con destino a Casablanca</li>
-          <li>Mientras, el general Orgaz extiende el golpe por todo el archipiélago.</li>
-          
+          <li>Todos los edificios oficiales son tomados por los militares sublevados y los gobernadores civiles de las dos provincias son detenidos. A mediodía el archipiélago canario está bajo el control de los sublevados.</li>          
+          <li>A las dos y media de la tarde vuela rumbo a Casablanca a donde llega hacia las diez de la noche. Le acompaña su primo, el teniente coronel <strong data-bs-toggle="modal"data-bs-target="#primo_franco">Francisco Franco Salgado-Araújo</strong>. En Casablanca le espera <strong data-bs-toggle="modal"
+                        data-bs-target="#luis_bolin">Luís Bolín</strong>  Después de pernoctar en esta ciudad vuelan hasta Tetuán donde llegan a las siete y media de la mañana del domingo 19 de julio.</li>
         </ul>
+        
         
 
       </div>
@@ -318,14 +345,31 @@
       </div>
 
       <div class="content-card mb-4">
-        <p class="mb-2">
-          
-        </p>
+        <div class="row">
+          <div class="col-8">
+            <ul>
+              <li>En cuanto el gobierno republicano de <strong data-bs-toggle="modal"
+                        data-bs-target="#casares_quiroga">Casares Quiroga</strong> tuvo las primeras noticias de la sublevación en el Protectorado español de Marruecos en la tarde del viernes 17 de julio, ordenó a la aviación y a la marina de guerra que bombardearan las posiciones de los rebeldes en el norte de África. </li>
+              <li>El ministro de Marina <strong data-bs-toggle="modal"
+                        data-bs-target="#jose_giral">José Giral</strong> ordenó que varios barcos de guerra se dirigieran al estrecho de Gibraltar para que bloquearan el paso a la península de las tropas coloniales. Los oficiales estaban comprometidos con el golpe, pero las dotaciones de esos barcos se rebelaron y tomaron el mando .</li>
+              
+            </ul>
 
-        <p class="mb-2">
-          
-        </p>
-
+          </div>
+          <div class="col-4">
+            <figure>
+              <img class="img-fluid rounded morato"
+                src="{% static 'images/sigloXX/guerraCivil/estrecho.png' %}"
+                alt="Destructor Cervantes">
+                
+              <figcaption class="text-white text-center">Destructor Cervantes</figcaption>
+            </figure>   
+          </div>
+        </div>
+        <ul>
+          <li>Los <strong>aviones</strong> despegaron del aeródromo de Tablada (Sevilla) para realizar una serie de incursiones en los días 17 y 18 de julio sobre Melilla, Ceuta, Larache y Tetuán. En esta última localidad se lanzaron 8 bombas que alcanzaron el edificio del Alto Comisariado pero también la mezquita y sus alrededores, causando numerosas víctimas. "Al final lo que consiguió este bombardeo fue irritar a los marroquíes y aglutinarles alrededor de los sublevados".</li>
+              <li>Por su parte <strong>la Marina de Guerra</strong> de la República española también bombardeó esas posiciones. El 20 o el 21 de julio el <strong data-bs-toggle="modal" data-bs-target="#sanchez_barcaiztegui">destructor Sánchez Barcáiztegui</strong>  bombardeó Ceuta. Al parecer el día 22 el <strong data-bs-toggle="modal" data-bs-target="#destructor_cervantes">Cervantes</strong> junto con otros destructores bombardearon Algeciras y La Línea de la Concepción. El 25 el <strong data-bs-toggle="modal" data-bs-target="#jaime_I">acorazado Jaime I</strong> , el crucero <strong data-bs-toggle="modal" data-bs-target="#crucero_libertad">Libertad</strong> y el crucero <strong data-bs-toggle="modal" data-bs-target="#crucero_cervantes">Miguel de Cervantes</strong> bombardearon de nuevo Ceuta y al día siguiente Melilla siendo hostigados por aviones <strong data-bs-toggle="modal" data-bs-target="#breguet19">Breguet 19</strong> que habían quedado en manos de los sublevados. El 2 de agosto volvieron a bombardear Ceuta, además de Algeciras y Tarifa.​</li>
+        </ul>
         
       </div>
 
@@ -391,6 +435,8 @@
   </div>
 </div>
 
+<!-- ---------------------------------------------------MODALES--------------------------------------------------- -->
+
 {% comment %} MODAL MAPA {% endcomment %}
 <div class="modal fade" id="mapa_inicio" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
@@ -418,7 +464,7 @@
       </div>
       <div class="modal-body text-center">
         <img class="img-fluid rounded"
-             src="{% static 'images/sigloXX/guerraCivil/bando_estado_guerra.jpg' %}"
+             src="{% static 'images/sigloXX/guerraCivil/bando.png' %}"
              alt="Bando y estado de guerra (julio 1936)">
       </div>
     </div>
@@ -435,12 +481,290 @@
       </div>
       <div class="modal-body text-center">
         <img class="img-fluid rounded"
-             src="{% static 'images/sigloXX/guerraCivil/radio_1936.jpg' %}"
+             src="{% static 'images/sigloXX/guerraCivil/radio.png' %}"
              alt="Radio y comunicaciones (1936)">
       </div>
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="balmes" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered ">
+    <div class="modal-content bg-dark">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-white ms-auto"
+                data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">
+        <div class="row text-start">
+          <div class="col-8 text-white">
+            <p class="mt-5">Murió como consecuencia de una herida de bala en el estómago cuando probaba una pistola en un campo de tiro.</p>
+            <p class="mt-5">En 2018 el historiador Ángel Viñas afirmó que la muerte de Balmes no fue un accidente sino un asesinato premeditado ordenado por el general Franco, ya que su muerte le permitió abandonar Tenerife, algo que ya había intentado pero que no había conseguido al no obtener la autorización del ministro de la Guerra.</p>
+            <p class="mt-5">En 1982 Luis Romero ya destacó que «sobre la muerte del general Balmes se hicieron, y se siguen haciendo, especulaciones a mi entender carentes de fundamento». Y añadió: «Hace algunos años en conversación con un coronel de artillería que en 1936 estaba destinado en Las Palmas y era teniente, me explicó cómo ocurrió este accidente y me informó también de la imprudencia de que hacía gala el general Balmes, a quien, respetuosamente, reprochaban los subordinados. Al caer herido de muerte, Balmes echaba la culpa, casi personalizando, a "esa maldita pistola"».</p>
+          </div>
+          <div class="col-4">
+            <figure>
+              <img class="img-fluid rounded morato"
+                src="{% static 'images/sigloXX/guerraCivil/balmes.png' %}"
+                alt="Amado Balmes">
+                
+              <figcaption class="text-white text-center">Amado Balmes</figcaption>
+            </figure>
+          </div>
+        </div>
+        
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="primo_franco" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered ">
+    <div class="modal-content bg-dark">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-white ms-auto"
+                data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">         
+            <figure>
+              <img class="img-fluid rounded morato"
+                src="{% static 'images/sigloXX/guerraCivil/primo_franco.png' %}"
+                alt="Virgilio Leret Ruiz">
+                
+              <figcaption class="text-white text-center">Francisco Franco Salgado-Araujo</figcaption>
+            </figure>       
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="luis_bolin" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered ">
+    <div class="modal-content bg-dark">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-white ms-auto"
+                data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center"> 
+        <div class="row">
+          <div class="col-8 text-white text-start">
+            <p>Durante la II República Española fue agregado de prensa en la embajada de España en Londres,​ corresponsal de ABC y miembro de la secretaría de la Sociedad de Naciones.</p>
+            <p>En julio de 1936, Bolín jugó un papel importante en el alquiler del Dragon Rapide (lo contrató por encargo de Juan Ignacio Luca de Tena, director de ABC, junto con Juan de la Cierva). Como recompensa, es nombrado capitán honorífico de la Legión. </p>
+            <p>Con la constitución del primer Gobierno franquista, el 30 de enero de 1938, fue nombrado director general del Turismo, cargo en el que permaneció durante quince años.[</p>
+            <p>Procurador en Cortes en la I Legislatura de las Cortes Españolas (1943-1946) </p>
+          </div>
+          <div class="col-4">
+            <figure>
+              <img class="img-fluid rounded morato"
+                src="{% static 'images/sigloXX/guerraCivil/luis_bolin.png' %}"
+                alt="Luís Bolín">
+                
+              <figcaption class="text-white text-center">Luís Antonio Bolín</figcaption>
+            </figure> 
+          </div>
+        </div>        
+                  
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="casares_quiroga" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered ">
+    <div class="modal-content bg-dark">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-white ms-auto"
+                data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center"> 
+        <div class="row">
+          <div class="col-8 text-white text-start">
+            <p>Fue un político republicano gallego, figura clave de la Segunda República y presidente del Consejo de Ministros en los meses inmediatamente anteriores al estallido de la Guerra Civil.</p>
+            <p>Republicano histórico, cercano a Manuel Azaña, participó desde muy pronto en la oposición al sistema monárquico y fue uno de los protagonistas del proceso que llevó a la proclamación de la República en 1931. Ocupó varios cargos relevantes —entre ellos ministro de la Guerra y de Marina— y se caracterizó por su defensa del poder civil frente al Ejército y por una concepción legalista del Estado. </p>
+            <p>En mayo de 1936 asumió la jefatura del Gobierno en un contexto de extrema polarización política, violencia social y conspiración militar. Su principal error histórico fue subestimar la amenaza del golpe de Estado: rechazó adoptar medidas preventivas decisivas contra los generales conspiradores, confiando en la lealtad institucional del Ejército y en que el orden republicano se impondría sin recurrir a acciones extraordinarias.</p>
+            <p>El 18 de julio de 1936, tras iniciarse la sublevación, presentó su dimisión. Su salida marcó el fracaso del último intento de contener la crisis dentro de los cauces legales y dio paso a gobiernos de emergencia. Tras la derrota republicana se exilió, primero en Francia y luego en el Reino Unido, donde murió en 1950. </p>
+            <p>Hoy se le recuerda como una figura trágica y controvertida: símbolo del republicanismo civil y moderado, pero también del colapso del poder político frente a la insurrección militar que desencadenó la Guerra Civil.</p>
+          </div>
+          <div class="col-4">
+            <figure>
+              <img class="img-fluid rounded morato"
+                src="{% static 'images/sigloXX/guerraCivil/gobierno/quiroga.png' %}"
+                alt="Casares Quiroga">
+                
+              <figcaption class="text-white text-center">Casares Quiroga (1884–1950)</figcaption>
+            </figure> 
+          </div>
+        </div>        
+                  
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="jose_giral" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered ">
+    <div class="modal-content bg-dark">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-white ms-auto"
+                data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center"> 
+        <div class="row">
+          <div class="col-8 text-white text-start">
+            <p>Fue un político y científico republicano español, presidente del Consejo de Ministros en los días más críticos tras el estallido de la Guerra Civil, y una de las figuras clave en la transformación inicial del conflicto.</p>
+            <p>Farmacéutico y catedrático universitario, Giral perteneció al núcleo del republicanismo azañista y ocupó diversos cargos durante la Segunda República, entre ellos ministro de Marina. De perfil intelectual y legalista, representaba la confianza en el Estado republicano y en la legitimidad democrática frente a la insurrección militar. </p>
+            <p>Tras la dimisión de Santiago Casares Quiroga el 19 de julio de 1936, Giral asumió la presidencia del Gobierno en una situación límite: el golpe había triunfado parcialmente, el Ejército estaba dividido y el poder efectivo del Estado se desmoronaba en muchas zonas. Su decisión más trascendental fue ordenar el reparto de armas a las organizaciones obreras para frenar a los sublevados, una medida excepcional que permitió contener la rebelión en ciudades clave como Madrid, Barcelona o Valencia.</p>
+            <p>Esta decisión salvó a corto plazo a la República, pero tuvo un coste elevado: aceleró la militarización de las milicias, la pérdida del monopolio estatal de la fuerza y el inicio de una profunda revolución social en la retaguardia republicana. El conflicto dejó de ser un golpe militar para convertirse plenamente en una guerra civil. </p>
+            <p>El Gobierno de Giral fue muy breve (julio–septiembre de 1936). Incapaz de reconstruir una autoridad central sólida y presionado por la magnitud del caos político y militar, dimitió y fue sustituido por Largo Caballero, al frente de un gobierno de unidad antifascista.</p>
+            <p>Tras la derrota republicana, Giral se exilió —primero en Francia y después en México—, donde continuó su labor académica y política en el exilio. Hoy se le recuerda como una figura decisiva y trágica: el gobernante que, en circunstancias extremas, tomó la decisión que permitió resistir al golpe, pero que también marcó el paso irreversible hacia una guerra larga y total.</p>
+          </div>
+          <div class="col-4">
+            <figure>
+              <img class="img-fluid rounded morato"
+                src="{% static 'images/sigloXX/guerraCivil/gobierno/jose_giral.jpg' %}"
+                alt="José Giral">
+                
+              <figcaption class="text-white text-center">José Giral (1879–1962)</figcaption>
+            </figure> 
+          </div>
+        </div>        
+                  
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="sanchez_barcaiztegui" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered ">
+    <div class="modal-content bg-dark">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-white ms-auto"
+                data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center"> 
+        <div class="row">
+          <div class="col-3 text-white text-start">
+            <p>Botado en marzo de 1926.</p>
+            <p>Perteneciente a la 1ª serie de la clase Churruca, participó en la guerra civil en el bando republicano. </p>
+            <p>Desguace en 1964.</p>
+          </div>
+          <div class="col-9">
+            <figure>
+              <img class="img-fluid rounded morato"
+                src="{% static 'images/sigloXX/guerraCivil/barcos/republicanos/destructor_sanchez_barcaiztegui.png' %}"
+                alt="Destructor Sánchez Barcáiztegui">
+                
+              <figcaption class="text-white text-center">Destructor Sánchez Barcáiztegui</figcaption>
+            </figure> 
+          </div>
+        </div>        
+                  
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="destructor_cervantes" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered ">
+    <div class="modal-content bg-dark">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-white ms-auto"
+                data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">          
+            <figure>
+              <img class="img-fluid rounded morato"
+                src="{% static 'images/sigloXX/guerraCivil/barcos/republicanos/destructor_cervantes.png' %}"
+                alt="Destructor Cervantes">
+                
+              <figcaption class="text-white text-center">Destructor Cervantes</figcaption>
+            </figure>                  
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="jaime_I" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered ">
+    <div class="modal-content bg-dark">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-white ms-auto"
+                data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">          
+            <figure>
+              <img class="img-fluid rounded morato"
+                src="{% static 'images/sigloXX/guerraCivil/barcos/republicanos/jaime_I.png' %}"
+                alt="Acorazado Jaime I">
+                
+              <figcaption class="text-white text-center">Acorazado Jaime I</figcaption>
+            </figure>                  
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="crucero_libertad" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered ">
+    <div class="modal-content bg-dark">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-white ms-auto"
+                data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">          
+            <figure>
+              <img class="img-fluid rounded morato"
+                src="{% static 'images/sigloXX/guerraCivil/barcos/republicanos/crucero_libertad.png' %}"
+                alt="Crucero Libertad">
+                
+              <figcaption class="text-white text-center">Crucero Libertad</figcaption>
+            </figure>                  
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="crucero_cervantes" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered ">
+    <div class="modal-content bg-dark">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-white ms-auto"
+                data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">          
+            <figure>
+              <img class="img-fluid rounded morato"
+                src="{% static 'images/sigloXX/guerraCivil/barcos/republicanos/crucero_cervantes.png' %}"
+                alt="Crucero Miguel de Cervantes">
+                
+              <figcaption class="text-white text-center">Crucero Miguel de Cervantes</figcaption>
+            </figure>                  
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="breguet19" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered ">
+    <div class="modal-content bg-dark">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-white ms-auto"
+                data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">          
+            <figure>
+              <img class="img-fluid rounded morato"
+                src="{% static 'images/sigloXX/guerraCivil/aviones/breguet19.jpg' %}"
+                alt="Avión Breguet 19">
+                
+              <figcaption class="text-white text-center">Avión Breguet 19</figcaption>
+              <p>Fue un bombardero ligero y avión de reconocimiento</p>
+            </figure>                  
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
 {% endblock %}
 

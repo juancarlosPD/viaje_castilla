@@ -112,6 +112,37 @@
     position: sticky;
     top: 90px;   /* ajusta según tu navbar */
   }
+
+  .morato{
+    max-height: 80vh;   /* 👈 limita altura a 80% de la pantalla */
+    width: auto;        /* mantiene proporción */
+    max-width: 100%;    /* no se sale del modal */
+    object-fit: contain;
+  }
+  .callout-thumb{
+  position: relative !important;
+  padding-right: 92px !important;  /* espacio reservado para la miniatura */
+}
+
+/* MUY IMPORTANTE: especificidad alta para ganar a cualquier CSS previo */
+.callout.callout-thumb > img.callout-mini{
+  position: absolute !important;
+  right: 14px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+
+  width: 64px !important;
+  height: 64px !important;
+  max-width: 64px !important;
+  max-height: 64px !important;
+
+  object-fit: cover !important;
+  display: block !important;
+
+  border-radius: 10px !important;
+  cursor: pointer !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,.25) !important;
+}
 </style>
 
 <div class="page-wrap">
@@ -144,10 +175,10 @@
         <div class="mini-card">          
           <figure class="text-center">
                 <img class="img-fluid rounded-4 border shadow-sm"
-                    src="{% static 'images/sigloXX/guerraCivil/alzamiento_prensa.jpg' %}"                    
+                    src="{% static 'images/sigloXX/guerraCivil/alzamiento_prensa.png' %}"                    
                     role="button"
                     data-bs-toggle="modal"
-                    data-bs-target="#">                
+                    data-bs-target="#alzamiento_prensa">                
             </figure>
           <div class="d">
             Sublevación de las tropas del Ejército de África contra el gobierno republicano.
@@ -159,10 +190,10 @@
         <div class="mini-card">
           <figure class="text-center">
                 <img class="img-fluid rounded-4 border shadow-sm"
-                    src="{% static 'images/sigloXX/guerraCivil/franco_ceuta.jpg' %}"                    
+                    src="{% static 'images/sigloXX/guerraCivil/franco_ceuta.png' %}"                    
                     role="button"
                     data-bs-toggle="modal"
-                    data-bs-target="#">                
+                    data-bs-target="#franco_ceuta">                
             </figure>
           
           <div class="d">
@@ -278,14 +309,13 @@
         <h2>📜 Protectorado español de Marruecos</h2>        
       </div>
 
-      <div class="content-card mb-4">
-        <p>La del <strong>Protectorado marroquí</strong> era la mayor guarnición española de todo el ejército, 
-          consecuencia de lo conflictivo de la zona (y, especialmente, tras la sangrienta guerra del Rif). 
-          Por tanto, en los planes conspirativos del general Mola contra el gobierno del Frente Popular,
-          la guarnición africana era uno de los elementos claves.</p>
-          
+      <div class="content-card mb-4">          
           <div class="row">
             <div class="col-9">
+              <p>La del <strong>Protectorado marroquí</strong> era la mayor guarnición española de todo el ejército, 
+              consecuencia de lo conflictivo de la zona (y, especialmente, tras la sangrienta guerra del Rif). 
+              Por tanto, en los planes conspirativos del general Mola contra el gobierno del Frente Popular,
+              la guarnición africana era uno de los elementos claves.</p>
               <p>La sublevación militar que daría lugar a la guerra civil española empezaría en Melilla. </p>
               <p>Aunque en <strong>Melilla</strong> gobernaba el Frente Popular, las posibilidades del gobierno de Madrid frente a una intentona golpista
               eran mínimas, dado que la mayoría de los oficiales de la guarnición estaban comprometidos con la conspiración militar, 
@@ -296,11 +326,14 @@
               <p>Por otro lado, los trabajadores españoles en Marruecos no disponían de armas para defenderse en caso de que estallara 
               una rebelión militar.​</p>
             </div>
-            <div class="col-3 border">
+            <div class="col-3 ">
               <figure class="text-center my-3">                
                 <img class="img-fluid rounded-4  shadow-sm"
-                    src="{% static 'images/sigloXX/guerraCivil/agustin_gomez_morato.jpg' %}"
-                    >
+                    src="{% static 'images/sigloXX/guerraCivil/agustin_gomez_morato.png' %}"
+                    role="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#morato"> 
+                    
                 <figcaption class="small text-muted mt-2">
                   Agustín Gómez Morato.
                   <p>Comandante en jefe de ejército de África</p>
@@ -325,36 +358,42 @@
         <div class="row">
           <div class="col-9">
             <ul>
-          <li>
+          <li class="mt-4 mb-5">
             Durante la mañana del 17 de julio los conspiradores celebraron una reunión en la sala de la comisión cartográfica 
             de la guarnición para ultimar los planes. Durante el encuentro el coronel <strong> Juan Seguí</strong>, jefe local de Falange y también 
             líder de la sublevación en el Marruecos oriental, comunicó a los conspiradores el momento en que comenzaría 
             la sublevación: 5 de la mañana del 18 de julio.
           </li>
-          <li>
+          <li class="mb-5">
             En el último momento uno de los dirigentes locales de Falange, Álvaro González, informó sobre los planes de la conspiración al dirigente local del partido Unión Republicana (UR),
           </li>
-          <li>
+          <li class="mb-5">
             Por la tarde, los oficiales golpistas volvieron a la sala de cartografía y procedieron a repartir las armas que habían guardado allí clandestinamente. Fue entonces cuando llegó a las inmediaciones el <strong> teniente Zaro</strong>, que procedió a rodear el edificio con soldados y guardias de asalto.
           </li>
-          <li>
+          <li class="mb-5">
            <strong>Darío Gazapo</strong> (miembro de la falange) llama por teléfono para que una unidad de la Legión extranjera acudiera a auxiliarle. Cuando los legionarios llegaron al lugar, Zaro y sus hombres se vieron superados numéricamente, y se rindieron.
           </li>
         </ul> 
           </div>
-          <div class="col-2">
+          <div class="col-3">
             <figure class="text-center my-3">                
                 <img class="img-fluid rounded-4 border shadow-sm"
-                    src="{% static 'images/sigloXX/guerraCivil/juan_segui.jpg' %}"
-                    >
+                    src="{% static 'images/sigloXX/guerraCivil/juan_segui.png' %}"
+                    role="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#segui">
+                    
                 <figcaption class="small text-muted mt-2">
                   Coronel Juan Seguí.
                 </figcaption>
               </figure>
               <figure class="text-center my-3">                
                 <img class="img-fluid rounded-4 border shadow-sm"
-                    src="{% static 'images/sigloXX/guerraCivil/dario_gazapo.jpg' %}"
-                    >
+                    src="{% static 'images/sigloXX/guerraCivil/dario_gazapo.png' %}"
+                    role="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#gazapo">
+                    
                 <figcaption class="small text-muted mt-2">
                   Darío Gazapo.
                 </figcaption>
@@ -380,8 +419,11 @@
           <div class="col-3">
             <figure class="text-center my-3">                
                 <img class="img-fluid rounded-4 border shadow-sm"
-                    src="{% static 'images/sigloXX/guerraCivil/general_romerales.jpg' %}"
-                    >
+                    src="{% static 'images/sigloXX/guerraCivil/general_romerales.png' %}"
+                    role="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#romerales">
+                    
                 <figcaption class="small text-muted mt-2">
                   General Romerales.
                   <p>Comandante Melilla</p>
@@ -391,22 +433,32 @@
         </div>
         <p>El presidente del Gobierno es informado de los sucesos de Melilla y avisa al general Agustín Gómez Morato, jefe del Ejército de África, y que se encuentra en Larache. Éste vuela a Melilla para pacificar a los sublevados, pero es detenido por los sublevados en cuanto aterriza. El coronel Luis Soláns quedó al frente de la Comandancia Militar de Melilla.​ En la madrugada del 18 de julio de 1936 Soláns envió un telegrama a la Comandancia Militar de Las Palmas dirigido al general Francisco Franco, anunciándole que ya eran dueños de la ciudad de Melilla.</p>
         
-         <div class="callout mb-3">
-          <strong>La última resistencia: El Atalayón</strong> 
-        </div>
+         <div class="callout mb-3 callout-thumb">
+            <strong>La última resistencia: El Atalayón</strong>
+
+            <img src="{% static 'images/sigloXX/guerraCivil/leret_ruiz.jpg' %}"
+                alt="El Atalayón"
+                class="callout-mini"
+                role="button"
+                data-bs-toggle="modal"
+                data-bs-target="#leret">
+          </div>
         <div class="row">
           <div class="col-7 mt-4">
               <ul>
                 <li>A pocos kilómetros de Melilla se encontraba la Base de Hidroaviones del Atalayón, al mando del capitan Leret Ruiz que permanece fiel a la República. </li>
-                <li>El capitán resiste durante tres horas el asedio de los rebeldes, que finalmente capturan la base. Fue fusilado al poco de rendirse, en la madrugada del 18, semidesnudo y con un brazo roto</li>
+                <li class="mt-5">El capitán resiste durante tres horas el asedio de los rebeldes, que finalmente capturan la base. Fue fusilado al poco de rendirse, en la madrugada del 18, semidesnudo y con un brazo roto</li>
                 
               </ul>
           </div>
           <div class="col-5">
              <figure class="text-center my-4 ">                
                 <img class="img-fluid rounded-4  shadow-sm"
-                    src="{% static 'images/sigloXX/guerraCivil/atalayon.jpg' %}"
-                    >
+                    src="{% static 'images/sigloXX/guerraCivil/atalayon.png' %}"
+                    role="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#atalayon">
+                    
                 <figcaption class="small text-muted mt-2">                 
                   <p>Base de hidroaviones El Atalayon</p>
                 </figcaption>
@@ -430,16 +482,22 @@
           <div class="col-3">
             <figure class="text-center ">                
                 <img class="img-fluid rounded-4  shadow-sm"
-                    src="{% static 'images/sigloXX/guerraCivil/yague.jpg' %}"
-                    >
+                    src="{% static 'images/sigloXX/guerraCivil/yague.png' %}"
+                    role="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#yague">
+                    
                 <figcaption class="small text-muted mt-2">                 
                   <p>Teniente coronel Yague</p>
                 </figcaption>
               </figure>
               <figure class="text-center my-4 ">                
                 <img class="img-fluid rounded-4  shadow-sm"
-                    src="{% static 'images/sigloXX/guerraCivil/saenz_buruaga.png' %}"
-                    >
+                    src="{% static 'images/sigloXX/guerraCivil/saenz_buruaga1.png' %}"
+                    role="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#buruaga">
+                    
                 <figcaption class="small text-muted mt-2">                 
                   <p>Teniente Coronel Sáenz de Buruaga</p>
                 </figcaption>
@@ -486,6 +544,161 @@
         <img class="img-fluid rounded"
              src="{% static 'images/sigloXX/guerraCivil/protectorado_marruecos.png' %}"
              alt="Protectorado español en Marruecos">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="alzamiento_prensa" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content bg-dark">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-white ms-auto"
+                data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img class="img-fluid rounded"
+             src="{% static 'images/sigloXX/guerraCivil/alzamiento_prensa.png' %}"
+             alt="Protectorado español en Marruecos">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="franco_ceuta" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content bg-dark">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-white ms-auto"
+                data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img class="img-fluid rounded"
+             src="{% static 'images/sigloXX/guerraCivil/franco_ceuta.png' %}"
+             alt="Protectorado español en Marruecos">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="morato" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content bg-dark">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-white ms-auto"
+                data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img class="img-fluid rounded morato"
+             src="{% static 'images/sigloXX/guerraCivil/agustin_gomez_morato.png' %}"
+             alt="Protectorado español en Marruecos">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="segui" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content bg-dark">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-white ms-auto"
+                data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img class="img-fluid rounded morato"
+             src="{% static 'images/sigloXX/guerraCivil/juan_segui.png' %}"
+             alt="Protectorado español en Marruecos">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="gazapo" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content bg-dark">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-white ms-auto"
+                data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img class="img-fluid rounded morato"
+             src="{% static 'images/sigloXX/guerraCivil/dario_gazapo.png' %}"
+             alt="Protectorado español en Marruecos">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="romerales" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content bg-dark">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-white ms-auto"
+                data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img class="img-fluid rounded morato"
+             src="{% static 'images/sigloXX/guerraCivil/general_romerales.png' %}"
+             alt="Protectorado español en Marruecos">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="atalayon" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content bg-dark">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-white ms-auto"
+                data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img class="img-fluid rounded morato"
+             src="{% static 'images/sigloXX/guerraCivil/atalayon.png' %}"
+             alt="Protectorado español en Marruecos">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="yague" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content bg-dark">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-white ms-auto"
+                data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img class="img-fluid rounded morato"
+             src="{% static 'images/sigloXX/guerraCivil/yague.png' %}"
+             alt="Protectorado español en Marruecos">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="buruaga" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content bg-dark">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-white ms-auto"
+                data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img class="img-fluid rounded morato"
+             src="{% static 'images/sigloXX/guerraCivil/saenz_buruaga1.png' %}"
+             alt="Protectorado español en Marruecos">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="leret" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content bg-dark">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-white ms-auto"
+                data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">
+        <figure>
+          <img class="img-fluid rounded morato"
+             src="{% static 'images/sigloXX/guerraCivil/leret_ruiz.jpg' %}"
+             alt="Virgilio Leret Ruiz">
+             
+          <figcaption class="text-white">Virgilio Leret Ruiz</figcaption>
+        </figure>
+        
       </div>
     </div>
   </div>

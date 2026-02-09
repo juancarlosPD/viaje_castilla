@@ -132,7 +132,7 @@
   object-fit: contain;  /* clave: no recorta */
   display: block;
    background: #ffffff;
-}
+  }
   .t-head{
     padding:1rem 1rem .75rem 1rem;
     border-bottom:1px solid rgba(0,0,0,.06);
@@ -165,83 +165,9 @@
   }
 </style>
 
-<div class="page-wrap">
 
-  <!-- HERO -->
-  <section class="hero p-4 p-md-5 mb-4">
-    <div class="d-flex flex-column gap-3">
-      <div>
-        <h1 class="h3 mb-2 fw-bold">La Guerra Civil Española</h1>
 
-        <div class="d-flex flex-wrap gap-2 mb-3">
-          <span class="chip">⚡ Golpe (julio 1936)</span>
-          <span class="chip">🧭 Frentes y campañas</span>
-          <span class="chip">🏙️ Asedios</span>
-          <span class="chip">✈️ Intervención exterior</span>
-          <span class="chip">🕊️ Final (1939)</span>
-        </div>
-
-        <p class="lead mb-0">
-          Resumen organizado en un <strong>timeline vertical</strong>: qué ocurre, por qué importa y qué consecuencias tiene.
-        </p>
-      </div>
-
-      <div class="kpi-grid">
-        <div class="kpi">
-            <figure class="text-center">
-                <img class="img-fluid rounded-4 border shadow-sm"
-                    src="{% static 'images/sigloXX/guerraCivil/calvo_sotelo_cadaver.jpg' %}"
-                    alt="Asesinato de Calvo Sotelo"
-                    role="button"
-                    data-bs-toggle="modal"
-                    data-bs-target="#calvo_sotelo">
-
-                
-            </figure>
-          <div class="t">17–18 julio 1936</div>
-          <div class="d text-center">Golpe de Estado y estallido del conflicto</div>
-        </div>
-        <div class="kpi">
-            <figure class="text-center">
-                <img class="img-fluid rounded-4 border shadow-sm"
-                    src="{% static 'images/sigloXX/guerraCivil/guernica.jpg' %}"
-                    alt="Guernica. Picasso"
-                    role="button"
-                    data-bs-toggle="modal"
-                    data-bs-target="#guernica">                
-            </figure>
-          <div class="t">1937</div>
-          <div class="d text-center">Norte y grandes ofensivas</div>
-        </div>
-        <div class="kpi">
-            <figure class="text-center">
-                <img class="img-fluid rounded-4 border shadow-sm"
-                    src="{% static 'images/sigloXX/guerraCivil/batalla_Teruel.webp' %}"
-                    alt="Batalla de Teruel"
-                    role="button"
-                    data-bs-toggle="modal"
-                    data-bs-target="#batalla_teruel">                
-            </figure>
-          <div class="t">1938</div>
-          <div class="d text-center">Teruel y Ebro</div>
-        </div>
-        <div class="kpi">
-            <figure class="text-center">
-                <img class="img-fluid rounded-4 border shadow-sm"
-                    src="{% static 'images/sigloXX/guerraCivil/final_guerra.jpg' %}"
-                    alt="Final de la guerra"
-                    role="button"
-                    data-bs-toggle="modal"
-                    data-bs-target="#final_guerra">                
-            </figure>
-          <div class="t">1 abril 1939</div>
-          <div class="d text-center">Fin de la guerra</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="row g-4">
+<div class="row g-4">
 
 <aside class="col-lg-4">
   <div class="toc-sticky">
@@ -404,6 +330,80 @@
 
     <!-- MAIN -->
     <main class="col-lg-8">
+      <div class="page-wrap">
+
+  <!-- HERO -->
+  <section class="hero p-4 p-md-5 mb-4">
+    <div class="d-flex flex-column gap-3">
+      <div>
+        <h1 class="h3 mb-2 fw-bold">La Guerra Civil Española</h1>
+
+        <div class="d-flex flex-wrap gap-2 mb-3">
+          <span class="chip">⚡ Golpe (julio 1936)</span>
+          <span class="chip">🧭 Frentes y campañas</span>
+          <span class="chip">🏙️ Asedios</span>
+          <span class="chip">✈️ Intervención exterior</span>
+          <span class="chip">🕊️ Final (1939)</span>
+        </div>
+        
+      </div>
+
+      <div class="kpi-grid">
+        <div class="kpi">
+            <figure class="text-center">
+                <img class="img-fluid rounded-4 border shadow-sm"
+                    src="{% static 'images/sigloXX/guerraCivil/calvo_sotelo_cadaver.jpg' %}"
+                    alt="Asesinato de Calvo Sotelo"
+                    role="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#calvo_sotelo">
+
+                
+            </figure>
+          <div class="t">17–18 julio 1936</div>
+          <div class="d text-center">Golpe de Estado y estallido del conflicto</div>
+        </div>
+        <div class="kpi">
+            <figure class="text-center">
+                <img class="img-fluid rounded-4 border shadow-sm"
+                    src="{% static 'images/sigloXX/guerraCivil/guernica.jpg' %}"
+                    alt="Guernica. Picasso"
+                    role="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#guernica">                
+            </figure>
+          <div class="t">1937</div>
+          <div class="d text-center">Norte y grandes ofensivas</div>
+        </div>
+        <div class="kpi">
+            <figure class="text-center">
+                <img class="img-fluid rounded-4 border shadow-sm"
+                    src="{% static 'images/sigloXX/guerraCivil/batalla_Teruel.webp' %}"
+                    alt="Batalla de Teruel"
+                    role="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#batalla_teruel">                
+            </figure>
+          <div class="t">1938</div>
+          <div class="d text-center">Teruel y Ebro</div>
+        </div>
+        <div class="kpi">
+            <figure class="text-center">
+                <img class="img-fluid rounded-4 border shadow-sm"
+                    src="{% static 'images/sigloXX/guerraCivil/final_guerra.jpg' %}"
+                    alt="Final de la guerra"
+                    role="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#final_guerra">                
+            </figure>
+          <div class="t">1 abril 1939</div>
+          <div class="d text-center">Fin de la guerra</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<div class="row g-4">
 
       <!-- CONTEXTO -->
       <div class="section-head anchor mb-3" id="contexto">
@@ -549,7 +549,7 @@
         <section class="t-item anchor" id="madrid">
           <div class="t-dot" data-color="blue" aria-hidden="true"></div>
           <article class="t-card">
-            <img class="t-cover mt-4" src="{% static 'images/sigloXX/guerraCivil/no_pasaran_1.jpg' %}" alt="Defensa de Madrid">
+            <img class="t-cover mt-4" src="{% static 'images/sigloXX/guerraCivil/no_pasaran.png' %}" alt="Defensa de Madrid">
             <header class="t-head">
               <h3 class="t-title">3) Madrid resiste</h3>
               <div class="t-meta">

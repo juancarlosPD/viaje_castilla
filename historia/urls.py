@@ -77,6 +77,9 @@ urlpatterns = [
     path('sigloXX/guerra_civil/retaguardia', views.retaguardia, name='retaguardia'),
     path('sigloXX/guerra_civil/generales_franquistas', views.generales_franquistas, name='generales_franquistas'),
     path('sigloXX/guerra_civil/generales_republicanos', views.generales_republicanos, name='generales_republicanos'),
+    path('sigloXX/guerra_civil/galeria', views.galeria, name='galeria'),
+    path('sigloXX/guerra_civil/gobierno', views.gobierno, name='gobierno'),
+    path('sigloXX/guerra_civil/mapas', views.mapas, name='mapas'),
 
     # ----------------------------FILOSOFIA--------------------------
     path('metodoFilosofia/', views.metodoFilosofia, name='metodoFilosofia'),
