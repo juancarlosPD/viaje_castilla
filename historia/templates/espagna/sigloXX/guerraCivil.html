@@ -197,8 +197,8 @@
           <a class="toc-link small" href="{% url 'calvo_sotelo' %}">• Asesinato de Calvo Sotelo</a>
           <a class="toc-link small" href="{% url 'golpe_17_julio_1936' %}">• 17 julio 1936: inicio del alzamiento</a>
           <a class="toc-link small" href="{% url 'golpe_18_julio' %}">• 18 julio 1936: extensión del golpe</a>
-          <a class="toc-link small" href="{% url 'verano_36' %}">• Verano 1936: división territorial</a>
-          <a class="toc-link small" href="{% url 'retaguardia' %}">• Poder en retaguardia y juntas</a>
+          {% comment %} <a class="toc-link small" href="{% url 'verano_36' %}">• Verano 1936: división territorial</a>
+          <a class="toc-link small" href="{% url 'retaguardia' %}">• Poder en retaguardia y juntas</a> {% endcomment %}
         </div>
 
         <!-- 2) ÁFRICA -->
@@ -212,8 +212,8 @@
           <a class="small text-muted text-decoration-none pt-1" href="#africa1936">↘</a>
         </div>
         <div class="collapse ps-2 pb-2 mt-1" id="toc-africa">
-          <a class="toc-link small" href="#">• Traslado del Ejército de África</a>
-          <a class="toc-link small" href="#">• Puente aéreo y apoyo exterior</a>
+          <a class="toc-link small" href="{% url 'ejercito_africa' %}">• Traslado del Ejército de África</a>
+          <a class="toc-link small" href="{% url 'apoyo_exterior' %}">• Apoyo exterior</a>
           <a class="toc-link small" href="#">• Avance por Andalucía y Extremadura</a>
           <a class="toc-link small" href="#">• Objetivo estratégico: Madrid</a>
         </div>
@@ -350,31 +350,30 @@
 
       <div class="kpi-grid">
         <div class="kpi">
-            <figure class="text-center">
-                <img class="img-fluid rounded-4 border shadow-sm"
-                    src="{% static 'images/sigloXX/guerraCivil/calvo_sotelo_cadaver.jpg' %}"
-                    alt="Asesinato de Calvo Sotelo"
-                    role="button"
-                    data-bs-toggle="modal"
-                    data-bs-target="#calvo_sotelo">
+          <figure class="text-center">
+            <a href="{% url 'golpe_estado' %}">
+              <img class="img-fluid rounded-4 border shadow-sm"
+                  src="{% static 'images/sigloXX/guerraCivil/calvo_sotelo_cadaver.jpg' %}"
+                  alt="Asesinato de Calvo Sotelo">
+            </a>
+          </figure>
 
-                
-            </figure>
           <div class="t">17–18 julio 1936</div>
           <div class="d text-center">Golpe de Estado y estallido del conflicto</div>
         </div>
         <div class="kpi">
-            <figure class="text-center">
-                <img class="img-fluid rounded-4 border shadow-sm"
-                    src="{% static 'images/sigloXX/guerraCivil/guernica.jpg' %}"
-                    alt="Guernica. Picasso"
-                    role="button"
-                    data-bs-toggle="modal"
-                    data-bs-target="#guernica">                
-            </figure>
-          <div class="t">1937</div>
+          <figure class="text-center">
+            <a href="{% url 'golpe_estado' %}">
+              <img class="img-fluid rounded-4 border shadow-sm"
+                  src="{% static 'images/sigloXX/guerraCivil/guernica.jpg' %}"
+                  alt="Asesinato de Calvo Sotelo">
+            </a>
+          </figure>
+
+          <div class="t">17–18 julio 1936</div>
           <div class="d text-center">Norte y grandes ofensivas</div>
         </div>
+        
         <div class="kpi">
             <figure class="text-center">
                 <img class="img-fluid rounded-4 border shadow-sm"

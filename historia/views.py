@@ -157,6 +157,9 @@ def guerraCivil(request):
 def golpe_estado(request):    
     return render(request, 'espagna/sigloXX/guerraCivil/golpe_estado.html')
 
+def hacia_madrid(request):    
+    return render(request, 'espagna/sigloXX/guerraCivil/hacia_madrid.html')
+
 def calvo_sotelo(request):    
     return render(request, 'espagna/sigloXX/guerraCivil/calvo_sotelo.html')
 
@@ -187,6 +190,13 @@ def gobierno(request):
 def mapas(request):    
     return render(request, 'espagna/sigloXX/guerraCivil/mapas.html')
 
+def ejercito_africa(request):    
+    return render(request, 'espagna/sigloXX/guerraCivil/ejercito_africa.html')
+
+def apoyo_exterior(request):    
+    return render(request, 'espagna/sigloXX/guerraCivil/apoyo_exterior.html')
+
+
 
 
 
@@ -195,6 +205,7 @@ def franco(request):
 
 def transicion(request):    
     return render(request, 'espagna/sigloXX/transicion.html')
+
 
 
    

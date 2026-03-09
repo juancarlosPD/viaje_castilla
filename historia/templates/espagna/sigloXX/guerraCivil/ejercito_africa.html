@@ -1,0 +1,437 @@
+{% extends "bases/baseGuerraCivil.html" %}
+{% load static %}
+
+{% block titulo %} Traslado del ejército de África {% endblock %}
+{% block cabecera %} Traslado del ejército de África {% endblock %}
+
+{% block imgCabecera %}
+<figure class="text-center">
+  <img class="img-fluid rounded-4 border shadow-sm"
+       src="{% static 'images/sigloXX/guerraCivil/calvo_sotelo_cadaver.jpg' %}"
+       alt="Asesinato de Calvo Sotelo"
+       role="button"
+       data-bs-toggle="modal"
+       data-bs-target="#img_calvo_sotelo">
+</figure>
+{% endblock %}
+
+{% block contenido %}
+
+<style>
+  :root{
+    --xx-bg:#fbfbfc;
+    --xx-card:#ffffff;
+    --xx-border:rgba(0,0,0,.08);
+    --xx-shadow:0 10px 30px rgba(0,0,0,.08);
+    --xx-shadow-sm:0 6px 18px rgba(0,0,0,.06);
+
+    --hero-a:#1b2a41;
+    --hero-b:#2b3f63;
+
+    --c-blue:#0d6efd;
+    --c-green:#0a6b3a;
+    --c-amber:#f59e0b;
+    --c-red:#dc2626;
+    --c-slate:#334155;
+  }
+
+  .page-wrap{ background:var(--xx-bg); border-radius:1rem; padding:1rem; }
+
+  .hero{
+    background:linear-gradient(90deg,var(--hero-a),var(--hero-b));
+    color:#fff;border-radius:1rem;overflow:hidden;box-shadow:var(--xx-shadow);
+  }
+  .hero .lead{opacity:.92;}
+
+  .chip{
+    display:inline-flex;align-items:center;gap:.4rem;
+    padding:.25rem .65rem;border-radius:999px;
+    background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);
+    font-size:.85rem;white-space:nowrap;
+  }
+
+  .section-head{
+    border:1px solid var(--xx-border);
+    background:#eef7ff;border-radius:1rem;padding:1rem 1rem;
+    box-shadow:var(--xx-shadow-sm);
+  }
+  .section-head h2{ margin:0;font-size:1.1rem;font-weight:900;letter-spacing:.01em; }
+  .section-head .hint{ color:rgba(0,0,0,.65); margin:.25rem 0 0 0; font-size:.95rem; }
+
+  .content-card{
+    border:1px solid var(--xx-border);
+    border-radius:1rem;background:var(--xx-card);
+    padding:1rem 1rem;box-shadow:var(--xx-shadow-sm);
+  }
+
+  .callout{
+    border-left:6px solid #fd7e14;
+    background:#fff7ed;padding:1rem 1rem;border-radius:.9rem;
+    box-shadow:var(--xx-shadow-sm);
+  }
+
+  .mini-card{
+    border:1px solid var(--xx-border);
+    border-radius:1rem;background:#fff;
+    padding:.9rem; box-shadow:var(--xx-shadow-sm);
+    height:100%;
+  }
+  .mini-card .t{ font-weight:900; }
+  .mini-card .d{ color:rgba(0,0,0,.65); font-size:.92rem; margin-top:.15rem; }
+
+  .t-pill{
+    display:inline-flex; align-items:center; gap:.4rem;
+    padding:.25rem .6rem; border-radius:999px;
+    border:1px solid rgba(0,0,0,.1); background:#fff;
+    font-size:.85rem; margin-right:.35rem; margin-bottom:.35rem;
+  }
+
+  .anchor{ scroll-margin-top: 90px; }
+
+  /* Mini timeline */
+  .mini-timeline{ margin:0; padding:0; list-style:none; }
+  .mini-timeline li{
+    display:grid; grid-template-columns:18px 1fr; gap:.75rem;
+    padding:.55rem 0;
+  }
+  .mini-timeline li::before{
+    content:""; width:10px; height:10px; border-radius:999px;
+    background:var(--c-red);
+    margin-top:.35rem;
+    box-shadow:0 0 0 6px rgba(220,38,38,.10);
+  }
+
+  .kbd-link{
+    font-size:.85rem;
+    border:1px solid rgba(0,0,0,.12);
+    background:rgba(255,255,255,.85);
+    padding:.1rem .4rem;border-radius:.5rem;
+  }
+
+  /* “Galería” simple para huecos de imágenes */
+  .ph{
+    border:1px dashed rgba(0,0,0,.22);
+    border-radius:1rem;
+    background:linear-gradient(180deg,#ffffff,#f6f7fb);
+    padding:.75rem;
+  }
+  .ph img{ max-height: 260px; object-fit: cover; background:#e9ecef; }
+  .ph .cap{ color:rgba(0,0,0,.65); font-size:.9rem; margin-top:.4rem; }
+  .sticky-aside {
+    position: sticky;
+    top: 1rem;          /* separación respecto al top */
+  }
+</style>
+
+<div class="page-wrap">
+
+  <!-- HERO -->
+ <section class="hero p-4 p-md-5 mb-4">
+  <div class="d-flex flex-column gap-3">
+
+    <h1 class="mb-0">Traslado del Ejército de África</h1>
+
+    <div class="d-flex flex-wrap gap-2">
+      <span class="badge rounded-pill bg-secondary">📅 Julio–agosto de 1936</span>
+      <span class="badge rounded-pill bg-secondary">⚔️ Operación militar decisiva</span>
+      <span class="badge rounded-pill bg-secondary">✈️ Primer puente aéreo militar</span>
+      <span class="badge rounded-pill bg-secondary">⚓ Control del Estrecho</span>
+      <span class="badge rounded-pill bg-secondary">🎯 Inicio de la ofensiva sublevada</span>
+    </div>
+
+    <p class="lead mb-0">
+      El <strong>paso del Estrecho</strong> fue una de las operaciones decisivas de los primeros días de la 
+      Guerra Civil española. Consistió en el traslado del <strong>Ejército de África</strong> desde el 
+      Protectorado de Marruecos hasta la península, lo que permitió a los sublevados disponer de las 
+      tropas más experimentadas del ejército español. Sin este movimiento, el golpe militar iniciado 
+      en julio de 1936 probablemente habría quedado limitado a zonas aisladas y con menor capacidad 
+      ofensiva.
+    </p>
+
+  </div>
+
+  <div class="row g-3 mt-3">
+
+    <div class="col-md-4">
+      <div class="mini-card">
+        <div class="t">La operación militar</div>
+
+        <figure class="text-center">
+          <img class="img-fluid rounded-4 border shadow-sm"
+               src="{% static 'images/sigloXX/guerraCivil/ejercito_africa.webp' %}">
+        </figure>
+
+        <div class="d">
+          Tras el golpe del <strong>17–18 de julio de 1936</strong>, el 
+          <strong>Ejército de África</strong> —formado principalmente por 
+          <strong>la Legión y los Regulares marroquíes</strong>— queda en Marruecos. 
+          Su traslado a la península se convierte en una prioridad estratégica 
+          para los sublevados.
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="mini-card">
+        <div class="t">Cómo se realiza</div>
+
+        <figure class="text-center">
+          <img class="img-fluid rounded-4 border shadow-sm"
+               src="{% static 'images/sigloXX/guerraCivil/puente_aereo.jpg' %}">
+        </figure>
+
+        <div class="d">
+          Ante el <strong>bloqueo inicial de la marina republicana</strong>, se organiza 
+          un <strong>puente aéreo entre Marruecos y Andalucía</strong> con aviones 
+          alemanes e italianos, considerado el <strong>primer puente aéreo militar 
+          de gran escala de la historia</strong>.
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="mini-card">
+        <div class="t">Consecuencia estratégica</div>
+
+        <figure class="text-center">
+          <img class="img-fluid rounded-4 border shadow-sm"
+               src="{% static 'images/sigloXX/guerraCivil/mapas/julio_36.png' %}">
+        </figure>
+
+        <div class="d">
+          La llegada del Ejército de África permite iniciar una rápida ofensiva 
+          desde <strong>Sevilla hacia Extremadura y Madrid</strong>, consolidando 
+          el territorio controlado por los sublevados y dando inicio a las primeras 
+          campañas militares de gran escala de la guerra.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+  <div class="row g-4">
+    <!-- ASIDE -->
+    <aside class="col-lg-4 ">
+      <div class="content-card sticky-aside">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <div class="fw-bold">En esta página</div>
+          <span class="badge text-bg-light border" style="background:rgba(10,107,58,.12); color:#065f46; border-color:rgba(10,107,58,.25);">
+            Guía
+          </span>
+        </div>
+
+        <a class="d-block text-decoration-none mb-1" href="#inicial">📜 Situación inicial tras el golpe</a>
+        <a class="d-block text-decoration-none mb-1" href="#naval">⚓ El problema naval</a>
+        <a class="d-block text-decoration-none mb-1" href="#aereo">✈️ El primer puente aéreo militar de la historia</a>
+        <a class="d-block text-decoration-none mb-1" href="#victoria">🚢 El “Convoy de la Victoria” (5 de agosto de 1936)</a>
+        <a class="d-block text-decoration-none mb-1" href="#consecuencias">🎯 Consecuencias estratégicas</a>
+        <a class="d-block text-decoration-none mb-1" href="#importancia">📚 Importancia histórica</a>
+        
+        
+        <hr>
+
+        
+
+        <a class="btn btn-sm btn-outline-primary mt-2"
+           href="{% url 'guerraCivil' %}#golpe1936">
+          ↩ Volver al timeline (Golpe 1936)
+        </a>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="col-lg-8">
+
+      <!-- SITUACION INICIAL -->
+      <div class="section-head anchor mb-3" id="inicial">
+        <h2>🧾 Situación inicial tras el golpe (17–19 julio de 1936)</h2>        
+      </div>
+      <div class="content-card mb-2">
+        <p>Cuando se produce el golpe militar:</p>
+        <ul>
+          <li>Marruecos cae rápidamente en manos de los sublevados.</li>
+          <li>Allí se encuentra el Ejército de África, el más experimentado de España.</li>          
+        </ul>
+        <p>Estaba compuesto principalmente por:</p>
+        <ul>
+          <li>La Legión.</li>
+          <li>Regulares Marroquíes.</li>          
+        </ul>
+        <p>Estas tropas estaban dirigidas por oficiales como:</p>
+        <ul>
+          <li>Francisco Franco.</li>
+          <li>Juan Yague.</li> 
+          <li>Enrique Varela</li>         
+        </ul>
+        <p>El problema era evidente:👉 El ejército estaba en África y la guerra estaba en la península.</p>
+        <p>Para ganar la guerra era imprescindible cruzar el Estrecho de Gibraltar.</p>
+      </div>
+
+      
+      <!-- NAVAL -->
+      <div class="section-head anchor mb-3" id="naval">
+        <h2>⚓ El problema naval</h2>
+        
+      </div>
+      <div class="content-card mb-2">
+        <div class="row">
+          <div class="col-7">
+            <p>La mayor parte de la <strong>Armada española permaneció fiel al gobierno de la República</strong>. Esto ocurrió porque en muchos buques los marineros y suboficiales se sublevaron contra oficiales sospechosos de apoyar el golpe y asumieron el control de las unidades. Como consecuencia, durante los primeros días de la guerra la República mantuvo la superioridad naval en el Estrecho y en gran parte del Mediterráneo occidental.</p>
+            <p>Entre los buques que permanecieron bajo control republicano destacaban varios destructores modernos, como el Lepanto, el Almirante Valdés o el Sánchez Barcaiztegui, además de cruceros y submarinos que podían interceptar cualquier intento de transporte masivo de tropas desde Marruecos. La presencia de estas unidades permitió establecer un <strong>bloqueo efectivo del Estrecho de Gibraltar</strong>, especialmente entre los puertos de Ceuta, Melilla y Tetuán en el norte de África y Algeciras, Cádiz o Málaga en la península.</p>
+            <p>En consecuencia, durante los primeros días del conflicto, las fuerzas sublevadas en Marruecos quedarons <strong>aisladas de la península</strong>, mientras que en territorio peninsular el golpe militar evolucionaba de manera desigual.</p>
+          </div>
+          <div class="col-5">
+             <figure class="border rounded-3 p-2 bg-light text-center">
+              <img
+                src="{% static 'images/sigloXX/guerraCivil/barcos/republicanos/destructor_sanchez_barcaiztegui.png' %}"
+                alt="Destructor Sánchez Barcaiztegui"
+                class="img-fluid rounded-2 d-block mx-auto"
+                style="max-height: 220px; object-fit: cover; background: #e9ecef;"
+              >
+              <figcaption class="small text-muted mt-2">
+                Destructor Sánchez Barcaiztegui
+              </figcaption>
+            </figure>
+            <figure class="border rounded-3 p-2 bg-light text-center">
+              <img
+                src="{% static 'images/sigloXX/guerraCivil/barcos/republicanos/Destructor_Almirante_Valdes.jpg' %}"
+                alt="Destructor Almirante Valdés"
+                class="img-fluid rounded-2 d-block mx-auto"
+                style="max-height: 220px; object-fit: cover; background: #e9ecef;"
+              >
+              <figcaption class="small text-muted mt-2">
+                Destructor Almirante Valdés
+              </figcaption>
+            </figure>
+
+          </div>
+          <p>La rebelión de marineros contra sus oficiales generó una <strong>grave crisis de mando dentro de la Armada</strong>. Problemas de coordinación y de disciplina en la cadena de mando. Los buques permanecían operativos, pero la toma de decisiones estratégicas resultaba lenta y a menudo improvisada.</p>
+        </div>
+      </div>
+
+      <!-- AÉREO -->
+      <div class="section-head anchor mb-3" id="aereo">
+        <h2>✈️ El primer puente aéreo militar de la historia</h2>
+        
+      </div>
+      <div class="content-card mb-2">
+        <div class="row">
+          <div class="col-7">
+            <p>Ante la imposibilidad de transportar masivamente tropas por mar, los sublevados recurrieron a dos soluciones complementarias.</p>
+            <p> En primer lugar, organizaron un puente aéreo entre Marruecos y Andalucía, con ayuda de aviones de transporte alemanes Junkers Ju-52 y aparatos italianos Savoia-Marchetti.</p>
+          <p> Este puente aéreo permitió trasladar progresivamente unidades del Ejército de África a aeródromos andaluces, especialmente en Sevilla y Jerez, iniciando el primer transporte aéreo militar sistemático de la historia.</p>
+          </div>
+          <div class="col-5">
+            <figure class="border rounded-3 p-2 bg-light text-center">
+              <img
+                src="{% static 'images/sigloXX/guerraCivil/aviones/savoia.jpg' %}"
+                alt="Savoia-Marchetti."
+                class="img-fluid rounded-2 d-block mx-auto"
+                style="max-height: 220px; object-fit: cover; background: #e9ecef;"
+              >
+              <figcaption class="small text-muted mt-2">
+                Savoia-Marchetti.
+              </figcaption>
+            </figure>
+            <figure class="border rounded-3 p-2 bg-light text-center">
+              <img
+                src="{% static 'images/sigloXX/guerraCivil/aviones/junkers.jpg' %}"
+                alt="Junkers Ju-52"
+                class="img-fluid rounded-2 d-block mx-auto"
+                style="max-height: 220px; object-fit: cover; background: #e9ecef;"
+              >
+              <figcaption class="small text-muted mt-2">
+                Junkers Ju-52
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONVOY VICTORIA -->
+      <div class="section-head anchor mb-3" id="victoria">
+        <h2>🚢 El “Convoy de la Victoria” (5 de agosto de 1936)</h2>
+        
+      </div>
+      <div class="content-card mb-2">
+        <div class="row">
+          <div class="col-7">
+            <p>El llamado “Convoy de la Victoria” fue la primera gran operación naval que permitió a los sublevados trasladar tropas del Ejército de África desde el Protectorado de Marruecos hasta la península en los primeros días de la Guerra Civil española. Su éxito supuso un punto de inflexión en el control del Estrecho de Gibraltar y consolidó la posibilidad real de trasladar de forma masiva fuerzas militares a Andalucía.</p>
+            <p>El 5 de agosto de 1936, el convoy cruzó el Estrecho desde Ceuta hacia Algeciras sin encontrar una oposición naval decisiva por parte de la flota republicana. La operación fue protegida por aviones que patrullaban la zona y que dificultaban la aproximación de buques enemigos.</p>
+            <p>Durante esta travesía se trasladaron aproximadamente:</p>
+            <ul>
+              <li>unos 2.000–2.500 soldados del Ejército de África</li>
+              <li>armamento, munición y material logístico</li>
+              <li>vehículos y piezas de artillería ligera</li>
+            </ul>
+          </div>
+          <div class="col-5">
+            <figure class="border rounded-3 p-2 bg-light text-center">
+              <img
+                src="{% static 'images/sigloXX/guerraCivil/barcos/cañonero_dato.jpg' %}"
+                alt="Cañonero Dato"
+                class="img-fluid rounded-2 d-block mx-auto"
+                style="max-height: 220px; object-fit: cover; background: #e9ecef;"
+              >
+              <figcaption class="small text-muted mt-2">
+                Cañonero Dato
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONVOY VICTORIA -->
+      <div class="section-head anchor mb-3" id="consecuencias">
+        <h2>🎯 Consecuencias estratégicas</h2>
+        
+      </div>
+      <div class="content-card mb-2">
+        <div class="row">
+          <div class="col">
+            <p><strong>1. Consolidación del paso del Estrecho.</strong> El convoy mostró que era posible transportar tropas por mar pese a la presencia de la flota republicana. A partir de ese momento el flujo de tropas desde Marruecos se intensificó.</p>
+            <p><strong>2. Refuerzo inmediato del frente andaluz. </strong>Las unidades del Ejército de África comenzaron a concentrarse en Sevilla, que se convirtió en la base principal de operaciones de los sublevados en el sur.</p>
+            <p><strong>3. Comienzo de las grandes ofensivas iniciales. </strong>Una vez reunidas estas tropas, las columnas dirigidas por Yagüe y otros oficiales iniciaron la ofensiva hacia Extremadura, que culminaría semanas después con la toma de Badajoz (agosto de 1936) y la apertura del camino hacia Madrid.</p>
+          </div>
+          
+        </div>
+      </div>
+
+      <!-- CONVOY VICTORIA -->
+      <div class="section-head anchor mb-3" id="importancia">
+        <h2>📚 Importancia histórica</h2>
+        
+      </div>
+      <div class="content-card mb-2">
+        <div class="row">
+          <div class="col">
+            <p>Aunque el puente aéreo fue esencial para iniciar el traslado de tropas, el “Convoy de la Victoria” demostró que los sublevados podían también utilizar el transporte marítimo, mucho más eficiente para mover grandes contingentes y material pesado.</p>
+            <p>Por ello, muchos historiadores consideran esta operación como <strong> el momento en que el paso del Estrecho dejó de ser una barrera estratégica para los sublevados</strong>. Desde entonces, el Ejército de África pudo incorporarse plenamente a la guerra en la península y desempeñar un papel central en las primeras campañas militares del conflicto.</p>
+            <p>En términos estratégicos, el éxito del convoy contribuyó a transformar el golpe militar fallido en muchas regiones en una <strong> guerra prolongada</strong>, al proporcionar a los sublevados un núcleo de tropas profesionales capaz de liderar las operaciones ofensivas iniciales.</p>
+          </div>
+          
+        </div>
+      </div>
+
+      
+  
+    </main>
+  </div>
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+
+ 
+
+
+{% endblock %}

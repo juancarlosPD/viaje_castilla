@@ -72,6 +72,7 @@ urlpatterns = [
     path('sigloXX/guerra_civil/golpe_estado', views.golpe_estado, name='golpe_estado'),
     path('sigloXX/guerra_civil/calvo_sotelo', views.calvo_sotelo, name='calvo_sotelo'),
     path('sigloXX/guerra_civil/golpe_julio_36', views.golpe_17_julio_1936, name='golpe_17_julio_1936'),
+    path('sigloXX/guerra_civil/hacia_madrid', views.hacia_madrid, name='hacia_madrid'),
     path('sigloXX/guerra_civil/18_julio', views.golpe_18_julio, name='golpe_18_julio'),
     path('sigloXX/guerra_civil/verano_36', views.verano_36, name='verano_36'),
     path('sigloXX/guerra_civil/retaguardia', views.retaguardia, name='retaguardia'),
@@ -80,6 +81,8 @@ urlpatterns = [
     path('sigloXX/guerra_civil/galeria', views.galeria, name='galeria'),
     path('sigloXX/guerra_civil/gobierno', views.gobierno, name='gobierno'),
     path('sigloXX/guerra_civil/mapas', views.mapas, name='mapas'),
+    path('sigloXX/guerra_civil/ejercito_africa', views.ejercito_africa, name='ejercito_africa'),
+    path('sigloXX/guerra_civil/apoyo_exterior', views.apoyo_exterior, name='apoyo_exterior'),
 
     # ----------------------------FILOSOFIA--------------------------
     path('metodoFilosofia/', views.metodoFilosofia, name='metodoFilosofia'),
