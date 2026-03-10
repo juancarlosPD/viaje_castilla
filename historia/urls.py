@@ -83,6 +83,7 @@ urlpatterns = [
     path('sigloXX/guerra_civil/mapas', views.mapas, name='mapas'),
     path('sigloXX/guerra_civil/ejercito_africa', views.ejercito_africa, name='ejercito_africa'),
     path('sigloXX/guerra_civil/apoyo_exterior', views.apoyo_exterior, name='apoyo_exterior'),
+    path('sigloXX/guerra_civil/andalucia_extremadura', views.andalucia_extremadura, name='andalucia_extremadura'),
 
     # ----------------------------FILOSOFIA--------------------------
     path('metodoFilosofia/', views.metodoFilosofia, name='metodoFilosofia'),

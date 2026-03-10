@@ -196,6 +196,9 @@ def ejercito_africa(request):
 def apoyo_exterior(request):    
     return render(request, 'espagna/sigloXX/guerraCivil/apoyo_exterior.html')
 
+def andalucia_extremadura(request):    
+    return render(request, 'espagna/sigloXX/guerraCivil/andalucia_extremadura.html')
+
 
 
 

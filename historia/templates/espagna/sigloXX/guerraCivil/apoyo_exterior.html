@@ -121,6 +121,16 @@
     position: sticky;
     top: 1rem;          /* separación respecto al top */
   }
+  .img-card{
+    width:100%;
+    height:180px;
+    object-fit:cover;
+  }
+  .img-apoyo{
+  width:100%;
+  height:260px;
+  object-fit:cover;
+  }
 </style>
 
 <div class="page-wrap">
@@ -148,55 +158,84 @@
 
   <div class="row g-3 mt-3">
     <div class="col-md-6 col-xl-3">
-      <article class="mini-card h-100">
-        <div class="icon">✈️</div>
-        <h3>Ayuda a los sublevados</h3>
-        <p>
+      <div >
+          <figure class="text-center">
+            <a class="d-block text-decoration-none mb-1" href="#sublevados">
+              <img class="img-fluid rounded-4 border shadow-sm img-card"
+                  src="{% static 'images/sigloXX/guerraCivil/ayuda_exterior/bombardero_heinkel.jpg' %}"
+                  alt="Bombardero Heinkel">
+            </a>
+          </figure>
+          <h3>Ayuda a los sublevados</h3>
+          <p>
           Alemania e Italia proporcionaron a los militares sublevados aviones, artillería, armamento,
-          asesores y tropas. Esta ayuda fue decisiva desde el verano de 1936, especialmente para trasladar
-          el Ejército de África a la península y para consolidar una superioridad aérea y logística que
-          resultó fundamental en el desarrollo de la guerra.
+          asesores y tropas. 
         </p>
-      </article>
+          
+        </div>
+      
     </div>
 
     <div class="col-md-6 col-xl-3">
-      <article class="mini-card h-100">
-        <div class="icon">🚩</div>
-        <h3>Ayuda a la República</h3>
-        <p>
+      <div >
+          <figure class="text-center">
+            <a class="d-block text-decoration-none mb-1" href="#republica">            
+              <img class="img-fluid rounded-4 border shadow-sm img-card"
+                  src="{% static 'images/sigloXX/guerraCivil/ayuda_exterior/brigadas_internacionales.jpg' %}"
+                  alt="brigadas internacionales">
+            </a>
+          </figure>
+          <h3>Ayuda a la república</h3>
+          <p>
           La República recibió apoyo de la Unión Soviética y de miles de voluntarios integrados en las
-          Brigadas Internacionales. Los envíos de tanques, aviones y armamento resultaron muy importantes
-          en la defensa de Madrid, aunque nunca compensaron por completo la continuidad y amplitud de la
-          ayuda que recibieron los sublevados.
+          Brigadas Internacionales.  
         </p>
-      </article>
+          
+        </div>
+      
     </div>
 
     <div class="col-md-6 col-xl-3">
-      <article class="mini-card h-100">
-        <div class="icon">🕊️</div>
-        <h3>No Intervención</h3>
-        <p>
-          Reino Unido y Francia impulsaron una política de No Intervención que, en teoría, impedía el envío
-          de armas a España. En la práctica, Alemania e Italia incumplieron repetidamente ese acuerdo, mientras
-          la República quedó mucho más aislada en el plano diplomático y militar.
+      <div >
+          <figure class="text-center">
+            <a class="d-block text-decoration-none mb-1" href="#no_intervencion">
+              <img class="img-fluid rounded-4 border shadow-sm img-card"
+                  src="{% static 'images/sigloXX/guerraCivil/ayuda_exterior/no_intervencion.jpg' %}"
+                  alt="Pacto de no intervencion">
+            </a>
+          </figure>
+          <h3>No Intervención</h3>
+          <p>
+          Reino Unido y Francia impulsaron una política de No Intervención. Alemania e Italia incumplieron repetidamente ese acuerdo. 
         </p>
-      </article>
+          
+        </div>
+      
+    </div>
+    <div class="col-md-6 col-xl-3">
+      <div >
+          <figure class="text-center">
+            <a class="d-block text-decoration-none mb-1" href="#consecuencias">
+              <img class="img-fluid rounded-4 border shadow-sm img-card"
+                  src="{% static 'images/sigloXX/guerraCivil/ayuda_exterior/guernica.jpg' %}"
+                  alt="Consecuencias">
+            </a>
+          </figure>
+          <h3>Consecuencias</h3>
+          <p>
+          España se transformó en un laboratorio de guerra moderna, con bombardeos sobre población civil, empleo intensivo de aviación
+          y una fuerte carga ideológica. 
+        </p>
+          
+        </div>
+      
     </div>
 
-    <div class="col-md-6 col-xl-3">
-      <article class="mini-card h-100">
-        <div class="icon">🔥</div>
-        <h3>Consecuencias</h3>
-        <p>
-          El apoyo exterior convirtió la guerra en un conflicto de dimensión europea. España se transformó en
-          un laboratorio de guerra moderna, con bombardeos sobre población civil, empleo intensivo de aviación
-          y una fuerte carga ideológica. Por ello, muchos historiadores consideran la Guerra Civil un anticipo
-          de la Segunda Guerra Mundial.
-        </p>
-      </article>
-    </div>
+    
+
+    
+
+    
   </div>
 </section>
 
@@ -211,12 +250,11 @@
           </span>
         </div>
 
-        <a class="d-block text-decoration-none mb-1" href="#inicial">📜 Situación inicial tras el golpe</a>
-        <a class="d-block text-decoration-none mb-1" href="#naval">⚓ El problema naval</a>
-        <a class="d-block text-decoration-none mb-1" href="#aereo">✈️ El primer puente aéreo militar de la historia</a>
-        <a class="d-block text-decoration-none mb-1" href="#victoria">🚢 El “Convoy de la Victoria” (5 de agosto de 1936)</a>
-        <a class="d-block text-decoration-none mb-1" href="#consecuencias">🎯 Consecuencias estratégicas</a>
-        <a class="d-block text-decoration-none mb-1" href="#importancia">📚 Importancia histórica</a>
+        <a class="d-block text-decoration-none mb-1" href="#sublevados">✈️ Ayuda a los sublevados</a>
+        <a class="d-block text-decoration-none mb-1" href="#republica">🚩 Ayuda a la República</a>
+        <a class="d-block text-decoration-none mb-1" href="#no_intervencion">🕊️ No intervención</a>
+        <a class="d-block text-decoration-none mb-1" href="#consecuencias">🔥 Ensayo de guerra europea</a>
+
         
         
         <hr>
@@ -234,177 +272,101 @@
     <main class="col-lg-8">
 
       <!-- SITUACION INICIAL -->
-      <div class="section-head anchor mb-3" id="inicial">
-        <h2>🧾 Situación inicial tras el golpe (17–19 julio de 1936)</h2>        
+      <div class="section-head anchor mb-3" id="sublevados">
+        <h2>✈️ Ayuda a los sublevados</h2>        
       </div>
       <div class="content-card mb-2">
-        <p>Cuando se produce el golpe militar:</p>
-        <ul>
-          <li>Marruecos cae rápidamente en manos de los sublevados.</li>
-          <li>Allí se encuentra el Ejército de África, el más experimentado de España.</li>          
-        </ul>
-        <p>Estaba compuesto principalmente por:</p>
-        <ul>
-          <li>La Legión.</li>
-          <li>Regulares Marroquíes.</li>          
-        </ul>
-        <p>Estas tropas estaban dirigidas por oficiales como:</p>
-        <ul>
-          <li>Francisco Franco.</li>
-          <li>Juan Yague.</li> 
-          <li>Enrique Varela</li>         
-        </ul>
-        <p>El problema era evidente:👉 El ejército estaba en África y la guerra estaba en la península.</p>
-        <p>Para ganar la guerra era imprescindible cruzar el Estrecho de Gibraltar.</p>
+        <div class="row">
+          <div class="col-7">
+            <p>Desde los primeros días del conflicto, los militares sublevados recibieron una ayuda exterior decisiva que resultó fundamental para la evolución de la guerra. Obtuvieron el respaldo directo de las potencias fascistas europeas, especialmente la <strong>Alemania</strong> nazi y la <strong>Italia</strong> de Benito Mussolini, además del apoyo político y logístico del <strong>Portugal</strong> de António de Oliveira Salazar.</p>
+            <p>Alemania organizó un <strong>puente aéreo</strong> entre el norte de África y la península mediante aviones de transporte Junkers Ju 52. Este puente aéreo permitió trasladar miles de soldados y grandes cantidades de material militar facilitando la consolidación del levantamiento en Andalucía y el posterior avance hacia Madrid.</p>
+            
+          </div>
+          <div class="col-5">
+            <figure class="text-center">
+              <img class="img-fluid rounded-4 border shadow-sm"
+                  src="{% static 'images/sigloXX/guerraCivil/aviones/junkers.jpg' %}">
+            </figure>
+
+          </div>
+          <p>Alemania envió a España la denominada <strong>Legión Cóndor</strong>, una unidad compuesta por aviadores, técnicos y asesores militares. Proporcionó una superioridad aérea que resultó decisiva en varias campañas. La Legión Cóndor participó en bombardeos estratégicos contra ciudades y posiciones militares republicanas, entre ellos el conocido bombardeo de Guernica en abril de 1937, que se convirtió en uno de los episodios más emblemáticos de la guerra.</p>
+          <p>Italia también intervino de forma masiva en apoyo de los sublevados. El régimen de Mussolini envió a España el <strong>Corpo Truppe Volontarie (CTV)</strong> , un contingente expedicionario que llegó a contar con decenas de miles de soldados italianos, además de aviación, carros de combate, artillería y material logístico. Las tropas italianas participaron directamente en diversas operaciones militares a lo largo del conflicto, aunque también sufrieron derrotas importantes, como la batalla de Guadalajara en 1937, donde fueron frenadas por el ejército republicano.</p>
+          <p>A este apoyo militar se sumó la colaboración del <strong>régimen portugués de Salazar</strong>, que facilitó el tránsito de armamento, voluntarios y suministros a través de la frontera luso-española. Portugal también ofreció respaldo diplomático a los sublevados y contribuyó a consolidar su posición en el ámbito internacional.</p>
+          <p>En conjunto, la ayuda alemana e italiana proporcionó a los sublevados una ventaja militar considerable, especialmente en aviación, artillería y armamento moderno. Además, España se convirtió en un escenario de experimentación para nuevas tácticas y tecnologías militares que serían empleadas posteriormente en la Segunda Guerra Mundial. Por esta razón, muchos historiadores consideran que la intervención de Alemania e Italia fue uno de los factores decisivos que permitieron a los sublevados mantener la iniciativa estratégica y, finalmente, imponerse en el conflicto.</p>
+        </div>
+
+
       </div>
 
       
       <!-- NAVAL -->
-      <div class="section-head anchor mb-3" id="naval">
-        <h2>⚓ El problema naval</h2>
+      <div class="section-head anchor mb-3" id="republica">
+        <h2>🚩 Ayuda a la República</h2>
         
       </div>
       <div class="content-card mb-2">
         <div class="row">
           <div class="col-7">
-            <p>La mayor parte de la <strong>Armada española permaneció fiel al gobierno de la República</strong>. Esto ocurrió porque en muchos buques los marineros y suboficiales se sublevaron contra oficiales sospechosos de apoyar el golpe y asumieron el control de las unidades. Como consecuencia, durante los primeros días de la guerra la República mantuvo la superioridad naval en el Estrecho y en gran parte del Mediterráneo occidental.</p>
-            <p>Entre los buques que permanecieron bajo control republicano destacaban varios destructores modernos, como el Lepanto, el Almirante Valdés o el Sánchez Barcaiztegui, además de cruceros y submarinos que podían interceptar cualquier intento de transporte masivo de tropas desde Marruecos. La presencia de estas unidades permitió establecer un <strong>bloqueo efectivo del Estrecho de Gibraltar</strong>, especialmente entre los puertos de Ceuta, Melilla y Tetuán en el norte de África y Algeciras, Cádiz o Málaga en la península.</p>
-            <p>En consecuencia, durante los primeros días del conflicto, las fuerzas sublevadas en Marruecos quedarons <strong>aisladas de la península</strong>, mientras que en territorio peninsular el golpe militar evolucionaba de manera desigual.</p>
+            <p>Desde el inicio de la Guerra Civil española, el gobierno de la Segunda República intentó obtener apoyo internacional. Sin embargo, la <strong>política de No Intervención</strong>, impulsada principalmente por Reino Unido y Francia y que pretendía impedir que el conflicto español se internacionalizara, limitó gravemente la posibilidad de que el gobierno republicano adquiriera armamento en el mercado internacional.</p>
+            <p>El principal apoyo estatal que recibió la República procedió de <strong>la Unión Soviética</strong>. A partir del otoño de 1936, el gobierno soviético autorizó el envío de material militar destinado a reforzar la defensa republicana. Este apoyo incluyó tanques —especialmente los modelos T-26—, aviones de caza y bombardeo como los Polikarpov I-15 e I-16, piezas de artillería, armamento ligero y asesores militares. La llegada de este material tuvo un impacto significativo en los primeros meses de la guerra, particularmente durante la defensa de Madrid, cuando la República logró frenar el avance de las fuerzas sublevadas en noviembre de 1936.</p>
+            <p>No obstante, la ayuda soviética fue irregular y dependió de las prioridades estratégicas de la política exterior soviética. Además el gobierno republicano tuvo que pagar gran parte del material militar con las reservas de oro del Banco de España (<strong>“oro de Moscú”</strong> ).</p>
           </div>
           <div class="col-5">
-             <figure class="border rounded-3 p-2 bg-light text-center">
-              <img
-                src="{% static 'images/sigloXX/guerraCivil/barcos/republicanos/destructor_sanchez_barcaiztegui.png' %}"
-                alt="Destructor Sánchez Barcaiztegui"
-                class="img-fluid rounded-2 d-block mx-auto"
-                style="max-height: 220px; object-fit: cover; background: #e9ecef;"
-              >
-              <figcaption class="small text-muted mt-2">
-                Destructor Sánchez Barcaiztegui
-              </figcaption>
-            </figure>
-            <figure class="border rounded-3 p-2 bg-light text-center">
-              <img
-                src="{% static 'images/sigloXX/guerraCivil/barcos/republicanos/Destructor_Almirante_Valdes.jpg' %}"
-                alt="Destructor Almirante Valdés"
-                class="img-fluid rounded-2 d-block mx-auto"
-                style="max-height: 220px; object-fit: cover; background: #e9ecef;"
-              >
-              <figcaption class="small text-muted mt-2">
-                Destructor Almirante Valdés
-              </figcaption>
+
+            <figure class="text-center">
+              <img class="img-fluid rounded-4 border shadow-sm img-apoyo"
+                  src="{% static 'images/sigloXX/guerraCivil/ayuda_exterior/oro_moscu.jpg' %}">
             </figure>
 
-          </div>
-          <p>La rebelión de marineros contra sus oficiales generó una <strong>grave crisis de mando dentro de la Armada</strong>. Problemas de coordinación y de disciplina en la cadena de mando. Los buques permanecían operativos, pero la toma de decisiones estratégicas resultaba lenta y a menudo improvisada.</p>
+            <figure class="text-center">
+              <img class="img-fluid rounded-4 border shadow-sm img-apoyo"
+                  src="{% static 'images/sigloXX/guerraCivil/ayuda_exterior/brigadas.jpg' %}">
+            </figure>
+
         </div>
+        </div>
+         <p>Junto al apoyo soviético, la República recibió también la ayuda de miles de voluntarios extranjeros que se integraron en las denominadas <strong>Brigadas Internacionales</strong>. Estos contingentes comenzaron a organizarse en otoño de 1936 bajo la coordinación de la Internacional Comunista y se concentraron principalmente en la ciudad de Albacete, que se convirtió en su principal centro de organización y entrenamiento. Las Brigadas Internacionales reunieron a voluntarios procedentes de numerosos países europeos y americanos —entre ellos Francia, Alemania, Italia, Reino Unido, Estados Unidos o Polonia— motivados en gran medida por la defensa de la República frente al avance del fascismo en Europa.</p> 
+        <p>Las Brigadas participaron en algunas de las principales batallas de la guerra, como la defensa de Madrid, la batalla del Jarama o la ofensiva de Brunete. Aunque su importancia militar fue limitada en términos estrictamente estratégicos, su presencia tuvo un fuerte valor simbólico y propagandístico, ya que representaba la dimensión internacional de la lucha contra el fascismo y la solidaridad política con la causa republicana.</p>
+        <p>En conjunto, la ayuda exterior recibida por la República fue significativa pero insuficiente para equilibrar la ventaja militar que obtuvieron los sublevados gracias al apoyo continuo de Alemania e Italia. Las restricciones impuestas por la política de No Intervención, las dificultades logísticas para el suministro de armamento y la dependencia de una única potencia estatal contribuyeron a situar al gobierno republicano en una posición estratégica más débil a lo largo del conflicto. Por ello, numerosos historiadores consideran que el aislamiento internacional de la República fue uno de los factores que influyeron decisivamente en el resultado final de la guerra.</p>  
       </div>
 
       <!-- AÉREO -->
-      <div class="section-head anchor mb-3" id="aereo">
-        <h2>✈️ El primer puente aéreo militar de la historia</h2>
+      <div class="section-head anchor mb-3" id="no_intervencion">
+        <h2>🕊️ No intervención</h2>
         
       </div>
       <div class="content-card mb-2">
         <div class="row">
-          <div class="col-7">
-            <p>Ante la imposibilidad de transportar masivamente tropas por mar, los sublevados recurrieron a dos soluciones complementarias.</p>
-            <p> En primer lugar, organizaron un puente aéreo entre Marruecos y Andalucía, con ayuda de aviones de transporte alemanes Junkers Ju-52 y aparatos italianos Savoia-Marchetti.</p>
-          <p> Este puente aéreo permitió trasladar progresivamente unidades del Ejército de África a aeródromos andaluces, especialmente en Sevilla y Jerez, iniciando el primer transporte aéreo militar sistemático de la historia.</p>
+          <div class="col-12">
+            <p>El estallido de la Guerra Civil española en julio de 1936 generó inmediatamente una profunda preocupación en el panorama político europeo. Las tensiones ideológicas que atravesaban el continente —marcadas por el enfrentamiento entre fascismo, comunismo y democracias liberales— hacían temer que el conflicto español pudiera transformarse en una guerra internacional. Para evitar esa escalada, varias potencias europeas impulsaron una política de <strong>No Intervención</strong>, cuyo objetivo era impedir que los países extranjeros suministraran armamento o apoyo militar a cualquiera de los dos bandos enfrentados.</p>
+            <p>La iniciativa fue promovida principalmente por <strong>Reino Unido y Francia</strong>, que temían que una implicación directa en el conflicto español provocara una confrontación generalizada en Europa. En agosto de 1936 se creó el <strong>Comité de No Intervención</strong>, con sede en Londres, al que se adhirieron inicialmente veintisiete países europeos. Entre ellos figuraban tanto democracias occidentales como regímenes autoritarios, incluyendo Alemania, Italia y la Unión Soviética. En teoría, todos los Estados firmantes se comprometían a abstenerse de enviar armas, tropas o asistencia militar a España.</p>
+            <p>En la práctica, sin embargo, la política de No Intervención resultó profundamente ineficaz. Mientras que Francia y Reino Unido aplicaron con relativa rigidez las restricciones impuestas por el acuerdo, las potencias fascistas incumplieron sistemáticamente sus compromisos.<strong> Alemania e Italia continuaron enviando aviones, tanques, artillería y tropas en apoyo de los sublevados</strong>, lo que proporcionó a estos una ventaja militar considerable desde las primeras fases de la guerra. De forma paralela, la Unión Soviética terminó suministrando armamento y asesores al gobierno republicano, aunque en menor escala y con mayor irregularidad.</p>
+            <p>Uno de los aspectos más controvertidos de la política de No Intervención fue la creación de sistemas de control destinados a impedir el tráfico de armas hacia España. Se establecieron patrullas navales internacionales en el Mediterráneo y mecanismos de supervisión en las fronteras, pero estos resultaron en gran medida ineficaces y, en algunos casos, incluso favorecieron indirectamente a los sublevados. La República, como gobierno reconocido internacionalmente y dependiente de la compra de armamento en el exterior, se vio especialmente perjudicada por las restricciones impuestas por el acuerdo.</p>
+            <p>Desde el punto de vista historiográfico, muchos estudios coinciden en que la política de No Intervención contribuyó a <strong>aislar diplomáticamente a la República</strong> y a consolidar la superioridad material del bando sublevado. Aunque el objetivo inicial era evitar la internacionalización del conflicto, la realidad fue que España se convirtió en un escenario donde varias potencias probaron armamento, tácticas militares y estrategias políticas que más tarde se utilizarían en la Segunda Guerra Mundial. En este sentido, la Guerra Civil española ha sido interpretada por numerosos historiadores como un<strong> anticipo o preludio del conflicto europeo que estallaría en 1939.</strong></p>
+            <p>Por tanto, la No Intervención representó uno de los grandes fracasos de la diplomacia europea de entreguerras. Lejos de neutralizar el conflicto, contribuyó a profundizar el desequilibrio militar entre los bandos y evidenció la incapacidad de las democracias occidentales para responder de manera eficaz al avance de las potencias fascistas en Europa.</p>
           </div>
-          <div class="col-5">
-            <figure class="border rounded-3 p-2 bg-light text-center">
-              <img
-                src="{% static 'images/sigloXX/guerraCivil/aviones/savoia.jpg' %}"
-                alt="Savoia-Marchetti."
-                class="img-fluid rounded-2 d-block mx-auto"
-                style="max-height: 220px; object-fit: cover; background: #e9ecef;"
-              >
-              <figcaption class="small text-muted mt-2">
-                Savoia-Marchetti.
-              </figcaption>
-            </figure>
-            <figure class="border rounded-3 p-2 bg-light text-center">
-              <img
-                src="{% static 'images/sigloXX/guerraCivil/aviones/junkers.jpg' %}"
-                alt="Junkers Ju-52"
-                class="img-fluid rounded-2 d-block mx-auto"
-                style="max-height: 220px; object-fit: cover; background: #e9ecef;"
-              >
-              <figcaption class="small text-muted mt-2">
-                Junkers Ju-52
-              </figcaption>
-            </figure>
-          </div>
-        </div>
-      </div>
-
-      <!-- CONVOY VICTORIA -->
-      <div class="section-head anchor mb-3" id="victoria">
-        <h2>🚢 El “Convoy de la Victoria” (5 de agosto de 1936)</h2>
-        
-      </div>
-      <div class="content-card mb-2">
-        <div class="row">
-          <div class="col-7">
-            <p>El llamado “Convoy de la Victoria” fue la primera gran operación naval que permitió a los sublevados trasladar tropas del Ejército de África desde el Protectorado de Marruecos hasta la península en los primeros días de la Guerra Civil española. Su éxito supuso un punto de inflexión en el control del Estrecho de Gibraltar y consolidó la posibilidad real de trasladar de forma masiva fuerzas militares a Andalucía.</p>
-            <p>El 5 de agosto de 1936, el convoy cruzó el Estrecho desde Ceuta hacia Algeciras sin encontrar una oposición naval decisiva por parte de la flota republicana. La operación fue protegida por aviones que patrullaban la zona y que dificultaban la aproximación de buques enemigos.</p>
-            <p>Durante esta travesía se trasladaron aproximadamente:</p>
-            <ul>
-              <li>unos 2.000–2.500 soldados del Ejército de África</li>
-              <li>armamento, munición y material logístico</li>
-              <li>vehículos y piezas de artillería ligera</li>
-            </ul>
-          </div>
-          <div class="col-5">
-            <figure class="border rounded-3 p-2 bg-light text-center">
-              <img
-                src="{% static 'images/sigloXX/guerraCivil/barcos/cañonero_dato.jpg' %}"
-                alt="Cañonero Dato"
-                class="img-fluid rounded-2 d-block mx-auto"
-                style="max-height: 220px; object-fit: cover; background: #e9ecef;"
-              >
-              <figcaption class="small text-muted mt-2">
-                Cañonero Dato
-              </figcaption>
-            </figure>
-          </div>
+          
         </div>
       </div>
 
       <!-- CONVOY VICTORIA -->
       <div class="section-head anchor mb-3" id="consecuencias">
-        <h2>🎯 Consecuencias estratégicas</h2>
+        <h2>🔥 Ensayo de guerra europea</h2>
         
       </div>
       <div class="content-card mb-2">
         <div class="row">
-          <div class="col">
-            <p><strong>1. Consolidación del paso del Estrecho.</strong> El convoy mostró que era posible transportar tropas por mar pese a la presencia de la flota republicana. A partir de ese momento el flujo de tropas desde Marruecos se intensificó.</p>
-            <p><strong>2. Refuerzo inmediato del frente andaluz. </strong>Las unidades del Ejército de África comenzaron a concentrarse en Sevilla, que se convirtió en la base principal de operaciones de los sublevados en el sur.</p>
-            <p><strong>3. Comienzo de las grandes ofensivas iniciales. </strong>Una vez reunidas estas tropas, las columnas dirigidas por Yagüe y otros oficiales iniciaron la ofensiva hacia Extremadura, que culminaría semanas después con la toma de Badajoz (agosto de 1936) y la apertura del camino hacia Madrid.</p>
+          <div class="col-12">
+            <p>La Guerra Civil española ha sido interpretada por numerosos historiadores como un <strong>anticipo o laboratorio de la Segunda Guerra Mundial</strong>. Aunque se trató de un conflicto interno originado por la crisis política de la Segunda República y el golpe militar de julio de 1936, la intervención de potencias extranjeras y la utilización de nuevas formas de combate transformaron el escenario español en un campo de experimentación para las estrategias y tecnologías militares que se emplearían posteriormente en la guerra europea iniciada en 1939.</p>
+            <p>Uno de los aspectos más significativos fue el <strong>desarrollo y empleo sistemático de la aviación</strong> militar. Durante la Guerra Civil, el uso del poder aéreo adquirió una importancia estratégica sin precedentes. La aviación alemana de la Legión Cóndor y la italiana del Aviazione Legionaria participaron en operaciones de apoyo táctico a las fuerzas terrestres, en bombardeos estratégicos y en ataques directos contra infraestructuras y centros urbanos. El <strong>bombardeo de Guernica en abril de 1937</strong>, llevado a cabo por la Legión Cóndor, se convirtió en un símbolo del nuevo tipo de guerra aérea que caracterizaría el conflicto mundial posterior: ataques masivos destinados no solo a objetivos militares, sino también a desmoralizar a la población civil.</p>
+            <p>La guerra también sirvió para experimentar con <strong>nuevas doctrinas de combate</strong>. El empleo coordinado de aviación, artillería y unidades mecanizadas anticipaba formas de guerra moderna que más tarde se desarrollarían plenamente en la Segunda Guerra Mundial. Aunque España no fue el escenario de grandes operaciones blindadas comparables a las campañas de 1939–1941, el uso de carros de combate soviéticos T-26 y de tanquetas italianas permitió ensayar tácticas de apoyo a la infantería y evaluar el rendimiento de los nuevos vehículos acorazados en combate real.</p>
+            <p>Asimismo, el conflicto español tuvo una dimensión ideológica internacional que reflejaba las tensiones políticas que dominaban Europa en la década de 1930. En la guerra se enfrentaron indirectamente <strong>las potencias fascistas, el comunismo soviético y las democracias liberales</strong>, representadas respectivamente por la intervención de Alemania e Italia, el apoyo de la Unión Soviética a la República y la política de neutralidad adoptada por Reino Unido y Francia. De este modo, España se convirtió en un escenario donde se manifestaron las profundas divisiones ideológicas del continente europeo en vísperas de la Segunda Guerra Mundial.</p>
+            <p>La Guerra Civil también permitió probar <strong>nuevas armas y tecnologías militares</strong>. Alemania, por ejemplo, utilizó el conflicto para evaluar el rendimiento de aviones de combate y bombardeo que posteriormente serían empleados en la Luftwaffe durante la Segunda Guerra Mundial. Del mismo modo, los ejércitos extranjeros pudieron estudiar la eficacia de distintos tipos de armamento, sistemas de comunicación y tácticas de combate en condiciones reales.</p>
+            <p>Por todo ello, la historiografía contemporánea suele considerar la Guerra Civil española no solo como un conflicto interno de gran complejidad política y social, sino también como un <strong>preludio de la guerra europea que estallaría en 1939</strong>. España se convirtió así en un escenario donde las potencias extranjeras ensayaron estrategias militares, probaron armamentos modernos y anticiparon formas de guerra que pocos años después transformarían el continente europeo en un campo de batalla a gran escala.</p>
           </div>
           
         </div>
-      </div>
-
-      <!-- CONVOY VICTORIA -->
-      <div class="section-head anchor mb-3" id="importancia">
-        <h2>📚 Importancia histórica</h2>
-        
-      </div>
-      <div class="content-card mb-2">
-        <div class="row">
-          <div class="col">
-            <p>Aunque el puente aéreo fue esencial para iniciar el traslado de tropas, el “Convoy de la Victoria” demostró que los sublevados podían también utilizar el transporte marítimo, mucho más eficiente para mover grandes contingentes y material pesado.</p>
-            <p>Por ello, muchos historiadores consideran esta operación como <strong> el momento en que el paso del Estrecho dejó de ser una barrera estratégica para los sublevados</strong>. Desde entonces, el Ejército de África pudo incorporarse plenamente a la guerra en la península y desempeñar un papel central en las primeras campañas militares del conflicto.</p>
-            <p>En términos estratégicos, el éxito del convoy contribuyó a transformar el golpe militar fallido en muchas regiones en una <strong> guerra prolongada</strong>, al proporcionar a los sublevados un núcleo de tropas profesionales capaz de liderar las operaciones ofensivas iniciales.</p>
-          </div>
-          
-        </div>
-      </div>
-
-      
+      </div>      
   
     </main>
   </div>
