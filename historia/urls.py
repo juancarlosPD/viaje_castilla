@@ -5,6 +5,7 @@ urlpatterns = [
     path('inicioPersonal/', views.inicioPersonal, name='inicioPersonal'),
     path('inicioFilosofia/', views.inicioFilosofia, name='inicioFilosofia'),
     path('inicioHistoria/', views.inicioHistoria, name='inicioHistoria'),
+    path('inicioClasica/', views.inicioClasica, name='inicioClasica'),
     path('reyesEspagna/', views.reyesEspagna, name='reyesEspagna'),
 
     # ----------------------------HISTORIA--------------------------
@@ -67,6 +68,7 @@ urlpatterns = [
     path('guerraCivil/', views.guerraCivil, name='guerraCivil'),
     path('franco/', views.franco, name='franco'),
     path('transicion/', views.transicion, name='transicion'),
+    path('presidentesXX/', views.presidentesXX, name='presidentesXX'),
 
     # ------------------------GUERRA CIVIL
     path('sigloXX/guerra_civil/golpe_estado', views.golpe_estado, name='golpe_estado'),

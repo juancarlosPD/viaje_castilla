@@ -18,6 +18,7 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
         <script src="{% static 'librerias/jquery-ui-1.13.1.custom/jquery-ui.min.js' %}"></script>       
         <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
         
 
         {% block head %} {% endblock %}
@@ -28,9 +29,8 @@
         <header>
             <div class="row align-items-center justify-content-center" id="logotipo">
                 <div class="col-md-1 ">
-                    <figure>
-                        
-                        <img src="{% static 'img/logo.png' %}" alt="" class="img-fluid">
+                    <figure>              
+                        <img src="{% static 'images/logo.png' %}" alt="" class="img-fluid">
                     </figure>
                 </div>
                 <div class="col-md-8 text-center ">
@@ -68,6 +68,18 @@
                         <a class="navbar-brand mx-3" href="{% url 'transicion' %}"> La Transición</a>
                         <li class="nav-item dropdown">
                             <a class="navbar-brand dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              Interesante
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                              <li>
+                                <a class="dropdown-item text-center" href="{% url 'presidentesXX' %}">Presidentes gobierno</a>
+                                
+                              </li>  
+                             
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="navbar-brand dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                               Siglo
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
@@ -92,7 +104,7 @@
 
         <div class="container justify-content-center mt-5">
             
-                    {% block contenido %} {% endblock %} 
+        {% block contenido %} {% endblock %} 
                 
         </div>
         <div class="row my-4 justify-content-center">

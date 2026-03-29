@@ -1,0 +1,341 @@
+{% extends "bases/baseHistoria.html" %}
+{% load static %}
+
+{% block contenido %}
+
+<style>
+  .presidentes-page {
+    background: linear-gradient(to bottom, #f7f6f3 0%, #f1efea 100%);
+    min-height: 100vh;
+    padding: 3rem 0 4rem;
+  }
+
+  .presidentes-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .presidentes-header h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #1f2937;
+    margin-bottom: 0.6rem;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  .presidentes-header p {
+    font-size: 1.25rem;
+    color: #6b7280;
+    margin: 0;
+  }
+
+  .timeline-shell {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    padding-left: 110px;
+  }
+
+  .timeline-shell::before {
+    content: "";
+    position: absolute;
+    left: 46px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, #cfc9bc, #bfb7a7);
+    border-radius: 10px;
+  }
+
+  .timeline-entry {
+    position: relative;
+    margin-bottom: 2rem;
+  }
+
+  .timeline-entry::before {
+    content: "";
+    position: absolute;
+    left: -64px;
+    top: 42px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #8b7355;
+    border: 4px solid #f7f6f3;
+    box-shadow: 0 0 0 2px rgba(139, 115, 85, 0.25);
+    z-index: 2;
+  }
+
+  .timeline-card {
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid #ddd6c8;
+    border-radius: 22px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    padding: 1.4rem 1.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .timeline-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+  }
+
+  .timeline-card-inner {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 1.2rem;
+    align-items: start;
+  }
+
+  .timeline-image {
+    width: 96px;
+    flex-shrink: 0;
+  }
+
+  .timeline-image img {
+    width: 96px;
+    height: 118px;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 14px;
+    border: 1px solid #d8d2c6;
+    background: #f8f8f8;
+    display: block;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  }
+
+  .timeline-content {
+    min-width: 0;
+  }
+
+  .timeline-topline {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.9rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.45rem;
+  }
+
+  .timeline-order {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    height: 40px;
+    padding: 0 0.75rem;
+    border-radius: 999px;
+    background: #ede7db;
+    color: #7b6243;
+    font-weight: 800;
+    font-size: 0.95rem;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .timeline-name {
+    margin: 0;
+    font-size: 1.38rem;
+    line-height: 1.2;
+    font-weight: 800;
+    color: #1f2a37;
+  }
+
+  .timeline-apodo {
+    font-style: italic;
+    color: #6b7280;
+    font-weight: 600;
+  }
+
+  .timeline-meta {
+    margin: 0 0 0.65rem 0;
+    color: #6b7280;
+    font-size: 1rem;
+    line-height: 1.45;
+  }
+
+
+  .timeline-meta strong {
+    color: #8b7355;
+    font-weight: 700;
+  }
+
+  .timeline-resumen {
+    margin: 0;
+    color: #374151;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .timeline-resumen::first-letter {
+    font-size: 1.15em;
+    font-weight: 700;
+    color: #5f4c35;
+  }
+
+  @media (max-width: 991px) {
+  .presidentes-header h1 {
+    font-size: 2.4rem;
+  }
+
+  .timeline-shell {
+    padding-left: 82px;
+  }
+
+  .timeline-shell::before {
+    left: 32px;
+  }
+
+  .timeline-entry::before {
+    left: -56px;
+    top: 36px;
+    width: 18px;
+    height: 18px;
+  }
+
+  .timeline-name {
+    font-size: 1.25rem;
+  }
+
+  .timeline-meta {
+    font-size: 0.96rem;
+  }
+
+  .timeline-resumen {
+    font-size: 0.96rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .presidentes-page {
+    padding: 2rem 0 3rem;
+  }
+
+  .presidentes-header {
+    margin-bottom: 2.4rem;
+    padding: 0 0.75rem;
+  }
+
+  .presidentes-header h1 {
+    font-size: 2rem;
+  }
+
+  .presidentes-header p {
+    font-size: 1rem;
+  }
+
+  .timeline-shell {
+    padding-left: 46px;
+  }
+
+  .timeline-shell::before {
+    left: 16px;
+  }
+
+  .timeline-entry::before {
+    left: -38px;
+    top: 28px;
+    width: 16px;
+    height: 16px;
+    border-width: 3px;
+  }
+
+  .timeline-card {
+    padding: 1rem;
+    border-radius: 18px;
+  }
+
+  .timeline-card-inner {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+
+  .timeline-image {
+    width: 78px;
+  }
+
+  .timeline-image img {
+    width: 78px;
+    height: 96px;
+    border-radius: 12px;
+  }
+
+  .timeline-topline {
+    gap: 0.7rem;
+  }
+
+  .timeline-order {
+    min-width: 38px;
+    height: 38px;
+    font-size: 0.95rem;
+    padding: 0 0.75rem;
+  }
+
+  .timeline-name {
+    font-size: 1.08rem;
+  }
+
+  .timeline-meta {
+    font-size: 0.92rem;
+  }
+
+  .timeline-resumen {
+    font-size: 0.94rem;
+    line-height: 1.55;
+  }
+}
+  
+</style>
+
+<section class="presidentes-page">
+  <div class="container">
+
+    <div class="presidentes-header">
+      <h1>{{ titulo }}</h1>
+      <p>{{ subtitulo }}</p>
+    </div>
+
+    <div class="timeline-shell">
+      {% for presidente in presidentes %}
+        <article class="timeline-entry">
+          <div class="timeline-card">
+            <div class="timeline-card-inner">
+
+              <div class="timeline-image">
+                <img src="{% static presidente.imagen %}" alt="{{ presidente.nombre }}">
+              </div>
+
+              <div class="timeline-content">
+                <div class="timeline-topline">
+                  <span class="timeline-order">{{ presidente.orden }}</span>
+
+                  <h3 class="timeline-name">
+                    {{ presidente.nombre }}
+                    {% if presidente.apodo %}
+                      <span class="timeline-apodo">({{ presidente.apodo }})</span>
+                    {% endif %}
+                  </h3>
+                </div>
+
+                <p class="timeline-meta">
+                  <strong>{{ presidente.periodo }}</strong>
+                  · {{ presidente.etapa }}
+                  · {{ presidente.partido }}
+                </p>
+
+                <p class="timeline-resumen">
+                  {{ presidente.resumen }}
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
+{% endblock %}
+
