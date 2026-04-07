@@ -255,6 +255,13 @@
     margin-top: 1.2rem;
   }
 
+  .mini-grid_17 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1.2rem;
+  }
+
   .highlight-card {
     padding: 1rem;
     height: 100%;
@@ -448,6 +455,97 @@
 .link-atentado:hover {
   color: #c1121f;
 }
+.aside-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.aside-nav a,
+.aside-dropbtn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  text-decoration: none;
+  background: #fff;
+  color: #1f3c88;
+  border: 1px solid #d6dff2;
+  border-radius: 10px;
+  padding: 0.7rem 0.9rem;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  text-align: left;
+}
+
+.aside-nav a:hover,
+.aside-dropbtn:hover {
+  background: #f3f7ff;
+  border-color: #9eb8ea;
+}
+
+.aside-dropdown {
+  display: flex;
+  flex-direction: column;
+}
+
+.aside-submenu {
+  display: none;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-top: 0.35rem;
+  margin-left: 0.8rem;
+}
+
+.aside-dropdown.open .aside-submenu {
+  display: flex;
+}
+
+.aside-submenu a {
+  font-size: 0.95rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  background: transparent;
+  border: none;
+  color: #03226b;
+}
+
+.aside-submenu a:hover {
+  background: #eef4ff;
+}
+
+.arrow {
+  font-size: 0.9rem;
+  transition: transform 0.2s ease;
+}
+
+.aside-dropdown.open .arrow {
+  transform: rotate(180deg);
+}
+
+.page-aside {
+  position: sticky;
+  top: 20px;
+  align-self: start;
+}
+
+.section-head-inline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.section-head-inline h6 {
+  margin: 0;
+}
+
+.section-head-inline .section-link {
+  white-space: nowrap;
+}
+
+
 
   @media (max-width: 1199px) {
     .page-grid {
@@ -466,6 +564,10 @@
       margin-top: 1.5rem;
       max-width: 100%;
     }
+     .aside-container {
+    position: relative; /* en móvil mejor quitar sticky */
+    top: 0;
+  }
   }
 
   @media (max-width: 767px) {
@@ -534,8 +636,27 @@
         <div class="aside-card">
           <h5>En esta página</h5>
           <nav class="aside-nav">
-            <a href="#introduccion">📌 Introducción</a>
-            <a href="#biografia">👤 Biografía</a>
+            <a href="{% url 'linea_tiempo_alfonso_XIII' %}">🧭 Línea de tiempo</a>
+            <a href="#introduccion">📌 Introducción</a>            
+            <div class="aside-dropdown">
+              <button class="aside-dropbtn" type="button" onclick="toggleSubmenu(this)">
+                  👤 Biografía
+                  <span class="arrow">▾</span>
+              </button>
+
+              <div class="aside-submenu">
+                <a href="#regencia">Regencia de María Cristina</a>
+                <a href="#constitucional">Periodo constitucional</a>
+                <a href="#crisis1917">Crisis de 1917</a>
+                <a href="#gripe1918">Gripe de 1918</a>
+                <a href="#desastre_annual">Desastre de Annual 1921</a>
+                <a href="#primo">Dictadura de Primo de Rivera</a>
+                <a href="#berenguer">Dictablanda de Berenguer</a>
+                <a href="#republica">Proclamación de la 2ª República</a>
+                <a href="#exilio">Exilio, renuncia dinástica y muerte</a>
+                
+              </div>
+            </div>           
             <a href="#cautivos">🏛️ Oficina pro-cautivos</a>
             <a href="#personalidad">🧠 Personalidad</a>
             <a href="#familia">👨‍👩‍👧‍👦 Matrimonio e hijos</a>
@@ -608,8 +729,8 @@
           <div class="content-card">
             
             <div class="timeline">
-                <div class="t-item">
-                    <h6><span class="t-date">REGENCIA DE MARIA CRISTINA DE HAMSBURGO</span></h6>
+                <div class="t-item" id="regencia">
+                    <h6><span class="t-date" >REGENCIA DE MARIA CRISTINA DE HAMSBURGO</span></h6>
                     <div class="row">
                         <div class="col-8">
                             <p>La regencia de María Cristina de Habsburgo constituye una etapa decisiva en la consolidación del sistema político de la Restauración en España.</p>
@@ -631,7 +752,7 @@
                 
                 </div>
 
-                <div class="t-item">
+                <div class="t-item" id="constitucional">
                     <h6><span class="t-date">PERIODO CONSTITUCIONAL</span></h6>
                     <p>En <strong>1902</strong>, al cumplir los dieciséis años, Alfonso XIII fue declarado mayor de edad y asumió las funciones constitucionales de jefe de Estado. </p>
                     <div class="row">
@@ -683,8 +804,216 @@
                     
                 </div>
 
+                <!-- CRISIS DE 1917 -->
+                
+                <div class="t-item" id="crisis1917">                    
+                    <div class="section-head-inline">
+                      <h6><span class="t-date">CRISIS DE 1917</span></h6>
+                      <a href="#" class="section-link">
+                        Ampliar contenido <i class="bi bi-arrow-right"></i>
+                      </a>
+                    </div>
+                    <p>
+                      En <strong>1917</strong> la monarquía de Alfonso XIII atravesó una grave crisis política,
+                      social y militar. Coincidieron tres conflictos de gran importancia: las
+                      <strong>Juntas de Defensa</strong> promovidas por sectores del ejército, la
+                      <strong>Asamblea de Parlamentarios</strong> impulsada desde Cataluña y una
+                      <strong>huelga general revolucionaria</strong> convocada por UGT y CNT.
+                    </p>
+
+                    <p>
+                      La incapacidad del sistema de la Restauración para dar respuesta a estas tensiones
+                      mostró su progresivo desgaste. Aunque el régimen logró superar la crisis de forma
+                      inmediata, los acontecimientos de 1917 evidenciaron que el turnismo y el sistema
+                      político tradicional estaban entrando en una fase de claro deterioro.
+                    </p>
+                    <div class="mini-grid_17 mt-3">
+
+                      <!-- DESAFIO MILITAR -->
+                      <div class="highlight-card text-center p-4">
+                          
+                          <div class="icon-box mb-3"><i class="bi bi-bank"></i></div>
+                          <h6>Desafío militar: Juntas de Defensa</h6>
+                          <p>Se crearon las Juntas de Defensa, un movimiento sindical militar no previsto en la legislación, en lo que era un claro desafío al gobierno del liberal Manuel García Prieto que, impotente para controlarlas, se vio obligado a dimitir. Su reemplazo, el conservador Eduardo Dato, optó por legalizarlas.</p>
+                          <p>
+                            Las juntas decían defender los intereses de los oficiales de graduación intermedia, aunque su vocación de intervenir en política era evidente.
+                          </p>
+                      </div>
+
+                      <!-- DESAFIO POLÍTICO -->
+                      <div class="highlight-card text-center p-4">
+                          <div class="icon-box mb-3"><i class="bi bi-exclamation-triangle"></i></div>
+                          <h6>Desafío político: Asamblea de parlamentarios</h6>
+                          <p>En vista de la crisis abierta, Cambó exigió al gobierno la convocatoria de Cortes, que este no aceptó. Los parlamentarios catalanes se reunieron en la llamada Asamblea de Parlamentarios y exigieron la convocatoria de elecciones a Cortes Constituyentes, de cara a una nueva organización del Estado que reconociera la autonomía de las regiones.</p>
+                      </div>   
+                      <!-- DESAFIO SOCIAL -->
+                      <div class="highlight-card text-center p-4">
+                          <div class="icon-box mb-3"><i class="bi bi-exclamation-triangle"></i></div>
+                          <h6>Huelga general revolucionaria</h6>
+                          <p>la UGT (sindicato socialista, más implantado en Madrid y País Vasco) convocó una huelga general revolucionaria (agosto de 1917), que recibió el apoyo de la CNT (sindicato anarquista, mayoritario en Cataluña).</p>
+                      </div>         
+
+                    </div> 
+
+                    
+                </div>
+
+                <!-- GRIPE DE 1918 -->  
                 <div class="t-item mt-5">
-                    <h6><span class="t-date">DICTADURA DE PRIMO DE RIVERA</span></h6>
+                    <div class="section-head-inline" id="gripe1918">
+                      <h6><span class="t-date">GRIPE DE 1918</span></h6>
+                      <a href="#" class="section-link">
+                        Ampliar contenido <i class="bi bi-arrow-right"></i>
+                      </a>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-7">
+                            <p>La pandemia de gripe de 1918 constituye uno de los episodios más devastadores de la historia contemporánea. Se estima que infectó a cerca de un tercio de la población mundial y causó entre 40 y 50 millones de muertes, aunque algunas estimaciones elevan la cifra hasta los 100 millones. Su impacto fue especialmente significativo por coincidir con el final de la Primera Guerra Mundial, lo que condicionó tanto su difusión como su percepción pública.</p>
+
+                          
+                        </div>
+                        <div class="col-5">
+                            <img src="{% static 'images/sigloXX/gripe_espanola.jpg' %}" 
+                            class="img-fluid rounded-start h-100 object-fit-cover" 
+                            alt="Gripe española">
+                        </div>
+                        <h6 class="mt-3">🧬 Origen y denominación</h6>
+                        <p>El origen exacto del virus sigue siendo objeto de debate historiográfico y epidemiológico. Las hipótesis más aceptadas sitúan su aparición inicial en Estados Unidos (Kansas) o en campamentos militares europeos, desde donde se propagó rápidamente a través de las rutas militares y comerciales.</p>
+                        <p>El término “gripe española” es equívoco. España, país neutral en la guerra, no aplicó censura a la prensa, a diferencia de las potencias beligerantes. Esto hizo que los primeros informes detallados sobre la epidemia procedieran de medios españoles, generando la falsa impresión de que el brote se había originado allí.</p>
+                        <h6 class="mt-3">🌍 Características epidemiológicas</h6>
+                        <p>La pandemia se desarrolló en tres olas sucesivas (1918-1919), siendo la segunda (otoño de 1918) la más letal.</p>
+                        <p>Presentaba características atípicas respecto a la gripe estacional:</p>
+                        <div>
+                          <ul>
+                            <li>Elevada mortalidad en adultos jóvenes (20-40 años), probablemente por fenómenos de tormenta de citoquinas.</li>
+                            <li>Evolución rápida hacia neumonía viral grave.</li>
+                            <li>Alta transmisibilidad en contextos de hacinamiento (trincheras, transportes militares, ciudades industriales).</li>
+                          </ul>
+                        </div>
+                        <p>El agente causal fue identificado posteriormente como un <strong>virus Influenza A subtipo H1N1</strong>.</p>
+                        <h6 class="mt-3">⚰️ Impacto social y sanitario</h6>
+                        <p>Las consecuencias fueron profundas:</p>
+                        <div>
+                          <ul>
+                            <li>Colapso de los sistemas sanitarios, con escasez de personal médico y recursos.</li>
+                            <li>Interrupción de la vida económica y administrativa.</li>
+                            <li>Incremento de la mortalidad global en un contexto ya debilitado por la guerra.</li>
+                          </ul>
+                        </div>
+                        <p>En muchos lugares se adoptaron medidas de salud pública como el uso de mascarillas, el cierre de espacios públicos y el aislamiento de enfermos, anticipando estrategias que volverían a utilizarse en pandemias posteriores.</p>
+                      </div>
+
+                      <h6 class="mt-3">🇪🇸 La gripe de 1918 en España</h6>
+                      <p>España sufrió una mortalidad elevada, con aproximadamente 250.000 fallecidos. El impacto fue desigual según regiones y condiciones socioeconómicas. La epidemia puso de manifiesto las debilidades estructurales del sistema sanitario español y contribuyó al clima de inestabilidad social y política de la Restauración.</p>
+                      
+                      <h6 class="mt-3">📚 Interpretación histórica</h6>
+                      <p>Desde una perspectiva historiográfica, la gripe de 1918 ha sido interpretada como una “pandemia olvidada”, eclipsada durante décadas por la Primera Guerra Mundial. Sin embargo, en la actualidad se considera un fenómeno clave para comprender:</p>
+                      <div>
+                        <ul>
+                          <li>La vulnerabilidad de las sociedades industriales globalizadas.</li>
+                          <li>La relación entre guerra, movilidad y enfermedad.</li>
+                          <li>El desarrollo posterior de las políticas de salud pública y vigilancia epidemiológica.</li>
+                        </ul>
+                      </div>
+                            
+                </div>            
+
+                <!-- DESASTRE DE ANNUAL -->
+                
+                <div class="t-item" id="desastre_annual">
+                  <div class="section-head-inline" >
+                      <h6><span class="t-date">DESASTRE DE ANNUAL (1921)</span></h6>
+                      <a href="#" class="section-link">
+                        Ampliar contenido <i class="bi bi-arrow-right"></i>
+                      </a>
+                    </div>
+                    <div class="col-12 mt-4">
+                            <img src="{% static 'images/sigloXX/desastre_annual/silvestre.webp' %}" 
+                            class="img-fluid rounded-start h-100 object-fit-cover" 
+                            alt="Silvestre">
+                    </div>
+                    <p>El llamado Desastre de Annual constituye uno de los episodios más traumáticos de la historia contemporánea española y un punto de inflexión en la crisis final del sistema de la Restauración. Ocurrido en el verano de 1921, en el contexto de la guerra del Rif (protectorado español en Marruecos), supuso el colapso de un amplio dispositivo militar español frente a las fuerzas rifeñas lideradas por Abd el-Krim.</p>
+                    <h6 class="mt-3">🧭 Contexto político y militar</h6>
+                    <p>Tras la firma del tratado hispano-francés de 1912, España asumió el control de una franja del norte de Marruecos. Sin embargo, este dominio era más nominal que efectivo. La presencia española se enfrentaba a la resistencia de las tribus rifeñas, organizadas en torno a estructuras locales pero capaces de articular una fuerte oposición armada.</p>
+                    <p>La política colonial española en la zona se caracterizaba por:</p>
+                    <div>
+                      <ul>
+                        <li>Escasa planificación estratégica.</li>
+                        <li>Insuficiencia de medios logísticos.</li>
+                        <li>Dependencia de posiciones avanzadas mal comunicadas (los llamados blocaos).</li>
+                        <li>Un mando militar dividido y, en ocasiones, más preocupado por el prestigio que por la consolidación territorial.</li>
+                      </ul>
+                    </div>
+                    <p>El general Manuel Fernández Silvestre, comandante en Melilla, impulsó una ofensiva rápida hacia el interior del Rif, con el objetivo de alcanzar la bahía de Alhucemas, sin asegurar previamente las líneas de suministro.</p>
+                    <div class="row mt-4">
+                      <div class="col-4">
+                        <figure>
+                          <img src="{% static 'images/sigloXX/desastre_annual/Silvestre1.jpg' %}" 
+                            class="img-fluid rounded-start h-100 object-fit-cover" 
+                            alt="Silvestre1">
+                            <figcaption class="text-center mt-2">General Silvestre</figcaption>
+                        </figure>
+                        
+                            
+                      </div>
+                      <div class="col-8">
+                        <h6 >⚡ El desarrollo de la derrota</h6>
+                        <p>En julio de 1921, las tropas españolas, extendidas en posiciones vulnerables, fueron atacadas por fuerzas rifeñas que aprovecharon su conocimiento del terreno y su superioridad táctica en guerra de guerrillas.</p>
+                        <p>Los elementos clave del desastre fueron:</p>
+                        <div>
+                          <ul>
+                            <li>Desmoronamiento en cadena de las posiciones españolas.</li>
+                            <li>Falta de coordinación entre unidades.</li>
+                            <li>Colapso de la moral de las tropas.</li>
+                            <li>Retirada caótica desde Annual hacia Melilla.</li>
+                          </ul>
+                        </div>
+                      </div>
+                      <p>El punto culminante fue la caída de Monte Arruit, donde, tras rendirse, miles de soldados españoles fueron masacrados.</p>
+                      <p>Las cifras varían, pero se estima que murieron entre 10.000 y 13.000 soldados, lo que convierte este episodio en una de las mayores derrotas militares de España en la Edad Contemporánea.</p>
+                    </div>
+                    <h6 class="mt-3">⚖️ El Expediente Picasso</h6>
+                    <p>La magnitud del desastre obligó a abrir una investigación oficial, conocida como el Expediente Picasso, dirigida por el general Juan Picasso.</p>
+                    <p>Este informe puso de manifiesto:</p>
+                    <div>
+                      <ul>
+                        <li>Graves errores de mando.</li>
+                        <li>Imprudencias estratégicas.</li>
+                        <li>Deficiencias estructurales del ejército español.</li>
+                        <li>Posibles responsabilidades políticas y militares de alto nivel.</li>
+                      </ul>
+                    </div>
+                    <p>Aunque el expediente señalaba indirectamente responsabilidades que podían alcanzar incluso al rey Alfonso XIII, sus conclusiones no se tradujeron en sanciones efectivas, lo que incrementó el descrédito del régimen.</p>
+                    <h6 class="mt-3">🏛️ Consecuencias políticas</h6>
+                    <p>El impacto del Desastre de Annual fue devastador:</p>
+                    <div>
+                      <ul>
+                        <li>Deslegitimación del sistema político de la Restauración.</li>
+                        <li>Aumento del malestar social y militar.</li>
+                        <li>Radicalización de la oposición política.</li>
+                        <li>Creciente intervención del ejército en la vida política.</li>
+                      </ul>
+                    </div>
+                    <p>Este contexto de crisis contribuyó directamente al golpe de Estado de Miguel Primo de Rivera en 1923, que puso fin al régimen constitucional.</p>
+
+                    <h6 class="mt-3">📚 Interpretación histórica</h6>
+                    <p>Desde una perspectiva historiográfica, Annual se interpreta como:</p>
+                    <div>
+                      <ul>
+                        <li>Un ejemplo paradigmático del fracaso del colonialismo español.</li>
+                        <li>Una manifestación de las debilidades estructurales del Estado liberal.</li>
+                        <li>Un catalizador de la crisis del sistema de la Restauración.</li>                        
+                      </ul>
+                    </div>
+                    <p>Además, el desastre puso en evidencia la distancia entre la retórica imperial y la realidad material del ejército español, así como la incapacidad del sistema político para asumir responsabilidades en situaciones críticas.</p>
+                    <h6 class="mt-3">🧩 Conclusión</h6>
+                    <p>El Desastre de Annual no fue únicamente una derrota militar, sino un acontecimiento de profundas implicaciones políticas, sociales y simbólicas. Su impacto aceleró la descomposición del sistema de la Restauración y abrió el camino hacia soluciones autoritarias, marcando uno de los precedentes más relevantes de la crisis que desembocaría, una década después, en la Segunda República.</p>
+                  
+                  </div>
+                
+
+                <div class="t-item mt-5">
+                    <h6><span class="t-date" id="primo">DICTADURA DE PRIMO DE RIVERA</span></h6>
                     <div class="row">
                         <div class="col-8">
                             <p>El capitán general de Cataluña Miguel Primo de Rivera dio un golpe de Estado el 13 de septiembre de <strong>1923</strong> , que fue respaldado por Alfonso XIII al encargarle la formación de un gobierno. Para algunos, una de las razones que explican el golpe sería que este sirvió de instrumento para evitar que los resultados del Expediente Picasso saliesen a la luz en una investigación parlamentaria que estaba realizándose y que podría haber dejado al monarca en una posición comprometida.</p>
@@ -700,7 +1029,7 @@
                             <p class="mt-3">En 1929 se celebraron la Exposición Universal de Barcelona y la Iberoamericana de Sevilla, pero la oposición creciente que generó el dictador, especialmente extendida entre estudiantes, intelectuales y el cuerpo de Artillería (se oponía a la reforma que pretendía el dictador de su sistema de ascensos), hicieron que Alfonso XIII apartase a Miguel Primo de Rivera del gobierno el 29 de enero de 1930.</p>
                 </div>
 
-                <div class="t-item">
+                <div class="t-item" id="berenguer">
                     <h6><span class="t-date">DICTABLANDA DE BERENGUER</span></h6>
                     <div class="row">
                         <div class="col-4">
@@ -716,7 +1045,7 @@
                 </div>
                 <p>En febrero de 1931 el almirante Juan Bautista Aznar fue designado presidente del consejo por Alfonso XIII. Su gobierno convocó elecciones municipales el 12 de abril de 1931. Al conocerse en los comicios la victoria en las ciudades de las candidaturas republicanas, el 14 de abril se proclamó la Segunda República. El rey abandonó el país ese mismo día, con el fin de evitar una guerra civil.</p>
                 <p>En la noche del 14 al 15 partió de Madrid hacia Cartagena al volante de su automóvil Duesenberg y desde allí zarpó para Marsella en el crucero Príncipe Alfonso de la Armada Española para trasladarse después a París. Su familia salió en tren desde Aranjuez a la mañana siguiente. </p>  
-                <div class="t-item">
+                <div class="t-item" id="republica">
                     <h6><span class="t-date">PROCLAMACIÓN DE LA SEGUNDA REPÚBLICA</span></h6>
                     <div class="row">
                         <div class="col-6">
@@ -729,7 +1058,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="t-item">
+                <div class="t-item" id="exilio">
                     <h6><span class="t-date">EXILIO, RENUNCIA DINÁSTICA Y MUERTE</span></h6>
                     <div class="row">
                         
@@ -1113,4 +1442,11 @@
     </div>
   </div>
 </div>
+
+<script>
+  function toggleSubmenu(button) {
+    const dropdown = button.parentElement;
+    dropdown.classList.toggle("open");
+  }
+</script>
 {% endblock %}
