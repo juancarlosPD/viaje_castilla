@@ -1,706 +1,1482 @@
 {% extends "bases/basesigloXX.html" %}
 {% load static %}
-{% block title %} Alfonso XIII {% endblock %}
+{% block cabecera %} Alfonso XIII {% endblock %}
+{% block imgCabecera %}  
+<figure class="text-center">
+  <img class="img-fluid rounded-4 border shadow-sm"
+       src="{% static 'images/sigloXX/alfonsoXIII.jpg' %}"
+       alt="Alfonnso XIII"
+       role="button"
+       data-bs-toggle="modal"
+       data-bs-target="#img_calvo_sotelo">
+</figure>
 
-{% block titulo %} Alfonso XIII {% endblock %}
-{% block cabecera %} Alfonso XIII (1902–1931) {% endblock %}
-{% block imgCabecera %}
-  <img src="{% static 'images/sigloXX/alfonsoXIII.jpg' %}" class="card-img-top" alt="Alfonso XIII">
 {% endblock %}
+{% block title %}Alfonso XIII | La crisis de la Restauración y el camino hacia la Guerra Civil{% endblock %}
 
 {% block contenido %}
-
 <style>
-  :root{
-    --xx-bg: #fbfbfc;
-    --xx-card: #ffffff;
-    --xx-border: rgba(0,0,0,.08);
-    --xx-shadow: 0 10px 30px rgba(0,0,0,.08);
-    --xx-shadow-sm: 0 6px 18px rgba(0,0,0,.06);
-
-    --hero-a: #1b2a41;
-    --hero-b: #2b3f63;
-
-    --c-blue: #0d6efd;
-    --c-green: #0a6b3a;
-    --c-amber: #b45309;
-    --c-red: #dc2626;
-    --c-slate: #334155;
-    --c-violet: #6d28d9;
+    .titulo-timeline {
+    font-size: 1.4rem;
+    font-weight: 800;
+    }
+  .alfonso-page {
+    background: linear-gradient(to bottom, #f7f4ee 0%, #f1ede6 100%);
+    min-height: 100vh;
+    padding-bottom: 4rem;
   }
 
-  .page-wrap{
-    background: var(--xx-bg);
-    border-radius: 1rem;
-    padding: 1rem;
-  }
-
-  .hero{
-    background: linear-gradient(90deg, var(--hero-a), var(--hero-b));
+  .alfonso-hero {
+    background: linear-gradient(135deg, #1b2a41 0%, #2f4b6e 100%);
     color: #fff;
-    border-radius: 1rem;
-    overflow: hidden;
-    box-shadow: var(--xx-shadow);
-  }
-  .hero .lead{ opacity: .92; }
-
-  .chip{
-    display:inline-flex;
-    align-items:center;
-    gap:.4rem;
-    padding:.25rem .65rem;
-    border-radius:999px;
-    background: rgba(255,255,255,.14);
-    border: 1px solid rgba(255,255,255,.22);
-    font-size:.85rem;
-    white-space:nowrap;
-  }
-
-  .toc-sticky{ position: sticky; top: 1rem; }
-  .toc-card{
-    border: 1px solid var(--xx-border);
-    border-radius: 1rem;
-    background: var(--xx-card);
-    box-shadow: var(--xx-shadow-sm);
-  }
-  .toc-link{
-    display:block;
-    padding:.35rem .25rem;
-    text-decoration:none;
-  }
-  .toc-link:hover{ text-decoration: underline; }
-
-  .section-head{
-    border: 1px solid var(--xx-border);
-    background: #eef7ff;
-    border-radius: 1rem;
-    padding: 1rem 1rem;
-    box-shadow: var(--xx-shadow-sm);
-  }
-  .section-head h2{
-    margin:0;
-    font-size: 1.1rem;
-    font-weight: 900;
-    letter-spacing:.01em;
-  }
-  .section-head .hint{
-    color: rgba(0,0,0,.65);
-    margin: .25rem 0 0 0;
-    font-size: .95rem;
-  }
-
-  .content-card{
-    border: 1px solid var(--xx-border);
-    border-radius: 1rem;
-    background: var(--xx-card);
-    padding: 1rem 1rem;
-    box-shadow: var(--xx-shadow-sm);
-  }
-
-  .callout{
-    border-left: 6px solid #fd7e14;
-    background: #fff7ed;
-    padding: 1rem 1rem;
-    border-radius: .9rem;
-    box-shadow: var(--xx-shadow-sm);
-  }
-
-  .kpi-grid{
-    display:grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: .75rem;
-  }
-  @media (min-width: 992px){
-    .kpi-grid{ grid-template-columns: repeat(4, minmax(0, 1fr)); }
-  }
-  .kpi{
-    border: 1px solid var(--xx-border);
-    background: #fff;
-    border-radius: 1rem;
-    padding: .75rem;
-    box-shadow: var(--xx-shadow-sm);
-  }
-  .kpi .t{ font-weight: 900; font-size: .95rem; }
-  .kpi .d{ color: rgba(0,0,0,.65); font-size: .85rem; margin-top:.15rem; }
-
-  .figure img{
-    border-radius: .9rem;
-    box-shadow: var(--xx-shadow-sm);
-  }
-
-  .anchor{ scroll-margin-top: 90px; }
-
-  /* ==========================
-     TIMELINE (vertical)
-     ========================== */
-  .timeline{
+    padding: 4rem 0 3rem;
+    margin-bottom: 2rem;
     position: relative;
-    margin: 0;
-    padding: 0;
+    overflow: hidden;
   }
-  .timeline::before{
-    content:"";
-    position:absolute;
-    left: 18px;
+
+  .alfonso-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 85% 20%, rgba(255,255,255,0.12), transparent 30%);
+    pointer-events: none;
+  }
+
+  .hero-wrap {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-kicker {
+    display: inline-block;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.22);
+    color: #f8f5ef;
+    padding: 0.4rem 0.85rem;
+    border-radius: 999px;
+    font-size: 0.88rem;
+    letter-spacing: 0.02em;
+    margin-bottom: 1rem;
+  }
+
+  .alfonso-hero h1 {
+    font-size: 2.5rem;
+    line-height: 1.08;
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+
+  .alfonso-hero .lead {
+    font-size: 1.14rem;
+    max-width: 860px;
+    color: rgba(255,255,255,0.92);
+  }
+
+  .hero-chips {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.18);
+    color: #fff;
+    padding: 0.48rem 0.85rem;
+    border-radius: 999px;
+    font-size: 0.95rem;
+    backdrop-filter: blur(2px);
+  }
+
+  .hero-portrait {
+    max-width: 320px;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 16px 34px rgba(0,0,0,0.25);
+    border: 1px solid rgba(255,255,255,0.18);
+    background: rgba(255,255,255,0.08);
+  }
+
+  .hero-portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+  }
+
+  .hero-caption {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.82);
+    padding-top: 0.55rem;
+  }
+
+  .content-shell {
+    max-width: 1380px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .page-grid {
+    display: grid;
+    grid-template-columns: 290px minmax(0, 1fr);
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .page-aside {
+    position: sticky;
+    top: 92px;
+  }
+
+  .aside-card {
+    background: #fff;
+    border: 1px solid #e7dfd2;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(58, 44, 24, 0.06);
+    padding: 1.25rem 1rem;
+  }
+
+  .aside-card h5 {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #1f2937;
+    margin-bottom: 1rem;
+  }
+
+  .aside-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .aside-nav a {
+    text-decoration: none;
+    color: #334155;
+    font-size: 0.95rem;
+    padding: 0.45rem 0.55rem;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+  }
+
+  .aside-nav a:hover {
+    background: #f4efe6;
+    color: #1b2a41;
+  }
+
+  .main-col {
+    min-width: 0;
+  }
+
+  .intro-box,
+  .content-card,
+  .highlight-card,
+  .quote-card {
+    background: #fff;
+    border: 1px solid #e7dfd2;
+    border-radius: 20px;
+    box-shadow: 0 10px 28px rgba(58, 44, 24, 0.06);
+  }
+
+  .intro-box {
+    padding: 1.4rem 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .intro-box p:last-child,
+  .content-card p:last-child,
+  .quote-card p:last-child {
+    margin-bottom: 0;
+  }
+
+  .section-block {
+    margin-bottom: 2rem;
+    scroll-margin-top: 100px;
+  }
+
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .section-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #d8c3a5, #f0e2ce);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    flex: 0 0 auto;
+    color: #493628;
+  }
+
+  .section-head h2 {
+    margin: 0;
+    font-size: 1.7rem;
+    font-weight: 800;
+    color: #1f2937;
+  }
+
+  .content-card {
+    padding: 1.5rem;
+  }
+
+  .content-card p {
+    color: #374151;
+    line-height: 1.8;
+    font-size: 1.02rem;
+    margin-bottom: 1rem;
+  }
+  
+
+  .content-card ul {
+    margin-bottom: 0;
+  }
+
+  .content-card li {
+    margin-bottom: 0.55rem;
+    color: #374151;
+    line-height: 1.7;
+  }
+
+  .mini-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: 1.2rem;
+  }
+
+  .mini-grid_17 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1.2rem;
+  }
+
+  .highlight-card {
+    padding: 1rem;
+    height: 100%;
+  }
+
+  .highlight-card h6 {
+    font-weight: 800;
+    color: #1f2937;
+    margin-bottom: 0.55rem;
+  }
+
+  .highlight-card p {
+    margin: 0;
+    color: #475569;
+    line-height: 1.65;
+    font-size: 0.96rem;
+  }
+
+  .timeline {
+    position: relative;
+    margin-top: 1.4rem;
+    padding-left: 1.2rem;
+  }
+
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 9px;
     top: 0;
     bottom: 0;
     width: 3px;
-    background: linear-gradient(to bottom, rgba(13,110,253,.35), rgba(109,40,217,.30), rgba(220,38,38,.28));
-    border-radius: 3px;
-  }
-
-  .t-item{
-    position: relative;
-    display: grid;
-    grid-template-columns: 42px 1fr;
-    gap: .9rem;
-    padding: 0 0 1.25rem 0;
-  }
-
-  .t-dot{
-    position: relative;
-    width: 42px;
-    height: 42px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-  }
-  .t-dot::before{
-    content:"";
-    width: 16px;
-    height: 16px;
     border-radius: 999px;
-    background: var(--c-blue);
-    box-shadow: 0 0 0 6px rgba(13,110,253,.12);
-    border: 2px solid #fff;
-    display:block;
-  }
-  .t-dot[data-color="blue"]::before{
-    background: var(--c-blue);
-    box-shadow: 0 0 0 6px rgba(13,110,253,.12);
-  }
-  .t-dot[data-color="green"]::before{
-    background: var(--c-green);
-    box-shadow: 0 0 0 6px rgba(10,107,58,.12);
-  }
-  .t-dot[data-color="amber"]::before{
-    background: #f59e0b;
-    box-shadow: 0 0 0 6px rgba(245,158,11,.14);
-  }
-  .t-dot[data-color="violet"]::before{
-    background: var(--c-violet);
-    box-shadow: 0 0 0 6px rgba(109,40,217,.12);
-  }
-  .t-dot[data-color="red"]::before{
-    background: var(--c-red);
-    box-shadow: 0 0 0 6px rgba(220,38,38,.12);
-  }
-  .t-dot[data-color="slate"]::before{
-    background: var(--c-slate);
-    box-shadow: 0 0 0 6px rgba(51,65,85,.12);
+    background: linear-gradient(to bottom, #b99870, #d7c2a5);
   }
 
-  .t-card{
-    border: 1px solid var(--xx-border);
-    border-radius: 1rem;
-    background: var(--xx-card);
-    box-shadow: var(--xx-shadow-sm);
+  .t-item {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .t-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .t-item::before {
+    content: "";
+    position: absolute;
+    left: -0.05rem;
+    top: 0.35rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #8b6a48;
+    box-shadow: 0 0 0 4px #efe4d5;
+  }
+
+  .t-date {
+    display: inline-block;
+    font-weight: 800;
+    color: #6b4f35;
+    background: #f4eadc;
+    border: 1px solid #ead8bf;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .t-item h6 {
+    font-weight: 800;
+    color: #1f2937;
+    margin-bottom: 0.35rem;
+  }
+
+  .t-item p {
+    margin: 0;
+    color: #475569;
+    line-height: 1.7;
+  }
+
+  .img-block {
+    margin-top: 1.25rem;
+  }
+
+  .img-frame {
+    background: #faf8f4;
+    border: 1px solid #e5dacb;
+    border-radius: 18px;
     overflow: hidden;
   }
-  .t-head{
-    padding: 1rem 1rem .75rem 1rem;
-    border-bottom: 1px solid rgba(0,0,0,.06);
-    background: linear-gradient(180deg, rgba(0,0,0,.02), rgba(0,0,0,0));
-  }
-  .t-title{
-    margin: 0 0 .15rem 0;
-    font-size: 1.05rem;
-    font-weight: 900;
-  }
-  .t-meta{
-    color: rgba(0,0,0,.62);
-    font-size: .9rem;
-    display:flex;
-    flex-wrap: wrap;
-    gap: .5rem;
-    align-items:center;
-  }
-  .t-badge{
-    font-weight: 800;
-    border: 1px solid rgba(0,0,0,.1);
-    background: rgba(255,255,255,.7);
-  }
-  .t-body{
-    padding: 1rem;
-  }
-  .t-cover{
+
+  .img-frame img {
     width: 100%;
-    height: 190px;
+    display: block;
     object-fit: cover;
-    display:block;
+    max-height: 460px;
+    cursor: pointer;
   }
 
-  .t-pill{
-    display:inline-flex;
-    align-items:center;
-    gap:.4rem;
-    padding:.25rem .6rem;
-    border-radius:999px;
-    border:1px solid rgba(0,0,0,.1);
-    background:#fff;
-    font-size:.85rem;
-    margin-right:.35rem;
-    margin-bottom:.35rem;
+  .img-note {
+    padding: 0.85rem 1rem;
+    font-size: 0.92rem;
+    color: #5b6472;
+    background: #fcfbf8;
+    border-top: 1px solid #e5dacb;
   }
 
-  @media (max-width: 576px){
-    .timeline::before{ left: 16px; }
-    .t-item{ grid-template-columns: 38px 1fr; }
-    .t-dot{ width: 38px; height: 38px; }
+  .quote-card {
+    padding: 1.25rem 1.35rem;
+    margin-top: 1rem;
+    border-left: 5px solid #b99870;
+  }
+
+  .quote-card p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #334155;
+    margin-bottom: 0.65rem;
+  }
+
+  .quote-author {
+    font-size: 0.92rem;
+    color: #6b7280;
+    font-weight: 600;
+  }
+
+  .summary-band {
+    margin-top: 1.25rem;
+    background: linear-gradient(135deg, #f3e8da 0%, #f8f2e9 100%);
+    border: 1px solid #e4d5bf;
+    border-radius: 18px;
+    padding: 1rem 1.15rem;
+  }
+
+  .summary-band strong {
+    color: #3d2d1f;
+  }
+
+  .final-box {
+    background: linear-gradient(135deg, #23344f 0%, #314a6b 100%);
+    color: #fff;
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: 0 16px 36px rgba(27, 42, 65, 0.18);
+  }
+
+  .final-box h3 {
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+
+  .final-box p {
+    color: rgba(255,255,255,0.94);
+    line-height: 1.8;
+    margin-bottom: 0.9rem;
+  }
+
+  .final-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  .icon-box {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #d8c3a5, #f0e2ce);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+}
+
+.highlight-card {
+  transition: all 0.25s ease;
+}
+
+.highlight-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.12);
+}
+.link-atentado {
+  color: #8b0000;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.link-atentado:hover {
+  color: #c1121f;
+}
+.aside-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.aside-nav a,
+.aside-dropbtn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  text-decoration: none;
+  background: #fff;
+  color: #1f3c88;
+  border: 1px solid #d6dff2;
+  border-radius: 10px;
+  padding: 0.7rem 0.9rem;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  text-align: left;
+}
+
+.aside-nav a:hover,
+.aside-dropbtn:hover {
+  background: #f3f7ff;
+  border-color: #9eb8ea;
+}
+
+.aside-dropdown {
+  display: flex;
+  flex-direction: column;
+}
+
+.aside-submenu {
+  display: none;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-top: 0.35rem;
+  margin-left: 0.8rem;
+}
+
+.aside-dropdown.open .aside-submenu {
+  display: flex;
+}
+
+.aside-submenu a {
+  font-size: 0.95rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  background: transparent;
+  border: none;
+  color: #03226b;
+}
+
+.aside-submenu a:hover {
+  background: #eef4ff;
+}
+
+.arrow {
+  font-size: 0.9rem;
+  transition: transform 0.2s ease;
+}
+
+.aside-dropdown.open .arrow {
+  transform: rotate(180deg);
+}
+
+.page-aside {
+  position: sticky;
+  top: 20px;
+  align-self: start;
+}
+
+.section-head-inline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.section-head-inline h6 {
+  margin: 0;
+}
+
+.section-head-inline .section-link {
+  white-space: nowrap;
+}
+
+
+
+  @media (max-width: 1199px) {
+    .page-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .page-aside {
+      position: static;
+    }
+
+    .mini-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-portrait {
+      margin-top: 1.5rem;
+      max-width: 100%;
+    }
+     .aside-container {
+    position: relative; /* en móvil mejor quitar sticky */
+    top: 0;
+  }
+  }
+
+  @media (max-width: 767px) {
+    .alfonso-hero {
+      padding: 3rem 0 2.2rem;
+    }
+
+    .alfonso-hero h1 {
+      font-size: 2rem;
+    }
+
+    .section-head h2 {
+      font-size: 1.4rem;
+    }
+
+    .content-card,
+    .intro-box,
+    .final-box {
+      padding: 1.2rem;
+    }
   }
 </style>
 
-<div class="page-wrap">
+<div class="alfonso-page">
 
-  <!-- HERO -->
-  <section class="hero p-4 p-md-5 mb-4">
-    <div class="d-flex flex-column gap-3">
-      <div>
-        <h1 class="h3 mb-2 fw-bold">Reinado de Alfonso XIII</h1>
+  <section class="alfonso-hero">
+    <div class="container hero-wrap">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-8">
+          <span class="hero-kicker">Monarquía, crisis política y fin de la Restauración</span>
+          <h1>Alfonso XIII y la descomposición del sistema liberal de la Restauración</h1>
+          
+          <p class="lead">
+            La figura de Alfonso XIII ocupa un lugar central en la crisis de la España de comienzos del siglo XX. Su reinado coincidió con el agotamiento del turnismo, la creciente conflictividad social, la militarización de la vida política, la guerra de Marruecos y, finalmente, el colapso de la monarquía en 1931. Comprender su papel resulta esencial para entender el tránsito desde la Restauración hacia la Segunda República y, en último término, el clima histórico que desembocó en la Guerra Civil.
+          </p>
 
-        <div class="d-flex flex-wrap gap-2 mb-3">
-          <span class="chip">🏛️ Monarquía constitucional</span>
-          <span class="chip">🧠 Regeneracionismo</span>
-          <span class="chip">⚙️ Crisis del turno</span>
-          <span class="chip">🌍 1ª Guerra Mundial</span>
-          <span class="chip">🧨 Crisis 1917</span>
-          <span class="chip">🪖 Annual (1921)</span>
-          <span class="chip">🔒 Dictadura (1923)</span>
-          <span class="chip">🏳️ 1931: fin de la Monarquía</span>
+          <div class="hero-chips text-center">
+            <span class="chip">👑 Monarquía constitucional</span>
+            <span class="chip">🏛️ Restauración</span>
+            <span class="chip">⚔️ Marruecos</span>
+            <span class="chip">🪖 Primo de Rivera</span>
+            <span class="chip">📉 Crisis de legitimidad</span>
+            
+          </div>
         </div>
 
-        <p class="lead mb-0">
-          Un reinado marcado por intentos de reforma, crisis política y social, y el colapso final del sistema
-          de la Restauración, arrastrado por la Dictadura de Primo de Rivera y la pérdida de legitimidad de la Monarquía.
-        </p>
-      </div>
-
-      <div class="kpi-grid">
-        <div class="kpi">
-          <div class="t">1902</div>
-          <div class="d">Mayoría de edad y comienzo del reinado efectivo</div>
-        </div>
-        <div class="kpi">
-          <div class="t">1917</div>
-          <div class="d">Crisis múltiple del sistema</div>
-        </div>
-        <div class="kpi">
-          <div class="t">1921</div>
-          <div class="d">“Desastre” de Annual</div>
-        </div>
-        <div class="kpi">
-          <div class="t">1931</div>
-          <div class="d">Proclamación de la II República</div>
+        <div class="col-lg-4">
+          <div class="hero-portrait">
+            <img src="{% static 'images/sigloXX/alfonsoXIII1.jpg' %}"
+                 alt="Retrato de Alfonso XIII"
+                 data-bs-toggle="modal"
+                 data-bs-target="#modalAlfonsoRetrato">
+          </div>
+          <div class="hero-caption">
+            Alfonso XIII fue rey de España desde su nacimiento en 1886 hasta la proclamación de la Segunda República en 1931.
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <div class="row g-4">
+  <div class="content-shell">
+    <div class="page-grid">
 
-    <!-- TOC -->
-    <aside class="col-lg-4">
-      <div class="toc-sticky">
-        <div class="toc-card p-3 mb-4">
-          <div class="d-flex justify-content-between align-items-center mb-2">
-            <h2 class="h6 mb-0 fw-bold">Índice</h2>
-            <span class="badge text-bg-light border">Timeline</span>
+      <aside class="page-aside">
+        <div class="aside-card">
+          <h5>En esta página</h5>
+          <nav class="aside-nav">
+            <a href="{% url 'linea_tiempo_alfonso_XIII' %}">🧭 Línea de tiempo</a>
+            <a href="#introduccion">📌 Introducción</a>            
+            <div class="aside-dropdown">
+              <button class="aside-dropbtn" type="button" onclick="toggleSubmenu(this)">
+                  👤 Biografía
+                  <span class="arrow">▾</span>
+              </button>
+
+              <div class="aside-submenu">
+                <a href="#regencia">Regencia de María Cristina</a>
+                <a href="#constitucional">Periodo constitucional</a>
+                <a href="#crisis1917">Crisis de 1917</a>
+                <a href="#gripe1918">Gripe de 1918</a>
+                <a href="#desastre_annual">Desastre de Annual 1921</a>
+                <a href="#primo">Dictadura de Primo de Rivera</a>
+                <a href="#berenguer">Dictablanda de Berenguer</a>
+                <a href="#republica">Proclamación de la 2ª República</a>
+                <a href="#exilio">Exilio, renuncia dinástica y muerte</a>
+                
+              </div>
+            </div>           
+            <a href="#cautivos">🏛️ Oficina pro-cautivos</a>
+            <a href="#personalidad">🧠 Personalidad</a>
+            <a href="#familia">👨‍👩‍👧‍👦 Matrimonio e hijos</a>
+            <a href="#presidentes">🏛️ Presidentes del gobierno</a>
+            <a href="#conclusion">📖 Conclusión</a>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="main-col">
+         <div class="section-head">
+            <span class="section-icon">📌</span>
+            <h2>Introducción</h2>
           </div>
+        <div id="introduccion" class="intro-box section-block">
+          <p >Alfonso XIII de España, llamado «el Africano»​ (Madrid, 17 de mayo de 1886-Roma, 28 de febrero de 1941), fue rey de España desde su nacimiento hasta la proclamación de la Segunda República el 14 de abril de 1931. Asumió personalmente la Corona al cumplir los dieciséis años de edad, el 17 de mayo de 1902.</p>
+          <p >La inesperada muerte de su padre el rey Alfonso XII el 25 de noviembre de 1885 provocó una crisis que llevó al Gobierno presidido por Práxedes Mateo Sagasta a paralizar el proceso de sucesión a la Corona a la espera de que la viuda del rey, María Cristina de Habsburgo diese a luz, pues estaba embarazada en aquel momento. Cuando el 17 de mayo de 1886 la reina regente dio a luz a un varón, Alfonso XIII, este fue reconocido de inmediato como rey, siendo un caso único en la historia.​</p>
+          <p>Durante su reinado España experimentó cuatro problemas de suma importancia que acabarían con la monarquía liberal</p>
+          <div class="mini-grid mt-3">
 
-          <a class="toc-link" href="#visionGeneral">🧭 Visión general</a>
-          <a class="toc-link" href="#timeline">🕰️ Timeline (1902–1923)</a>
-          <a class="toc-link" href="#dictadura">🟣 Dictadura de Primo de Rivera</a>
-          <a class="toc-link" href="#recursos">📚 Recursos</a>
+            <!-- CACIQUISMO -->
+            <div class="highlight-card text-center p-4">
+                
+                <div class="icon-box mb-3"><i class="bi bi-bank"></i></div>
+                <h6>Falta de representatividad política: el caciquismo</h6>
+                <p>
+                El sistema político de la Restauración se basaba formalmente en una monarquía parlamentaria, pero en la práctica estaba profundamente distorsionado por el caciquismo.
+                </p>
+            </div>
 
-          <div class="small text-muted mt-3">
-            💡 Tip: abre/cierra cada etapa y usa los “Ir a...” para navegar.
-          </div>
+            <!-- CUESTIÓN SOCIAL -->
+            <div class="highlight-card text-center p-4">
+                <div class="icon-box mb-3"><i class="bi bi-exclamation-triangle"></i></div>
+                <h6>La cuestión social: desigualdad y conflictividad</h6>
+                <p>
+                El crecimiento del movimiento obrero, tanto socialista como anarquista, se tradujo en huelgas, conflictos laborales y episodios de violencia social.
+                </p>
+            </div>
+
+            <!-- RIF -->
+            <div class="highlight-card text-center p-4">
+                <div class="icon-box mb-3"><i class="bi bi-shield-fill-exclamation"></i></div>
+                <h6>La guerra del Rif: desgaste militar y crisis política</h6>
+                <p>
+                La guerra del Rif fue impopular por el sistema de reclutamiento. El desastre de Annual en 1921 supuso un punto de inflexión.
+                </p>
+            </div>
+
+            <!-- NACIONALISMO -->
+            <div class="highlight-card text-center p-4">
+                <div class="icon-box mb-3"><i class="bi bi-flag"></i></div>
+                <h6>El auge del nacionalismo catalán</h6>
+                <p>
+                Cataluña, con fuerte dinamismo económico, reclamaba mayor autonomía política y reconocimiento de su identidad.
+                </p>
+            </div>
+
+          </div> 
+          <p class="mt-2">Esta turbulencia política y social iniciada con el desastre del 98 impidió que los partidos turnistas lograran implantar una verdadera democracia liberal, lo que condujo al establecimiento de la dictadura de Primo de Rivera, aceptada por el monarca. </p>
+          <p>Con el fracaso político de esta, el monarca impulsó una vuelta a la normalidad democrática con intención de regenerar el régimen. No obstante, fue abandonado por toda la clase política, que se sintió traicionada por el apoyo del rey a la dictadura de Primo de Rivera.</p>
+          <p>Abandonó España voluntariamente tras las elecciones municipales de abril de 1931, que fueron tomadas como un plebiscito entre monarquía o república. Falleció en Roma, donde fue inicialmente enterrado; sus restos no fueron trasladados al Panteón de los Reyes del Monasterio de El Escorial hasta 1980.</p>
         </div>
 
-        <div class="callout">
-          <div class="fw-bold mb-1">Idea clave</div>
-          <div class="small">
-            El sistema intenta reformarse “desde dentro”, pero la acumulación de problemas (sociales, territoriales,
-            militares y de legitimidad) desborda la Restauración.
+        <section id="biografia" class="section-block">
+          <div class="section-head">
+            <span class="section-icon">👤</span>
+            <h2>Biografía</h2>
           </div>
-        </div>
 
-      </div>
-    </aside>
-
-    <!-- MAIN -->
-    <main class="col-lg-8">
-
-      <!-- VISIÓN GENERAL -->
-      <div class="section-head anchor mb-3" id="visionGeneral">
-        <h2>🧭 Visión general del reinado</h2>
-        <p class="hint">Dos grandes fases: crisis del sistema (1902–1923) + Dictadura (1923–1931).</p>
-      </div>
-
-      <div class="content-card mb-4">
-        <p class="mb-2">
-          El reinado de Alfonso XIII cubre el primer tercio del siglo XX. Se intenta renovar la monarquía parlamentaria
-          de la Restauración, pero el régimen se enfrenta a problemas crecientes (políticos, sociales, regionales y militares)
-          y a una inestabilidad crónica.
-        </p>
-        <p class="mb-0">
-          La crisis de 1917 pudo haber impulsado una modernización, pero los gobiernos de concentración alargan la vida del sistema sin resolverlo.
-          El descrédito facilita el golpe de Primo de Rivera (1923). La Dictadura termina arrastrando también a la Monarquía:
-          el 14 de abril de 1931 se proclama la II República.
-        </p>
-      </div>
-
-      <!-- TIMELINE 1902-1923 -->
-      <div class="section-head anchor mb-3" id="timeline">
-        <h2>🕰️ Timeline vertical (1902–1923)</h2>
-        <p class="hint">Regeneracionismo → crisis del parlamentarismo → Annual → golpe.</p>
-      </div>
-
-      <div class="timeline mb-4">
-
-        <!-- 1902 INICIO -->
-        <section class="t-item anchor" id="inicio1902">
-          <div class="t-dot" data-color="slate" aria-hidden="true"></div>
-          <article class="t-card">
-            <img class="t-cover" src="{% static 'images/sigloXX/alfonsoXIII/1902_inicio.jpg' %}" alt="1902 Alfonso XIII">
-            <header class="t-head">
-              <h3 class="t-title">Inicio del reinado efectivo</h3>
-              <div class="t-meta">
-                <span class="badge t-badge text-bg-light">1902</span>
-                <span>Mayoría de edad y continuidad del sistema</span>
-              </div>
-            </header>
-            <div class="t-body">
-              <p class="mb-2">
-                Alfonso XIII comienza su reinado en un sistema del “turno” (conservadores/liberales) que ya muestra desgaste.
-              </p>
-              <div>
-                <span class="t-pill">🏛️ Restauración</span>
-                <span class="t-pill">⚙️ Turno</span>
-                <span class="t-pill">🧩 Reformismo pendiente</span>
-              </div>
-            </div>
-          </article>
-        </section>
-
-        <!-- 1902-1914 REGENERACIONISMO -->
-        <section class="t-item anchor" id="regeneracionismo">
-          <div class="t-dot" data-color="blue" aria-hidden="true"></div>
-          <article class="t-card">
-            <img class="t-cover" src="{% static 'images/sigloXX/joaquinCosta1.jpg' %}" alt="Regeneracionismo">
-            <header class="t-head">
-              <h3 class="t-title">Regeneracionismo y revisionismo político</h3>
-              <div class="t-meta">
-                <span class="badge t-badge text-bg-primary">1902–1914</span>
-                <span>Reformas “desde arriba” para salvar el sistema</span>
-              </div>
-            </header>
-            <div class="t-body">
-
-              <div class="accordion" id="accRegTL">
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="hP">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#cP" aria-expanded="true" aria-controls="cP">
-                      🧩 Los grandes problemas del país
-                    </button>
-                  </h2>
-                  <div id="cP" class="accordion-collapse collapse show" aria-labelledby="hP" data-bs-parent="#accRegTL">
-                    <div class="accordion-body">
-                      <ol class="mb-0">
-                        <li><strong>Descomposición</strong> de los partidos dinásticos.</li>
-                        <li><strong>Conflictividad social</strong> y auge sindical (UGT / anarcosindicalismo).</li>
-                        <li><strong>Cuestión religiosa</strong> (clericalismo vs anticlericalismo).</li>
-                        <li><strong>Problema militar</strong> tras 1898 y tensiones con el poder civil.</li>
-                        <li><strong>Regionalismo/nacionalismo</strong> (Cataluña, País Vasco, Galicia).</li>
-                        <li><strong>Marruecos</strong> y coste político de la guerra colonial.</li>
-                      </ol>
+          <div class="content-card">
+            
+            <div class="timeline">
+                <div class="t-item" id="regencia">
+                    <h6><span class="t-date" >REGENCIA DE MARIA CRISTINA DE HAMSBURGO</span></h6>
+                    <div class="row">
+                        <div class="col-8">
+                            <p>La regencia de María Cristina de Habsburgo constituye una etapa decisiva en la consolidación del sistema político de la Restauración en España.</p>
+                            <p>María Cristina asumió la regencia en un momento especialmente delicado, pero lo hizo apoyándose en el acuerdo entre las principales élites políticas del país. El llamado Pacto de El Pardo (1885), suscrito entre los líderes de los partidos dinásticos —Antonio Cánovas del Castillo y Práxedes Mateo Sagasta—, permitió asegurar la alternancia pacífica en el poder y evitar una crisis de gobernabilidad tras la muerte del monarca.</p>                            
+                        
+                        </div>
+                        <div class="col-4">
+                            <img src="{% static 'images/sigloXIX/mariaCristinaHasburgo.jpg' %}" 
+                            class="img-fluid rounded-start h-100 object-fit-cover" 
+                            alt="María Cristina">
+                        </div>
                     </div>
-                  </div>
+                    <p class="mt-2">Este acuerdo no solo consolidó el funcionamiento del sistema de turno de partidos, sino que también reforzó la idea de una monarquía como institución arbitral, capaz de garantizar la estabilidad frente a posibles conflictos.</p>
+                    <p>Durante la regencia, el sistema de la Restauración alcanzó su mayor grado de estabilidad formal. La alternancia entre conservadores y liberales funcionó con relativa eficacia, permitiendo la aprobación de <strong>reformas importantes</strong>, especialmente bajo los gobiernos liberales de Sagasta. Entre ellas destacan la ampliación de derechos y libertades, la Ley de Asociaciones y, de manera muy significativa, la implantación del <strong>sufragio universal masculino en 1890</strong>. Estas reformas contribuyeron a dotar al régimen de una apariencia más democrática, aunque en la práctica el sistema seguía condicionado por el caciquismo y la manipulación electoral.</p>
+                    <p>La regente desempeñó un papel deliberadamente discreto en la vida política, evitando una intervención directa en la gestión de los gobiernos. Esta actitud contrastó con la de su hijo Alfonso XIII en etapas posteriores y fue clave para preservar la imagen de neutralidad de la Corona. María Cristina actuó como una figura de moderación, respetando las reglas del sistema y permitiendo que los partidos dinásticos gestionaran el poder dentro del marco establecido por la Constitución de 1876.</p>
+                    <p>El acontecimiento más traumático de la regencia fue la <strong>crisis colonial de 1898</strong>, que culminó con la pérdida de Cuba, Puerto Rico y Filipinas tras la guerra con Estados Unidos. Este episodio tuvo profundas consecuencias políticas, económicas y psicológicas. La derrota supuso el fin del imperio colonial español y provocó una crisis de identidad nacional que dio lugar al <strong>Regeneracionismo</strong>, un movimiento intelectual y político que denunciaba la decadencia del país y reclamaba profundas reformas. Aunque el sistema de la Restauración logró sobrevivir a este golpe, su legitimidad quedó seriamente cuestionada.</p>
+                    <p>En definitiva, la regencia de María Cristina de Habsburgo representa la fase de consolidación y, al mismo tiempo, de limitación del sistema de la Restauración. Si bien logró garantizar la continuidad de la monarquía y ofrecer un marco de estabilidad política durante casi dos décadas, no consiguió abordar las transformaciones necesarias para adaptar el régimen a una sociedad en cambio. De este modo, la aparente solidez del periodo ocultaba una serie de tensiones latentes que emergerían con mayor intensidad durante el reinado de Alfonso XIII, contribuyendo finalmente a la crisis y al colapso del sistema liberal en el primer tercio del siglo XX.</p>
+                    
+                
                 </div>
 
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="hCrisis0506">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cCrisis0506" aria-expanded="false" aria-controls="cCrisis0506">
-                      ⚠️ Crisis 1905–1906 (ley de jurisdicciones)
-                    </button>
-                  </h2>
-                  <div id="cCrisis0506" class="accordion-collapse collapse" aria-labelledby="hCrisis0506" data-bs-parent="#accRegTL">
-                    <div class="accordion-body">
-                      <p class="mb-0">
-                        Inestabilidad gubernamental + auge del catalanismo (Lliga) + choque Ejército–prensa
-                        (episodio ¡Cu-cut!) → Ley de Jurisdicciones (1906), reforzando la intervención militar.
-                      </p>
+                <div class="t-item" id="constitucional">
+                    <h6><span class="t-date">PERIODO CONSTITUCIONAL</span></h6>
+                    <p>En <strong>1902</strong>, al cumplir los dieciséis años, Alfonso XIII fue declarado mayor de edad y asumió las funciones constitucionales de jefe de Estado. </p>
+                    <div class="row">
+                        <div class="col-8">
+                            <p>El 31 de mayo de <strong>1906</strong>, se casó con la princesa británica Victoria Eugenia de Battenberg (1887-1969)</p>
+                            <p>
+                                Cuando Alfonso XIII y la reina Victoria Eugenia regresaban al Palacio Real, después de la boda, sufrieron un 
+                                <a href="#" data-bs-toggle="modal" data-bs-target="#modalAtentado" class="link-atentado">atentado</a> 
+                                mediante una bomba escondida en un ramo de flores, lanzada por el anarquista Mateo Morral a su carroza, del que salieron ilesos. Como consecuencia de la explosión murieron tres oficiales y cinco soldados del séquito real, tres personas más en los balcones y resultaron con heridas más de catorce personas que contemplaban el paso del cortejo.
+                            </p>
+                            <p><strong>1909.</strong> Semana Trágica de Barcelona. Uno de los factores que la desencadenaron fue el descontento de la población con la guerra de Melilla.</p>
+                            <p>En <strong>1911</strong> Alfonso XIII visita Melilla. A su vuelta, el presidente del Senado Eugenio Montero Ríos le otorgó el sobrenombre de «el Africano»</p>
+                        </div>
+                        <div class="col-4">
+                            <img src="{% static 'images/sigloXX/matrimonio_alfonso_XIII.jpg' %}" 
+                            class="img-fluid rounded-start h-100 object-fit-cover" 
+                            alt="María Cristina">
+                        </div>
                     </div>
-                  </div>
+                    <div class="row mt-4">
+                        <div class="col-3">
+                            <img src="{% static 'images/sigloXX/presidentes/canalejas.png' %}" 
+                            class="img-fluid rounded-start h-100 object-fit-cover" 
+                            alt="Canalejas">
+                            
+                        </div>
+                        <div class="col-9">
+                            <p>En <strong>1910</strong> el rey nombró a José Canalejas presidente del Consejo de Ministros</p>
+                            <p class="mt-2">Su gestión es ejemplar, tanto al frente del Gobierno como al frente de su Partido Liberal, que por primera vez desde la Restauración tiene un verdadero jefe.</p>
+                            <p class="mt-2">Fue <strong>asesinado</strong> el 12 de noviembre de <strong>1912</strong> por un anarquista mientras el jefe del Gobierno contemplaba el escaparate de una librería en la Puerta del Sol.</p>
+                            <p class="mt-2">Canalejas, «que procedía del republicanismo, se había propuesto la colaboración, la comprensión de todos, fueran de la izquierda o de la derecha. Tendió una mano a los socialistas en la persona de Pablo Iglesias. Pese a los esfuerzos de Canalejas por atraérselos, Iglesias rechazó la oferta, encerrado en una reserva hostil, negado a todo diálogo constructivo. La misma respuesta recibió Canalejas en su relación con las derechas.</p>
+                        </div>
+                    </div>
+                    <p class="mt-3"><strong>Situación de Alfonso XIII durante la Primera Guerra Mundial. </strong>El monarca solicitó a los distintos gobiernos que se mostraran neutrales en el conflicto, pero su situación familiar era complicada. Mientras que la madre del monarca, María Cristina de Habsburgo-Lorena, de origen austríaco, era partidaria del bando de las potencias centrales, su esposa, Victoria Eugenia de Battenberg, de origen británico, fue partidaria del bando aliado. El hecho que podría haber sido el casus belli ocurrió en 1917. Los submarinos de Alemania, que había anunciado una guerra submarina «sin restricciones», asolaban las rutas comerciales atlánticas, hundiendo a sangre fría buques españoles.​ Afortunadamente, Alfonso XIII, que ya llevaba tiempo trabajando en la Oficina Pro Cautivos, logró llegar a un acuerdo entre los dos bandos, logrando que ambos respetasen los barcos con la bandera hospitalaria.</p>
+                    <p class="mt-3">Entre mayo y julio de <strong>1918</strong>, Alfonso XIII enfermó de un brote de la gripe que acabó siendo la mayor pandemia del siglo XX. Debido a la neutralidad de España en la guerra, la prensa española no estuvo sujeta a la censura como la prensa de los países beligerantes e informó con mayor libertad sobre la enfermedad. Ello dio lugar a la impresión de que la gripe afectaba más a España que a otros países y a que la pandemia fuese conocida como la <strong>«gripe española»</strong>.​</p>
+                    <div class="row">
+                        <div class="col-8">
+                            <p class="mt-3">En <strong>1920</strong> el rey nombra presidente del Consejo de Ministros a Eduardo Dato</p>
+                            <p class="mt-3">Realiza una serie de <strong>reformas sociales</strong>: funda el Ministerio de Trabajo el 8 de mayo, hace evitar los aumentos abusivos de alquileres, crea las Juntas de Fomento y Casas Baratas, aplica el Seguro Obligatorio, libera a los encarcelados por conflictos laborales y restablece la CNT. Su buena voluntad tropieza con la obstinación de los patronos, por un lado, y de los sindicalistas, por otro.</p>
+                            <p> La tarde del 8 de marzo de <strong>1921 asesinan a Dato</strong>. Los anarquistas de la CNT le han anun­ciado su muerte dos días antes. Cuando Dato se dirige en automó­vil a su domicilio desde el Palacio del Senado, tres sindicalistas anarquistas lo ametrallan a la altura de la Puerta de Alcalá. Dato es precisamente el político más merecedor del amor de los sindicalistas porque ha sido el iniciador de la Legislación social.</p>
+                        </div>
+                        <div class="col-4">
+                            <img src="{% static 'images/sigloXX/presidentes/dato.png' %}" 
+                            class="img-fluid rounded-start h-100 object-fit-cover" 
+                            alt="Dato">
+                        </div>
+                    </div>
+                    <p class="mt-3">En <strong>1921</strong>, a raíz de unas operaciones bélicas tácticamente desastrosas, se produjo el hundimiento de la comandancia militar de Melilla (el <strong>desastre de Annual</strong>). El impacto que tuvo sobre la opinión pública generó un sentimiento muy crítico con la política mantenida hasta ese momento en Marruecos, y en general con todo el sistema político de la Restauración, ya tambaleante desde la huelga general de 1917. Se inició una investigación de lo sucedido (con el expediente Picasso) en el que, al parecer, quedaban involucrados en graves responsabilidades cargos elevados de la administración, pero dicho informe nunca vio la luz. Algunas voces extendieron las responsabilidades por el desastre de Annual al monarca, uno de los impulsores y partidarios más destacados de la política colonial, porque había propiciado el nombramiento de algunos mandos responsables del «Desastre» con los que mantenía una relación de amistad o eran personas cercanas a él, como Dámaso Berenguer o el general Fernández Silvestre.</p>
+                    
                 </div>
 
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="hMaura">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cMaura" aria-expanded="false" aria-controls="cMaura">
-                      🧑‍⚖️ Maura (1907–1909): “revolución desde arriba”
-                    </button>
-                  </h2>
-                  <div id="cMaura" class="accordion-collapse collapse" aria-labelledby="hMaura" data-bs-parent="#accRegTL">
-                    <div class="accordion-body">
-                      <ul class="mb-0">
-                        <li>Inversión pública, protección industrial, Instituto Nacional de Previsión (1908).</li>
-                        <li>Reforma electoral (1907) y proyecto de administración local (mancomunidades).</li>
-                        <li>Caída tras la <strong>Semana Trágica</strong> (1909).</li>
+                <!-- CRISIS DE 1917 -->
+                
+                <div class="t-item" id="crisis1917">                    
+                    <div class="section-head-inline">
+                      <h6><span class="t-date">CRISIS DE 1917</span></h6>
+                      <a href="#" class="section-link">
+                        Ampliar contenido <i class="bi bi-arrow-right"></i>
+                      </a>
+                    </div>
+                    <p>
+                      En <strong>1917</strong> la monarquía de Alfonso XIII atravesó una grave crisis política,
+                      social y militar. Coincidieron tres conflictos de gran importancia: las
+                      <strong>Juntas de Defensa</strong> promovidas por sectores del ejército, la
+                      <strong>Asamblea de Parlamentarios</strong> impulsada desde Cataluña y una
+                      <strong>huelga general revolucionaria</strong> convocada por UGT y CNT.
+                    </p>
+
+                    <p>
+                      La incapacidad del sistema de la Restauración para dar respuesta a estas tensiones
+                      mostró su progresivo desgaste. Aunque el régimen logró superar la crisis de forma
+                      inmediata, los acontecimientos de 1917 evidenciaron que el turnismo y el sistema
+                      político tradicional estaban entrando en una fase de claro deterioro.
+                    </p>
+                    <div class="mini-grid_17 mt-3">
+
+                      <!-- DESAFIO MILITAR -->
+                      <div class="highlight-card text-center p-4">
+                          
+                          <div class="icon-box mb-3"><i class="bi bi-bank"></i></div>
+                          <h6>Desafío militar: Juntas de Defensa</h6>
+                          <p>Se crearon las Juntas de Defensa, un movimiento sindical militar no previsto en la legislación, en lo que era un claro desafío al gobierno del liberal Manuel García Prieto que, impotente para controlarlas, se vio obligado a dimitir. Su reemplazo, el conservador Eduardo Dato, optó por legalizarlas.</p>
+                          <p>
+                            Las juntas decían defender los intereses de los oficiales de graduación intermedia, aunque su vocación de intervenir en política era evidente.
+                          </p>
+                      </div>
+
+                      <!-- DESAFIO POLÍTICO -->
+                      <div class="highlight-card text-center p-4">
+                          <div class="icon-box mb-3"><i class="bi bi-exclamation-triangle"></i></div>
+                          <h6>Desafío político: Asamblea de parlamentarios</h6>
+                          <p>En vista de la crisis abierta, Cambó exigió al gobierno la convocatoria de Cortes, que este no aceptó. Los parlamentarios catalanes se reunieron en la llamada Asamblea de Parlamentarios y exigieron la convocatoria de elecciones a Cortes Constituyentes, de cara a una nueva organización del Estado que reconociera la autonomía de las regiones.</p>
+                      </div>   
+                      <!-- DESAFIO SOCIAL -->
+                      <div class="highlight-card text-center p-4">
+                          <div class="icon-box mb-3"><i class="bi bi-exclamation-triangle"></i></div>
+                          <h6>Huelga general revolucionaria</h6>
+                          <p>la UGT (sindicato socialista, más implantado en Madrid y País Vasco) convocó una huelga general revolucionaria (agosto de 1917), que recibió el apoyo de la CNT (sindicato anarquista, mayoritario en Cataluña).</p>
+                      </div>         
+
+                    </div> 
+
+                    
+                </div>
+
+                <!-- GRIPE DE 1918 -->  
+                <div class="t-item mt-5">
+                    <div class="section-head-inline" id="gripe1918">
+                      <h6><span class="t-date">GRIPE DE 1918</span></h6>
+                      <a href="#" class="section-link">
+                        Ampliar contenido <i class="bi bi-arrow-right"></i>
+                      </a>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-7">
+                            <p>La pandemia de gripe de 1918 constituye uno de los episodios más devastadores de la historia contemporánea. Se estima que infectó a cerca de un tercio de la población mundial y causó entre 40 y 50 millones de muertes, aunque algunas estimaciones elevan la cifra hasta los 100 millones. Su impacto fue especialmente significativo por coincidir con el final de la Primera Guerra Mundial, lo que condicionó tanto su difusión como su percepción pública.</p>
+
+                          
+                        </div>
+                        <div class="col-5">
+                            <img src="{% static 'images/sigloXX/gripe_espanola.jpg' %}" 
+                            class="img-fluid rounded-start h-100 object-fit-cover" 
+                            alt="Gripe española">
+                        </div>
+                        <h6 class="mt-3">🧬 Origen y denominación</h6>
+                        <p>El origen exacto del virus sigue siendo objeto de debate historiográfico y epidemiológico. Las hipótesis más aceptadas sitúan su aparición inicial en Estados Unidos (Kansas) o en campamentos militares europeos, desde donde se propagó rápidamente a través de las rutas militares y comerciales.</p>
+                        <p>El término “gripe española” es equívoco. España, país neutral en la guerra, no aplicó censura a la prensa, a diferencia de las potencias beligerantes. Esto hizo que los primeros informes detallados sobre la epidemia procedieran de medios españoles, generando la falsa impresión de que el brote se había originado allí.</p>
+                        <h6 class="mt-3">🌍 Características epidemiológicas</h6>
+                        <p>La pandemia se desarrolló en tres olas sucesivas (1918-1919), siendo la segunda (otoño de 1918) la más letal.</p>
+                        <p>Presentaba características atípicas respecto a la gripe estacional:</p>
+                        <div>
+                          <ul>
+                            <li>Elevada mortalidad en adultos jóvenes (20-40 años), probablemente por fenómenos de tormenta de citoquinas.</li>
+                            <li>Evolución rápida hacia neumonía viral grave.</li>
+                            <li>Alta transmisibilidad en contextos de hacinamiento (trincheras, transportes militares, ciudades industriales).</li>
+                          </ul>
+                        </div>
+                        <p>El agente causal fue identificado posteriormente como un <strong>virus Influenza A subtipo H1N1</strong>.</p>
+                        <h6 class="mt-3">⚰️ Impacto social y sanitario</h6>
+                        <p>Las consecuencias fueron profundas:</p>
+                        <div>
+                          <ul>
+                            <li>Colapso de los sistemas sanitarios, con escasez de personal médico y recursos.</li>
+                            <li>Interrupción de la vida económica y administrativa.</li>
+                            <li>Incremento de la mortalidad global en un contexto ya debilitado por la guerra.</li>
+                          </ul>
+                        </div>
+                        <p>En muchos lugares se adoptaron medidas de salud pública como el uso de mascarillas, el cierre de espacios públicos y el aislamiento de enfermos, anticipando estrategias que volverían a utilizarse en pandemias posteriores.</p>
+                      </div>
+
+                      <h6 class="mt-3">🇪🇸 La gripe de 1918 en España</h6>
+                      <p>España sufrió una mortalidad elevada, con aproximadamente 250.000 fallecidos. El impacto fue desigual según regiones y condiciones socioeconómicas. La epidemia puso de manifiesto las debilidades estructurales del sistema sanitario español y contribuyó al clima de inestabilidad social y política de la Restauración.</p>
+                      
+                      <h6 class="mt-3">📚 Interpretación histórica</h6>
+                      <p>Desde una perspectiva historiográfica, la gripe de 1918 ha sido interpretada como una “pandemia olvidada”, eclipsada durante décadas por la Primera Guerra Mundial. Sin embargo, en la actualidad se considera un fenómeno clave para comprender:</p>
+                      <div>
+                        <ul>
+                          <li>La vulnerabilidad de las sociedades industriales globalizadas.</li>
+                          <li>La relación entre guerra, movilidad y enfermedad.</li>
+                          <li>El desarrollo posterior de las políticas de salud pública y vigilancia epidemiológica.</li>
+                        </ul>
+                      </div>
+                            
+                </div>            
+
+                <!-- DESASTRE DE ANNUAL -->
+                
+                <div class="t-item" id="desastre_annual">
+                  <div class="section-head-inline" >
+                      <h6><span class="t-date">DESASTRE DE ANNUAL (1921)</span></h6>
+                      <a href="#" class="section-link">
+                        Ampliar contenido <i class="bi bi-arrow-right"></i>
+                      </a>
+                    </div>
+                    <div class="col-12 mt-4">
+                            <img src="{% static 'images/sigloXX/desastre_annual/silvestre.webp' %}" 
+                            class="img-fluid rounded-start h-100 object-fit-cover" 
+                            alt="Silvestre">
+                    </div>
+                    <p>El llamado Desastre de Annual constituye uno de los episodios más traumáticos de la historia contemporánea española y un punto de inflexión en la crisis final del sistema de la Restauración. Ocurrido en el verano de 1921, en el contexto de la guerra del Rif (protectorado español en Marruecos), supuso el colapso de un amplio dispositivo militar español frente a las fuerzas rifeñas lideradas por Abd el-Krim.</p>
+                    <h6 class="mt-3">🧭 Contexto político y militar</h6>
+                    <p>Tras la firma del tratado hispano-francés de 1912, España asumió el control de una franja del norte de Marruecos. Sin embargo, este dominio era más nominal que efectivo. La presencia española se enfrentaba a la resistencia de las tribus rifeñas, organizadas en torno a estructuras locales pero capaces de articular una fuerte oposición armada.</p>
+                    <p>La política colonial española en la zona se caracterizaba por:</p>
+                    <div>
+                      <ul>
+                        <li>Escasa planificación estratégica.</li>
+                        <li>Insuficiencia de medios logísticos.</li>
+                        <li>Dependencia de posiciones avanzadas mal comunicadas (los llamados blocaos).</li>
+                        <li>Un mando militar dividido y, en ocasiones, más preocupado por el prestigio que por la consolidación territorial.</li>
                       </ul>
                     </div>
-                  </div>
-                </div>
-
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="hSemana">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cSemana" aria-expanded="false" aria-controls="cSemana">
-                      🔥 Semana Trágica (1909)
-                    </button>
-                  </h2>
-                  <div id="cSemana" class="accordion-collapse collapse" aria-labelledby="hSemana" data-bs-parent="#accRegTL">
-                    <div class="accordion-body">
-                      <p class="mb-0">
-                        Estallido social en Barcelona por la movilización de reservistas para Marruecos, huelga general
-                        y violencia anticlerical. Consecuencias: caída de Maura, auge republicano-socialista y fundación de la CNT (1910–1911).
-                      </p>
+                    <p>El general Manuel Fernández Silvestre, comandante en Melilla, impulsó una ofensiva rápida hacia el interior del Rif, con el objetivo de alcanzar la bahía de Alhucemas, sin asegurar previamente las líneas de suministro.</p>
+                    <div class="row mt-4">
+                      <div class="col-4">
+                        <figure>
+                          <img src="{% static 'images/sigloXX/desastre_annual/Silvestre1.jpg' %}" 
+                            class="img-fluid rounded-start h-100 object-fit-cover" 
+                            alt="Silvestre1">
+                            <figcaption class="text-center mt-2">General Silvestre</figcaption>
+                        </figure>
+                        
+                            
+                      </div>
+                      <div class="col-8">
+                        <h6 >⚡ El desarrollo de la derrota</h6>
+                        <p>En julio de 1921, las tropas españolas, extendidas en posiciones vulnerables, fueron atacadas por fuerzas rifeñas que aprovecharon su conocimiento del terreno y su superioridad táctica en guerra de guerrillas.</p>
+                        <p>Los elementos clave del desastre fueron:</p>
+                        <div>
+                          <ul>
+                            <li>Desmoronamiento en cadena de las posiciones españolas.</li>
+                            <li>Falta de coordinación entre unidades.</li>
+                            <li>Colapso de la moral de las tropas.</li>
+                            <li>Retirada caótica desde Annual hacia Melilla.</li>
+                          </ul>
+                        </div>
+                      </div>
+                      <p>El punto culminante fue la caída de Monte Arruit, donde, tras rendirse, miles de soldados españoles fueron masacrados.</p>
+                      <p>Las cifras varían, pero se estima que murieron entre 10.000 y 13.000 soldados, lo que convierte este episodio en una de las mayores derrotas militares de España en la Edad Contemporánea.</p>
                     </div>
-                  </div>
-                </div>
-
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="hCanalejas">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cCanalejas" aria-expanded="false" aria-controls="cCanalejas">
-                      🧑‍⚖️ Canalejas (1910–1912): último intento regeneracionista
-                    </button>
-                  </h2>
-                  <div id="cCanalejas" class="accordion-collapse collapse" aria-labelledby="hCanalejas" data-bs-parent="#accRegTL">
-                    <div class="accordion-body">
-                      <ul class="mb-0">
-                        <li>Reformas fiscales (suprimir consumos), servicio militar obligatorio.</li>
-                        <li>“Ley del candado” y medidas laicas.</li>
-                        <li>Impulso al protectorado en Marruecos y Mancomunidades (aprobadas en 1913).</li>
-                        <li>Asesinado en 1912.</li>
+                    <h6 class="mt-3">⚖️ El Expediente Picasso</h6>
+                    <p>La magnitud del desastre obligó a abrir una investigación oficial, conocida como el Expediente Picasso, dirigida por el general Juan Picasso.</p>
+                    <p>Este informe puso de manifiesto:</p>
+                    <div>
+                      <ul>
+                        <li>Graves errores de mando.</li>
+                        <li>Imprudencias estratégicas.</li>
+                        <li>Deficiencias estructurales del ejército español.</li>
+                        <li>Posibles responsabilidades políticas y militares de alto nivel.</li>
                       </ul>
                     </div>
-                  </div>
-                </div>
-
-              </div>
-
-              <div class="mt-3">
-                <a class="btn btn-sm btn-outline-primary" href="#crisisParlamentarismo">Ir a 1914–1923</a>
-              </div>
-
-            </div>
-          </article>
-        </section>
-
-        <!-- 1914-1923 CRISIS PARLAMENTARISMO -->
-        <section class="t-item anchor" id="crisisParlamentarismo">
-          <div class="t-dot" data-color="amber" aria-hidden="true"></div>
-          <article class="t-card">
-            <img class="t-cover" src="{% static 'images/sigloXX/alfonsoXIII/1914_1923.jpg' %}" alt="Crisis del parlamentarismo">
-            <header class="t-head">
-              <h3 class="t-title">Crisis del parlamentarismo</h3>
-              <div class="t-meta">
-                <span class="badge t-badge" style="background:#f59e0b; color:#111827;">1914–1923</span>
-                <span>Neutralidad, conflictividad y descomposición del sistema</span>
-              </div>
-            </header>
-            <div class="t-body">
-
-              <div class="accordion" id="accCrisisTL">
-
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="hGM">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#cGM" aria-expanded="true" aria-controls="cGM">
-                      🌍 1ª Guerra Mundial (neutralidad y efectos)
-                    </button>
-                  </h2>
-                  <div id="cGM" class="accordion-collapse collapse show" aria-labelledby="hGM" data-bs-parent="#accCrisisTL">
-                    <div class="accordion-body">
-                      <p class="mb-0">
-                        Neutralidad oficial, división “aliadófilos/germanófilos”, boom económico (exportaciones) pero
-                        inflación y desabastecimiento → aumento de la conflictividad social.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="h1917">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#c1917" aria-expanded="false" aria-controls="c1917">
-                      🧨 Crisis de 1917 (militar + política + social)
-                    </button>
-                  </h2>
-                  <div id="c1917" class="accordion-collapse collapse" aria-labelledby="h1917" data-bs-parent="#accCrisisTL">
-                    <div class="accordion-body">
-                      <ul class="mb-0">
-                        <li><strong>Juntas de Defensa</strong> (presión militar).</li>
-                        <li><strong>Asamblea de Parlamentarios</strong> (oposición política).</li>
-                        <li><strong>Huelga general</strong> (UGT + CNT) y represión.</li>
+                    <p>Aunque el expediente señalaba indirectamente responsabilidades que podían alcanzar incluso al rey Alfonso XIII, sus conclusiones no se tradujeron en sanciones efectivas, lo que incrementó el descrédito del régimen.</p>
+                    <h6 class="mt-3">🏛️ Consecuencias políticas</h6>
+                    <p>El impacto del Desastre de Annual fue devastador:</p>
+                    <div>
+                      <ul>
+                        <li>Deslegitimación del sistema político de la Restauración.</li>
+                        <li>Aumento del malestar social y militar.</li>
+                        <li>Radicalización de la oposición política.</li>
+                        <li>Creciente intervención del ejército en la vida política.</li>
                       </ul>
                     </div>
-                  </div>
-                </div>
+                    <p>Este contexto de crisis contribuyó directamente al golpe de Estado de Miguel Primo de Rivera en 1923, que puso fin al régimen constitucional.</p>
 
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="hHundi">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cHundi" aria-expanded="false" aria-controls="cHundi">
-                      ⚙️ Hundimiento del régimen (1918–1923)
-                    </button>
-                  </h2>
-                  <div id="cHundi" class="accordion-collapse collapse" aria-labelledby="hHundi" data-bs-parent="#accCrisisTL">
-                    <div class="accordion-body">
-                      <p class="mb-2">
-                        Gobiernos de concentración, fragmentación de partidos, conflictividad social y radicalización.
-                      </p>
-                      <p class="mb-0">
-                        El sistema pierde capacidad de respuesta y se agrava la crisis de legitimidad.
-                      </p>
+                    <h6 class="mt-3">📚 Interpretación histórica</h6>
+                    <p>Desde una perspectiva historiográfica, Annual se interpreta como:</p>
+                    <div>
+                      <ul>
+                        <li>Un ejemplo paradigmático del fracaso del colonialismo español.</li>
+                        <li>Una manifestación de las debilidades estructurales del Estado liberal.</li>
+                        <li>Un catalizador de la crisis del sistema de la Restauración.</li>                        
+                      </ul>
                     </div>
+                    <p>Además, el desastre puso en evidencia la distancia entre la retórica imperial y la realidad material del ejército español, así como la incapacidad del sistema político para asumir responsabilidades en situaciones críticas.</p>
+                    <h6 class="mt-3">🧩 Conclusión</h6>
+                    <p>El Desastre de Annual no fue únicamente una derrota militar, sino un acontecimiento de profundas implicaciones políticas, sociales y simbólicas. Su impacto aceleró la descomposición del sistema de la Restauración y abrió el camino hacia soluciones autoritarias, marcando uno de los precedentes más relevantes de la crisis que desembocaría, una década después, en la Segunda República.</p>
+                  
                   </div>
+                
+
+                <div class="t-item mt-5">
+                    <h6><span class="t-date" id="primo">DICTADURA DE PRIMO DE RIVERA</span></h6>
+                    <div class="row">
+                        <div class="col-8">
+                            <p>El capitán general de Cataluña Miguel Primo de Rivera dio un golpe de Estado el 13 de septiembre de <strong>1923</strong> , que fue respaldado por Alfonso XIII al encargarle la formación de un gobierno. Para algunos, una de las razones que explican el golpe sería que este sirvió de instrumento para evitar que los resultados del Expediente Picasso saliesen a la luz en una investigación parlamentaria que estaba realizándose y que podría haber dejado al monarca en una posición comprometida.</p>
+                            <p class="mt-3">Primo de Rivera formó un gobierno al que denominó directorio, que estuvo compuesto en un primer momento exclusivamente por militares ( <strong>Directorio Militar</strong>) y, posteriormente (1925), tuvo un carácter civil ( <strong>Directorio Civil</strong>). Durante la Dictadura se puso fin a la guerra de Marruecos con el desembarco de Alhucemas en 1925, que permitió el control español definitivo del Rif en 1927.</p>
+                        </div>
+                        <div class="col-4">
+                            <img src="{% static 'images/sigloXX/presidentes/primo.png' %}" 
+                            class="img-fluid rounded-start h-100 object-fit-cover" 
+                            alt="Primo Ribera">
+                        </div>
+                    </div>
+                    
+                            <p class="mt-3">En 1929 se celebraron la Exposición Universal de Barcelona y la Iberoamericana de Sevilla, pero la oposición creciente que generó el dictador, especialmente extendida entre estudiantes, intelectuales y el cuerpo de Artillería (se oponía a la reforma que pretendía el dictador de su sistema de ascensos), hicieron que Alfonso XIII apartase a Miguel Primo de Rivera del gobierno el 29 de enero de 1930.</p>
                 </div>
 
+                <div class="t-item" id="berenguer">
+                    <h6><span class="t-date">DICTABLANDA DE BERENGUER</span></h6>
+                    <div class="row">
+                        <div class="col-4">
+                            <img src="{% static 'images/sigloXX/presidentes/berenguer.png' %}" 
+                            class="img-fluid rounded-start h-100 object-fit-cover" 
+                            alt="Berenguer">
+                        </div>
+                        <div class="col-8">
+                            <p>El rey nombró presidente del consejo de ministros al general Dámaso Berenguer con la intención de retornar al régimen constitucional.​ Este nuevo periodo se conoció enseguida como «la Dictablanda», por contraste con la dictadura anterior.</p>
+                            <p class="mt-3">Tras la caída del dictador —que falleció semanas después—, aumentaron las manifestaciones antimonárquicas, se acusó al rey de haber auspiciado la dictadura de Primo de Rivera y de tener responsabilidades en el Desastre de Annual. Ese año los partidos republicanos se unieron frente a la monarquía con la firma del <strong>Pacto de San Sebastián</strong>. Hubo <strong>pronunciamientos militares republicanos</strong> que fueron frustrados por el gobierno en la base aérea de <strong>Cuatro Vientos</strong>(Madrid) y en <strong> Jaca</strong>(este último encabezado por los capitanes Fermín Galán y Ángel García Hernández, que fueron fusilados tras un consejo de guerra).</p>
+                        </div>
+                    </div>
+                </div>
+                <p>En febrero de 1931 el almirante Juan Bautista Aznar fue designado presidente del consejo por Alfonso XIII. Su gobierno convocó elecciones municipales el 12 de abril de 1931. Al conocerse en los comicios la victoria en las ciudades de las candidaturas republicanas, el 14 de abril se proclamó la Segunda República. El rey abandonó el país ese mismo día, con el fin de evitar una guerra civil.</p>
+                <p>En la noche del 14 al 15 partió de Madrid hacia Cartagena al volante de su automóvil Duesenberg y desde allí zarpó para Marsella en el crucero Príncipe Alfonso de la Armada Española para trasladarse después a París. Su familia salió en tren desde Aranjuez a la mañana siguiente. </p>  
+                <div class="t-item" id="republica">
+                    <h6><span class="t-date">PROCLAMACIÓN DE LA SEGUNDA REPÚBLICA</span></h6>
+                    <div class="row">
+                        <div class="col-6">
+                            <img src="{% static 'images/sigloXX/segunda_republica.jpg' %}" 
+                            class="img-fluid rounded-start h-100 object-fit-cover" 
+                            alt="Berenguer">
+                        </div>
+                        <div class="col-6">
+                            <p>A primeras horas de la mañana del martes 14 de abril de 1931 el general Sanjurjo, director de la Guardia Civil se dirige a la casa de Miguel Maura, donde se encuentran reunidos los miembros del comité revolucionario que no estaban exiliados en Francia, ni escondidos: Niceto Alcalá-Zamora, Francisco Largo Caballero, Fernando de los Ríos, Santiago Casares Quiroga y Álvaro de Albornoz. Nada más entrar en la casa el general Sanjurjo se cuadra ante Maura y le dice: "A las órdenes de usted señor ministro".​<strong> El 14 de abril, este comité proclama la República</strong> , y se forma un gobierno provisional, presidido por Alcalá-Zamora, que convocó elecciones para unas Cortes Constituyentes, que se celebraron el 28 de junio de 1931.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="t-item" id="exilio">
+                    <h6><span class="t-date">EXILIO, RENUNCIA DINÁSTICA Y MUERTE</span></h6>
+                    <div class="row">
+                        
+                        <div class="col-9">
+                            <p>Alfonso pasó su exilio alojado en hoteles de lujo de diferentes ciudades europeas, que podía pagar gracias a dinero depositado previamente en cuentas bancarias suizas e inglesas. Al poco tiempo se separó de su esposa, Victoria. Hasta su traslado a Roma, su lugar de residencia habitual fue París, donde estaba rodeado por un pequeño grupo de cortesanos</p>
+                            <p>Desde el exilio, a pesar del apoyo implícito que ofreció a los monárquicos intransigentes de Renovación Española, mantuvo una posición de no beligerancia hacia la accidentalista Confederación Española de Derechas Autónomas de José María Gil Robles, que permitió a los monárquicos seguir militando en la CEDA sin conflictos morales.</p>
+                          </div>
+                        <div class="col-3">
+                            <img src="{% static 'images/sigloXX/Alfonso_XIII_1.jpg' %}" 
+                            class="img-fluid rounded-start h-100 object-fit-cover" 
+                            alt="Berenguer">
+                        </div>
+                    </div>
+                    <p>Al comenzar la guerra civil española, apoyó fervientemente al bando sublevado, afirmando ser un «falangista de primera hora».​ Ya en 1934 había pedido apoyo al dictador italiano, Benito Mussolini, para «un eventual golpe de Estado que se produjera en España para (...) restaurar la Monarquía» y conseguido que el gobierno fascista italiano se comprometiese a aportar 1 500 000 pesetas, 200 ametralladoras, fusiles y granadas de mano. El 30 de julio de 1936 dio el plácet al traslado de Juan de Borbón a territorio sublevado.​</p>
+                    <p>La relación del rey Alfonso XIII con el dictador Francisco Franco es extensa y está bien documentada.[39]​ Como consecuencia de sus éxitos en Marruecos conoció a Franco, quien poco a poco se convirtió en favorito real.</p>
+                    <p class="mt-2">Sin embargo, el 4 de abril de 1937, Franco escribió una carta despectiva a Alfonso XIII: el rey, que acababa de donar un millón de pesetas a la causa franquista, le había escrito expresando su preocupación por la poca prioridad que se daba a la restauración de la monarquía; Franco dejó claro que el rey difícilmente llegaría a desempeñar un papel en el futuro, en vista de sus errores pasados. Al acabar la guerra y no restaurarse la monarquía, el rey declaró: «Elegí a Franco cuando no era nadie. Él me ha traicionado y engañado a cada paso».</p>
+                    <p class="mt-3">El 15 de enero de 1941 renunció a la jefatura de la Casa Real en favor de su hijo Juan (sus dos hijos mayores se habían apartado de la sucesión). Falleció el 28 de febrero de 1941 en el Gran Hotel de Roma a causa de una angina de pecho. Estuvo enterrado en la iglesia de Santa María de Montserrat de los Españoles de la capital italiana hasta que, el 19 de enero de 1980, sus restos fueron trasladados al Panteón Real del Monasterio de El Escorial por orden de su nieto, el rey Juan Carlos I.</p>
+                  </div>
               </div>
-
-              <div class="mt-3">
-                <a class="btn btn-sm btn-outline-danger" href="#annual">Ir a Annual (1921)</a>
-              </div>
-
-            </div>
-          </article>
-        </section>
-
-        <!-- ANNUAL -->
-        <section class="t-item anchor" id="annual">
-          <div class="t-dot" data-color="red" aria-hidden="true"></div>
-          <article class="t-card">
-            <img class="t-cover" src="{% static 'images/sigloXX/alfonsoXIII/annual_1921.jpg' %}" alt="Desastre de Annual">
-            <header class="t-head">
-              <h3 class="t-title">El “desastre” de Annual</h3>
-              <div class="t-meta">
-                <span class="badge t-badge text-bg-danger">Julio 1921</span>
-                <span>Marruecos y crisis política</span>
-              </div>
-            </header>
-            <div class="t-body">
-              <p class="mb-2">
-                Derrota militar grave frente a Abd-el-Krim. El impacto político es enorme:
-                se piden responsabilidades al Ejército, al gobierno y a la Monarquía (Expediente Picasso).
-              </p>
-              <div>
-                <span class="t-pill">🪖 Crisis militar</span>
-                <span class="t-pill">🏛️ Crisis de régimen</span>
-                <span class="t-pill">📄 Expediente Picasso</span>
-              </div>
-
-              <div class="mt-3">
-                <a class="btn btn-sm btn-outline-secondary" href="#golpe1923">Ir a golpe de 1923</a>
-              </div>
-            </div>
-          </article>
-        </section>
-
-        <!-- GOLPE 1923 -->
-        <section class="t-item anchor" id="golpe1923">
-          <div class="t-dot" data-color="violet" aria-hidden="true"></div>
-          <article class="t-card">
-            <img class="t-cover" src="{% static 'images/sigloXX/miguelPrimoRivera.jpg' %}" alt="Golpe de Primo de Rivera">
-            <header class="t-head">
-              <h3 class="t-title">Golpe de Estado de Primo de Rivera</h3>
-              <div class="t-meta">
-                <span class="badge t-badge" style="background:rgba(109,40,217,.12); color:#4c1d95; border-color:rgba(109,40,217,.25);">Septiembre 1923</span>
-                <span>Fin del parlamentarismo de la Restauración</span>
-              </div>
-            </header>
-            <div class="t-body">
-              <p class="mb-2">
-                Primo de Rivera da el golpe con el argumento del descrédito político y el problema de Marruecos.
-                Alfonso XIII no se opone y lo nombra jefe del Directorio Militar.
-              </p>
-              <div>
-                <span class="t-pill">🔒 Suspensión de garantías</span>
-                <span class="t-pill">🪖 Directorio Militar</span>
-                <span class="t-pill">🏛️ Monarquía comprometida</span>
-              </div>
-
-              <div class="mt-3">
-                <a class="btn btn-sm btn-outline-primary" href="#dictadura">Ir a Dictadura (1923–1931)</a>
-              </div>
-            </div>
-          </article>
-        </section>
-
-      </div>
-
-      <!-- DICTADURA -->
-      <div class="section-head anchor mb-3" id="dictadura">
-        <h2>🟣 Dictadura de Primo de Rivera (1923–1931)</h2>
-        <p class="hint">La Dictadura termina arrastrando a la Monarquía.</p>
-      </div>
-
-      <div class="content-card mb-4">
-        <div class="row g-3 align-items-start">
-          <div class="col-md-8">
-            <p class="mb-2">
-              La Dictadura suprime el sistema parlamentario y busca “orden” y eficacia, pero acaba generando desgaste,
-              oposición creciente y pérdida de apoyos. La identificación de Alfonso XIII con el régimen dictatorial
-              debilita su legitimidad.
-            </p>
-            <p class="mb-0">
-              En 1931, la crisis de la Monarquía desemboca en la proclamación de la II República.
-            </p>
           </div>
-          <div class="col-md-4">
-            <figure class="figure m-0">
-              <img class="img-fluid" src="{% static 'images/sigloXX/alfonsoXIII/1931_fin.jpg' %}" alt="Fin de la Monarquía 1931">
-              <figcaption class="text-center mt-2 text-muted">1931: fin de la Monarquía (imagen a sustituir)</figcaption>
-            </figure>
+        </section>
+
+        <section id="cautivos" class="section-block">
+          <div class="section-head">
+            <span class="section-icon">🏛️</span>
+            <h2>La oficina pro-cautivos</h2>
           </div>
-        </div>
-      </div>
 
-      <!-- RECURSOS -->
-      <div class="section-head anchor" id="recursos">
-        <h2>📚 Recursos</h2>
-        <p class="hint">Añade tus enlaces (como los de YouTube que ya usas).</p>
-      </div>
+          <div class="content-card">
+            <div class="row">
+              <p>Quedan para la historia las acciones que durante la Primera Guerra Mundial organizó como monarca de un país neutral, entre ellas la Oficina Pro Cautivos, posiblemente la primera acción humanitaria gubernamental registrada en la historia, con el fin de intentar conseguir respuestas a los familiares que no sabían nada de sus parientes militares o civiles en zona de guerra.</p>
+              <div class="col-3">
+                <img src="{% static 'images/sigloXX/Alfonso_XIII_2.jpg' %}" 
+                    class="img-fluid rounded-start h-100 object-fit-cover" 
+                    alt="Berenguer">
+              </div>
+              <div class="col-9">
+                
+                <p>El monarca fundó este organismo de una forma independiente del gobierno, para no comprometer su neutralidad. Así, con fondos propios de un millón de pesetas, estableció en el Palacio Real una secretaría donde llegaban las solicitudes de información e intervención para con los prisioneros de ambos bandos. Permitió poner en contacto a prisioneros de guerra de ambos bandos con sus familias. Salvó así a aproximadamente 70.000 civiles y 21.000 soldados, e intervino a favor de 136.000 prisioneros de guerra, llevando a cabo 4000 visitas de inspección a campos de prisioneros. Intervino también a favor de que en la guerra submarina no se atacara a los buques hospitales, proponiendo instaurar una inspección neutral de militares españoles de estos barcos en la salida del puerto y la entrada.</p>
+              </div>
+              <p>La obra humanitaria de Alfonso XIII durante la Primera Guerra Mundial le hizo ganar gran prestigio en Europa, que se manifestó no solo en el recibimiento que le hizo el pueblo de París al comenzar su destierro, sino en otras capitales europeas.</p>                
+              <p>Atendiendo a la labor humanitaria que desempeñó al frente de la Oficina Pro Cautivos, el rey Alfonso XIII fue propuesto para el Premio Nobel de la Paz en 1917, aunque finalmente el ganador sería el Comité Internacional de la Cruz Roja.​</p>
+            </div>
+            
+            
+          </div>
+        </section>
 
-      <div class="content-card mt-3">
-        <h3 class="h6 fw-bold mb-2">Películas / vídeos</h3>
-        <ul class="mb-0">
-          <li>
-            <a href="https://www.youtube.com/watch?v=9mq8XCooL5k" target="_blank" rel="noopener" style="text-decoration:none;">
-              El asesinato de Canalejas
-            </a>
-          </li>
-          <li>
-            <a href="https://www.youtube.com/watch?v=qhezXHRWDj0" target="_blank" rel="noopener" style="text-decoration:none;">
-              El desastre de Annual (Academia Play)
-            </a>
-          </li>
-          <li>
-            <a href="#" target="_blank" rel="noopener" style="text-decoration:none;">
-              [Añadir] Primo de Rivera (resumen)
-            </a>
-          </li>
-        </ul>
-      </div>
+        <section id="personalidad" class="section-block">
+          <div class="section-head">
+            <span class="section-icon">🧠</span>
+            <h2>Personalidad</h2>
+          </div>
 
-    </main>
+          <div class="content-card">
+            <div class="row">
+              <div class="col-9">
+                <p>Se definía como alguien de firmes convicciones católicas y se enorgullecía de haberlas defendido en ambientes adversos.</p>
+                <p>Fue un hombre sabedor de la importancia de la educación y la investigación. En lo que respecta a la educación, donó 320 hectáreas de su propiedad en Moncloa para que se construyera la Ciudad Universitaria de Madrid,​ donde se formarían los nuevos titulados que llevarían a España a la carrera científica. </p>
+                
+              </div>
+              <div class="col-3">
+                <img src="{% static 'images/sigloXX/Alfonso_XIII_3.jpg' %}" 
+                    class="img-fluid rounded-start h-100 object-fit-cover" 
+                    alt="Alfonso XIII">
+              </div>
+              <p class="mt-2">Quería Alfonso XIII que esa fuera una gran Universidad para estudiantes de todos los países y pueblos de habla española; estaba ilusionado con la posibilidad de construir en Madrid la más moderna y completa de todas las ciudades universitarias, en la que los estudiantes his­panoamericanos, sin necesidad de tener que acudir a otras capitales europeas a cursar sus carreras, encontraran allí los más eficientes y cómodos medios tanto de profesorado como de material científico.</p>
+              <p>Personalidades vinculadas al mundo de la cultura cinematográfica, como el investigador Román Gubern y el coleccionista José Luis Radoselovics,​ han descrito al rey como un gran aficionado al erotismo en general y al cine pornográfico en particular. Según estas fuentes, Alfonso XIII habría sido el promotor, durante la década de 1920, de una serie de películas pornográficas filmadas en el Barrio Chino de Barcelona, consideradas las primeras de cierta calidad en su género producidas en España. Para ello habría utilizado como intermediario al conde de Romanones</p>
+            </div>
+                       
+          </div>
+        </section>
+
+        <section id="familia" class="section-block">
+          <div class="section-head">
+            <span class="section-icon">👨‍👩‍👧‍👦</span>
+            <h2>Matrimonio e hijos</h2>
+          </div>
+
+          <div class="content-card">
+            <div class="row">
+              <div class="col-12">
+                  <img src="{% static 'images/sigloXX/familia_Alfonso_XIII.jpg' %}" 
+                    class="img-fluid rounded-start h-100 object-fit-cover" 
+                    alt="Alfonso XIII">
+              </div>
+              <div class="col-12 mt-5">
+                <p>La pareja real tuvo siete hijos:</p>
+                <ul>
+                  <li><strong>Alfonso</strong> (1907-1938), príncipe de Asturias, nació hemofílico y renunció a sus derechos al trono en 1933, dos años después de la proclamación de la Segunda República, para poder así contraer matrimonio con Edelmira Sampedro y Robato, cubana, de origen español, sin vínculos previos con la realeza. Ostentó el título de conde de Covadonga desde entonces y hasta su muerte prematura. Volvió a casarse una segunda vez, con Marta Esther Rocafort y Altuzarra, aunque no tuvo descendencia de ninguno de estos matrimonios. Falleció debido a las heridas producidas tras un accidente de tráfico, como consecuencia de la hemofilia que padecía.</li>
+                  <li><strong>Jaime</strong> (1908-1975), infante de España, quedó sordo a los cuatro años tras una intervención quirúrgica por una doble mastoiditis; renunció bajo presión paterna a sus derechos al trono en 1933, cuando recibió el título de duque de Segovia. Padre de Alfonso de Borbón Dampierre y abuelo de Luis Alfonso de Borbón.</li>
+                  <li><strong>Beatriz</strong> (1909-2002), infanta de España. Fue la abuela materna de Alessandro Lequio y de Sibilla de Luxemburgo.</li>
+                  <li>Fernando, nacido muerto en 1910.</li>
+                  <li><strong>María Cristina</strong> (1911-1996), infanta de España.</li>
+                  <li><strong>Juan</strong> (1913-1993), infante de España y conde de Barcelona, pretendiente al trono desde la muerte de su padre en 1941 (teniendo en cuenta sendas renuncias dinásticas de sus hermanos mayores) hasta 1977, cuando cedió sus derechos a su hijo Juan Carlos, cuando aquel ya era rey de España. Don Juan contrajo matrimonio con su prima, la princesa María de las Mercedes de Borbón y Orleans (1910-2000), y fueron padres de cuatro hijos: la infanta Pilar (1936-2020), el rey Juan Carlos (n. 1938), la infanta Margarita (n. 1939) y el infante Alfonso (1941-1956).</li>
+                  <li><strong>Gonzalo</strong> (1914-1934), infante de España, nacido también hemofílico. Falleció sin descendencia.</li>
+                </ul>
+               
+              </div>
+            </div>        
+          </div>
+        </section>
+
+        <section id="presidentes" class="section-block">
+            <div class="section-head">
+                <span class="section-icon">🏛️</span>
+                <h2>Presidentes del gobierno</h2>
+            </div>
+
+            <div class="content-card">
+                <div class="row g-4 mt-2">
+          <div class="mt-3">
+
+            <!-- MORET -->
+            <div class="content-card">
+  <div class="row align-items-center">
+
+    <!-- IMAGEN -->
+    <div class="col-md-3 text-center">
+      <img src="{% static 'images/sigloXX/presidentes/moret.png' %}" 
+           class="img-fluid rounded shadow-sm" 
+           alt="Segismundo Moret">
+    </div>
+
+    <!-- CONTENIDO -->
+    <div class="col-md-8">
+      <h3>Segismundo Moret</h3>
+
+      <p>🗓️ <strong>1905–1906 | 1906 | 1909–1910</strong></p>
+
+      <ul>
+        <li>Figura destacada del liberalismo dinástico en la Restauración</li>
+        <li>Defensor de reformas moderadas dentro del sistema</li>
+        <li>Participación en la política colonial en Marruecos</li>
+        <li>📜 Presidencia durante la Conferencia de Algeciras (1906)</li>
+      </ul>
+
+      <p>👉 Intentó mantener el equilibrio del sistema, pero sin capacidad para frenar su progresiva descomposición</p>
+    </div>
+
   </div>
+</div>>
 
+            <!-- MAURA -->
+            <div class="card mb-4 shadow-sm border-0">
+              <div class="row g-0 align-items-center">
+                
+                <div class="col-md-3">
+                  <img src="{% static 'images/sigloXX/presidentes/maura.png' %}" 
+                      class="img-fluid rounded-start h-100 object-fit-cover" 
+                      alt="Antonio Maura">
+                </div>
+
+                <div class="col-md-9">
+                  <div class="card-body">
+                    <h4 class="fw-bold">Antonio Maura</h4>
+                    <p class="text-muted mb-2">🗓️ 1903–1904 | 1907–1909</p>
+
+                    <ul>
+                      <li>Intento de reforma del sistema (“revolución desde arriba”)</li>
+                      <li>Ley electoral contra el fraude</li>
+                      <li>Modernización administrativa</li>
+                      <li>⚠️ Semana Trágica de Barcelona (1909)</li>
+                    </ul>
+
+                    <p class="text-muted">
+                      👉 Intentó reformar el sistema, pero aceleró su crisis
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- CANALEJAS -->
+            <div class="card mb-4 shadow-sm border-0">
+              <div class="row g-0 align-items-center">
+                
+                <div class="col-md-3">
+                  <img src="{% static 'images/sigloXX/presidentes/canalejas.png' %}" 
+                      class="img-fluid rounded-start h-100 object-fit-cover" 
+                      alt="José Canalejas">
+                </div>
+
+                <div class="col-md-9">
+                  <div class="card-body">
+                    <h4 class="fw-bold">José Canalejas</h4>
+                    <p class="text-muted mb-2">🗓️ 1910–1912</p>
+
+                    <ul>
+                      <li>Reformas sociales y laborales</li>
+                      <li>Ley del Candado (limitación Iglesia)</li>
+                      <li>Intento de democratización real</li>
+                      <li>⚠️ Asesinado en 1912</li>
+                    </ul>
+
+                    <p class="text-muted">
+                      👉 Último gran intento serio de reformar el sistema
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- DATO -->
+            <div class="card mb-4 shadow-sm border-0">
+              <div class="row g-0 align-items-center">
+                
+                <div class="col-md-3">
+                  <img src="{% static 'images/sigloXX/presidentes/dato.png' %}" 
+                      class="img-fluid rounded-start h-100 object-fit-cover" 
+                      alt="Eduardo Dato">
+                </div>
+
+                <div class="col-md-9">
+                  <div class="card-body">
+                    <h4 class="fw-bold">Eduardo Dato</h4>
+                    <p class="text-muted mb-2">🗓️ 1913–1915 | 1917 | 1920–1921</p>
+
+                    <ul>
+                      <li>Gobiernos en plena crisis social</li>
+                      <li>⚠️ Crisis de 1917 (militar y obrera)</li>
+                      <li>Represión del movimiento obrero</li>
+                      <li>⚠️ Asesinado en 1921</li>
+                    </ul>
+
+                    <p class="text-muted">
+                      👉 Representa la incapacidad del sistema para controlar la crisis
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- ROMANONES -->
+          <div class="card mb-4 shadow-sm border-0">
+            <div class="row g-0 align-items-center">
+              
+              <div class="col-md-3">
+                <img src="{% static 'images/sigloXX/presidentes/romanones1.png' %}" 
+                    class="img-fluid rounded-start h-100 object-fit-cover" 
+                    alt="Conde de Romanones">
+              </div>
+
+              <div class="col-md-9">
+                <div class="card-body">
+                  <h4 class="fw-bold">Conde de Romanones</h4>
+                  <p class="text-muted mb-2">🗓️ 1912–1913 | 1915–1917 | 1917 | 1931</p>
+
+                  <ul>
+                    <li>Figura clave del liberalismo</li>
+                    <li>Gran habilidad política (caciquismo)</li>
+                    <li>Mantenimiento del sistema</li>
+                    <li>⚠️ Último gobierno monárquico (1931)</li>
+                  </ul>
+
+                  <p class="text-muted">
+                    👉 Representa el político clásico del sistema, más gestor que reformador
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- GARCÍA PRIETO -->
+          <div class="card mb-4 shadow-sm border-0">
+            <div class="row g-0 align-items-center">
+              
+              <div class="col-md-3">
+                <img src="{% static 'images/sigloXX/presidentes/garcia_prieto.png' %}" 
+                    class="img-fluid rounded-start h-100 object-fit-cover" 
+                    alt="Manuel García Prieto">
+              </div>
+
+              <div class="col-md-9">
+                <div class="card-body">
+                  <h4 class="fw-bold">Manuel García Prieto</h4>
+                  <p class="text-muted mb-2">🗓️ 1917 | 1918 | 1922–1923</p>
+
+                  <ul>
+                    <li>Gobiernos débiles e inestables</li>
+                    <li>Fragmentación política creciente</li>
+                    <li>Intentos fallidos de estabilización</li>
+                    <li>Crisis institucional continua</li>
+                  </ul>
+
+                  <p class="text-muted">
+                    👉 Ejemplo claro del agotamiento del parlamentarismo
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- SÁNCHEZ GUERRA -->
+          <div class="card mb-4 shadow-sm border-0">
+            <div class="row g-0 align-items-center">
+              
+              <div class="col-md-3">
+                <img src="{% static 'images/sigloXX/presidentes/sanchez_guerra.jpg' %}" 
+                    class="img-fluid rounded-start h-100 object-fit-cover" 
+                    alt="José Sánchez Guerra">
+              </div>
+
+              <div class="col-md-9">
+                <div class="card-body">
+                  <h4 class="fw-bold">José Sánchez Guerra</h4>
+                  <p class="text-muted mb-2">🗓️ 1922–1923</p>
+
+                  <ul>
+                    <li>Defensa del parlamentarismo</li>
+                    <li>Último intento de salvar el sistema</li>
+                    <li>Inestabilidad política extrema</li>
+                    <li>⚠️ Precede al golpe de Primo de Rivera</li>
+                  </ul>
+
+                  <p class="text-muted">
+                    👉 Último intento fallido antes de la dictadura
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          </div>    
+        </section> 
+
+        <section id="conclusion" class="section-block">
+          <div class="final-box">
+            <h3>📖 Conclusión</h3>
+            <p>
+              Alfonso XIII fue el último rey de la Restauración y una de las figuras esenciales para comprender la España de comienzos del siglo XX. Su reinado transcurrió en medio de un proceso de crisis acumulativa que afectó al sistema político, al ejército, a la cuestión social y al problema colonial. Lejos de limitarse a una función ceremonial, el monarca intervino en la vida pública con intensidad, lo que reforzó su protagonismo, pero también aumentó su exposición al desgaste del régimen.
+            </p>
+            <p>
+              El apoyo a la dictadura de Primo de Rivera terminó por identificar a la Corona con una salida autoritaria que, a medio plazo, debilitó irremediablemente la legitimidad de la monarquía. Cuando en 1931 se proclamó la Segunda República, no solo caía un rey: se cerraba también un modelo político incapaz de reformarse y de integrar las demandas de una sociedad en transformación.
+            </p>
+            <p>
+              Por ello, estudiar a Alfonso XIII no significa únicamente estudiar a un monarca, sino analizar el hundimiento de todo un sistema histórico y el complejo camino que condujo a la España contemporánea.
+            </p>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
 </div>
 
+<!-- Modal retrato -->
+<div class="modal fade" id="modalAlfonsoRetrato" tabindex="-1" aria-labelledby="modalAlfonsoRetratoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalAlfonsoRetratoLabel">Alfonso XIII</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <img src="{% static 'images/sigloXX/alfonsoXIII/alfonso-xiii-retrato.jpg' %}" class="img-fluid rounded mb-3" alt="Retrato de Alfonso XIII">
+        <p>
+          Retrato del monarca en una etapa en la que la Corona seguía representando formalmente la continuidad del régimen de la Restauración, aunque bajo una estabilidad cada vez más frágil.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal militar -->
+<div class="modal fade" id="modalAlfonsoMilitar" tabindex="-1" aria-labelledby="modalAlfonsoMilitarLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalAlfonsoMilitarLabel">Alfonso XIII y el ejército</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <img src="{% static 'images/sigloXX/alfonsoXIII/alfonso-xiii-militar.jpg' %}" class="img-fluid rounded mb-3" alt="Alfonso XIII en uniforme">
+        <p>
+          La identificación del rey con el ámbito militar fue un rasgo central de su imagen pública. Este vínculo reforzó su autoridad ante determinados sectores, pero también contribuyó a una creciente politización de la Corona.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- -------------------------------------------MODALES --------------------------------->
+ <div class="modal fade" id="modalAtentado" tabindex="-1" aria-labelledby="modalAtentadoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalAtentadoLabel">
+          Atentado contra Alfonso XIII (1906)
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+
+      <div class="modal-body">
+        <img src="{% static 'images/sigloXX/atentado_Alfonso_XIII.jpg' %}" 
+             class="img-fluid rounded mb-3" 
+             alt="Atentado de Mateo Morral 1906">
+
+        <p>
+          El 31 de mayo de 1906, el anarquista Mateo Morral lanzó una bomba oculta en un ramo de flores contra la carroza real durante la boda de Alfonso XIII y Victoria Eugenia. El atentado no logró su objetivo, pero causó numerosas víctimas entre el público y el séquito.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  function toggleSubmenu(button) {
+    const dropdown = button.parentElement;
+    dropdown.classList.toggle("open");
+  }
+</script>
 {% endblock %}

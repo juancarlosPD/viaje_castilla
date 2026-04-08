@@ -144,10 +144,13 @@ def sigloXX(request):
     return render(request, 'espagna/sigloXX/sigloXX.html')
 
 def alfonsoXIII(request):    
-    return render(request, 'espagna/sigloXX/alfonsoXIII-3.html')
+    return render(request, 'espagna/sigloXX/alfonsoXIII.html')
 
 def linea_tiempo_alfonso_XIII(request):    
     return render(request, 'espagna/sigloXX/linea_tiempo_alfonso_XIII.html')
+
+def linea_tiempo_segunda_republica(request):    
+    return render(request, 'espagna/sigloXX/linea_tiempo_segunda_republica.html')
 
 def primoRivera(request):    
     return render(request, 'espagna/sigloXX/primoRivera.html')

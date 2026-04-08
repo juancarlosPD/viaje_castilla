@@ -70,6 +70,7 @@ urlpatterns = [
     path('transicion/', views.transicion, name='transicion'),
     path('presidentesXX/', views.presidentesXX, name='presidentesXX'),
     path('linea_tiempo_alfonso_XIII/', views.linea_tiempo_alfonso_XIII, name='linea_tiempo_alfonso_XIII'),
+    path('linea_tiempo_segunda_republica/', views.linea_tiempo_segunda_republica, name='linea_tiempo_segunda_republica'),
 
     # ------------------------GUERRA CIVIL
     path('sigloXX/guerra_civil/golpe_estado', views.golpe_estado, name='golpe_estado'),

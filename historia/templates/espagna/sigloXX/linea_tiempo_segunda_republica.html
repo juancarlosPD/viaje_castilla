@@ -1,0 +1,904 @@
+{% extends "bases/basesigloXX.html" %}
+{% load static %}
+{% block cabecera %} Línea del tiempo Segunda República{% endblock %}
+{% block imgCabecera %}  
+<figure class="text-center">
+  <img class="img-fluid rounded-4 border shadow-sm"
+       src="{% static 'images/sigloXX/alfonsoXIII.jpg' %}"
+       alt="Alfonnso XIII"
+       role="button"
+       data-bs-toggle="modal"
+       data-bs-target="#img_calvo_sotelo">
+</figure>
+
+{% endblock %}
+{% block title %}Línea del tiempo reinado Alfonso XIII{% endblock %}
+
+{% block contenido %}
+<style>
+  .titulo-timeline {
+    font-size: 1.4rem;
+    font-weight: 800;
+  }
+
+  .alfonso-page {
+    background: linear-gradient(to bottom, #f7f4ee 0%, #f1ede6 100%);
+    min-height: 100vh;
+    padding-bottom: 4rem;
+  }
+
+  .alfonso-hero {
+    background: linear-gradient(135deg, #1b2a41 0%, #2f4b6e 100%);
+    color: #fff;
+    padding: 4rem 0 3rem;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .alfonso-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 85% 20%, rgba(255,255,255,0.12), transparent 30%);
+    pointer-events: none;
+  }
+
+  .hero-wrap {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-kicker {
+    display: inline-block;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.22);
+    color: #f8f5ef;
+    padding: 0.4rem 0.85rem;
+    border-radius: 999px;
+    font-size: 0.88rem;
+    letter-spacing: 0.02em;
+    margin-bottom: 1rem;
+  }
+
+  .alfonso-hero h1 {
+    font-size: 2.5rem;
+    line-height: 1.08;
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+
+  .alfonso-hero .lead {
+    font-size: 1.14rem;
+    max-width: 860px;
+    color: rgba(255,255,255,0.92);
+  }
+
+  .hero-chips {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.18);
+    color: #fff;
+    padding: 0.48rem 0.85rem;
+    border-radius: 999px;
+    font-size: 0.95rem;
+    backdrop-filter: blur(2px);
+  }
+
+  .hero-portrait {
+    max-width: 320px;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 16px 34px rgba(0,0,0,0.25);
+    border: 1px solid rgba(255,255,255,0.18);
+    background: rgba(255,255,255,0.08);
+  }
+
+  .hero-portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+  }
+
+  .hero-caption {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.82);
+    padding-top: 0.55rem;
+  }
+
+  .content-shell {
+    max-width: 1380px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .page-grid {
+    display: grid;
+    grid-template-columns: 290px minmax(0, 1fr);
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .page-aside {
+    position: sticky;
+    top: 20px;
+    align-self: start;
+  }
+
+  .aside-card {
+    background: #fff;
+    border: 1px solid #e7dfd2;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(58, 44, 24, 0.06);
+    padding: 1.25rem 1rem;
+  }
+
+  .aside-card h5 {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #1f2937;
+    margin-bottom: 1rem;
+  }
+
+  .aside-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .aside-nav a,
+  .aside-dropbtn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    text-decoration: none;
+    background: #fff;
+    color: #1f3c88;
+    border: 1px solid #d6dff2;
+    border-radius: 10px;
+    padding: 0.7rem 0.9rem;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    text-align: left;
+  }
+
+  .aside-nav a:hover,
+  .aside-dropbtn:hover {
+    background: #f3f7ff;
+    border-color: #9eb8ea;
+  }
+
+  .aside-dropdown {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .aside-submenu {
+    display: none;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-top: 0.35rem;
+    margin-left: 0.8rem;
+  }
+
+  .aside-dropdown.open .aside-submenu {
+    display: flex;
+  }
+
+  .aside-submenu a {
+    font-size: 0.95rem;
+    padding: 0.6rem 0.8rem;
+    border-radius: 8px;
+    background: transparent;
+    border: none;
+    color: #03226b;
+  }
+
+  .aside-submenu a:hover {
+    background: #eef4ff;
+  }
+
+  .arrow {
+    font-size: 0.9rem;
+    transition: transform 0.2s ease;
+  }
+
+  .aside-dropdown.open .arrow {
+    transform: rotate(180deg);
+  }
+
+  .main-col {
+    min-width: 0;
+  }
+
+  .intro-box,
+  .content-card,
+  .highlight-card,
+  .quote-card {
+    background: #fff;
+    border: 1px solid #e7dfd2;
+    border-radius: 20px;
+    box-shadow: 0 10px 28px rgba(58, 44, 24, 0.06);
+  }
+
+  .intro-box {
+    padding: 1.4rem 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .intro-box p:last-child,
+  .content-card p:last-child,
+  .quote-card p:last-child {
+    margin-bottom: 0;
+  }
+
+  .section-block {
+    margin-bottom: 2rem;
+    scroll-margin-top: 100px;
+  }
+
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .section-head-inline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .section-head-inline h6 {
+    margin: 0;
+  }
+
+  .section-head-inline .section-link {
+    white-space: nowrap;
+  }
+
+  .section-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #d8c3a5, #f0e2ce);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    flex: 0 0 auto;
+    color: #493628;
+  }
+
+  .section-head h2 {
+    margin: 0;
+    font-size: 1.7rem;
+    font-weight: 800;
+    color: #1f2937;
+  }
+
+  .content-card {
+    padding: 1.5rem;
+  }
+
+  .content-card p {
+    color: #374151;
+    line-height: 1.8;
+    font-size: 1.02rem;
+    margin-bottom: 1rem;
+  }
+
+  .content-card ul {
+    margin-bottom: 0;
+  }
+
+  .content-card li {
+    margin-bottom: 0.55rem;
+    color: #374151;
+    line-height: 1.7;
+  }
+
+  .mini-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: 1.2rem;
+  }
+
+  .mini-grid_17 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1.2rem;
+  }
+
+  .highlight-card {
+    padding: 1rem;
+    height: 100%;
+    transition: all 0.25s ease;
+  }
+
+  .highlight-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.12);
+  }
+
+  .highlight-card h6 {
+    font-weight: 800;
+    color: #1f2937;
+    margin-bottom: 0.55rem;
+  }
+
+  .highlight-card p {
+    margin: 0;
+    color: #475569;
+    line-height: 1.65;
+    font-size: 0.96rem;
+  }
+
+  .icon-box {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #d8c3a5, #f0e2ce);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+  }
+
+  /* TIMELINE CORREGIDO */
+  .mini-timeline {
+    position: relative;
+    margin-top: 1.4rem;
+    padding-left: 2rem;
+  }
+
+  .mini-timeline::before {
+    content: "";
+    position: absolute;
+    left: 0.55rem;
+    top: 0.35rem;
+    bottom: 0.35rem;
+    width: 3px;
+    border-radius: 999px;
+    background: linear-gradient(to bottom, #b99870, #d7c2a5);
+  }
+
+  .t-item {
+    position: relative;
+    margin-bottom: 2rem;
+  }
+
+  .t-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .t-item::before {
+    content: "";
+    position: absolute;
+    left: -1.48rem;
+    top: 0.5rem;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #8b6a48;
+    box-shadow: 0 0 0 5px #efe4d5;
+    z-index: 2;
+  }
+
+  .t-date {
+    display: inline-block;
+    font-weight: 800;
+    color: #6b4f35;
+    background: #f4eadc;
+    border: 1px solid #ead8bf;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    margin-right: 0.55rem;
+    vertical-align: middle;
+  }
+
+  .t-item h3,
+  .t-item h6 {
+    font-weight: 800;
+    color: #1f2937;
+    margin-bottom: 0.6rem;
+    line-height: 1.3;
+  }
+
+  .t-item p {
+    margin-bottom: 0.5rem;
+    color: #475569;
+    line-height: 1.7;
+  }
+
+  .t-item p:last-child {
+    margin-bottom: 0;
+  }
+
+  .section-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 0.35rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .section-link i {
+    transition: transform 0.2s ease;
+  }
+
+  .section-link:hover i {
+    transform: translateX(3px);
+  }
+
+  .img-block {
+    margin-top: 1.25rem;
+  }
+
+  .img-frame {
+    background: #faf8f4;
+    border: 1px solid #e5dacb;
+    border-radius: 18px;
+    overflow: hidden;
+  }
+
+  .img-frame img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    max-height: 460px;
+    cursor: pointer;
+  }
+
+  .img-note {
+    padding: 0.85rem 1rem;
+    font-size: 0.92rem;
+    color: #5b6472;
+    background: #fcfbf8;
+    border-top: 1px solid #e5dacb;
+  }
+
+  .quote-card {
+    padding: 1.25rem 1.35rem;
+    margin-top: 1rem;
+    border-left: 5px solid #b99870;
+  }
+
+  .quote-card p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #334155;
+    margin-bottom: 0.65rem;
+  }
+
+  .quote-author {
+    font-size: 0.92rem;
+    color: #6b7280;
+    font-weight: 600;
+  }
+
+  .summary-band {
+    margin-top: 1.25rem;
+    background: linear-gradient(135deg, #f3e8da 0%, #f8f2e9 100%);
+    border: 1px solid #e4d5bf;
+    border-radius: 18px;
+    padding: 1rem 1.15rem;
+  }
+
+  .summary-band strong {
+    color: #3d2d1f;
+  }
+
+  .final-box {
+    background: linear-gradient(135deg, #23344f 0%, #314a6b 100%);
+    color: #fff;
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: 0 16px 36px rgba(27, 42, 65, 0.18);
+  }
+
+  .final-box h3 {
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+
+  .final-box p {
+    color: rgba(255,255,255,0.94);
+    line-height: 1.8;
+    margin-bottom: 0.9rem;
+  }
+
+  .final-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  .link-atentado {
+    color: #8b0000;
+    font-weight: 600;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  .link-atentado:hover {
+    color: #c1121f;
+  }
+
+  .timeline-head {
+  align-items: flex-start;
+  margin-bottom: 1.4rem;
+  }
+
+  .timeline-head-text {
+    min-width: 0;
+    flex: 1;
+  }
+
+  .timeline-head-text h2 {
+    margin: 0 0 0.7rem 0;
+    font-size: 2.2rem;
+    line-height: 1.15;
+    font-weight: 800;
+    color: #1f2937;
+  }
+
+  .timeline-head-text p {
+    margin: 0;
+    font-size: 1.08rem;
+    line-height: 1.75;
+    color: #475569;
+    max-width: 920px;
+  }
+  .timeline-wrapper {
+    background: linear-gradient(135deg, #fbf8f2 0%, #f3ede3 100%);
+    border: 1px solid #e2d6c3;
+    border-radius: 22px;
+    padding: 1.8rem 1.8rem 1.6rem;
+    box-shadow: 
+      0 12px 30px rgba(58, 44, 24, 0.10),
+      0 2px 6px rgba(58, 44, 24, 0.05);
+    margin-top: 1.2rem;
+  }
+
+  .mini-timeline::before {
+    background: linear-gradient(to bottom, #a07c52, #d2b48c);
+    width: 4px;
+  }
+
+  .t-item::before {
+    width: 15px;
+    height: 15px;
+    background: #7a5c3e;
+  }
+  .timeline-stage {
+    position: relative;
+    margin: 2rem 0 1rem;
+    padding-left: 0.2rem;
+  }
+
+  .timeline-stage span {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #6b4f35;
+    background: #efe4d5;
+    border: 1px solid #dcc7a8;
+    padding: 0.35rem 0.7rem;
+    border-radius: 999px;
+  }
+  .timeline-stage::after {
+    content: "";
+    display: block;
+    margin-top: 0.6rem;
+    height: 2px;
+    background: linear-gradient(to right, #d7c2a5, transparent);
+  }
+  .section-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.6rem;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: #7a5c3e;
+    text-decoration: none;
+    position: relative;
+    transition: all 0.2s ease;
+  }
+
+  .section-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 1px;
+    background: #c8b08d;
+    transition: all 0.2s ease;
+  }
+
+  .section-link:hover {
+    color: #3d2d1f;
+  }
+
+  .section-link:hover::after {
+    background: #3d2d1f;
+  }
+
+  .section-link i {
+    transition: transform 0.2s ease;
+  }
+
+  .section-link:hover i {
+    transform: translateX(4px);
+  }
+  @media (max-width: 1199px) {
+    .page-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .page-aside {
+      position: static;
+    }
+
+    .mini-grid,
+    .mini-grid_17 {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-portrait {
+      margin-top: 1.5rem;
+      max-width: 100%;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .alfonso-hero {
+      padding: 3rem 0 2.2rem;
+    }
+
+    .alfonso-hero h1 {
+      font-size: 2rem;
+    }
+
+    .section-head h2 {
+      font-size: 1.4rem;
+    }
+
+    .content-card,
+    .intro-box,
+    .final-box {
+      padding: 1.2rem;
+    }
+
+    .mini-timeline {
+      padding-left: 1.6rem;
+    }
+
+    .mini-timeline::before {
+      left: 0.45rem;
+    }
+
+    .t-item::before {
+      left: -1.2rem;
+    }
+
+    .t-item h3,
+    .t-item h6 {
+      font-size: 1.05rem;
+    }
+    .timeline-head-text h2 {
+      font-size: 1.8rem;
+    }
+
+    .timeline-head-text p {
+      font-size: 1rem;
+    }
+  }
+</style>
+
+<section class="content-card" id="cronologia-segunda-republica">
+  <div class="section-head timeline-head ">
+    <div class="section-icon">🕰️</div>
+    <div class="timeline-head-text ">
+      <h2>La Segunda República Española (1931–1936)</h2>
+      <p>
+        Cronología sintética de los principales acontecimientos políticos, sociales y militares ocurridos entre la proclamación de la República y el inicio de la Guerra Civil.
+      </p>
+    </div>
+  </div>
+  <div class="timeline-wrapper">
+    <div class="mini-timeline">
+
+  <!-- ETAPA 1 -->
+  <div class="timeline-stage">
+    <span>🔹 Proclamación de la República y bienio reformista (1931–1933)</span>
+  </div>
+
+  <article class="t-item">
+    <h4><span class="t-date">14 abril 1931</span> Proclamación de la Segunda República</h4>
+    <p>
+      Tras las elecciones municipales del 12 de abril, el triunfo republicano en las principales ciudades precipitó la caída de la Monarquía de Alfonso XIII. El 14 de abril se proclamó la Segunda República y se formó un Gobierno Provisional.
+    </p>
+    <p><strong>Jefe del Gobierno Provisional:</strong> Niceto Alcalá-Zamora.</p>
+    <a href="#" class="section-link" data-bs-toggle="modal" data-bs-target="#modalRepublica1931">
+      Ampliar contenido <i class="bi bi-arrow-right"></i>
+    </a>
+  </article>
+
+  <article class="t-item">
+    <h4><span class="t-date">1931</span> Gobierno Provisional y primeras reformas</h4>
+    <p>
+      El nuevo régimen emprendió de inmediato un programa reformista: reconocimiento de libertades públicas, impulso de la secularización del Estado, reformas educativas y apertura del debate territorial, especialmente en Cataluña.
+    </p>
+    <p><strong>Presidente del Gobierno:</strong> Niceto Alcalá-Zamora, sustituido posteriormente por Manuel Azaña.</p>
+  </article>
+
+  <article class="t-item">
+    <h4><span class="t-date">Diciembre 1931</span> Constitución de 1931</h4>
+    <p>
+      Las Cortes Constituyentes aprobaron una constitución democrática y avanzada para su tiempo, que definía España como una “República democrática de trabajadores de toda clase”, establecía el sufragio universal, la aconfesionalidad del Estado y una amplia declaración de derechos y libertades.
+    </p>
+    <p><strong>Presidente de la República:</strong> Niceto Alcalá-Zamora. <strong>Presidente del Gobierno:</strong> Manuel Azaña.</p>
+  </article>
+
+  <article class="t-item">
+    <h4><span class="t-date">1931–1933</span> Bienio reformista</h4>
+    <p>
+      Bajo el liderazgo de Manuel Azaña, la República desarrolló un ambicioso programa de reformas: reorganización del ejército, política educativa expansiva, legislación laboral, reforma agraria y redefinición de las relaciones entre Iglesia y Estado. Estas medidas pretendían modernizar el país, pero también intensificaron la polarización política y social.
+    </p>
+    <p><strong>Presidente del Gobierno:</strong> Manuel Azaña.</p>
+  </article>
+
+  <article class="t-item">
+    <h4><span class="t-date">1932</span> Estatuto de Autonomía de Cataluña</h4>
+    <p>
+      La aprobación del Estatuto consolidó una de las principales novedades del régimen republicano: la articulación del Estado integral con autonomías. Cataluña recuperó instituciones de autogobierno a través de la Generalitat.
+    </p>
+    <p><strong>Presidente del Gobierno:</strong> Manuel Azaña.</p>
+  </article>
+
+  <article class="t-item">
+    <h4><span class="t-date">1932</span> La Sanjurjada</h4>
+    <p>
+      El golpe de Estado protagonizado por el general José Sanjurjo fracasó, pero reveló desde muy pronto la existencia de una fuerte oposición militar y conservadora al nuevo régimen republicano.
+    </p>
+    <p><strong>Presidente del Gobierno:</strong> Manuel Azaña.</p>
+    <a href="#" class="section-link" data-bs-toggle="modal" data-bs-target="#modalSanjurjada">
+      Ampliar contenido <i class="bi bi-arrow-right"></i>
+    </a>
+  </article>
+
+  <article class="t-item">
+    <h4><span class="t-date">1933</span> Crisis del reformismo republicano</h4>
+    <p>
+      El desgaste del gobierno, la conflictividad social, la lentitud de algunas reformas y la presión simultánea de la izquierda revolucionaria y de la derecha contrarrepublicana debilitaron al ejecutivo de Azaña. La represión de sucesos como los de Casas Viejas agravó esa erosión política.
+    </p>
+    <p><strong>Presidente del Gobierno:</strong> Manuel Azaña.</p>
+  </article>
+
+  <!-- ETAPA 2 -->
+  <div class="timeline-stage">
+    <span>🔸 Bienio conservador o radical-cedista (1933–1935)</span>
+  </div>
+
+  <article class="t-item">
+    <h4><span class="t-date">Noviembre 1933</span> Elecciones generales y giro político</h4>
+    <p>
+      Las elecciones de 1933 supusieron la derrota de la coalición republicano-socialista y el ascenso de las derechas, especialmente del Partido Radical de Alejandro Lerroux y de la CEDA de José María Gil-Robles. Fue además la primera vez que votaron las mujeres en unas elecciones generales en España.
+    </p>
+    <p><strong>Presidente de la República:</strong> Niceto Alcalá-Zamora.</p>
+  </article>
+
+  <article class="t-item">
+    <h4><span class="t-date">1933–1935</span> Bienio conservador</h4>
+    <p>
+      Los gobiernos de esta etapa frenaron o rectificaron parte del impulso reformista anterior. La reforma agraria quedó prácticamente paralizada, se moderó la política laicizadora y aumentó la tensión entre una derecha que aspiraba a revisar profundamente la obra republicana y una izquierda que veía amenazadas las conquistas de 1931.
+    </p>
+    <p><strong>Presidentes del Gobierno:</strong> Alejandro Lerroux y otros gabinetes del Partido Radical, con apoyo parlamentario decisivo de la CEDA.</p>
+  </article>
+
+  <article class="t-item">
+    <h4><span class="t-date">Octubre 1934</span> Revolución de Octubre</h4>
+    <p>
+      La entrada de ministros de la CEDA en el gobierno desencadenó una insurrección de la izquierda obrera, especialmente intensa en Asturias, y la proclamación del “Estado catalán” por Lluís Companys en Barcelona. La represión fue muy dura y marcó un punto de no retorno en la radicalización política de la República.
+    </p>
+    <p><strong>Presidente del Gobierno:</strong> Alejandro Lerroux.</p>
+    <a href="#" class="section-link" data-bs-toggle="modal" data-bs-target="#modalRevolucion1934">
+      Ampliar contenido <i class="bi bi-arrow-right"></i>
+    </a>
+  </article>
+
+  <article class="t-item">
+    <h4><span class="t-date">1935</span> Crisis política y escándalos</h4>
+    <p>
+      La descomposición del Partido Radical, agravada por escándalos de corrupción como el del estraperlo, debilitó definitivamente al gobierno. Niceto Alcalá-Zamora optó por disolver las Cortes y convocar nuevas elecciones.
+    </p>
+    <p><strong>Presidente de la República:</strong> Niceto Alcalá-Zamora.</p>
+  </article>
+
+  <!-- ETAPA 3 -->
+  <div class="timeline-stage">
+    <span>🔻 Frente Popular y crisis final de la República (1936)</span>
+  </div>
+
+  <article class="t-item">
+    <h4><span class="t-date">Febrero 1936</span> Victoria del Frente Popular</h4>
+    <p>
+      La coalición de izquierdas obtuvo la victoria en las elecciones de febrero de 1936. El triunfo fue interpretado por sus partidarios como la recuperación del impulso reformista y por sus adversarios como una amenaza revolucionaria, lo que incrementó aún más la polarización.
+    </p>
+    <p><strong>Presidente del Gobierno:</strong> Manuel Azaña, sustituido después por Santiago Casares Quiroga.</p>
+  </article>
+
+  <article class="t-item">
+    <h4><span class="t-date">Primavera de 1936</span> Reanudación reformista y creciente violencia política</h4>
+    <p>
+      El nuevo gobierno reactivó parcialmente las reformas suspendidas, concedió amnistía a los represaliados por la Revolución de Octubre y afrontó una situación cada vez más inestable: ocupaciones de tierras, huelgas, enfrentamientos callejeros y conspiración militar.
+    </p>
+    <p><strong>Presidentes del Gobierno:</strong> Manuel Azaña y Santiago Casares Quiroga.</p>
+  </article>
+
+  <article class="t-item">
+    <h4><span class="t-date">Mayo 1936</span> Azaña, presidente de la República</h4>
+    <p>
+      Manuel Azaña fue elegido presidente de la República tras la destitución de Niceto Alcalá-Zamora. El relevo buscaba reforzar institucionalmente al régimen, pero se produjo en un contexto de extrema fragilidad política.
+    </p>
+    <p><strong>Presidente de la República:</strong> Manuel Azaña. <strong>Presidente del Gobierno:</strong> Santiago Casares Quiroga.</p>
+  </article>
+
+  <article class="t-item">
+    <h4><span class="t-date">Julio 1936</span> Asesinato de Calvo Sotelo</h4>
+    <p>
+      El asesinato del dirigente monárquico José Calvo Sotelo, pocos días después del crimen del teniente Castillo, actuó como acelerador de la conspiración militar y se convirtió en uno de los episodios más simbólicos de la quiebra del orden público republicano.
+    </p>
+    <p><strong>Presidente del Gobierno:</strong> Santiago Casares Quiroga.</p>
+    <a href="#" class="section-link" data-bs-toggle="modal" data-bs-target="#modalCalvoSotelo">
+      Ampliar contenido <i class="bi bi-arrow-right"></i>
+    </a>
+  </article>
+
+  <article class="t-item">
+    <h4><span class="t-date">17–18 julio 1936</span> Golpe de Estado y comienzo de la Guerra Civil</h4>
+    <p>
+      La sublevación militar iniciada en el Protectorado de Marruecos y extendida después a la Península fracasó en su objetivo de tomar rápidamente el poder, pero abrió una guerra civil que puso fin a la experiencia republicana como marco de convivencia democrática.
+    </p>
+    <p><strong>Presidente de la República:</strong> Manuel Azaña. <strong>Presidente del Gobierno:</strong> Santiago Casares Quiroga.</p>
+    <a href="#" class="section-link" data-bs-toggle="modal" data-bs-target="#modalGolpe1936">
+      Ampliar contenido <i class="bi bi-arrow-right"></i>
+    </a>
+  </article>
+
+</div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+{% endblock %}
