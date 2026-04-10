@@ -448,12 +448,13 @@
 .link-atentado {
   color: #8b0000;
   font-weight: 600;
-  text-decoration: underline;
+  text-decoration: none;
   cursor: pointer;
 }
 
 .link-atentado:hover {
   color: #c1121f;
+  text-decoration: none;
 }
 .aside-nav {
   display: flex;
@@ -543,6 +544,21 @@
 
 .section-head-inline .section-link {
   white-space: nowrap;
+}
+
+a.section-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.35rem;
+  font-weight: 600;
+  text-decoration: none !important;
+  color: #1f6feb;
+}
+
+a.section-link:hover {
+  text-decoration: none !important;
+  opacity: 0.9;
 }
 
 
@@ -746,9 +762,11 @@
                     <p class="mt-2">Este acuerdo no solo consolidó el funcionamiento del sistema de turno de partidos, sino que también reforzó la idea de una monarquía como institución arbitral, capaz de garantizar la estabilidad frente a posibles conflictos.</p>
                     <p>Durante la regencia, el sistema de la Restauración alcanzó su mayor grado de estabilidad formal. La alternancia entre conservadores y liberales funcionó con relativa eficacia, permitiendo la aprobación de <strong>reformas importantes</strong>, especialmente bajo los gobiernos liberales de Sagasta. Entre ellas destacan la ampliación de derechos y libertades, la Ley de Asociaciones y, de manera muy significativa, la implantación del <strong>sufragio universal masculino en 1890</strong>. Estas reformas contribuyeron a dotar al régimen de una apariencia más democrática, aunque en la práctica el sistema seguía condicionado por el caciquismo y la manipulación electoral.</p>
                     <p>La regente desempeñó un papel deliberadamente discreto en la vida política, evitando una intervención directa en la gestión de los gobiernos. Esta actitud contrastó con la de su hijo Alfonso XIII en etapas posteriores y fue clave para preservar la imagen de neutralidad de la Corona. María Cristina actuó como una figura de moderación, respetando las reglas del sistema y permitiendo que los partidos dinásticos gestionaran el poder dentro del marco establecido por la Constitución de 1876.</p>
-                    <p>El acontecimiento más traumático de la regencia fue la <strong>crisis colonial de 1898</strong>, que culminó con la pérdida de Cuba, Puerto Rico y Filipinas tras la guerra con Estados Unidos. Este episodio tuvo profundas consecuencias políticas, económicas y psicológicas. La derrota supuso el fin del imperio colonial español y provocó una crisis de identidad nacional que dio lugar al <strong>Regeneracionismo</strong>, un movimiento intelectual y político que denunciaba la decadencia del país y reclamaba profundas reformas. Aunque el sistema de la Restauración logró sobrevivir a este golpe, su legitimidad quedó seriamente cuestionada.</p>
+                    <p>El acontecimiento más traumático de la regencia fue la  <strong>crisis colonial de 1898</strong>, que culminó con la pérdida de Cuba, Puerto Rico y Filipinas tras la guerra con Estados Unidos. Este episodio tuvo profundas consecuencias políticas, económicas y psicológicas. La derrota supuso el fin del imperio colonial español y provocó una crisis de identidad nacional que dio lugar al <strong>Regeneracionismo</strong>, un movimiento intelectual y político que denunciaba la decadencia del país y reclamaba profundas reformas. Aunque el sistema de la Restauración logró sobrevivir a este golpe, su legitimidad quedó seriamente cuestionada.</p>
                     <p>En definitiva, la regencia de María Cristina de Habsburgo representa la fase de consolidación y, al mismo tiempo, de limitación del sistema de la Restauración. Si bien logró garantizar la continuidad de la monarquía y ofrecer un marco de estabilidad política durante casi dos décadas, no consiguió abordar las transformaciones necesarias para adaptar el régimen a una sociedad en cambio. De este modo, la aparente solidez del periodo ocultaba una serie de tensiones latentes que emergerían con mayor intensidad durante el reinado de Alfonso XIII, contribuyendo finalmente a la crisis y al colapso del sistema liberal en el primer tercio del siglo XX.</p>
-                    
+                    <a href="{% url 'maria_cristina_hasburgo' %}" class="link-atentado">
+                    Ampliar contenido </i>
+                  </a>
                 
                 </div>
 

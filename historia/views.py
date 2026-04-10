@@ -139,6 +139,9 @@ def monedas1868(request):
 def escritoresxix(request):    
     return render(request, 'espagna/sigloXIX/escritores.html')
 
+def maria_cristina_hasburgo(request):    
+    return render(request, 'espagna/sigloXIX/maria_cristina_hasburgo.html')
+
 # ----------------------------SIGLO XX--------------------------
 def sigloXX(request):    
     return render(request, 'espagna/sigloXX/sigloXX.html')

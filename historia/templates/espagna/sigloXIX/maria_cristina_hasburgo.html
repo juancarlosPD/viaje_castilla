@@ -1,0 +1,927 @@
+{% extends "bases/basesigloXX.html" %}
+{% load static %}
+{% block cabecera %} Regencia de María Cristina de Ausburgo {% endblock %}
+{% block imgCabecera %}  
+<figure class="text-center">
+  <img class="img-fluid rounded-4 border shadow-sm"
+       src="{% static 'images/sigloXIX/maria_cristina.jpg' %}"
+       alt="Alfonnso XIII"
+       role="button"
+       data-bs-toggle="modal"
+       data-bs-target="#img_calvo_sotelo">
+</figure>
+
+{% endblock %}
+{% block title %}Regencia de María Cristina de Ausburgo{% endblock %}
+
+{% block contenido %}
+<style>
+    .titulo-timeline {
+    font-size: 1.4rem;
+    font-weight: 800;
+    }
+  .alfonso-page {
+    background: linear-gradient(to bottom, #f7f4ee 0%, #f1ede6 100%);
+    min-height: 100vh;
+    padding-bottom: 4rem;
+  }
+
+  .alfonso-hero {
+    background: linear-gradient(135deg, #1b2a41 0%, #2f4b6e 100%);
+    color: #fff;
+    padding: 4rem 0 3rem;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .alfonso-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 85% 20%, rgba(255,255,255,0.12), transparent 30%);
+    pointer-events: none;
+  }
+
+  .hero-wrap {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-kicker {
+    display: inline-block;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.22);
+    color: #f8f5ef;
+    padding: 0.4rem 0.85rem;
+    border-radius: 999px;
+    font-size: 0.88rem;
+    letter-spacing: 0.02em;
+    margin-bottom: 1rem;
+  }
+
+  .alfonso-hero h1 {
+    font-size: 2.5rem;
+    line-height: 1.08;
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+
+  .alfonso-hero .lead {
+    font-size: 1.14rem;
+    max-width: 860px;
+    color: rgba(255,255,255,0.92);
+  }
+
+  .hero-chips {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.18);
+    color: #fff;
+    padding: 0.48rem 0.85rem;
+    border-radius: 999px;
+    font-size: 0.95rem;
+    backdrop-filter: blur(2px);
+  }
+
+  .hero-portrait {
+    max-width: 320px;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 16px 34px rgba(0,0,0,0.25);
+    border: 1px solid rgba(255,255,255,0.18);
+    background: rgba(255,255,255,0.08);
+  }
+
+  .hero-portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+  }
+
+  .hero-caption {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.82);
+    padding-top: 0.55rem;
+  }
+
+  .content-shell {
+    max-width: 1380px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .page-grid {
+    display: grid;
+    grid-template-columns: 290px minmax(0, 1fr);
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .page-aside {
+    position: sticky;
+    top: 92px;
+  }
+
+  .aside-card {
+    background: #fff;
+    border: 1px solid #e7dfd2;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(58, 44, 24, 0.06);
+    padding: 1.25rem 1rem;
+  }
+
+  .aside-card h5 {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #1f2937;
+    margin-bottom: 1rem;
+  }
+
+  .aside-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .aside-nav a {
+    text-decoration: none;
+    color: #334155;
+    font-size: 0.95rem;
+    padding: 0.45rem 0.55rem;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+  }
+
+  .aside-nav a:hover {
+    background: #f4efe6;
+    color: #1b2a41;
+  }
+
+  .main-col {
+    min-width: 0;
+  }
+
+  .intro-box,
+  .content-card,
+  .highlight-card,
+  .quote-card {
+    background: #fff;
+    border: 1px solid #e7dfd2;
+    border-radius: 20px;
+    box-shadow: 0 10px 28px rgba(58, 44, 24, 0.06);
+  }
+
+  .intro-box {
+    padding: 1.4rem 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .intro-box p:last-child,
+  .content-card p:last-child,
+  .quote-card p:last-child {
+    margin-bottom: 0;
+  }
+
+  .section-block {
+    margin-bottom: 2rem;
+    scroll-margin-top: 100px;
+  }
+
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .section-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #d8c3a5, #f0e2ce);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    flex: 0 0 auto;
+    color: #493628;
+  }
+
+  .section-head h2 {
+    margin: 0;
+    font-size: 1.7rem;
+    font-weight: 800;
+    color: #1f2937;
+  }
+
+  .content-card {
+    padding: 1.5rem;
+  }
+
+  .content-card p {
+    color: #374151;
+    line-height: 1.8;
+    font-size: 1.02rem;
+    margin-bottom: 1rem;
+  }
+  
+
+  .content-card ul {
+    margin-bottom: 0;
+  }
+
+  .content-card li {
+    margin-bottom: 0.55rem;
+    color: #374151;
+    line-height: 1.7;
+  }
+
+  .mini-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: 1.2rem;
+  }
+
+  .mini-grid_17 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1.2rem;
+  }
+
+  .highlight-card {
+    padding: 1rem;
+    height: 100%;
+  }
+
+  .highlight-card h6 {
+    font-weight: 800;
+    color: #1f2937;
+    margin-bottom: 0.55rem;
+  }
+
+  .highlight-card p {
+    margin: 0;
+    color: #475569;
+    line-height: 1.65;
+    font-size: 0.96rem;
+  }
+
+  .timeline {
+    position: relative;
+    margin-top: 1.4rem;
+    padding-left: 1.2rem;
+  }
+
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 9px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    border-radius: 999px;
+    background: linear-gradient(to bottom, #b99870, #d7c2a5);
+  }
+
+  .t-item {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .t-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .t-item::before {
+    content: "";
+    position: absolute;
+    left: -0.05rem;
+    top: 0.35rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #8b6a48;
+    box-shadow: 0 0 0 4px #efe4d5;
+  }
+
+  .t-date {
+    display: inline-block;
+    font-weight: 800;
+    color: #6b4f35;
+    background: #f4eadc;
+    border: 1px solid #ead8bf;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .t-item h6 {
+    font-weight: 800;
+    color: #1f2937;
+    margin-bottom: 0.35rem;
+  }
+
+  .t-item p {
+    margin: 0;
+    color: #475569;
+    line-height: 1.7;
+  }
+
+  .img-block {
+    margin-top: 1.25rem;
+  }
+
+  .img-frame {
+    background: #faf8f4;
+    border: 1px solid #e5dacb;
+    border-radius: 18px;
+    overflow: hidden;
+  }
+
+  .img-frame img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    max-height: 460px;
+    cursor: pointer;
+  }
+
+  .img-note {
+    padding: 0.85rem 1rem;
+    font-size: 0.92rem;
+    color: #5b6472;
+    background: #fcfbf8;
+    border-top: 1px solid #e5dacb;
+  }
+
+  .quote-card {
+    padding: 1.25rem 1.35rem;
+    margin-top: 1rem;
+    border-left: 5px solid #b99870;
+  }
+
+  .quote-card p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #334155;
+    margin-bottom: 0.65rem;
+  }
+
+  .quote-author {
+    font-size: 0.92rem;
+    color: #6b7280;
+    font-weight: 600;
+  }
+
+  .summary-band {
+    margin-top: 1.25rem;
+    background: linear-gradient(135deg, #f3e8da 0%, #f8f2e9 100%);
+    border: 1px solid #e4d5bf;
+    border-radius: 18px;
+    padding: 1rem 1.15rem;
+  }
+
+  .summary-band strong {
+    color: #3d2d1f;
+  }
+
+  .final-box {
+    background: linear-gradient(135deg, #23344f 0%, #314a6b 100%);
+    color: #fff;
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: 0 16px 36px rgba(27, 42, 65, 0.18);
+  }
+
+  .final-box h3 {
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+
+  .final-box p {
+    color: rgba(255,255,255,0.94);
+    line-height: 1.8;
+    margin-bottom: 0.9rem;
+  }
+
+  .final-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  .icon-box {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #d8c3a5, #f0e2ce);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+}
+
+.highlight-card {
+  transition: all 0.25s ease;
+}
+
+.highlight-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.12);
+}
+.link-atentado {
+  color: #8b0000;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.link-atentado:hover {
+  color: #c1121f;
+}
+.aside-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.aside-nav a,
+.aside-dropbtn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  text-decoration: none;
+  background: #fff;
+  color: #1f3c88;
+  border: 1px solid #d6dff2;
+  border-radius: 10px;
+  padding: 0.7rem 0.9rem;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  text-align: left;
+}
+
+.aside-nav a:hover,
+.aside-dropbtn:hover {
+  background: #f3f7ff;
+  border-color: #9eb8ea;
+}
+
+.aside-dropdown {
+  display: flex;
+  flex-direction: column;
+}
+
+.aside-submenu {
+  display: none;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-top: 0.35rem;
+  margin-left: 0.8rem;
+}
+
+.aside-dropdown.open .aside-submenu {
+  display: flex;
+}
+
+.aside-submenu a {
+  font-size: 0.95rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  background: transparent;
+  border: none;
+  color: #03226b;
+}
+
+.aside-submenu a:hover {
+  background: #eef4ff;
+}
+
+.arrow {
+  font-size: 0.9rem;
+  transition: transform 0.2s ease;
+}
+
+.aside-dropdown.open .arrow {
+  transform: rotate(180deg);
+}
+
+.page-aside {
+  position: sticky;
+  top: 20px;
+  align-self: start;
+}
+
+.section-head-inline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.section-head-inline h6 {
+  margin: 0;
+}
+
+.section-head-inline .section-link {
+  white-space: nowrap;
+}
+
+.section-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 0.35rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .hero-portrait {
+  max-width: 320px;
+  margin: 0 auto;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 16px 34px rgba(0,0,0,0.25);
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.08);
+}
+
+
+  @media (max-width: 1199px) {
+    .page-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .page-aside {
+      position: static;
+    }
+
+    .mini-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-portrait {
+      margin-top: 1.5rem;
+      max-width: 100%;
+    }
+     .aside-container {
+    position: relative; /* en móvil mejor quitar sticky */
+    top: 0;
+  }
+  }
+
+  @media (max-width: 767px) {
+    .alfonso-hero {
+      padding: 3rem 0 2.2rem;
+    }
+
+    .alfonso-hero h1 {
+      font-size: 2rem;
+    }
+
+    .section-head h2 {
+      font-size: 1.4rem;
+    }
+
+    .content-card,
+    .intro-box,
+    .final-box {
+      padding: 1.2rem;
+    }
+  }
+</style>
+
+<div class="alfonso-page">
+
+<section class="alfonso-hero">
+  <div class="container hero-wrap">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-8 ">
+        <span class="hero-kicker">Regencia, restauración y crisis del 98</span>
+        <h1>La regencia de María Cristina de Habsburgo y la estabilidad del sistema de la Restauración</h1>
+        
+        <p class="lead">
+          La regencia de María Cristina de Habsburgo-Lorena, desarrollada entre 1885 y 1902, constituyó una etapa decisiva para la consolidación del sistema político de la Restauración. Tras la muerte de Alfonso XII, la reina asumió la jefatura del Estado en nombre del futuro Alfonso XIII y actuó como figura de equilibrio entre los partidos dinásticos. Durante estos años, España vivió una relativa estabilidad institucional sustentada en el turno político entre conservadores y liberales, aunque también afloraron profundas tensiones sociales, el auge del movimiento obrero, el desarrollo de los nacionalismos periféricos y, finalmente, la crisis colonial de 1898, que puso de manifiesto los límites del régimen.
+        </p>
+
+        <div class="hero-chips text-center">
+          <span class="chip">👑 Regencia</span>
+          <span class="chip">🏛️ Restauración</span>
+          <span class="chip">🤝 Turno pacífico</span>
+          <span class="chip">🌍 Crisis colonial</span>
+          <span class="chip">📉 Desastre del 98</span>
+        </div>
+      </div>
+
+      <div class="col-lg-4 text-center ">
+        <div class="hero-portrait">
+          <img src="{% static 'images/sigloXIX/maria_cristina.jpg' %}"
+               class="img-fluid mx-auto d-block"
+               alt="Retrato de María Cristina de Habsburgo">
+        </div>
+        <div class="hero-caption">
+          María Cristina de Habsburgo-Lorena
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <div class="content-shell">
+    <div class="page-grid">
+
+      <aside class="page-aside">
+        <div class="aside-card">
+
+          <h5>📚 Contenido</h5>
+
+          <nav class="aside-nav">
+
+            <a href="#introduccion">
+              🧭 Contexto general
+            </a>
+
+            <a href="#turno">
+              🤝 Sistema de la Restauración
+            </a>
+
+            <a href="#movimientos">
+              🏭 Movimientos sociales y nacionalismos
+            </a>
+
+            <a href="#cuba">
+              🌍 Guerra de Cuba y crisis colonial
+            </a>
+
+            <a href="#desastre98">
+              📉 El Desastre del 98
+            </a>
+
+            <a href="#consecuencias">
+              🧠 Consecuencias políticas y culturales
+            </a>
+
+            <a href="#conclusion">
+              🏁 Balance de la regencia
+            </a>
+
+          </nav>
+
+        </div>
+      </aside>
+
+      <main class="main-col">
+         <div class="section-head">            
+            <h2>🧭 Contexto general</h2>
+          </div>
+        <div id="introduccion" class="intro-box section-block">
+          <p>
+                  La regencia de María Cristina de Habsburgo-Lorena se inicia en 1885, tras la muerte prematura de Alfonso XII, en un momento de incertidumbre política para el sistema de la Restauración. La desaparición del monarca dejaba vacante la jefatura del Estado en una monarquía constitucional aún frágil, cuyo equilibrio dependía en gran medida de la figura del rey como árbitro entre las fuerzas políticas. En este contexto, María Cristina asumió la regencia en nombre de su hijo póstumo, el futuro Alfonso XIII, garantizando la continuidad institucional del régimen.
+                </p>
+
+                <p>
+                  El elemento clave que permitió la estabilidad inicial del sistema fue el llamado <strong>Pacto de El Pardo</strong> (1885), acuerdo entre los líderes de los dos grandes partidos dinásticos, <strong>Antonio Cánovas del Castillo</strong> y <strong>Práxedes Mateo Sagasta</strong>. Mediante este pacto se consolidó el funcionamiento del <em>turno pacífico</em>, un mecanismo de alternancia en el poder que, aunque formalmente constitucional, se apoyaba en prácticas de manipulación electoral como el caciquismo y el encasillado. La regente desempeñó un papel fundamental como garante de este equilibrio, evitando conflictos entre las élites políticas.
+                </p>
+
+                <p>
+                  Durante esta etapa, España experimentó una relativa estabilidad política en comparación con el convulso siglo XIX anterior. Sin embargo, esta estabilidad era en gran medida superficial, ya que el sistema excluía a amplios sectores de la sociedad y no resolvía problemas estructurales como la desigualdad social, el atraso económico en determinadas regiones o la creciente conflictividad laboral. Paralelamente, se produjo un proceso de modernización económica desigual, con un desarrollo industrial concentrado en zonas como Cataluña y el País Vasco.
+                </p>
+
+                <p>
+                  A nivel social y político, comenzaron a ganar fuerza nuevas corrientes que cuestionaban el sistema de la Restauración. El movimiento obrero, dividido entre socialistas y anarquistas, incrementó su capacidad de movilización, mientras que los nacionalismos periféricos —especialmente en Cataluña y el País Vasco— empezaron a articular discursos políticos propios. Estas tensiones, inicialmente contenidas, se intensificarían progresivamente hasta poner en evidencia las limitaciones del régimen.
+                </p>
+
+                <p>
+                  En el ámbito internacional, España mantenía aún un reducido imperio colonial, centrado fundamentalmente en Cuba, Puerto Rico y Filipinas. No obstante, la incapacidad para integrar políticamente estos territorios y las crecientes presiones externas, especialmente de Estados Unidos, configuraron un escenario de crisis que acabaría desembocando en la guerra de 1898. De este modo, la regencia de María Cristina se sitúa en una encrucijada histórica: una etapa de estabilidad institucional aparente que precede a una profunda crisis política, social y colonial.
+                </p>
+
+              
+            </div>
+
+          
+
+
+        <section id="turno" class="section-block">
+          <div class="section-head">            
+            <h2>🤝 Sistema de la Restauración</h2>
+          </div>
+
+          <div class="content-card">
+            <p>
+              El sistema político de la Restauración, diseñado por Antonio Cánovas del Castillo tras el regreso de la monarquía borbónica en 1874, se basaba en la estabilidad institucional y en la exclusión del conflicto político abierto. Su objetivo fundamental era evitar los pronunciamientos militares y las crisis revolucionarias que habían caracterizado el siglo XIX español, mediante la creación de un sistema aparentemente parlamentario, pero en la práctica fuertemente controlado por las élites.
+            </p>
+
+            <p>
+              El elemento central de este sistema fue el denominado <strong>turno pacífico</strong>, un mecanismo de alternancia en el poder entre los dos grandes partidos dinásticos: el Partido Conservador, liderado por Cánovas, y el Partido Liberal, encabezado por Práxedes Mateo Sagasta. Esta alternancia no respondía a la voluntad real del electorado, sino a acuerdos previos entre las élites políticas, que decidían cuándo debía producirse el cambio de gobierno.
+            </p>
+
+            <p>
+              Para garantizar el funcionamiento del turno, se desarrolló un complejo sistema de manipulación electoral basado en el <strong>caciquismo</strong>. Los caciques, figuras de poder local con gran influencia social y económica, controlaban el voto en sus territorios mediante redes clientelares, presiones y, en muchos casos, fraude directo. A ello se sumaba el llamado <strong>encasillado</strong>, mediante el cual se confeccionaban de antemano los resultados electorales, asignando los escaños a los candidatos previamente acordados por el gobierno.
+            </p>
+
+            <p>
+              La Constitución de 1876 proporcionó el marco jurídico de este sistema. Se trataba de una carta flexible que permitía tanto gobiernos conservadores como liberales, manteniendo una amplia autoridad de la Corona. El rey —y durante la regencia, María Cristina— desempeñaba un papel clave como árbitro del sistema, nombrando y destituyendo gobiernos y asegurando la continuidad del turno entre los partidos dinásticos.
+            </p>
+
+            <p>
+              A pesar de su apariencia de estabilidad, el sistema de la Restauración presentaba importantes limitaciones. La exclusión de fuerzas políticas como republicanos, carlistas, nacionalistas o el movimiento obrero generó una creciente desconexión entre el régimen y amplios sectores de la sociedad. Asimismo, la falta de una verdadera representación política y la persistencia de prácticas clientelares debilitaron la legitimidad del sistema a largo plazo.
+            </p>
+
+            <p>
+              Durante la regencia de María Cristina, este modelo alcanzó su máxima consolidación, garantizando varias décadas de estabilidad política. Sin embargo, las tensiones sociales, el auge de nuevas ideologías y, especialmente, la crisis colonial de 1898 evidenciaron sus límites estructurales, iniciando un proceso de desgaste que acabaría conduciendo a su crisis definitiva en el siglo XX.
+            </p>
+
+            
+        </section>
+
+        <section id="movimientos" class="section-block">
+          <div class="section-head">            
+            <h2>🏭 Movimientos sociales y nacionalismos</h2>
+          </div>
+
+           <div class="content-card">
+
+            <p>
+              Durante la regencia de María Cristina, el sistema de la Restauración logró mantener una notable estabilidad política en la superficie, pero bajo ella se desarrollaron profundas tensiones sociales y territoriales. La consolidación del capitalismo, la desigualdad en la distribución de la riqueza y la exclusión política de amplios sectores de la población favorecieron la aparición de movimientos sociales y corrientes ideológicas que cuestionaban abiertamente el modelo vigente.
+            </p>
+
+            <p>
+              El <strong>movimiento obrero</strong> fue uno de los principales focos de oposición. Se articuló en torno a dos grandes corrientes ideológicas: el <strong>socialismo</strong> y el <strong>anarquismo</strong>. El socialismo, representado por el Partido Socialista Obrero Español (fundado en 1879 por Pablo Iglesias) y la Unión General de Trabajadores (1888), apostaba por la organización política y sindical para lograr mejoras laborales y, a largo plazo, la transformación del sistema. Por su parte, el anarquismo, con gran implantación en Cataluña y Andalucía, rechazaba la participación en el sistema político y defendía la acción directa, lo que en algunos casos derivó en episodios de violencia y represión.
+            </p>
+
+            <p>
+              Las condiciones laborales de la época —largas jornadas, bajos salarios y ausencia de derechos sociales— provocaron un aumento de la conflictividad, con huelgas, protestas y movilizaciones que pusieron en evidencia las limitaciones del régimen para integrar las demandas de la clase trabajadora. La respuesta del Estado fue, en muchas ocasiones, represiva, reforzando así la distancia entre el sistema político y la sociedad.
+            </p>
+
+            <p>
+              Paralelamente, surgieron con fuerza los <strong>nacionalismos periféricos</strong>, especialmente en Cataluña y el País Vasco. En Cataluña, el desarrollo industrial y la existencia de una identidad cultural propia favorecieron la aparición del catalanismo político, que reclamaba mayores cotas de autogobierno y reconocimiento de su singularidad. En el País Vasco, el nacionalismo impulsado por Sabino Arana se apoyó en elementos identitarios como la lengua, la tradición foral y la defensa de una comunidad diferenciada.
+            </p>
+
+            <p>
+              Estos movimientos nacionalistas no eran inicialmente independentistas en todos los casos, pero sí representaban una crítica al centralismo del Estado liberal y al modelo uniforme de la Restauración. Su crecimiento evidenciaba la incapacidad del sistema para integrar la diversidad territorial de España dentro de un marco político flexible.
+            </p>
+
+            <p>
+              En conjunto, tanto el movimiento obrero como los nacionalismos periféricos reflejan el surgimiento de nuevas fuerzas sociales y políticas que quedaron al margen del sistema canovista. Aunque durante la regencia de María Cristina estas tensiones no llegaron a provocar una ruptura inmediata, sí sentaron las bases de la crisis del régimen en las décadas posteriores, al cuestionar su legitimidad y su capacidad de representación.
+            </p>
+
+          </div>
+        </section>
+
+        <section id="cuba" class="section-block">
+          <div class="section-head">            
+            <h2>🌍 Guerra de Cuba y crisis colonial</h2>
+          </div>
+
+          <div class="content-card">
+             
+
+            <p>
+              La cuestión colonial constituyó uno de los principales focos de inestabilidad durante la regencia de María Cristina. A finales del siglo XIX, España mantenía un reducido imperio ultramarino centrado en Cuba, Puerto Rico y Filipinas. Sin embargo, la incapacidad del Estado para integrar políticamente estos territorios, junto con las tensiones económicas y sociales existentes en ellos, generó un escenario de creciente conflicto que desembocaría en la guerra de 1898.
+            </p>
+
+            <p>
+              En el caso de Cuba, la isla más importante del imperio por su valor estratégico y económico, las demandas de autonomía y reforma política habían sido constantes desde la segunda mitad del siglo XIX. Tras la Guerra de los Diez Años (1868–1878) y la posterior Guerra Chiquita, el conflicto se reactivó en 1895 con un nuevo levantamiento independentista, impulsado por figuras como José Martí, Máximo Gómez y Antonio Maceo. Este movimiento combinaba aspiraciones nacionalistas con un rechazo al sistema colonial español.
+            </p>
+
+            <p>
+              La respuesta del gobierno español fue fundamentalmente militar. La política del general Valeriano Weyler, basada en la <strong>reconcentración de la población rural</strong> para aislar a los insurgentes, tuvo consecuencias humanitarias devastadoras, con miles de civiles afectados por el hambre y las enfermedades. Estas medidas provocaron una fuerte crítica internacional y deterioraron la imagen de España, especialmente en Estados Unidos.
+            </p>
+
+            <p>
+              Estados Unidos, que mantenía importantes intereses económicos en la isla y observaba con atención la situación, fue adoptando una postura cada vez más intervencionista. La presión de la opinión pública estadounidense, alimentada por una prensa sensacionalista, y el hundimiento del acorazado <em>Maine</em> en el puerto de La Habana en 1898 —cuyo origen nunca fue plenamente esclarecido— sirvieron como pretexto para la declaración de guerra a España en abril de ese mismo año.
+            </p>
+
+            <p>
+              La guerra hispano-estadounidense fue breve y desigual. España, con una estructura militar y naval obsoleta, no pudo hacer frente a la potencia industrial y militar emergente de Estados Unidos. Las derrotas en Cuba y Filipinas evidenciaron la debilidad del sistema colonial español y la imposibilidad de sostener su presencia en ultramar.
+            </p>
+
+            <p>
+              La crisis colonial puso de manifiesto las limitaciones estructurales del régimen de la Restauración. La falta de reformas políticas en los territorios coloniales, la gestión ineficaz del conflicto y la desconexión entre el sistema político y la realidad internacional contribuyeron a precipitar una crisis que trascendía lo militar. La guerra de Cuba no solo fue un conflicto colonial, sino el síntoma de un sistema incapaz de adaptarse a los cambios de finales del siglo XIX.
+            </p>
+
+  
+                       
+          </div>
+        </section>
+
+        <section id="desastre98" class="section-block">
+          <div class="section-head">            
+            <h2>📉 El Desastre del 98: derrota exterior y crisis interior</h2>
+          </div>
+
+          <div class="content-card">
+              <p>
+                La derrota de España en la guerra de 1898 frente a Estados Unidos marcó un punto de inflexión en la historia contemporánea española. El llamado <strong>Desastre del 98</strong> no fue únicamente una derrota militar o diplomática, sino la expresión visible de una crisis mucho más profunda, que afectaba a la estructura del Estado, al sistema político de la Restauración y a la propia conciencia nacional. La pérdida de las últimas grandes colonias de ultramar puso fin de manera simbólica al viejo imperio español y obligó a una amarga revisión de la posición de España en el mundo.
+              </p>
+
+              <p>
+                El conflicto concluyó con la firma del <strong>Tratado de París</strong> en diciembre de 1898. En virtud de este acuerdo, España renunciaba a la soberanía sobre Cuba y cedía a Estados Unidos Puerto Rico, Filipinas y Guam. La rapidez de la derrota reveló la debilidad militar española, especialmente en el ámbito naval, así como la escasa capacidad del régimen para responder a un desafío internacional de gran escala. El contraste entre la retórica patriótica previa y la contundencia del desenlace intensificó la sensación de humillación colectiva.
+              </p>
+
+              <p>
+                Sin embargo, el alcance del Desastre del 98 fue mucho más allá del plano colonial. La crisis actuó como un poderoso factor de deslegitimación del sistema de la Restauración, al poner en evidencia sus limitaciones estructurales. El turnismo, el caciquismo, la escasa representatividad del régimen y la distancia entre las instituciones y la sociedad aparecieron ahora con mayor claridad. El sistema, que había ofrecido estabilidad durante la regencia de María Cristina, comenzaba a mostrar signos evidentes de agotamiento.
+              </p>
+
+              <p>
+                En el terreno intelectual y moral, el impacto fue igualmente profundo. La derrota suscitó una intensa reflexión sobre las causas de la decadencia española y sobre la necesidad de regenerar el país. Surgió así el llamado <strong>regeneracionismo</strong>, una corriente crítica que denunciaba la corrupción política, el atraso económico, la debilidad educativa y la falta de modernización del Estado. Paralelamente, escritores e intelectuales vinculados a la <strong>Generación del 98</strong>, como Unamuno, Azorín, Maeztu o Baroja, convirtieron la crisis nacional en uno de los grandes temas de la cultura española de comienzos del siglo XX.
+              </p>
+
+              <p>
+                Desde una perspectiva histórica, el Desastre del 98 no provocó la caída inmediata del régimen, pero sí inauguró una nueva etapa caracterizada por el cuestionamiento creciente del orden restauracionista. La derrota aceleró la aparición de demandas de reforma política, administrativa y social, y reforzó la percepción de que España necesitaba una transformación profunda para superar su atraso relativo respecto a las grandes potencias europeas.
+              </p>
+
+              <p>
+                En consecuencia, el 98 debe interpretarse no solo como el final del imperio colonial, sino como el inicio de una crisis de legitimidad del sistema político que marcaría toda la evolución del primer tercio del siglo XX. Fue, en definitiva, una derrota exterior que abrió una crisis interior de gran alcance, cuyas repercusiones se proyectaron mucho más allá del final de la regencia de María Cristina.
+              </p>
+
+          </div>
+        
+
+        
+        </section>
+        
+        <section id="consecuencias" class="section-block">
+          <div class="section-head">            
+            <h2>🧠 Consecuencias políticas y culturales</h2>
+          </div>
+
+          <div class="content-card">
+              <p>
+              Las consecuencias del Desastre del 98 fueron amplias y duraderas. En el plano político, la derrota debilitó la autoridad moral de la Restauración, aunque no provocó su derrumbe inmediato. El sistema continuó funcionando, pero lo hizo cada vez con menor capacidad de integración y con una legitimidad más frágil. La crisis colonial había demostrado que la estabilidad construida desde 1875 descansaba sobre bases menos sólidas de lo que aparentaba.
+            </p>
+
+            <p>
+              En el ámbito social, el 98 intensificó el malestar ya existente entre sectores obreros, clases medias e intelectuales. La percepción de atraso respecto a otros países europeos reforzó las críticas a la oligarquía dirigente y al funcionamiento artificial del sistema parlamentario. La derrota no creó por sí sola la conflictividad social, pero sí acentuó la conciencia de que el país atravesaba una crisis estructural que exigía reformas profundas.
+            </p>
+
+            <p>
+              En el terreno económico, la pérdida de las colonias supuso el final de un marco comercial privilegiado, aunque sus efectos no fueron exclusivamente negativos. La repatriación de capitales procedentes de las antiguas colonias contribuyó en algunos casos a impulsar inversiones en la península. Aun así, el golpe psicológico y político fue mucho más intenso que el estrictamente económico, ya que el hundimiento del imperio tuvo un enorme valor simbólico.
+            </p>
+
+            <p>
+              Culturalmente, la crisis de 1898 dio lugar a una de las reflexiones más intensas de la España contemporánea sobre su propia identidad histórica. La <strong>Generación del 98</strong> convirtió la decadencia nacional, el problema de España y la necesidad de regeneración en ejes centrales de su obra. Junto a ella, el <strong>regeneracionismo</strong> formuló propuestas de reforma centradas en la educación, la administración, la economía y la moral pública. Joaquín Costa expresó de forma especialmente contundente este diagnóstico al reclamar una política de “escuela y despensa”, es decir, una modernización material e intelectual del país.
+            </p>
+
+            <p>
+              A medio plazo, estas consecuencias contribuyeron a abrir una nueva fase histórica. Aunque la regencia de María Cristina concluyó en 1902 con la mayoría de edad de Alfonso XIII, los problemas que habían aflorado durante estos años —la debilidad del sistema representativo, el auge de la protesta social, la cuestión territorial y la necesidad de modernización del Estado— seguirían condicionando la vida política española en las décadas posteriores.
+            </p>
+
+            <p>
+              De este modo, la regencia puede interpretarse como una etapa de estabilidad aparente, pero también como el momento en que comenzaron a manifestarse con claridad las contradicciones profundas de la Restauración. La crisis del 98 actuó como catalizador de esas tensiones y convirtió el final del siglo XIX en un verdadero umbral histórico entre la consolidación del régimen y su futuro desgaste.
+            </p>
+          </div>
+        
+
+        
+        </section> 
+
+        <section id="conclusion" class="section-block">
+          <div class="final-box">
+            <h3>🏁 Balance de la regencia</h3>
+            <p>
+              La regencia de María Cristina de Habsburgo-Lorena representó una fase decisiva en la consolidación del sistema de la Restauración. Bajo su autoridad se mantuvo la continuidad institucional del régimen, se afianzó el turno pacífico entre conservadores y liberales y se preservó, al menos en apariencia, la estabilidad política tras la muerte de Alfonso XII. Sin embargo, esa estabilidad descansaba sobre mecanismos de exclusión, clientelismo y control electoral que limitaban profundamente la representatividad del sistema.
+            </p>
+
+            <p>
+              Al mismo tiempo, durante estos años se intensificaron las tensiones sociales, territoriales y coloniales que terminarían erosionando el régimen desde dentro. El auge del movimiento obrero, el desarrollo de los nacionalismos periféricos y la crisis colonial cubana revelaron la incapacidad de la Restauración para integrar nuevas demandas políticas y sociales. El Desastre del 98 dio expresión definitiva a estas contradicciones y convirtió el final de la regencia en el preludio de una etapa de cuestionamiento y desgaste.
+            </p>
+
+            <p>
+              En perspectiva histórica, la regencia de María Cristina no debe entenderse solo como un periodo de continuidad monárquica, sino también como el momento en que quedaron al descubierto los límites estructurales del orden restauracionista. Fue una etapa de equilibrio institucional, pero también de incubación de la crisis que marcaría la evolución de España en las primeras décadas del siglo XX.
+            </p>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+<script>
+  function toggleSubmenu(button) {
+    const dropdown = button.parentElement;
+    dropdown.classList.toggle("open");
+  }
+</script>
+{% endblock %}
