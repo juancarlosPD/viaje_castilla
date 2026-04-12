@@ -435,176 +435,176 @@
   justify-content: center;
   font-size: 1.6rem;
   box-shadow: 0 6px 14px rgba(0,0,0,0.08);
-}
+    }
 
-.highlight-card {
-  transition: all 0.25s ease;
-}
+    .highlight-card {
+      transition: all 0.25s ease;
+    }
 
-.highlight-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 14px 28px rgba(0,0,0,0.12);
-}
-.link-atentado {
-  color: #8b0000;
-  font-weight: 600;
-  text-decoration: none;
-  cursor: pointer;
-}
+    .highlight-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 28px rgba(0,0,0,0.12);
+    }
+    .link-atentado {
+      color: #8b0000;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+    }
 
-.link-atentado:hover {
-  color: #c1121f;
-  text-decoration: none;
-}
-.aside-nav {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
+    .link-atentado:hover {
+      color: #c1121f;
+      text-decoration: none;
+    }
+    .aside-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
 
-.aside-nav a,
-.aside-dropbtn {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  text-decoration: none;
-  background: #fff;
-  color: #1f3c88;
-  border: 1px solid #d6dff2;
-  border-radius: 10px;
-  padding: 0.7rem 0.9rem;
-  font-size: 1rem;
-  transition: all 0.2s ease;
-  cursor: pointer;
-  text-align: left;
-}
+    .aside-nav a,
+    .aside-dropbtn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      text-decoration: none;
+      background: #fff;
+      color: #1f3c88;
+      border: 1px solid #d6dff2;
+      border-radius: 10px;
+      padding: 0.7rem 0.9rem;
+      font-size: 1rem;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      text-align: left;
+    }
 
-.aside-nav a:hover,
-.aside-dropbtn:hover {
-  background: #f3f7ff;
-  border-color: #9eb8ea;
-}
+    .aside-nav a:hover,
+    .aside-dropbtn:hover {
+      background: #f3f7ff;
+      border-color: #9eb8ea;
+    }
 
-.aside-dropdown {
-  display: flex;
-  flex-direction: column;
-}
+    .aside-dropdown {
+      display: flex;
+      flex-direction: column;
+    }
 
-.aside-submenu {
-  display: none;
-  flex-direction: column;
-  gap: 0.25rem;
-  margin-top: 0.35rem;
-  margin-left: 0.8rem;
-}
+    .aside-submenu {
+      display: none;
+      flex-direction: column;
+      gap: 0.25rem;
+      margin-top: 0.35rem;
+      margin-left: 0.8rem;
+    }
 
-.aside-dropdown.open .aside-submenu {
-  display: flex;
-}
+    .aside-dropdown.open .aside-submenu {
+      display: flex;
+    }
 
-.aside-submenu a {
-  font-size: 0.95rem;
-  padding: 0.6rem 0.8rem;
-  border-radius: 8px;
-  background: transparent;
-  border: none;
-  color: #03226b;
-}
+    .aside-submenu a {
+      font-size: 0.95rem;
+      padding: 0.6rem 0.8rem;
+      border-radius: 8px;
+      background: transparent;
+      border: none;
+      color: #03226b;
+    }
 
-.aside-submenu a:hover {
-  background: #eef4ff;
-}
+    .aside-submenu a:hover {
+      background: #eef4ff;
+    }
 
-.arrow {
-  font-size: 0.9rem;
-  transition: transform 0.2s ease;
-}
+    .arrow {
+      font-size: 0.9rem;
+      transition: transform 0.2s ease;
+    }
 
-.aside-dropdown.open .arrow {
-  transform: rotate(180deg);
-}
-
-.page-aside {
-  position: sticky;
-  top: 20px;
-  align-self: start;
-}
-
-.section-head-inline {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-.section-head-inline h6 {
-  margin: 0;
-}
-
-.section-head-inline .section-link {
-  white-space: nowrap;
-}
-
-a.section-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  margin-top: 0.35rem;
-  font-weight: 600;
-  text-decoration: none !important;
-  color: #1f6feb;
-}
-
-a.section-link:hover {
-  text-decoration: none !important;
-  opacity: 0.9;
-}
-
-
-
-  @media (max-width: 1199px) {
-    .page-grid {
-      grid-template-columns: 1fr;
+    .aside-dropdown.open .arrow {
+      transform: rotate(180deg);
     }
 
     .page-aside {
-      position: static;
+      position: sticky;
+      top: 20px;
+      align-self: start;
     }
 
-    .mini-grid {
-      grid-template-columns: 1fr;
+    .section-head-inline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
     }
 
-    .hero-portrait {
-      margin-top: 1.5rem;
-      max-width: 100%;
-    }
-     .aside-container {
-    position: relative; /* en móvil mejor quitar sticky */
-    top: 0;
-  }
-  }
-
-  @media (max-width: 767px) {
-    .alfonso-hero {
-      padding: 3rem 0 2.2rem;
+    .section-head-inline h6 {
+      margin: 0;
     }
 
-    .alfonso-hero h1 {
-      font-size: 2rem;
+    .section-head-inline .section-link {
+      white-space: nowrap;
     }
 
-    .section-head h2 {
-      font-size: 1.4rem;
+    a.section-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-top: 0.35rem;
+      font-weight: 600;
+      text-decoration: none !important;
+      color: #1f6feb;
     }
 
-    .content-card,
-    .intro-box,
-    .final-box {
-      padding: 1.2rem;
+    a.section-link:hover {
+      text-decoration: none !important;
+      opacity: 0.9;
     }
-  }
+
+
+
+      @media (max-width: 1199px) {
+        .page-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .page-aside {
+          position: static;
+        }
+
+        .mini-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-portrait {
+          margin-top: 1.5rem;
+          max-width: 100%;
+        }
+        .aside-container {
+        position: relative; /* en móvil mejor quitar sticky */
+        top: 0;
+      }
+      }
+
+      @media (max-width: 767px) {
+        .alfonso-hero {
+          padding: 3rem 0 2.2rem;
+        }
+
+        .alfonso-hero h1 {
+          font-size: 2rem;
+        }
+
+        .section-head h2 {
+          font-size: 1.4rem;
+        }
+
+        .content-card,
+        .intro-box,
+        .final-box {
+          padding: 1.2rem;
+        }
+      }
 </style>
 
 <div class="alfonso-page">
@@ -678,6 +678,7 @@ a.section-link:hover {
             <a href="#familia">👨‍👩‍👧‍👦 Matrimonio e hijos</a>
             <a href="#presidentes">🏛️ Presidentes del gobierno</a>
             <a href="#conclusion">📖 Conclusión</a>
+            <a class="toc-link mt-3" href="#recursos">📚 Recursos</a>
           </nav>
         </div>
       </aside>
@@ -763,9 +764,9 @@ a.section-link:hover {
                     <p>Durante la regencia, el sistema de la Restauración alcanzó su mayor grado de estabilidad formal. La alternancia entre conservadores y liberales funcionó con relativa eficacia, permitiendo la aprobación de <strong>reformas importantes</strong>, especialmente bajo los gobiernos liberales de Sagasta. Entre ellas destacan la ampliación de derechos y libertades, la Ley de Asociaciones y, de manera muy significativa, la implantación del <strong>sufragio universal masculino en 1890</strong>. Estas reformas contribuyeron a dotar al régimen de una apariencia más democrática, aunque en la práctica el sistema seguía condicionado por el caciquismo y la manipulación electoral.</p>
                     <p>La regente desempeñó un papel deliberadamente discreto en la vida política, evitando una intervención directa en la gestión de los gobiernos. Esta actitud contrastó con la de su hijo Alfonso XIII en etapas posteriores y fue clave para preservar la imagen de neutralidad de la Corona. María Cristina actuó como una figura de moderación, respetando las reglas del sistema y permitiendo que los partidos dinásticos gestionaran el poder dentro del marco establecido por la Constitución de 1876.</p>
                     <p>El acontecimiento más traumático de la regencia fue la  <strong>crisis colonial de 1898</strong>, que culminó con la pérdida de Cuba, Puerto Rico y Filipinas tras la guerra con Estados Unidos. Este episodio tuvo profundas consecuencias políticas, económicas y psicológicas. La derrota supuso el fin del imperio colonial español y provocó una crisis de identidad nacional que dio lugar al <strong>Regeneracionismo</strong>, un movimiento intelectual y político que denunciaba la decadencia del país y reclamaba profundas reformas. Aunque el sistema de la Restauración logró sobrevivir a este golpe, su legitimidad quedó seriamente cuestionada.</p>
-                    <p>En definitiva, la regencia de María Cristina de Habsburgo representa la fase de consolidación y, al mismo tiempo, de limitación del sistema de la Restauración. Si bien logró garantizar la continuidad de la monarquía y ofrecer un marco de estabilidad política durante casi dos décadas, no consiguió abordar las transformaciones necesarias para adaptar el régimen a una sociedad en cambio. De este modo, la aparente solidez del periodo ocultaba una serie de tensiones latentes que emergerían con mayor intensidad durante el reinado de Alfonso XIII, contribuyendo finalmente a la crisis y al colapso del sistema liberal en el primer tercio del siglo XX.</p>
+                    <p class= "mb-2">En definitiva, la regencia de María Cristina de Habsburgo representa la fase de consolidación y, al mismo tiempo, de limitación del sistema de la Restauración. Si bien logró garantizar la continuidad de la monarquía y ofrecer un marco de estabilidad política durante casi dos décadas, no consiguió abordar las transformaciones necesarias para adaptar el régimen a una sociedad en cambio. De este modo, la aparente solidez del periodo ocultaba una serie de tensiones latentes que emergerían con mayor intensidad durante el reinado de Alfonso XIII, contribuyendo finalmente a la crisis y al colapso del sistema liberal en el primer tercio del siglo XX.</p>
                     <a href="{% url 'maria_cristina_hasburgo' %}" class="link-atentado">
-                    Ampliar contenido </i>
+                    Ampliar contenido <i class="bi bi-arrow-right"></i><i class="bi bi-arrow-right"></i>
                   </a>
                 
                 </div>
@@ -1423,6 +1424,22 @@ a.section-link:hover {
             </p>
           </div>
         </section>
+        <!-- RECURSOS -->
+        <section>
+          
+          <div class="section-head anchor" id="recursos">
+            <h2>📚 Recursos</h2>            
+          </div>
+
+          <div class="content-card mt-3">
+            <h3 class="h6 fw-bold mb-2">Vídeos </h3>
+            <ul class="mb-0">
+              <li><a href="https://www.rtve.es/play/videos/memoria-de-espana/memoria-espana-alfonso-xiii/3296713/" target="_blank" rel="noopener" style="text-decoration:none;">Memoria de España de RTVE. Alfonso XIII</a></li>
+              <li><a href="#" target="_blank" rel="noopener" style="text-decoration:none;">[Añadir] </a></li>
+              <li><a href="#" target="_blank" rel="noopener" style="text-decoration:none;">[Añadir] </a></li>
+            </ul>
+          </div>
+            </section>
 
       </main>
     </div>

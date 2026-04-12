@@ -3,12 +3,15 @@
 <!doctype html>
 <html lang="es">
     <head>
-        <title> {% block titulo %} {% endblock %} </title>
+        <title> {% block title %} {% endblock %} </title>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+        <link rel="icon" type="image/png" href="{% static 'images/favicon1.png' %}">
 
-        <!-- Datatable -->
+        {% block extra_head %}{% endblock %}
+
         
 
         <!-- Bootstrap CSS v5.0.2 -->
@@ -60,8 +63,7 @@
                      Inicio
                     </a>
                         <a class="navbar-brand mx-3" href="{% url 'inicioEspagna' %}">España</a>
-                        <a class="navbar-brand mx-3" href="{% url 'alfonsoXIII' %}">AlfonsoXIII</a>
-                        <a class="navbar-brand mx-3" href="{% url 'primoRivera' %}">Primo Rivera</a>
+                        <a class="navbar-brand mx-3" href="{% url 'alfonsoXIII' %}">AlfonsoXIII</a>                        
                         <a class="navbar-brand mx-3" href="{% url 'segundaRepublica' %}"> Segunda República</a>
                         <a class="navbar-brand mx-3" href="{% url 'guerraCivil' %}"> Guerra Civil</a>
                         <a class="navbar-brand mx-3" href="{% url 'franco' %}"> Franco</a>
