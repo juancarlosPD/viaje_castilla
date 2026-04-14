@@ -1,25 +1,1061 @@
+
+
 {% extends "bases/basesigloXX.html" %}
-
 {% load static %}
-
-{% block titulo %} Primo Rivera {% endblock %}
 {% block cabecera %} Dictadura de Primo de Rivera {% endblock %}
-{% block imgCabecera %} <img src="{% static 'images/sigloXX/miguelPrimoRivera.jpg' %}" class="card-img-top" alt="..."> {% endblock %}
-
-{% block contenido %}
-
-
-
-
-<h3 class="mt-5">Recursos </h3>
-    <hr>
-    <p><p><u>Documentales</u></p></p>
-    <div>    
-        <ul>
-            <li><a href="https://www.youtube.com/watch?v=sxqzgjizzdo&list=PLTg9oK7EhhS1jHvWBFVA-jDv_v5YjY6A3&index=25" target="_blank" style="text-decoration:none ;">El crack del 29 y la Gran Depresión</a>.</li>
-            
-        </ul>
-    </div>
-
+{% block imgCabecera %}  
+<figure class="text-center">
+  <img class="img-fluid rounded-4 border shadow-sm"
+       src="{% static 'images/sigloXX/primo_rivera.jpg' %}"
+       alt="Alfonnso XIII"
+       role="button"
+       data-bs-toggle="modal"
+       data-bs-target="#img_calvo_sotelo">
+</figure>
 
 {% endblock %}
+{% block title %}Dictadura de Primo de Rivera{% endblock %}
+
+
+
+{% block contenido %}
+<style>
+    .titulo-timeline {
+    font-size: 1.4rem;
+    font-weight: 800;
+    }
+  .alfonso-page {
+    background: linear-gradient(to bottom, #f7f4ee 0%, #f1ede6 100%);
+    min-height: 100vh;
+    padding-bottom: 4rem;
+  }
+
+  .alfonso-hero {
+    background: linear-gradient(135deg, #1b2a41 0%, #2f4b6e 100%);
+    color: #fff;
+    padding: 4rem 0 3rem;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .alfonso-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 85% 20%, rgba(255,255,255,0.12), transparent 30%);
+    pointer-events: none;
+  }
+
+  .hero-wrap {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-kicker {
+    display: inline-block;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.22);
+    color: #f8f5ef;
+    padding: 0.4rem 0.85rem;
+    border-radius: 999px;
+    font-size: 0.88rem;
+    letter-spacing: 0.02em;
+    margin-bottom: 1rem;
+  }
+
+  .alfonso-hero h1 {
+    font-size: 2.5rem;
+    line-height: 1.08;
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+
+  .alfonso-hero .lead {
+    font-size: 1.14rem;
+    max-width: 860px;
+    color: rgba(255,255,255,0.92);
+  }
+
+  .hero-chips {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.18);
+    color: #fff;
+    padding: 0.48rem 0.85rem;
+    border-radius: 999px;
+    font-size: 0.95rem;
+    backdrop-filter: blur(2px);
+  }
+
+  .hero-portrait {
+    max-width: 320px;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 16px 34px rgba(0,0,0,0.25);
+    border: 1px solid rgba(255,255,255,0.18);
+    background: rgba(255,255,255,0.08);
+  }
+
+  .hero-portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+  }
+
+  .hero-caption {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.82);
+    padding-top: 0.55rem;
+  }
+
+  .content-shell {
+    max-width: 1380px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .page-grid {
+    display: grid;
+    grid-template-columns: 290px minmax(0, 1fr);
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .page-aside {
+    position: sticky;
+    top: 92px;
+  }
+
+  .aside-card {
+    background: #fff;
+    border: 1px solid #e7dfd2;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(58, 44, 24, 0.06);
+    padding: 1.25rem 1rem;
+  }
+
+  .aside-card h5 {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #1f2937;
+    margin-bottom: 1rem;
+  }
+
+  .aside-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .aside-nav a {
+    text-decoration: none;
+    color: #334155;
+    font-size: 0.95rem;
+    padding: 0.45rem 0.55rem;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+  }
+
+  .aside-nav a:hover {
+    background: #f4efe6;
+    color: #1b2a41;
+  }
+
+  .main-col {
+    min-width: 0;
+  }
+
+  .intro-box,
+  .content-card,
+  .highlight-card,
+  .quote-card {
+    background: #fff;
+    border: 1px solid #e7dfd2;
+    border-radius: 20px;
+    box-shadow: 0 10px 28px rgba(58, 44, 24, 0.06);
+  }
+
+  .intro-box {
+    padding: 1.4rem 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .intro-box p:last-child,
+  .content-card p:last-child,
+  .quote-card p:last-child {
+    margin-bottom: 0;
+  }
+
+  .section-block {
+    margin-bottom: 2rem;
+    scroll-margin-top: 100px;
+  }
+
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .section-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #d8c3a5, #f0e2ce);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    flex: 0 0 auto;
+    color: #493628;
+  }
+
+  .section-head h2 {
+    margin: 0;
+    font-size: 1.7rem;
+    font-weight: 800;
+    color: #1f2937;
+  }
+
+  .content-card {
+    padding: 1.5rem;
+  }
+
+  .content-card p {
+    color: #374151;
+    line-height: 1.8;
+    font-size: 1.02rem;
+    margin-bottom: 1rem;
+  }
+  
+
+  .content-card ul {
+    margin-bottom: 0;
+  }
+
+  .content-card li {
+    margin-bottom: 0.55rem;
+    color: #374151;
+    line-height: 1.7;
+  }
+
+  .mini-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: 1.2rem;
+  }
+
+  .mini-grid_17 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1.2rem;
+  }
+
+  .highlight-card {
+    padding: 1rem;
+    height: 100%;
+  }
+
+  .highlight-card h6 {
+    font-weight: 800;
+    color: #1f2937;
+    margin-bottom: 0.55rem;
+  }
+
+  .highlight-card p {
+    margin: 0;
+    color: #475569;
+    line-height: 1.65;
+    font-size: 0.96rem;
+  }
+
+  .timeline {
+    position: relative;
+    margin-top: 1.4rem;
+    padding-left: 1.2rem;
+  }
+
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 9px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    border-radius: 999px;
+    background: linear-gradient(to bottom, #b99870, #d7c2a5);
+  }
+
+  .t-item {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .t-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .t-item::before {
+    content: "";
+    position: absolute;
+    left: -0.05rem;
+    top: 0.35rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #8b6a48;
+    box-shadow: 0 0 0 4px #efe4d5;
+  }
+
+  .t-date {
+    display: inline-block;
+    font-weight: 800;
+    color: #6b4f35;
+    background: #f4eadc;
+    border: 1px solid #ead8bf;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .t-item h6 {
+    font-weight: 800;
+    color: #1f2937;
+    margin-bottom: 0.35rem;
+  }
+
+  .t-item p {
+    margin: 0;
+    color: #475569;
+    line-height: 1.7;
+  }
+
+  .img-block {
+    margin-top: 1.25rem;
+  }
+
+  .img-frame {
+    background: #faf8f4;
+    border: 1px solid #e5dacb;
+    border-radius: 18px;
+    overflow: hidden;
+  }
+
+  .img-frame img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    max-height: 460px;
+    cursor: pointer;
+  }
+
+  .img-note {
+    padding: 0.85rem 1rem;
+    font-size: 0.92rem;
+    color: #5b6472;
+    background: #fcfbf8;
+    border-top: 1px solid #e5dacb;
+  }
+
+  .quote-card {
+    padding: 1.25rem 1.35rem;
+    margin-top: 1rem;
+    border-left: 5px solid #b99870;
+  }
+
+  .quote-card p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #334155;
+    margin-bottom: 0.65rem;
+  }
+
+  .quote-author {
+    font-size: 0.92rem;
+    color: #6b7280;
+    font-weight: 600;
+  }
+
+  .summary-band {
+    margin-top: 1.25rem;
+    background: linear-gradient(135deg, #f3e8da 0%, #f8f2e9 100%);
+    border: 1px solid #e4d5bf;
+    border-radius: 18px;
+    padding: 1rem 1.15rem;
+  }
+
+  .summary-band strong {
+    color: #3d2d1f;
+  }
+
+  .final-box {
+    background: linear-gradient(135deg, #23344f 0%, #314a6b 100%);
+    color: #fff;
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: 0 16px 36px rgba(27, 42, 65, 0.18);
+  }
+
+  .final-box h3 {
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+
+  .final-box p {
+    color: rgba(255,255,255,0.94);
+    line-height: 1.8;
+    margin-bottom: 0.9rem;
+  }
+
+  .final-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  .icon-box {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #d8c3a5, #f0e2ce);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+    }
+
+    .highlight-card {
+    transition: all 0.25s ease;
+    }
+
+    .highlight-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.12);
+    }
+    .link-atentado {
+    color: #8b0000;
+    font-weight: 600;
+    text-decoration: underline;
+    cursor: pointer;
+    }
+
+    .link-atentado:hover {
+    color: #c1121f;
+    }
+    .aside-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    }
+
+    .aside-nav a,
+    .aside-dropbtn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    text-decoration: none;
+    background: #fff;
+    color: #1f3c88;
+    border: 1px solid #d6dff2;
+    border-radius: 10px;
+    padding: 0.7rem 0.9rem;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    text-align: left;
+    }
+
+    .aside-nav a:hover,
+    .aside-dropbtn:hover {
+    background: #f3f7ff;
+    border-color: #9eb8ea;
+    }
+
+    .aside-dropdown {
+    display: flex;
+    flex-direction: column;
+    }
+
+    .aside-submenu {
+    display: none;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-top: 0.35rem;
+    margin-left: 0.8rem;
+    }
+
+    .aside-dropdown.open .aside-submenu {
+    display: flex;
+    }
+
+    .aside-submenu a {
+    font-size: 0.95rem;
+    padding: 0.6rem 0.8rem;
+    border-radius: 8px;
+    background: transparent;
+    border: none;
+    color: #03226b;
+    }
+
+    .aside-submenu a:hover {
+    background: #eef4ff;
+    }
+
+    .arrow {
+    font-size: 0.9rem;
+    transition: transform 0.2s ease;
+    }
+
+    .aside-dropdown.open .arrow {
+    transform: rotate(180deg);
+    }
+
+    .page-aside {
+    position: sticky;
+    top: 20px;
+    align-self: start;
+    }
+
+    .section-head-inline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    }
+
+    .section-head-inline h6 {
+    margin: 0;
+    }
+
+    .section-head-inline .section-link {
+    white-space: nowrap;
+    }
+
+    .section-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        margin-top: 0.35rem;
+        font-weight: 600;
+        text-decoration: none;
+    }
+    .hero-portrait {
+    max-width: 320px;
+    margin: 0 auto;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 16px 34px rgba(0,0,0,0.25);
+    border: 1px solid rgba(255,255,255,0.18);
+    background: rgba(255,255,255,0.08);
+    }
+
+
+    @media (max-width: 1199px) {
+        .page-grid {
+        grid-template-columns: 1fr;
+        }
+
+        .page-aside {
+        position: static;
+        }
+
+        .mini-grid {
+        grid-template-columns: 1fr;
+        }
+
+        .hero-portrait {
+        margin-top: 1.5rem;
+        max-width: 100%;
+        }
+        .aside-container {
+        position: relative; /* en móvil mejor quitar sticky */
+        top: 0;
+    }
+    }
+
+    @media (max-width: 767px) {
+        .alfonso-hero {
+        padding: 3rem 0 2.2rem;
+        }
+
+        .alfonso-hero h1 {
+        font-size: 2rem;
+        }
+
+        .section-head h2 {
+        font-size: 1.4rem;
+        }
+
+        .content-card,
+        .intro-box,
+        .final-box {
+        padding: 1.2rem;
+        }
+    }
+</style>
+
+<div class="alfonso-page">
+
+<section class="alfonso-hero">
+  <div class="container hero-wrap">
+    <div class="row align-items-center g-4">
+      <div class="col-lg-8 ">
+        <span class="hero-kicker">Dictadura, regeneracionismo y fin del sistema de la Restauración</span>
+
+        <h1>La dictadura de Primo de Rivera y la crisis final de la Restauración</h1>
+
+        <p class="lead">
+        La dictadura de Miguel Primo de Rivera, desarrollada entre 1923 y 1930, constituyó el último intento de salvar el sistema político de la Restauración mediante una solución autoritaria. Tras el golpe de Estado del 13 de septiembre de 1923, el general asumió el poder con el apoyo del rey Alfonso XIII, suspendiendo la Constitución de 1876 e instaurando un régimen militar que pretendía regenerar la vida política española.
+        </p>
+
+        <p class="lead">
+        Durante estos años, España experimentó una aparente estabilidad basada en la represión del conflicto social, el control del orden público y una política económica intervencionista que impulsó obras públicas y modernización de infraestructuras. Sin embargo, el régimen también evidenció profundas contradicciones: la ausencia de legitimidad democrática, la creciente oposición de intelectuales, militares y sectores sociales, y la incapacidad para institucionalizar un sistema político duradero. La caída de la dictadura en 1930 dejó al descubierto la descomposición definitiva del sistema de la Restauración y abrió el camino hacia la proclamación de la Segunda República.
+        </p>
+
+        <div class="d-flex flex-wrap gap-2 mt-3">
+        <span class="t-pill">⚔️ Golpe de Estado</span>
+        <span class="t-pill">🏛️ Directorio militar</span>
+        <span class="t-pill">🏗️ Obras públicas</span>
+        <span class="t-pill">📉 Crisis del sistema</span>
+        <span class="t-pill">📜 Fin de la Restauración</span>
+        </div>
+      </div>
+
+      <div class="col-lg-4 text-center ">
+        <div class="hero-portrait">
+          <img src="{% static 'images/sigloXX/miguelPrimoRivera.jpg' %}"
+               class="img-fluid mx-auto d-block"
+               alt="Retrato de María Cristina de Habsburgo">
+        </div>
+        <div class="hero-caption">
+          Miguel Primo de Rivera
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <div class="content-shell">
+    <div class="page-grid">
+
+      <aside class="page-aside">
+        <div class="aside-card">
+
+          <h5>📚 Contenido</h5>
+
+          <nav class="aside-nav">
+
+            <a href="#golpe1923" class="aside-link">
+                ⚔️ Golpe de Estado de 1923
+            </a>
+
+            <a href="#directorio-militar" class="aside-link">
+                🪖 Directorio militar
+            </a>
+
+            <a href="#directorio-civil" class="aside-link">
+                🏛️ Directorio civil
+            </a>
+
+            <a href="#politica-economica" class="aside-link">
+                🏗️ Política económica y obras públicas
+            </a>
+
+            <a href="#oposicion" class="aside-link">
+                📢 Oposición y conflictividad
+            </a>
+
+            <a href="#caida-dictadura" class="aside-link">
+                📉 Caída de la dictadura
+            </a>
+
+            <a href="#transicion-republica" class="aside-link">
+                📜 Hacia la Segunda República
+            </a>
+            <a class="toc-link" href="#recursos">📚 Recursos</a>
+
+          </nav>
+
+        </div>
+      </aside>
+
+      <main class="main-col">
+         <div class="section-head">            
+            <h2>⚔️ Golpe de Estado de 1923</h2>
+          </div>
+        <div id="golpe1923" class="intro-box section-block">
+          
+
+                <div class="row">
+                <div class="col-6">                  
+                  <img src="{% static 'images/sigloXX/alfonsoXIII/golpe_estado.png' %}" 
+                      class="img-fluid rounded shadow-sm" 
+                      alt="Pacto del Prado">
+                                          
+                </div>
+                <div class="col-6">
+                  
+                  <p>
+                    El golpe de Estado del 13 de septiembre de 1923, encabezado por el general Miguel Primo de Rivera, capitán general de Cataluña, supuso la ruptura definitiva del sistema constitucional de la Restauración.<strong> La sublevación militar, iniciada en Barcelona,</strong> se extendió rápidamente por el territorio nacional sin encontrar una resistencia significativa, reflejo del profundo desgaste del régimen político vigente. La crisis del sistema parlamentario, caracterizado por el 
+                  </p>
+
+
+                </div>
+               <p>turnismo, el caciquismo y la corrupción electoral, había generado una creciente desafección tanto en amplios sectores sociales como en parte del propio Ejército.</p>
+                <p>
+                El <strong>contexto</strong> inmediato del golpe estuvo marcado por una combinación de factores estructurales y coyunturales. Entre ellos destacaban la grave conflictividad social —con huelgas, violencia política y auge del movimiento obrero—, el problema regionalista, especialmente en Cataluña, y, sobre todo, el descrédito del Ejército tras el desastre de Annual de 1921. La investigación parlamentaria de este episodio, conocida como el “Expediente Picasso”, amenazaba con depurar responsabilidades que alcanzaban a altos mandos militares e incluso al propio monarca, Alfonso XIII, lo que aceleró la decisión de intervenir por la vía autoritaria.
+                </p>
+
+                <p>
+                Primo de Rivera justificó su acción mediante un manifiesto dirigido a la nación, en el que denunciaba la incapacidad de los políticos para gobernar y se presentaba como el representante de una solución regeneracionista. En dicho manifiesto, el general proponía acabar con la “vieja política”, restaurar el orden público y emprender una profunda reforma del Estado. Este discurso conectaba con una parte de la opinión pública, cansada de la inestabilidad y receptiva a soluciones autoritarias, en un contexto europeo donde proliferaban regímenes de este tipo.
+                </p>
+
+                <p>
+                El éxito del golpe se vio facilitado por la <strong> actitud decisiva del rey Alfonso XIII</strong>, quien aceptó la dimisión del gobierno constitucional y encargó a Primo de Rivera la formación de un nuevo ejecutivo, legitimando de facto la ruptura del orden constitucional. Este respaldo real fue un elemento clave para la consolidación inicial de la dictadura, pero también comprometió a la monarquía con el nuevo régimen, condicionando su futuro. A partir de ese momento, se suspendieron las garantías constitucionales, se disolvieron las Cortes y se instauró un Directorio Militar que concentró todos los poderes del Estado.
+                </p>
+
+                <p>
+                En definitiva, el golpe de Estado de 1923 no fue un fenómeno aislado, sino la culminación de un proceso de descomposición del sistema de la Restauración. Lejos de constituir una solución transitoria, abrió una etapa de gobierno autoritario que pretendía regenerar el país desde arriba, pero que terminaría profundizando la crisis política y facilitando la caída de la monarquía en 1931.
+                </p>
+                
+              </div>   
+                
+
+              
+            </div>
+
+        <section id="directorio-militar" class="section-block">
+          <div class="section-head">            
+            <h2>🪖 Directorio militar</h2>
+          </div>
+
+          <div class="content-card">
+           <p>
+            Tras el golpe de Estado de septiembre de 1923, el general Miguel Primo de Rivera instauró un Directorio Militar como forma provisional de gobierno, integrado exclusivamente por altos mandos del Ejército. Este órgano concentró todos los poderes del Estado, suprimiendo el sistema constitucional de la Restauración y gobernando mediante decretos. <strong>La Constitución de 1876 quedó suspendida, las Cortes disueltas y los partidos políticos tradicionales marginados de la vida pública.</strong> 
+            </p>
+
+            <div class="row">
+              <div class="col-6">
+                <p>
+                    El nuevo régimen se presentó como una solución transitoria destinada a restaurar el orden y regenerar el sistema político, aunque en la práctica supuso la instauración de una dictadura militar. Entre sus primeras medidas destacaron la declaración del estado de guerra, la censura de prensa, la prohibición de actividades políticas y sindicales, y la intervención de las administraciones locales, donde los ayuntamientos fueron sustituidos por juntas designadas por el poder central.
+                </p>
+                <p>
+                Uno de los principales objetivos del Directorio Militar fue la pacificación social. Para ello, el régimen combinó la represión del movimiento obrero —especialmente del anarquismo— con una política de control y canalización del conflicto laboral. Aunque se reprimieron duramente las organizaciones más radicales, también se buscó una cierta colaboración con sectores moderados del sindicalismo, en particular con la UGT, en un intento de estabilizar la situación.
+                </p>
+                <p>En el ámbito territorial, la dictadura adoptó una política claramente centralizadora.</p>
+                
+              </div>
+              <div class="col-6">                                  
+                <img src="{% static 'images/sigloXX/alfonsoXIII/directorio_militar.jpg' %}" 
+                    class="img-fluid rounded shadow-sm" 
+                    alt="Cánovas del Castillo">
+                    <p class="mt-2 text-center">Directorio militar</p>                    
+              
+              </div>
+              <p>
+             Se suprimieron instituciones y símbolos del catalanismo político, como la Mancomunidad de Cataluña, y se restringió el uso público de la lengua catalana. Estas medidas respondían al temor del régimen ante los nacionalismos periféricos, considerados una amenaza para la unidad del Estado.
+            </p>
+
+            <p>
+            La cuestión marroquí constituyó otro eje fundamental del Directorio Militar. Tras años de conflicto y desgaste, la dictadura optó por una solución decisiva que culminó en el desembarco de Alhucemas en 1925, una operación militar conjunta con Francia que supuso un punto de inflexión en la guerra del Rif y permitió la pacificación del Protectorado. Este éxito reforzó notablemente el prestigio del régimen y consolidó temporalmente la posición de Primo de Rivera.
+            </p>
+
+            <p>
+            En conjunto, el Directorio Militar logró imponer una cierta estabilidad política y social a corto plazo, apoyado en el Ejército, la monarquía y sectores conservadores de la sociedad. Sin embargo, su carácter autoritario, la ausencia de instituciones representativas y la falta de un proyecto político definido más allá del orden y la disciplina evidenciaron sus limitaciones. Estas carencias llevarían a la necesidad de una evolución del régimen hacia formas aparentemente más civiles, dando paso en 1925 al Directorio Civil.
+            </p>
+
+            </div>
+            
+            
+            
+            
+
+            
+        </section>
+
+        <section id="directorio-civil" class="section-block">
+          <div class="section-head">            
+            <h2>🏛️ Directorio civil (1925–1930)</h2>
+          </div>
+
+           <div class="content-card">
+
+            
+            <p>
+            En diciembre de 1925, tras el éxito militar en Marruecos y con el objetivo de dotar de mayor estabilidad y legitimidad al régimen, Miguel Primo de Rivera sustituyó el Directorio Militar por un Directorio Civil. Aunque el nuevo gobierno incorporó a civiles en puestos ministeriales, la dictadura mantuvo su carácter autoritario, sin restaurar el sistema constitucional ni permitir la participación política efectiva. Este cambio respondió más a una estrategia de institucionalización del régimen que a una verdadera apertura democrática.
+            </p>
+            <div class="row">
+              
+              <div class="col-12 d-flex justify-content-center">                  
+                <img src="{% static 'images/sigloXX/alfonsoXIII/directorio_civil.webp' %}" 
+                    class="img-fluid rounded shadow-sm" 
+                    alt="Pablo Iglesias">
+                                        
+              </div>
+              <p class="mt-2 text-center">Directorio civil</p>
+                <p>
+                    Uno de los pilares fundamentales de esta nueva etapa fue el intento de construir una base política propia mediante la creación de la Unión Patriótica (1924), un partido oficial concebido como instrumento de apoyo al régimen. Sin embargo, lejos de constituir una fuerza política moderna, la Unión Patriótica se configuró como una organización heterogénea y poco cohesionada, basada en redes de poder local y en el apoyo de élites tradicionales, sin un programa ideológico sólido.
+                </p>
+
+                <p>
+                    En el ámbito institucional, la dictadura impulsó la Asamblea Nacional Consultiva (1927), un órgano corporativo que pretendía sustituir al parlamentarismo liberal. Sus miembros no eran elegidos por sufragio universal, sino designados desde distintos sectores sociales y profesionales, lo que reflejaba la influencia de modelos corporativistas europeos. No obstante, la Asamblea carecía de poder legislativo real y funcionó fundamentalmente como un instrumento de legitimación del régimen.
+                </p>
+
+                <p>
+                    Desde el punto de vista económico, el Directorio Civil desarrolló una política intervencionista orientada a la modernización del país. Se promovieron grandes obras públicas, especialmente en infraestructuras (carreteras, ferrocarriles, obras hidráulicas), y se impulsaron monopolios estatales como CAMPSA en el sector energético. Esta política favoreció un periodo de crecimiento económico y cierta estabilidad, aunque sustentado en un fuerte endeudamiento público y en un contexto internacional inicialmente favorable.
+                </p>
+
+                <p>
+                    Paralelamente, el régimen trató de articular un modelo de relaciones laborales de carácter corporativo, basado en la Organización Corporativa Nacional. Este sistema buscaba integrar a empresarios y trabajadores en órganos mixtos de mediación y arbitraje, reduciendo el conflicto social mediante la intervención del Estado. Aunque logró cierta pacificación temporal, no eliminó las tensiones de fondo ni satisfizo plenamente a los distintos actores sociales.
+                </p>
+
+                <p>
+                    A partir de 1928, comenzaron a manifestarse los signos de agotamiento del régimen. La crisis económica internacional, el aumento del déficit público y la pérdida de apoyos en sectores clave —incluyendo el Ejército, intelectuales, estudiantes y parte de la burguesía— debilitaron progresivamente la dictadura. La incapacidad para consolidar un sistema político estable y la creciente oposición evidenciaron los límites del proyecto de Primo de Rivera.
+                </p>
+
+                <p>
+                    En definitiva, el Directorio Civil representó el intento fallido de institucionalizar la dictadura y prolongar su duración mediante una apariencia de normalización política. Sin embargo, lejos de resolver las contradicciones del régimen, contribuyó a profundizarlas, preparando el terreno para su crisis final y la caída de la monarquía en 1931.
+                </p>
+            </div>           
+
+                
+
+            
+          </div>
+        </section>
+
+        <section id="politica-economica" class="section-block">
+          <div class="section-head">            
+            <h2>🏗️ Política económica y obras públicas</h2>
+          </div>
+
+          <div class="content-card">
+            
+                <p>
+                La política económica de la dictadura de Miguel Primo de Rivera constituyó uno de los pilares fundamentales de su acción de gobierno, especialmente durante la etapa del Directorio Civil (1925–1930). El régimen adoptó un modelo claramente intervencionista, en el que el Estado asumió un papel central en la planificación, regulación y promoción de la actividad económica, con el objetivo de modernizar el país y consolidar una base social de apoyo.
+                </p>
+
+                <p>
+                Uno de los ejes principales de esta política fue el ambicioso programa de obras públicas. La dictadura impulsó la construcción y mejora de infraestructuras, especialmente en la red de carreteras, ferrocarriles y obras hidráulicas. Se desarrolló el Plan Nacional de Firmes Especiales, que permitió la modernización de miles de kilómetros de carreteras, facilitando la comunicación interior y favoreciendo el crecimiento económico. Asimismo, se promovieron proyectos de regadío y construcción de embalses, orientados a mejorar la productividad agraria.
+                </p>
+
+                <p>
+                En el ámbito industrial, el régimen fomentó la intervención estatal mediante la creación de monopolios y grandes empresas públicas o semipúblicas. Destaca la fundación en 1927 de CAMPSA (Compañía Arrendataria del Monopolio de Petróleos), que centralizó la distribución de combustibles, así como el impulso a sectores estratégicos como la energía, la siderurgia y las telecomunicaciones. Estas medidas buscaban reducir la dependencia exterior y fortalecer la economía nacional.
+                </p>
+                <div class="col">
+                  
+                      <img src="{% static 'images/sigloXX/alfonsoXIII/obras_publicas.jpg' %}" 
+                          class="img-fluid rounded shadow-sm" 
+                          alt="Martinez Campos">                                             
+                  
+                </div>
+
+                <p>
+                La política económica se apoyó también en una estrecha colaboración con las élites empresariales y financieras, favoreciendo un modelo de capitalismo protegido. El Estado regulaba los mercados, establecía aranceles proteccionistas y promovía acuerdos entre empresarios y trabajadores dentro del marco corporativo. Este sistema pretendía evitar el conflicto social y garantizar la estabilidad económica, aunque limitaba la competencia y la eficiencia a largo plazo.
+                </p>
+
+                <p>
+                Durante los primeros años, este modelo generó un periodo de crecimiento económico y cierta prosperidad, favorecido además por la coyuntura internacional de expansión en la segunda mitad de los años veinte. Sin embargo, este crecimiento presentaba importantes debilidades estructurales. El fuerte incremento del gasto público, financiado en gran medida mediante endeudamiento, generó un desequilibrio financiero que se agravó con la llegada de la crisis económica internacional a finales de la década.
+                </p>
+
+                <p>
+                En definitiva, la política económica de Primo de Rivera combinó modernización y dirigismo estatal, logrando resultados visibles a corto plazo en infraestructuras y desarrollo económico. No obstante, la falta de sostenibilidad financiera y la dependencia de un contexto internacional favorable evidenciaron sus límites, contribuyendo al desgaste del régimen en sus últimos años.
+                </p>
+             
+                       
+          </div>
+        </section>
+
+        <section id="oposicion" class="section-block">
+          <div class="section-head">            
+            <h2>📢 Oposición y conflictividad</h2>
+          </div>
+
+          <div class="content-card">
+
+                <p>
+                    A pesar de la aparente estabilidad alcanzada en los primeros años de la dictadura, el régimen de Miguel Primo de Rivera fue generando progresivamente una oposición cada vez más amplia y heterogénea. Lo que inicialmente había sido recibido con cierta aceptación por amplios sectores sociales —cansados de la crisis del sistema de la Restauración— evolucionó hacia un rechazo creciente a medida que se evidenciaban los límites y contradicciones del régimen autoritario.
+                </p>
+
+                <p>
+                    Uno de los focos más activos de oposición fue el ámbito intelectual y universitario. Intelectuales como Miguel de Unamuno criticaron abiertamente la dictadura, denunciando la falta de libertades y el empobrecimiento de la vida cultural y política. En las universidades, el movimiento estudiantil protagonizó protestas y movilizaciones contra el régimen, convirtiéndose en un símbolo de resistencia frente al autoritarismo.
+                </p>
+
+                <p>
+                    En el terreno político, la dictadura no logró integrar ni sustituir eficazmente a los partidos tradicionales, que, aunque debilitados, continuaron existiendo en la clandestinidad o en el exilio. Paralelamente, el republicanismo experimentó un notable crecimiento, articulándose como una alternativa política cada vez más sólida frente a la monarquía. La oposición republicana comenzó a coordinarse y a ganar apoyos en distintos sectores de la sociedad.
+                </p>
+                <div class="col-12 d-flex justify-content-center">                  
+                    <img src="{% static 'images/sigloXX/alfonsoXIII/oposicion.jpg' %}" 
+                        class="img-fluid rounded shadow-sm" 
+                        alt="Oposición">
+                                        
+                </div>
+
+                <p>
+                    El movimiento obrero también desempeñó un papel relevante en la contestación al régimen. Aunque la dictadura mantuvo una relación ambivalente con organizaciones como la UGT, intentando integrarlas en su modelo corporativo, sectores más radicales, especialmente el anarquismo vinculado a la CNT, fueron duramente reprimidos. Esta represión alimentó la conflictividad social y contribuyó a mantener un clima de tensión latente.
+                </p>
+
+                <p>
+                    Incluso dentro del propio Ejército, uno de los pilares fundamentales del régimen, comenzaron a surgir tensiones. La cuestión de los ascensos, la reorganización militar y el protagonismo político de Primo de Rivera generaron malestar en determinados sectores militares, debilitando el apoyo inicial con el que había contado la dictadura.
+                </p>
+
+                <p>
+                    A partir de finales de la década de 1920, la convergencia de estas distintas formas de oposición —intelectual, estudiantil, política, obrera y militar— configuró un frente cada vez más amplio contra el régimen. La dictadura, incapaz de canalizar estas demandas ni de ofrecer una alternativa política viable, fue perdiendo apoyos de manera progresiva, lo que aceleró su crisis y preparó el terreno para su caída.
+                </p>              
+          </div>        
+        </section>
+        
+        <section id="caida-dictadura" class="section-block">
+          <div class="section-head">            
+            <h2>📉 Caída de la dictadura</h2>
+          </div>
+
+          <div class="content-card">
+             
+            <div class="row">
+                <div class="col-6">                  
+                  <img src="{% static 'images/sigloXX/alfonsoXIII/caida_primo.jpg' %}" 
+                      class="img-fluid rounded shadow-sm" 
+                      alt="Joaquín Costa">
+                                          
+                </div>
+                <div class="col-6">
+                    <p>
+                        La caída de la dictadura en enero de 1930 fue el resultado de un proceso progresivo de desgaste político, social y económico que el régimen no supo revertir. A partir de finales de la década de 1920, comenzaron a evidenciarse con claridad las limitaciones del proyecto primorriverista, incapaz de consolidar un sistema político estable y duradero más allá del liderazgo personal del dictador.
+                    </p>
+                    
+                    <p>
+                        Uno de los factores determinantes fue el deterioro de la situación económica. El modelo intervencionista, que había generado crecimiento en los años anteriores, empezó a 
+                    </p>
+                    
+                </div>
+            </div>   
+
+            <p>mostrar signos de agotamiento debido al incremento del gasto público y al endeudamiento del Estado. La llegada de la crisis económica internacional tras el crack de 1929 agravó estos problemas, reduciendo los recursos disponibles y aumentando el malestar social.</p>
+
+            <p>
+                Paralelamente, la dictadura fue perdiendo el apoyo de sectores clave. La burguesía, inicialmente beneficiada por la estabilidad y las políticas económicas del régimen, comenzó a distanciarse ante la falta de garantías políticas y la incertidumbre económica. El Ejército, uno de los pilares fundamentales del sistema, mostró crecientes divisiones internas, debilitando la base de poder de Primo de Rivera. Asimismo, la oposición política —republicanos, intelectuales, estudiantes y movimiento obrero— se encontraba cada vez más organizada y activa.
+            </p>
+
+            <p>
+                En este contexto de aislamiento creciente, el dictador intentó sin éxito obtener el respaldo explícito del Ejército para mantenerse en el poder. Ante la falta de apoyo firme, presentó su dimisión al rey Alfonso XIII el 28 de enero de 1930 y abandonó el país, poniendo fin a casi siete años de dictadura. Su salida no implicó una transición ordenada hacia un nuevo sistema político, sino que dejó un vacío de poder y una profunda crisis institucional.
+            </p>
+
+            <p>
+                El papel del monarca fue decisivo en este desenlace. Al haber respaldado el golpe de Estado de 1923 y sostenido la dictadura durante años, Alfonso XIII quedó estrechamente vinculado al régimen. La caída de Primo de Rivera arrastró consigo el prestigio de la monarquía, que perdió gran parte de su legitimidad ante la opinión pública y amplios sectores políticos.
+            </p>
+
+            <p>
+                En definitiva, la caída de la dictadura no supuso una restauración del sistema de la Restauración, sino la evidencia de su agotamiento definitivo. El fracaso del experimento autoritario abrió una etapa de transición —conocida como la “Dictablanda” del general Berenguer— que desembocaría, en un corto plazo, en la proclamación de la Segunda República en abril de 1931.
+            </p>
+
+                    
+
+            
+          </div>
+        
+
+        
+        </section>
+
+        <section id="transicion-republica" class="section-block">
+          <div class="section-head">            
+            <h2>📜 Hacia la Segunda República</h2>
+          </div>
+
+          <div class="content-card">
+             
+            <div class="row">
+                <div class="col-6">                  
+                  <img src="{% static 'images/sigloXX/alfonsoXIII/segunda_republica.jpg' %}" 
+                      class="img-fluid rounded shadow-sm" 
+                      alt="Hacia la segunda república">
+                                        
+                </div>
+                <div class="col-6">
+                    <p class="mt-2">
+                        La caída de la dictadura en enero de 1930 no supuso la restauración del sistema político anterior, sino que evidenció el agotamiento definitivo de la monarquía de la Restauración. El intento del rey de retornar a la normalidad constitucional mediante el nombramiento del general Dámaso Balaguer dio lugar a una etapa conocida como la “Dictablanda”, caracterizada por la debilidad del poder ejecutivo y la incapacidad para reconstruir el sistema parlamentario.
+                    </p>
+
+                    
+                </div>
+                    <p class="mt-3">
+                        Durante este periodo, la oposición al régimen monárquico se reorganizó y fortaleció de manera significativa. En agosto de 1930, republicanos, socialistas y nacionalistas firmaron el Pacto de San Sebastián, un acuerdo político destinado a coordinar la acción contra la monarquía y preparar el establecimiento de un nuevo régimen republicano. Este pacto supuso la articulación de una alternativa política real, capaz de canalizar el creciente descontento social y político.
+                    </p>
+
+                    <p>
+                        Paralelamente, se produjeron intentos fallidos de sublevación, como el pronunciamiento de Jaca en diciembre de 1930, protagonizado por sectores militares afines al republicanismo. Aunque este intento fue sofocado, evidenció el grado de deslegitimación del régimen y la extensión del sentimiento antimonárquico incluso dentro del Ejército.
+                    </p>
+
+                    <p>
+                        Ante la imposibilidad de sostener el sistema, el gobierno convocó elecciones municipales en abril de 1931. Aunque formalmente eran unos comicios locales, se convirtieron en un auténtico plebiscito sobre la continuidad de la monarquía. El triunfo de las candidaturas republicanas en las principales ciudades reflejó un claro rechazo al régimen monárquico.
+                    </p>
+
+                    <p>
+                        El 14 de abril de 1931, en un clima de movilización popular y sin apenas resistencia, se proclamó la Segunda República en diversas ciudades españolas. Ese mismo día, Alfonso XIII abandonó el país, poniendo fin a la monarquía. Se iniciaba así una nueva etapa en la historia de España, caracterizada por el intento de construcción de un régimen democrático y reformista.
+                    </p>
+            </div>           
+            
+            
+          </div>  
+
+        
+        </section>
+        
+        
+
+        <!-- RECURSOS -->
+        <section>
+          
+          <div class="section-head anchor" id="recursos">
+            <h2>📚 Recursos</h2>            
+          </div>
+
+          <div class="content-card mt-3">
+            <h3 class="h6 fw-bold mb-2">Vídeos </h3>
+            <ul class="mb-0"> 
+              <li><a href="https://www.youtube.com/watch?v=sxqzgjizzdo&list=PLTg9oK7EhhS1jHvWBFVA-jDv_v5YjY6A3&index=25" target="_blank" style="text-decoration:none ;">El crack del 29 y la Gran Depresión</a>             
+              <li><a href="#" target="_blank" rel="noopener" style="text-decoration:none;">[Añadir] </a></li>
+              <li><a href="#" target="_blank" rel="noopener" style="text-decoration:none;">[Añadir] </a></li>
+            </ul>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+</div>
+
+
+</div>
+
+<script>
+  function toggleSubmenu(button) {
+    const dropdown = button.parentElement;
+    dropdown.classList.toggle("open");
+  }
+</script>
+{% endblock %}
+
+
+
+
+

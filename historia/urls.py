@@ -63,6 +63,7 @@ urlpatterns = [
 
     # ----------------------------SIGLO XX--------------------------
     path('sigloXX/', views.sigloXX, name='sigloXX'),
+    path('siglo_plata/', views.siglo_plata, name='siglo_plata'),
     path('alfonsoXIII/', views.alfonsoXIII, name='alfonsoXIII'),
     path('primoRivera/', views.primoRivera, name='primoRivera'),
     path('segundaRepublica/', views.segundaRepublica, name='segundaRepublica'),

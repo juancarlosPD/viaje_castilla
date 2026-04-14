@@ -161,9 +161,6 @@ def primoRivera(request):
 def segundaRepublica(request):    
     return render(request, 'espagna/sigloXX/segundaRepublica.html')
 
-# def presidentesXX(request):    
-#     return render(request, 'espagna/sigloXX/presidentesXX.html')
-
 def presidentesXX(request):
     presidentes = [
         {
@@ -445,6 +442,140 @@ def presidentesXX(request):
     }
     
     return render(request, 'espagna/sigloXX/presidentesXX.html', contexto)
+
+def siglo_plata(request): 
+#    generaciones = [
+#             {
+#             "titulo": "Generación del 98",
+#             "escritores": [
+#                 {
+#                     "orden": 1,
+#                     "nombre": "Miguel de Unamuno y Jugo",
+#                     "generacion": "Generación 98",
+#                     "periodo": "Bilbao, 1864–Salamanca, 1936",            
+#                     "facetas": "Filósofo, novelista, poeta, ensayista, dramaturgo.",
+#                     "imagen": "images/sigloXX/escritores/unamuno.jpg",
+#                     "obra": "Del sentimiento trágico de la vida (1913), Niebla (1914), San Manuel Bueno, mártir (1931).",
+#                     "resumen": "Comprometido con la regeneración de España, fue crítico tanto del monarquismo como de la dictadura de Miguel Primo de Rivera, lo que le llevó al destierro en Fuerteventura y luego al exilio en Francia (1924–1930). Tras la proclamación de la Segunda República Española, regresó triunfal a Salamanca. Durante la Guerra Civil Española, se distanció de ambos bandos. El célebre enfrentamiento con el general José Millán Astray en el paraninfo de la universidad simboliza su defensa de la razón y la humanidad: “Vencer no es convencer”. Murió confinado en su casa. Su legado perdura como símbolo del pensamiento crítico y la conciencia moral de España."
+#                 },
+#         {
+#             "orden": 2,
+#             "nombre": "Pío Baroja y Nessi",
+#             "generacion": "Generación 98",
+#             "periodo": "San Sebastian,1872 - Madrid, 1956",            
+#             "facetas": "Médico. Novelista.",
+#             "imagen": "images/sigloXX/escritores/baroja.avif",
+#             "obra": "Trilogía “La lucha por la vida” (La busca, Mala hierba, Aurora roja): retrato de los barrios bajos madrileños. Trilogía “La raza” (La dama errante, La ciudad de la niebla, El árbol de la ciencia): exploración existencial y autobiográfica. Serie “Memorias de un hombre de acción” (22 volúmenes): epopeya histórica inspirada en su antepasado Eugenio de Aviraneta.",
+#             "resumen": "Considerado el novelista por excelencia del 98, Baroja influyó en autores como Camilo José Cela y Ernest Hemingway. Su entierro en el Cementerio Civil de Madrid simbolizó su espíritu libre y anticlerical. Aún hoy, su visión lúcida y desencantada de España mantiene plena vigencia."
+#         },
+#         {
+#             "orden": 3,
+#             "nombre": "José Martínez Ruiz (Azorín)",
+#             "generacion": "Generación 98",
+#             "periodo": "Monóvar, 1873–Madrid, 1967",            
+#             "facetas": "Novelista, ensayista, crítico literario y político español.",
+#             "imagen": "images/sigloXX/escritores/azorin.webp",
+#             "obra": "La voluntad, Antonio Azorín, Las confesiones de un pequeño filósofo, La ruta de Don Quijote, Castilla.",
+#             "resumen": "Participó activamente en la vida pública durante la Restauración, siendo diputado y subsecretario de Instrucción Pública. Su evolución ideológica lo llevó del anarquismo inicial al conservadurismo. Tras la Guerra Civil española residió un tiempo en París, regresando a España en 1949. Fue miembro de la Real Academia Española desde 1924 y recibió la Gran Cruz de Alfonso X el Sabio. Su influencia perdura como símbolo de introspección, precisión estilística y amor por la cultura y el paisaje españoles."
+#         },
+#         {
+#             "orden": 4,
+#             "nombre": "Antonio Machado",
+#             "generacion": "Generación 98",
+#             "periodo": "Sevilla,1875 - Collioure,1939",            
+#             "facetas": "Poeta, dramaturgo y pensador español.",
+#             "imagen": "images/sigloXX/escritores/machado.jpg",
+#             "obra": "Soledades, Campos de Castilla, Juan de Mairena.",
+#             "resumen": "Partidario de la Segunda República, permaneció fiel al ideal democrático durante la Guerra Civil Española. En 1939 huyó con su familia a Francia, donde murió poco después en el exilio. Su tumba en Collioure simboliza la dignidad intelectual del exiliado. Hoy es considerado uno de los grandes poetas en lengua española, modelo de claridad ética y de emoción contenida."
+#         },
+#     ]
+    
+#     return render(request, 'espagna/sigloXX/siglo_plata.html', {
+#         "generaciones": generaciones
+#     })
+
+    generaciones = [
+        {
+            "titulo": "Generación del 98",
+            "escritores": [
+                {
+                    "orden": 1,
+                    "nombre": "Miguel de Unamuno y Jugo",
+                    "generacion": "Generación 98",
+                    "periodo": "Bilbao, 1864–Salamanca, 1936",            
+                    "facetas": "Filósofo, novelista, poeta, ensayista, dramaturgo.",
+                    "imagen": "images/sigloXX/escritores/unamuno.jpg",
+                    "obra": "Del sentimiento trágico de la vida (1913), Niebla (1914), San Manuel Bueno, mártir (1931).",
+                    "resumen": "Comprometido con la regeneración de España, fue crítico tanto del monarquismo como de la dictadura de Miguel Primo de Rivera, lo que le llevó al destierro en Fuerteventura y luego al exilio en Francia (1924–1930). Tras la proclamación de la Segunda República Española, regresó triunfal a Salamanca. Durante la Guerra Civil Española, se distanció de ambos bandos. El célebre enfrentamiento con el general José Millán Astray en el paraninfo de la universidad simboliza su defensa de la razón y la humanidad: “Vencer no es convencer”. Murió confinado en su casa. Su legado perdura como símbolo del pensamiento crítico y la conciencia moral de España."
+                },
+                {
+                    "orden": 2,
+                    "nombre": "Pío Baroja y Nessi",
+                    "generacion": "Generación 98",
+                    "periodo": "San Sebastian,1872 - Madrid, 1956",            
+                    "facetas": "Médico. Novelista.",
+                    "imagen": "images/sigloXX/escritores/baroja.avif",
+                    "obra": "Trilogía “La lucha por la vida” (La busca, Mala hierba, Aurora roja): retrato de los barrios bajos madrileños. Trilogía “La raza” (La dama errante, La ciudad de la niebla, El árbol de la ciencia): exploración existencial y autobiográfica. Serie “Memorias de un hombre de acción” (22 volúmenes): epopeya histórica inspirada en su antepasado Eugenio de Aviraneta.",
+                    "resumen": "Considerado el novelista por excelencia del 98, Baroja influyó en autores como Camilo José Cela y Ernest Hemingway. Su entierro en el Cementerio Civil de Madrid simbolizó su espíritu libre y anticlerical. Aún hoy, su visión lúcida y desencantada de España mantiene plena vigencia."
+                },
+                {
+                    "orden": 3,
+                    "nombre": "José Martínez Ruiz (Azorín)",
+                    "generacion": "Generación 98",
+                    "periodo": "Monóvar, 1873–Madrid, 1967",            
+                    "facetas": "Novelista, ensayista, crítico literario y político español.",
+                    "imagen": "images/sigloXX/escritores/azorin.webp",
+                    "obra": "La voluntad, Antonio Azorín, Las confesiones de un pequeño filósofo, La ruta de Don Quijote, Castilla.",
+                    "resumen": "Participó activamente en la vida pública durante la Restauración, siendo diputado y subsecretario de Instrucción Pública. Su evolución ideológica lo llevó del anarquismo inicial al conservadurismo. Tras la Guerra Civil española residió un tiempo en París, regresando a España en 1949. Fue miembro de la Real Academia Española desde 1924 y recibió la Gran Cruz de Alfonso X el Sabio. Su influencia perdura como símbolo de introspección, precisión estilística y amor por la cultura y el paisaje españoles."
+                },
+                {
+                    "orden": 4,
+                    "nombre": "Antonio Machado",
+                    "generacion": "Generación 98",
+                    "periodo": "Sevilla,1875 - Collioure,1939",            
+                    "facetas": "Poeta, dramaturgo y pensador español.",
+                    "imagen": "images/sigloXX/escritores/machado.jpg",
+                    "obra": "Soledades, Campos de Castilla, Juan de Mairena.",
+                    "resumen": "Partidario de la Segunda República, permaneció fiel al ideal democrático durante la Guerra Civil Española. En 1939 huyó con su familia a Francia, donde murió poco después en el exilio. Su tumba en Collioure simboliza la dignidad intelectual del exiliado. Hoy es considerado uno de los grandes poetas en lengua española, modelo de claridad ética y de emoción contenida."
+                },
+            ]
+        },
+
+        {
+            "titulo": "Generación del 14",
+            "escritores": [
+                {
+                    "orden": 1,
+                    "nombre": "José Ortega y Gasset",
+                    "periodo": "Madrid, 1883–1955",
+                    "facetas": "Filósofo y ensayista",
+                    "imagen": "images/sigloXX/escritores/ortega.jpg",
+                    "obra": "La rebelión de las masas...",
+                    "resumen": "Principal pensador del Novecentismo..."
+                }
+            ]
+        },
+
+        {
+            "titulo": "Generación del 27",
+            "escritores": [
+                {
+                    "orden": 1,
+                    "nombre": "Federico García Lorca",
+                    "periodo": "Fuente Vaqueros, 1898–1936",
+                    "facetas": "Poeta y dramaturgo",
+                    "imagen": "images/sigloXX/escritores/lorca.jpg",
+                    "obra": "Romancero gitano...",
+                    "resumen": "Máximo exponente del 27..."
+                }
+            ]
+        }
+    ]
+
+    return render(request, 'espagna/sigloXX/siglo_plata.html', {
+        "generaciones": generaciones
+    })
+    
 
 #----------------------------------- GUERRA CIVIL
 

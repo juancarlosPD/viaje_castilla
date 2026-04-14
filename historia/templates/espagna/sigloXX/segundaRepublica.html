@@ -545,6 +545,21 @@
     white-space: nowrap;
   }
 
+  .object-fit-cover {
+    object-fit: cover;
+  }
+  .img-wrapper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
 
 
   @media (max-width: 1199px) {
@@ -641,9 +656,7 @@
             <a href="#constitucion">🏛️ Constitución de 1931</a>
             <a href="#bienio-reformista">🌱 Bienio reformista (1931–1933)</a>
             <a href="#bienio-radical">⚖️ Bienio radical-cedista (1933–1935)</a>
-            <a href="#frente-popular">✊ Frente Popular (1936)</a>
-            <a href="#reformas">🛠️ Reformas estructurales</a>
-            <a href="#conflictos">💥 Conflictos y tensiones sociales</a>
+            <a href="#frente-popular">✊ Frente Popular (1936)</a>            
             <a href="#crisis-final">🔥 Crisis final y colapso</a>
           </nav>
         </div>
@@ -655,7 +668,80 @@
             <h2 id="proclamacion">Proclamación de la República</h2>
           </div>
         <div class="intro-box section-block">
-          <p>
+          <!-- IMAGEN -->
+          <figure class="text-center mb-4">
+            <img src="{% static 'images/sigloXX/segunda_republica/proclamacion_segunda_republica.jpg' %}" 
+                class="img-fluid rounded shadow-sm"
+                alt="Proclamación de la Segunda República en Madrid, 1931">
+            <figcaption class="mt-2 text-muted small">
+              Multitud celebrando la proclamación de la Segunda República en la Puerta del Sol (14 de abril de 1931).
+            </figcaption>
+          </figure>
+
+           <!-- MINI TIMELINE -->
+          <div class="mini-timeline mt-4">
+
+            <article class="t-item">
+              <h4><span class="t-date">Agosto 1930</span> Pacto de San Sebastián</h4>
+              <p>Acuerdo entre fuerzas republicanas para coordinar la caída de la monarquía.</p>
+            </article>
+
+            <article class="t-item">
+              <h4><span class="t-date">12 abril 1931</span> Elecciones municipales</h4>
+              <p>Victoria republicana en las principales ciudades españolas.</p>
+            </article>
+
+            <article class="t-item">
+              <h4><span class="t-date">14 abril 1931</span> Proclamación de la República</h4>
+              <p>Se instaura el nuevo régimen y Alfonso XIII abandona el país.</p>
+            </article>
+
+          </div>
+          <!-- BOTÓN MODAL -->
+          <div class="text-center mt-4">
+            <a href="#" class="btn btn-outline-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#modalProclamacion">
+              Ampliar contexto histórico <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+
+    
+
+    <!-- MODAL -->
+          <div class="modal fade" id="modalProclamacion" tabindex="-1">
+            <div class="modal-dialog modal-lg modal-dialog-scrollable">
+              <div class="modal-content">
+
+                <div class="modal-header">
+                  <h5 class="modal-title">Contexto de la proclamación de la Segunda República</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+
+                  <p>
+                    El Pacto de San Sebastián (1930) supuso la articulación de una alternativa política al régimen monárquico, reuniendo a republicanos, socialistas y nacionalistas. Este acuerdo permitió coordinar una estrategia común para sustituir la monarquía por un sistema republicano.
+                  </p>
+
+                  <p>
+                    La caída de la dictadura de Primo de Rivera dejó al descubierto la fragilidad del sistema político. Los intentos de restaurar la normalidad constitucional fracasaron, evidenciando la pérdida de apoyo social y político de la monarquía.
+                  </p>
+
+                  <p>
+                    Las elecciones municipales de abril de 1931, aunque formalmente locales, fueron interpretadas como un referéndum sobre la continuidad del régimen. El triunfo republicano en las ciudades reflejó el cambio en la opinión pública y aceleró la caída de Alfonso XIII.
+                  </p>
+
+                  <p>
+                    La proclamación de la República se produjo en un ambiente de entusiasmo popular, pero también abrió una etapa de profundas transformaciones que generarían importantes tensiones políticas y sociales.
+                  </p>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <p class="mt-3">
             La proclamación de la República no fue el resultado de una revolución violenta, sino de un proceso político acelerado en el que confluyeron el descrédito de la monarquía de Alfonso XIII, el fracaso de la dictadura de Primo de Rivera (1923–1930) y la incapacidad de los gobiernos posteriores para restaurar el sistema constitucional. La denominada “dictablanda” del general Berenguer y el breve gobierno del almirante Aznar no lograron recomponer el régimen, evidenciando su agotamiento estructural.
           </p>
 
@@ -692,7 +778,8 @@
             <p>
               Tras la proclamación de la República, el Gobierno Provisional convocó elecciones a Cortes Constituyentes en junio de 1931. Estas elecciones otorgaron una amplia mayoría a las fuerzas republicanas y socialistas, lo que permitió impulsar un texto constitucional de carácter avanzado para su época. La Constitución fue aprobada el 9 de diciembre de 1931 y configuró a España como una “República democrática de trabajadores de toda clase”.
             </p>
-
+            <!-- CITA DESTACADA -->
+            
             <p>
               Desde el punto de vista político, el nuevo texto consagró la soberanía popular y estableció un sistema parlamentario unicameral, en el que las Cortes concentraban el poder legislativo. El jefe del Estado, el presidente de la República, era elegido de forma indirecta y desempeñaba funciones de arbitraje y representación, mientras que el Gobierno era responsable ante las Cortes.
             </p>
@@ -708,8 +795,66 @@
             <p>
               Sin embargo, uno de los puntos más controvertidos fue la cuestión religiosa. La Constitución estableció un Estado laico, separando Iglesia y Estado, suprimiendo el presupuesto del clero y regulando las órdenes religiosas, lo que generó una fuerte oposición por parte de los sectores conservadores y de la Iglesia católica.
             </p>
+            <!-- TABLA COMPARATIVA -->
+            <div class="table-responsive mt-4">
+              <table class="table table-bordered align-middle text-center">
+                <thead class="table-light">
+                  <tr>
+                    <th>Aspecto</th>
+                    <th>Restauración</th>
+                    <th>Segunda República</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Soberanía</strong></td>
+                    <td>Soberanía compartida entre Rey y Cortes</td>
+                    <td>Soberanía popular</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Jefatura del Estado</strong></td>
+                    <td>Monarquía</td>
+                    <td>Presidente de la República</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Sistema político</strong></td>
+                    <td>Liberal oligárquico, basado en el turnismo</td>
+                    <td>Democrático y parlamentario</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Cortes</strong></td>
+                    <td>Bicamerales</td>
+                    <td>Unicamerales</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Relación Iglesia-Estado</strong></td>
+                    <td>Estado confesional católico</td>
+                    <td>Estado laico</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Sufragio</strong></td>
+                    <td>Masculino</td>
+                    <td>Universal, incluido el voto femenino</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Modelo territorial</strong></td>
+                    <td>Centralista</td>
+                    <td>Apertura a autonomías regionales</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
 
-            <p>
+            <!-- BOTÓN MODAL -->
+            <div class="text-center mt-4">
+              <a href="#" class="btn btn-outline-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#modalConstitucion1931">
+                Ver artículos clave <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+
+            <p class="mt-3">
               En conjunto, la Constitución de 1931 representó uno de los proyectos más ambiciosos de democratización en la historia de España, pero también contribuyó a intensificar las tensiones políticas al afectar intereses profundamente arraigados en amplios sectores de la sociedad.
             </p>
 
@@ -726,6 +871,57 @@
 
             
           </div>
+          <!-- MODAL ARTÍCULOS CLAVE -->
+          <div class="modal fade" id="modalConstitucion1931" tabindex="-1" aria-labelledby="modalConstitucion1931Label" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-scrollable">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="modalConstitucion1931Label">Artículos clave de la Constitución de 1931</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+
+                <div class="modal-body">
+
+                  <div class="mb-4">
+                    <h5>📜 Artículo 1: definición del nuevo Estado</h5>
+                    <p>
+                      El artículo 1 definía a España como una república democrática de trabajadores, subrayando la legitimidad popular del nuevo régimen y su orientación social. No se trataba solo de sustituir la monarquía por una república, sino de afirmar un nuevo ideal de ciudadanía y de intervención pública.
+                    </p>
+                  </div>
+
+                  <div class="mb-4">
+                    <h5>🎓 Educación</h5>
+                    <p>
+                      La Constitución impulsó una educación pública, laica y accesible, concebida como instrumento esencial para la modernización del país. La escuela debía formar ciudadanos libres e iguales, reduciendo el peso de la enseñanza confesional y combatiendo el atraso cultural y el analfabetismo.
+                    </p>
+                  </div>
+
+                  <div class="mb-4">
+                    <h5>⛪ Religión y laicidad</h5>
+                    <p>
+                      El texto constitucional estableció la separación entre Iglesia y Estado y limitó la influencia institucional de las órdenes religiosas. Este principio laico fue uno de los rasgos más innovadores de la Constitución, pero también uno de los que provocó mayor rechazo entre los sectores conservadores.
+                    </p>
+                  </div>
+
+                  <div class="mb-4">
+                    <h5>🗳️ Sufragio femenino</h5>
+                    <p>
+                      La Constitución reconoció el derecho al voto de las mujeres, incorporándolas plenamente a la ciudadanía política. Esta medida constituyó un hito histórico en España y fue defendida con especial firmeza por Clara Campoamor en los debates parlamentarios.
+                    </p>
+                  </div>
+
+                  <div class="mb-4">
+                    <h5>🗺️ Autonomías</h5>
+                    <p>
+                      El nuevo marco constitucional abrió la posibilidad de que determinadas regiones accedieran a la autonomía mediante estatutos, dentro de un Estado republicano común. Esta fórmula trataba de integrar las demandas nacionalistas sin romper la unidad política del país.
+                    </p>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
         </section>
 
         <section id="bienio-reformista" class="section-block">
@@ -735,10 +931,172 @@
           </div>
 
           <div class="content-card">
-           <p>---</p>
-            
+           
+        <p>
+          El Bienio reformista se desarrolló bajo gobiernos de coalición republicano-socialista y tuvo en Manuel Azaña a su principal figura política. Este periodo representó el primer gran intento de transformar en profundidad la vida pública española mediante un programa que afectaba al Ejército, la propiedad agraria, la relación entre Iglesia y Estado, la educación y la organización territorial. La intención de fondo era construir una democracia moderna, secular y socialmente más equilibrada.
+        </p>
+
+        <p>
+          El proyecto reformista partía de un diagnóstico compartido por amplios sectores republicanos: España arrastraba graves desequilibrios históricos que impedían su democratización efectiva. El excesivo peso político del Ejército, la concentración de la tierra en pocas manos, la influencia de la Iglesia en la enseñanza y en la vida pública, el analfabetismo y la debilidad del Estado liberal eran percibidos como obstáculos estructurales que debían ser corregidos.
+        </p>
+
+        <p>
+          Sin embargo, la aplicación de estas reformas encontró resistencias intensas. Los sectores conservadores, buena parte del estamento militar, la jerarquía eclesiástica y los grandes propietarios interpretaron muchas de estas medidas como una amenaza directa a su posición social. Al mismo tiempo, entre jornaleros, obreros y sectores anarquistas creció la frustración por la lentitud de los cambios. De este modo, el Bienio reformista quedó atrapado entre la oposición de las élites tradicionales y la impaciencia de quienes esperaban una transformación más rápida y profunda.
+        </p>
+
+        <!-- ESQUEMA VISUAL -->
+        <div class="row g-3 mt-4">
+          <div class="col-md-6 col-xl-3">
+            <div class="content-card h-100 text-center">
+              <div class="fs-2 mb-2">🪖</div>
+              <h5>Reforma militar</h5>
+              <p class="mb-0">
+                Reducción del número de oficiales, subordinación del Ejército al poder civil y modernización institucional impulsada por Azaña.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-xl-3">
+            <div class="content-card h-100 text-center">
+              <div class="fs-2 mb-2">🌾</div>
+              <h5>Reforma agraria</h5>
+              <p class="mb-0">
+                Intento de redistribuir la propiedad y aliviar la situación del campesinado sin tierra, especialmente en el sur latifundista.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-xl-3">
+            <div class="content-card h-100 text-center">
+              <div class="fs-2 mb-2">⛪</div>
+              <h5>Reforma religiosa</h5>
+              <p class="mb-0">
+                Separación entre Iglesia y Estado, laicización de la vida pública y limitación de la influencia eclesiástica en la enseñanza.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-xl-3">
+            <div class="content-card h-100 text-center">
+              <div class="fs-2 mb-2">🎓</div>
+              <h5>Reforma educativa</h5>
+              <p class="mb-0">
+                Construcción de escuelas, impulso de la enseñanza pública y extensión de la cultura mediante las Misiones Pedagógicas.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <p class="mt-4">
+          La reforma militar trató de resolver uno de los grandes problemas del Estado español contemporáneo: la hipertrofia del Ejército y su frecuente intervención en la vida política. Azaña promovió una reorganización destinada a racionalizar mandos y reforzar la primacía del poder civil. Aunque la reforma respondía a criterios de eficacia institucional, fue percibida por muchos militares como una humillación corporativa.
+        </p>
+
+        <p>
+          La reforma agraria, por su parte, pretendía responder a la extrema desigualdad en la distribución de la tierra. La Ley de Reforma Agraria de 1932 buscó expropiar determinados latifundios para asentar campesinos, pero su aplicación fue lenta, compleja y limitada. Esto generó un doble descontento: entre los propietarios, que denunciaban una amenaza revolucionaria, y entre los jornaleros, que consideraban insuficientes los resultados.
+        </p>
+
+        <p>
+          En el terreno religioso, el nuevo régimen avanzó hacia un modelo de Estado laico. La supresión de privilegios eclesiásticos, la regulación de órdenes religiosas y la secularización de la enseñanza provocaron una fuerte reacción de la Iglesia y de los sectores católicos. Esta cuestión se convirtió en uno de los principales ejes de polarización durante toda la República.
+        </p>
+
+        <p>
+          En cambio, la política educativa fue uno de los aspectos más emblemáticos del reformismo republicano. La construcción de miles de escuelas, la mejora de la formación del magisterio y la expansión de la cultura a zonas rurales mediante las Misiones Pedagógicas simbolizaron la voluntad de crear una ciudadanía democrática y moderna. La educación fue entendida como instrumento esencial de regeneración nacional.
+        </p>
+
+        <p>
+          A pesar de su coherencia global, el programa reformista comenzó a desgastarse en un contexto de tensión política y conflictividad social creciente. El episodio de Casas Viejas, en enero de 1933, tuvo un impacto demoledor sobre la imagen del gobierno, al asociar al reformismo republicano con una dura represión del movimiento campesino.
+        </p>
+
+        <div class="text-center mt-4">
+          <a href="#" class="btn btn-outline-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#modalCasasViejas">
+            Casas Viejas, 1933 <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- FICHA DE AZAÑA -->
+        <div class="content-card mt-5">
+          <div class="row align-items-center">
+
+            <div class="col-md-3 p-0">
+              <div class="img-wrapper">
+                <img src="{% static 'images/sigloXX/presidentes/azana.jpg' %}"
+                    alt="Manuel Azaña">
+              </div>
+            </div>
+
+        <div class="col-md-9">
+          <h4 class="mb-2">👤 Manuel Azaña</h4>
+          <p class="mb-2">
+            Intelectual, escritor y político republicano, Manuel Azaña fue la figura central del Bienio reformista. Como jefe de Gobierno impulsó las principales reformas del periodo y encarnó el proyecto de modernización democrática de la Segunda República.
+          </p>
+          <p class="mb-2">
+            Su pensamiento político combinaba reformismo, laicismo, defensa del parlamentarismo y subordinación del Ejército al poder civil. Para sus partidarios, representó el intento más serio de construir una España moderna y democrática; para sus adversarios, simbolizó la ruptura con la tradición política, religiosa y social del país.
+          </p>
+          <p class="mb-0">
+            Su liderazgo fue decisivo en la primera etapa republicana, aunque el desgaste derivado de la conflictividad social y de episodios como Casas Viejas debilitó su posición y contribuyó a la derrota electoral de 1933.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="info-box mt-4">
+      <strong>Claves interpretativas:</strong>
+      <ul>
+        <li>El Bienio reformista fue el primer gran intento de modernización estructural de la España del siglo XX.</li>
+        <li>Su programa afectó a ámbitos clave: Ejército, propiedad agraria, Iglesia y educación.</li>
+        <li>Las resistencias de las élites tradicionales fueron muy intensas.</li>
+        <li>La lentitud de la reforma agraria generó frustración entre las clases populares.</li>
+        <li>Casas Viejas dañó gravemente la legitimidad del reformismo republicano.</li>
+        <li>Manuel Azaña fue la figura política central de esta etapa.</li>
+      </ul>
+    </div>
             
           </div>
+
+          <!-- MODAL CASAS VIEJAS -->
+        <div class="modal fade" id="modalCasasViejas" tabindex="-1" aria-labelledby="modalCasasViejasLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalCasasViejasLabel">Casas Viejas (1933)</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+              </div>
+
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-12">
+                      <div class="img-wrapper">
+                        <img src="{% static 'images/sigloXX/segunda_republica/casas_viejas1.jpg' %}"
+                            alt="Manuel Azaña">
+                      </div>
+                  </div>
+                  <div class="col-12">
+                      <p>
+                      En enero de 1933 se produjo en la localidad gaditana de Casas Viejas una insurrección de carácter anarquista vinculada al clima de agitación social que atravesaba el campo andaluz. La revuelta fue sofocada con extrema dureza por fuerzas de orden público enviadas por el gobierno republicano-socialista.
+                    </p>
+
+                    <p>
+                      La represión incluyó la quema de la choza de “Seisdedos” y la muerte de varios campesinos, algunos de ellos en circunstancias que suscitaron una fuerte conmoción en la opinión pública. Más allá de su alcance local, el episodio adquirió una dimensión nacional por su impacto político y moral.
+                    </p>
+
+                    <p>
+                      Casas Viejas se convirtió en símbolo de las contradicciones del reformismo republicano: un régimen que aspiraba a democratizar y modernizar el país aparecía ahora asociado a métodos represivos frente a los sectores populares. El escándalo debilitó profundamente al gobierno de Azaña y contribuyó de manera decisiva a su desgaste.
+                    </p>
+
+                    <p>
+                      Desde el punto de vista historiográfico, Casas Viejas representa uno de los momentos más reveladores de la tensión entre reforma y orden público durante la Segunda República. El episodio mostró hasta qué punto el proyecto reformista estaba condicionado por el miedo a la revolución social y por la dificultad de integrar las expectativas de los sectores más desfavorecidos.
+                    </p>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+
         </section>
 
         <section id="bienio-radical" class="section-block">
@@ -748,7 +1106,73 @@
           </div>
 
           <div class="content-card">
-            <p>----</p>>
+              <div class="row">
+                <div class="col-md-9">
+                    <p>
+                    Las elecciones de noviembre de 1933 supusieron un cambio decisivo en el equilibrio político de la República. La victoria de las fuerzas de centro-derecha, especialmente del Partido Radical de Alejandro Lerroux y de la Confederación Española de Derechas Autónomas (CEDA), liderada por José María Gil-Robles, marcó el inicio de una etapa de rectificación de las políticas del Bienio reformista.
+                  </p>
+
+                  <p>
+                    Durante esta etapa, el gobierno estuvo formalmente presidido por el Partido Radical, aunque dependía del apoyo parlamentario de la CEDA, que representaba a amplios sectores conservadores, católicos y agrarios. La entrada progresiva de la CEDA en el poder, culminada en 1934 con la incorporación de sus ministros al gobierno, fue interpretada por la izquierda como una amenaza al régimen republicano.
+                  </p>
+
+                  <p>
+                    En el plano político y social, el Bienio radical-cedista se caracterizó por la paralización o revisión de muchas de las reformas emprendidas en el periodo anterior. La reforma agraria fue ralentizada, se adoptaron medidas más favorables a los propietarios y se revisaron aspectos de la legislación laboral. En el ámbito religioso, se moderó la política laicista, buscando una mayor aproximación a la Iglesia.
+                  </p>
+
+                  
+
+                </div>
+                <div class="col-md-3">
+                  <img src="{% static 'images/sigloXX/segunda_republica/lerroux.jpg' %}"
+                      alt="Lerroux"
+                      class="img-fluid rounded shadow-sm mb-3 w-100">
+
+                  <img src="{% static 'images/sigloXX/segunda_republica/ceda.jpg' %}"
+                      alt="Cartel de la CEDA"
+                      class="img-fluid rounded shadow-sm w-100">
+                </div>
+              </div>
+
+              <p>
+                    Este giro político generó una creciente tensión social y política. Las organizaciones obreras, especialmente el PSOE y la UGT, interpretaron el avance de la derecha como un riesgo de involución autoritaria. Este clima desembocó en la insurrección de octubre de 1934, que tuvo especial intensidad en Asturias —donde adquirió carácter revolucionario— y en Cataluña, donde el presidente de la Generalitat, Lluís Companys, proclamó el “Estado catalán” dentro de una supuesta República federal.
+                  </p>
+
+                  <div class="row">
+                    <div class="col-12">
+                        <img src="{% static 'images/sigloXX/segunda_republica/represion_octubre.jpg' %}"
+                        alt="Represion de octubre"
+                        class="img-fluid rounded shadow-sm w-100">
+                    </div>
+                    <div class="col-12">
+                        <p class="mt-2">
+                          La represión de la revolución de octubre fue especialmente dura, en particular en Asturias, donde el gobierno recurrió al Ejército, incluyendo tropas africanas al mando del general Franco. La violencia de la represión, así como la dureza de los enfrentamientos, dejaron una profunda huella en la sociedad española y agravaron la fractura política.
+                        </p>
+
+                        <p>
+                          A partir de 1935, el régimen entró en una fase de creciente inestabilidad. Los escándalos de corrupción, como el caso del estraperlo, afectaron gravemente al Partido Radical y erosionaron la legitimidad del gobierno. La crisis política culminó con la disolución de las Cortes y la convocatoria de nuevas elecciones en febrero de 1936.
+                        </p>
+                    </div>
+                  </div>
+
+                  
+
+                  <p>
+                    En conjunto, el Bienio radical-cedista supuso una etapa de transición en la que se consolidó la polarización ideológica y social, debilitando las bases del sistema republicano y preparando el terreno para la confrontación política que caracterizaría los últimos meses de la República.
+                  </p>
+
+                  <div class="info-box mt-4">
+                    <strong>Claves interpretativas:</strong>
+                    <ul>
+                      <li>Supone una rectificación del impulso reformista del periodo anterior.</li>
+                      <li>Ascenso político de la derecha (Partido Radical y CEDA).</li>
+                      <li>Incremento de la conflictividad social y radicalización de la izquierda.</li>
+                      <li>La revolución de octubre de 1934 marca un punto de inflexión.</li>
+                      <li>La represión y la violencia agravan la fractura política.</li>
+                      <li>Los escándalos de corrupción debilitan al gobierno y precipitan nuevas elecciones.</li>
+                    </ul>
+                  </div>
+             
                        
           </div>
         </section>
@@ -759,38 +1183,115 @@
           </div>
 
           <div class="content-card">
-            <p>-----</p>        
+             <p>
+              Tras la crisis del Bienio radical-cedista, las elecciones de febrero de 1936 se plantearon como un enfrentamiento entre dos grandes bloques políticos. Por un lado, el Frente Popular, una coalición de partidos republicanos de izquierda, socialistas y otras fuerzas obreras; por otro, las derechas agrupadas en diversas candidaturas. La victoria electoral del Frente Popular, aunque ajustada en votos, se tradujo en una mayoría parlamentaria suficiente para formar gobierno.
+            </p>
+
+            <div class="row">
+                <div class="col-12">
+                    <img src="{% static 'images/sigloXX/segunda_republica/frente_popular.jpg' %}"
+                    alt="Frente popular"
+                    class="img-fluid rounded shadow-sm w-100">
+                </div>
+            </div>
+
+            <p class="mt-2">
+              El nuevo gobierno, inicialmente presidido por Manuel Azaña, impulsó una política de recuperación de las reformas del primer bienio. Entre sus primeras medidas destacó la amnistía para los encarcelados por los sucesos de octubre de 1934, la reactivación de la reforma agraria y la restauración del autogobierno catalán. Estas decisiones fueron bien recibidas por amplios sectores populares, pero generaron una fuerte oposición en los ámbitos conservadores.
+            </p>
+
+            <p>
+              En mayo de 1936, Azaña fue elegido presidente de la República, siendo sustituido en la jefatura del gobierno por Santiago Casares Quiroga. Sin embargo, la situación política y social se deterioró rápidamente. El incremento de huelgas, ocupaciones de tierras, enfrentamientos callejeros y episodios de violencia política reflejaba una creciente pérdida de control por parte del Estado.
+            </p>
+
+            <p>
+              Paralelamente, sectores de la derecha, especialmente dentro del Ejército, comenzaron a conspirar activamente contra el régimen republicano. La percepción de desorden social, el temor a una revolución y la radicalización de los discursos políticos favorecieron la preparación de un golpe de Estado. Figuras militares como Emilio Mola, Francisco Franco y José Sanjurjo desempeñaron un papel clave en la organización de la sublevación.
+            </p>
+
+            <p>
+              El clima de violencia política alcanzó un punto crítico en julio de 1936 con el asesinato del teniente José Castillo, militante socialista, seguido del asesinato del líder monárquico José Calvo Sotelo por miembros de las fuerzas de seguridad. Este último acontecimiento tuvo un fuerte impacto político y fue utilizado por los conspiradores como justificación definitiva para acelerar el golpe de Estado.
+            </p>
+
+            <p>
+              El 17 y 18 de julio de 1936 se produjo la sublevación militar contra el gobierno de la República, iniciada en el Protectorado de Marruecos y extendida rápidamente a la península. El fracaso parcial del golpe dio lugar a una guerra civil que dividiría al país durante casi tres años.
+            </p>
+
+            <p>
+              En conjunto, la etapa del Frente Popular representa la fase final de la Segunda República, caracterizada por la imposibilidad de estabilizar el sistema democrático en un contexto de extrema polarización política, crisis social y creciente intervención militar.
+            </p>
+
+            <div class="info-box mt-4">
+              <strong>Claves interpretativas:</strong>
+              <ul>
+                <li>Victoria electoral del bloque de izquierdas en un contexto de fuerte polarización.</li>
+                <li>Intento de reactivar las reformas del primer bienio.</li>
+                <li>Creciente conflictividad social y debilitamiento del orden público.</li>
+                <li>Intensificación de la conspiración militar contra la República.</li>
+                <li>Los asesinatos de julio de 1936 precipitan la crisis final.</li>
+                <li>El golpe de Estado de julio de 1936 marca el inicio de la Guerra Civil.</li>
+              </ul>
+            </div>       
           </div>
         </section>
 
-        <section id="reformas" class="section-block">
-            <div class="section-head">                
-                <h2>🛠️ Reformas estructurales</h2>
-            </div>
-
-            <div class="content-card">
-                <p>----</p>
-
-            </div>    
-        </section> 
-
-        <section id="conflictos" class="section-block">
-            <div class="section-head">                
-                <h2>💥 Conflictos y tensiones sociales</h2>
-            </div>
-
-            <div class="content-card">
-                <p>----</p>
-
-            </div>    
-        </section>
         <section id="crisis-final" class="section-block">
             <div class="section-head">                
                 <h2>🔥 Crisis final y colapso</h2>
             </div>
 
             <div class="content-card">
-                <p>----</p>
+                <p>
+                La etapa del Frente Popular no logró estabilizar el régimen republicano. A pesar de los intentos de retomar el programa reformista del primer bienio, la creciente conflictividad social, la radicalización ideológica y la debilidad de las instituciones dificultaron la gobernabilidad. El Estado se mostró incapaz de controlar la violencia política, que se intensificó en forma de enfrentamientos entre grupos de izquierda y de derecha, huelgas, ocupaciones de tierras y atentados.
+              </p>
+              <div class="row">
+                <div class="col-6">
+                    <img src="{% static 'images/sigloXX/segunda_republica/quema_iglesias.jpg' %}"
+                    alt="Quema de iglesias"
+                    class="img-fluid rounded shadow-sm w-100">
+                </div>
+                <div class="col-6">
+                 <p>
+                  Este clima de inestabilidad alimentó el temor de amplios sectores conservadores a una posible revolución social, mientras que, desde la izquierda, se percibía una amenaza constante de involución autoritaria. La dinámica de desconfianza mutua erosionó los mecanismos de consenso propios de un sistema democrático, favoreciendo una lógica de confrontación.
+                  </p>
+                  Paralelamente, la conspiración militar contra la República, iniciada durante el Bienio radical-cedista, se intensificó en los meses de 1936.
+                </div>
+              </div>
+              
+              <p class="mb-2">
+                 Diversos sectores del Ejército, apoyados por fuerzas políticas y sociales contrarias al régimen, comenzaron a coordinar un golpe de Estado con el objetivo de derribar la República. La falta de una respuesta eficaz por parte del gobierno permitió que la conspiración avanzara sin ser neutralizada.
+              </p>
+
+              <div class="row">
+                <div class="col-md-6">
+                    <p>
+                      Los asesinatos de julio de 1936 —el del teniente José Castillo y, especialmente, el del líder monárquico José Calvo Sotelo— actuaron como detonantes de la crisis final. Estos acontecimientos evidenciaron el deterioro del orden público y aceleraron la decisión de los sectores sublevados de poner en marcha el golpe de Estado.
+                    </p>
+                    <p>
+                      La sublevación militar iniciada el 17 de julio de 1936 en el Protectorado de Marruecos y extendida al día siguiente a la península no triunfó de forma inmediata en todo el territorio. Este fracaso parcial del golpe dio lugar a una situación de guerra abierta entre dos zonas enfrentadas, marcando el inicio de la Guerra Civil española (1936–1939).
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <img src="{% static 'images/sigloXX/segunda_republica/asesinatos.jpg' %}"
+                    alt="Asesinatos"
+                    class="img-fluid rounded shadow-sm w-100">
+                </div>
+                
+              </div>             
+
+              <p>
+                En términos historiográficos, el colapso de la Segunda República no puede atribuirse a una única causa, sino a la convergencia de múltiples factores: la debilidad de la cultura democrática, la resistencia de las élites tradicionales, la radicalización de los movimientos políticos y sociales y la intervención decisiva del Ejército en la vida política. La República representó un intento profundo de modernización que, sin embargo, no logró consolidarse en un contexto de extrema conflictividad.
+              </p>
+
+              <div class="info-box mt-4">
+                <strong>Claves interpretativas:</strong>
+                <ul>
+                  <li>Fracaso en la estabilización del sistema democrático en un contexto de alta polarización.</li>
+                  <li>Creciente incapacidad del Estado para mantener el orden público.</li>
+                  <li>Convergencia de crisis política, social y militar.</li>
+                  <li>La conspiración militar fue un factor decisivo en el desenlace.</li>
+                  <li>Los asesinatos de julio actuaron como detonante inmediato.</li>
+                  <li>El golpe de Estado de julio de 1936 desencadena la Guerra Civil.</li>
+                </ul>
+              </div>
 
             </div>    
         </section>

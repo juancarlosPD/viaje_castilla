@@ -1,0 +1,331 @@
+{% extends "bases/basesigloXX.html" %}
+{% load static %}
+{% block cabecera %} La Edad de Plata {% endblock %} 
+{% block title %} La Edad de Plata {% endblock %}
+{% block contenido %}
+
+
+<style>
+.timeline-shell {
+  position: relative;
+  max-width: 1220px;
+  margin: 0 auto;
+  padding-left: 6rem;
+}
+
+.timeline-shell::before {
+  content: "";
+  position: absolute;
+  left: 1.9rem;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(to bottom, #cfc6b8, #bca98c);
+  border-radius: 999px;
+}
+
+.timeline-entry {
+  position: relative;
+  margin-bottom: 2.8rem;
+}
+
+.timeline-entry::before {
+  content: "";
+  position: absolute;
+  left: -4.45rem;
+  top: 3.3rem;
+  width: 18px;
+  height: 18px;
+  background: #9c7a4b;
+  border: 4px solid #f7f3eb;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px #d5cab9;
+  z-index: 3;
+}
+
+.timeline-card {
+  background: linear-gradient(180deg, #fcfbf8 0%, #f7f4ee 100%);
+  border: 1px solid #ddd3c4;
+  border-radius: 2rem;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.timeline-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08);
+}
+
+.timeline-card-inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 2.2rem;
+  padding: 2rem 2.2rem;
+}
+
+.timeline-image {
+  flex: 0 0 155px;
+}
+
+.timeline-image img {
+  width: 155px;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 1.1rem;
+  display: block;
+  border: 1px solid #d3c7b7;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  background: #fff;
+}
+
+.timeline-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.timeline-topline {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.timeline-order {
+  width: 3.1rem;
+  height: 3.1rem;
+  min-width: 3.1rem;
+  border-radius: 50%;
+  background: #e9dfd0;
+  color: #916a3c;
+  font-weight: 800;
+  font-size: 1.15rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 0 0 1px #dbcdb8;
+  margin-top: 0.1rem;
+}
+
+.timeline-heading {
+  flex: 1;
+}
+
+.timeline-name {
+  margin: 0 0 0.45rem 0;
+  font-size: 2rem;
+  line-height: 1.15;
+  font-weight: 800;
+  color: #173253;
+  letter-spacing: -0.02em;
+}
+
+.timeline-apodo {
+  display: inline-block;
+  margin-left: 0.4rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #8b6a43;
+}
+
+.timeline-meta {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  font-weight: 700;
+  color: #a17644;
+}
+
+.timeline-tags {
+  margin-bottom: 1rem;
+}
+
+.timeline-tag {
+  display: inline-block;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  background: #efe7da;
+  color: #7d5e39;
+  font-size: 0.92rem;
+  font-weight: 700;
+  border: 1px solid #dfd1be;
+}
+
+.timeline-facetas,
+.timeline-obra,
+.timeline-resumen {
+  margin: 0 0 1rem 0;
+  font-size: 1.12rem;
+  line-height: 1.8;
+  color: #203754;
+}
+
+.timeline-facetas strong,
+.timeline-obra strong {
+  color: #173253;
+}
+
+.timeline-obra {
+  font-style: italic;
+  color: #445a77;
+}
+
+.timeline-resumen {
+  margin-top: 0.35rem;
+  margin-bottom: 0;
+  font-size: 1.14rem;
+}
+
+@media (max-width: 991.98px) {
+  .timeline-shell {
+    padding-left: 4rem;
+  }
+
+  .timeline-shell::before {
+    left: 1.2rem;
+  }
+
+  .timeline-entry::before {
+    left: -2.9rem;
+  }
+
+  .timeline-card-inner {
+    gap: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  .timeline-image {
+    flex: 0 0 120px;
+  }
+
+  .timeline-image img {
+    width: 120px;
+    height: 150px;
+  }
+
+  .timeline-name {
+    font-size: 1.6rem;
+  }
+
+  .timeline-facetas,
+  .timeline-obra,
+  .timeline-resumen {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .timeline-shell {
+    padding-left: 2.7rem;
+  }
+
+  .timeline-shell::before {
+    left: 0.8rem;
+  }
+
+  .timeline-entry::before {
+    left: -1.95rem;
+    top: 2.35rem;
+    width: 14px;
+    height: 14px;
+  }
+
+  .timeline-card-inner {
+    flex-direction: column;
+    gap: 1.2rem;
+    padding: 1.25rem;
+  }
+
+  .timeline-image {
+    flex: none;
+  }
+
+  .timeline-image img {
+    width: 130px;
+    height: 160px;
+  }
+
+  .timeline-topline {
+    gap: 0.85rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .timeline-order {
+    width: 2.6rem;
+    height: 2.6rem;
+    min-width: 2.6rem;
+    font-size: 1rem;
+  }
+
+  .timeline-name {
+    font-size: 1.35rem;
+  }
+
+  .timeline-meta {
+    font-size: 1rem;
+  }
+
+  .timeline-tag {
+    font-size: 0.86rem;
+  }
+}
+  
+</style>
+
+<section class="presidentes-page">
+  <div class="container">
+
+    <div class="presidentes-header">
+      <h1>{{ titulo1 }}</h1>
+      
+    </div>
+
+    <div class="timeline-shell">
+
+  {% for generacion in generaciones %}
+
+    <!-- TITULO DE GENERACIÓN -->
+    <div class="timeline-section-title">
+      <h2>{{ generacion.titulo }}</h2>
+    </div>
+
+    {% for escritor in generacion.escritores %}
+      <article class="timeline-entry">
+        <div class="timeline-card">
+          <div class="timeline-card-inner">
+
+            <div class="timeline-image">
+              <img src="{% static escritor.imagen %}" alt="{{ escritor.nombre }}">
+            </div>
+
+            <div class="timeline-content">
+              <div class="timeline-topline">
+                <span class="timeline-order">{{ escritor.orden }}</span>
+
+                <div class="timeline-heading">
+                  <h3 class="timeline-name">{{ escritor.nombre }}</h3>
+                  <p class="timeline-meta">{{ escritor.periodo }}</p>
+                </div>
+              </div>
+
+              <p><strong>Facetas:</strong> {{ escritor.facetas }}</p>
+              <p><strong>Obras:</strong> {{ escritor.obra }}</p>
+              <p>{{ escritor.resumen }}</p>
+
+            </div>
+
+          </div>
+        </div>
+      </article>
+    {% endfor %}
+
+  {% endfor %}
+
+</div>
+
+  </div>
+</section>
+
+{% endblock %}
+
