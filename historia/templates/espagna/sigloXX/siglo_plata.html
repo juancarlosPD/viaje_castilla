@@ -176,6 +176,76 @@
   font-size: 1.14rem;
 }
 
+.timeline-section-title {
+  margin: 3.2rem 0 1rem;
+  position: relative;
+}
+
+.timeline-section-title h2 {
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0;
+  color: #142c4c;
+}
+
+.generation-intro {
+  position: relative;
+  margin: 0 0 2.5rem 0;
+  padding: 1.25rem 1.4rem 1.3rem 1.4rem;
+  background: linear-gradient(180deg, #fcfbf8 0%, #f7f3ec 100%);
+  border: 1px solid #e5d8c3;
+  border-radius: 1.15rem;
+  box-shadow: 0 10px 30px rgba(32, 45, 64, 0.06);
+}
+
+.generation-intro::before {
+  content: "";
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  width: 4px;
+  height: calc(100% - 2rem);
+  border-radius: 999px;
+  background: linear-gradient(180deg, #c59a52 0%, #e5d2ae 100%);
+}
+
+.generation-lead {
+  margin: 0 0 1rem 0;
+  padding-left: 1rem;
+  font-size: 1.08rem;
+  line-height: 1.8;
+  color: #2b3442;
+  max-width: 1000px;
+}
+
+.generation-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  padding-left: 1rem;
+}
+
+.generation-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6rem 0.95rem;
+  background: #fffdfa;
+  border: 1px solid #e8dcc8;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #6b4e2e;
+  box-shadow: 0 4px 12px rgba(120, 95, 55, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.generation-tag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 18px rgba(120, 95, 55, 0.10);
+}
+
 @media (max-width: 991.98px) {
   .timeline-shell {
     padding-left: 4rem;
@@ -289,6 +359,19 @@
     <div class="timeline-section-title">
       <h2>{{ generacion.titulo }}</h2>
     </div>
+    <div class="generation-intro">
+  {% if generacion.descripcion %}
+    <p class="generation-lead">{{ generacion.descripcion }}</p>
+  {% endif %}
+
+  {% if generacion.caracteristicas %}
+    <div class="generation-tags">
+          {% for item in generacion.caracteristicas %}
+            <span class="generation-tag">{{ item }}</span>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
 
     {% for escritor in generacion.escritores %}
       <article class="timeline-entry">
@@ -311,7 +394,7 @@
 
               <p><strong>Facetas:</strong> {{ escritor.facetas }}</p>
               <p><strong>Obras:</strong> {{ escritor.obra }}</p>
-              <p>{{ escritor.resumen }}</p>
+              <p>{{ escritor.resumen|safe }}</p>
 
             </div>
 

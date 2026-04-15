@@ -443,60 +443,17 @@ def presidentesXX(request):
     
     return render(request, 'espagna/sigloXX/presidentesXX.html', contexto)
 
-def siglo_plata(request): 
-#    generaciones = [
-#             {
-#             "titulo": "Generación del 98",
-#             "escritores": [
-#                 {
-#                     "orden": 1,
-#                     "nombre": "Miguel de Unamuno y Jugo",
-#                     "generacion": "Generación 98",
-#                     "periodo": "Bilbao, 1864–Salamanca, 1936",            
-#                     "facetas": "Filósofo, novelista, poeta, ensayista, dramaturgo.",
-#                     "imagen": "images/sigloXX/escritores/unamuno.jpg",
-#                     "obra": "Del sentimiento trágico de la vida (1913), Niebla (1914), San Manuel Bueno, mártir (1931).",
-#                     "resumen": "Comprometido con la regeneración de España, fue crítico tanto del monarquismo como de la dictadura de Miguel Primo de Rivera, lo que le llevó al destierro en Fuerteventura y luego al exilio en Francia (1924–1930). Tras la proclamación de la Segunda República Española, regresó triunfal a Salamanca. Durante la Guerra Civil Española, se distanció de ambos bandos. El célebre enfrentamiento con el general José Millán Astray en el paraninfo de la universidad simboliza su defensa de la razón y la humanidad: “Vencer no es convencer”. Murió confinado en su casa. Su legado perdura como símbolo del pensamiento crítico y la conciencia moral de España."
-#                 },
-#         {
-#             "orden": 2,
-#             "nombre": "Pío Baroja y Nessi",
-#             "generacion": "Generación 98",
-#             "periodo": "San Sebastian,1872 - Madrid, 1956",            
-#             "facetas": "Médico. Novelista.",
-#             "imagen": "images/sigloXX/escritores/baroja.avif",
-#             "obra": "Trilogía “La lucha por la vida” (La busca, Mala hierba, Aurora roja): retrato de los barrios bajos madrileños. Trilogía “La raza” (La dama errante, La ciudad de la niebla, El árbol de la ciencia): exploración existencial y autobiográfica. Serie “Memorias de un hombre de acción” (22 volúmenes): epopeya histórica inspirada en su antepasado Eugenio de Aviraneta.",
-#             "resumen": "Considerado el novelista por excelencia del 98, Baroja influyó en autores como Camilo José Cela y Ernest Hemingway. Su entierro en el Cementerio Civil de Madrid simbolizó su espíritu libre y anticlerical. Aún hoy, su visión lúcida y desencantada de España mantiene plena vigencia."
-#         },
-#         {
-#             "orden": 3,
-#             "nombre": "José Martínez Ruiz (Azorín)",
-#             "generacion": "Generación 98",
-#             "periodo": "Monóvar, 1873–Madrid, 1967",            
-#             "facetas": "Novelista, ensayista, crítico literario y político español.",
-#             "imagen": "images/sigloXX/escritores/azorin.webp",
-#             "obra": "La voluntad, Antonio Azorín, Las confesiones de un pequeño filósofo, La ruta de Don Quijote, Castilla.",
-#             "resumen": "Participó activamente en la vida pública durante la Restauración, siendo diputado y subsecretario de Instrucción Pública. Su evolución ideológica lo llevó del anarquismo inicial al conservadurismo. Tras la Guerra Civil española residió un tiempo en París, regresando a España en 1949. Fue miembro de la Real Academia Española desde 1924 y recibió la Gran Cruz de Alfonso X el Sabio. Su influencia perdura como símbolo de introspección, precisión estilística y amor por la cultura y el paisaje españoles."
-#         },
-#         {
-#             "orden": 4,
-#             "nombre": "Antonio Machado",
-#             "generacion": "Generación 98",
-#             "periodo": "Sevilla,1875 - Collioure,1939",            
-#             "facetas": "Poeta, dramaturgo y pensador español.",
-#             "imagen": "images/sigloXX/escritores/machado.jpg",
-#             "obra": "Soledades, Campos de Castilla, Juan de Mairena.",
-#             "resumen": "Partidario de la Segunda República, permaneció fiel al ideal democrático durante la Guerra Civil Española. En 1939 huyó con su familia a Francia, donde murió poco después en el exilio. Su tumba en Collioure simboliza la dignidad intelectual del exiliado. Hoy es considerado uno de los grandes poetas en lengua española, modelo de claridad ética y de emoción contenida."
-#         },
-#     ]
-    
-#     return render(request, 'espagna/sigloXX/siglo_plata.html', {
-#         "generaciones": generaciones
-#     })
-
+def siglo_plata(request):
     generaciones = [
         {
-            "titulo": "Generación del 98",
+            "titulo": "Generación del 98", 
+            "caracteristicas": [
+                "Preocupación por España",
+                "Regeneracionismo",
+                "Visión crítica y pesimista",
+                "Lenguaje sobrio y antiretórico",
+                "Castilla como símbolo",                
+            ],           
             "escritores": [
                 {
                     "orden": 1,
@@ -531,40 +488,162 @@ def siglo_plata(request):
                 {
                     "orden": 4,
                     "nombre": "Antonio Machado",
-                    "generacion": "Generación 98",
+                    "generacion": "Generación 98",                    
                     "periodo": "Sevilla,1875 - Collioure,1939",            
                     "facetas": "Poeta, dramaturgo y pensador español.",
                     "imagen": "images/sigloXX/escritores/machado.jpg",
                     "obra": "Soledades, Campos de Castilla, Juan de Mairena.",
                     "resumen": "Partidario de la Segunda República, permaneció fiel al ideal democrático durante la Guerra Civil Española. En 1939 huyó con su familia a Francia, donde murió poco después en el exilio. Su tumba en Collioure simboliza la dignidad intelectual del exiliado. Hoy es considerado uno de los grandes poetas en lengua española, modelo de claridad ética y de emoción contenida."
                 },
+                {
+                    "orden": 5,
+                    "nombre": "Ramiro de Maeztu",
+                    "generacion": "Generación 98",                    
+                    "periodo": "Vitoria, 1875 - Aravaca, 1936",            
+                    "facetas": "Periodista, ensayista, diplomático y pensador político español.",
+                    "imagen": "images/sigloXX/escritores/maeztu.png",
+                    "obra": "Hacia otra España (1899). La crisis del humanismo (1919). Don Quijote, Don Juan y La Celestina (1926). Defensa de la Hispanidad (1934).",
+                    "resumen": "Escritor y ensayista del 98, pasó de ideas socialistas y regeneracionistas a convertirse en un ideólogo del nacional‑catolicismo. Defendió la Hispanidad y fue embajador con Primo de Rivera. Fusilado al inicio de la Guerra Civil."
+                },
             ]
         },
 
         {
-            "titulo": "Generación del 14",
+            "titulo": "Generación del 14 (Novecentismo)",
+            "caracteristicas": [
+                "Intelectualismo y racionalismo frente al 98",
+                "Europeísmo como proyecto cultural",
+                "Predominio del ensayo",
+                "Arte puro y depurado"
+            ],
             "escritores": [
                 {
                     "orden": 1,
                     "nombre": "José Ortega y Gasset",
                     "periodo": "Madrid, 1883–1955",
-                    "facetas": "Filósofo y ensayista",
+                    "facetas": "Filósofo, ensayista y humanista",
                     "imagen": "images/sigloXX/escritores/ortega.jpg",
-                    "obra": "La rebelión de las masas...",
-                    "resumen": "Principal pensador del Novecentismo..."
+                    "obra": "Meditaciones del Quijote (1914), España invertebrada (1921), La rebelión de las masas (1930)",
+                    "resumen": "Filósofo y ensayista clave del siglo XX, Ortega y Gasset fue el principal impulsor de la modernización intelectual de España. Su pensamiento, centrado en el perspectivismo —según el cual toda realidad se comprende desde una visión individual— y el raciovitalismo, que integra razón y vida como ejes inseparables, ofreció una interpretación dinámica del ser humano y la sociedad. Analizó con lucidez la crisis de su tiempo, especialmente en obras como 'La rebelión de las masas', y ejerció una influencia decisiva en generaciones posteriores de pensadores y en la proyección europea de la cultura española."
+                },
+                {
+                    "orden": 2,
+                    "nombre": "Gregorio Marañón",
+                    "periodo": "Madrid, 1887–1960",
+                    "facetas": "Médico, científico, historiador y ensayista",
+                    "imagen": "images/sigloXX/escritores/marañon.png",
+                    "obra": "Ensayo biológico sobre Enrique IV de Castilla y su tiempo (1930)",
+                    "resumen": "Marañón combinó la ciencia con una profunda reflexión humanista. Defendió que “no hay enfermedades sino enfermos”, y abordó temas como la sexualidad, la ética profesional y la psicología médica. Fue comentarista de Sigmund Freud y estableció puentes entre psicoanálisis y biología. Como ensayista y biógrafo, interpretó figuras históricas —como Tiberio, Luis Vives o El Greco— desde un enfoque médico y moral. De ideología liberal, participó en la Agrupación al Servicio de la República junto a José Ortega y Gasset y Ramón Pérez de Ayala. Fue diputado en las Cortes de 1931. Durante la Guerra Civil se exilió en París (1936–1943) y regresó tras la contienda, retomando su labor científica y docente."
+                },
+                {
+                    "orden": 3,
+                    "nombre": "Ramón Pérez de Ayala",
+                    "periodo": "Oviedo, 1887–Madrid,1960",
+                    "facetas": "Escritor, periodista, diplomático y político español,",
+                    "imagen": "images/sigloXX/escritores/perez_ayala.jpg",
+                    "obra": "Troteras y danzaderas, Belarmino y Apolonio y Tigre Juan.",
+                    "resumen": "Destacó como novelista y ensayista, con obras que combinan intelectualismo, ironía y análisis moral. Fue también embajador en el Reino Unido durante la Segunda República y miembro de la Real Academia Española."
+                },
+                {
+                    "orden": 4,
+                    "nombre": "Eugenio D'Ors",
+                    "periodo": "Madrid, 1887–1960",
+                    "facetas": "Escritor, filósofo, periodista y crítico de arte español",
+                    "imagen": "images/sigloXX/escritores/dors.jpg",
+                    "obra": "Fue autor del célebre Glosari, una columna diaria de crítica cultural ",
+                    "resumen": "Figura central del Novecentismo que defendía el orden, la inteligencia y la modernización cultural frente al individualismo modernista. Ocupó cargos relevantes como director de Instrucción Pública en Cataluña y más tarde director general de Bellas Artes. También fue miembro de la Real Academia Española.  "
                 }
             ]
         },
 
         {
             "titulo": "Generación del 27",
+            "caracteristicas": [
+                "Fusión tradición y vanguardia",
+                "Influencia del surrealismo",
+                "Uso intensivo metáfora",
+                "Formación intelectual",
+                "Espíritu de grupo",                
+            ], 
             "escritores": [
                 {
                     "orden": 1,
                     "nombre": "Federico García Lorca",
-                    "periodo": "Fuente Vaqueros, 1898–1936",
-                    "facetas": "Poeta y dramaturgo",
+                    "periodo": "Fuente Vaqueros, 1898–Granada, 1936",
+                    "facetas": "Poeta, dramaturgo y director teatral español",
                     "imagen": "images/sigloXX/escritores/lorca.jpg",
+                    "obra": "Romancero gitano, Poeta en Nueva York, Bodas de sangre, Yerma, La casa de Bernarda Alba.",
+                    "resumen": "Alcanzó reconocimiento internacional por su capacidad para unir tradición andaluza, simbolismo y vanguardias como el surrealismo. Fue también codirector del grupo teatral universitario La Barraca, con el que llevó el teatro clásico por toda España durante la Segunda República. Al inicio de la Guerra Civil, fue detenido y fusilado por las fuerzas sublevadas en 1936; su cuerpo nunca ha sido encontrado."
+                },
+                {
+                    "orden": 2,
+                    "nombre": "Rafael Alberti",
+                    "periodo": "Puerto de Sta María 1902–1999",
+                    "facetas": "Poeta, dramaturgo y pintor español",
+                    "imagen": "images/sigloXX/escritores/alberti.jpg",
+                    "obra": "Marinero en tierra, Sobre los ángeles, El poeta en la calle",
+                    "resumen": "Comenzó su trayectoria artística como pintor, pero tras la muerte de su padre se volcó en la poesía, publicando Marinero en tierra (1924), obra con la que obtuvo el Premio Nacional de Literatura. Su obra evolucionó desde la poesía popular y andaluza hacia el neogongorismo, el surrealismo (Sobre los ángeles) y más tarde hacia una poesía política y comprometida, especialmente tras su afiliación al Partido Comunista de España. Durante la Guerra Civil, apoyó activamente a la República y, tras su derrota, vivió un largo exilio en Argentina, Italia y Francia. Regresó a España en 1977, ya en democracia, donde recibió importantes reconocimientos como el Premio Cervantes. "
+                },
+                {
+                    "orden": 3,
+                    "nombre": "Luís Cernuda",
+                    "periodo": "Sevilla, 1902-Ciudad de México, 1963",
+                    "facetas": "Escritor, traductor, profesor universitario, crítico literario y poeta",
+                    "imagen": "images/sigloXX/escritores/cernuda.jpg",
+                    "obra": "'La realidad y el deseo', un volumen que reúne toda su producción poética y que refleja su evolución desde la poesía pura y el simbolismo hasta un tono más íntimo, directo y autobiográfico.",
+                    "resumen": "Su obra se caracteriza por un tono nostálgico, melancólico y neorromántico, con una profunda reflexión sobre la identidad, el deseo, la soledad y la libertad. Vivió marcado por su homosexualidad en una sociedad represiva, lo que influyó decisivamente en su poesía y en su sentimiento de desarraigo. Tras la Guerra Civil, se exilió en Inglaterra, Estados Unidos y México, donde continuó escribiendo."
+                },
+                {
+                    "orden": 4,
+                    "nombre": "Vicente Aleixandre",
+                    "periodo": "Sevilla, 1898–Madrid, 1984",
+                    "facetas": "Poeta",
+                    "imagen": "images/sigloXX/escritores/aleixandre.jpg",
+                    "obra": "Espadas como labios (1932). Sombra del paraíso (1944). Historia del corazón (1954). Poemas de la consumación (1968)",
+                    "resumen": "Su obra evolucionó desde un surrealismo poético —visible en libros como Espadas como labios o Pasión de la tierra— hacia un lirismo más humanista y cósmico, centrado en temas como el amor, la fraternidad, la naturaleza y la condición humana. Marcado por una salud frágil desde joven, pasó largos periodos de convalecencia que influyeron en su introspección poética. Fue miembro de la Real Academia Española desde 1950 y se convirtió en un referente y maestro para generaciones posteriores de poetas. Recibió el <strong>Premio Nobel de Literatura</strong> en 1977."
+                },
+                {
+                    "orden": 5,
+                    "nombre": "Santiago Ramón y Cajal",
+                    "periodo": "Navarra, Madrid, 1934",
+                    "facetas": "Médico, histólogo y científico español",
+                    "imagen": "images/sigloXX/escritores/cajal.jpg",
+                    "obra": "Recuerdos de mi vida. Textura del sistema nervioso del hombre y de los vertebrados. Reglas y consejos sobre investigación científica",
+                    "resumen": "Considerado el padre de la neurociencia moderna. Su trabajo revolucionó el conocimiento del sistema nervioso al demostrar que está formado por células individuales, las neuronas. Desarrolló técnicas de tinción propias que permitieron observar con precisión la estructura del tejido nervioso y describió regiones como la retina y múltiples áreas del sistema nervioso central. Fue profesor en las universidades de Valencia, Barcelona y Madrid, y dirigió instituciones científicas clave como el Instituto Nacional de Higiene y el Instituto Cajal. En 1906 recibió el <strong>Premio Nobel de Medicina</strong>, compartido con Camillo Golgi, por sus descubrimientos sobre la estructura del sistema nervioso. "
+                },
+                {
+                    "orden": 6,
+                    "nombre": "Severo Ochoa",
+                    "periodo": "Luarca, 1905–Madrid, 1993",
+                    "facetas": "Médico, bioquímico y científico español",
+                    "imagen": "images/sigloXX/escritores/ochoa.jpg",
+                    "obra": "Severo Ochoa: De la bioquímica a la biología molecular. Palabra de científico. Química de los ácidos nucleicos",
+                    "resumen": "Nacionalizado estadounidense en 1956, y uno de los grandes pioneros de la biología molecular del siglo XX. Es mundialmente conocido por sus descubrimientos sobre la síntesis del ARN, lo que le valió el <strong>Premio Nobel de Fisiología o Medicina</strong> en 1959"
+                },
+                {
+                    "orden": 7,
+                    "nombre": "Pablo Picaso",
+                    "periodo": "Fuente Vaqueros, 1898–Granada, 1936",
+                    "facetas": "Poeta y dramaturgo",
+                    "imagen": "images/sigloXX/escritores/picasso.jpg",
+                    "obra": "Romancero gitano...",
+                    "resumen": "Máximo exponente del 27..."
+                },
+                {
+                    "orden": 8,
+                    "nombre": "Salvador Dalí",
+                    "periodo": "Fuente Vaqueros, 1898–Granada, 1936",
+                    "facetas": "Poeta y dramaturgo",
+                    "imagen": "images/sigloXX/escritores/dali.jpg",
+                    "obra": "Romancero gitano...",
+                    "resumen": "Máximo exponente del 27..."
+                },
+                {
+                    "orden": 9,
+                    "nombre": "Luís Buñuel",
+                    "periodo": "Fuente Vaqueros, 1898–Granada, 1936",
+                    "facetas": "Poeta y dramaturgo",
+                    "imagen": "images/sigloXX/escritores/buñuel.webp",
                     "obra": "Romancero gitano...",
                     "resumen": "Máximo exponente del 27..."
                 }
