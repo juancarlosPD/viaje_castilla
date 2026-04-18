@@ -226,6 +226,16 @@
     color: #1f2937;
   }
 
+  .section-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 0.35rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: #8b0000;
+  }
+
   .content-card {
     padding: 1.5rem;
   }
@@ -652,7 +662,14 @@
           <h5>En esta página</h5>
           <nav class="aside-nav">
             <a href="{% url 'linea_tiempo_segunda_republica' %}">🧭 Línea de tiempo</a>
-            <a href="#proclamacion">📜 Proclamación de la República</a>                      
+            <a href="#proclamacion">📜 Proclamación de la República</a>
+             <a href="#gobierno_provisional" class="aside-link">
+              <span>🏛️</span> Gobierno provisional (1931)
+            </a>
+
+            <a href="#elecciones_1931" class="aside-link">
+              <span>🗳️</span> Elecciones generales (1931)
+            </a>                      
             <a href="#constitucion">🏛️ Constitución de 1931</a>
             <a href="#bienio-reformista">🌱 Bienio reformista (1931–1933)</a>
             <a href="#bienio-radical">⚖️ Bienio radical-cedista (1933–1935)</a>
@@ -687,14 +704,27 @@
             </article>
 
             <article class="t-item">
-              <h4><span class="t-date">12 abril 1931</span> Elecciones municipales</h4>
+              <h4><span class="t-date">Diciembre 1930</span> 
+                <a href="#" data-bs-toggle="modal" data-bs-target="#modalJaca" class="section-link">
+                  Sublevación de Jaca
+                </a>
+              </h4>
+              <p>Capitanes Galán y García Hernández. Fracasó rápidamente porque se adelantó 3 días a la fecha prevista en toda España.</p>
+            </article>
+
+            <article class="t-item">
+              <h4><span class="t-date">Abril 1931</span>
+                <a href="#" data-bs-toggle="modal" data-bs-target="#modalMunicipales" class="section-link">
+                  Elecciones municipales de 1931
+                </a>
+              </h4>
               <p>Victoria republicana en las principales ciudades españolas.</p>
             </article>
 
             <article class="t-item">
               <h4><span class="t-date">14 abril 1931</span> Proclamación de la República</h4>
               <p>Se instaura el nuevo régimen y Alfonso XIII abandona el país.</p>
-            </article>
+            </article>            
 
           </div>
           <!-- BOTÓN MODAL -->
@@ -708,7 +738,7 @@
 
     
 
-    <!-- MODAL -->
+    <!-- MODAL PROCLAMACIÓN REPUBLICA-->
           <div class="modal fade" id="modalProclamacion" tabindex="-1">
             <div class="modal-dialog modal-lg modal-dialog-scrollable">
               <div class="modal-content">
@@ -741,6 +771,89 @@
               </div>
             </div>
           </div>
+
+     <!-- MODAL SUBLEVACIÓN DE JACA-->
+          <div class="modal fade" id="modalJaca" tabindex="-1">
+            <div class="modal-dialog modal-xl modal-dialog-scrollable">
+              <div class="modal-content">
+
+                <div class="modal-header position-relative">
+                  <h4 class="modal-title position-absolute start-50 translate-middle-x">
+                    LA SUBLEVACION DE JACA
+                  </h4>
+                  <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                  <div class="row">
+                    <div class="col-md-10">
+                        <p>La sublevación de Jaca fue un pronunciamiento producido el 12 de diciembre de 1930 contra la monarquía española de Alfonso XIII durante la dictablanda del general Berenguer. Aunque fue sofocada y fueron fusilados los capitanes Fermín Galán Rodríguez y Ángel García Hernández, sus efectos se dejaron sentir en la proclamación de la Segunda República cuatro meses después.</p>
+                        <p>El <strong>Pacto de San Sebastián</strong> fue la reunión que tuvo lugar en San Sebastián el 17 de agosto de 1930 a la que asistieron representantes de todos los partidos republicanos y en la que se acordó la estrategia para poner fin a la monarquía de Alfonso XIII y proclamar la Segunda República Española. En octubre de 1930 se sumaron al Pacto, en Madrid, las dos organizaciones socialistas, el PSOE y la UGT. Miguel Maura en sus memorias reconoce que la decisión fue asumida por todos. </p>
+                        <p>El <strong>Comité Revolucionario</strong> acuerda la fecha del levantamiento para el lunes 15 de diciembre. La dirección de la sublevación en Jaca corresponde al capitán Fermín Galán. Galán había llegado a este destino a comienzos del mes de junio, cuatro meses después de haber salido de la prisión militar de Montjuic amnistiado, donde había cumplido condena por haber participado en la Sanjuanada, una conspiración militar que había tratado de derribar la Dictadura de Primo de Rivera en 1926.</p>
+                        <p>Los continuos aplazamientos para fijar la fecha de la sublevación, hacen que las relaciones entre Galán y el «comité revolucionario» empiecen a deteriorarse. </p>
+                        <p> Ante la imposibilidad de convencer a Galán para que acepte una nueva moratoria, el Comité revolucionario dispone que en la madrugada del día 12 viajen a Jaca, desde Madrid, Casares Quiroga y otros dos delegados que, según su posterior testimonio, «llegados a una hora intempestiva, duermen sin haber hablado con Galán»</p>
+                        <p>Galán decide no esperar al 15 de diciembre, la fecha que finalmente había fijado el «comité revolucionario» para la insurrección, y a las cinco de la mañana del 12 toman Jaca</p>
+                        <p>Una vez controlada Jaca, los sublevados organizaron dos columnas para dirigirse a Huesca, pero fueron detenidos.</p>
+                      </div>
+                    <div class="col-md-2">
+                        <img src="{% static 'images/sigloXX/segunda_republica/fermin_galan.jpg' %}"
+                          alt="Galan"
+                          class="img-fluid rounded shadow-sm mb-3 w-100">
+                          <p class="text-center mt-2">Fermin Galán</p>
+                        <img src="{% static 'images/sigloXX/segunda_republica/garcia_hernandez.jpg' %}"
+                          alt="Garcia Hernandez"
+                          class="img-fluid rounded shadow-sm mb-3 w-100">
+                          <p class="text-center mt-2">Ángel García Hernández</p>
+
+                    </div>
+                  </div>
+                  
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+     <!-- MODAL ELECCIONES MUNICIPALES-->
+          <div class="modal fade" id="modalMunicipales" tabindex="-1">
+            <div class="modal-dialog modal-xl modal-dialog-scrollable">
+              <div class="modal-content">
+
+                <div class="modal-header position-relative">
+                  <h4 class="modal-title position-absolute start-50 translate-middle-x">
+                    ELECCIONES MUNICIPALES DE 1931
+                  </h4>
+                  <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                  <div class="row">
+                    <div class="col-md-9">
+                        <p>Tras el fracaso del gobierno del general Berenguer el rey Alfonso XIII decidió nombrar el 17 de febrero de 1931 al almirante Juan Bautista Aznar para que presidiera un gobierno de «concentración monárquica». Este convocó elecciones municipales, en lugar de generales, para el 12 de abril de 1931.</p>
+                        <p>Los comicios se rigieron por la Ley electoral de 1907, también conocida como la «Ley Maura». Tenían derecho al voto (que era obligatorio) los varones mayores de 25 años. Una de las características más notables de esta ley era el artículo 29, según el cual, en aquellos distritos en que solo se presentara una única candidatura esta resultaría elegida automáticamente sin necesidad de realizar ninguna votación.</p>
+                        <p>Debido a esto, el domingo 5 de abril fueron proclamados casi treinta mil concejales (29 804), el 37 % del total de los 81 099 que se debían elegir. De esta forma 1 100 000 electores, de un total de 5 500 000, fueron privados de su derecho al voto. En su inmensa mayoría se trataba de municipios con menos de 500 habitantes. Resaltar que el 90% de los elegidos eran monárquicos.</p>
+                        <p>Desde el primer momento las elecciones municipales del 12 de abril fueron consideradas como un plebiscito sobre la continuidad de la monarquía de Alfonso XIII. </p>
+                        <p>La participación fue del 67 %</p>
+                        <p>Los republicanos ganaron en 41 capitales de provincia y los monárquicos en sólo 9.</p>
+                        <p>La consecuencia inmediata fue la caida de la monarquia y la proclamación de ls segunda República</p>
+                      </div>
+                    <div class="col-md-3">
+                        <img src="{% static 'images/sigloXX/segunda_republica/resultado_municipales.jpg' %}"
+                          alt="Galan"
+                          class="img-fluid rounded shadow-sm mb-3 w-100">
+                    </div>
+                  </div>
+                  
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- -------------------------------------------------------------------- -->
+
+
+
           <p class="mt-3">
             La proclamación de la República no fue el resultado de una revolución violenta, sino de un proceso político acelerado en el que confluyeron el descrédito de la monarquía de Alfonso XIII, el fracaso de la dictadura de Primo de Rivera (1923–1930) y la incapacidad de los gobiernos posteriores para restaurar el sistema constitucional. La denominada “dictablanda” del general Berenguer y el breve gobierno del almirante Aznar no lograron recomponer el régimen, evidenciando su agotamiento estructural.
           </p>
@@ -767,6 +880,123 @@
             </ul>
           </div>
         </div>
+
+        <section id="gobierno_provisional" class="section-block">
+          <div class="section-head">
+            <span class="section-icon">🏛️</span>
+            <h2> Gobierno provisional</h2>
+          </div>
+
+          <div class="content-card">
+            <div class="timeline">
+                <div class="t-item" id="">
+                    <h6><span class="t-date" >El “Comité Revolucionario” se convierte en Gobierno provisional de la Segunda República</span></h6>
+                    
+                      <p>El Gobierno provisional de la Segunda República española ostentó el poder político en España desde la caída de la Monarquía de Alfonso XIII y la proclamación de la República el 14 de abril de 1931 hasta la aprobación de la Constitución de 1931 el 9 de diciembre y la formación del primer gobierno ordinario el 15 de diciembre. Hasta el 15 de octubre de 1931 el gobierno provisional estuvo presidido por Niceto Alcalá-Zamora, y tras la dimisión de este , le sucedió Manuel Azaña.</p>
+                      
+                      <p>A primeras horas de la mañana del 14 de abril de 1931 el general Sanjurjo, director de la Guardia Civil, se dirige a la casa de Miguel Maura donde se encuentran reunidos los miembros del comité revolucionario que no estaban exiliados en Francia, ni escondidos. Nada más entrar se cuadra ante Maura y le dice: “A las órdenes de usted señor ministro".</p>
+                      <p>Por la tarde una muchedumbre se concentra en Madrid en la Puerta del Sol donde se encuentra la sede del Ministerio de la Gobernación. Los miembros del comité revolucionario se dirigen allí y cuando llegan Miguel Maura llama al portalón del Ministerio y grita: "Señores, paso al Gobierno de la República'". Los guardias civiles de la entrada se cuadran y presentan armas. A continuación el comité revolucionario se constituye en "Gobierno provisional" y designa a Niceto Alcalá-Zamora como su presidente. Eran las ocho de la tarde del 14 de abril. A esa misma hora el rey se despedía de los nobles y grandes de España que habían acudido al Palacio de Oriente y abandonaba Madrid en coche en dirección a Cartagena, donde hacia las cuatro de la madrugada embarcaba en el crucero Príncipe de Asturias rumbo a Marsella.</p>
+                      <div class="row">
+                        <img src="{% static 'images/sigloXX/segunda_republica/gobierno_provisional_1931.jpg' %}"
+                            alt="Lerroux"
+                            class="img-fluid rounded shadow-sm mb-3 w-100">
+                      </div>
+                      <p class="mt-3">El Gobierno Provisional se concibió como un gobierno de transición, con tres metas principales:</p>
+                      <div>
+                        <ol>
+                          <li>Asegurar el orden público y evitar una deriva revolucionaria o contrarrevolucionaria.</li>
+                          <li>Convocar elecciones a Cortes Constituyentes, que otorgaran legitimidad democrática al nuevo régimen.</li>
+                          <li>Iniciar reformas estructurales que respondieran a las demandas sociales y políticas acumuladas durante la crisis de la Restauración.</li>
+                        </ol>
+                      </div>
+                </div>
+                <div class="t-item" id="problema_catalan">    
+                  <h6><span class="t-date" >El primer problema: Cataluña</span></h6>
+                  <p>El problema más inmediato que tuvo que afrontar el Gobierno provisional fue la proclamación de la “República Catalana” hecha por Francesc Macià en Barcelona el mismo día 14 de abril.</p>
+                  <p>Tres días después tres ministros del Gobierno provisional se entrevistaban en Barcelona con Francesc Macià alcanzando un acuerdo por el que Esquerra Republicana de Cataluña renunciaba a la “República Catalana” a cambio del compromiso del Gobierno provisional de que presentaría en las futuras Cortes Constituyentes el Estatuto de Autonomía que decidiera Cataluña y del reconocimiento del gobierno catalán que dejaría de llamarse Consejo de Gobierno de la República Catalana para tomar el nombre Gobierno de la Generalidad de Cataluña </p>
+                </div>
+                <div class="t-item" id="problema_vasco">    
+                  <h6><span class="t-date" >El País vasconavarro y el Estatuto de Estella</span></h6>
+                  <p>El Estatuto de Estella fue presentado el 22 de septiembre de 1931 a las Cortes Constituyentes por una delegación de alcaldes pero no fue tomado en consideración porque el proyecto se situaba claramente al margen de Constitución que se estaba aprobando, entre otras cosas, por su concepción federalista y por la declaración de confesionalidad del "Estado vasco", además de que no reconocía derechos políticos plenos a los inmigrantes españoles con menos de diez años de residencia en Euskadi.</p>
+                  
+                </div>
+                <div class="t-item" id="religion">    
+                  <h6><span class="t-date" >La política religiosa</span></h6>
+                  <p>El Gobierno aprobó algunas <strong>medidas secularizadoras</strong> como: </p>
+                  <div>
+                    <ul>
+                      <li>disolución de las órdenes militares,</li>
+                      <li>supresión de la obligatoriedad de asistencia a actos religiosos en cárceles y cuarteles,</li>
+                      <li>prohibición de participación oficial en actos religiosos,</li>
+                      <li>fin de las exenciones tributarias a la Iglesia,</li>
+                      <li>privación de sus derechos a la Confederación Nacional Católico-Agraria,</li>
+                    </ul>
+                  </div>
+                  <p>Entre todas, quizá la medida más destacada fue el decreto de 6 de mayo declarando voluntaria la enseñanza religiosa”. La jerarquía católica ya no pudo intervenir en la elaboración de los planes de estudios, un derecho del que venía disfrutando desde hacía mucho tiempo. Además se prohibió la asistencia a actos religiosos de los militares no siendo a título personal y se suspendieron las festividades de los Patronos de Armas y Cuerpos del Ejército. Por último se modificó la ley electoral de 1907 para que los sacerdotes pudieran presentarse como candidatos en las elecciones.</p>
+                  <div class="row">
+                    <div class="col-8">
+                        <p class="mt-2">Un sector numeroso del episcopado no estaban dispuestos a transigir con la República a la que consideraban una desgracia. La cabeza visible de ese grupo era el Cardenal Primado y arzobispo de Toledo, <strong>Pedro Segura</strong>, que ya se había manifestado claramente contrario a la República. Pero el pronunciamiento de mayor trascendencia del Cardenal Segura se produjo el día 1 de mayo cuando hizo pública una pastoral en la que, tras abordar la situación española en un tono catastrofista, hacía un agradecido elogio de la monarquía y del destronado monarca Alfonso XIII, “quien, a lo largo de su reinado, supo conservar la antigua tradición de fe y piedad de sus mayores”. </p>
+                    </div>
+                    <div class="col-4">
+                        <img src="{% static 'images/sigloXX/segunda_republica/segura.jpg' %}"
+                          alt="Cardenal Segura"
+                          class="img-fluid rounded shadow-sm mb-3 w-100">
+                          <p class="text-center mt-2">Cardenal Segura</p>
+                    </div>
+                  </div>
+                  
+                  <p class="mt-2">En la mañana del domingo 10 de mayo de 1931 se inauguraba en la calle Alcalá de Madrid el <strong>Círculo Monárquico Independiente</strong>, fundado por el director del diario monárquico ABC, Juan Ignacio Luca de Tena, que acababa de regresar de Londres donde se había entrevistado con el exrey Alfonso XIII con el objetivo de formar un comité electoral del que surgiera una candidatura monárquica para presentarla en las elecciones a Cortes Constituyentes que se iban a celebrar al mes siguiente. Algunas fuentes contemporáneas mencionan posibles provocaciones de los asistentes, como la reproducción de la Marcha Real o la difusión de propaganda hostil a la República. No obstante, estos hechos no están plenamente corroborados por la historiografía y deben interpretarse con cautela, dado el carácter parcial y contradictorio de las fuentes.</p>
+                  <p class="mt-2">Los <strong>disturbios</strong> se iniciaron en torno a incidentes ocurridos en las inmediaciones del Círculo Monárquico, donde se produjeron enfrentamientos y quema de vehículos. En ese contexto, se difundió rápidamente el rumor —no confirmado— de que un taxista republicano había sido asesinado por monárquicos, lo que provocó la concentración de una multitud ante la sede del diario ABC en la calle Serrano. La intervención de la Guardia Civil para dispersar a los manifestantes derivó en el uso de armas de fuego y causó varias víctimas, entre ellas al menos un menor. La secuencia exacta de los hechos y los detalles concretos del incidente inicial no están plenamente esclarecidos y varían según las fuentes.</p>
+                  <p class="mt-2">Esa misma noche el ministro de la Gobernación Miguel Maura quiso desplegar a la Guardia Civil pero sus compañeros de gobierno, encabezados por el presidente Niceto Alcalá Zamora y por el ministro de la Guerra Manuel Azaña, se opusieron, reacios a emplear a las fuerzas de orden público contra el "pueblo" y restando importancia a los hechos.</p>
+                  <div class="row">
+                    <div class="col-6">
+                        <p class="mt-2">Cuando el gobierno estaba reunido a primeras horas de la mañana del lunes 11 de mayo le llegó la noticia de que la Casa de Profesa de los jesuitas estaba ardiendo. El ministro de la Gobernación Miguel Maura de nuevo intentó sacar a la calle a la Guardia Civil para restablecer el orden pero al igual que la noche anterior se encontró con la oposición del resto del gabinete y especialmente de Manuel Azaña, quien, según Maura, llegó a manifestar que todos los conventos de Madrid no valen la vida de un republicano. </p>
+                    </div>
+                    <div class="col-6">
+                        <img src="{% static 'images/sigloXX/segunda_republica/quema_iglesias.jpg' %}"
+                          alt="Quema de iglesias"
+                          class="img-fluid rounded shadow-sm mb-3 w-100">
+                          
+                    </div>
+                    <p>La inacción del gobierno permitió que los sublevados quemaran más de una decena de edificios religiosos. Por la tarde, por fin, el Gobierno declaró el estado de guerra en Madrid y a medida que las tropas fueron ocupando la capital, los incendios cesaron. Al día siguiente, martes 12 de mayo, mientras Madrid recuperaba la calma, la quema de conventos y de otros edificios religiosos se extendía a otras poblaciones del este y el sur peninsular (los sucesos más graves se produjeron en Málaga). Por el contrario, allí donde los gobernadores civiles y los alcaldes actuaron con contundencia no hubo incendios.</p>
+                    
+                  </div>
+                  
+                  <p class="mt-2">No se sabe con absoluta certeza quién quemó los alrededor de cien edificios religiosos que ardieron total o parcialmente aquellos días (además de la destrucción de objetos del patrimonio artístico y litúrgico y la profanación de algunos cementerios de conventos), y durante los cuales murieron varias personas y otras resultaron heridas</p>
+                  <p class="mt-2"> Sin embargo lo que sí que está clara fue la irresponsabilidad del gobierno en el manejo de la situación</p>
+                </div>
+                <div class="t-item" id="reforma_militar">    
+                  <h6><span class="t-date" >La reforma militar de Azaña</span></h6>
+                  <p class="mt-3">Para <strong>reducir el excesivo número de oficiales</strong> el Gobierno provisional aprobó decreto de retiros extraordinarios en el que se ofrecía a los oficiales del Ejército que así lo solicitaran la posibilidad de apartarse voluntariamente del servicio activo con la totalidad del sueldo. Si no se alcanzaba el número de retiros necesarios, el ministro se reservaba el derecho a destituir, sin beneficio alguno, a cuantos oficiales estimase oportuno. Casi 9.000 mandos (entre ellos 84 generales) se acogieron a la medida, aproximadamente un 40 % de la oficialidad</p>
+                  <p class="mt-3">Otra de las cuestiones que abordó Azaña fue el conflictivo tema de los <strong>ascensos</strong>, promulgando unos Decretos de mayo y junio por el que se anulaban gran parte de los producidos durante la Dictadura por "méritos de guerra", lo que supuso que unos 300 militares perdieran unos o dos grados, y que otros sufrieran un fuerte retroceso en el escalafón, como en el caso del general Francisco Franco</p>
+                  <p class="mt-3">Azaña también decretó el 1 de julio de 1931 el <strong>cierre de la Academia General Militar der Zaragoza</strong> que dirigía el general Franco.</p>
+                  <p class="mt-3">La Reforma militar de Azaña fue duramente combatida por un sector de la oficialidad, por los medios políticos conservadores y por los órganos de expresión militares.</p>
+                </div>
+                <div class="t-item" id="reforma_agraria">    
+                  <h6><span class="t-date" >La reforma agraria de Largo Caballero</span></h6>
+                  <p></p>
+                </div>
+
+            </div>
+          </div>
+
+        </section>
+
+        <section id="elecciones_1931" class="section-block">
+          <div class="section-head">
+            <span class="section-icon">🗳️</span>
+            <h2> Elecciones generales (1931)</h2>
+          </div>
+
+          <div class="content-card">
+            <div class="row">
+              <img src="{% static 'images/sigloXX/segunda_republica/elecciones_generales_1931.jpg' %}"
+                  alt="Lerroux"
+                  class="img-fluid rounded shadow-sm mb-3 w-100">
+            </div>
+          </div>
+
+        </section>
 
         <section id="constitucion" class="section-block">
           <div class="section-head">
@@ -1106,8 +1336,31 @@
           </div>
 
           <div class="content-card">
+            <div class="row">
+              <img src="{% static 'images/sigloXX/segunda_republica/elecciones_33.jpg' %}"
+                  alt="Lerroux"
+                  class="img-fluid rounded shadow-sm mb-3 w-100">
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <img src="{% static 'images/sigloXX/segunda_republica/ceda1.jpg' %}"
+                  alt="Lerroux"
+                  class="img-fluid rounded shadow-sm mb-3 w-100">
+                  <img src="{% static 'images/sigloXX/segunda_republica/partido_radical.jpg' %}"
+                  alt="Lerroux"
+                  class="img-fluid rounded shadow-sm mb-3 w-100">
+              </div>
+              <div class="col-md-6">
+                <img src="{% static 'images/sigloXX/segunda_republica/renovacion_espanola.jpg' %}"
+                  alt="Lerroux"
+                  class="img-fluid rounded shadow-sm mb-3 w-100">
+                  <img src="{% static 'images/sigloXX/segunda_republica/falange.jpg' %}"
+                  alt="Lerroux"
+                  class="img-fluid rounded shadow-sm mb-3 w-100">
+              </div>
+            </div>
               <div class="row">
-                <div class="col-md-9">
+                <div class="col-md-12">
                     <p>
                     Las elecciones de noviembre de 1933 supusieron un cambio decisivo en el equilibrio político de la República. La victoria de las fuerzas de centro-derecha, especialmente del Partido Radical de Alejandro Lerroux y de la Confederación Española de Derechas Autónomas (CEDA), liderada por José María Gil-Robles, marcó el inicio de una etapa de rectificación de las políticas del Bienio reformista.
                   </p>
@@ -1123,16 +1376,7 @@
                   
 
                 </div>
-                <div class="col-md-3">
-                  <img src="{% static 'images/sigloXX/segunda_republica/lerroux.jpg' %}"
-                      alt="Lerroux"
-                      class="img-fluid rounded shadow-sm mb-3 w-100">
-
-                  <img src="{% static 'images/sigloXX/segunda_republica/ceda.jpg' %}"
-                      alt="Cartel de la CEDA"
-                      class="img-fluid rounded shadow-sm w-100">
-                </div>
-              </div>
+                
 
               <p>
                     Este giro político generó una creciente tensión social y política. Las organizaciones obreras, especialmente el PSOE y la UGT, interpretaron el avance de la derecha como un riesgo de involución autoritaria. Este clima desembocó en la insurrección de octubre de 1934, que tuvo especial intensidad en Asturias —donde adquirió carácter revolucionario— y en Cataluña, donde el presidente de la Generalitat, Lluís Companys, proclamó el “Estado catalán” dentro de una supuesta República federal.
@@ -1188,10 +1432,16 @@
             </p>
 
             <div class="row">
-                <div class="col-12">
-                    <img src="{% static 'images/sigloXX/segunda_republica/frente_popular.jpg' %}"
-                    alt="Frente popular"
-                    class="img-fluid rounded shadow-sm w-100">
+                <div class="col-5">
+                    <img src="{% static 'images/sigloXX/segunda_republica/elecciones_36_votos.jpg' %}"
+                        alt="Represion de octubre"
+                        class="img-fluid rounded shadow-sm w-100">
+                </div>
+                <div class="col-7">
+                    <img src="{% static 'images/sigloXX/segunda_republica/elecciones_36_escanos.jpg' %}"
+                        alt="Represion de octubre"
+                        class="img-fluid rounded shadow-sm w-100">
+
                 </div>
             </div>
 
