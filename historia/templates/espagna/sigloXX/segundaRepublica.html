@@ -641,7 +641,7 @@
 
         <div class="col-lg-4">
           <div class="hero-portrait">
-            <img src="{% static 'images/sigloXX/segunda_republica.jpg' %}"
+            <img src="{% static 'images/sigloXX/segunda_republica/segunda_republica1.jpg' %}"
                 alt="Proclamación de la Segunda República en 1931"
                 data-bs-toggle="modal"
                 data-bs-target="#modalRepublica">
@@ -686,7 +686,7 @@
         <div class="intro-box section-block">
           <!-- IMAGEN -->
           <figure class="text-center mb-4">
-            <img src="{% static 'images/sigloXX/segunda_republica/proclamacion_segunda_republica.jpg' %}" 
+            <img src="{% static 'images/sigloXX/segunda_republica/segunda_republica.jpg' %}" 
                 class="img-fluid rounded shadow-sm"
                 alt="Proclamación de la Segunda República en Madrid, 1931">
             <figcaption class="mt-2 text-muted small">
@@ -698,7 +698,12 @@
           <div class="mini-timeline mt-4">
 
             <article class="t-item">
-              <h4><span class="t-date">Agosto 1930</span> Pacto de San Sebastián</h4>
+              <h4><span class="t-date">Agosto 1930</span>
+                <a href="#" data-bs-toggle="modal" data-bs-target="#modalSSebastian" class="section-link">
+                  Pacto de San Sebastian
+                </a>
+                
+                </h4>
               <p>Acuerdo entre fuerzas republicanas para coordinar la caída de la monarquía.</p>
             </article>
 
@@ -721,7 +726,7 @@
             </article>
 
             <article class="t-item">
-              <h4><span class="t-date">Abril 1931</span>
+              <h4><span class="t-date">12 Abril 1931</span>
                 <a href="#" data-bs-toggle="modal" data-bs-target="#modalMunicipales" class="section-link">
                   Elecciones municipales de 1931
                 </a>
@@ -804,6 +809,40 @@
                           <p class="text-center mt-2">Ángel García Hernández</p>
 
                     </div>
+                  </div>
+                  
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+    <!-- MODAL PACTO DE SAN SEBASTIAN-->
+          <div class="modal fade" id="modalSSebastian" tabindex="-1">
+            <div class="modal-dialog modal-xl modal-dialog-scrollable">
+              <div class="modal-content">
+
+                <div class="modal-header position-relative">
+                  <h4 class="modal-title position-absolute start-50 translate-middle-x">
+                    EL PACTO DE SAN SEBASTIAN
+                  </h4>
+                  <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                  <div class="row">
+                    <div class="col-md-12">
+                        <img src="{% static 'images/sigloXX/segunda_republica/pacto_san_sebastian.jpg' %}"
+                          alt="Pacto de San sebastian"
+                          class="img-fluid rounded shadow-sm mb-3 w-100">
+                          
+                        
+
+                    </div>
+                    <div class="col-md-12">
+                      <p>----</p>  
+                    </div>
+                    
                   </div>
                   
                 </div>
@@ -1001,9 +1040,20 @@
                     
                       <p>El Gobierno provisional de la Segunda República española ostentó el poder político en España desde la caída de la Monarquía de Alfonso XIII y la proclamación de la República el 14 de abril de 1931 hasta la aprobación de la Constitución de 1931 el 9 de diciembre y la formación del primer gobierno ordinario el 15 de diciembre. Hasta el 15 de octubre de 1931 el gobierno provisional estuvo presidido por Niceto Alcalá-Zamora, y tras la dimisión de este , le sucedió Manuel Azaña.</p>
                       
-                      <p>A primeras horas de la mañana del 14 de abril de 1931 el general Sanjurjo, director de la Guardia Civil, se dirige a la casa de Miguel Maura donde se encuentran reunidos los miembros del comité revolucionario que no estaban exiliados en Francia, ni escondidos. Nada más entrar se cuadra ante Maura y le dice: “A las órdenes de usted señor ministro".</p>
-                      <p>Por la tarde una muchedumbre se concentra en Madrid en la Puerta del Sol donde se encuentra la sede del Ministerio de la Gobernación. Los miembros del comité revolucionario se dirigen allí y cuando llegan Miguel Maura llama al portalón del Ministerio y grita: "Señores, paso al Gobierno de la República'". Los guardias civiles de la entrada se cuadran y presentan armas. A continuación el comité revolucionario se constituye en "Gobierno provisional" y designa a Niceto Alcalá-Zamora como su presidente. Eran las ocho de la tarde del 14 de abril. A esa misma hora el rey se despedía de los nobles y grandes de España que habían acudido al Palacio de Oriente y abandonaba Madrid en coche en dirección a Cartagena, donde hacia las cuatro de la madrugada embarcaba en el crucero Príncipe de Asturias rumbo a Marsella.</p>
-                      <div class="row">
+                      <p class="mt-2">A primeras horas de la mañana del 14 de abril de 1931 el general Sanjurjo, director de la Guardia Civil, se dirige a la casa de Miguel Maura donde se encuentran reunidos los miembros del comité revolucionario que no estaban exiliados en Francia, ni escondidos. Nada más entrar se cuadra ante Maura y le dice: “A las órdenes de usted señor ministro". Previamente el rey había preguntado lo mismo y Sanjujo había conestado: "No puedo garantizar la obendiencia de mis hombres al rey"</p>
+                      <div class="row mt-2">
+                        <div class="col-4">
+                            <p >Por la tarde una muchedumbre se concentra en Madrid en la Puerta del Sol donde se encuentra la sede del Ministerio de la Gobernación. Los miembros del comité revolucionario se dirigen allí escoltados por la Guardia Civil y cuando llegan Miguel Maura llama al portalón del Ministerio y grita: "Señores, paso al Gobierno de la República'". Los guardias civiles de la entrada se cuadran y presentan armas. A continuación el comité revolucionario se constituye en "Gobierno provisional" y designa a </p>
+                        </div>
+                        <div class="col-8">
+                          <img src="{% static 'images/sigloXX/segunda_republica/alcala_provisional.jpg' %}"
+                            alt="Lerroux"
+                            class="img-fluid rounded shadow-sm mb-3 w-100">
+                        </div>
+                        <p>Niceto Alcalá-Zamora como su presidente. Eran las ocho de la tarde del 14 de abril. A esa misma hora el rey se despedía de los nobles y grandes de España que habían acudido al Palacio de Oriente y abandonaba Madrid en coche en dirección a Cartagena, donde hacia las cuatro de la madrugada embarcaba en el crucero Príncipe de Asturias rumbo a Marsella</p>
+                      </div>
+                      
+                      <div class="row mt-3">
                         <img src="{% static 'images/sigloXX/segunda_republica/gobierno_provisional_1931.jpg' %}"
                             alt="Lerroux"
                             class="img-fluid rounded shadow-sm mb-3 w-100">
@@ -1029,7 +1079,7 @@
                         <p>Tres días después tres ministros del Gobierno provisional se entrevistaban en Barcelona con Francesc Macià alcanzando un acuerdo por el que Esquerra Republicana de Cataluña renunciaba a la “República Catalana” a cambio del compromiso del Gobierno provisional de que presentaría en las futuras Cortes Constituyentes el Estatuto de Autonomía que decidiera Cataluña y del reconocimiento del gobierno catalán que dejaría de llamarse Consejo de Gobierno de la República Catalana para tomar el nombre Gobierno de la Generalidad de Cataluña </p>
                     </div>
                     <div class="col-5">
-                        <img src="{% static 'images/sigloXX/segunda_republica/macia.avif' %}"
+                        <img src="{% static 'images/sigloXX/segunda_republica/macia.jpg' %}"
                             alt="Lerroux"
                             class="img-fluid rounded shadow-sm mb-3 w-100">
                             <p class="mt-2 text-center">Frances Macia y Alcalá Zamora</p>
@@ -1412,8 +1462,19 @@
 
             <div class="t-item mt-4" id="">
               <h6><span class="t-date" >La «cuestión religiosa» </span></h6>
-              <p>Promulgó una serie de decretos y presentó unas leyes hicieran efectiva la aconfesionalidad del Estado y que permitieran que este asumiera aquellas funciones administrativas y sociales que la Iglesia católica había desempeñado hasta entonces.</p>
-              <p class="mt-3">23 de enero de 1932 disolución de la orden de los jesuitas y la nacionalización de la mayor parte de sus bienes (colegios y residencias, especialmente)</p>
+              
+              <div class="row">
+                <div class="col-6">
+                  <p>Promulgó una serie de decretos y presentó unas leyes hicieran efectiva la aconfesionalidad del Estado y que permitieran que este asumiera aquellas funciones administrativas y sociales que la Iglesia católica había desempeñado hasta entonces.</p>
+                  <p class="mt-3">23 de enero de 1932 disolución de la orden de los jesuitas y la nacionalización de la mayor parte de sus bienes (colegios y residencias, especialmente)</p>
+                  
+                </div>
+                <div class="col-6">
+                  <img src="{% static 'images/sigloXX/segunda_republica/cuestion_religiosa.jpg' %}"
+                    alt="" class="img-fluid rounded shadow-sm mb-3 w-100">
+                    
+                </div>
+              </div>
               <p class="mt-3">30 de enero de 1932 secularizaba los cementerios, que pasaron a ser propiedad de los ayuntamientos</p> 
               <p class="mt-3">2 de febrero de 1932, las Cortes aprobaban la ley de divorcio.</p>    
               <p class="mt-3">La más polémica fue la <strong>Ley de Congregaciones Religiosas:</strong></p>
@@ -1429,14 +1490,294 @@
 
             <div class="t-item mt-4" id="">
               <h6><span class="t-date" >La política educativa </span></h6>
-              <p>------------------------------</p>     
+              <div class="row">
+                <div class="col-6">
+                  <img src="{% static 'images/sigloXX/segunda_republica/politica_educativa.jpg' %}"
+                    alt="" class="img-fluid rounded shadow-sm mb-3 w-100">
+                    
+                </div>
+                <div class="col-6">
+                    <p>En 1931 entre el 30 y el 50 % de la población total erea analfabeta. Se calculó que para atender al más de millón y medio de niños que no iban a la escuela, el Estado necesitaría construir unas 27 000 nuevas escuelas, a un ritmo de 5000 cada año.</p>     
+                    <p>Las necesidades de escuelas primarias estatales aumentaron todavía más cuando se aprobó la ley de Congregaciones que había establecido el cierre de los </p>
+                    
+                </div>
+                <p>colegios de primaria religiosos. Para atender a los 350.000 niños de esos colegios sería necesario construir unas 7000 escuelas más.</p>
+                <p>En el verano de 1933 se pusieron en marcha  <strong>las misiones pedagógicas</strong>. Se quería llevar «el aliento del progreso» a los pueblos más aislados y atrasados de España. Así profesores y estudiantes, la mayoría de ellos de la Universidad de Madrid, se fueron a las aldeas con reproducciones de pinturas célebres y con discos y películas, y sobre escenarios improvisados representaban obras de teatro de Lope de Vega y de Calderón de la Barca. Asimismo llevaban libros y medicinas y ayudaban a construir escuelas. En este proyecto también participó el <strong>grupo teatral La Barraca</strong>, creado por Federico García Lorca.</p>
+              </div>
+              
             </div>
+
+            <div class="t-item mt-4" id="">
+              <h6><span class="t-date" >La cuestión social</span></h6>
+              <div class="row">
+                <div class="col-6">
+                  <p>El socialista Largo Caballero, líder de la UGT, continuó con el mismo cargo en el gobierno de Azaña. Las dos piezas básicas de su proyecto de regulación de las relaciones laborales, la Ley de Contratos de Trabajo y la de Jurados Mixtos, fueron muy contestadas tanto por la CNT como por los patronos.</p>
+                  <p>El número de huelgas y de incidentes violentos a consecuencia de ellas se fue incrementando a lo largo del primer bienio de la República, a causa </p>
+                  
+                </div>
+                <div class="col-6">
+                  <img src="{% static 'images/sigloXX/segunda_republica/cuestion_social.jpg' %}"
+                    alt="Manuel Azaña" class="img-fluid rounded shadow-sm mb-3 w-100">                    
+                </div>
+                <p>fundamentalmente de la negativa de la CNT a utilizar los mecanismos oficiales de conciliación.</p>
+                <p>Los patronos también se movilizaron. La <strong>Confederación Patronal Española</strong> se quejaba de los jurados mixtos que prácticamente siempre daban la razón a los obreros.</p>
+              </div>
+              
+              
+            </div>
+
+            <div class="t-item mt-4" id="">
+              <h6><span class="t-date" >La cuestión militar</span></h6>
+              <div class="row">
+                <div class="col-6">
+                  <img src="{% static 'images/sigloXX/segunda_republica/cuestion_militar.jpg' %}"
+                    alt="Manuel Azaña" class="img-fluid rounded shadow-sm mb-3 w-100">
+                </div>
+                <div class="col-6">
+                  <p>Los decretos sobre los ascensos fueron confirmados. Además estableció un baremo para los ascensos en los que primaba la antigüedad y la capacitación profesional. Se unificó en una única escala a los oficiales de carrera y a los procedentes de la tropa.</p>
+                  <p>En marzo de 1932 las Cortes aprobaron una ley que autorizaba a pasar a la reserva a aquellos generales que durante seis meses no hubieran recibido ningún destino. Era una forma encubierta de deshacerse de aquellos generales de los que el gobierno dudara de </p>
+                  
+
+                </div>
+                <p>su fidelidad a la República.</p>
+                <p>El servicio militar obligatorio se redujo a doce meses</p>
+                  <p>El intento de golpe de Estado encabezado por el general Sanjurjo, en agosto de 1932, fue exponente del malestar de una parte del Ejército por causas no estrictamente políticas.</p>
+              </div>
+              
+            </div>
+
+            <div class="t-item mt-4" id="">
+              <h6><span class="t-date" >La cuestión regional</span></h6>
+              <p><strong>El estatuto de Cataluña</strong></p>
+              <div class="row">
+                <div class="col-6">
+                  <p class="mt-3">Tras cuatro meses de debates interminables, solo el fallido golpe de Estado del general Sanjurjo de agosto de 1932 motivó que se acelerara la discusión del Estatuto, que finalmente fue aprobado el 9 de septiembre</p>
+                  <p class="mt-3">Mediante el Estatuto, Cataluña se convirtió en región autónoma, que sería regida por un gobierno propio, </p>
+                  
+                </div>
+                <div class="col-6">
+                  <img src="{% static 'images/sigloXX/segunda_republica/estatuto_cataluna.jpg' %}"
+                    alt="estatuto" class="img-fluid rounded shadow-sm mb-3 w-100">
+                </div>
+                <p>la Generalidad de Cataluña, formada por un presidente, un parlamento y un consejo ejecutivo. La Generalidad tendría facultades legislativas y ejecutivas en hacienda, economía, educación y cultura, transportes y comunicaciones; el Gobierno de la república se ocuparía de las relaciones exteriores y el ejército.</p>
+                <p class="mt-3">Cuando Azaña fue a Barcelona para la ceremonia de presentación, lo recibieron con una tremenda ovación». Las primeras elecciones al Parlament tuvieron lugar dos meses después y fueron ganadas por Esquerra Republicana de Cataluña. Francesc Macià fue así confirmado como presidente de la Generalidad.</p>
+              </div>
+              
+              <p class="mt-3"><strong>El estatuto vasco</strong></p>
+              <p class="mt-3">Debido a multiples problemas no fue aprobado hasta el 1 de octubre de 1936.</p>
+              <p class="mt-3"><strong>El estatuto gallego</strong></p>
+              <p class="mt-3">Fue aprobado por el pueblo gallego, pero nunca llegó a entrar en vigor debido al estallido de la Guerra Civil.</p>
+            </div>
+
+            <div class="t-item mt-4" id="">
+              <h6><span class="t-date" >La cuestión agraria</span></h6>
+              <div class="row">
+                <div class="col-6">
+                  <img src="{% static 'images/sigloXX/segunda_republica/reforma_agraria.jpg' %}"
+                    alt="Cuestion agraria" class="img-fluid rounded shadow-sm mb-3 w-100">
+                </div>
+                <div class="col-6">
+                    <p>La Reforma Agraria fue, sin duda, el proyecto más ambicioso, complejo y, a la postre, divisivo del Bienio Reformista (1931-1933). Representaba el intento de desmantelar el poder de la oligarquía terrateniente y resolver el "problema agrario" que arrastraba España desde el siglo XIX.</p>
+                    <h5 class="mt-3"><strong>1. El Contexto: El "Hambre de Tierra"</strong></h5>
+                    <p class="mt-2">En 1931, España era un país eminentemente agrario (casi el 50% de la población activa trabajaba en el campo). La estructura de la propiedad era </p>
+                  </div>
+                  <p>profundamente desigual:</p>
+              </div>
+              
+              
+              <div>
+                <ul>
+                  <li><strong>Latifundismo (Sur y Centro): </strong>Grandes extensiones en manos de pocos dueños, con masas de jornaleros viviendo en la miseria.</li>
+                  <li><strong>Minifundismo (Norte):</strong>  Parcelas tan pequeñas que no permitían la subsistencia (economía de autoconsumo).</li>
+                </ul>
+              </div>
+              <h5 class="mt-3"><strong>2. Medidas de Urgencia (Decretos de Largo Caballero)</strong></h5>
+              <p class="mt-2">Antes de que se aprobara una ley definitiva, el ministro de Trabajo, Francisco Largo Caballero, promulgó decretos para proteger a los campesinos:</p>
+              <div>
+                <ul>
+                  <li><strong>Términos Municipales: </strong>Obligaba a los patronos a contratar a trabajadores de la propia localidad (evitando traer esquiroles).</li>
+                  <li><strong>Jurados Mixtos:</strong> Arbitraje para resolver conflictos laborales y fijar salarios.</li>
+                  <li><strong>Laboreo Forzoso:</strong> Impedía que los propietarios dejaran las tierras sin cultivar para boicotear a la República.</li>
+                </ul>
+              </div>
+              <h5 class="mt-3"><strong>3. La Ley de Reforma Agraria de 1932 (LRA)</strong></h5>
+              <p>Tras intensos debates parlamentarios y el impacto de la "Sanjurjada" (intento de golpe de Estado que aceleró la aprobación), la ley se promulgó en septiembre de 1932.</p>
+              <p class="mt-2"><strong>Mecanismo de Expropiación</strong></p>
+              <p class="mt-2">La ley no abolía la propiedad privada, sino que permitía la expropiación con indemnización de tierras que estuvieran en categorías específicas:</p>
+              <div>
+                <ol>
+                  <li>Tierras ofrecidas voluntariamente.</li>
+                  <li>Tierras de la antigua nobleza (grandezas de España), que fueron expropiadas sin indemnización (como castigo por su apoyo al golpe de Sanjurjo).</li>
+                  <li>Tierras permanentemente arrendadas o deficientemente cultivadas.</li>
+                </ol>
+              </div>
+              <p><strong>El Instituto de Reforma Agraria (IRA)</strong></p>
+              <p class="mt-2">Se creó el IRA como el órgano técnico y financiero encargado de ejecutar la reforma. Su función era inventariar las tierras, expropiarlas y asentar a los campesinos, ya fuera de forma individual o en colectividades.</p>
+              <h5 class="mt-3">4. El Fracaso en la Implementación</h5>
+              <p>A pesar de sus buenas intenciones, los resultados fueron decepcionantes a nivel estadístico:</p>
+              <div>
+                <ul>
+                  <li><strong>Lentitud Burocrática:</strong>  El IRA carecía de presupuesto suficiente y de un cuerpo técnico ágil.</li>
+                  <li><strong>Complejidad Legal:</strong>  Se establecieron hasta 13 categorías de tierras expropiables, lo que generó un laberinto judicial.</li>
+                  <li><strong>Resultados: </strong>Para finales de 1933, solo se habían asentado unos 12.000 campesinos, cuando las expectativas eran de cientos de miles.</li>
+                </ul>
+              </div>
+
+              <div class="t-item mt-4" id="">
+              <h6><span class="t-date" >La oposición </span></h6>
+              <h5>Los republicanos de centro-derecha</h5>
+              <hr>
+              <div class="row">
+                <div class="col-8">
+                  <p>Una vez aprobada la Constitución, los republicanos de centro-derecha, cuyo principal partido era con diferencia el <strong>Partido Republicano Radical</strong>, se opusieron a la continuidad en el gobierno de los socialistas, debido fundamentalmente a que una parte importante de su base social la constituían las clases medias urbanas y rurales, comerciantes, tenderos y pequeños empresarios que rechazaban las reformas sociolaborales aprobadas por el socialista Francisco Largo Caballero. El líder de los radicales <strong>Alejandro Lerroux</strong> se convirtió así en el portavoz de todos aquellos que aborrecían a los socialistas y presionó a Niceto Alcalá Zamora para que le retirara su apoyo </p>
+                </div>
+                <div class="col-4">
+                  <img src="{% static 'images/sigloXX/segunda_republica/Escudo_PRR.png' %}"
+                    alt="Manuel Azaña" class="img-fluid rounded shadow-sm mb-3 w-100">
+                    <p class="text-center mt-2">Escudo Partido Radical</p>
+                </div>
+                <p>al gobierno de Azaña. Tras los sucesos de Casas Viejas de enero de 1933 los radicales hablaron directamente de la existencia de una «dictadura socialista» y empezaron a incluir en sus ataques a los «azañistas».</p>
+              </div>
+              
+              <h5 class="mt-3">La derecha católica de la CEDA</h5>
+              <hr>
+              <div class="row">
+                <div class="col-9 mt-3">
+                  <p>La Confederación Española de Derechas Autónomas (CEDA), fundada en marzo de 1933 y liderada por José María Gil-Robles, representó la respuesta organizada del conservadurismo católico a las reformas laicistas y sociales del primer bienio republicano.</p>
+                  <p class="mt-2">Su oposición puede analizarse bajo tres ejes fundamentales:</p>
+                  <div>
+                    <ol>
+                      <li><strong>La Articulación del "Accidentalismo"</strong></li>
+                      <p>La CEDA no nació como un partido monárquico tradicional, sino bajo la doctrina del accidentalismo. Según Gil-Robles (influenciado por las encíclicas papales), la forma de gobierno (Monarquía o República) era "accidental"; lo esencial era el contenido social y legal.</p>
+                      
+                    </ol>
+                  </div>
+                
+                </div>
+                <div class="col-3">
+                  <img src="{% static 'images/sigloXX/segunda_republica/Escudo_CEDA.png' %}"
+                    alt="Manuel Azaña" class="img-fluid rounded shadow-sm mb-3 w-100">
+                    <p class="text-center mt-2">Escudo CEDA</p>
+                </div>
+                <div>
+                  <ol start="2">
+                    <li><strong>Estrategia.</strong> Aceptar la legalidad republicana para "combatirla desde dentro". </li>
+                      <li><strong>Objetivo. </strong>Revisar la Constitución de 1931, a la que consideraban sectaria y persecutoria contra la Iglesia.</li>
+                  </ol>
+                </div>
+              </div>
+              <h5>La derecha monárquica</h5>
+              <hr>
+              <div class="row">
+                <div class="col-9">
+                  <p>Los monárquicos alfonsinos no se propusieron formar un movimiento de masas sino que actuaron en tres frentes: el cultural, actualizando el discurso tradicionalista y conservador, a través de un grupo de intelectuales agrupados en torno a la <strong>revista Acción Española</strong> ; el político, fundando un partido propio, llamado <strong>Renovación Española</strong>, que intentará formar un frente antirrepublicano con el naciente fascismo español, los carlistas y el sector menos «accidentalista» de la CEDA; y sobre todo el insurreccional, buscando la colaboración de los sectores del Ejército español que se mantenían fieles a la monarquía  y de aquellos otros descontentos por la reforma militar de Azaña. Su lider fue <strong>Calvo Sotelo</strong> </p>
+                </div>
+                <div class="col-3">
+                  <img src="{% static 'images/sigloXX/segunda_republica/escudo_renovacion_espanola.png' %}"
+                    alt="Manuel Azaña" class="img-fluid rounded shadow-sm mb-3 w-100">
+                    <p class="text-center mt-2">Escudo Renovación Española</p>
+                </div>
+                
+              </div>
+              <h5 class="mt-2">El intento de golpe de Estado del general Sanjurjo en agosto de 1932</h5>
+              <hr>
+              <div class="row">
+                <div class="col-6">
+                  <img src="{% static 'images/sigloXX/segunda_republica/sanjurjada.jpg' %}"
+                    alt="Sanjurjada" class="img-fluid rounded shadow-sm mb-3 w-100">
+                </div>
+                <div class="col-6">
+                  <p>La Sanjurjada fue el primer intento serio de golpe de Estado contra la Segunda República, protagonizado por el general José Sanjurjo el 10 de agosto de 1932.</p>
+                  <p class="mt-2"><strong>Los motivos.</strong> Sanjurjo, que había ayudado a traer la República en 1931, se sintió humillado tras ser destituido de la dirección de la Guardia Civil (a raíz de los Sucesos de Arnedo). Además, el ejército </p>
+                </div>
+                <p>estaba profundamente descontento con las reformas militares de Azaña y la tramitación del Estatuto de Autonomía de Cataluña.</p>
+              </div>
+              
+              
+              <p class="mt-2"><strong>El desarrollo.</strong> El golpe tuvo dos focos:</p>
+              <div>
+                <ul>
+                  <li><strong>Madrid.</strong> Fracasó estrepitosamente debido a la falta de coordinación y a que el Gobierno ya estaba avisado.</li>
+                  <li><strong>Sevilla.</strong> Fue el único lugar donde triunfó inicialmente. Sanjurjo tomó la ciudad y proclamó un manifiesto contra la "dictadura" de las Cortes. Sin embargo, se quedó aislado y la huelga general convocada por los sindicatos paralizó la ciudad, obligándolo a huir hacia Portugal (aunque fue detenido en Huelva).</li>
+                </ul>
+              </div>
+              <p><strong>Las consecuencias:</strong></p>
+              <div>
+                <ul>
+                  <li><strong>Pena de muerte conmutada.</strong> Sanjurjo fue condenado a muerte, pero el Gobierno de Azaña le conmutó la pena por cadena perpetua (finalmente sería amnistiado por la CEDA en 1934 e iría al exilio).</li>
+                  <li><strong>Impulso a las reformas.</strong> El fracaso del golpe dio al Gobierno un "balón de oxígeno" político que aprovechó para acelerar la aprobación de la Ley de Reforma Agraria y el Estatuto de Cataluña, que estaban bloqueados.</li>
+                  <li><strong>Expropiaciones.</strong> Se confiscaron las tierras de los aristócratas implicados en la sublevación ("Grandes de España") sin indemnización.</li>
+                </ul>
+              </div>
+              <p class="mt-3">En resumen, la Sanjurjada fue un fracaso militar que fortaleció temporalmente a la República, pero dejó claro que una parte importante del ejército ya no aceptaba la legalidad democrática.</p>
+              <h5 class="mt-3">Los fascistas</h5>
+              <hr>
+              <p class="mt-3">En 1931, Ramiro Ledesma Ramos y Onésimo Redondo habían fusionado sus respectivos grupos para formar las <strong>Juntas de Ofensiva Nacional Sindicalista (JONS)</strong>, organizadas en «escuadras» según el modelo de las «squadra d’azzione» del fascismo italiano.</p>
+              <p class="mt-3">En octubre de 1933 se creó <strong>Falange Española.</strong>  A principios de 1934 falangistas y jonsistas se fusionarían en la Falange Española de las JONS, que hasta la primavera de 1936 siguió siendo una organización minúscula.</p>
+              <h5 class="mt-3">La CNT</h5>
+              <hr>
+              <div class="row">
+                <div class="col-9">
+                  <p class="mt-3">Para entender el papel de la Confederación Nacional del Trabajo (CNT) durante el Bienio Reformista o Progresista (1931-1933), hay que partir de una premisa académica: la CNT no fue una oposición política convencional, sino una fuerza </p>
+                </div>
+                <div class="col-3">
+                  <img src="{% static 'images/sigloXX/segunda_republica/cnt.png' %}"
+                    alt="CNT" class="img-fluid rounded shadow-sm mb-3 w-100">
                     
+                </div>
+                <p>insurreccional que veía en la República un obstáculo para la revolución social tanto como lo fue la Monarquía.</p>
+                <p class="mt-3">La CNT actuó como una "tenaza" sobre el Bienio Reformista. Mientras la derecha atacaba desde las instituciones y el ejército, la CNT atacaba desde la calle. Su rechazo a cualquier reforma gradualista impidió que la República se estabilizara socialmente, creando una sensación de desorden permanente que la derecha aprovechó para justificar su discurso de "mano dura".</p>
+              </div>
+
+              <h5 class="mt-3">La crisis de la coalición republicano-socialista: el fin del gobierno de Azaña</h5>
+              <hr>
+              <p class="mt-3">La caída del gobierno de Manuel Azaña en septiembre de 1933 marca el fin del "impulso transformador" de la Segunda República. No fue un evento súbito, sino el resultado de una erosión multicausal que fracturó la coalición entre los republicanos de izquierda y el PSOE.</p>
+              <p class="mt-3"><strong>1. El Desgaste por la Violencia Política: Casas Viejas</strong></p>
+              <p-mt-3>El incidente de Casas Viejas (enero de 1933) fue el "golpe de gracia" moral para el gobierno. La brutal represión de la Guardia de Asalto contra los campesinos anarquistas no solo horrorizó a la opinión pública, sino que:</p-mt-3>
+              <div>
+                <ul>
+                  <li><strong>Deslegitimó el discurso reformista:</strong> La oposición de derechas utilizó el suceso para acusar a Azaña de "dictador sangriento".</li>
+                  <li><strong>Fracturó a la izquierda:</strong> El PSOE empezó a cuestionar su permanencia en un gobierno que utilizaba los mismos métodos represivos que la monarquía.</li>
+                  <li><strong>Aislamiento de Azaña:</strong> Su famosa (y malinterpretada) frase "ni heridos ni prisioneros, tiros a la barriga" se convirtió en un arma arrojadiza permanente.</li>
+                </ul>
+              </div>
+              <p class="mt-3"><strong>2. La Parálisis Legislativa y la Cuestión Agraria</strong> </p>
+              <p class="mt-3">La coalición se basaba en un pacto: los socialistas daban estabilidad a cambio de reformas sociales profundas. Sin embargo:</p>
+              <div class="mt-3">
+                <ul>
+                  <li>La <strong>Ley de Reforma Agraria</strong> resultó ser un fracaso administrativo. Para 1933, el hambre y la impaciencia en el campo (especialmente en Andalucía y Extremadura) eran insostenibles.</li>
+                  <li>El PSOE, presionado por sus bases (la UGT y la FNTT), empezó a sentir que el ritmo de los republicanos "burgueses" era demasiado lento. Esto alimentó la <strong>radicalización de Largo Caballero</strong>, quien empezó a alejarse del colaboracionismo gubernamental.</li>
+                  <li></li>
+                </ul>
+              </div>
+              <p class="mt-3"><strong>3. La Ofensiva de la Oposición</strong></p>
+              <p class="mt-3">Azaña se encontró atrapado en una pinza política:</p>
+              <div class="mt-3">
+                <ul>
+                  <li>Por la derecha: La <strong>CEDA</strong> de Gil-Robles ya estaba plenamente articulada como una fuerza de masas moderna, bloqueando sistemáticamente las leyes en las Cortes.</li>
+                  <li>Por el centro: El <strong>Partido Radical de Alejandro Lerroux</strong> maniobró para presentarse como la alternativa "moderada" y atraer a los republicanos que temían la influencia socialista.</li>
+                  <li><strong>La Iglesia:</strong> La Ley de Confesiones y Congregaciones Religiosas (1933) terminó de movilizar al electorado católico en contra del gobierno.</li>
+                </ul>
+              </div>
+              <p class="mt-3"><strong>4. El Conflicto con la Presidencia (Alcalá-Zamora)</strong></p>
+              <p class="mt-3">La relación entre el Jefe del Gobierno (Azaña) y el Presidente de la República (Niceto Alcalá-Zamora) era pésima.</p>
+              <div>
+                <ul>
+                  <li>Alcalá-Zamora, de perfil conservador y católico, desconfiaba de la laicidad de Azaña y de la presencia de ministros socialistas.</li>
+                  <li>Tras las elecciones a consejos municipales de abril de 1933 y la elección de vocales al Tribunal de Garantías Constitucionales (donde la oposición salió reforzada), el Presidente utilizó su prerrogativa para retirar la confianza a Azaña, forzando su dimisión en septiembre de 1933, a pesar de que este aún mantenía la mayoría parlamentaria.</li>
+                  
+                </ul>
+              </div>
+              <p class="mt-3"><strong>Consecuencias: Hacia el Bienio Negro</strong></p>
+              <p class="mt-3">La caída de Azaña llevó a la disolución de las Cortes y a la convocatoria de elecciones en noviembre de 1933. El resultado fue:</p-mt-3>
+                <div>
+                  <ul>
+                    <li><strong>Hundimiento de la izquierda: </strong>Debido a la desunión (el PSOE se presentó solo) y al abstencionismo anarquista.</li>
+                    <li><strong>Victoria de la derecha y el centro: </strong>El inicio de una etapa de rectificación de las reformas previas.</li>
                     
-                    
-                    
-                    
-                    
+                  </ul>
+                </div>
+            </div>    
                     
                     <!-----------------------------------------------------------------------  -->
                     <div class="text-center mt-4">
@@ -1500,6 +1841,13 @@
               <div class="modal-body">
                 <div class="row">
                   <div class="col-12">
+                      <div class="img-wrapper">
+                        <img src="{% static 'images/sigloXX/segunda_republica/chozadeseisdedos.jpg' %}"
+                            alt="Choza de Seis Dedos">                        
+                      </div>
+                      <p class="text-center">Choza de Seisdedos</p>
+                  </div>
+                  <div class="col-12 mt-5">
                       <div class="img-wrapper">
                         <img src="{% static 'images/sigloXX/segunda_republica/casas_viejas1.jpg' %}"
                             alt="Manuel Azaña">
