@@ -561,6 +561,90 @@
       opacity: 0.9;
     }
 
+    .crisis-1917 .content-card {
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.06);
+}
+
+.crisis-1917 .card-img-top {
+  height: 220px;
+  object-fit: cover;
+  object-position: center;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+}
+
+.crisis-1917 .chip {
+  display: inline-block;
+  padding: .35rem .75rem;
+  border-radius: 999px;
+  background: #eef3ff;
+  color: #244a8f;
+  font-size: .85rem;
+  font-weight: 600;
+}
+
+.crisis-1917 .section-head h2 {
+  font-weight: 700;
+  margin-top: .75rem;
+}
+
+.crisis-1917 .mini-timeline {
+  border-left: 3px solid #d8e2f3;
+  padding-left: 1.5rem;
+}
+
+.crisis-1917 .t-item {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.crisis-1917 .t-item::before {
+  content: "";
+  position: absolute;
+  left: -2rem;
+  top: .35rem;
+  width: 14px;
+  height: 14px;
+  background: #244a8f;
+  border-radius: 50%;
+}
+
+.crisis-1917 .t-date {
+  font-weight: 700;
+  color: #244a8f;
+  margin-bottom: .35rem;
+}
+
+.crisis-1917 .t-content h5 {
+  font-weight: 700;
+}
+
+.crisis-1917 .modal-title {
+  font-weight: 700;
+}
+
+.crisis-1917 .card-img-top {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+}
+
+.crisis-1917 .content-card {
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+.crisis-1917 .card-body {
+  padding: 1.6rem;
+}
+
 
 
       @media (max-width: 1199px) {
@@ -665,6 +749,8 @@
                 <a href="#constitucional">Periodo constitucional</a>
                 <a href="#crisis1917">Crisis de 1917</a>
                 <a href="#gripe1918">Gripe de 1918</a>
+                <a href="#canadiense">Crisis de 1919 (La Canadiense)</a>
+                <a href="#pistolerismo">El pistolerismo</a>
                 <a href="#desastre_annual">Desastre de Annual 1921</a>
                 <a href="#primo">Dictadura de Primo de Rivera</a>
                 <a href="#berenguer">Dictablanda de Berenguer</a>
@@ -829,58 +915,182 @@
                 </div>
 
                 <!-- CRISIS DE 1917 -->
-                
-                <div class="t-item" id="crisis1917">                    
-                    <div class="section-head-inline">
-                      <h6><span class="t-date">CRISIS DE 1917</span></h6>
-                      <a href="#" class="section-link">
-                        Ampliar contenido <i class="bi bi-arrow-right"></i>
-                      </a>
+                 <div class="t-item mt-5 crisis-1917" id="crisis1917">                    
+                      <h6><span class="t-date">CRISIS DE 1917</span></h6>              
+                    
+                    <p >
+                        La crisis de 1917 fue una triple quiebra del sistema de la Restauración:
+                        militar, política y social. No derribó el régimen, pero evidenció su
+                        agotamiento y anticipó la crisis final que desembocaría en la dictadura
+                        de Primo de Rivera.
+                      </p>
+
+                    <!-- INTRO -->
+                    <div class="content-card p-4 mt-3 mb-5">
+                      <h3 >Contexto general</h3>
+                      <p>
+                        España permaneció neutral durante la Primera Guerra Mundial, lo que
+                        favoreció el crecimiento de determinados sectores industriales y
+                        exportadores. Sin embargo, ese crecimiento fue profundamente desigual:
+                        aumentaron los beneficios empresariales, pero también la inflación y el
+                        deterioro del poder adquisitivo de las clases trabajadoras.
+                      </p>
+                      <p>
+                        Sobre esta tensión económica se proyectaba un régimen político cada vez
+                        más debilitado, basado en el turno dinástico, el caciquismo electoral y
+                        la limitada participación real de la sociedad. En 1917 confluyeron tres
+                        movimientos distintos que cuestionaron, desde lugares diferentes, la
+                        capacidad del sistema para mantenerse.
+                      </p>
                     </div>
-                    <p>
-                      En <strong>1917</strong> la monarquía de Alfonso XIII atravesó una grave crisis política,
-                      social y militar. Coincidieron tres conflictos de gran importancia: las
-                      <strong>Juntas de Defensa</strong> promovidas por sectores del ejército, la
-                      <strong>Asamblea de Parlamentarios</strong> impulsada desde Cataluña y una
-                      <strong>huelga general revolucionaria</strong> convocada por UGT y CNT.
-                    </p>
 
-                    <p>
-                      La incapacidad del sistema de la Restauración para dar respuesta a estas tensiones
-                      mostró su progresivo desgaste. Aunque el régimen logró superar la crisis de forma
-                      inmediata, los acontecimientos de 1917 evidenciaron que el turnismo y el sistema
-                      político tradicional estaban entrando en una fase de claro deterioro.
-                    </p>
-                    <div class="mini-grid_17 mt-3">
+                    <!-- TARJETAS -->
+                    <div class="row g-4 mb-5">
 
-                      <!-- DESAFIO MILITAR -->
-                      <div class="highlight-card text-center p-4">
-                          
-                          <div class="icon-box mb-3"><i class="bi bi-bank"></i></div>
-                          <h6>Desafío militar: Juntas de Defensa</h6>
-                          <p>Se crearon las Juntas de Defensa, un movimiento sindical militar no previsto en la legislación, en lo que era un claro desafío al gobierno del liberal Manuel García Prieto que, impotente para controlarlas, se vio obligado a dimitir. Su reemplazo, el conservador Eduardo Dato, optó por legalizarlas.</p>
-                          <p>
-                            Las juntas decían defender los intereses de los oficiales de graduación intermedia, aunque su vocación de intervenir en política era evidente.
-                          </p>
+                      <!-- Crisis militar -->
+                      <div class="col-md-4">
+                        <div class="card content-card h-100 shadow-sm">
+                          <img src="{% static 'images/sigloXX/alfonsoXIII/juntas-defensa.jpg' %}"
+                              class="card-img-top"
+                              alt="Juntas de Defensa de 1917">
+                          <div class="card-body d-flex flex-column">
+                            <span class="chip mb-2">Crisis militar</span>
+                            <h5 class="card-title">Las Juntas de Defensa</h5>
+                            <p class="card-text">
+                              Oficiales peninsulares reclamaron mejoras salariales y ascensos
+                              por antigüedad frente a los militares africanistas.
+                            </p>
+                            <button class="btn btn-outline-primary mt-auto"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#modalJuntasDefensa">
+                              Ampliar contenido
+                            </button>
+                          </div>
+                        </div>
                       </div>
 
-                      <!-- DESAFIO POLÍTICO -->
-                      <div class="highlight-card text-center p-4">
-                          <div class="icon-box mb-3"><i class="bi bi-exclamation-triangle"></i></div>
-                          <h6>Desafío político: Asamblea de parlamentarios</h6>
-                          <p>En vista de la crisis abierta, Cambó exigió al gobierno la convocatoria de Cortes, que este no aceptó. Los parlamentarios catalanes se reunieron en la llamada Asamblea de Parlamentarios y exigieron la convocatoria de elecciones a Cortes Constituyentes, de cara a una nueva organización del Estado que reconociera la autonomía de las regiones.</p>
-                      </div>   
-                      <!-- DESAFIO SOCIAL -->
-                      <div class="highlight-card text-center p-4">
-                          <div class="icon-box mb-3"><i class="bi bi-exclamation-triangle"></i></div>
-                          <h6>Huelga general revolucionaria</h6>
-                          <p>la UGT (sindicato socialista, más implantado en Madrid y País Vasco) convocó una huelga general revolucionaria (agosto de 1917), que recibió el apoyo de la CNT (sindicato anarquista, mayoritario en Cataluña).</p>
-                      </div>         
+                      <!-- Crisis política -->
+                      <div class="col-md-4">
+                        <div class="card content-card h-100 shadow-sm">
+                          <img src="{% static 'images/sigloXX/alfonsoXIII/asamblea-parlamentarios.jpg' %}"
+                              class="card-img-top"
+                              alt="Asamblea de Parlamentarios de 1917">
+                          <div class="card-body d-flex flex-column">
+                            <span class="chip mb-2">Crisis política</span>
+                            <h5 class="card-title">La Asamblea de Parlamentarios</h5>
+                            <p class="card-text">
+                              Impulsada por la Lliga Regionalista, exigía una reforma
+                              constitucional y una democratización del sistema.
+                            </p>
+                            <button class="btn btn-outline-primary mt-auto"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#modalAsambleaParlamentarios">
+                              Ampliar contenido
+                            </button>
+                          </div>
+                        </div>
+                      </div>
 
-                    </div> 
+                      <!-- Crisis social -->
+                      <div class="col-md-4">
+                        <div class="card content-card h-100 shadow-sm">
+                          <img src="{% static 'images/sigloXX/alfonsoXIII/huelga-1917.jpg' %}"
+                              class="card-img-top"
+                              alt="Huelga general de 1917">
+                          <div class="card-body d-flex flex-column">
+                            <span class="chip mb-2">Crisis social</span>
+                            <h5 class="card-title">La huelga general</h5>
+                            <p class="card-text">
+                              UGT y CNT convocaron una huelga general revolucionaria que fue
+                              reprimida duramente por el ejército.
+                            </p>
+                            <button class="btn btn-outline-primary mt-auto"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#modalHuelgaGeneral1917">
+                              Ampliar contenido
+                            </button>
+                          </div>
+                        </div>
+                      </div>
 
-                    
-                </div>
+                    </div>
+
+                    <!-- TIMELINE -->
+                    <div class="content-card p-4 mb-5">
+                      <h3 class="mb-4">Cronología esencial de la crisis</h3>
+
+                      <div class="mini-timeline">
+
+                        <div class="t-item">
+                          <div class="t-date">Primavera de 1917</div>
+                          <div class="t-content">
+                            <h5>Formación de las Juntas de Defensa</h5>
+                            <p>
+                              Los oficiales del ejército peninsular se organizan para reclamar
+                              mejoras salariales y frenar los ascensos rápidos de los militares
+                              destinados en Marruecos.
+                            </p>
+                          </div>
+                        </div>
+
+                        <div class="t-item">
+                          <div class="t-date">Julio de 1917</div>
+                          <div class="t-content">
+                            <h5>Asamblea de Parlamentarios en Barcelona</h5>
+                            <p>
+                              La Lliga Regionalista, con Francesc Cambó como figura destacada,
+                              impulsa una reunión de parlamentarios para reclamar reformas
+                              políticas profundas.
+                            </p>
+                          </div>
+                        </div>
+
+                        <div class="t-item">
+                          <div class="t-date">Agosto de 1917</div>
+                          <div class="t-content">
+                            <h5>Huelga general revolucionaria</h5>
+                            <p>
+                              UGT y CNT convocan una huelga general que pretendía forzar una
+                              transformación política. El gobierno responde con el ejército.
+                            </p>
+                          </div>
+                        </div>
+
+                        <div class="t-item">
+                          <div class="t-date">Finales de 1917</div>
+                          <div class="t-content">
+                            <h5>Supervivencia debilitada del régimen</h5>
+                            <p>
+                              La Restauración sobrevive, pero queda gravemente erosionada. El
+                              ejército gana protagonismo y la conflictividad social se
+                              intensifica.
+                            </p>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+
+                    <!-- CONCLUSIÓN -->
+                    <div class="content-card p-4">
+                      <h3>Interpretación histórica</h3>
+                      <p>
+                        La crisis de 1917 no fue una revolución triunfante, sino una crisis
+                        estructural fallida. Los militares, los parlamentarios reformistas y el
+                        movimiento obrero coincidieron en cuestionar el sistema, pero no actuaron
+                        de forma coordinada ni compartían un mismo proyecto político.
+                      </p>
+                      <p>
+                        El régimen sobrevivió porque sus adversarios estaban divididos, pero esa
+                        supervivencia fue cada vez más precaria. A partir de 1917, la Restauración
+                        quedó marcada por la deslegitimación política, la intervención creciente
+                        del ejército y una conflictividad social que alcanzaría una de sus máximas
+                        expresiones en la huelga de La Canadiense de 1919.
+                      </p>
+                    </div>
+
+                  </div>
+                
 
                 <!-- GRIPE DE 1918 -->  
                 <div class="t-item mt-5">
@@ -940,8 +1150,195 @@
                         </ul>
                       </div>
                             
-                </div>            
+                </div> 
+                
+                <!-- CRISIS DE 1919 (La canadiense) -->
+                
+                <div class="t-item" id="canadiense">                    
+                    <div class="section-head-inline">
+                      <h6><span class="t-date">CRISIS DE 1919. La Canadiense</span></h6>
+                      
+                    </div>
+                    <p>La huelga de La Canadiense constituye uno de los episodios más decisivos del movimiento obrero en la España contemporánea y un punto de inflexión en la conflictividad social de la Restauración. Se desarrolló en Barcelona entre febrero y marzo de 1919 y tuvo como protagonista principal a la empresa eléctrica Riegos y Fuerzas del Ebro, filial de capital canadiense que controlaba buena parte del suministro energético en Cataluña.</p>
+                    <p class="mt-3">La huelga comenzó el 5 de febrero de 1919 con un conflicto laboral aparentemente menor: el despido de varios empleados de oficina de La Canadiense por negarse a aceptar una rebaja salarial. La respuesta solidaria de sus compañeros derivó en una huelga que pronto paralizó la empresa.</p>
+                    <p class="mt-3">La huelga se propagó rápidamente a otras empresas del sector eléctrico, lo que provocó el colapso del suministro energético en Barcelona. La ciudad quedó prácticamente paralizada: fábricas, tranvías e incluso servicios básicos dejaron de funcionar.</p>
+                    
+                    <div class="row">
+                      <div class="col-8">
+                        <p class="mt-3">La CNT convirtió el conflicto en una huelga general de facto. Se calcula que más de 100.000 trabajadores participaron directa o indirectamente.</p>
+                    
+                    <p class="mt-3">Sin embargo, estas medidas no lograron sofocar el movimiento.</p>
+                        <p class="mt-3">El gobierno, presidido por Romanones, reaccionó con medidas represivas:</p>
+                    <div>
+                      <ul>
+                        <li>Militarización de los trabajadores del sector eléctrico</li>
+                        <li>Detención de miles de huelguistas</li>
+                        <li>Suspensión de garantías constitucionales</li>
+                      </ul>
+                    </div>
+                        <p class="mt-3">Ante la magnitud del conflicto, el gobierno optó por negociar con los representantes sindicales. El acuerdo final supuso una victoria sin precedentes para el movimiento obrero:</p>
+                    <div>
+                      <ul>
+                        <li>Readmisión de los trabajadores despedidos</li>
+                        <li>Aumento salarial</li>
+                        <li>Liberación de los detenidos</li>
+                        <li>Y, sobre todo, la aprobación de la jornada laboral de 8 horas</li>
+                      </ul>
+                      <p class="mt-3">Este último logro convirtió a España en uno de los primeros países del mundo en establecer legalmente la jornada de ocho horas, mediante un decreto en abril de 1919.</p>
+                    </div>
+                      </div>
+                      <div class="col-4">
+                        <div class="card content-card h-100 shadow-sm">
+                          <img src="{% static 'images/sigloXX/segui.jpg' %}" 
+                              class="card-img-top" 
+                              alt="Salvador Seguí">
+                          
+                          <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Salvador Seguí</h5>
+                            <p class="card-text">
+                              Líder de la CNT y figura clave en la huelga de La Canadiense (1919), 
+                              representó un anarcosindicalismo pragmático que buscaba logros reales 
+                              como la jornada laboral de 8 horas.
+                            </p>
 
+                            <button class="btn btn-outline-primary mt-auto" 
+                                    data-bs-toggle="modal" 
+                                    data-bs-target="#modalSegui">
+                              Ampliar contenido
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    
+                    <p class="mt-3"><strong>Consecuencias históricas</strong></p>
+                    <ol>
+                      <li><strong>Triunfo del movimiento obrero</strong><p>La huelga consolidó a la CNT como la principal fuerza sindical en Cataluña y reforzó el modelo anarcosindicalista basado en la acción directa.</p></li>
+                      <li><strong>Radicalización social</strong>
+                        <p>El éxito obrero provocó una reacción de la patronal, que impulsó:</p>
+                        <div>
+                          <ul>
+                            <li>El cierre patronal</li>
+                            <li>La creación de sindicatos libres (amarillos)</li>
+                            <li>El recurso a la violencia</li>
+                          </ul>
+                        </div>
+                        <p>Esto dio paso al periodo conocido como pistolerismo en Barcelona (1919-1923), caracterizado por enfrentamientos armados entre sindicalistas y grupos parapoliciales.</p>
+                      </li>
+                      <li><strong>Debilitamiento del régimen</strong>
+                      <p>La incapacidad del sistema político para gestionar el conflicto evidenció la crisis estructural de la Restauración, que desembocaría pocos años después en la dictadura de Miguel Primo de Rivera.</p>
+                      </li>
+                    </ol>
+                    <p>Autores como Manuel Tuñón de Lara han destacado su papel como punto de inflexión en la historia del movimiento obrero español.</p>
+             
+                </div>
+
+                <div class="t-item" id="pistolerismo">                    
+                    <div class="section-head-inline">
+                      <h6><span class="t-date">EL PISTOLERISMO (1917-1923)</span></h6>                      
+                    </div>
+
+                    <p>El llamado pistolerismo fue un fenómeno de violencia política y social desarrollado principalmente en Barcelona entre 1917 y 1923, aunque con repercusiones en otras zonas industriales españolas. Consistió en una auténtica guerra urbana entre organizaciones obreras —sobre todo anarcosindicalistas vinculadas a la Confederación Nacional del Trabajo— y grupos armados financiados o protegidos por la patronal y determinados sectores del Estado.</p>
+                    <p class="mt-3">Fue uno de los síntomas más graves de la crisis final del sistema político de la Restauración borbónica en España y contribuyó decisivamente al clima que desembocó en el golpe de Estado de Miguel Primo de Rivera en 1923.</p>
+                    <h6 class="mt-3">Contexto histórico</h6>
+                    <p class="mt-3">El pistolerismo surgió en un contexto de profunda crisis política, económica y social tras la Primera Guerra Mundial. Aunque España permaneció neutral, la guerra provocó:</p>
+                    <div>
+                      <ul>
+                        <li>fuerte inflación,</li>
+                        <li>encarecimiento de productos básicos,</li>
+                        <li>aumento de desigualdades,</li>
+                        <li>enriquecimiento rápido de sectores industriales,</li>
+                        <li>y deterioro del nivel de vida obrero.</li>
+                      </ul>
+                    </div>
+                    <p class="mt-3">Al mismo tiempo, el sistema político de la Restauración mostraba signos de agotamiento:</p>
+                    <div>
+                      <ul>
+                        <li>corrupción electoral,</li>
+                        <li>caciquismo,</li>
+                        <li>incapacidad reformista,</li>
+                        <li>fragmentación de los partidos dinásticos,</li>
+                        <li>crecimiento del movimiento obrero,</li>
+                        <li>y aumento del nacionalismo catalán.</li>
+                      </ul>
+                    </div>
+                    <p class="mt-3">En este clima estalló la Crisis española de 1917, compuesta por:</p>
+                    <div>
+                      <ul>
+                        <li>crisis militar (Juntas de Defensa),</li>
+                        <li>crisis política (Asamblea de Parlamentarios),</li>
+                        <li>y crisis social (huelga general revolucionaria).</li>                        
+                      </ul>
+                    </div>
+                    <p class="mt-2">La conflictividad obrera se intensificó especialmente en Barcelona, principal núcleo industrial español.</p>
+                    
+                    <h6 class="mt-3">Barcelona: epicentro del conflicto</h6>
+                    <p class="mt-3">Barcelona era entonces una ciudad marcada por:</p>
+                    <div>
+                      <ul>
+                        <li>rápida industrialización,</li>
+                        <li>hacinamiento obrero,</li>
+                        <li>fuertes desigualdades sociales,</li>
+                        <li>tradición anarquista,</li>
+                        <li>y gran capacidad de movilización sindical.</li>
+                      </ul>
+                    </div>
+                    <p class="mt-3">La CNT experimentó un crecimiento espectacular tras el Congreso de Sants de 1918, consolidando el modelo de sindicato único y aumentando enormemente su influencia entre los trabajadores industriales.</p>
+                    <p class="mt-3">La gran victoria obrera llegó con la <strong>Huelga de La Canadiense</strong>. La huelga paralizó Barcelona durante semanas y obligó al gobierno a aceptar importantes reivindicaciones, entre ellas la implantación de la jornada laboral de ocho horas, primera reconocida legalmente en Europa occidental.</p>
+                    <p class="mt-3">Sin embargo, el éxito de la huelga radicalizó tanto al movimiento obrero como a la patronal.</p>
+                    <h6 class="mt-3">El nacimiento del pistolerismo</h6>
+                    <p class="mt-3">Tras la huelga de La Canadiense, muchos empresarios catalanes consideraron que el Estado era incapaz de contener a la CNT. Como respuesta:</p>
+                    <div>
+                      <ul>
+                        <li>financiaron grupos armados,</li>
+                        <li>contrataron pistoleros,</li>
+                        <li>y apoyaron organizaciones antisindicales.</li>
+                      </ul>
+                    </div>
+                    <p class="mt-3">La más importante fue <strong>Sindicato Libre</strong>. Aunque oficialmente era un sindicato obrero católico, actuó frecuentemente como instrumento parapolicial contra la CNT.</p>
+                    <p class="mt-3">La violencia se convirtió entonces en cotidiana: asesinatos selectivos, atentados, tiroteos, emboscadas y ejecuciones callejeras. Barcelona pasó a ser conocida como la “Chicago española”.</p>
+                    <h6 class="mt-3">La violencia anarcosindicalista</h6>
+                    <p class="mt-3">Dentro de la CNT aparecieron grupos de acción partidarios de la violencia revolucionaria y de la respuesta armada frente a la represión patronal y estatal.</p>
+                    <p class="mt-3">Entre las figuras más importantes destacaron:
+                      <a href="#" data-bs-toggle="modal" data-bs-target="#modalSSegui" class="link-atentado">Salvador Seguí</a>,
+                      <a href="#" data-bs-toggle="modal" data-bs-target="#modalDurruti" class="link-atentado">Buenaventura Durruti</a>,
+                      <a href="#" data-bs-toggle="modal" data-bs-target="#modalAscaso" class="link-atentado">Francisco Ascaso</a>
+                      y
+                      <a href="#" data-bs-toggle="modal" data-bs-target="#modalPestana" class="link-atentado">Ángel Pestaña</a>.</p>
+                    <p class="mt-3">No todos defendían la violencia indiscriminada. Salvador Seguí, por ejemplo, intentó orientar la CNT hacia una estrategia sindical de masas y negociación social. Sin embargo, el clima de guerra social favoreció la radicalización. Los grupos anarquistas atentaron contra empresarios, encargados de fábrica, policías, confidentes, jueces y dirigentes del Sindicato Libre.</p>
+                    <h6 class="mt-3">La represión del Estado y la “Ley de fugas”</h6>
+                    <p class="mt-3">La respuesta estatal fue extremadamente dura. El personaje clave fue <strong>Severiano Martínez Anido</strong>. Nombrado gobernador civil de Barcelona en 1920, aplicó una política de represión sistemática contra la CNT junto al jefe de policía <strong>Miguel Arlegui</strong>.</p>
+                    <p class="mt-3">Su método más conocido fue la llamada <strong>Ley de fugas.</strong> Consistía en simular intentos de fuga de detenidos para justificar su ejecución extrajudicial. Aunque no era una ley real aprobada por las Cortes, el término se popularizó para describir estas prácticas represivas. La represión incluyó cierres de sindicatos, detenciones masivas, torturas, deportaciones, censura y asesinatos extrajudiciales.</p>
+                    <h6 class="mt-3">El asesinato de Eduardo Dato</h6>
+                    <p class="mt-3">Uno de los episodios más importantes del pistolerismo fue el asesinato del presidente del Gobierno Eduardo Dato. El 8 de marzo de 1921, anarquistas catalanes asesinaron a Dato en Madrid mientras circulaba en automóvil por la Puerta de Alcalá. El atentado tuvo un enorme impacto político y mostró el grado extremo de descomposición del sistema.</p>
+                    <h6 class="mt-3">El asesinato de Salvador Seguí</h6>
+                    <p class="mt-3">Otro episodio fundamental fue el asesinato de Salvador Seguí, conocido como “El Noi del Sucre”. Fue asesinado en Barcelona en 1923 por pistoleros vinculados al Sindicato Libre y a sectores de la patronal. Su muerte simbolizó el fracaso de las posiciones moderadas dentro del anarcosindicalismo y el triunfo de la espiral violenta.</p>
+                    <h6 class="mt-3">Consecuencias históricas</h6>
+                    <div>
+                      <ol>
+                        <li><strong>Desprestigio del sistema liberal</strong><p>La incapacidad del régimen de la Restauración para controlar la violencia reforzó la percepción de crisis terminal del parlamentarismo.</p></li>
+                        <li><strong>Radicalización política</strong><p>La violencia alimentó:</p><div>
+                          <ul>
+                            <li>el extremismo revolucionario,</li>
+                            <li>el autoritarismo,</li>
+                            <li>y la militarización de la vida política.</li>
+                          </ul>
+                        </div></li>
+                        <li><strong>Justificación de la dictadura</strong>
+                          <p>Muchos sectores conservadores, empresariales y militares comenzaron a considerar necesaria una solución autoritaria.</p>
+                          <p>El golpe de Primo de Rivera en septiembre de 1923 fue presentado precisamente como una respuesta al desorden social, terrorismo, separatismo y corrupción política.</p>
+                        </li>
+                        <li><strong>Consolidación de la tradición represiva</strong><p>Las prácticas de guerra sucia, violencia parapolicial y represión extrajudicial dejaron una huella importante en la cultura política española del siglo XX.</p></li>
+                      </ol>
+                    </div>
+                    <h6 class="mt-3">Interpretación historiográfica</h6>
+                    <p class="mt-3">La historiografía actual interpreta el pistolerismo como un fenómeno complejo donde confluyeron conflicto de clases, crisis del Estado liberal, radicalización ideológica, miedo a la revolución y violencia política organizada.</p>
+                    <p class="mt-3">No puede entenderse simplemente como “terrorismo anarquista”, porque también existió terrorismo patronal, violencia parapolicial y represión estatal ilegal.</p>
+                    <p class="mt-3">Autores como Javier Tusell, Santos Juliá o Josep Termes han subrayado que el pistolerismo reflejó la incapacidad del sistema de la Restauración para integrar democráticamente el conflicto social derivado de la industrialización española.</p>
+                  </div>
+                  
+                
                 <!-- DESASTRE DE ANNUAL -->
                 
                 <div class="t-item" id="desastre_annual">
@@ -1457,7 +1854,7 @@
               <li><a href="#" target="_blank" rel="noopener" style="text-decoration:none;">[Añadir] </a></li>
             </ul>
           </div>
-            </section>
+        </section>
 
       </main>
     </div>
@@ -1519,6 +1916,302 @@
 
         <p>
           El 31 de mayo de 1906, el anarquista Mateo Morral lanzó una bomba oculta en un ramo de flores contra la carroza real durante la boda de Alfonso XIII y Victoria Eugenia. El atentado no logró su objetivo, pero causó numerosas víctimas entre el público y el séquito.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- MODAL SALVADOR SEGUÍ -->
+<div class="modal fade" id="modalSegui" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title">Salvador Seguí, el "Noi del Sucre"</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+
+        <p>
+          <strong>Salvador Seguí</strong> (1887–1923), conocido como el 
+          <em>Noi del Sucre</em>, fue uno de los principales dirigentes del 
+          anarcosindicalismo español y líder destacado de la CNT en Cataluña. 
+          De origen obrero y formación autodidacta, destacó por su gran 
+          capacidad oratoria y su influencia en el movimiento sindical.
+        </p>
+
+        <h6 class="section-head mt-4">Papel en la huelga de La Canadiense</h6>
+        <p>
+          Durante la huelga de 1919, Seguí desempeñó un papel fundamental 
+          como dirigente sindical. Defendió la unidad del movimiento obrero 
+          y apostó por una estrategia organizada que evitara una deriva 
+          insurreccional sin garantías de éxito.
+        </p>
+
+        <p>
+          Su intervención fue clave para aceptar el acuerdo con el gobierno, 
+          que supuso una victoria histórica: la implantación de la jornada 
+          laboral de 8 horas.
+        </p>
+
+        <h6 class="section-head mt-4">Pensamiento y estrategia</h6>
+        <p>
+          Seguí representaba una corriente pragmática dentro del anarquismo. 
+          Defendía la acción sindical organizada, la mejora progresiva de las 
+          condiciones laborales y era crítico con la violencia sin estrategia.
+        </p>
+
+        <h6 class="section-head mt-4">Asesinato y contexto</h6>
+        <p>
+          Fue asesinado en Barcelona en 1923, en pleno periodo de 
+          <strong>pistolerismo</strong>, víctima de la violencia social que 
+          enfrentaba a sindicalistas y grupos armados vinculados a la patronal. 
+          Su muerte simboliza la radicalización del conflicto social tras el 
+          éxito de 1919.
+        </p>
+
+        <h6 class="section-head mt-4">Importancia histórica</h6>
+        <p>
+          Salvador Seguí es considerado una figura clave del movimiento obrero 
+          español por su capacidad de liderazgo, su papel en la mayor conquista 
+          laboral del periodo y su intento de orientar el anarcosindicalismo 
+          hacia una vía estratégica y organizada.
+        </p>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- MODAL JUNTAS DE DEFENSA -->
+<div class="modal fade" id="modalJuntasDefensa" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title">Las Juntas de Defensa</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+        <p>
+          La crisis militar de 1917 tuvo como protagonistas a las llamadas
+          Juntas de Defensa, asociaciones de oficiales del ejército peninsular
+          que surgieron para defender sus intereses corporativos.
+        </p>
+
+        <p>
+          Estos oficiales protestaban contra la pérdida de poder adquisitivo,
+          pero también contra el sistema de ascensos por méritos de guerra,
+          especialmente favorable a los militares destinados en Marruecos. Frente
+          a ello, defendían el ascenso por antigüedad.
+        </p>
+
+        <p>
+          El problema fue que estas Juntas actuaban como una presión organizada
+          dentro del ejército, cuestionando la autoridad del poder civil. Cuando
+          el gobierno acabó legalizándolas, el régimen hizo una concesión muy
+          grave: reconocía de hecho la capacidad del ejército para intervenir en
+          la vida política.
+        </p>
+
+        <p>
+          Esta crisis anticipó uno de los rasgos centrales de la etapa posterior:
+          el creciente protagonismo militar en la política española, que culminaría
+          en el golpe de Estado de Primo de Rivera en 1923.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- MODAL ASAMBLEA DE PARLAMENTARIOS -->
+<div class="modal fade" id="modalAsambleaParlamentarios" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title">La Asamblea de Parlamentarios de Barcelona</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+        <p>
+          La crisis política tuvo su principal expresión en la Asamblea de
+          Parlamentarios celebrada en Barcelona en julio de 1917. Fue impulsada
+          por la Lliga Regionalista, partido catalanista conservador, con
+          Francesc Cambó como una de sus figuras más relevantes.
+        </p>
+
+        <p>
+          Su objetivo era forzar una reforma del sistema político de la
+          Restauración. Se reclamaba la convocatoria de Cortes Constituyentes,
+          una reforma constitucional y una mayor autonomía para Cataluña.
+        </p>
+
+        <p>
+          Sin embargo, la Asamblea no logró convertirse en un verdadero poder
+          alternativo. La participación fue limitada y las fuerzas políticas
+          implicadas no compartían un programa común. El gobierno respondió
+          disolviéndola.
+        </p>
+
+        <p>
+          Su importancia histórica reside en que mostró que incluso sectores
+          moderados y burgueses consideraban agotado el sistema del turno
+          dinástico. No era solo el movimiento obrero quien cuestionaba la
+          Restauración: también lo hacían fuerzas reformistas dentro del propio
+          marco liberal.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- MODAL HUELGA GENERAL 1917 -->
+<div class="modal fade" id="modalHuelgaGeneral1917" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title">La huelga general de agosto de 1917</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+        <p>
+          La dimensión social de la crisis culminó en la huelga general de agosto
+          de 1917, convocada por la UGT y apoyada por sectores de la CNT. Su
+          origen estuvo relacionado con el deterioro de las condiciones de vida,
+          el aumento de los precios y la pérdida de poder adquisitivo de los
+          trabajadores.
+        </p>
+
+        <p>
+          La huelga tenía una dimensión claramente política. No se limitaba a
+          reclamar mejoras salariales, sino que aspiraba a provocar una
+          transformación del régimen. Por ello fue percibida por el gobierno como
+          una amenaza revolucionaria.
+        </p>
+
+        <p>
+          La respuesta estatal fue muy dura. El ejército intervino para reprimir
+          el movimiento, especialmente en zonas industriales y ferroviarias. Hubo
+          numerosos muertos, detenciones y condenas contra dirigentes obreros.
+        </p>
+
+        <p>
+          Aunque la huelga fracasó en sus objetivos inmediatos, tuvo una enorme
+          importancia histórica. Mostró la fuerza creciente del movimiento obrero
+          y anticipó la etapa de intensa conflictividad social que caracterizó los
+          años posteriores, especialmente en Cataluña.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- MODAL SALVADOR SEGUÍ -->
+<div class="modal fade" id="modalSSegui" tabindex="-1" aria-labelledby="modalSeguiLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title w-100 text-center" id="modalSeguiLabel">Salvador Seguí</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+
+      <div class="modal-body text-center">
+        <img src="{% static 'images/sigloXX/alfonsoXIII/pistolerismo/segui.jpg' %}"
+             class="img-fluid rounded shadow-sm mb-3"
+             alt="Salvador Seguí">
+        <p class="text-start">
+          Dirigente anarcosindicalista de la CNT, conocido como <em>El Noi del Sucre</em>.
+          Defendió una estrategia sindical de masas y fue asesinado en Barcelona en 1923.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- MODAL BUENAVENTURA DURRUTI -->
+<div class="modal fade" id="modalDurruti" tabindex="-1" aria-labelledby="modalDurrutiLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title w-100 text-center" id="modalDurrutiLabel">Buenaventura Durruti</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+
+      <div class="modal-body text-center">
+        <img src="{% static 'images/sigloXX/alfonsoXIII/pistolerismo/durruti.jpg' %}"
+             class="img-fluid rounded shadow-sm mb-3"
+             alt="Buenaventura Durruti">
+        <p class="text-start">
+          Militante anarquista y figura destacada de los grupos de acción vinculados al
+          anarcosindicalismo. Alcanzaría gran protagonismo durante la Guerra Civil.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- MODAL FRANCISCO ASCASO -->
+<div class="modal fade" id="modalAscaso" tabindex="-1" aria-labelledby="modalAscasoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title w-100 text-center" id="modalAscasoLabel">Francisco Ascaso</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+
+      <div class="modal-body text-center">
+        <img src="{% static 'images/sigloXX/alfonsoXIII/pistolerismo/ascaso.png' %}"
+             class="img-fluid rounded shadow-sm mb-3"
+             alt="Francisco Ascaso">
+        <p class="text-start">
+          Anarquista aragonés, compañero de Durruti y miembro destacado de los grupos de acción.
+          Murió en Barcelona en julio de 1936 durante los combates contra la sublevación militar.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- MODAL ÁNGEL PESTAÑA -->
+<div class="modal fade" id="modalPestana" tabindex="-1" aria-labelledby="modalPestanaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title w-100 text-center" id="modalPestanaLabel">Ángel Pestaña</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+
+      <div class="modal-body text-center">
+        <img src="{% static 'images/sigloXX/alfonsoXIII/pistolerismo/pestana.jpg' %}"
+             class="img-fluid rounded shadow-sm mb-3"
+             alt="Ángel Pestaña">
+        <p class="text-start">
+          Dirigente sindicalista de la CNT, partidario de una línea más sindical y menos
+          insurreccional. Fue herido gravemente en un atentado durante los años del pistolerismo.
         </p>
       </div>
 
