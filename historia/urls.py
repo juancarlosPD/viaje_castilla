@@ -11,6 +11,7 @@ urlpatterns = [
     # ----------------------------HISTORIA--------------------------
     path('inicioEspagna/', views.inicioEspagna, name='inicioEspagna'),
     path('inicioInglaterra/', views.inicioInglaterra, name='inicioInglaterra'),
+    path('romanico/', views.romanico, name='romanico'),
 
      # ----------------------------SIGLO XI--------------------------
     path('sigloXI/', views.sigloXI, name='sigloXI'),

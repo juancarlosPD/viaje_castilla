@@ -24,6 +24,9 @@ def inicioEspagna(request):
 def inicioInglaterra(request):    
     return render(request, 'inglaterra/inicioInglaterra.html')
 
+def romanico(request):    
+    return render(request, 'espagna/temas/romanico.html')
+
 # ----------------------------SIGLO XVI--------------------------
 
     # ----------------------------ESPAÑA--------------------------
@@ -147,7 +150,7 @@ def sigloXX(request):
     return render(request, 'espagna/sigloXX/sigloXX.html')
 
 def alfonsoXIII(request):    
-    return render(request, 'espagna/sigloXX/alfonsoXIII.html')
+    return render(request, 'espagna/sigloXX/alfonsoXIII_responsive.html')
 
 def linea_tiempo_alfonso_XIII(request):    
     return render(request, 'espagna/sigloXX/linea_tiempo_alfonso_XIII.html')

@@ -1,0 +1,1503 @@
+{% extends "bases/basesromanico.html" %}
+{% load static %}
+
+{% block cabecera %}El Románico{% endblock %}
+
+{% block imgCabecera %}
+<figure class="m-0 text-center">
+  <img class="img-fluid logo-romanico-cabecera"
+       src="{% static 'images/temas/romanico/vallespinoso_de_aguilar.jpg' %}"
+       alt="El Románico1">
+</figure>
+{% endblock %}
+
+{% block logoCabecera %}
+<img src="{% static 'images/favicon.jpg' %}"
+     alt="El Románico2"
+     class="img-fluid logo-romanico-principal">
+{% endblock %}
+
+{% block title %}El Románico{% endblock %}
+
+{% block contenido %}
+<style>
+  /* =====================================================
+     ESTRUCTURA GENERAL
+  ===================================================== */
+
+  .titulo-timeline {
+    font-size: 1.4rem;
+    font-weight: 800;
+  }
+
+  .alfonso-page {
+    background: linear-gradient(to bottom, #f7f4ee 0%, #f1ede6 100%);
+    min-height: 100vh;
+    padding-bottom: 4rem;
+  }
+
+  .content-shell {
+    max-width: 1380px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .main-col {
+    min-width: 0;
+  }
+
+  /* =====================================================
+     CABECERA ROMÁNICO
+  ===================================================== */
+
+  .logo-romanico-principal {
+    max-width: 95px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .logo-romanico-cabecera {
+    max-width: 95px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+
+  #logotipo h1 {
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  @media (min-width: 576px) {
+    #logotipo {
+      display: grid !important;
+      grid-template-columns: 120px 1fr 120px;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.5rem;
+    }
+
+    #logotipo .col-2:first-child,
+    #logotipo .col-sm-2:first-child,
+    #logotipo .col-md-1:first-child {
+      grid-column: 1;
+      text-align: left !important;
+      width: auto !important;
+      max-width: none !important;
+      flex: none !important;
+      display: block !important;
+    }
+
+    #logotipo .col-8,
+    #logotipo .col-sm-8,
+    #logotipo .col-md-8 {
+      grid-column: 2;
+      text-align: center !important;
+      width: auto !important;
+      max-width: none !important;
+      flex: none !important;
+      display: block !important;
+    }
+
+    #logotipo .col-2:last-child,
+    #logotipo .col-sm-2:last-child,
+    #logotipo .col-md-1:last-child {
+      grid-column: 3;
+      text-align: right !important;
+      width: auto !important;
+      max-width: none !important;
+      flex: none !important;
+      display: block !important;
+    }
+
+    .logo-romanico-principal {
+      max-width: 90px;
+    }
+
+    .logo-romanico-cabecera {
+      max-width: 95px;
+    }
+  }
+
+  @media (max-width: 575px) {
+    #logotipo {
+      display: grid !important;
+      grid-template-columns: 44px 1fr 96px;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 0.8rem;
+    }
+
+    #logotipo .col-2:first-child,
+    #logotipo .col-sm-2:first-child,
+    #logotipo .col-md-1:first-child {
+      grid-column: 1;
+      grid-row: 1;
+      width: auto !important;
+      display: block !important;
+      text-align: left !important;
+    }
+
+    #logotipo .col-8,
+    #logotipo .col-sm-8,
+    #logotipo .col-md-8 {
+      grid-column: 2;
+      grid-row: 1;
+      width: auto !important;
+      text-align: center !important;
+    }
+
+    #logotipo .col-2:last-child,
+    #logotipo .col-sm-2:last-child,
+    #logotipo .col-md-1:last-child {
+      display: none !important;
+    }
+
+    #logotipo h1 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin: 0;
+      white-space: nowrap;
+    }
+
+    .logo-romanico-principal {
+      max-width: 34px;
+    }
+
+    #logotipo::before {
+      content: "☰ Menú";
+      grid-column: 3;
+      grid-row: 1;
+      background: #1f2933;
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.82rem;
+      padding: 0.45rem 0.65rem;
+      border-radius: 999px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    nav.navbar {
+      display: none !important;
+    }
+
+    body.menu-open nav.navbar {
+      display: flex !important;
+      flex-direction: column;
+      align-items: stretch;
+      border-radius: 14px;
+      margin-top: 0.5rem !important;
+    }
+
+    body.menu-open nav.navbar .navbar-brand,
+    body.menu-open nav.navbar .nav-item {
+      display: block !important;
+      width: 100%;
+      padding: 0.55rem 0.8rem;
+      margin: 0 !important;
+    }
+
+    .dropdown-menu {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  /* =====================================================
+     HERO PRINCIPAL
+  ===================================================== */
+
+  .alfonso-hero {
+    background: linear-gradient(135deg, #1b2a41 0%, #2f4b6e 100%);
+    color: #fff;
+    padding: 4rem 0 3rem;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .alfonso-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 85% 20%, rgba(255,255,255,0.12), transparent 30%);
+    pointer-events: none;
+  }
+
+  .hero-wrap {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-kicker {
+    display: inline-block;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.22);
+    color: #f8f5ef;
+    padding: 0.4rem 0.85rem;
+    border-radius: 999px;
+    font-size: 0.88rem;
+    letter-spacing: 0.02em;
+    margin-bottom: 1rem;
+  }
+
+  .alfonso-hero h1 {
+    font-size: 2.5rem;
+    line-height: 1.08;
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+
+  .alfonso-hero .lead {
+    font-size: 1.14rem;
+    max-width: 860px;
+    color: rgba(255,255,255,0.92);
+  }
+
+  .hero-chips {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.18);
+    color: #fff;
+    padding: 0.48rem 0.85rem;
+    border-radius: 999px;
+    font-size: 0.95rem;
+    backdrop-filter: blur(2px);
+  }
+
+  .hero-portrait {
+    max-width: 320px;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 16px 34px rgba(0,0,0,0.25);
+    border: 1px solid rgba(255,255,255,0.18);
+    background: rgba(255,255,255,0.08);
+  }
+
+  .hero-portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+  }
+
+  .hero-caption {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.82);
+    padding-top: 0.55rem;
+  }
+
+  /* =====================================================
+     LAYOUT PRINCIPAL Y ASIDE
+  ===================================================== */
+
+  .page-grid {
+    display: grid;
+    grid-template-columns: 290px minmax(0, 1fr);
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .page-aside {
+    position: sticky;
+    top: 20px;
+    align-self: start;
+  }
+
+  .aside-card {
+    background: #fff;
+    border: 1px solid #e7dfd2;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(58, 44, 24, 0.06);
+    padding: 1.25rem 1rem;
+  }
+
+  .aside-card h5 {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #1f2937;
+    margin-bottom: 1rem;
+  }
+
+  .aside-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .aside-nav a,
+  .aside-dropbtn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    text-decoration: none;
+    background: #fff;
+    color: #1f3c88;
+    border: 1px solid #d6dff2;
+    border-radius: 10px;
+    padding: 0.7rem 0.9rem;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    text-align: left;
+  }
+
+  .aside-nav a:hover,
+  .aside-dropbtn:hover {
+    background: #f3f7ff;
+    border-color: #9eb8ea;
+  }
+
+  .aside-dropdown {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .aside-submenu {
+    display: none;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-top: 0.35rem;
+    margin-left: 0.8rem;
+  }
+
+  .aside-dropdown.open .aside-submenu {
+    display: flex;
+  }
+
+  .aside-submenu a {
+    font-size: 0.95rem;
+    padding: 0.6rem 0.8rem;
+    border-radius: 8px;
+    background: transparent;
+    border: none;
+    color: #03226b;
+  }
+
+  .aside-submenu a:hover {
+    background: #eef4ff;
+  }
+
+  .arrow {
+    font-size: 0.9rem;
+    transition: transform 0.2s ease;
+  }
+
+  .aside-dropdown.open .arrow {
+    transform: rotate(180deg);
+  }
+
+  /* =====================================================
+     BLOQUES DE CONTENIDO
+  ===================================================== */
+
+  .intro-box,
+  .content-card,
+  .highlight-card,
+  .quote-card {
+    background: #fff;
+    border: 1px solid #e7dfd2;
+    border-radius: 20px;
+    box-shadow: 0 10px 28px rgba(58, 44, 24, 0.06);
+  }
+
+  .intro-box {
+    padding: 1.4rem 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .content-card {
+    padding: 1.5rem;
+  }
+
+  .content-card p {
+    color: #374151;
+    line-height: 1.8;
+    font-size: 1.02rem;
+    margin-bottom: 1rem;
+  }
+
+  .intro-box p:last-child,
+  .content-card p:last-child,
+  .quote-card p:last-child {
+    margin-bottom: 0;
+  }
+
+  .content-card ul {
+    margin-bottom: 0;
+  }
+
+  .content-card li {
+    margin-bottom: 0.55rem;
+    color: #374151;
+    line-height: 1.7;
+  }
+
+  .section-block {
+    margin-bottom: 2rem;
+    scroll-margin-top: 100px;
+  }
+
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .section-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #d8c3a5, #f0e2ce);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    flex: 0 0 auto;
+    color: #493628;
+  }
+
+  .section-head h2 {
+    margin: 0;
+    font-size: 1.7rem;
+    font-weight: 800;
+    color: #1f2937;
+  }
+
+  .section-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 0.35rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: #8b0000;
+  }
+
+  .section-head-inline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .section-head-inline h6 {
+    margin: 0;
+  }
+
+  .section-head-inline .section-link {
+    white-space: nowrap;
+  }
+
+  /* =====================================================
+     TARJETAS Y GRIDS
+  ===================================================== */
+
+  .mini-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: 1.2rem;
+  }
+
+  .mini-grid_17 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1.2rem;
+  }
+
+  .highlight-card {
+    padding: 1rem;
+    height: 100%;
+    transition: all 0.25s ease;
+  }
+
+  .highlight-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.12);
+  }
+
+  .highlight-card h6 {
+    font-weight: 800;
+    color: #1f2937;
+    margin-bottom: 0.55rem;
+  }
+
+  .highlight-card p {
+    margin: 0;
+    color: #475569;
+    line-height: 1.65;
+    font-size: 0.96rem;
+  }
+
+  .icon-box {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #d8c3a5, #f0e2ce);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+  }
+
+  /* =====================================================
+     TIMELINE
+  ===================================================== */
+
+  .timeline {
+    position: relative;
+    margin-top: 1.4rem;
+    padding-left: 1.2rem;
+  }
+
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 9px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    border-radius: 999px;
+    background: linear-gradient(to bottom, #b99870, #d7c2a5);
+  }
+
+  .t-item {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .t-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .t-item::before {
+    content: "";
+    position: absolute;
+    left: -0.05rem;
+    top: 0.35rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #8b6a48;
+    box-shadow: 0 0 0 4px #efe4d5;
+  }
+
+  .t-date {
+    display: inline-block;
+    font-weight: 800;
+    color: #6b4f35;
+    background: #f4eadc;
+    border: 1px solid #ead8bf;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .t-item h6 {
+    font-weight: 800;
+    color: #1f2937;
+    margin-bottom: 0.35rem;
+  }
+
+  .t-item p {
+    margin: 0;
+    color: #475569;
+    line-height: 1.7;
+  }
+
+  /* =====================================================
+     IMÁGENES Y CITAS
+  ===================================================== */
+
+  .img-block {
+    margin-top: 1.25rem;
+  }
+
+  .img-frame {
+    background: #faf8f4;
+    border: 1px solid #e5dacb;
+    border-radius: 18px;
+    overflow: hidden;
+  }
+
+  .img-frame img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    max-height: 460px;
+    cursor: pointer;
+  }
+
+  .img-note {
+    padding: 0.85rem 1rem;
+    font-size: 0.92rem;
+    color: #5b6472;
+    background: #fcfbf8;
+    border-top: 1px solid #e5dacb;
+  }
+
+  .quote-card {
+    padding: 1.25rem 1.35rem;
+    margin-top: 1rem;
+    border-left: 5px solid #b99870;
+  }
+
+  .quote-card p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #334155;
+    margin-bottom: 0.65rem;
+  }
+
+  .quote-author {
+    font-size: 0.92rem;
+    color: #6b7280;
+    font-weight: 600;
+  }
+
+  .summary-band {
+    margin-top: 1.25rem;
+    background: linear-gradient(135deg, #f3e8da 0%, #f8f2e9 100%);
+    border: 1px solid #e4d5bf;
+    border-radius: 18px;
+    padding: 1rem 1.15rem;
+  }
+
+  .summary-band strong {
+    color: #3d2d1f;
+  }
+
+  .final-box {
+    background: linear-gradient(135deg, #23344f 0%, #314a6b 100%);
+    color: #fff;
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: 0 16px 36px rgba(27, 42, 65, 0.18);
+  }
+
+  .final-box h3 {
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+
+  .final-box p {
+    color: rgba(255,255,255,0.94);
+    line-height: 1.8;
+    margin-bottom: 0.9rem;
+  }
+
+  .final-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  .object-fit-cover {
+    object-fit: cover;
+  }
+
+  .img-wrapper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .link-atentado {
+    color: #8b0000;
+    font-weight: 600;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  .link-atentado:hover {
+    color: #c1121f;
+  }
+
+  .romanico-img{
+    height: 320px;
+    object-fit: cover;
+    border-radius: 16px;
+  }
+
+  /* Tablet */
+  @media (max-width: 992px){
+
+    .romanico-img{
+      height: 260px;
+    }
+
+  }
+
+  /* Móvil */
+  @media (max-width: 768px){
+
+    .romanico-img{
+      height: 190px;
+    }
+
+  }
+
+  /* =====================================================
+     RESPONSIVE GENERAL
+  ===================================================== */
+
+  @media (max-width: 1199px) {
+    .alfonso-hero {
+      padding: 3.2rem 0 2.5rem;
+    }
+
+    .page-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .page-aside {
+      position: static;
+    }
+
+    .hero-wrap .row {
+      row-gap: 2rem;
+    }
+
+    .alfonso-hero h1 {
+      font-size: 2.3rem;
+      line-height: 1.12;
+    }
+
+    .alfonso-hero .lead {
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+    .hero-chips,
+    .d-flex.flex-wrap.gap-3.mt-4 {
+      gap: 0.7rem !important;
+    }
+
+    .chip,
+    .badge-soft {
+      font-size: 0.92rem;
+      padding: 0.52rem 0.85rem;
+    }
+
+    .hero-portrait {
+      margin: 0 auto;
+      max-width: 540px;
+    }
+
+    .hero-portrait img {
+      height: 420px;
+      object-fit: cover;
+    }
+
+    .hero-caption {
+      text-align: center;
+      padding-inline: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .mini-grid,
+    .mini-grid_17 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 767px) {
+    .alfonso-hero {
+      padding: 2.4rem 0 2rem;
+    }
+
+    .hero-kicker,
+    .badge-soft {
+      font-size: 0.82rem;
+    }
+
+    .alfonso-hero h1 {
+      font-size: 1.95rem;
+      line-height: 1.08;
+      margin-bottom: 1.1rem;
+    }
+
+    .alfonso-hero .lead {
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+
+    .content-shell {
+      padding: 0 0.7rem;
+    }
+
+    .content-card,
+    .intro-box,
+    .final-box {
+      padding: 1.1rem;
+      border-radius: 18px;
+    }
+
+    .section-head {
+      gap: 0.65rem;
+      align-items: flex-start;
+    }
+
+    .section-head h2 {
+      font-size: 1.35rem;
+      line-height: 1.2;
+    }
+
+    .section-icon {
+      width: 42px;
+      height: 42px;
+      font-size: 1.1rem;
+    }
+
+    .hero-portrait {
+      max-width: 100%;
+      border-radius: 20px;
+    }
+
+    .hero-portrait img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .hero-caption {
+      text-align: center;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      padding-inline: 0.5rem;
+      margin-top: 0.8rem;
+    }
+
+    .mini-grid,
+    .mini-grid_17 {
+      grid-template-columns: 1fr;
+    }
+
+    .timeline {
+      padding-left: 1rem;
+    }
+
+    .t-item {
+      padding-left: 1.3rem;
+    }
+
+    .d-flex.flex-wrap.gap-3.mt-4 {
+      gap: 0.55rem !important;
+    }
+
+    .romanico-plano{
+    height: 320px;
+
+    object-fit: contain;
+
+    background: #f8f5ef;
+
+    padding: .5rem;
+  }
+  
+  }
+</style>
+
+  <section class="alfonso-hero">
+    
+    <div class="container hero-wrap">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-8">
+          <span class="badge-soft badge-republica">⛪ Arte, fe y poder medieval</span>
+          <h1 class="display-3 fw-bold mt-4">El Románico: el nacimiento del arte europeo medieval</h1>
+          
+          <p class="lead mt-4">
+            El arte románico (siglos XI–XIII) representó la primera gran expresión artística común de la Europa medieval occidental. Surgido en un contexto de expansión del cristianismo, crecimiento de los monasterios y consolidación del feudalismo, el románico transformó el paisaje europeo mediante iglesias, monasterios, catedrales y rutas de peregrinación que unieron espiritualidad, poder y cultura.
+          </p>
+          <p class="lead">
+            Caracterizado por sus muros robustos, arcos de medio punto, esculturas simbólicas y una arquitectura pensada para impresionar y educar al creyente, el románico reflejó la mentalidad religiosa de la Edad Media. A través del Camino de Santiago y de las órdenes monásticas, especialmente Cluny, este estilo se difundió por toda Europa y dejó en España algunos de sus conjuntos monumentales más importantes.
+          </p>
+
+          <div class="d-flex flex-wrap gap-3 mt-4">
+            <span class="badge-soft badge-republica">⛪ Monasterios</span>
+            <span class="badge-soft badge-republica">🪨 Arquitectura románica</span>
+            <span class="badge-soft badge-republica">🎨 Pintura mural</span>
+            <span class="badge-soft badge-republica">🗿 Escultura simbólica</span>
+            <span class="badge-soft badge-republica">🚶 Camino de Santiago</span>
+            <span class="badge-soft badge-republica">👑 Feudalismo y poder</span>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="hero-portrait">
+            <img src="{% static 'images/temas/romanico/iglesia_san_martin.jpg' %}"
+                alt="Iglesia de San Martin"
+                data-bs-toggle="modal"
+                data-bs-target="#modalRepublica">
+          </div>
+          <div class="hero-caption">
+            El románico se convirtió en el gran lenguaje artístico y espiritual de la Europa medieval, extendiéndose por monasterios, iglesias y rutas de peregrinación entre los siglos XI y XIII.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="content-shell">
+    <div class="page-grid">
+
+      <aside class="page-aside">
+        <div class="aside-card">
+          <h5>En esta página</h5>
+          <nav class="aside-nav">  
+             <a href="#introduccion">📜 Introducción</a>         
+             <a href="#contexto">⚔️ Contexto histórico</a>
+             <a href="#camino">🚶Camino de Santiago</a>
+             <a href="#arquitectura">⛪Arquitectura románica</a>
+             <a href="#escultura">🗿 Escultura románica</a>
+             <a href="#pintura">🎨 Pintura mural</a>
+             <a href="#catalan">🏔️ Románico catalán</a>
+             <a href="#jacobeo">🛤️ Románico jacobeo</a>
+             <a href="#castellano">🏰 Castilla y León</a>
+             <a href="#aragones">🛡️ Románico aragonés</a>
+             <a href="#simbolismo">✨ Simbolismo medieval</a>
+             <a href="#legado">📚 Legado del románico</a>
+
+          </nav>
+        </div>
+      </aside>
+
+      <main class="main-col">
+         <section id="introduccion" class="section-block">
+          <div class="section-head">
+            <span class="section-icon">📜</span>
+            <h2> Introducción</h2>
+          </div>
+
+          <div class="content-card">
+            <div class="timeline">
+                <div class="t-item" id="">
+                    <!-- <h6><span class="t-date" >El “Comité Revolucionario” se convierte en Gobierno provisional de la Segunda República</span></h6> -->
+                    <p >
+                      El arte románico constituye la primera gran manifestación artística común de la Europa occidental medieval. Surgido entre finales del siglo X y desarrollado plenamente durante los siglos XI y XII, el románico representó la consolidación cultural, religiosa y política de la cristiandad latina tras siglos de fragmentación e inestabilidad posteriores a la caída del Imperio romano de Occidente.
+                    </p>
+                    <p class="mt-3">
+                            En la Península Ibérica, el románico adquirió unas características propias derivadas de la compleja realidad histórica del territorio. La coexistencia entre reinos cristianos y poderes musulmanes, el avance de la Reconquista, la influencia del monacato europeo y el extraordinario impacto del Camino de Santiago favorecieron la aparición de un arte profundamente espiritual, monumental y simbólico que transformó el paisaje medieval hispánico.
+                    </p>
+
+                    <div class="row mt-3">
+                      
+                      <div class="col-12">
+                        <img src="{% static 'images/temas/romanico/taul.jpg' %}"
+                          alt="Taul"
+                          class="img-fluid rounded shadow-sm mb-3 w-100">
+                          <p class="text-center">Iglesia de San Clemente de Taüll</p>
+                      </div>
+                    </div>
+                    
+
+                    <p class="mt-3">
+                      El románico español no debe entenderse únicamente como un estilo arquitectónico o decorativo, sino como la expresión visual de toda una civilización. Las iglesias, monasterios, esculturas y pinturas románicas reflejaban la mentalidad teocéntrica de la Edad Media, en la que la religión articulaba la vida política, social y cultural. El templo se convertía así en una representación simbólica del universo cristiano, mientras que las imágenes actuaban como instrumentos pedagógicos destinados a transmitir los principios de la fe a una población mayoritariamente analfabeta.
+                    </p>
+
+                    <p class="mt-3">
+                      El desarrollo del románico estuvo estrechamente vinculado al fortalecimiento del poder eclesiástico y a la expansión de las grandes órdenes monásticas, especialmente la orden de Cluny. Los monasterios no solo fueron centros religiosos, sino también focos de cultura, escritura, conservación del conocimiento y difusión artística. Desde ellos se irradiaron modelos arquitectónicos y programas iconográficos que terminaron extendiéndose por los principales reinos cristianos peninsulares.
+                    </p>
+
+                    <p class="mt-3">
+                      Uno de los factores decisivos para la expansión del románico en España fue el auge de las peregrinaciones jacobeas. A partir del siglo XI, el Camino de Santiago se convirtió en una de las principales rutas espirituales de Europa. Miles de peregrinos atravesaban la Península en dirección a Compostela, favoreciendo la circulación de artistas, canteros, escultores, manuscritos e ideas procedentes principalmente de Francia e Italia. Este fenómeno convirtió a los territorios del norte peninsular en un auténtico puente cultural entre Europa y la España cristiana.
+                    </p>
+
+                    <p class="mt-3">
+                      El románico español destacó además por su extraordinaria diversidad regional. Cataluña desarrolló un primer románico influido por Lombardía; Aragón recibió tempranamente modelos franceses vinculados al Camino de Santiago; Castilla y León construyeron algunas de las grandes obras monumentales del románico europeo; mientras que Galicia culminó el proceso con la monumental Catedral de Santiago de Compostela, verdadero símbolo espiritual de la cristiandad medieval occidental.
+                    </p>
+
+                    <p class="mt-3">
+                      La arquitectura románica se caracterizó por la solidez de sus construcciones, el predominio del arco de medio punto, las bóvedas de piedra y la escasa iluminación interior, creando espacios de profunda espiritualidad y recogimiento. La escultura y la pintura, por su parte, desarrollaron un poderoso lenguaje simbólico centrado en la figura de Cristo Pantocrátor, el Juicio Final, los santos y las escenas bíblicas, transmitiendo una visión trascendente y moralizadora del mundo.
+                    </p>
+
+                    <p class="mt-3">
+                      Más allá de su dimensión artística, el románico fue también un instrumento de afirmación política y religiosa. Los reyes cristianos utilizaron monasterios e iglesias para legitimar su poder, consolidar los territorios conquistados y reforzar la identidad cristiana frente al islam peninsular. El arte románico se convirtió así en una manifestación visible de la expansión y consolidación de los reinos cristianos medievales.
+                    </p>
+
+                    <p class="mt-3">
+                      En la actualidad, España conserva uno de los patrimonios románicos más importantes de Europa. Desde las pequeñas iglesias rurales castellanas hasta los grandes monasterios y catedrales del Camino de Santiago, el románico español constituye un testimonio excepcional de la espiritualidad, la cultura y la organización social de la Edad Media. Su estudio permite comprender no solo la evolución artística del Occidente medieval, sino también las profundas transformaciones políticas y religiosas que configuraron la historia de la Península Ibérica.
+                    </p>                   
+                      
+                </div>              
+              </div>
+          </div>
+
+        </section>
+
+         <section id="contexto" class="section-block">
+          <div class="section-head">
+            <span class="section-icon">⚔️</span>
+            <h2> Contexto histórico. la Península Ibérica entre los siglos XI y XII</h2>
+          </div>
+
+          <div class="content-card">
+            <div class="timeline">
+                <div class="t-item" id="">
+                    
+                    <p>
+                      El desarrollo del arte románico en España estuvo profundamente condicionado por la compleja realidad política, religiosa y cultural de la Península Ibérica durante los siglos XI y XII. A diferencia de otras regiones europeas relativamente homogéneas desde el punto de vista político y religioso, la España medieval constituía un territorio fragmentado en el que convivían reinos cristianos, estados musulmanes y comunidades judías, configurando un espacio de contacto, conflicto e intercambio cultural único en la Europa occidental.
+                    </p>
+
+                    <p class="mt-3">
+                      Tras la invasión musulmana de la Península en el año 711 y la rápida desaparición del reino visigodo de Toledo, los pequeños núcleos cristianos refugiados en las montañas del norte comenzaron lentamente un proceso de expansión territorial que la historiografía tradicional denominó Reconquista. Aunque este proceso no respondió siempre a un proyecto político unitario, sí favoreció el fortalecimiento de los reinos cristianos septentrionales y la consolidación progresiva de una identidad política y religiosa diferenciada frente a Al-Ándalus.
+                    </p>
+
+                    <p class="mt-3">
+                      Durante los siglos XI y XII coexistieron en la Península varios reinos cristianos con estructuras políticas propias: el Reino de León, el Reino de Castilla, el Reino de Navarra, el Reino de Aragón y los condados catalanes. Cada uno desarrolló relaciones distintas con el mundo europeo y musulmán, condicionando así la evolución artística y arquitectónica de sus territorios. El románico español surgió precisamente de esta diversidad regional y de la conexión de los reinos cristianos con las corrientes culturales europeas.
+                    </p>
+
+                    <div class="row">                      
+                      <div class="col-12">
+                        <img src="{% static 'images/temas/romanico/castillo_loarre.jpg' %}"
+                          alt="Taul"
+                          class="img-fluid rounded shadow-sm mb-3 w-100">
+                          <p class="text-center">Castillo de Loarre</p>
+                      </div>
+                    </div>
+                    <p>
+                    El avance militar cristiano hacia el sur favoreció la ocupación y repoblación de extensos territorios. Ciudades, fortalezas, monasterios e iglesias fueron construidos en las nuevas zonas conquistadas como símbolos visibles del poder político y religioso. El templo románico no era únicamente un espacio litúrgico: representaba también la consolidación del dominio cristiano sobre el territorio y actuaba como elemento organizador de la vida social medieval.
+                    </p>
+
+                    <p class="mt-3">
+                      Paralelamente, el mundo musulmán peninsular experimentaba importantes transformaciones políticas. La desintegración del Califato de Córdoba en 1031 dio lugar a los denominados reinos de taifas, estados independientes frecuentemente enfrentados entre sí. Esta fragmentación facilitó el avance cristiano, aunque posteriormente los imperios norteafricanos almorávide y almohade tratarían de restaurar la unidad política musulmana y frenar la expansión de los reinos cristianos.
+                    </p>
+
+                    <p class="mt-3">
+                      La Península Ibérica medieval fue, por tanto, una frontera dinámica entre dos grandes civilizaciones: la cristiana latina y la islámica. Este contacto permanente generó influencias mutuas en numerosos ámbitos culturales y artísticos. Aunque el románico español se integró plenamente dentro de las corrientes artísticas europeas, también conservó elementos heredados de tradiciones hispanovisigodas, mozárabes y musulmanas, visibles especialmente en determinadas soluciones arquitectónicas y decorativas.
+                    </p>
+
+                    <p class="mt-3">
+                      Uno de los fenómenos decisivos para la expansión del románico fue la reforma monástica impulsada desde la abadía francesa de Cluny. El monacato cluniacense promovió una profunda renovación espiritual basada en el fortalecimiento de la autoridad papal, la unificación litúrgica y la creación de una amplia red de monasterios vinculados entre sí. Los reyes cristianos peninsulares favorecieron la implantación de esta reforma, tanto por motivos religiosos como políticos, ya que reforzaba sus vínculos con la Europa cristiana occidental.
+                    </p>
+
+                    <p class="mt-3">
+                      Los monasterios se convirtieron en auténticos centros de poder económico y cultural. Además de su función religiosa, actuaban como focos de alfabetización, conservación del saber, producción manuscrita y difusión artística. Desde ellos se impulsó la construcción de grandes iglesias y conjuntos monásticos que introdujeron en la Península las nuevas formas arquitectónicas románicas procedentes de Francia e Italia.
+                    </p>
+
+                    <p class="mt-3">
+                      En este contexto desempeñó un papel fundamental el Camino de Santiago. El descubrimiento, según la tradición, de la tumba del apóstol Santiago en Compostela durante el siglo IX transformó progresivamente a Galicia en uno de los principales centros de peregrinación de la cristiandad medieval. A partir del siglo XI, miles de peregrinos procedentes de Francia, Italia, Alemania o Inglaterra atravesaban los reinos cristianos peninsulares para alcanzar la catedral compostelana.
+                    </p>
+
+                    <p class="mt-3">
+                      El Camino no solo tuvo consecuencias religiosas, sino también económicas, sociales y culturales. Las rutas jacobeas favorecieron la circulación de artistas, arquitectos, escultores y manuscritos, convirtiéndose en una de las principales vías de penetración del románico europeo en España. Las ciudades situadas en el recorrido experimentaron un notable crecimiento urbano y económico, mientras que monasterios e iglesias adoptaban modelos arquitectónicos inspirados en los grandes centros artísticos franceses.
+                    </p>
+
+                    <p class="mt-3">
+                      El románico español nació así en un momento de expansión política, crecimiento económico y renovación religiosa. La mejora de las técnicas agrícolas, el aumento demográfico y el fortalecimiento de las estructuras feudales permitieron movilizar enormes recursos humanos y materiales para la construcción de iglesias, monasterios y catedrales. La arquitectura románica se convirtió en la expresión monumental de una sociedad profundamente jerarquizada y dominada por la visión cristiana del mundo.
+                    </p>
+
+                    <p class="mt-3">
+                      La Iglesia desempeñó un papel central en esta sociedad medieval. Más allá de su dimensión espiritual, constituía una de las principales instituciones políticas y económicas de la época. Obispos y abades acumulaban poder territorial y riqueza, mientras que el arte se utilizaba como instrumento de evangelización y legitimación ideológica. Las imágenes escultóricas y pictóricas transmitían mensajes religiosos destinados a reforzar el temor al pecado, la esperanza de salvación y la autoridad moral de la Iglesia.
+                    </p>
+
+                    <p class="mt-3">
+                      El románico español debe interpretarse, por tanto, como el resultado de un complejo proceso histórico en el que confluyeron la expansión de los reinos cristianos, la influencia cultural europea, las peregrinaciones jacobeas, el poder monástico y la realidad fronteriza de la Península Ibérica. Su extraordinaria riqueza y diversidad reflejan precisamente la pluralidad política y cultural de la España medieval.
+                    </p>                                
+                      
+                </div>              
+              </div>
+          </div>
+
+        </section>
+      
+        <section id="camino" class="section-block">
+          <div class="section-head">
+            <span class="section-icon">🚶</span>
+            <h2>El Camino de Santiago y la expansión del Románico</h2>
+          </div>
+
+          <div class="content-card">
+            <div class="timeline">
+                <div class="t-item" id="">
+                    <!-- <h6><span class="t-date" >El “Comité Revolucionario” se convierte en Gobierno provisional de la Segunda República</span></h6> -->
+                    <p>
+                    El Camino de Santiago constituyó uno de los fenómenos religiosos, culturales y políticos más importantes de la Europa medieval. A partir del siglo XI, las rutas jacobeas se transformaron en el principal eje de penetración del arte románico en la Península Ibérica y en uno de los grandes canales de comunicación entre los reinos cristianos hispánicos y el resto de Europa occidental.
+                  </p>
+                  <div class="row mt-3">
+                      
+                      <div class="col-12">
+                        <img src="{% static 'images/temas/romanico/camino1.jpg' %}"
+                          alt="Taul"
+                          class="img-fluid rounded shadow-sm mb-3 w-100">
+                          
+                      </div>
+                    </div>
+
+                  <p class="mt-3">
+                    Según la tradición cristiana, el origen de la peregrinación compostelana se remonta al descubrimiento, en el siglo IX, de la tumba del apóstol Santiago el Mayor en un bosque de Galicia. El hallazgo fue rápidamente impulsado por la monarquía asturiana, que comprendió el enorme valor político y religioso que suponía poseer un gran centro de peregrinación dentro de los territorios cristianos peninsulares. La creación del culto jacobeo permitió reforzar la legitimidad religiosa de los reinos cristianos del norte frente al poder musulmán de Al-Ándalus.
+                  </p>
+
+                  <p class="mt-3">
+                    Durante los siglos XI y XII, Santiago de Compostela se convirtió en uno de los tres grandes centros de peregrinación de la cristiandad medieval, junto con Roma y Jerusalén. Miles de peregrinos procedentes de Francia, Italia, Inglaterra, Alemania y otros territorios europeos recorrían anualmente los caminos que atravesaban el norte peninsular para venerar las reliquias del apóstol.
+                  </p>
+
+                  <p class="mt-3">
+                    Este flujo continuo de peregrinos tuvo consecuencias extraordinarias para el desarrollo económico y cultural de los reinos cristianos hispánicos. A lo largo de las rutas jacobeas surgieron nuevas ciudades, hospitales, monasterios, mercados y puentes destinados a atender las necesidades de los viajeros. El Camino favoreció además la revitalización del comercio, el crecimiento urbano y la circulación de personas, ideas y técnicas artísticas.
+                  </p>
+                  <div class="row mt-3">
+                      
+                      <div class="col-12">
+                        <img src="{% static 'images/temas/romanico/catedral_santiago.jpg' %}"
+                          alt="Taul"
+                          class="img-fluid rounded shadow-sm mb-3 w-100">
+                          
+                      </div>
+                    </div>
+
+                  <p class="mt-3">
+                    El románico penetró en España fundamentalmente a través de esta gran vía de comunicación europea. Arquitectos, escultores, canteros y maestros de obra procedentes principalmente de Francia introdujeron nuevos modelos constructivos inspirados en las grandes iglesias de peregrinación francesas. De este modo, las rutas jacobeas se transformaron en auténticos corredores culturales por los que llegaron las formas arquitectónicas y escultóricas del románico pleno.
+                  </p>
+
+                  <p class="mt-3">
+                    Las iglesias construidas a lo largo del Camino compartían una serie de características destinadas a facilitar el tránsito de grandes masas de peregrinos. Muchas adoptaron plantas de cruz latina con amplias naves, girolas y capillas radiales que permitían circular alrededor del altar mayor sin interrumpir las ceremonias litúrgicas. Este modelo arquitectónico alcanzó su máxima expresión en la Catedral de Santiago de Compostela, considerada la gran obra maestra del románico español.
+                  </p>
+
+                  <p class="mt-3">
+                    El Camino de Santiago desempeñó también una importante función política. Los reyes cristianos favorecieron su desarrollo mediante la construcción de infraestructuras, la concesión de privilegios y la protección militar de las rutas. De este modo, fortalecían sus relaciones con Europa occidental y consolidaban la integración de los reinos hispánicos dentro de la cristiandad latina.
+                  </p>
+
+                  <p class="mt-3">
+                    La influencia del monacato cluniacense fue especialmente relevante en este proceso. La orden de Cluny impulsó la reforma religiosa y litúrgica de numerosos monasterios peninsulares, difundiendo modelos artísticos franceses y reforzando la autoridad del papado. Muchos monasterios vinculados al Camino se convirtieron en centros fundamentales de producción cultural y artística.
+                  </p>
+
+                  <p class="mt-3">
+                    Más allá de su dimensión religiosa, el Camino actuó como una extraordinaria red de intercambio cultural. A través de él circularon manuscritos, conocimientos técnicos, corrientes filosóficas y estilos artísticos que contribuyeron decisivamente a la europeización cultural de los reinos cristianos peninsulares. El románico español nació precisamente de esta interacción constante entre las tradiciones locales y las influencias procedentes del resto del continente.
+                  </p>
+
+                  <p class="mt-3">
+                    Entre las principales construcciones románicas vinculadas al Camino destacan la Catedral de Jaca, San Martín de Frómista, la Basílica de San Isidoro de León, el Monasterio de San Juan de la Peña y, sobre todo, la Catedral de Santiago de Compostela. Estas edificaciones no solo cumplían funciones religiosas, sino que simbolizaban el poder espiritual, económico y político de la España cristiana medieval.
+                  </p>
+
+                  <div class="row mt-3">
+  
+                    <div class="col-6">
+                      <img src="{% static 'images/temas/romanico/catedral_jaca.jpg' %}"
+                          alt="Catedral de Jaca"
+                          class="romanico-img img-fluid rounded shadow-sm mb-3 w-100">
+
+                      <p class="text-center">Catedral de Jaca</p>
+                    </div>
+
+                    <div class="col-6">
+                      <img src="{% static 'images/temas/romanico/san_martin_fromista.jpg' %}"
+                          alt="San Martín de Frómista"
+                          class="romanico-img img-fluid rounded shadow-sm mb-3 w-100">
+
+                      <p class="text-center">San Martín de Frómista</p>
+                    </div>
+
+                  </div>
+
+                  <div class="row mt-3">
+
+                    <div class="col-6">
+                      <img src="{% static 'images/temas/romanico/basilica_san_isidoro.jpg' %}"
+                          alt="Basílica de San Isidoro"
+                          class="romanico-img img-fluid rounded shadow-sm mb-3 w-100">
+
+                      <p class="text-center">Basílica de San Isidoro</p>
+                    </div>
+
+                    <div class="col-6">
+                      <img src="{% static 'images/temas/romanico/san_juan_pena.jpg' %}"
+                          alt="San Juan de la Peña"
+                          class="romanico-img img-fluid rounded shadow-sm mb-3 w-100">
+
+                      <p class="text-center">San Juan de la Peña</p>
+                    </div>
+
+                  </div>
+
+                  <p class="mt-3">
+                    La Catedral de Santiago representó el punto culminante de este proceso. Su monumentalidad arquitectónica, sus dimensiones y su compleja organización espacial reflejaban la importancia internacional de Compostela dentro de la Europa medieval. El célebre Pórtico de la Gloria, realizado por el Maestro Mateo a finales del siglo XII, constituye una de las obras maestras de la escultura románica europea y simboliza la culminación artística del románico jacobeo.
+                  </p>
+
+                  <p class="mt-3">
+                    El Camino de Santiago fue, en definitiva, mucho más que una simple ruta de peregrinación. Constituyó un eje de integración cultural europea, un instrumento de fortalecimiento político para los reinos cristianos y el principal vehículo de difusión del arte románico en la Península Ibérica. Su influencia transformó profundamente la sociedad medieval hispánica y dejó un legado artístico excepcional que todavía hoy define gran parte del patrimonio histórico español.
+                  </p>
+           
+                      
+                </div>              
+              </div>
+          </div>
+
+        </section>
+
+        <section id="arquitectura" class="section-block">
+          <div class="section-head">
+            <span class="section-icon">⛪</span>
+            <h2> Arquitectura románica</h2>
+          </div>
+
+          <div class="content-card">
+            <div class="timeline">
+                <div class="t-item" id="">
+                  <p>
+                    La arquitectura románica constituyó la manifestación artística más importante de la Europa occidental entre los siglos XI y XII y representó la primera gran arquitectura monumental de la cristiandad medieval tras siglos de fragmentación política y decadencia urbana posteriores a la caída del Imperio romano. En la Península Ibérica, el románico adquirió una extraordinaria diversidad regional y alcanzó algunas de sus expresiones más sobresalientes gracias al impulso del monacato, las peregrinaciones jacobeas y la expansión territorial de los reinos cristianos.
+                  </p>
+
+                  <p class="mt-3">
+                    La arquitectura románica se caracterizó por la búsqueda de solidez, estabilidad y monumentalidad. Sus construcciones reflejaban la mentalidad profundamente religiosa de la sociedad medieval y respondían a una concepción simbólica del espacio sagrado. El templo no era únicamente un lugar de culto, sino una representación material del orden divino y del poder espiritual de la Iglesia.
+                  </p>
+
+                  <p class="mt-3">
+                    Desde el punto de vista técnico, el románico recuperó y reinterpretó numerosos elementos de la arquitectura romana, especialmente el uso del arco de medio punto y la bóveda de piedra. Sin embargo, las limitaciones constructivas medievales obligaron a desarrollar soluciones arquitectónicas específicas destinadas a soportar el enorme peso de las cubiertas pétreas.
+                  </p>
+
+                  <p class="mt-3">
+                    Uno de los rasgos más característicos del románico fue el empleo de gruesos muros de piedra que actuaban como principales elementos sustentantes del edificio. Estos muros transmitían una poderosa sensación de fortaleza y recogimiento, aunque obligaban a reducir considerablemente el tamaño de las ventanas. Como consecuencia, los interiores románicos aparecían generalmente oscuros y envueltos en una atmósfera de espiritualidad y misterio.
+                  </p>
+
+                  <p class="mt-3">
+                    El <strong>arco de medio punto</strong> constituyó el elemento estructural fundamental de la arquitectura románica. Derivado directamente de la tradición romana, este tipo de arco permitía distribuir el peso de las cubiertas hacia los pilares y muros laterales. Sobre él descansaban habitualmente las bóvedas de cañón, otro de los elementos más representativos del estilo.
+                  </p>
+
+                  <div class="row mt-3">
+  
+                    <div class="col-6">
+                      <img src="{% static 'images/temas/romanico/medio_punto.jpg' %}"
+                          alt="Catedral de Jaca"
+                          class="romanico-img img-fluid rounded shadow-sm mb-3 w-100">
+                      
+                    </div>
+
+                    <div class="col-6">
+                      <img src="{% static 'images/temas/romanico/arco_romano.png' %}"
+                          alt="San Martín de Frómista"
+                          class="romanico-img img-fluid rounded shadow-sm mb-3 w-100">
+                      
+                    </div>
+
+                  </div>
+
+                  <p class="mt-3">
+                    La <strong>bóveda de cañón</strong> consistía en una prolongación longitudinal del arco de medio punto y permitía cubrir las naves principales de los templos con piedra, sustituyendo progresivamente las antiguas techumbres de madera. Sin embargo, el enorme peso de estas cubiertas generaba fuertes empujes laterales, lo que obligó a reforzar exteriormente los edificios mediante contrafuertes macizos adosados a los muros.
+                  </p>
+
+                  <div class="row mt-3">
+  
+                    <div class="col-6">
+                      <img src="{% static 'images/temas/romanico/boveda_canon.png' %}"
+                          alt="Catedral de Jaca"
+                          class="romanico-img img-fluid rounded shadow-sm mb-3 w-100">
+                      
+                    </div>
+
+                    <div class="col-6">
+                      <img src="{% static 'images/temas/romanico/san_martin_fromista1.jpg' %}"
+                          alt="San Martín de Frómista"
+                          class="romanico-img img-fluid rounded shadow-sm mb-3 w-100">
+                      
+                    </div>
+
+                  </div>
+
+                  <p class="mt-3">
+                    En determinados espacios, especialmente en las intersecciones entre nave y transepto, se emplearon también <strong>bóvedas de arista</strong> y cúpulas sobre trompas o pechinas. Estas soluciones técnicas reflejan el progresivo perfeccionamiento de la ingeniería medieval y prepararon el camino para el posterior desarrollo de la arquitectura gótica.
+                  </p>
+                  <div class="row mt-3">
+  
+                    <div class="col-6">
+                      <img src="{% static 'images/temas/romanico/boveda_arista1.png' %}"
+                          alt="Catedral de Jaca"
+                          class="romanico-img img-fluid rounded shadow-sm mb-3 w-100">
+                      
+                    </div>
+
+                    <div class="col-6">
+                      <img src="{% static 'images/temas/romanico/boveda_arista2.jpg' %}"
+                          alt="San Martín de Frómista"
+                          class="romanico-img img-fluid rounded shadow-sm mb-3 w-100">
+                      
+                    </div>
+
+                  </div>
+
+                  <p class="mt-3">
+                    La planta más habitual de las iglesias románicas fue la <strong>basilica de cruz latina</strong>. Este modelo estaba compuesto por una nave longitudinal principal, generalmente acompañada por naves laterales más bajas, un transepto que cruzaba perpendicularmente el edificio y una cabecera rematada por ábsides semicirculares. La disposición respondía tanto a necesidades litúrgicas como simbólicas, ya que la planta cruciforme evocaba la cruz de Cristo.
+                  </p>
+
+                  <div class="row mt-3">
+  
+                     <div class="col-6">
+    
+                      <img src="{% static 'images/temas/romanico/cruz_latina.jpg' %}"
+                          alt="Planta de cruz latina"
+                          class="romanico-plano img-fluid rounded shadow-sm mb-3 w-100">
+
+                    </div>
+
+
+                    <div class="col-6">
+                      <img src="{% static 'images/temas/romanico/iglesia-de-cruz-latina.webp' %}"
+                          alt="San Martín de Frómista"
+                          class="romanico-img img-fluid rounded shadow-sm mb-3 w-100">
+                      <img src="{% static 'images/temas/romanico/cruz_latina1.jpg' %}"
+                          alt="San Martín de Frómista"
+                          class="romanico-img img-fluid rounded shadow-sm mb-3 w-100">
+                      
+                    </div>
+
+                  </div>
+
+
+                  <p class="mt-3">
+                    En las grandes iglesias de peregrinación vinculadas al Camino de Santiago aparecieron elementos específicos destinados a facilitar la circulación de los fieles. Entre ellos destacaban la girola o deambulatorio, que rodeaba el altar mayor, y las capillas radiales abiertas en torno a la cabecera. Estas estructuras permitían el acceso de los peregrinos a las reliquias sin interrumpir las ceremonias religiosas.
+                  </p>
+
+                  <p class="mt-3">
+                    El exterior de las construcciones románicas destacaba por su aspecto compacto y horizontal, aunque frecuentemente se incorporaban torres campanario que reforzaban visualmente la monumentalidad del conjunto. En algunas regiones, especialmente en Cataluña, se desarrollaron altos campanarios lombardos de varios pisos decorados mediante arquillos ciegos y bandas verticales.
+                  </p>
+
+                  <p class="mt-3">
+                    La decoración arquitectónica románica poseía un fuerte contenido simbólico y didáctico. Las portadas esculpidas, los capiteles historiados y los canecillos representaban escenas bíblicas, figuras de santos, monstruos fantásticos y alegorías morales destinadas a instruir a los fieles. En una sociedad mayoritariamente analfabeta, la escultura actuaba como una auténtica “Biblia de piedra”.
+                  </p>
+
+                  <p class="mt-3">
+                    Uno de los espacios más relevantes de la arquitectura monástica románica fue el <strong>claustro</strong>. Situado generalmente junto a las dependencias conventuales, el claustro constituía un espacio de meditación y tránsito para la comunidad religiosa. Sus galerías porticadas, decoradas con capiteles escultóricos, desarrollaron algunos de los programas iconográficos más complejos y refinados del arte medieval europeo.
+                  </p>
+
+                  <div class="row mt-3">
+  
+                     <div class="col-12">
+    
+                      <img src="{% static 'images/temas/romanico/monasterio_burgos.jpg' %}"
+                          alt="Planta de cruz latina"
+                          class="romanico-plano img-fluid rounded shadow-sm mb-3 w-100">
+                      <p class="text-center">Claustro Monasterio de Burgos</p>
+                    </div>
+                  </div>
+
+                  <p class="mt-3">
+                    La arquitectura románica española presentó importantes variantes regionales. En Cataluña predominó inicialmente el denominado primer románico lombardo, caracterizado por la austeridad decorativa y las influencias italianas. Aragón desarrolló un románico vinculado a las rutas jacobeas y reconocible por el llamado “taqueado jaqués”. Castilla y León, por su parte, levantaron algunas de las construcciones más monumentales del románico europeo gracias a la influencia francesa y al impulso político de la monarquía.
+                  </p>
+
+                  <p class="mt-3">
+                    Entre los ejemplos más destacados de la arquitectura románica española sobresalen la Catedral de Santiago de Compostela, la Catedral de Jaca, San Martín de Frómista, la Basílica de San Isidoro de León, el Monasterio de Santo Domingo de Silos y las iglesias del valle de Boí en Cataluña. Estas construcciones representan la culminación artística y técnica de la arquitectura románica peninsular.
+                  </p>
+
+                  <p class="mt-3">
+                    Más allá de su función religiosa, la arquitectura románica constituyó una expresión visible del poder político y espiritual de la sociedad medieval. Reyes, nobles, obispos y monasterios utilizaron la construcción de iglesias y monasterios como instrumentos de prestigio, legitimación y control territorial. La monumentalidad de estas edificaciones reflejaba el orden jerárquico del mundo feudal y la centralidad de la religión en la vida cotidiana.
+                  </p>
+
+                  <p class="mt-3">
+                    La arquitectura románica española representa hoy uno de los conjuntos patrimoniales medievales más importantes de Europa. Su estudio permite comprender no solo la evolución técnica y artística de la Edad Media, sino también la mentalidad religiosa, las estructuras de poder y las transformaciones sociales de la España medieval.
+                  </p>                 
+                                  
+                </div>              
+              </div>
+          </div>
+
+        </section>
+      </main>
+    </div>
+  </div>
+</div>
+
+<!-- Modal retrato -->
+<div class="modal fade" id="modalAlfonsoRetrato" tabindex="-1" aria-labelledby="modalAlfonsoRetratoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalAlfonsoRetratoLabel">Alfonso XIII</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <img src="{% static 'images/sigloXX/alfonsoXIII/alfonso-xiii-retrato.jpg' %}" class="img-fluid rounded mb-3" alt="Retrato de Alfonso XIII">
+        <p>
+          Retrato del monarca en una etapa en la que la Corona seguía representando formalmente la continuidad del régimen de la Restauración, aunque bajo una estabilidad cada vez más frágil.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal militar -->
+<div class="modal fade" id="modalAlfonsoMilitar" tabindex="-1" aria-labelledby="modalAlfonsoMilitarLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalAlfonsoMilitarLabel">Alfonso XIII y el ejército</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <img src="{% static 'images/sigloXX/alfonsoXIII/alfonso-xiii-militar.jpg' %}" class="img-fluid rounded mb-3" alt="Alfonso XIII en uniforme">
+        <p>
+          La identificación del rey con el ámbito militar fue un rasgo central de su imagen pública. Este vínculo reforzó su autoridad ante determinados sectores, pero también contribuyó a una creciente politización de la Corona.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- -------------------------------------------MODALES --------------------------------->
+ <div class="modal fade" id="modalAtentado" tabindex="-1" aria-labelledby="modalAtentadoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalAtentadoLabel">
+          Atentado contra Alfonso XIII (1906)
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+
+      <div class="modal-body">
+        <img src="{% static 'images/sigloXX/atentado_Alfonso_XIII.jpg' %}" 
+             class="img-fluid rounded mb-3" 
+             alt="Atentado de Mateo Morral 1906">
+
+        <p>
+          El 31 de mayo de 1906, el anarquista Mateo Morral lanzó una bomba oculta en un ramo de flores contra la carroza real durante la boda de Alfonso XIII y Victoria Eugenia. El atentado no logró su objetivo, pero causó numerosas víctimas entre el público y el séquito.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  function toggleSubmenu(button) {
+    const dropdown = button.parentElement;
+    dropdown.classList.toggle("open");
+  }
+  function toggleRomanicoMenu() {
+    document.getElementById("romanicoMenu").classList.toggle("open");
+  }
+  document.addEventListener("DOMContentLoaded", function () {
+    const logo = document.getElementById("logotipo");
+    if (logo) {
+      logo.addEventListener("click", function (e) {
+        if (window.innerWidth <= 575 && e.clientX > window.innerWidth - 120) {
+          document.body.classList.toggle("menu-open");
+        }
+      });
+    }
+  });
+</script>
+{% endblock %}

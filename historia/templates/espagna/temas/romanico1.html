@@ -1,0 +1,3148 @@
+{% extends "bases/basesromanico.html" %}
+{% load static %}
+
+{% block cabecera %}El Románico{% endblock %}
+
+{% block imgCabecera %}
+<figure class="m-0 text-center">
+  <img class="img-fluid logo-romanico-cabecera"
+       src="{% static 'images/temas/romanico/vallespinoso_de_aguilar.jpg' %}"
+       alt="El Románico1">
+</figure>
+{% endblock %}
+
+{% block logoCabecera %}
+<img src="{% static 'images/favicon.jpg' %}"
+     alt="El Románico2"
+     class="img-fluid logo-romanico-principal">
+{% endblock %}
+
+{% block title %}El Románico{% endblock %}
+
+{% block contenido %}
+<style>
+    
+    .titulo-timeline {
+    font-size: 1.4rem;
+    font-weight: 800;
+    }
+    .alfonso-page {
+      background: linear-gradient(to bottom, #f7f4ee 0%, #f1ede6 100%);
+      min-height: 100vh;
+      padding-bottom: 4rem;
+    }
+
+    .alfonso-hero {
+      background: linear-gradient(135deg, #1b2a41 0%, #2f4b6e 100%);
+      color: #fff;
+      padding: 4rem 0 3rem;
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .alfonso-hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 85% 20%, rgba(255,255,255,0.12), transparent 30%);
+      pointer-events: none;
+    }
+
+    .hero-wrap {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-kicker {
+      display: inline-block;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.22);
+      color: #f8f5ef;
+      padding: 0.4rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      letter-spacing: 0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .alfonso-hero h1 {
+      font-size: 2.5rem;
+      line-height: 1.08;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .alfonso-hero .lead {
+      font-size: 1.14rem;
+      max-width: 860px;
+      color: rgba(255,255,255,0.92);
+    }
+
+    .hero-chips {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: #fff;
+      padding: 0.48rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      backdrop-filter: blur(2px);
+    }
+
+    .hero-portrait {
+      max-width: 320px;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 16px 34px rgba(0,0,0,0.25);
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .hero-portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      cursor: pointer;
+    }
+
+    .hero-caption {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.82);
+      padding-top: 0.55rem;
+    }
+
+    .content-shell {
+      max-width: 1380px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .page-grid {
+      display: grid;
+      grid-template-columns: 290px minmax(0, 1fr);
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .page-aside {
+      position: sticky;
+      top: 92px;
+    }
+
+    .aside-card {
+      background: #fff;
+      border: 1px solid #e7dfd2;
+      border-radius: 18px;
+      box-shadow: 0 8px 24px rgba(58, 44, 24, 0.06);
+      padding: 1.25rem 1rem;
+    }
+
+    .aside-card h5 {
+      font-size: 1rem;
+      font-weight: 800;
+      color: #1f2937;
+      margin-bottom: 1rem;
+    }
+
+    .aside-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .aside-nav a {
+      text-decoration: none;
+      color: #334155;
+      font-size: 0.95rem;
+      padding: 0.45rem 0.55rem;
+      border-radius: 10px;
+      transition: all 0.2s ease;
+    }
+
+    .aside-nav a:hover {
+      background: #f4efe6;
+      color: #1b2a41;
+    }
+
+    .main-col {
+      min-width: 0;
+    }
+
+    .intro-box,
+    .content-card,
+    .highlight-card,
+    .quote-card {
+      background: #fff;
+      border: 1px solid #e7dfd2;
+      border-radius: 20px;
+      box-shadow: 0 10px 28px rgba(58, 44, 24, 0.06);
+    }
+
+    .intro-box {
+      padding: 1.4rem 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .intro-box p:last-child,
+    .content-card p:last-child,
+    .quote-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-block {
+      margin-bottom: 2rem;
+      scroll-margin-top: 100px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+      .section-icon {
+        width: 46px;
+        height: 46px;
+        border-radius: 14px;
+        background: linear-gradient(135deg, #d8c3a5, #f0e2ce);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.25rem;
+        flex: 0 0 auto;
+        color: #493628;
+      }
+
+      .section-head h2 {
+        margin: 0;
+        font-size: 1.7rem;
+        font-weight: 800;
+        color: #1f2937;
+      }
+
+      .section-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        margin-top: 0.35rem;
+        font-weight: 600;
+        text-decoration: none;
+        color: #8b0000;
+      }
+
+      .content-card {
+        padding: 1.5rem;
+      }
+
+      .content-card p {
+        color: #374151;
+        line-height: 1.8;
+        font-size: 1.02rem;
+        margin-bottom: 1rem;
+      }
+      
+
+      .content-card ul {
+        margin-bottom: 0;
+      }
+
+      .content-card li {
+        margin-bottom: 0.55rem;
+        color: #374151;
+        line-height: 1.7;
+      }
+
+      .mini-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+        margin-top: 1.2rem;
+      }
+
+      .mini-grid_17 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        margin-top: 1.2rem;
+      }
+
+      .highlight-card {
+        padding: 1rem;
+        height: 100%;
+      }
+
+      .highlight-card h6 {
+        font-weight: 800;
+        color: #1f2937;
+        margin-bottom: 0.55rem;
+      }
+
+      .highlight-card p {
+        margin: 0;
+        color: #475569;
+        line-height: 1.65;
+        font-size: 0.96rem;
+      }
+
+      .timeline {
+        position: relative;
+        margin-top: 1.4rem;
+        padding-left: 1.2rem;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 9px;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        border-radius: 999px;
+        background: linear-gradient(to bottom, #b99870, #d7c2a5);
+      }
+
+      .t-item {
+        position: relative;
+        padding-left: 1.5rem;
+        margin-bottom: 1.25rem;
+      }
+
+      .t-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .t-item::before {
+        content: "";
+        position: absolute;
+        left: -0.05rem;
+        top: 0.35rem;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #8b6a48;
+        box-shadow: 0 0 0 4px #efe4d5;
+      }
+
+      .t-date {
+        display: inline-block;
+        font-weight: 800;
+        color: #6b4f35;
+        background: #f4eadc;
+        border: 1px solid #ead8bf;
+        padding: 0.2rem 0.6rem;
+        border-radius: 999px;
+        font-size: 0.85rem;
+        margin-bottom: 0.4rem;
+      }
+
+      .t-item h6 {
+        font-weight: 800;
+        color: #1f2937;
+        margin-bottom: 0.35rem;
+      }
+
+      .t-item p {
+        margin: 0;
+        color: #475569;
+        line-height: 1.7;
+      }
+
+      .img-block {
+        margin-top: 1.25rem;
+      }
+
+      .img-frame {
+        background: #faf8f4;
+        border: 1px solid #e5dacb;
+        border-radius: 18px;
+        overflow: hidden;
+      }
+
+      .img-frame img {
+        width: 100%;
+        display: block;
+        object-fit: cover;
+        max-height: 460px;
+        cursor: pointer;
+      }
+
+      .img-note {
+        padding: 0.85rem 1rem;
+        font-size: 0.92rem;
+        color: #5b6472;
+        background: #fcfbf8;
+        border-top: 1px solid #e5dacb;
+      }
+
+      .quote-card {
+        padding: 1.25rem 1.35rem;
+        margin-top: 1rem;
+        border-left: 5px solid #b99870;
+      }
+
+      .quote-card p {
+        font-size: 1rem;
+        line-height: 1.8;
+        color: #334155;
+        margin-bottom: 0.65rem;
+      }
+
+      .quote-author {
+        font-size: 0.92rem;
+        color: #6b7280;
+        font-weight: 600;
+      }
+
+      .summary-band {
+        margin-top: 1.25rem;
+        background: linear-gradient(135deg, #f3e8da 0%, #f8f2e9 100%);
+        border: 1px solid #e4d5bf;
+        border-radius: 18px;
+        padding: 1rem 1.15rem;
+      }
+
+      .summary-band strong {
+        color: #3d2d1f;
+      }
+
+      .final-box {
+        background: linear-gradient(135deg, #23344f 0%, #314a6b 100%);
+        color: #fff;
+        border-radius: 24px;
+        padding: 2rem;
+        box-shadow: 0 16px 36px rgba(27, 42, 65, 0.18);
+      }
+
+      .final-box h3 {
+        font-weight: 800;
+        margin-bottom: 1rem;
+      }
+
+      .final-box p {
+        color: rgba(255,255,255,0.94);
+        line-height: 1.8;
+        margin-bottom: 0.9rem;
+      }
+
+      .final-box p:last-child {
+        margin-bottom: 0;
+      }
+
+      .icon-box {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #d8c3a5, #f0e2ce);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+      }
+
+      .highlight-card {
+        transition: all 0.25s ease;
+      }
+
+      .highlight-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 14px 28px rgba(0,0,0,0.12);
+      }
+      .link-atentado {
+        color: #8b0000;
+        font-weight: 600;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+
+      .link-atentado:hover {
+        color: #c1121f;
+      }
+      .aside-nav {
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+      }
+
+      .aside-nav a,
+      .aside-dropbtn {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        text-decoration: none;
+        background: #fff;
+        color: #1f3c88;
+        border: 1px solid #d6dff2;
+        border-radius: 10px;
+        padding: 0.7rem 0.9rem;
+        font-size: 1rem;
+        transition: all 0.2s ease;
+        cursor: pointer;
+        text-align: left;
+      }
+
+      .aside-nav a:hover,
+      .aside-dropbtn:hover {
+        background: #f3f7ff;
+        border-color: #9eb8ea;
+      }
+
+      .aside-dropdown {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .aside-submenu {
+        display: none;
+        flex-direction: column;
+        gap: 0.25rem;
+        margin-top: 0.35rem;
+        margin-left: 0.8rem;
+      }
+
+      .aside-dropdown.open .aside-submenu {
+        display: flex;
+      }
+
+      .aside-submenu a {
+        font-size: 0.95rem;
+        padding: 0.6rem 0.8rem;
+        border-radius: 8px;
+        background: transparent;
+        border: none;
+        color: #03226b;
+      }
+
+      .aside-submenu a:hover {
+        background: #eef4ff;
+      }
+
+      .arrow {
+        font-size: 0.9rem;
+        transition: transform 0.2s ease;
+      }
+
+      .aside-dropdown.open .arrow {
+        transform: rotate(180deg);
+      }
+
+      .page-aside {
+        position: sticky;
+        top: 20px;
+        align-self: start;
+      }
+
+      .section-head-inline {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      .section-head-inline h6 {
+        margin: 0;
+      }
+
+      .section-head-inline .section-link {
+        white-space: nowrap;
+      }
+
+      .object-fit-cover {
+        object-fit: cover;
+      }
+      .img-wrapper {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .img-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .romanico-logo-hero {
+      position: absolute;
+      top: 18px;
+      right: 24px;
+      z-index: 5;
+      }
+
+      .romanico-logo-hero img {
+        width: 72px;
+        height: auto;
+        display: block;
+        opacity: 0.95;
+        filter: drop-shadow(0 8px 14px rgba(0,0,0,.25));
+      }
+      .romanico-menu-toggle {
+        display: none;
+        width: 100%;
+        background: #1f2933;
+        color: #fff;
+        border: none;
+        padding: 0.9rem 1rem;
+        font-size: 1.1rem;
+        font-weight: 700;
+        border-radius: 12px;
+        margin: 1rem 0;
+      }
+
+      .romanico-menu {
+        display: flex;
+        gap: 1.5rem;
+        background: #1f2933;
+        padding: 1rem 1.3rem;
+        border-radius: 0;
+      }
+
+      .romanico-menu a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 1.1rem;
+      }
+
+      .romanico-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      background: #1f2933;
+      padding: 0.75rem 1rem;
+    }
+
+    .romanico-logo-mini {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      color: #fff;
+      font-weight: 800;
+      font-size: 1rem;
+    }
+
+    .romanico-logo-mini img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .romanico-menu-toggle {
+      background: #f4efe6;
+      color: #1f2933;
+      border: none;
+      padding: 0.55rem 0.9rem;
+      font-size: 0.95rem;
+      font-weight: 800;
+      border-radius: 999px;
+    }
+
+    .romanico-menu {
+      display: none;
+      flex-direction: column;
+      background: #1f2933;
+      padding: 0.75rem 1rem 1rem;
+    }
+
+    .romanico-menu.open {
+      display: flex;
+    }
+
+    .romanico-menu a {
+      color: #fff;
+      text-decoration: none;
+      padding: 0.75rem;
+      border-radius: 10px;
+      font-size: 1rem;
+    }
+
+    .romanico-menu a:hover {
+      background: rgba(255,255,255,.12);
+    }
+    .logo-romanico-cabecera {
+      max-width: 95px;
+      height: auto;
+      object-fit: contain;
+    }
+    .logo-romanico-principal {
+      max-width: 95px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .logo-romanico-cabecera {
+      max-width: 95px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    @media (max-width: 991px) {
+      #logotipo {
+        padding: 1rem 0;
+      }
+
+      #logotipo h1 {
+        font-size: 2rem;
+        margin: 0.5rem 0;
+      }
+
+      .logo-romanico-principal {
+        max-width: 80px;
+      }
+
+      .logo-romanico-cabecera {
+        max-width: 75px;
+      }
+    }
+
+    @media (max-width: 575px) {
+      #logotipo {
+        display: grid !important;
+        grid-template-columns: 44px 1fr 96px;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 0.8rem;
+      }
+
+      #logotipo .col-md-1:first-child {
+        grid-column: 1;
+        grid-row: 1;
+        width: auto;
+        display: block !important;
+        text-align: left !important;
+      }
+
+      #logotipo .col-md-8 {
+        grid-column: 2;
+        grid-row: 1;
+        width: auto;
+        text-align: center !important;
+      }
+
+      #logotipo .col-md-1:last-child {
+        display: none !important;
+      }
+
+      #logotipo h1 {
+        font-size: 1.28rem;
+        margin: 0;
+        font-weight: 800;
+        white-space: nowrap;
+      }
+
+      .logo-romanico-principal {
+        max-width: 34px;
+      }
+
+      #logotipo::before {
+        content: "☰ Menú";
+        grid-column: 3;
+        grid-row: 1;
+        background: #1f2933;
+        color: #fff;
+        font-weight: 800;
+        font-size: 0.82rem;
+        padding: 0.45rem 0.65rem;
+        border-radius: 999px;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      nav.navbar {
+        display: none !important;
+      }
+
+      body.menu-open nav.navbar {
+        display: flex !important;
+        flex-direction: column;
+        align-items: stretch;
+        border-radius: 14px;
+        margin-top: 0.5rem !important;
+      }
+    }
+
+
+
+
+      @media (max-width: 1199px) {
+
+        .alfonso-hero {
+          padding: 3.2rem 0 2.5rem;
+        }
+
+        .page-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .page-aside {
+          position: static;
+        }
+
+        .hero-wrap .row {
+          row-gap: 2rem;
+        }
+
+        .alfonso-hero h1 {
+          font-size: 2.3rem;
+          line-height: 1.12;
+        }
+
+        .alfonso-hero .lead {
+          font-size: 1.05rem;
+          line-height: 1.8;
+        }
+
+        .hero-chips,
+        .d-flex.flex-wrap.gap-3.mt-4 {
+          gap: 0.7rem !important;
+        }
+
+        .chip,
+        .badge-soft {
+          font-size: 0.92rem;
+          padding: 0.52rem 0.85rem;
+        }
+
+        .hero-portrait {
+          margin: 0 auto;
+          max-width: 540px;
+        }
+
+        .hero-portrait img {
+          height: 420px;
+          object-fit: cover;
+        }
+
+        .hero-caption {
+          text-align: center;
+          padding-inline: 1rem;
+          font-size: 0.95rem;
+        }
+
+        .mini-grid,
+        .mini-grid_17 {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .aside-container {
+          position: relative;
+          top: 0;
+        }
+
+        .hero-romanic-img{
+          width: 100%;
+          max-width: 760px;
+          height: 460px;
+          object-fit: cover;
+          object-position: center;
+          margin: 0 auto;
+          display: block;
+        }
+      }
+
+    
+
+      #logotipo figure {
+        margin-bottom: 0.5rem;
+      }
+
+      #logotipo h1 {
+        font-size: 2.1rem;
+        margin: 0.5rem 0;
+      }
+
+      .logo-romanico-cabecera {
+        max-width: 72px;
+      }
+
+      .navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.35rem;
+        padding: 0.8rem !important;
+      }
+
+      .navbar .navbar-brand {
+        font-size: 1rem;
+        margin: 0.2rem 0.5rem !important;
+        white-space: nowrap;
+      }
+      }
+      
+      @media (max-width: 767px) {
+        .romanico-menu {
+          display: flex;
+          flex-direction: row;
+          gap: 0.4rem;
+        }
+
+        .romanico-menu-toggle {
+          display: none;
+        }
+        .romanico-menu-toggle {
+          display: block;
+        }
+
+        .romanico-menu {
+          display: none;
+          flex-direction: column;
+          gap: 0.4rem;
+          border-radius: 14px;
+        }
+
+        .romanico-menu.open {
+          display: flex;
+        }
+
+        .romanico-menu a {
+          padding: 0.75rem;
+          border-radius: 10px;
+        }
+
+        .romanico-menu a:hover {
+          background: rgba(255,255,255,.12);
+        }
+        .romanico-logo-hero {
+          top: 12px;
+          right: 14px;
+        }
+
+        .romanico-logo-hero img {
+          width: 48px;
+        }
+        .alfonso-hero {
+          padding: 2.4rem 0 2rem;
+        }
+
+        .hero-kicker,
+        .badge-soft {
+          font-size: 0.82rem;
+        }
+
+        .alfonso-hero h1 {
+          font-size: 1.95rem;
+          line-height: 1.08;
+          margin-bottom: 1.1rem;
+        }
+
+        .alfonso-hero .lead {
+          font-size: 1rem;
+          line-height: 1.75;
+        }
+
+        .content-shell {
+          padding: 0 0.7rem;
+        }
+
+        .content-card,
+        .intro-box,
+        .final-box {
+          padding: 1.1rem;
+          border-radius: 18px;
+        }
+
+        .section-head {
+          gap: 0.65rem;
+          align-items: flex-start;
+        }
+
+        .section-head h2 {
+          font-size: 1.35rem;
+          line-height: 1.2;
+        }
+
+        .section-icon {
+          width: 42px;
+          height: 42px;
+          font-size: 1.1rem;
+        }
+
+        .hero-portrait {
+          max-width: 100%;
+          border-radius: 20px;
+        }
+
+        .hero-portrait img {
+          width: 100%;
+          height: 300px;
+          object-fit: cover;
+          object-position: center;
+        }
+
+        .hero-caption {
+          text-align: center;
+          font-size: 0.9rem;
+          line-height: 1.6;
+          padding-inline: 0.5rem;
+        }
+
+        .mini-grid,
+        .mini-grid_17 {
+          grid-template-columns: 1fr;
+        }
+
+        .timeline {
+          padding-left: 1rem;
+        }
+
+        .t-item {
+          padding-left: 1.3rem;
+        }
+
+        .hero-romanic-img{
+          width: 100%;
+          height: 260px;
+          object-fit: cover;
+          object-position: center;
+          border-radius: 18px;
+        }
+
+        .d-flex.flex-wrap.gap-3.mt-4 {
+          gap: 0.55rem !important;
+        }
+
+        .badge-soft {
+          padding: 0.48rem 0.75rem;
+          font-size: 0.85rem;
+        }
+
+        .hero-caption {
+          margin-top: 0.8rem;
+        }
+
+        @media (max-width: 575px) {
+        #logotipo h1 {
+        font-size: 1.8rem;
+        }
+
+        #logotipo .col-md-1:first-child img {
+          max-width: 70px;
+        }
+
+        .logo-romanico-cabecera {
+          max-width: 56px;
+        }
+
+        .navbar {
+          display: flex;
+          flex-direction: column;
+          align-items: stretch;
+          text-align: left;
+          border-radius: 14px;
+        }
+
+        .navbar .navbar-brand,
+        .navbar .nav-item {
+          width: 100%;
+          display: block;
+          font-size: 1rem;
+          padding: 0.45rem 0.75rem;
+          margin: 0 !important;
+        }
+
+        .dropdown-menu {
+          width: 100%;
+          text-align: center;
+        }
+          .romanico-logo-mini img {
+            width: 32px;
+            height: 32px;
+          }
+
+          .romanico-logo-mini span {
+            font-size: 0.92rem;
+          }
+
+          .romanico-topbar {
+            padding: 0.6rem 0.75rem;
+          }
+          #logotipo {
+            display: grid !important;
+            grid-template-columns: 52px 1fr 96px;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.75rem 0.8rem;
+          }
+          #logotipo::before {
+            content: "☰ Menú";
+            grid-column: 3;
+            grid-row: 1;
+            background: #1f2933;
+            color: #fff;
+            font-weight: 800;
+            font-size: 0.82rem;
+            padding: 0.45rem 0.65rem;
+            border-radius: 999px;
+            text-align: center;
+            z-index: 2;
+          }
+
+          #logotipo .col-md-1:first-child {
+            display: none !important;
+          }
+
+          #logotipo .col-md-8 {
+            grid-column: 2;
+            grid-row: 1;
+            text-align: center !important;
+            width: auto;
+          }
+
+          #logotipo .col-md-1:last-child {
+            grid-column: 1;
+            grid-row: 1;
+            display: block !important;
+            width: auto;
+            text-align: left !important;
+          }
+
+          #logotipo h1 {
+            font-size: 1.25rem;
+            margin: 0;
+            font-weight: 800;
+            white-space: nowrap;
+          }
+
+          #logotipo figure {
+            margin: 0;
+          }
+
+          #logotipo .col-md-1:first-child {
+            grid-column: 1;
+            grid-row: 1;
+            display: block !important;
+            width: auto;
+            text-align: left !important;
+          }
+          
+          
+          nav.navbar {
+            display: none !important;
+          }
+          body.menu-open nav.navbar {
+            display: flex !important;
+            flex-direction: column;
+            align-items: stretch;
+            border-radius: 14px;
+            margin-top: 0.5rem !important;
+          }
+
+          .navbar {
+            position: relative;
+            border-radius: 14px;
+            padding: 0.75rem !important;
+          }
+
+          .navbar::before {
+            content: "☰ Menú";
+            display: block;
+            color: #fff;
+            font-weight: 800;
+            font-size: 1.05rem;
+            padding: 0.55rem 0.75rem;
+            cursor: pointer;
+          }
+
+          .navbar .navbar-brand,
+          .navbar .nav-item {
+            display: none !important;
+          }
+
+          .navbar:hover .navbar-brand,
+          .navbar:hover .nav-item,
+          .navbar:focus-within .navbar-brand,
+          .navbar:focus-within .nav-item {
+            display: block !important;
+          }
+
+          .navbar:hover,
+          .navbar:focus-within {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+          }
+          nav.navbar::before {
+        content: none !important;
+        display: none !important;
+      }
+
+      body.menu-open nav.navbar {
+        margin-top: 0.4rem !important;
+      }
+
+      body.menu-open nav.navbar .navbar-brand,
+      body.menu-open nav.navbar .nav-item {
+        display: block !important;
+      }
+
+      #logotipo .col-md-1:last-child img {
+        content: url("{% static 'images/favicon.png' %}");
+        max-width: 42px;
+        height: auto;
+        object-fit: contain;
+      }
+
+      
+    }
+    /* =========================
+      ARREGLO DEFINITIVO CABECERA
+    ========================= */
+
+    /* Escritorio y tablet grande */
+    .logo-romanico-principal {
+      max-width: 95px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .logo-romanico-cabecera {
+      max-width: 95px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    /* Tablet: todo en una sola fila */
+    @media (min-width: 576px) and (max-width: 991px) {
+      #logotipo {
+        display: grid !important;
+        grid-template-columns: 100px 1fr 110px;
+        align-items: center;
+        padding: 1rem 1.2rem;
+      }
+
+      #logotipo .col-md-1:first-child {
+        grid-column: 1;
+        width: auto;
+        display: block !important;
+      }
+
+      #logotipo .col-md-8 {
+        grid-column: 2;
+        width: auto;
+        text-align: center !important;
+      }
+
+      #logotipo .col-md-1:last-child {
+        grid-column: 3;
+        width: auto;
+        display: block !important;
+      }
+
+      #logotipo h1 {
+        font-size: 2rem;
+        margin: 0;
+      }
+
+      .logo-romanico-principal {
+        max-width: 75px;
+      }
+
+      .logo-romanico-cabecera {
+        max-width: 85px;
+      }
+    }
+
+    /* Móvil: logo izquierda, título centro, botón menú derecha */
+    @media (max-width: 575px) {
+      #logotipo {
+        display: grid !important;
+        grid-template-columns: 44px 1fr 96px;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 0.8rem;
+      }
+
+      #logotipo .col-md-1:first-child {
+        grid-column: 1;
+        grid-row: 1;
+        width: auto;
+        display: block !important;
+        text-align: left !important;
+      }
+
+      #logotipo .col-md-8 {
+        grid-column: 2;
+        grid-row: 1;
+        width: auto;
+        text-align: center !important;
+      }
+
+      #logotipo .col-md-1:last-child {
+        display: none !important;
+      }
+
+      #logotipo h1 {
+        font-size: 1.28rem;
+        margin: 0;
+        font-weight: 800;
+        white-space: nowrap;
+      }
+
+      .logo-romanico-principal {
+        max-width: 34px;
+      }
+
+      #logotipo::before {
+        content: "☰ Menú";
+        grid-column: 3;
+        grid-row: 1;
+        background: #1f2933;
+        color: #fff;
+        font-weight: 800;
+        font-size: 0.82rem;
+        padding: 0.45rem 0.65rem;
+        border-radius: 999px;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      nav.navbar {
+        display: none !important;
+      }
+
+      body.menu-open nav.navbar {
+        display: flex !important;
+        flex-direction: column;
+        align-items: stretch;
+        border-radius: 14px;
+        margin-top: 0.5rem !important;
+      }
+
+      body.menu-open nav.navbar .navbar-brand,
+      body.menu-open nav.navbar .nav-item {
+        display: block !important;
+        width: 100%;
+        padding: 0.55rem 0.8rem;
+        margin: 0 !important;
+      }
+    }
+    /* =====================================================
+      ARREGLO DEFINITIVO CABECERA TABLET 576px - 991px
+    ===================================================== */
+
+    @media (min-width: 576px) and (max-width: 991px) {
+
+      #logotipo {
+        display: grid !important;
+        grid-template-columns: 110px 1fr 120px !important;
+        align-items: center !important;
+        gap: 1rem !important;
+        padding: 1rem 1.5rem !important;
+      }
+
+      #logotipo .col-md-1:first-child {
+        grid-column: 1 !important;
+        width: auto !important;
+        max-width: none !important;
+        flex: none !important;
+        display: block !important;
+        text-align: left !important;
+      }
+
+      #logotipo .col-md-8 {
+        grid-column: 2 !important;
+        width: auto !important;
+        max-width: none !important;
+        flex: none !important;
+        display: block !important;
+        text-align: center !important;
+      }
+
+      #logotipo .col-md-1:last-child {
+        grid-column: 3 !important;
+        width: auto !important;
+        max-width: none !important;
+        flex: none !important;
+        display: block !important;
+        text-align: right !important;
+      }
+
+      #logotipo h1 {
+        font-size: 2.15rem !important;
+        margin: 0 !important;
+        white-space: nowrap !important;
+      }
+
+      .logo-romanico-principal {
+        max-width: 82px !important;
+        height: auto !important;
+      }
+
+      .logo-romanico-cabecera {
+        max-width: 95px !important;
+        height: auto !important;
+        object-fit: cover !important;
+        border-radius: 6px !important;
+      }
+    }
+        /* =====================================================
+      CABECERA ROMÁNICO: SOLUCIÓN FINAL
+    ===================================================== */
+
+    /* Tablet y escritorio */
+    @media (min-width: 576px) {
+
+      #logotipo {
+        display: grid !important;
+        grid-template-columns: 120px 1fr 120px !important;
+        align-items: center !important;
+        padding: 1rem 1.5rem !important;
+      }
+
+      #logotipo .col-md-1:first-child,
+      #logotipo .col-md-8,
+      #logotipo .col-md-1:last-child {
+        width: auto !important;
+        max-width: none !important;
+        flex: none !important;
+        display: block !important;
+      }
+
+      #logotipo .col-md-1:first-child {
+        grid-column: 1 !important;
+        text-align: left !important;
+      }
+
+      #logotipo .col-md-8 {
+        grid-column: 2 !important;
+        text-align: center !important;
+      }
+
+      #logotipo .col-md-1:last-child {
+        grid-column: 3 !important;
+        text-align: right !important;
+      }
+
+      #logotipo h1 {
+        margin: 0 !important;
+        white-space: nowrap !important;
+      }
+
+      .logo-romanico-principal {
+        max-width: 90px !important;
+      }
+
+      .logo-romanico-cabecera {
+        max-width: 95px !important;
+      }
+    }
+    .logo-romanico-principal {
+      max-width: 95px;
+      height: auto;
+    }
+
+    .logo-romanico-cabecera {
+      max-width: 95px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
+    @media (max-width: 575px) {
+      .logo-romanico-principal {
+        max-width: 34px;
+      }
+
+      .logo-romanico-cabecera {
+        display: none !important;
+      }
+
+      #logotipo h1 {
+        font-size: 1.28rem;
+        margin: 0;
+        font-weight: 800;
+        white-space: nowrap;
+      }
+
+      #logotipo .col-2:last-child::before {
+        content: "☰ Menú";
+        background: #1f2933;
+        color: #fff;
+        font-weight: 800;
+        font-size: 0.82rem;
+        padding: 0.45rem 0.65rem;
+        border-radius: 999px;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+
+      nav.navbar {
+        display: none !important;
+      }
+
+      body.menu-open nav.navbar {
+        display: flex !important;
+        flex-direction: column;
+        align-items: stretch;
+        border-radius: 14px;
+        margin-top: 0.5rem !important;
+      }
+
+      body.menu-open nav.navbar .navbar-brand,
+      body.menu-open nav.navbar .nav-item {
+        display: block !important;
+        width: 100%;
+        padding: 0.55rem 0.8rem;
+        margin: 0 !important;
+      }
+    }
+  }
+</style>
+
+  <section class="alfonso-hero">
+    
+    <div class="container hero-wrap">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-8">
+          <span class="badge-soft badge-republica">⛪ Arte, fe y poder medieval</span>
+          <h1 class="display-3 fw-bold mt-4">El Románico: el nacimiento del arte europeo medieval</h1>
+          
+          <p class="lead mt-4">
+            El arte románico (siglos XI–XIII) representó la primera gran expresión artística común de la Europa medieval occidental. Surgido en un contexto de expansión del cristianismo, crecimiento de los monasterios y consolidación del feudalismo, el románico transformó el paisaje europeo mediante iglesias, monasterios, catedrales y rutas de peregrinación que unieron espiritualidad, poder y cultura.
+          </p>
+          <p class="lead">
+            Caracterizado por sus muros robustos, arcos de medio punto, esculturas simbólicas y una arquitectura pensada para impresionar y educar al creyente, el románico reflejó la mentalidad religiosa de la Edad Media. A través del Camino de Santiago y de las órdenes monásticas, especialmente Cluny, este estilo se difundió por toda Europa y dejó en España algunos de sus conjuntos monumentales más importantes.
+          </p>
+
+          <div class="d-flex flex-wrap gap-3 mt-4">
+            <span class="badge-soft badge-republica">⛪ Monasterios</span>
+            <span class="badge-soft badge-republica">🪨 Arquitectura románica</span>
+            <span class="badge-soft badge-republica">🎨 Pintura mural</span>
+            <span class="badge-soft badge-republica">🗿 Escultura simbólica</span>
+            <span class="badge-soft badge-republica">🚶 Camino de Santiago</span>
+            <span class="badge-soft badge-republica">👑 Feudalismo y poder</span>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="hero-portrait">
+            <img src="{% static 'images/temas/romanico/iglesia_san_martin.jpg' %}"
+                alt="Iglesia de San Martin"
+                data-bs-toggle="modal"
+                data-bs-target="#modalRepublica">
+          </div>
+          <div class="hero-caption">
+            El románico se convirtió en el gran lenguaje artístico y espiritual de la Europa medieval, extendiéndose por monasterios, iglesias y rutas de peregrinación entre los siglos XI y XIII.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="content-shell">
+    <div class="page-grid">
+
+      <aside class="page-aside">
+        <div class="aside-card">
+          <h5>En esta página</h5>
+          <nav class="aside-nav">
+            <a href="{% url 'linea_tiempo_segunda_republica' %}">🧭 Línea de tiempo</a>
+            <a href="#proclamacion">📜 Proclamación de la República</a>
+             <a href="#gobierno_provisional" class="aside-link">
+              <span>🏛️</span> Gobierno provisional (1931)
+            </a>
+            <a href="#elecciones_1931" class="aside-link">
+              <span>🗳️</span> Elecciones generales (1931)
+            </a> 
+            <a href="#constitucion">🏛️ Constitución de 1931</a>
+            <a href="#bienio-reformista">🌱 Bienio reformista (1931–1933)</a>                       
+            <a href="#bienio-radical">⚖️ Bienio radical-cedista (1933–1935)</a>
+            <a href="#frente-popular">✊ Frente Popular (1936)</a>            
+            <a href="#crisis-final">🔥 Crisis final y colapso</a>
+          </nav>
+        </div>
+      </aside>
+
+      <main class="main-col">
+         <div class="section-head">
+          <span class="section-icon">📜</span>            
+            <h2 id="proclamacion">Proclamación de la República (14 de abril de 1931)</h2>
+          </div>
+        <div class="intro-box section-block">
+          <!-- IMAGEN -->
+          <figure class="text-center mb-4">
+            <img src="{% static 'images/sigloXX/segunda_republica/segunda_republica.jpg' %}" 
+                class="img-fluid rounded shadow-sm"
+                alt="Proclamación de la Segunda República en Madrid, 1931">
+            <figcaption class="mt-2 text-muted small">
+              Multitud celebrando la proclamación de la Segunda República en la Puerta del Sol (14 de abril de 1931).
+            </figcaption>
+          </figure>
+
+           <!-- MINI TIMELINE -->
+          <div class="mini-timeline mt-4">
+
+            <article class="t-item">
+              <h4><span class="t-date">Agosto 1930</span>
+                <a href="#" data-bs-toggle="modal" data-bs-target="#modalSSebastian" class="section-link">
+                  Pacto de San Sebastian
+                </a>
+                
+                </h4>
+              <p>Acuerdo entre fuerzas republicanas para coordinar la caída de la monarquía.</p>
+            </article>
+
+            <article class="t-item">
+              <h4><span class="t-date">12 Diciembre 1930</span> 
+                <a href="#" data-bs-toggle="modal" data-bs-target="#modalJaca" class="section-link">
+                  Sublevación de Jaca
+                </a>
+              </h4>
+              <p>Capitanes Galán y García Hernández. Fracasó rápidamente porque se adelantó 3 días a la fecha prevista en toda España.</p>
+            </article>
+
+            <article class="t-item">
+              <h4><span class="t-date">15 Diciembre 1930</span> 
+                <a href="#" data-bs-toggle="modal" data-bs-target="#modalCuatroVientos" class="section-link">
+                  Sublevación del Aeródromo de Cuatro Vientos
+                </a>
+              </h4>
+              <p>Ramón Franco (compinchado con Queipo de Llano) coge un avión con la intención de bombardear el Palacio Real</p>
+            </article>
+
+            <article class="t-item">
+              <h4><span class="t-date">12 Abril 1931</span>
+                <a href="#" data-bs-toggle="modal" data-bs-target="#modalMunicipales" class="section-link">
+                  Elecciones municipales de 1931
+                </a>
+              </h4>
+              <p>Victoria republicana en las principales ciudades españolas.</p>
+            </article>
+
+            <article class="t-item">
+              <h4><span class="t-date">14 abril 1931</span> Proclamación de la República</h4>
+              <p>Se instaura el nuevo régimen y Alfonso XIII abandona el país.</p>
+            </article>            
+
+          </div>
+          <!-- BOTÓN MODAL -->
+          <div class="text-center mt-4">
+            <a href="#" class="btn btn-outline-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#modalSpain31">
+              España en 1931 <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+
+    
+
+    <!-- MODAL ESPAÑA EN 1931-->
+          <div class="modal fade" id="modalSpain31" tabindex="-1">
+            <div class="modal-dialog modal-lg modal-dialog-scrollable">
+              <div class="modal-content">
+
+                <div class="modal-header">
+                  <h5 class="modal-title">España en 1931. (Tomado de Manuel Tuñón de Lara, La España del siglo XX).</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="row">
+                      <img src="{% static 'images/sigloXX/segunda_republica/spain1931.jpg' %}"
+                          alt="Galan"
+                          class="img-fluid rounded shadow-sm mb-3 w-100">
+                    </div>
+                  
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+     <!-- MODAL SUBLEVACIÓN DE JACA-->
+          <div class="modal fade" id="modalJaca" tabindex="-1">
+            <div class="modal-dialog modal-xl modal-dialog-scrollable">
+              <div class="modal-content">
+
+                <div class="modal-header position-relative">
+                  <h4 class="modal-title position-absolute start-50 translate-middle-x">
+                    LA SUBLEVACION DE JACA
+                  </h4>
+                  <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                  <div class="row">
+                    <div class="col-md-10">
+                        <p>La sublevación de Jaca fue un pronunciamiento producido el 12 de diciembre de 1930 contra la monarquía española de Alfonso XIII durante la dictablanda del general Berenguer. Aunque fue sofocada y fueron fusilados los capitanes Fermín Galán Rodríguez y Ángel García Hernández, sus efectos se dejaron sentir en la proclamación de la Segunda República cuatro meses después.</p>
+                        <p>El <strong>Pacto de San Sebastián</strong> fue la reunión que tuvo lugar en San Sebastián el 17 de agosto de 1930 a la que asistieron representantes de todos los partidos republicanos y en la que se acordó la estrategia para poner fin a la monarquía de Alfonso XIII y proclamar la Segunda República Española. En octubre de 1930 se sumaron al Pacto, en Madrid, las dos organizaciones socialistas, el PSOE y la UGT. Miguel Maura en sus memorias reconoce que la decisión fue asumida por todos. </p>
+                        <p>El <strong>Comité Revolucionario</strong> acuerda la fecha del levantamiento para el lunes 15 de diciembre. La dirección de la sublevación en Jaca corresponde al capitán Fermín Galán. Galán había llegado a este destino a comienzos del mes de junio, cuatro meses después de haber salido de la prisión militar de Montjuic amnistiado, donde había cumplido condena por haber participado en la Sanjuanada, una conspiración militar que había tratado de derribar la Dictadura de Primo de Rivera en 1926.</p>
+                        <p>Los continuos aplazamientos para fijar la fecha de la sublevación, hacen que las relaciones entre Galán y el «comité revolucionario» empiecen a deteriorarse. </p>
+                        <p>El general Emilio Mola, a la sazón director general de Seguridad, que conoce a Galán de los años de la guerra de África, llega a tener conocimiento de que trama algo, por lo que, en atención a la relativa amistad que le une con él, envía, el 27 de noviembre, una carta pidiendole que no se subleve.</p>
+                        <p> Ante la imposibilidad de convencer a Galán para que acepte una nueva moratoria, el Comité revolucionario dispone que en la madrugada del día 12 viajen a Jaca, desde Madrid, Casares Quiroga y otros dos delegados que, según su posterior testimonio, «llegados a una hora intempestiva, duermen sin haber hablado con Galán»</p>
+                        <p>Galán decide no esperar al 15 de diciembre, la fecha que finalmente había fijado el «comité revolucionario» para la insurrección, y a las cinco de la mañana del 12 toman Jaca</p>
+                        <p>Una vez controlada Jaca, los sublevados organizaron dos columnas para dirigirse a Huesca, pero fueron detenidos.</p>
+                      </div>
+                    <div class="col-md-2">
+                        <img src="{% static 'images/sigloXX/segunda_republica/fermin_galan.jpg' %}"
+                          alt="Galan"
+                          class="img-fluid rounded shadow-sm mb-3 w-100">
+                          <p class="text-center mt-2">Fermin Galán</p>
+                        <img src="{% static 'images/sigloXX/segunda_republica/garcia_hernandez.jpg' %}"
+                          alt="Garcia Hernandez"
+                          class="img-fluid rounded shadow-sm mb-3 w-100">
+                          <p class="text-center mt-2">Ángel García Hernández</p>
+
+                    </div>
+                  </div>
+                  
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+    <!-- MODAL PACTO DE SAN SEBASTIAN-->
+          <div class="modal fade" id="modalSSebastian" tabindex="-1">
+            <div class="modal-dialog modal-xl modal-dialog-scrollable">
+              <div class="modal-content">
+
+                <div class="modal-header position-relative">
+                  <h4 class="modal-title position-absolute start-50 translate-middle-x">
+                    EL PACTO DE SAN SEBASTIAN
+                  </h4>
+                  <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                  <div class="row">
+                    <div class="col-md-12">
+                        <img src="{% static 'images/sigloXX/segunda_republica/pacto_san_sebastian.jpg' %}"
+                          alt="Pacto de San sebastian"
+                          class="img-fluid rounded shadow-sm mb-3 w-100">
+                          
+                        
+
+                    </div>
+                    <div class="col-md-12">
+                      <p>----</p>  
+                    </div>
+                    
+                  </div>
+                  
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+     <!-- MODAL SUBLEVACIÓN DE CUATRO VIENTOS-->
+          <div class="modal fade" id="modalCuatroVientos" tabindex="-1">
+            <div class="modal-dialog modal-xl modal-dialog-scrollable">
+              <div class="modal-content">
+
+                <div class="modal-header position-relative">
+                  <h4 class="modal-title position-absolute start-50 translate-middle-x">
+                    LA SUBLEVACION DE CUATRO VIENTOS
+                  </h4>
+                  <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                  <div class="row">
+                    <div class="col-md-9">
+                       <p>
+                          El <strong>15 de diciembre de 1930</strong>, en el aeródromo madrileño de 
+                          <strong>Cuatro Vientos</strong>, tuvo lugar un intento de sublevación militar contra la 
+                          monarquía de Alfonso XIII, enmarcado en la conspiración republicana iniciada tras el 
+                          <strong>Pacto de San Sebastián</strong>. Este episodio se produjo apenas tres días después del 
+                          fracaso de la <strong>sublevación de Jaca</strong>, evidenciando la creciente inestabilidad del régimen.
+                        </p>
+
+                        <hr>
+
+                        <h5>👤 Protagonistas</h5>
+
+                        <p>
+                          Entre los principales implicados destacaron:
+                        </p>
+
+                        <ul>
+                          <li>
+                            <strong>Ramón Franco</strong>, aviador y héroe nacional tras el vuelo del <em>Plus Ultra</em>, 
+                            comprometido en ese momento con la causa republicana.
+                          </li>
+                          <li>
+                            <strong>Gonzalo Queipo de Llano</strong>, militar de trayectoria cambiante que participó en diversas 
+                            conspiraciones contra la monarquía.
+                          </li>
+                        </ul>
+
+                        <hr>
+
+                        
+ 
+                        
+                      </div>
+                    <div class="col-md-3">
+                        <img src="{% static 'images/sigloXX/segunda_republica/ramon_franco.jpg' %}"
+                          alt="Galan"
+                          class="img-fluid rounded shadow-sm mb-3 w-100">
+                          <p class="text-center mt-2">Ramón Franco</p>
+                        
+
+                    </div>
+                    <h5>✈️ El plan</h5>
+                      <div>
+                        <p>
+                          El objetivo de los sublevados era utilizar la base aérea de Cuatro Vientos como punto de partida 
+                          para desencadenar una insurrección general. El plan incluía:
+                        </p>
+
+                        <ul>
+                          <li>Sublevar la guarnición militar del aeródromo</li>
+                          <li>Despegar con aviones hacia Madrid</li>
+                          <li><strong>Bombardear el Palacio Real</strong> como señal del inicio de la revolución</li>
+                          <li>Provocar un levantamiento popular y militar contra la monarquía</li>
+                        </ul>
+                      </div>
+
+                        <hr>
+
+                        <h5>❌ El fracaso</h5>
+
+                        <p>
+                          El intento fracasó debido a la falta de coordinación con otros focos conspirativos, especialmente 
+                          tras el colapso de la sublevación de Jaca, así como por la escasez de apoyos dentro del ejército.
+                        </p>
+
+                        <p>
+                          Aunque <strong>Ramón Franco llegó a despegar</strong>, no se llevó a cabo el bombardeo previsto. 
+                          La operación quedó desactivada en pocas horas y sus principales responsables optaron por la huida 
+                          o el exilio.
+                        </p>
+
+                        <hr>
+
+                        <h5>⚖️ Significado histórico</h5>
+
+                        <p>
+                          A pesar de su fracaso, el episodio de Cuatro Vientos tuvo una gran relevancia simbólica. 
+                          Demostró que sectores del ejército estaban dispuestos a actuar contra la monarquía y 
+                          contribuyó a debilitar aún más la legitimidad del régimen.
+                        </p>
+
+                        <p>
+                          Este intento, junto con la sublevación de Jaca, forma parte del proceso de descomposición 
+                          del sistema de la Restauración que culminaría pocos meses después con la 
+                          <strong>proclamación de la Segunda República el 14 de abril de 1931</strong>.
+                        </p>
+                  </div>
+                  
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+     <!-- MODAL ELECCIONES MUNICIPALES-->
+          <div class="modal fade" id="modalMunicipales" tabindex="-1">
+            <div class="modal-dialog modal-xl modal-dialog-scrollable">
+              <div class="modal-content">
+
+                <div class="modal-header position-relative">
+                  <h4 class="modal-title position-absolute start-50 translate-middle-x">
+                    ELECCIONES MUNICIPALES DE 1931
+                  </h4>
+                  <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                  <div class="row">
+                    <div class="col-md-9">
+                        <p>Tras el fracaso del gobierno del general Berenguer el rey Alfonso XIII decidió nombrar el 17 de febrero de 1931 al almirante Juan Bautista Aznar para que presidiera un gobierno de «concentración monárquica». Este convocó elecciones municipales, en lugar de generales, para el 12 de abril de 1931.</p>
+                        <p>Los comicios se rigieron por la Ley electoral de 1907, también conocida como la «Ley Maura». Tenían derecho al voto (que era obligatorio) los varones mayores de 25 años. Una de las características más notables de esta ley era el artículo 29, según el cual, en aquellos distritos en que solo se presentara una única candidatura esta resultaría elegida automáticamente sin necesidad de realizar ninguna votación.</p>
+                        <p>Debido a esto, el domingo 5 de abril fueron proclamados casi treinta mil concejales (29 804), el 37 % del total de los 81 099 que se debían elegir. De esta forma 1 100 000 electores, de un total de 5 500 000, fueron privados de su derecho al voto. En su inmensa mayoría se trataba de municipios con menos de 500 habitantes. Resaltar que el 90% de los elegidos eran monárquicos.</p>
+                        <p>Desde el primer momento las elecciones municipales del 12 de abril fueron consideradas como un plebiscito sobre la continuidad de la monarquía de Alfonso XIII. </p>
+                        <p>La participación fue del 67 %</p>
+                        <p>Los republicanos ganaron en 41 capitales de provincia y los monárquicos en sólo 9.</p>
+                        <p>La consecuencia inmediata fue la caida de la monarquia y la proclamación de ls segunda República</p>
+                      </div>
+                    <div class="col-md-3">
+                        <img src="{% static 'images/sigloXX/segunda_republica/resultado_municipales.jpg' %}"
+                          alt="Galan"
+                          class="img-fluid rounded shadow-sm mb-3 w-100">
+                    </div>
+                  </div>
+                  
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- -------------------------------------------------------------------- -->
+
+
+
+          <p class="mt-3">
+            La proclamación de la República no fue el resultado de una revolución violenta, sino de un proceso político acelerado en el que confluyeron el descrédito de la monarquía de Alfonso XIII, el fracaso de la dictadura de Primo de Rivera (1923–1930) y la incapacidad de los gobiernos posteriores para restaurar el sistema constitucional. La denominada “dictablanda” del general Berenguer y el breve gobierno del almirante Aznar no lograron recomponer el régimen, evidenciando su agotamiento estructural.
+          </p>
+
+          <p>
+            En este contexto, las elecciones municipales celebradas el 12 de abril de 1931 adquirieron un carácter plebiscitario sobre la continuidad de la monarquía. Aunque los candidatos monárquicos obtuvieron una mayoría global en el ámbito rural, en las principales ciudades —donde la opinión pública tenía mayor peso político— triunfaron de forma clara las candidaturas republicano-socialistas. Este resultado fue interpretado como una deslegitimación del régimen monárquico.
+          </p>
+
+          <p>
+            El 14 de abril, en un clima de movilización popular y sin resistencia efectiva por parte del Estado, se proclamó la República en numerosas ciudades españolas. En Madrid, el Comité Revolucionario —formado por los líderes del Pacto de San Sebastián (1930)— asumió el poder y constituyó un Gobierno Provisional presidido por Niceto Alcalá-Zamora. Ese mismo día, Alfonso XIII abandonó el país, evitando un posible conflicto civil, sin abdicar formalmente.
+          </p>
+
+          <p>
+            La proclamación de la República abrió una nueva etapa en la historia de España caracterizada por la voluntad de democratización y modernización del Estado. El nuevo régimen se planteó como una alternativa al sistema oligárquico de la Restauración, con el objetivo de ampliar la participación política, garantizar derechos y abordar reformas estructurales largamente demandadas por amplios sectores de la sociedad.
+          </p>
+
+          <div class="info-box mt-4">
+            <strong>Claves interpretativas:</strong>
+            <ul>
+              <li>La República nace de una crisis de legitimidad más que de una ruptura revolucionaria.</li>
+              <li>Las elecciones municipales de 1931 actuaron como plebiscito contra la monarquía.</li>
+              <li>El papel de las ciudades fue decisivo en el cambio de régimen.</li>
+              <li>La salida de Alfonso XIII facilitó una transición relativamente pacífica.</li>
+            </ul>
+          </div>
+        </div>
+
+        <section id="gobierno_provisional" class="section-block">
+          <div class="section-head">
+            <span class="section-icon">🏛️</span>
+            <h2> Gobierno provisional (abril-diciembre de 1931)</h2>
+          </div>
+
+          <div class="content-card">
+            <div class="timeline">
+                <div class="t-item" id="">
+                    <h6><span class="t-date" >El “Comité Revolucionario” se convierte en Gobierno provisional de la Segunda República</span></h6>
+                    
+                      <p>El Gobierno provisional de la Segunda República española ostentó el poder político en España desde la caída de la Monarquía de Alfonso XIII y la proclamación de la República el 14 de abril de 1931 hasta la aprobación de la Constitución de 1931 el 9 de diciembre y la formación del primer gobierno ordinario el 15 de diciembre. Hasta el 15 de octubre de 1931 el gobierno provisional estuvo presidido por Niceto Alcalá-Zamora, y tras la dimisión de este , le sucedió Manuel Azaña.</p>
+                      
+                      <p class="mt-2">A primeras horas de la mañana del 14 de abril de 1931 el general Sanjurjo, director de la Guardia Civil, se dirige a la casa de Miguel Maura donde se encuentran reunidos los miembros del comité revolucionario que no estaban exiliados en Francia, ni escondidos. Nada más entrar se cuadra ante Maura y le dice: “A las órdenes de usted señor ministro". Previamente el rey había preguntado lo mismo y Sanjujo había conestado: "No puedo garantizar la obendiencia de mis hombres al rey"</p>
+                      <div class="row mt-2">
+                        <div class="col-4">
+                            <p >Por la tarde una muchedumbre se concentra en Madrid en la Puerta del Sol donde se encuentra la sede del Ministerio de la Gobernación. Los miembros del comité revolucionario se dirigen allí escoltados por la Guardia Civil y cuando llegan Miguel Maura llama al portalón del Ministerio y grita: "Señores, paso al Gobierno de la República'". Los guardias civiles de la entrada se cuadran y presentan armas. A continuación el comité revolucionario se constituye en "Gobierno provisional" y designa a </p>
+                        </div>
+                        <div class="col-8">
+                          <img src="{% static 'images/sigloXX/segunda_republica/alcala_provisional.jpg' %}"
+                            alt="Lerroux"
+                            class="img-fluid rounded shadow-sm mb-3 w-100">
+                        </div>
+                        <p>Niceto Alcalá-Zamora como su presidente. Eran las ocho de la tarde del 14 de abril. A esa misma hora el rey se despedía de los nobles y grandes de España que habían acudido al Palacio de Oriente y abandonaba Madrid en coche en dirección a Cartagena, donde hacia las cuatro de la madrugada embarcaba en el crucero Príncipe de Asturias rumbo a Marsella</p>
+                      </div>
+                      
+                      <div class="row mt-3">
+                        <img src="{% static 'images/sigloXX/segunda_republica/gobierno_provisional_1931.jpg' %}"
+                            alt="Lerroux"
+                            class="img-fluid rounded shadow-sm mb-3 w-100">
+                      </div>
+                      <p>Hay que añadir: Martinez Barrios (ministro comunicación, ...)                        
+                      </p>
+                      
+  
+                      <p class="mt-3">El Gobierno Provisional se concibió como un gobierno de transición, con tres metas principales:</p>
+                      <div>
+                        <ol>
+                          <li>Asegurar el orden público y evitar una deriva revolucionaria o contrarrevolucionaria.</li>
+                          <li>Convocar elecciones a Cortes Constituyentes, que otorgaran legitimidad democrática al nuevo régimen.</li>
+                          <li>Iniciar reformas estructurales que respondieran a las demandas sociales y políticas acumuladas durante la crisis de la Restauración.</li>
+                        </ol>
+                      </div>
+                </div>
+                <div class="t-item" id="problema_catalan">    
+                  <h6><span class="t-date" >El primer problema: Cataluña</span></h6>
+                  <div class="row">
+                    <div class="col-7">
+                        <p>El problema más inmediato que tuvo que afrontar el Gobierno provisional fue la proclamación de la “República Catalana” hecha por Francesc Macià en Barcelona el mismo día 14 de abril.</p>
+                        <p>Tres días después tres ministros del Gobierno provisional se entrevistaban en Barcelona con Francesc Macià alcanzando un acuerdo por el que Esquerra Republicana de Cataluña renunciaba a la “República Catalana” a cambio del compromiso del Gobierno provisional de que presentaría en las futuras Cortes Constituyentes el Estatuto de Autonomía que decidiera Cataluña y del reconocimiento del gobierno catalán que dejaría de llamarse Consejo de Gobierno de la República Catalana para tomar el nombre Gobierno de la Generalidad de Cataluña </p>
+                    </div>
+                    <div class="col-5">
+                        <img src="{% static 'images/sigloXX/segunda_republica/macia.jpg' %}"
+                            alt="Lerroux"
+                            class="img-fluid rounded shadow-sm mb-3 w-100">
+                            <p class="mt-2 text-center">Frances Macia y Alcalá Zamora</p>
+                    </div>
+                  </div>
+                  
+                </div>
+                <div class="t-item" id="problema_vasco">    
+                  <h6><span class="t-date" >El País vasconavarro y el Estatuto de Estella</span></h6>
+                  <p>El Estatuto de Estella fue presentado el 22 de septiembre de 1931 a las Cortes Constituyentes por una delegación de alcaldes pero no fue tomado en consideración porque el proyecto se situaba claramente al margen de Constitución que se estaba aprobando, entre otras cosas, por su concepción federalista y por la declaración de confesionalidad del "Estado vasco", además de que no reconocía derechos políticos plenos a los inmigrantes españoles con menos de diez años de residencia en Euskadi.</p>
+                  
+                </div>
+                <div class="t-item" id="religion">    
+                  <h6><span class="t-date" >La política religiosa</span></h6>
+                  <p>El Gobierno aprobó algunas <strong>medidas secularizadoras</strong> como: </p>
+                  <div>
+                    <ul>
+                      <li>disolución de las órdenes militares,</li>
+                      <li>supresión de la obligatoriedad de asistencia a actos religiosos en cárceles y cuarteles,</li>
+                      <li>prohibición de participación oficial en actos religiosos,</li>
+                      <li>fin de las exenciones tributarias a la Iglesia,</li>
+                      <li>privación de sus derechos a la Confederación Nacional Católico-Agraria,</li>
+                    </ul>
+                  </div>
+                  <p>Entre todas, quizá la medida más destacada fue el decreto de 6 de mayo declarando voluntaria la enseñanza religiosa”. La jerarquía católica ya no pudo intervenir en la elaboración de los planes de estudios, un derecho del que venía disfrutando desde hacía mucho tiempo. Además se prohibió la asistencia a actos religiosos de los militares no siendo a título personal y se suspendieron las festividades de los Patronos de Armas y Cuerpos del Ejército. Por último se modificó la ley electoral de 1907 para que los sacerdotes pudieran presentarse como candidatos en las elecciones.</p>
+                  <div class="row">
+                    <div class="col-8">
+                        <p class="mt-2">Un sector numeroso del episcopado no estaban dispuestos a transigir con la República a la que consideraban una desgracia. La cabeza visible de ese grupo era el Cardenal Primado y arzobispo de Toledo, <strong>Pedro Segura</strong>, que ya se había manifestado claramente contrario a la República. Pero el pronunciamiento de mayor trascendencia del Cardenal Segura se produjo el día 1 de mayo cuando hizo pública una pastoral en la que, tras abordar la situación española en un tono catastrofista, hacía un agradecido elogio de la monarquía y del destronado monarca Alfonso XIII, “quien, a lo largo de su reinado, supo conservar la antigua tradición de fe y piedad de sus mayores”. </p>
+                    </div>
+                    <div class="col-4">
+                        <img src="{% static 'images/sigloXX/segunda_republica/segura.jpg' %}"
+                          alt="Cardenal Segura"
+                          class="img-fluid rounded shadow-sm mb-3 w-100">
+                          <p class="text-center mt-2">Cardenal Segura</p>
+                    </div>
+                  </div>
+                  
+                  <p class="mt-2">En la mañana del domingo 10 de mayo de 1931 se inauguraba en la calle Alcalá de Madrid el <strong>Círculo Monárquico Independiente</strong>, fundado por el director del diario monárquico ABC, Juan Ignacio Luca de Tena, que acababa de regresar de Londres donde se había entrevistado con el exrey Alfonso XIII con el objetivo de formar un comité electoral del que surgiera una candidatura monárquica para presentarla en las elecciones a Cortes Constituyentes que se iban a celebrar al mes siguiente. Algunas fuentes contemporáneas mencionan posibles provocaciones de los asistentes, como la reproducción de la Marcha Real o la difusión de propaganda hostil a la República. No obstante, estos hechos no están plenamente corroborados por la historiografía y deben interpretarse con cautela, dado el carácter parcial y contradictorio de las fuentes.</p>
+                  <div class="row">
+                    <div class="col-3">
+                      <img src="{% static 'images/sigloXX/segunda_republica/taxista.jpg' %}"
+                          alt="Cardenal Segura"
+                          class="img-fluid rounded shadow-sm mb-3 w-100">
+                          
+                    </div>
+                    <div class="col-9">
+                      <p class="mt-2">Los <strong>disturbios</strong> se iniciaron en torno a incidentes ocurridos en las inmediaciones del Círculo Monárquico, donde se produjeron enfrentamientos y quema de vehículos. En ese contexto, se difundió rápidamente el rumor —no confirmado— de que un taxista republicano había sido asesinado por monárquicos, lo que provocó la concentración de una multitud ante la sede del diario ABC en la calle Serrano. La intervención de la Guardia Civil para dispersar a los manifestantes derivó en el uso de armas de fuego y causó varias víctimas, entre ellas al menos un menor. La secuencia exacta de los hechos y los detalles concretos del incidente inicial no están plenamente esclarecidos y varían según las fuentes.</p>
+                    </div>
+                  </div>
+                  
+                  <p class="mt-2">Esa misma noche el ministro de la Gobernación Miguel Maura quiso desplegar a la Guardia Civil pero sus compañeros de gobierno, encabezados por el presidente Niceto Alcalá Zamora y por el ministro de la Guerra Manuel Azaña, se opusieron, reacios a emplear a las fuerzas de orden público contra el "pueblo" y restando importancia a los hechos.</p>
+                  <div class="row">
+                    <div class="col-6">
+                        <p class="mt-2">Cuando el gobierno estaba reunido a primeras horas de la mañana del lunes 11 de mayo le llegó la noticia de que la Casa de Profesa de los jesuitas estaba ardiendo. El ministro de la Gobernación Miguel Maura de nuevo intentó sacar a la calle a la Guardia Civil para restablecer el orden pero al igual que la noche anterior se encontró con la oposición del resto del gabinete y especialmente de Manuel Azaña, quien, según Maura, llegó a manifestar que todos los conventos de Madrid no valen la vida de un republicano. </p>
+                    </div>
+                    <div class="col-6">
+                        <img src="{% static 'images/sigloXX/segunda_republica/quema_iglesias.jpg' %}"
+                          alt="Quema de iglesias"
+                          class="img-fluid rounded shadow-sm mb-3 w-100">
+                          
+                    </div>
+                    <div class="row">
+                      <div class="col-6">
+                        <img src="{% static 'images/sigloXX/segunda_republica/monjas.jpg' %}"
+                          alt="Quema de iglesias"
+                          class="img-fluid rounded shadow-sm mb-3 w-100">
+                      </div>
+                      <div class="col-6">
+                          <p>La inacción del gobierno permitió que los sublevados quemaran más de una decena de edificios religiosos. Por la tarde, por fin, <strong>el Gobierno declaró el estado de guerra en Madrid</strong> y a medida que las tropas fueron ocupando la capital, los incendios cesaron. Al día siguiente, martes 12 de mayo, mientras Madrid recuperaba la calma, la quema de conventos y de otros edificios religiosos se extendía a otras poblaciones del este y el sur peninsular (los sucesos más graves se produjeron en Málaga). Por el contrario, allí donde los gobernadores civiles y los alcaldes actuaron con contundencia no hubo incendios.</p>
+                      </div>
+                    </div>
+                    
+                    
+                  </div>
+                  
+                  <p class="mt-2">No se sabe con absoluta certeza quién quemó los alrededor de cien edificios religiosos que ardieron total o parcialmente aquellos días (además de la destrucción de objetos del patrimonio artístico y litúrgico y la profanación de algunos cementerios de conventos), y durante los cuales murieron varias personas y otras resultaron heridas. Algunos sugieren que fue el Partido Comunista.</p>
+                  <p class="mt-2"> Sin embargo lo que sí que está clara fue la irresponsabilidad del gobierno en el manejo de la situación</p>
+                </div>
+                <div class="t-item" id="reforma_militar">    
+                  <h6><span class="t-date" >La reforma militar de Azaña</span></h6>
+                  <p class="mt-3">Para <strong>reducir el excesivo número de oficiales</strong> el Gobierno provisional aprobó decreto de retiros extraordinarios en el que se ofrecía a los oficiales del Ejército que así lo solicitaran la posibilidad de apartarse voluntariamente del servicio activo con la totalidad del sueldo. Si no se alcanzaba el número de retiros necesarios, el ministro se reservaba el derecho a destituir, sin beneficio alguno, a cuantos oficiales estimase oportuno. Casi 9.000 mandos (entre ellos 84 generales) se acogieron a la medida, aproximadamente un 40 % de la oficialidad</p>
+                  <p class="mt-3">Otra de las cuestiones que abordó Azaña fue el conflictivo tema de los <strong>ascensos</strong>, promulgando unos Decretos de mayo y junio por el que se anulaban gran parte de los producidos durante la Dictadura por "méritos de guerra", lo que supuso que unos 300 militares perdieran unos o dos grados, y que otros sufrieran un fuerte retroceso en el escalafón, como en el caso del general Francisco Franco</p>
+                  <p class="mt-3">Azaña también decretó el 1 de julio de 1931 el <strong>cierre de la Academia General Militar der Zaragoza</strong> que dirigía el general Franco.</p>
+                  <p class="mt-3">La Reforma militar de Azaña fue duramente combatida por un sector de la oficialidad, por los medios políticos conservadores y por los órganos de expresión militares.</p>
+                </div>
+                <div class="t-item" id="reforma_agraria">    
+                  <h6><span class="t-date" >La reforma agraria de Largo Caballero</span></h6>
+                  <div class="row">
+                  <div class="col-3">
+                    <img src="{% static 'images/sigloXX/presidentes/largo_caballero.jpg' %}"
+                      alt="Largo Caballero"
+                      class="img-fluid rounded shadow-sm mb-3 w-100">
+                  </div>
+                  <div class="col-9">
+                      <p>Unos de los problemas más urgentes que tuvo que resolver el Gobierno Provisional en la primavera de 1931 fue la grave situación que estaban padeciendo los jornaleros, sobre todo en Andalucía y Extremadura, donde el invierno anterior se habían superado los 100 000 parados y los abusos en la contratación y los bajos salarios los mantenían en la miseria.</p>
+                      <p>Para aliviar la situación se aprobaron <strong>siete decretos agrarios</strong> que tuvieron un enorme impacto, especialmente:</p>
+                      <div>
+                        <ul>
+                          <li>Impedir la contratación de jornaleros de fuera del municipio hasta que no tuvieran trabajo los de la localidad</li>
+                          <li><strong>Decreto de Jurados Mixtos</strong> integrados por 6 patronos, 6 obreros y 1 secretario para regular las condiciones de trabajo en el campo</li>                          
+                        </ul>
+                      </div>
+                  </div>
+                  <p>Gracias a estos decretos los jornales de la campaña agrícola experimentaron subidas sustanciales (de 3’5 pesetas pasaron a superar las 5 pesetas diarias).</p>
+                  <p class="mt-3">La aplicación de los decretos agrarios del Gobierno Provisional encontró la viva oposición de los propietarios que se apoyaron en los ayuntamientos en su mayoría monárquicos y en el recurso a la Guardia Civil para enfrentarse a los representantes de la Federación Nacional de Trabajadores de la Tierra (FNTT) de UGT y las Casas del Pueblo socialistas, que funcionaban a modo de cuarteles generales de los obreros sindicados de las distintas localidades. Así «en los pueblos y aldeas, inevitablemente, las primeras semanas de la República provocaron un cierto ambiente de <strong>guerra de clases</strong>».</p>
+                </div> 
+                </div>
+                <div class="t-item" id="problema_social">    
+                  <h6><span class="t-date" >El problema social</span></h6>
+                  <div class="row">
+                  
+                  <div class="col-9">
+                      <p>Largo Caballero también emprendió una reforma de las relaciones laborales que consistía en crear un marco legal que las reglamentara afianzando el poder de los sindicatos, especialmente de la UGT en la negociación de los contratos de trabajo y en la vigilancia de su cumplimiento.</p>
+                    
+                  </div>
+                  <div class="col-3">
+                    <img src="{% static 'images/sigloXX/segunda_republica/cnt.png' %}"
+                      alt="Problema social"
+                      class="img-fluid rounded shadow-sm mb-3 w-100">
+                  </div>
+                  <p>Las dos piezas básicas del proyecto fueron:</p>
+                    <div>
+                      <ul>
+                        <li><strong>Ley de los Contratos de Trabajo.</strong> Regulaba los convenios colectivos y dictaminaba las condiciones de suspensión y rescisión de los contratos. Además, establecía por primera vez el derecho a vacaciones pagadas (siete días al año) y protegía el derecho de huelga que, bajo ciertas condiciones, no podía ser causa de despido.</li>
+                        <li><strong>Ley de los Jurados Mixtos.</strong>  extendía el sistema de jurados mixtos (aprobado en mayo para el sector agrario) a la industria y a los servicios.</li>
+                        
+                      </ul>                      
+                    </div>
+                    <p>El Gobierno esperaba que estas medidas redujeran el número de huelgas, pero la paz social no se produjo a causa de la incidencia de la recesión económica, y sobre todo por la negativa de la CNT que se opuso radicalmente a la ley de contratos de trabajo y a los jurados mixtos y se lanzó a la acción directa para conseguir por otros medios el monopolio de la negociación laboral. También se opusieron los empresarios.</p>  
+                </div> 
+                </div>
+              
+              </div>
+          </div>
+
+        </section>
+        <section id="elecciones_1931" class="section-block">
+          <div class="section-head">
+            <span class="section-icon">🗳️</span>
+            <h2> Elecciones generales (junio 1931)</h2>
+          </div>
+
+          <div class="content-card">
+            <div class="row">
+              <div class="col-8">
+                  <img src="{% static 'images/sigloXX/segunda_republica/elecciones_generales_1931.jpg' %}"
+                  alt="Elecciones 31"
+                  class="img-fluid rounded shadow-sm mb-3 w-100">
+              </div>
+              <div class="col-4">
+                  <img src="{% static 'images/sigloXX/segunda_republica/elecciones_31.jpg' %}"
+                  alt="Elecciones 31"
+                  class="img-fluid rounded shadow-sm mb-3 w-100">
+              </div>
+              
+            </div>
+          </div>
+
+        </section>
+        <section id="constitucion" class="section-block">
+          <div class="section-head">
+            <span class="section-icon">🏛️</span>
+            <h2> Constitución (9 de diciembre de 1931)</h2>
+          </div>
+
+          <div class="content-card">
+            
+            <div class="row">
+              <div class="col-3">
+                <img src="{% static 'images/sigloXX/segunda_republica/constitucion1931.jpg' %}"
+                  alt="Constitucion de 1931"
+                  class="img-fluid rounded shadow-sm mb-3 w-100">
+              </div>
+              <div class="col-9">
+                  <p>
+                    Tras la proclamación de la República, el Gobierno Provisional convocó elecciones a Cortes Constituyentes en junio de 1931. Estas elecciones otorgaron una amplia mayoría a las fuerzas republicanas y socialistas, lo que permitió impulsar un texto constitucional de carácter avanzado para su época. La Constitución fue aprobada el 9 de diciembre de 1931 y configuró a España como una “República democrática de trabajadores de toda clase”.
+                  </p>
+                  <p>
+              Desde el punto de vista político, el nuevo texto consagró la soberanía popular y estableció un sistema parlamentario unicameral, en el que las Cortes concentraban el poder legislativo. El jefe del Estado, el presidente de la República, era elegido de forma indirecta y desempeñaba funciones de arbitraje y representación, mientras que el Gobierno era responsable ante las Cortes.
+            </p>
+
+              </div>
+            </div>
+            <p>
+              Uno de los aspectos más innovadores fue el amplio reconocimiento de derechos y libertades. La Constitución garantizaba derechos individuales clásicos —libertad de expresión, asociación y reunión— e incorporaba derechos sociales como la educación, el trabajo y la protección social. Destacó especialmente la concesión del sufragio universal sin distinción de sexo, lo que permitió por primera vez el voto femenino en España.
+            </p>
+
+            <p>
+              En el ámbito territorial, la Constitución introdujo un modelo descentralizado mediante el reconocimiento del derecho a la autonomía de las regiones, lo que permitió la aprobación de estatutos como el de Cataluña en 1932. Este planteamiento pretendía dar respuesta a las demandas nacionalistas dentro de un marco republicano común.
+            </p>
+
+            <p>
+              Sin embargo, uno de los puntos más controvertidos fue la cuestión religiosa. La Constitución estableció un Estado laico, separando Iglesia y Estado, suprimiendo el presupuesto del clero y regulando las órdenes religiosas, lo que generó una fuerte oposición por parte de los sectores conservadores y de la Iglesia católica.
+            </p>
+            <!-- TABLA COMPARATIVA -->
+            <div class="table-responsive mt-4">
+              <table class="table table-bordered align-middle text-center">
+                <thead class="table-light">
+                  <tr>
+                    <th>Aspecto</th>
+                    <th>Restauración</th>
+                    <th>Segunda República</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Soberanía</strong></td>
+                    <td>Soberanía compartida entre Rey y Cortes</td>
+                    <td>Soberanía popular</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Jefatura del Estado</strong></td>
+                    <td>Monarquía</td>
+                    <td>Presidente de la República</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Sistema político</strong></td>
+                    <td>Liberal oligárquico, basado en el turnismo</td>
+                    <td>Democrático y parlamentario</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Cortes</strong></td>
+                    <td>Bicamerales</td>
+                    <td>Unicamerales</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Relación Iglesia-Estado</strong></td>
+                    <td>Estado confesional católico</td>
+                    <td>Estado laico</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Sufragio</strong></td>
+                    <td>Masculino</td>
+                    <td>Universal, incluido el voto femenino</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Modelo territorial</strong></td>
+                    <td>Centralista</td>
+                    <td>Apertura a autonomías regionales</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- BOTÓN MODAL -->
+            <div class="text-center mt-4">
+              <a href="#" class="btn btn-outline-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#modalConstitucion1931">
+                Ver artículos clave <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+
+            <p class="mt-3">
+              En conjunto, la Constitución de 1931 representó uno de los proyectos más ambiciosos de democratización en la historia de España, pero también contribuyó a intensificar las tensiones políticas al afectar intereses profundamente arraigados en amplios sectores de la sociedad.
+            </p>
+
+            <div class="info-box mt-4">
+              <strong>Claves interpretativas:</strong>
+              <ul>
+                <li>Define a España como una república democrática con una fuerte orientación social.</li>
+                <li>Establece un sistema parlamentario unicameral con predominio de las Cortes.</li>
+                <li>Reconoce derechos individuales y sociales avanzados, incluido el sufragio femenino.</li>
+                <li>Introduce un modelo de descentralización territorial mediante estatutos de autonomía.</li>
+                <li>La cuestión religiosa fue el principal foco de conflicto político e ideológico.</li>
+              </ul>
+            </div>
+
+            
+          </div>
+          <!-- MODAL ARTÍCULOS CLAVE -->
+          <div class="modal fade" id="modalConstitucion1931" tabindex="-1" aria-labelledby="modalConstitucion1931Label" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-scrollable">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="modalConstitucion1931Label">Artículos clave de la Constitución de 1931</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+
+                <div class="modal-body">
+
+                  <div class="mb-4">
+                    <h5>📜 Artículo 1: definición del nuevo Estado</h5>
+                    <p>
+                      El artículo 1 definía a España como una república democrática de trabajadores, subrayando la legitimidad popular del nuevo régimen y su orientación social. No se trataba solo de sustituir la monarquía por una república, sino de afirmar un nuevo ideal de ciudadanía y de intervención pública.
+                    </p>
+                  </div>
+
+                  <div class="mb-4">
+                    <h5>🎓 Educación</h5>
+                    <p>
+                      La Constitución impulsó una educación pública, laica y accesible, concebida como instrumento esencial para la modernización del país. La escuela debía formar ciudadanos libres e iguales, reduciendo el peso de la enseñanza confesional y combatiendo el atraso cultural y el analfabetismo.
+                    </p>
+                  </div>
+
+                  <div class="mb-4">
+                    <h5>⛪ Religión y laicidad</h5>
+                    <p>
+                      El texto constitucional estableció la separación entre Iglesia y Estado y limitó la influencia institucional de las órdenes religiosas. Este principio laico fue uno de los rasgos más innovadores de la Constitución, pero también uno de los que provocó mayor rechazo entre los sectores conservadores.
+                    </p>
+                  </div>
+
+                  <div class="mb-4">
+                    <h5>🗳️ Sufragio femenino</h5>
+                    <p>
+                      La Constitución reconoció el derecho al voto de las mujeres, incorporándolas plenamente a la ciudadanía política. Esta medida constituyó un hito histórico en España y fue defendida con especial firmeza por Clara Campoamor en los debates parlamentarios.
+                    </p>
+                  </div>
+
+                  <div class="mb-4">
+                    <h5>🗺️ Autonomías</h5>
+                    <p>
+                      El nuevo marco constitucional abrió la posibilidad de que determinadas regiones accedieran a la autonomía mediante estatutos, dentro de un Estado republicano común. Esta fórmula trataba de integrar las demandas nacionalistas sin romper la unidad política del país.
+                    </p>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </section>
+        <section id="bienio-reformista" class="section-block">
+          <div class="section-head">
+            
+            <h2>🌱 Bienio reformista (15 diciembre 1931– noviembre 1933)</h2>
+          </div>
+
+          <div class="content-card">
+            <div class="content-card">
+            <div class="timeline">
+              <p>
+                El nuevo gobierno se formó tras la elección de Niceto Alcalá Zamora como presidente de la República, quien confirmó a Manuel Azaña como presidente del Gobierno.
+              </p>
+              <p>Formado el 15 de diciembre de 1931 su objetivo es profundizar las reformas iniciadas por el Gobierno Provisional. </p>
+              <p>Pero todo el amplio abanico de reformas encontró gran resistencia por parte de los terratenientes, los grandes empresarios, financieros y patronos, la Iglesia católica, las órdenes religiosas, la opinión católica, la opinión monárquica, el militarismo «africanista». Y también existió una resistencia por las organizaciones anarquistas (la CNT y la FAI) y un sector del socialismo, el vinculado al sindicato UGT. </p>
+                           
+        <!-- ESQUEMA VISUAL -->
+            <div class="row g-3 mt-4">
+              <div class="col-md-6 col-xl-3">
+                <div class="content-card h-100 text-center">
+                  <div class="fs-2 mb-2">🪖</div>
+                  <h5>Reforma militar</h5>
+                  <p class="mb-0">
+                    Reducción del número de oficiales, subordinación del Ejército al poder civil y modernización institucional impulsada por Azaña.
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-xl-3">
+                <div class="content-card h-100 text-center">
+                  <div class="fs-2 mb-2">🌾</div>
+                  <h5>Reforma agraria</h5>
+                  <p class="mb-0">
+                    Intento de redistribuir la propiedad y aliviar la situación del campesinado sin tierra, especialmente en el sur latifundista.
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-xl-3">
+                <div class="content-card h-100 text-center">
+                  <div class="fs-2 mb-2">⛪</div>
+                  <h5>Reforma religiosa</h5>
+                  <p class="mb-0">
+                    Separación entre Iglesia y Estado, laicización de la vida pública y limitación de la influencia eclesiástica en la enseñanza.
+                  </p>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-xl-3">
+                <div class="content-card h-100 text-center">
+                  <div class="fs-2 mb-2">🎓</div>
+                  <h5>Reforma educativa</h5>
+                  <p class="mb-0">
+                    Construcción de escuelas, impulso de la enseñanza pública y extensión de la cultura mediante las Misiones Pedagógicas.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="t-item mt-4" id="">
+              <h6><span class="t-date" >La «cuestión religiosa» </span></h6>
+              
+              <div class="row">
+                <div class="col-6">
+                  <p>Promulgó una serie de decretos y presentó unas leyes hicieran efectiva la aconfesionalidad del Estado y que permitieran que este asumiera aquellas funciones administrativas y sociales que la Iglesia católica había desempeñado hasta entonces.</p>
+                  <p class="mt-3">23 de enero de 1932 disolución de la orden de los jesuitas y la nacionalización de la mayor parte de sus bienes (colegios y residencias, especialmente)</p>
+                  
+                </div>
+                <div class="col-6">
+                  <img src="{% static 'images/sigloXX/segunda_republica/cuestion_religiosa.jpg' %}"
+                    alt="" class="img-fluid rounded shadow-sm mb-3 w-100">
+                    
+                </div>
+              </div>
+              <p class="mt-3">30 de enero de 1932 secularizaba los cementerios, que pasaron a ser propiedad de los ayuntamientos</p> 
+              <p class="mt-3">2 de febrero de 1932, las Cortes aprobaban la ley de divorcio.</p>    
+              <p class="mt-3">La más polémica fue la <strong>Ley de Congregaciones Religiosas:</strong></p>
+              <div>
+                <ul>
+                  <li>Prohibía a las órdenes religiosas dedicarse a la enseñanza. Especialmente dirigida contra los jesuitas. Esto buscaba una escuela pública, laica y estatal.</li>
+                  <li>Las congregaciones debían registrarse oficialmente y declarar sus bienes. Se limitaba su capacidad de acumular patrimonio</li>
+                  <li>Fué disuelta la Compañía de Jesús</li>
+                  <li>Se eliminaban privilegios legales y fiscales de la Iglesia. Se reforzaba la separación Iglesia-Estado</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="t-item mt-4" id="">
+              <h6><span class="t-date" >La política educativa </span></h6>
+              <div class="row">
+                <div class="col-6">
+                  <img src="{% static 'images/sigloXX/segunda_republica/politica_educativa.jpg' %}"
+                    alt="" class="img-fluid rounded shadow-sm mb-3 w-100">
+                    
+                </div>
+                <div class="col-6">
+                    <p>En 1931 entre el 30 y el 50 % de la población total erea analfabeta. Se calculó que para atender al más de millón y medio de niños que no iban a la escuela, el Estado necesitaría construir unas 27 000 nuevas escuelas, a un ritmo de 5000 cada año.</p>     
+                    <p>Las necesidades de escuelas primarias estatales aumentaron todavía más cuando se aprobó la ley de Congregaciones que había establecido el cierre de los </p>
+                    
+                </div>
+                <p>colegios de primaria religiosos. Para atender a los 350.000 niños de esos colegios sería necesario construir unas 7000 escuelas más.</p>
+                <p>En el verano de 1933 se pusieron en marcha  <strong>las misiones pedagógicas</strong>. Se quería llevar «el aliento del progreso» a los pueblos más aislados y atrasados de España. Así profesores y estudiantes, la mayoría de ellos de la Universidad de Madrid, se fueron a las aldeas con reproducciones de pinturas célebres y con discos y películas, y sobre escenarios improvisados representaban obras de teatro de Lope de Vega y de Calderón de la Barca. Asimismo llevaban libros y medicinas y ayudaban a construir escuelas. En este proyecto también participó el <strong>grupo teatral La Barraca</strong>, creado por Federico García Lorca.</p>
+              </div>
+              
+            </div>
+
+            <div class="t-item mt-4" id="">
+              <h6><span class="t-date" >La cuestión social</span></h6>
+              <div class="row">
+                <div class="col-6">
+                  <p>El socialista Largo Caballero, líder de la UGT, continuó con el mismo cargo en el gobierno de Azaña. Las dos piezas básicas de su proyecto de regulación de las relaciones laborales, la Ley de Contratos de Trabajo y la de Jurados Mixtos, fueron muy contestadas tanto por la CNT como por los patronos.</p>
+                  <p>El número de huelgas y de incidentes violentos a consecuencia de ellas se fue incrementando a lo largo del primer bienio de la República, a causa </p>
+                  
+                </div>
+                <div class="col-6">
+                  <img src="{% static 'images/sigloXX/segunda_republica/cuestion_social.jpg' %}"
+                    alt="Manuel Azaña" class="img-fluid rounded shadow-sm mb-3 w-100">                    
+                </div>
+                <p>fundamentalmente de la negativa de la CNT a utilizar los mecanismos oficiales de conciliación.</p>
+                <p>Los patronos también se movilizaron. La <strong>Confederación Patronal Española</strong> se quejaba de los jurados mixtos que prácticamente siempre daban la razón a los obreros.</p>
+              </div>
+              
+              
+            </div>
+
+            <div class="t-item mt-4" id="">
+              <h6><span class="t-date" >La cuestión militar</span></h6>
+              <div class="row">
+                <div class="col-6">
+                  <img src="{% static 'images/sigloXX/segunda_republica/cuestion_militar.jpg' %}"
+                    alt="Manuel Azaña" class="img-fluid rounded shadow-sm mb-3 w-100">
+                </div>
+                <div class="col-6">
+                  <p>Los decretos sobre los ascensos fueron confirmados. Además estableció un baremo para los ascensos en los que primaba la antigüedad y la capacitación profesional. Se unificó en una única escala a los oficiales de carrera y a los procedentes de la tropa.</p>
+                  <p>En marzo de 1932 las Cortes aprobaron una ley que autorizaba a pasar a la reserva a aquellos generales que durante seis meses no hubieran recibido ningún destino. Era una forma encubierta de deshacerse de aquellos generales de los que el gobierno dudara de </p>
+                  
+
+                </div>
+                <p>su fidelidad a la República.</p>
+                <p>El servicio militar obligatorio se redujo a doce meses</p>
+                  <p>El intento de golpe de Estado encabezado por el general Sanjurjo, en agosto de 1932, fue exponente del malestar de una parte del Ejército por causas no estrictamente políticas.</p>
+              </div>
+              
+            </div>
+
+            <div class="t-item mt-4" id="">
+              <h6><span class="t-date" >La cuestión regional</span></h6>
+              <p><strong>El estatuto de Cataluña</strong></p>
+              <div class="row">
+                <div class="col-6">
+                  <p class="mt-3">Tras cuatro meses de debates interminables, solo el fallido golpe de Estado del general Sanjurjo de agosto de 1932 motivó que se acelerara la discusión del Estatuto, que finalmente fue aprobado el 9 de septiembre</p>
+                  <p class="mt-3">Mediante el Estatuto, Cataluña se convirtió en región autónoma, que sería regida por un gobierno propio, </p>
+                  
+                </div>
+                <div class="col-6">
+                  <img src="{% static 'images/sigloXX/segunda_republica/estatuto_cataluna.jpg' %}"
+                    alt="estatuto" class="img-fluid rounded shadow-sm mb-3 w-100">
+                </div>
+                <p>la Generalidad de Cataluña, formada por un presidente, un parlamento y un consejo ejecutivo. La Generalidad tendría facultades legislativas y ejecutivas en hacienda, economía, educación y cultura, transportes y comunicaciones; el Gobierno de la república se ocuparía de las relaciones exteriores y el ejército.</p>
+                <p class="mt-3">Cuando Azaña fue a Barcelona para la ceremonia de presentación, lo recibieron con una tremenda ovación». Las primeras elecciones al Parlament tuvieron lugar dos meses después y fueron ganadas por Esquerra Republicana de Cataluña. Francesc Macià fue así confirmado como presidente de la Generalidad.</p>
+              </div>
+              
+              <p class="mt-3"><strong>El estatuto vasco</strong></p>
+              <p class="mt-3">Debido a multiples problemas no fue aprobado hasta el 1 de octubre de 1936.</p>
+              <p class="mt-3"><strong>El estatuto gallego</strong></p>
+              <p class="mt-3">Fue aprobado por el pueblo gallego, pero nunca llegó a entrar en vigor debido al estallido de la Guerra Civil.</p>
+            </div>
+
+            <div class="t-item mt-4" id="">
+              <h6><span class="t-date" >La cuestión agraria</span></h6>
+              <div class="row">
+                <div class="col-6">
+                  <img src="{% static 'images/sigloXX/segunda_republica/reforma_agraria.jpg' %}"
+                    alt="Cuestion agraria" class="img-fluid rounded shadow-sm mb-3 w-100">
+                </div>
+                <div class="col-6">
+                    <p>La Reforma Agraria fue, sin duda, el proyecto más ambicioso, complejo y, a la postre, divisivo del Bienio Reformista (1931-1933). Representaba el intento de desmantelar el poder de la oligarquía terrateniente y resolver el "problema agrario" que arrastraba España desde el siglo XIX.</p>
+                    <h5 class="mt-3"><strong>1. El Contexto: El "Hambre de Tierra"</strong></h5>
+                    <p class="mt-2">En 1931, España era un país eminentemente agrario (casi el 50% de la población activa trabajaba en el campo). La estructura de la propiedad era </p>
+                  </div>
+                  <p>profundamente desigual:</p>
+              </div>
+              
+              
+              <div>
+                <ul>
+                  <li><strong>Latifundismo (Sur y Centro): </strong>Grandes extensiones en manos de pocos dueños, con masas de jornaleros viviendo en la miseria.</li>
+                  <li><strong>Minifundismo (Norte):</strong>  Parcelas tan pequeñas que no permitían la subsistencia (economía de autoconsumo).</li>
+                </ul>
+              </div>
+              <h5 class="mt-3"><strong>2. Medidas de Urgencia (Decretos de Largo Caballero)</strong></h5>
+              <p class="mt-2">Antes de que se aprobara una ley definitiva, el ministro de Trabajo, Francisco Largo Caballero, promulgó decretos para proteger a los campesinos:</p>
+              <div>
+                <ul>
+                  <li><strong>Términos Municipales: </strong>Obligaba a los patronos a contratar a trabajadores de la propia localidad (evitando traer esquiroles).</li>
+                  <li><strong>Jurados Mixtos:</strong> Arbitraje para resolver conflictos laborales y fijar salarios.</li>
+                  <li><strong>Laboreo Forzoso:</strong> Impedía que los propietarios dejaran las tierras sin cultivar para boicotear a la República.</li>
+                </ul>
+              </div>
+              <h5 class="mt-3"><strong>3. La Ley de Reforma Agraria de 1932 (LRA)</strong></h5>
+              <p>Tras intensos debates parlamentarios y el impacto de la "Sanjurjada" (intento de golpe de Estado que aceleró la aprobación), la ley se promulgó en septiembre de 1932.</p>
+              <p class="mt-2"><strong>Mecanismo de Expropiación</strong></p>
+              <p class="mt-2">La ley no abolía la propiedad privada, sino que permitía la expropiación con indemnización de tierras que estuvieran en categorías específicas:</p>
+              <div>
+                <ol>
+                  <li>Tierras ofrecidas voluntariamente.</li>
+                  <li>Tierras de la antigua nobleza (grandezas de España), que fueron expropiadas sin indemnización (como castigo por su apoyo al golpe de Sanjurjo).</li>
+                  <li>Tierras permanentemente arrendadas o deficientemente cultivadas.</li>
+                </ol>
+              </div>
+              <p><strong>El Instituto de Reforma Agraria (IRA)</strong></p>
+              <p class="mt-2">Se creó el IRA como el órgano técnico y financiero encargado de ejecutar la reforma. Su función era inventariar las tierras, expropiarlas y asentar a los campesinos, ya fuera de forma individual o en colectividades.</p>
+              <h5 class="mt-3">4. El Fracaso en la Implementación</h5>
+              <p>A pesar de sus buenas intenciones, los resultados fueron decepcionantes a nivel estadístico:</p>
+              <div>
+                <ul>
+                  <li><strong>Lentitud Burocrática:</strong>  El IRA carecía de presupuesto suficiente y de un cuerpo técnico ágil.</li>
+                  <li><strong>Complejidad Legal:</strong>  Se establecieron hasta 13 categorías de tierras expropiables, lo que generó un laberinto judicial.</li>
+                  <li><strong>Resultados: </strong>Para finales de 1933, solo se habían asentado unos 12.000 campesinos, cuando las expectativas eran de cientos de miles.</li>
+                </ul>
+              </div>
+
+              <div class="t-item mt-4" id="">
+              <h6><span class="t-date" >La oposición </span></h6>
+              <h5>Los republicanos de centro-derecha</h5>
+              <hr>
+              <div class="row">
+                <div class="col-8">
+                  <p>Una vez aprobada la Constitución, los republicanos de centro-derecha, cuyo principal partido era con diferencia el <strong>Partido Republicano Radical</strong>, se opusieron a la continuidad en el gobierno de los socialistas, debido fundamentalmente a que una parte importante de su base social la constituían las clases medias urbanas y rurales, comerciantes, tenderos y pequeños empresarios que rechazaban las reformas sociolaborales aprobadas por el socialista Francisco Largo Caballero. El líder de los radicales <strong>Alejandro Lerroux</strong> se convirtió así en el portavoz de todos aquellos que aborrecían a los socialistas y presionó a Niceto Alcalá Zamora para que le retirara su apoyo </p>
+                </div>
+                <div class="col-4">
+                  <img src="{% static 'images/sigloXX/segunda_republica/Escudo_PRR.png' %}"
+                    alt="Manuel Azaña" class="img-fluid rounded shadow-sm mb-3 w-100">
+                    <p class="text-center mt-2">Escudo Partido Radical</p>
+                </div>
+                <p>al gobierno de Azaña. Tras los sucesos de Casas Viejas de enero de 1933 los radicales hablaron directamente de la existencia de una «dictadura socialista» y empezaron a incluir en sus ataques a los «azañistas».</p>
+              </div>
+              
+              <h5 class="mt-3">La derecha católica de la CEDA</h5>
+              <hr>
+              <div class="row">
+                <div class="col-9 mt-3">
+                  <p>La Confederación Española de Derechas Autónomas (CEDA), fundada en marzo de 1933 y liderada por José María Gil-Robles, representó la respuesta organizada del conservadurismo católico a las reformas laicistas y sociales del primer bienio republicano.</p>
+                  <p class="mt-2">Su oposición puede analizarse bajo tres ejes fundamentales:</p>
+                  <div>
+                    <ol>
+                      <li><strong>La Articulación del "Accidentalismo"</strong></li>
+                      <p>La CEDA no nació como un partido monárquico tradicional, sino bajo la doctrina del accidentalismo. Según Gil-Robles (influenciado por las encíclicas papales), la forma de gobierno (Monarquía o República) era "accidental"; lo esencial era el contenido social y legal.</p>
+                      
+                    </ol>
+                  </div>
+                
+                </div>
+                <div class="col-3">
+                  <img src="{% static 'images/sigloXX/segunda_republica/Escudo_CEDA.png' %}"
+                    alt="Manuel Azaña" class="img-fluid rounded shadow-sm mb-3 w-100">
+                    <p class="text-center mt-2">Escudo CEDA</p>
+                </div>
+                <div>
+                  <ol start="2">
+                    <li><strong>Estrategia.</strong> Aceptar la legalidad republicana para "combatirla desde dentro". </li>
+                      <li><strong>Objetivo. </strong>Revisar la Constitución de 1931, a la que consideraban sectaria y persecutoria contra la Iglesia.</li>
+                  </ol>
+                </div>
+              </div>
+              <h5>La derecha monárquica</h5>
+              <hr>
+              <div class="row">
+                <div class="col-9">
+                  <p>Los monárquicos alfonsinos no se propusieron formar un movimiento de masas sino que actuaron en tres frentes: el cultural, actualizando el discurso tradicionalista y conservador, a través de un grupo de intelectuales agrupados en torno a la <strong>revista Acción Española</strong> ; el político, fundando un partido propio, llamado <strong>Renovación Española</strong>, que intentará formar un frente antirrepublicano con el naciente fascismo español, los carlistas y el sector menos «accidentalista» de la CEDA; y sobre todo el insurreccional, buscando la colaboración de los sectores del Ejército español que se mantenían fieles a la monarquía  y de aquellos otros descontentos por la reforma militar de Azaña. Su lider fue <strong>Calvo Sotelo</strong> </p>
+                </div>
+                <div class="col-3">
+                  <img src="{% static 'images/sigloXX/segunda_republica/escudo_renovacion_espanola.png' %}"
+                    alt="Manuel Azaña" class="img-fluid rounded shadow-sm mb-3 w-100">
+                    <p class="text-center mt-2">Escudo Renovación Española</p>
+                </div>
+                
+              </div>
+              <h5 class="mt-2">El intento de golpe de Estado del general Sanjurjo en agosto de 1932</h5>
+              <hr>
+              <div class="row">
+                <div class="col-6">
+                  <img src="{% static 'images/sigloXX/segunda_republica/sanjurjada.jpg' %}"
+                    alt="Sanjurjada" class="img-fluid rounded shadow-sm mb-3 w-100">
+                </div>
+                <div class="col-6">
+                  <p>La Sanjurjada fue el primer intento serio de golpe de Estado contra la Segunda República, protagonizado por el general José Sanjurjo el 10 de agosto de 1932.</p>
+                  <p class="mt-2"><strong>Los motivos.</strong> Sanjurjo, que había ayudado a traer la República en 1931, se sintió humillado tras ser destituido de la dirección de la Guardia Civil (a raíz de los Sucesos de Arnedo). Además, el ejército </p>
+                </div>
+                <p>estaba profundamente descontento con las reformas militares de Azaña y la tramitación del Estatuto de Autonomía de Cataluña.</p>
+              </div>
+              
+              
+              <p class="mt-2"><strong>El desarrollo.</strong> El golpe tuvo dos focos:</p>
+              <div>
+                <ul>
+                  <li><strong>Madrid.</strong> Fracasó estrepitosamente debido a la falta de coordinación y a que el Gobierno ya estaba avisado.</li>
+                  <li><strong>Sevilla.</strong> Fue el único lugar donde triunfó inicialmente. Sanjurjo tomó la ciudad y proclamó un manifiesto contra la "dictadura" de las Cortes. Sin embargo, se quedó aislado y la huelga general convocada por los sindicatos paralizó la ciudad, obligándolo a huir hacia Portugal (aunque fue detenido en Huelva).</li>
+                </ul>
+              </div>
+              <p><strong>Las consecuencias:</strong></p>
+              <div>
+                <ul>
+                  <li><strong>Pena de muerte conmutada.</strong> Sanjurjo fue condenado a muerte, pero el Gobierno de Azaña le conmutó la pena por cadena perpetua (finalmente sería amnistiado por la CEDA en 1934 e iría al exilio).</li>
+                  <li><strong>Impulso a las reformas.</strong> El fracaso del golpe dio al Gobierno un "balón de oxígeno" político que aprovechó para acelerar la aprobación de la Ley de Reforma Agraria y el Estatuto de Cataluña, que estaban bloqueados.</li>
+                  <li><strong>Expropiaciones.</strong> Se confiscaron las tierras de los aristócratas implicados en la sublevación ("Grandes de España") sin indemnización.</li>
+                </ul>
+              </div>
+              <p class="mt-3">En resumen, la Sanjurjada fue un fracaso militar que fortaleció temporalmente a la República, pero dejó claro que una parte importante del ejército ya no aceptaba la legalidad democrática.</p>
+              <h5 class="mt-3">Los fascistas</h5>
+              <hr>
+              <p class="mt-3">En 1931, Ramiro Ledesma Ramos y Onésimo Redondo habían fusionado sus respectivos grupos para formar las <strong>Juntas de Ofensiva Nacional Sindicalista (JONS)</strong>, organizadas en «escuadras» según el modelo de las «squadra d’azzione» del fascismo italiano.</p>
+              <p class="mt-3">En octubre de 1933 se creó <strong>Falange Española.</strong>  A principios de 1934 falangistas y jonsistas se fusionarían en la Falange Española de las JONS, que hasta la primavera de 1936 siguió siendo una organización minúscula.</p>
+              <h5 class="mt-3">La CNT</h5>
+              <hr>
+              <div class="row">
+                <div class="col-9">
+                  <p class="mt-3">Para entender el papel de la Confederación Nacional del Trabajo (CNT) durante el Bienio Reformista o Progresista (1931-1933), hay que partir de una premisa académica: la CNT no fue una oposición política convencional, sino una fuerza </p>
+                </div>
+                <div class="col-3">
+                  <img src="{% static 'images/sigloXX/segunda_republica/cnt.png' %}"
+                    alt="CNT" class="img-fluid rounded shadow-sm mb-3 w-100">
+                    
+                </div>
+                <p>insurreccional que veía en la República un obstáculo para la revolución social tanto como lo fue la Monarquía.</p>
+                <p class="mt-3">La CNT actuó como una "tenaza" sobre el Bienio Reformista. Mientras la derecha atacaba desde las instituciones y el ejército, la CNT atacaba desde la calle. Su rechazo a cualquier reforma gradualista impidió que la República se estabilizara socialmente, creando una sensación de desorden permanente que la derecha aprovechó para justificar su discurso de "mano dura".</p>
+              </div>
+
+              <h5 class="mt-3">La crisis de la coalición republicano-socialista: el fin del gobierno de Azaña</h5>
+              <hr>
+              <p class="mt-3">La caída del gobierno de Manuel Azaña en septiembre de 1933 marca el fin del "impulso transformador" de la Segunda República. No fue un evento súbito, sino el resultado de una erosión multicausal que fracturó la coalición entre los republicanos de izquierda y el PSOE.</p>
+              <p class="mt-3"><strong>1. El Desgaste por la Violencia Política: Casas Viejas</strong></p>
+              <p-mt-3>El incidente de Casas Viejas (enero de 1933) fue el "golpe de gracia" moral para el gobierno. La brutal represión de la Guardia de Asalto contra los campesinos anarquistas no solo horrorizó a la opinión pública, sino que:</p-mt-3>
+              <div>
+                <ul>
+                  <li><strong>Deslegitimó el discurso reformista:</strong> La oposición de derechas utilizó el suceso para acusar a Azaña de "dictador sangriento".</li>
+                  <li><strong>Fracturó a la izquierda:</strong> El PSOE empezó a cuestionar su permanencia en un gobierno que utilizaba los mismos métodos represivos que la monarquía.</li>
+                  <li><strong>Aislamiento de Azaña:</strong> Su famosa (y malinterpretada) frase "ni heridos ni prisioneros, tiros a la barriga" se convirtió en un arma arrojadiza permanente.</li>
+                </ul>
+              </div>
+              <p class="mt-3"><strong>2. La Parálisis Legislativa y la Cuestión Agraria</strong> </p>
+              <p class="mt-3">La coalición se basaba en un pacto: los socialistas daban estabilidad a cambio de reformas sociales profundas. Sin embargo:</p>
+              <div class="mt-3">
+                <ul>
+                  <li>La <strong>Ley de Reforma Agraria</strong> resultó ser un fracaso administrativo. Para 1933, el hambre y la impaciencia en el campo (especialmente en Andalucía y Extremadura) eran insostenibles.</li>
+                  <li>El PSOE, presionado por sus bases (la UGT y la FNTT), empezó a sentir que el ritmo de los republicanos "burgueses" era demasiado lento. Esto alimentó la <strong>radicalización de Largo Caballero</strong>, quien empezó a alejarse del colaboracionismo gubernamental.</li>
+                  <li></li>
+                </ul>
+              </div>
+              <p class="mt-3"><strong>3. La Ofensiva de la Oposición</strong></p>
+              <p class="mt-3">Azaña se encontró atrapado en una pinza política:</p>
+              <div class="mt-3">
+                <ul>
+                  <li>Por la derecha: La <strong>CEDA</strong> de Gil-Robles ya estaba plenamente articulada como una fuerza de masas moderna, bloqueando sistemáticamente las leyes en las Cortes.</li>
+                  <li>Por el centro: El <strong>Partido Radical de Alejandro Lerroux</strong> maniobró para presentarse como la alternativa "moderada" y atraer a los republicanos que temían la influencia socialista.</li>
+                  <li><strong>La Iglesia:</strong> La Ley de Confesiones y Congregaciones Religiosas (1933) terminó de movilizar al electorado católico en contra del gobierno.</li>
+                </ul>
+              </div>
+              <p class="mt-3"><strong>4. El Conflicto con la Presidencia (Alcalá-Zamora)</strong></p>
+              <p class="mt-3">La relación entre el Jefe del Gobierno (Azaña) y el Presidente de la República (Niceto Alcalá-Zamora) era pésima.</p>
+              <div>
+                <ul>
+                  <li>Alcalá-Zamora, de perfil conservador y católico, desconfiaba de la laicidad de Azaña y de la presencia de ministros socialistas.</li>
+                  <li>Tras las elecciones a consejos municipales de abril de 1933 y la elección de vocales al Tribunal de Garantías Constitucionales (donde la oposición salió reforzada), el Presidente utilizó su prerrogativa para retirar la confianza a Azaña, forzando su dimisión en septiembre de 1933, a pesar de que este aún mantenía la mayoría parlamentaria.</li>
+                  
+                </ul>
+              </div>
+              <p class="mt-3"><strong>Consecuencias: Hacia el Bienio Negro</strong></p>
+              <p class="mt-3">La caída de Azaña llevó a la disolución de las Cortes y a la convocatoria de elecciones en noviembre de 1933. El resultado fue:</p-mt-3>
+                <div>
+                  <ul>
+                    <li><strong>Hundimiento de la izquierda: </strong>Debido a la desunión (el PSOE se presentó solo) y al abstencionismo anarquista.</li>
+                    <li><strong>Victoria de la derecha y el centro: </strong>El inicio de una etapa de rectificación de las reformas previas.</li>
+                    
+                  </ul>
+                </div>
+            </div>    
+                    
+                    <!-----------------------------------------------------------------------  -->
+                    <div class="text-center mt-4">
+                      <a href="#" class="btn btn-outline-primary"
+                        data-bs-toggle="modal"
+                        data-bs-target="#modalCasasViejas">
+                        Casas Viejas, 1933 <i class="bi bi-arrow-right"></i>
+                      </a>
+                    </div>
+
+        <!-- FICHA DE AZAÑA -->
+        <div class="content-card mt-5">
+          <div class="row align-items-center">
+
+            <div class="col-md-3 p-0">
+              <div class="img-wrapper">
+                <img src="{% static 'images/sigloXX/presidentes/azana.jpg' %}"
+                    alt="Manuel Azaña">
+              </div>
+            </div>
+
+        <div class="col-md-9">
+          <h4 class="mb-2">👤 Manuel Azaña</h4>
+          <p class="mb-2">
+            Intelectual, escritor y político republicano, Manuel Azaña fue la figura central del Bienio reformista. Como jefe de Gobierno impulsó las principales reformas del periodo y encarnó el proyecto de modernización democrática de la Segunda República.
+          </p>
+          <p class="mb-2">
+            Su pensamiento político combinaba reformismo, laicismo, defensa del parlamentarismo y subordinación del Ejército al poder civil. Para sus partidarios, representó el intento más serio de construir una España moderna y democrática; para sus adversarios, simbolizó la ruptura con la tradición política, religiosa y social del país.
+          </p>
+          <p class="mb-0">
+            Su liderazgo fue decisivo en la primera etapa republicana, aunque el desgaste derivado de la conflictividad social y de episodios como Casas Viejas debilitó su posición y contribuyó a la derrota electoral de 1933.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="info-box mt-4">
+      <strong>Claves interpretativas:</strong>
+      <ul>
+        <li>El Bienio reformista fue el primer gran intento de modernización estructural de la España del siglo XX.</li>
+        <li>Su programa afectó a ámbitos clave: Ejército, propiedad agraria, Iglesia y educación.</li>
+        <li>Las resistencias de las élites tradicionales fueron muy intensas.</li>
+        <li>La lentitud de la reforma agraria generó frustración entre las clases populares.</li>
+        <li>Casas Viejas dañó gravemente la legitimidad del reformismo republicano.</li>
+        <li>Manuel Azaña fue la figura política central de esta etapa.</li>
+      </ul>
+    </div>
+            
+          </div>
+
+          <!-- MODAL CASAS VIEJAS -->
+        <div class="modal fade" id="modalCasasViejas" tabindex="-1" aria-labelledby="modalCasasViejasLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalCasasViejasLabel">Casas Viejas (1933)</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+              </div>
+
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-12">
+                      <div class="img-wrapper">
+                        <img src="{% static 'images/sigloXX/segunda_republica/chozadeseisdedos.jpg' %}"
+                            alt="Choza de Seis Dedos">                        
+                      </div>
+                      
+                  </div>
+                  <div class="col-12 mt-5">
+                      <div class="img-wrapper">
+                        <img src="{% static 'images/sigloXX/segunda_republica/casas_viejas1.jpg' %}"
+                            alt="Manuel Azaña">
+                      </div>
+                  </div>
+                  <div class="col-12 mt-5">
+                      <div class="img-wrapper">
+                        <img src="{% static 'images/sigloXX/segunda_republica/la_libertaria.avif' %}"
+                            alt="María 'La Libertaria'">
+                      </div>
+                      <p class="text-center">María 'La Libertaria' y Miguel Pérez Cordón</p>
+                  </div>
+                  <div class="col-12 mt-5">
+                      <p>
+                      En enero de 1933 se produjo en la localidad gaditana de Casas Viejas una insurrección de carácter anarquista vinculada al clima de agitación social que atravesaba el campo andaluz. La revuelta fue sofocada con extrema dureza por fuerzas de orden público enviadas por el gobierno republicano-socialista.
+                    </p>
+
+                    <p>
+                      La represión incluyó la quema de la choza de “Seisdedos” y la muerte de varios campesinos, algunos de ellos en circunstancias que suscitaron una fuerte conmoción en la opinión pública. Más allá de su alcance local, el episodio adquirió una dimensión nacional por su impacto político y moral.
+                    </p>
+
+                    <p>
+                      Casas Viejas se convirtió en símbolo de las contradicciones del reformismo republicano: un régimen que aspiraba a democratizar y modernizar el país aparecía ahora asociado a métodos represivos frente a los sectores populares. El escándalo debilitó profundamente al gobierno de Azaña y contribuyó de manera decisiva a su desgaste.
+                    </p>
+
+                    <p>
+                      Desde el punto de vista historiográfico, Casas Viejas representa uno de los momentos más reveladores de la tensión entre reforma y orden público durante la Segunda República. El episodio mostró hasta qué punto el proyecto reformista estaba condicionado por el miedo a la revolución social y por la dificultad de integrar las expectativas de los sectores más desfavorecidos.
+                    </p>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+
+        </section>       
+
+        <section id="bienio-radical" class="section-block">
+          <div class="section-head">
+            
+            <h2>⚖️ Bienio radical-cedista (noviembre 1933– febrero 1936)</h2>
+          </div>
+
+          <div class="content-card">
+            <div class="row">
+              <img src="{% static 'images/sigloXX/segunda_republica/elecciones1933.jpg' %}"
+                  alt="Lerroux"
+                  class="img-fluid rounded shadow-sm mb-3 w-100">
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <img src="{% static 'images/sigloXX/segunda_republica/ceda1.jpg' %}"
+                  alt="Lerroux"
+                  class="img-fluid rounded shadow-sm mb-3 w-100">
+                  <img src="{% static 'images/sigloXX/segunda_republica/partido_radical.jpg' %}"
+                  alt="Lerroux"
+                  class="img-fluid rounded shadow-sm mb-3 w-100">
+              </div>
+              <div class="col-md-6">
+                <img src="{% static 'images/sigloXX/segunda_republica/renovacion_espanola.jpg' %}"
+                  alt="Lerroux"
+                  class="img-fluid rounded shadow-sm mb-3 w-100">
+                  <img src="{% static 'images/sigloXX/segunda_republica/falange.jpg' %}"
+                  alt="Lerroux"
+                  class="img-fluid rounded shadow-sm mb-3 w-100">
+              </div>
+            </div>
+            <p>En las elecciones de 1933, la CEDA de Gil Robles se convirtió en el partido más votado, pero sin obtener la mayoría absoluta. Esto obligó a la CEDA a aliarse con el Partido Radical de Lerroux para formar gobierno. Las discrepancias internas entre ambos partidos provocarían una gran inestabilidad gubernamental durante este periodo. Lerroux ocupó el cargo de jefe de gobierno entre 1933 y 1934, ya que Alcalá Zamora, presidente de la República, se resistía a entregar el poder a la CEDA, un partido que no reconocía plenamente la legitimidad de la República. Finalmente, la CEDA entró en el gobierno en 1934, dando inicio al bienio radical-cedista, una coalición que se mantuvo en el poder hasta 1935. Este periodo se caracterizó por un marcado conservadurismo y la anulación de las reformas sociales, económicas y autonómicas impulsadas durante el primer bienio republicano.</p>
+            <div class="t-item mt-4" id="">
+              
+              <h6><span class="t-date" >Revisión de las reformas progresistas </span></h6>
+              <p>Durante el bienio radical-cedista, se implementaron una serie de medidas que revirtieron las reformas progresistas del periodo anterior:</p>
+              <div>
+                <ul>
+                  <li>Se aprobó una <strong>Ley de Amnistía</strong> para los sublevados con Sanjurjo en 1932, incluyendo a militares implicados en la intentona golpista.</li>
+                  <li>Se aprobó un presupuesto para el clero católico y se derogó la Ley de Congregaciones, favoreciendo la influencia de la Iglesia.</li>
+                  <li>Se revisó la reforma agraria, anulando las expropiaciones, suprimiendo las mejoras salariales y laborales de los campesinos, y recortando el presupuesto destinado a su aplicación.</li>
+                  <li>El gobierno se enfrentó a la Generalitat de Cataluña, declarando inconstitucional la Ley de Contratos de Cultivo y oponiéndose a la aprobación del Estatuto Vasco.</li>
+                </ul>
+              </div>
+              <p>En contraste con estas medidas regresivas, se pueden destacar tres actuaciones positivas del bienio:</p>
+              <div>
+                <ul>
+                  <li>La aprobación de la ley de arrendamientos rústicos.</li>
+                  <li>La promoción de viviendas de alquiler.</li>
+                  <li>La implementación de una política de obras públicas.</li>
+                </ul>
+              </div>
+              <p>Las leyes aprobadas, que eliminaban las posibilidades de implementar las reformas del Instituto de Reforma Agraria (IRA) e imposibilitaban el acceso a la propiedad a los arrendatarios, provocaron una radicalización en la actuación de los obreros.</p>
+              <p>El PSOE y la UGT se radicalizaron, prometiendo la revolución si miembros de la CEDA entraban en el gobierno.</p>
+            </div> 
+            <div class="t-item mt-4" id="">
+              
+              <h6><span class="t-date" >La Entrada de la CEDA en el Gobierno </span></h6>
+              <p>El nuevo gobierno de Lerroux se formó el 5 de octubre de 1934. La CEDA se negó a apoyar al nuevo gobierno si no obtenía cargos en el mismo. El PSOE y las fuerzas de izquierda lo consideraron una amenaza, influenciados por el ascenso de los fascismos en Europa. El PSOE, el PCE y el gobierno de la Generalitat se prepararon para la respuesta. Se creó *Acción Obrera* con el objetivo de preparar una huelga general en caso de que la CEDA entrara en el gobierno. La CNT se abstuvo.</p>
+              <p>Finalmente, se formó un nuevo gobierno presidido por Lerroux, con tres carteras para la CEDA. Se preparó la Huelga General Revolucionaria.</p>
+            
+            </div>
+            <div class="t-item mt-4" id="">
+              
+              <h6><span class="t-date" >La Revolución de Octubre de 1934 </span></h6>
+              <p>La <strong>radicalización de los socialistas</strong> se debió a que desde su «expulsión» del gobierno en septiembre de 1933 y especialmente tras la derrota en las elecciones de noviembre de 1933, abandonaron la «vía parlamentaria» para alcanzar el socialismo y optaron por la vía insurreccional para la toma del poder.</p>
+              
+              <p class="mt-3">La anunciada «huelga general revolucionaria» se inició el día <strong>5 de octubre</strong> y fue seguida prácticamente en casi todas las ciudades (no así en el campo, que acababa de salir de su propia huelga), pero la insurrección armada quedó reducida, salvo en Asturias, a algunos tiroteos y ninguna población importante quedó en poder de los revolucionarlos.</p>
+              <p class="mt-3">Sin conexión alguna con la huelga insurreccional socialista, el presidente de la Generalidad de Cataluña <strong>Lluís Companys proclamó «el Estado Catalán dentro de la República Federal Española»</strong> el 6 de octubre. Pero la rebelión catalana, falta de toda planificación y del apoyo de la principal fuerza obrera de Cataluña, la CNT, fue rápidamente dominada el día 7 de octubre por la intervención del Ejército encabezado por el general Domingo Batet. El Presidente y los Consejeros de la Generalidad fueron encarcelados y el Estatuto de Autonomía de Cataluña de 1932 fue suspendido </p>
+              <div class="row mt-3">
+                <div class="col-12">
+                    <img src="{% static 'images/sigloXX/segunda_republica/represion_octubre.jpg' %}"
+                  alt="Lerroux"
+                  class="img-fluid rounded shadow-sm mb-3 w-100">
+                </div>
+                <div class="col-12">
+                  <p class="mt-3">En <strong>Asturias</strong>, a diferencia del resto de España, sí se produjo un auténtico conato de revolución social: el «Octubre Rojo». Allí la CNT sí se sumó a la Alianza Obrera propuesta por la organización obrera socialista (PSOE-UGT). La insurrección fue preparada minuciosamente, con convocatorias de huelgas generales previas, y el aprovisionamiento de armas y de dinamita obtenidas mediante pequeños robos en las fábricas y en las minas, además del adiestramiento de grupos de milicias. Durante cerca de dos semanas las milicias obreras integradas por unos 20 000 obreros, en su mayoría mineros, se hicieron con el control de las cuencas del Nalón y del Caudal y a continuación se apoderaron de Gijón y de Avilés y entraron en la capital Oviedo, aunque no pudieron ocuparla completamente (en el centro de la ciudad se produjeron violentos combates entre las fuerzas del orden y los revolucionarios). Se desató una ola de violencia contra propietarios, personas de derechas y religiosos. De estos últimos fueron asesinados 34 , además de ser incendiadas 58 iglesias y conventos, el palacio episcopal, el Seminario y la Cámara Santa de la catedral de Oviedo, que fue dinamitada. Para dominar la «Comuna Asturiana» el gobierno tuvo que recurrir a las tropas coloniales (legionarios y regulares procedentes de África, al mando del coronel Yagüe), mientras que desde Galicia alcanzaba Oviedo una columna al mando el general Eduardo López Ochoa. Toda la operación estaba siendo dirigida desde Madrid por el general Franco. El día 18 de octubre los insurrectos se rendían. El <strong>balance de víctimas</strong> fue de unos 1100 muertos y 2000 heridos entre los insurrectos, y unos 300 muertos entre las fuerzas de seguridad y el ejército.</p>
+                </div>
+              </div>
+              
+              <p class="mt-3">La <strong>represión gubernamental</strong> de la Revolución de Octubre fue muy dura. Se hicieron unos treinta mil prisioneros en todo el país y, especialmente, las cuencas mineras asturianas fueron sometidas a una durísima represión militar, primero (hubo ejecuciones sumarias de presuntos insurrectos), y de la guardia civil, después. Hubo torturas a los detenidos a causa de las cuales murieron varios de ellos. Asimismo fueron detenidos numerosos dirigentes de izquierdas, entre ellos el comité revolucionario socialista encabezado por Francisco Largo Caballero, y los tribunales militares dictaron veinte penas de muerte aunque solo se ejecutaron dos, gracias a que el presidente de la república Niceto Alcalá Zamora las conmutó por cadena perpetua.</p>
+            </div>
+            <div class="t-item mt-4" id="">              
+              <h6><span class="t-date" >Los gobiernos radical‑cedistas (octubre 1934 – diciembre 1935) </span></h6>
+              <p class="mt-3">Tras el fracaso de la Revolución de Octubre de 1934, la izquierda quedó dividida y debilitada, abandonando la vía insurreccional. En cambio, la derecha interpretó los hechos como prueba de un riesgo real de revolución bolchevique, lo que reforzó su presión sobre el Partido Radical para aplicar una política más antirreformista. La CEDA concluyó que debía alcanzar la presidencia del Gobierno para impulsar un giro autoritario y comenzó a provocar crisis gubernamentales sucesivas para aumentar su influencia.</p>
+              <p class="mt-3"><strong>1. Crisis política y ascenso de la CEDA (abril–mayo 1935)</strong></p>
+              <p class="mt-3">La crisis más grave estalló cuando los ministros cedistas se negaron a conmutar la pena de muerte a dos dirigentes socialistas asturianos. Lerroux intentó formar un gobierno sin la CEDA, pero fracasó y tuvo que aceptar sus exigencias: la CEDA pasó de tres a cinco ministros, incluido Gil Robles como ministro de la Guerra. Desde mayo de 1935, la derecha no republicana dominó el gabinete y comenzó una rectificación profunda de las reformas republicanas.</p>
+              <p class="mt-3"><strong>2. Contrarreforma agraria</strong></p>
+              <p class="mt-3">Se desmanteló la política reformista impulsada por Giménez Fernández. El nuevo ministro, Nicasio Velayos, gran terrateniente, inició una línea abiertamente contrarreformista:</p>
+              <div>
+                <ul>
+                  <li>No renovó la Ley de Yunteros, expulsando a miles de familias campesinas.</li>
+                  <li>Aprobó la Ley para la Reforma de la Reforma Agraria (agosto 1935), que congeló definitivamente la reforma iniciada en 1932.</li>
+                  <li>Se desmantelaron las organizaciones socialistas de jornaleros y dejaron de funcionar los jurados mixtos.</li>
+                  <li>Más de 2000 ayuntamientos de izquierda fueron sustituidos por comisiones gestoras.</li>
+                </ul>
+              </div>
+              <p class="mt-3">El resultado fue un empeoramiento drástico de las condiciones de vida de los jornaleros: salarios más bajos, más paro y pérdida de derechos.</p>
+              <p class="mt-3"><strong>3. Contrarreforma social y laboral</strong></p>
+              <p class="mt-3">El gobierno suspendió los Jurados Mixtos y declaró ilegales las “huelgas abusivas”. Miles de trabajadores fueron despedidos por su participación en Octubre o por pertenecer a sindicatos.</p>
+              <p class="mt-3">Consecuencias:</p>
+              <div>
+                <ul>
+                  <li>Congelación o reducción salarial.</li>
+                  <li>Aumento de la jornada laboral en algunos sectores.</li>
+                  <li>Mayor paro debido a la crisis económica.</li>
+                </ul>
+              </div>
+              <p class="mt-3">La situación social de la clase trabajadora se deterioró notablemente.</p>
+              <p class="mt-3"><strong>4. Política militar</strong></p>
+              <p class="mt-3">Gil Robles reforzó a los militares hostiles a la República, continuando la línea iniciada por Diego Hidalgo:</p>
+              <div>
+                <ul>
+                  <li>Fanjul, subsecretario de Guerra.</li>
+                  <li>Franco, jefe del Estado Mayor Central.</li>
+                  <li>Mola, jefe del Ejército de Marruecos.</li>
+                  <li>Goded, director de Aeronáutica.</li>
+                </ul>
+              </div>
+              <p class="mt-3">Estos generales serían protagonistas del golpe de julio de 1936. Los militares leales a la República fueron cesados o marginados.</p-mt-3>
+                <p class="mt-3"><strong>5. Reforma constitucional y nuevas tensiones</strong></p>
+                <p class="mt-3">El gobierno radical‑cedista acordó promover una revisión constitucional (41 artículos), pero las discrepancias internas bloquearon el proceso.</p>
+                <p class="mt-3">La cuestión catalana —la posible devolución de competencias suspendidas tras Octubre— abrió una nueva crisis.</p>
+                <p class="mt-3">En septiembre de 1935, Alcalá‑Zamora sustituyó a Lerroux por Joaquín Chapaprieta, que mantuvo la alianza con la CEDA. Sin embargo, el gobierno quedó debilitado por:</p>
+                <div>
+                  <ul>
+                    <li>El escándalo del estraperlo, que hundió al Partido Radical.</li>
+                    <li>El asunto Nombela, que remató su descrédito.</li>
+                  </ul>
+                </div>
+
+                <p class="mt-3"><strong>6. Descomposición final y convocatoria electoral</strong></p>
+                <p class="mt-3">Con los radicales hundidos, Gil Robles exigió la presidencia del Gobierno el 9 de diciembre de 1935, aprovechando que ya no se necesitaba mayoría de 2/3 para reformar la Constitución. Alcalá‑Zamora se negó a entregarle el poder por no haber declarado fidelidad a la República y nombró a Manuel Portela Valladares, cuyo gobierno careció de apoyo parlamentario.</p>
+                <p class="mt-3">Finalmente, el presidente disolvió las Cortes y convocó elecciones para febrero de 1936.</p>
+
+
+            
+            </div>
+        </section>
+
+        <section id="frente-popular" class="section-block">
+          <div class="section-head">            
+            <h2>✊ Frente Popular (febreo a julio de 1936)</h2>
+          </div>
+
+          <div class="content-card">
+             <p>
+              Tras la crisis del Bienio radical-cedista, las elecciones de febrero de 1936 se plantearon como un enfrentamiento entre dos grandes bloques políticos. Por un lado, el Frente Popular, una coalición de partidos republicanos de izquierda, socialistas y otras fuerzas obreras; por otro, las derechas agrupadas en diversas candidaturas. La victoria electoral del Frente Popular, aunque ajustada en votos, se tradujo en una mayoría parlamentaria suficiente para formar gobierno.
+            </p>
+
+            <div class="row">
+                <div class="col-5">
+                    <img src="{% static 'images/sigloXX/segunda_republica/elecciones_36_votos.jpg' %}"
+                        alt="Represion de octubre"
+                        class="img-fluid rounded shadow-sm w-100">
+                </div>
+                <div class="col-7">
+                    <img src="{% static 'images/sigloXX/segunda_republica/elecciones_36_escanos.jpg' %}"
+                        alt="Represion de octubre"
+                        class="img-fluid rounded shadow-sm w-100">
+
+                </div>
+            </div>
+
+            <p class="mt-2">
+              El nuevo gobierno, inicialmente presidido por Manuel Azaña, impulsó una política de recuperación de las reformas del primer bienio. Entre sus primeras medidas destacó la amnistía para los encarcelados por los sucesos de octubre de 1934, la reactivación de la reforma agraria y la restauración del autogobierno catalán. Estas decisiones fueron bien recibidas por amplios sectores populares, pero generaron una fuerte oposición en los ámbitos conservadores.
+            </p>
+
+            <p>
+              En mayo de 1936, Azaña fue elegido presidente de la República, siendo sustituido en la jefatura del gobierno por Santiago Casares Quiroga. Sin embargo, la situación política y social se deterioró rápidamente. El incremento de huelgas, ocupaciones de tierras, enfrentamientos callejeros y episodios de violencia política reflejaba una creciente pérdida de control por parte del Estado.
+            </p>
+
+            <p>
+              Paralelamente, sectores de la derecha, especialmente dentro del Ejército, comenzaron a conspirar activamente contra el régimen republicano. La percepción de desorden social, el temor a una revolución y la radicalización de los discursos políticos favorecieron la preparación de un golpe de Estado. Figuras militares como Emilio Mola, Francisco Franco y José Sanjurjo desempeñaron un papel clave en la organización de la sublevación.
+            </p>
+
+            <p>
+              El clima de violencia política alcanzó un punto crítico en julio de 1936 con el asesinato del teniente José Castillo, militante socialista, seguido del asesinato del líder monárquico José Calvo Sotelo por miembros de las fuerzas de seguridad. Este último acontecimiento tuvo un fuerte impacto político y fue utilizado por los conspiradores como justificación definitiva para acelerar el golpe de Estado.
+            </p>
+
+            <p>
+              El 17 y 18 de julio de 1936 se produjo la sublevación militar contra el gobierno de la República, iniciada en el Protectorado de Marruecos y extendida rápidamente a la península. El fracaso parcial del golpe dio lugar a una guerra civil que dividiría al país durante casi tres años.
+            </p>
+
+            <p>
+              En conjunto, la etapa del Frente Popular representa la fase final de la Segunda República, caracterizada por la imposibilidad de estabilizar el sistema democrático en un contexto de extrema polarización política, crisis social y creciente intervención militar.
+            </p>
+
+            <div class="info-box mt-4">
+              <strong>Claves interpretativas:</strong>
+              <ul>
+                <li>Victoria electoral del bloque de izquierdas en un contexto de fuerte polarización.</li>
+                <li>Intento de reactivar las reformas del primer bienio.</li>
+                <li>Creciente conflictividad social y debilitamiento del orden público.</li>
+                <li>Intensificación de la conspiración militar contra la República.</li>
+                <li>Los asesinatos de julio de 1936 precipitan la crisis final.</li>
+                <li>El golpe de Estado de julio de 1936 marca el inicio de la Guerra Civil.</li>
+              </ul>
+            </div>       
+          </div>
+        </section>
+
+        <section id="crisis-final" class="section-block">
+            <div class="section-head">                
+                <h2>🔥 Crisis final y colapso</h2>
+            </div>
+
+            <div class="content-card">
+                <p>
+                La etapa del Frente Popular no logró estabilizar el régimen republicano. A pesar de los intentos de retomar el programa reformista del primer bienio, la creciente conflictividad social, la radicalización ideológica y la debilidad de las instituciones dificultaron la gobernabilidad. El Estado se mostró incapaz de controlar la violencia política, que se intensificó en forma de enfrentamientos entre grupos de izquierda y de derecha, huelgas, ocupaciones de tierras y atentados.
+              </p>
+              <div class="row">
+                <div class="col-6">
+                    <img src="{% static 'images/sigloXX/segunda_republica/quema_iglesias.jpg' %}"
+                    alt="Quema de iglesias"
+                    class="img-fluid rounded shadow-sm w-100">
+                </div>
+                <div class="col-6">
+                 <p>
+                  Este clima de inestabilidad alimentó el temor de amplios sectores conservadores a una posible revolución social, mientras que, desde la izquierda, se percibía una amenaza constante de involución autoritaria. La dinámica de desconfianza mutua erosionó los mecanismos de consenso propios de un sistema democrático, favoreciendo una lógica de confrontación.
+                  </p>
+                  Paralelamente, la conspiración militar contra la República, iniciada durante el Bienio radical-cedista, se intensificó en los meses de 1936.
+                </div>
+              </div>
+              
+              <p class="mb-2">
+                 Diversos sectores del Ejército, apoyados por fuerzas políticas y sociales contrarias al régimen, comenzaron a coordinar un golpe de Estado con el objetivo de derribar la República. La falta de una respuesta eficaz por parte del gobierno permitió que la conspiración avanzara sin ser neutralizada.
+              </p>
+
+              <div class="row">
+                <div class="col-md-6">
+                    <p>
+                      Los asesinatos de julio de 1936 —el del teniente José Castillo y, especialmente, el del líder monárquico José Calvo Sotelo— actuaron como detonantes de la crisis final. Estos acontecimientos evidenciaron el deterioro del orden público y aceleraron la decisión de los sectores sublevados de poner en marcha el golpe de Estado.
+                    </p>
+                    <p>
+                      La sublevación militar iniciada el 17 de julio de 1936 en el Protectorado de Marruecos y extendida al día siguiente a la península no triunfó de forma inmediata en todo el territorio. Este fracaso parcial del golpe dio lugar a una situación de guerra abierta entre dos zonas enfrentadas, marcando el inicio de la Guerra Civil española (1936–1939).
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <img src="{% static 'images/sigloXX/segunda_republica/asesinatos.jpg' %}"
+                    alt="Asesinatos"
+                    class="img-fluid rounded shadow-sm w-100">
+                </div>
+                
+              </div>             
+
+              <p>
+                En términos historiográficos, el colapso de la Segunda República no puede atribuirse a una única causa, sino a la convergencia de múltiples factores: la debilidad de la cultura democrática, la resistencia de las élites tradicionales, la radicalización de los movimientos políticos y sociales y la intervención decisiva del Ejército en la vida política. La República representó un intento profundo de modernización que, sin embargo, no logró consolidarse en un contexto de extrema conflictividad.
+              </p>
+
+              <div class="info-box mt-4">
+                <strong>Claves interpretativas:</strong>
+                <ul>
+                  <li>Fracaso en la estabilización del sistema democrático en un contexto de alta polarización.</li>
+                  <li>Creciente incapacidad del Estado para mantener el orden público.</li>
+                  <li>Convergencia de crisis política, social y militar.</li>
+                  <li>La conspiración militar fue un factor decisivo en el desenlace.</li>
+                  <li>Los asesinatos de julio actuaron como detonante inmediato.</li>
+                  <li>El golpe de Estado de julio de 1936 desencadena la Guerra Civil.</li>
+                </ul>
+              </div>
+
+            </div>    
+        </section>
+
+         <section>
+          
+          <div class="section-head anchor" id="recursos">
+            <h2>📚 Recursos</h2>            
+          </div>
+
+          <div class="content-card mt-3">
+            <h3 class="h6 fw-bold mb-2">Vídeos </h3>
+            <ul class="mb-0">
+              <li><a href="https://www.youtube.com/watch?v=45dwp6tS5s8" target="_blank" rel="noopener" style="text-decoration:none;">Resumen de la Segunda República, la Guerra Civil y el franquismo. </a></li>
+              <li><a href="https://www.rtve.es/play/videos/espana-en-guerra/republica-reforma-reaccion/16280616/?utm_source=copilot.com" target="_blank" rel="noopener" style="text-decoration:none;">España en guerra. Segunda República española: bienio reformista y bienio rectificador. </a></li>
+              <li><a href="https://www.youtube.com/watch?v=BhQM0Xf214I&list=PLfpMMKEREQvznsJcZ8E3RgsB09RllxMHX&index=1" target="_blank" rel="noopener" style="text-decoration:none;">Hacia la Guerra Civil. Joaquin Rivera Chamorro </a></li>
+              <li><a href="https://www.youtube.com/watch?v=bH-3-pRrxmE" target="_blank" rel="noopener" style="text-decoration:none;">La Segunda República Española. Su historia política | José Luis Climent. </a></li>
+            </ul>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+</div>
+
+<!-- Modal retrato -->
+<div class="modal fade" id="modalAlfonsoRetrato" tabindex="-1" aria-labelledby="modalAlfonsoRetratoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalAlfonsoRetratoLabel">Alfonso XIII</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <img src="{% static 'images/sigloXX/alfonsoXIII/alfonso-xiii-retrato.jpg' %}" class="img-fluid rounded mb-3" alt="Retrato de Alfonso XIII">
+        <p>
+          Retrato del monarca en una etapa en la que la Corona seguía representando formalmente la continuidad del régimen de la Restauración, aunque bajo una estabilidad cada vez más frágil.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal militar -->
+<div class="modal fade" id="modalAlfonsoMilitar" tabindex="-1" aria-labelledby="modalAlfonsoMilitarLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalAlfonsoMilitarLabel">Alfonso XIII y el ejército</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <img src="{% static 'images/sigloXX/alfonsoXIII/alfonso-xiii-militar.jpg' %}" class="img-fluid rounded mb-3" alt="Alfonso XIII en uniforme">
+        <p>
+          La identificación del rey con el ámbito militar fue un rasgo central de su imagen pública. Este vínculo reforzó su autoridad ante determinados sectores, pero también contribuyó a una creciente politización de la Corona.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- -------------------------------------------MODALES --------------------------------->
+ <div class="modal fade" id="modalAtentado" tabindex="-1" aria-labelledby="modalAtentadoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-md modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalAtentadoLabel">
+          Atentado contra Alfonso XIII (1906)
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+
+      <div class="modal-body">
+        <img src="{% static 'images/sigloXX/atentado_Alfonso_XIII.jpg' %}" 
+             class="img-fluid rounded mb-3" 
+             alt="Atentado de Mateo Morral 1906">
+
+        <p>
+          El 31 de mayo de 1906, el anarquista Mateo Morral lanzó una bomba oculta en un ramo de flores contra la carroza real durante la boda de Alfonso XIII y Victoria Eugenia. El atentado no logró su objetivo, pero causó numerosas víctimas entre el público y el séquito.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  function toggleSubmenu(button) {
+    const dropdown = button.parentElement;
+    dropdown.classList.toggle("open");
+  }
+  function toggleRomanicoMenu() {
+    document.getElementById("romanicoMenu").classList.toggle("open");
+  }
+  document.addEventListener("DOMContentLoaded", function () {
+    const logo = document.getElementById("logotipo");
+    if (logo) {
+      logo.addEventListener("click", function (e) {
+        if (window.innerWidth <= 575 && e.clientX > window.innerWidth - 120) {
+          document.body.classList.toggle("menu-open");
+        }
+      });
+    }
+  });
+</script>
+{% endblock %}

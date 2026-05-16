@@ -644,6 +644,28 @@
 .crisis-1917 .card-body {
   padding: 1.6rem;
 }
+/* IMÁGENES RESPONSIVE SIN RECORTES FEOS */
+.hist-img {
+  width: 100%;
+  height: auto;
+  max-height: 360px;
+  object-fit: contain;
+  object-position: center top;
+  border-radius: 18px;
+  background: #f8f4ee;
+}
+
+/* Retratos dentro de columnas */
+.portrait-img {
+  width: 100%;
+  height: auto;
+  max-height: 340px;
+  object-fit: contain;
+  object-position: center top;
+  border-radius: 18px;
+  background: #f8f4ee;
+  display: block;
+}
 
 
 
@@ -688,7 +710,21 @@
         .final-box {
           padding: 1.2rem;
         }
+        .hist-img,
+        .row > [class*="col-"] {
+          margin-bottom: 1rem;
+        }
+
+        .portrait-img {
+          width: 100%;
+          max-height: none;
+          height: auto;
+          object-fit: contain;
+        }
       }
+
+
+
 </style>
 
 <div class="alfonso-page">
@@ -1465,18 +1501,27 @@
 
                 <!-- DICTADURA DE BERENGUER -->
                 <div class="t-item" id="berenguer">
-                    <h6><span class="t-date">DICTABLANDA DE BERENGUER</span></h6>
-                    <div class="row">
-                        <div class="col-4">
-                            <img src="{% static 'images/sigloXX/presidentes/berenguer.png' %}" 
-                            class="img-fluid rounded-start h-100 object-fit-cover" 
-                            alt="Berenguer">
-                        </div>
-                        <div class="col-8">
-                            <p>El rey nombró presidente del consejo de ministros al general Dámaso Berenguer con la intención de retornar al régimen constitucional.​ Este nuevo periodo se conoció enseguida como «la Dictablanda», por contraste con la dictadura anterior.</p>
-                            <p class="mt-3">Tras la caída del dictador —que falleció semanas después—, aumentaron las manifestaciones antimonárquicas, se acusó al rey de haber auspiciado la dictadura de Primo de Rivera y de tener responsabilidades en el Desastre de Annual. Ese año los partidos republicanos se unieron frente a la monarquía con la firma del <strong>Pacto de San Sebastián</strong>. Hubo <strong>pronunciamientos militares republicanos</strong> que fueron frustrados por el gobierno en la base aérea de <strong>Cuatro Vientos</strong>(Madrid) y en <strong> Jaca</strong>(este último encabezado por los capitanes Fermín Galán y Ángel García Hernández, que fueron fusilados tras un consejo de guerra).</p>
-                        </div>
+                  <h6><span class="t-date">DICTABLANDA DE BERENGUER</span></h6>
+
+                  <div class="row g-3 align-items-start">
+
+                    <div class="col-12 col-md-4">
+                      <img src="{% static 'images/sigloXX/presidentes/berenguer.png' %}" 
+                          class="portrait-img shadow-sm" 
+                          alt="Dámaso Berenguer">
                     </div>
+
+                    <div class="col-12 col-md-8">
+                      <p>
+                        El rey nombró presidente del consejo de ministros al general Dámaso Berenguer con la intención de retornar al régimen constitucional.​ Este nuevo periodo se conoció enseguida como «la Dictablanda», por contraste con la dictadura anterior.
+                      </p>
+
+                      <p class="mt-3">
+                        Tras la caída del dictador —que falleció semanas después—, aumentaron las manifestaciones antimonárquicas, se acusó al rey de haber auspiciado la dictadura de Primo de Rivera y de tener responsabilidades en el Desastre de Annual. Ese año los partidos republicanos se unieron frente a la monarquía con la firma del <strong>Pacto de San Sebastián</strong>. Hubo <strong>pronunciamientos militares republicanos</strong> que fueron frustrados por el gobierno en la base aérea de <strong>Cuatro Vientos</strong> (Madrid) y en <strong>Jaca</strong> —este último encabezado por los capitanes Fermín Galán y Ángel García Hernández, que fueron fusilados tras un consejo de guerra—.
+                      </p>
+                    </div>
+
+                  </div>
                 </div>
 
                 <p>En febrero de 1931 el almirante Juan Bautista Aznar fue designado presidente del consejo por Alfonso XIII. Su gobierno convocó elecciones municipales el 12 de abril de 1931. Al conocerse en los comicios la victoria en las ciudades de las candidaturas republicanas, el 14 de abril se proclamó la Segunda República. El rey abandonó el país ese mismo día, con el fin de evitar una guerra civil.</p>
