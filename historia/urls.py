@@ -12,6 +12,7 @@ urlpatterns = [
     path('inicioEspagna/', views.inicioEspagna, name='inicioEspagna'),
     path('inicioInglaterra/', views.inicioInglaterra, name='inicioInglaterra'),
     path('romanico/', views.romanico, name='romanico'),
+    path('edad_media/', views.edad_media, name='edad_media'),
 
      # ----------------------------SIGLO XI--------------------------
     path('sigloXI/', views.sigloXI, name='sigloXI'),

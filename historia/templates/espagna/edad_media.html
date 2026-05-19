@@ -1,0 +1,203 @@
+{% extends "bases/baseEdadMedia.html" %}
+
+{% load static %}
+
+{% block titulo %} Edad Media {% endblock %}
+
+{% block cabecera %} Edad Media {% endblock %}
+
+{% block imgCabecera %}  {% endblock %}
+
+{% block contenido %}
+
+<style>
+    /* MENÚ EDAD MEDIA RESPONSIVE */
+
+    .navbar {
+    border-radius: 16px;
+    }
+
+    .navbar .nav-link,
+    .navbar .navbar-brand {
+    font-size: 0.95rem;
+    white-space: nowrap;
+    }
+
+    @media (max-width: 991px) {
+
+    .navbar {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    .navbar-collapse {
+        margin-top: 0.8rem;
+        background: #212529;
+        border-radius: 14px;
+        padding: 0.8rem;
+    }
+
+    .navbar-nav {
+        text-align: left;
+    }
+
+    .navbar .nav-link {
+        padding: 0.55rem 0.8rem;
+        border-radius: 10px;
+    }
+
+    .navbar .nav-link:hover {
+        background: rgba(255,255,255,0.12);
+    }
+
+    .dropdown-menu {
+        border-radius: 12px;
+        margin-top: 0.4rem;
+    }
+    }
+    .medieval-card{
+    overflow:hidden;
+    border-radius:20px;
+    border:none;
+    transition:all .3s ease;
+    background:#fff;
+    }
+
+    .medieval-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+    }
+
+    .medieval-img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    object-position:center;
+    }
+
+    @media (max-width:768px){
+
+    .medieval-img{
+            height:170px;
+        }
+
+    }
+
+</style>
+
+
+<div class="row g-4 mt-4">
+
+  <!-- VISIGODOS -->
+  <div class="col-md-6 col-lg-4">
+    <div class="card medieval-card h-100">
+      <img src="{% static 'images/edad_media/visigodos/conversion_recaredo.jpg' %}"
+           class="medieval-img"
+           alt="Reino visigodo de Toledo">
+      <div class="card-body">
+        <span class="badge bg-secondary mb-2">Alta Edad Media</span>
+        <h5 class="card-title">La Hispania visigoda</h5>
+        <p class="card-text">
+          Del reino de Toledo a la crisis del 711: poder monárquico, Iglesia, nobleza y herencia romana.
+        </p>
+        <a href="#" class="btn btn-outline-dark btn-sm">Ver tema</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- AL-ÁNDALUS -->
+  <div class="col-md-6 col-lg-4">
+    <div class="card medieval-card h-100">
+      <img src="{% static 'images/edad_media/al_andalus/mezquita.jpg' %}"
+           class="medieval-img"
+           alt="Mezquita de Córdoba">
+      <div class="card-body">
+        <span class="badge bg-warning text-dark mb-2">Al-Ándalus</span>
+        <h5 class="card-title">Al-Ándalus</h5>
+        <p class="card-text">
+          De la conquista islámica al Califato de Córdoba, los reinos de taifas y el reino nazarí de Granada.
+        </p>
+        <a href="#" class="btn btn-outline-dark btn-sm">Ver tema</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- REINOS CRISTIANOS -->
+  <div class="col-md-6 col-lg-4">
+    <div class="card medieval-card h-100">
+      <img src="{% static 'images/edad_media/reinos_cristianos/castillo_loarre.jpg' %}"
+           class="medieval-img"
+           alt="Reinos cristianos medievales">
+      <div class="card-body">
+        <span class="badge bg-primary mb-2">Reinos cristianos</span>
+        <h5 class="card-title">Los reinos cristianos</h5>
+        <p class="card-text">
+          Asturias, León, Castilla, Navarra y Aragón: formación política, frontera y expansión territorial.
+        </p>
+        <a href="#" class="btn btn-outline-dark btn-sm">Ver tema</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- RECONQUISTA -->
+  <div class="col-md-6 col-lg-4">
+    <div class="card medieval-card h-100">
+      <img src="{% static 'images/edad_media/reconquista/carga_tres_reyes.jpg' %}"
+           class="medieval-img"
+           alt="Reconquista medieval">
+      <div class="card-body">
+        <span class="badge bg-danger mb-2">Guerra y frontera</span>
+        <h5 class="card-title">La Reconquista</h5>
+        <p class="card-text">
+          Una larga expansión militar, política y repobladora desde Covadonga hasta la toma de Granada.
+        </p>
+        <a href="#" class="btn btn-outline-dark btn-sm">Ver tema</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ARTE MEDIEVAL -->
+  <div class="col-md-6 col-lg-4">
+    <div class="card medieval-card h-100">
+      <img src="{% static 'images/edad_media/arte_medieval/iglesia_romanica.jpg' %}"
+           class="medieval-img"
+           alt="Arte medieval en España">
+      <div class="card-body">
+        <span class="badge bg-success mb-2">Arte medieval</span>
+        <h5 class="card-title">Románico y gótico</h5>
+        <p class="card-text">
+          Monasterios, iglesias, catedrales, escultura, pintura mural, vidrieras y arte mudéjar.
+        </p>
+        <a href="#" class="btn btn-outline-dark btn-sm">Ver tema</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- REYES CATÓLICOS -->
+  <div class="col-md-6 col-lg-4">
+    <div class="card medieval-card h-100">
+      <img src="{% static 'images/edad_media/reyes_catolicos/isabel_fernando.jpg' %}"
+           class="medieval-img"
+           alt="Reyes Católicos">
+      <div class="card-body">
+        <span class="badge bg-dark mb-2">Final de la Edad Media</span>
+        <h5 class="card-title">Los Reyes Católicos</h5>
+        <p class="card-text">
+          Unión dinástica, conquista de Granada, Inquisición, expulsión de los judíos y apertura atlántica.
+        </p>
+        <a href="#" class="btn btn-outline-dark btn-sm">Ver tema</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+{% endblock %}

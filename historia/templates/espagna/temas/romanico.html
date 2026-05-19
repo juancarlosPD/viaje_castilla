@@ -627,7 +627,14 @@
   /* =====================================================
      IMÁGENES Y CITAS
   ===================================================== */
-
+  .romanico-etapa-img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+    object-position:center;
+    border-radius:12px;
+  
+  }
   .img-block {
     margin-top: 1.25rem;
   }
@@ -917,8 +924,8 @@
     background: #f8f5ef;
 
     padding: .5rem;
-  }
-  
+    }
+    
   }
 </style>
 
@@ -1060,15 +1067,15 @@
                 <div class="t-item" id="">
                     
                     <p>
-                      El desarrollo del arte románico en España estuvo profundamente condicionado por la compleja realidad política, religiosa y cultural de la Península Ibérica durante los siglos XI y XII. A diferencia de otras regiones europeas relativamente homogéneas desde el punto de vista político y religioso, la España medieval constituía un territorio fragmentado en el que convivían reinos cristianos, estados musulmanes y comunidades judías, configurando un espacio de contacto, conflicto e intercambio cultural único en la Europa occidental.
+                      El desarrollo del arte románico en España estuvo profundamente condicionado por la compleja realidad política, religiosa y cultural de la Península Ibérica durante los siglos XI y XII. A diferencia de otras regiones europeas relativamente homogéneas desde el punto de vista político y religioso, la España medieval constituía un <strong> territorio fragmentado en el que convivían reinos cristianos, estados musulmanes y comunidades judías,</strong> configurando un espacio de contacto, conflicto e intercambio cultural único en la Europa occidental.
                     </p>
 
                     <p class="mt-3">
-                      Tras la invasión musulmana de la Península en el año 711 y la rápida desaparición del reino visigodo de Toledo, los pequeños núcleos cristianos refugiados en las montañas del norte comenzaron lentamente un proceso de expansión territorial que la historiografía tradicional denominó Reconquista. Aunque este proceso no respondió siempre a un proyecto político unitario, sí favoreció el fortalecimiento de los reinos cristianos septentrionales y la consolidación progresiva de una identidad política y religiosa diferenciada frente a Al-Ándalus.
+                      Tras la invasión musulmana de la Península en el año 711 y la rápida desaparición del reino visigodo de Toledo, los pequeños núcleos cristianos refugiados en las montañas del norte comenzaron lentamente un proceso de expansión territorial que la historiografía tradicional denominó <strong> Reconquista</strong>. Aunque este proceso no respondió siempre a un proyecto político unitario, sí favoreció el fortalecimiento de los reinos cristianos septentrionales y la consolidación progresiva de una identidad política y religiosa diferenciada frente a Al-Ándalus.
                     </p>
 
                     <p class="mt-3">
-                      Durante los siglos XI y XII coexistieron en la Península varios reinos cristianos con estructuras políticas propias: el Reino de León, el Reino de Castilla, el Reino de Navarra, el Reino de Aragón y los condados catalanes. Cada uno desarrolló relaciones distintas con el mundo europeo y musulmán, condicionando así la evolución artística y arquitectónica de sus territorios. El románico español surgió precisamente de esta diversidad regional y de la conexión de los reinos cristianos con las corrientes culturales europeas.
+                      Durante los siglos XI y XII coexistieron en la Península <strong> varios reinos cristianos</strong> con estructuras políticas propias: el Reino de León, el Reino de Castilla, el Reino de Navarra, el Reino de Aragón y los condados catalanes. Cada uno desarrolló relaciones distintas con el mundo europeo y musulmán, condicionando así la evolución artística y arquitectónica de sus territorios. El románico español surgió precisamente de esta diversidad regional y de la conexión de los reinos cristianos con las corrientes culturales europeas.
                     </p>
 
                     <div class="row">                      
@@ -1092,7 +1099,7 @@
                     </p>
 
                     <p class="mt-3">
-                      Uno de los fenómenos decisivos para la expansión del románico fue la reforma monástica impulsada desde la abadía francesa de Cluny. El monacato cluniacense promovió una profunda renovación espiritual basada en el fortalecimiento de la autoridad papal, la unificación litúrgica y la creación de una amplia red de monasterios vinculados entre sí. Los reyes cristianos peninsulares favorecieron la implantación de esta reforma, tanto por motivos religiosos como políticos, ya que reforzaba sus vínculos con la Europa cristiana occidental.
+                      Uno de los fenómenos decisivos para la expansión del románico fue la reforma monástica impulsada desde la <a href="#" class="fw-bold section-link" data-bs-toggle="modal" data-bs-target="#modalCluny"> abadía de Cluny</a>. El monacato cluniacense promovió una profunda renovación espiritual basada en el fortalecimiento de la autoridad papal, la unificación litúrgica y la creación de una amplia red de monasterios vinculados entre sí. Los reyes cristianos peninsulares favorecieron la implantación de esta reforma, tanto por motivos religiosos como políticos, ya que reforzaba sus vínculos con la Europa cristiana occidental.
                     </p>
 
                     <p class="mt-3">
@@ -1100,7 +1107,7 @@
                     </p>
 
                     <p class="mt-3">
-                      En este contexto desempeñó un papel fundamental el Camino de Santiago. El descubrimiento, según la tradición, de la tumba del apóstol Santiago en Compostela durante el siglo IX transformó progresivamente a Galicia en uno de los principales centros de peregrinación de la cristiandad medieval. A partir del siglo XI, miles de peregrinos procedentes de Francia, Italia, Alemania o Inglaterra atravesaban los reinos cristianos peninsulares para alcanzar la catedral compostelana.
+                      En este contexto desempeñó un papel fundamental el <strong>Camino de Santiago</strong>. El descubrimiento, según la tradición, de la tumba del apóstol Santiago en Compostela durante el siglo IX transformó progresivamente a Galicia en uno de los principales centros de peregrinación de la cristiandad medieval. A partir del siglo XI, miles de peregrinos procedentes de Francia, Italia, Alemania o Inglaterra atravesaban los reinos cristianos peninsulares para alcanzar la catedral compostelana.
                     </p>
 
                     <p class="mt-3">
@@ -1318,6 +1325,22 @@
                   </div>
 
                   <p class="mt-3">
+                    Los <strong>arcos fajones</strong> son los arcos que dividen transversalmente en tramos la bóveda de cañón que cubre una nave y que descargan el peso de la misma en las pilastras, a las que a veces se adosan pequeñas columnas.
+                  </p>
+                  <div class="row">
+                    <div class="col-6">
+                      <img src="{% static 'images/temas/romanico/arco_fajon.png' %}"
+                          alt="Catedral de Jaca"
+                          class="romanico-img img-fluid rounded shadow-sm mb-3 w-100">
+                    </div>
+                    <div class="col-6">
+                      <img src="{% static 'images/temas/romanico/arco_fajon.jpg' %}"
+                          alt="Catedral de Jaca"
+                          class="romanico-img img-fluid rounded shadow-sm mb-3 w-100">
+                    </div>
+                  </div>
+
+                  <p class="mt-3">
                     En determinados espacios, especialmente en las intersecciones entre nave y transepto, se emplearon también <strong>bóvedas de arista</strong> y cúpulas sobre trompas o pechinas. Estas soluciones técnicas reflejan el progresivo perfeccionamiento de la ingeniería medieval y prepararon el camino para el posterior desarrollo de la arquitectura gótica.
                   </p>
                   <div class="row mt-3">
@@ -1364,7 +1387,11 @@
                     </div>
 
                   </div>
-
+                  <p class="mt-3">
+                    La cabecera, que es donde se encuentra el altar mayor, suele estar orientada hacia el este que es donde se encuentra el sepulcro de Jesucristo. Suelen terminar en un <strong>abside</strong> que está rodeado por una <strong>girola</strong>.
+                    Las bóvedas centrales tienen bóveda de cañón y las laterales bóvedas de arista. Los muros son muy gruesos y con pocas ventanas porque soportan todo el peso del edificio.
+                    Con el tiempo se añadieron los <strong>arbotantes</strong> que ayudaban a soportan el peso.
+                  </p>
 
                   <p class="mt-3">
                     En las grandes iglesias de peregrinación vinculadas al Camino de Santiago aparecieron elementos específicos destinados a facilitar la circulación de los fieles. Entre ellos destacaban la girola o deambulatorio, que rodeaba el altar mayor, y las capillas radiales abiertas en torno a la cabecera. Estas estructuras permitían el acceso de los peregrinos a las reliquias sin interrumpir las ceremonias religiosas.
@@ -1392,10 +1419,7 @@
                       <p class="text-center">Claustro Monasterio de Burgos</p>
                     </div>
                   </div>
-
-                  <p class="mt-3">
-                    La arquitectura románica española presentó importantes variantes regionales. En Cataluña predominó inicialmente el denominado primer románico lombardo, caracterizado por la austeridad decorativa y las influencias italianas. Aragón desarrolló un románico vinculado a las rutas jacobeas y reconocible por el llamado “taqueado jaqués”. Castilla y León, por su parte, levantaron algunas de las construcciones más monumentales del románico europeo gracias a la influencia francesa y al impulso político de la monarquía.
-                  </p>
+                  
 
                   <p class="mt-3">
                     Entre los ejemplos más destacados de la arquitectura románica española sobresalen la Catedral de Santiago de Compostela, la Catedral de Jaca, San Martín de Frómista, la Basílica de San Isidoro de León, el Monasterio de Santo Domingo de Silos y las iglesias del valle de Boí en Cataluña. Estas construcciones representan la culminación artística y técnica de la arquitectura románica peninsular.
@@ -1409,6 +1433,120 @@
                     La arquitectura románica española representa hoy uno de los conjuntos patrimoniales medievales más importantes de Europa. Su estudio permite comprender no solo la evolución técnica y artística de la Edad Media, sino también la mentalidad religiosa, las estructuras de poder y las transformaciones sociales de la España medieval.
                   </p>                 
                                   
+                </div>
+                <div class="t-item">
+                  <h6><span class="t-date" >Etapas</span></h6>
+                  <p class="mt-3">El arte románico no apareció de forma repentina ni fue idéntico en todos los territorios europeos. Su evolución se desarrolló entre los siglos XI y XIII, atravesando varias fases que muestran cambios arquitectónicos, artísticos y espirituales. Tradicionalmente se distinguen tres grandes etapas: el primer románico, el románico pleno y el tardorrománico o transición al gótico.</p>
+                  <div>
+                    <ol>
+                      <h5><li>Primer románico (finales del siglo X – mediados del XI)</h5>
+                      <p>El primer románico surgió en áreas próximas al norte de Italia, Cataluña y el sur de Francia. Se caracteriza por construcciones relativamente sencillas, de aspecto macizo y escasa decoración escultórica. En esta etapa todavía se perciben influencias del arte prerrománico y carolingio.</p>
+                      <p><strong>Rasgos arquitectónicos</strong></p>
+                      <div>
+                        <ul>
+                          <li>Muros gruesos y pesados.</li>
+                          <li>Ventanas pequeñas</li>
+                          <li>Escasa iluminación interior.</li>
+                          <li>Uso frecuente de sillarejo poco trabajado.</li>
+                          <li>Decoración exterior mediante bandas lombardas y arquillos ciegos.</li>
+                          <li>Campanarios altos y esbeltos</li>
+                        </ul>
+                      </div>
+                      <p><strong>Importancia histórica</strong></p>
+                      <p>Esta fase representa el momento de consolidación de nuevas técnicas constructivas y de reorganización monástica impulsada por los benedictinos y Cluny.</p>
+                      <p><strong>Ejemplos destacados</strong></p>
+                      <div>
+                        <ul>
+                          <li>Iglesias del valle de Bohí.</li>
+                          <li>San Clemente de Tahull.</li>
+                          <li>Monasterio de Ripoll.</li>
+                        </ul>
+                      </div>
+                      <div class="row">
+  
+                      <div class="col-4">
+                        <img src="{% static 'images/temas/romanico/sant-joan-de-boi.jpg' %}"
+                            alt="Sant Joan de Boí"
+                            class="romanico-etapa-img shadow-sm mb-3">
+                      </div>
+
+                      <div class="col-4">
+                        <img src="{% static 'images/temas/romanico/taul.jpg' %}"
+                            alt="Tahull"
+                            class="romanico-etapa-img shadow-sm mb-3">
+                      </div>
+
+                      <div class="col-4">
+                        <img src="{% static 'images/temas/romanico/santa-maria-de-ripoll.jpg' %}"
+                            alt="Santa María de Ripoll"
+                            class="romanico-etapa-img shadow-sm mb-3">
+                      </div>
+
+                    </div>
+                    
+                    </li>
+                      <h5><li>Románico pleno (segunda mitad del siglo XI – siglo XII)</h5>
+                      <p>Es la fase más importante y representativa del románico. Coincide con:</p>
+                      <div>
+                        <ul>
+                          <li>La expansión del Camino de Santiago.</li>
+                          <li>El auge de las peregrinaciones</li>
+                          <li>El fortalecimiento de los reinos cristianos.</li>
+                          <li>La consolidación del poder de la Iglesia.</li>
+                        </ul>
+                      </div>
+                      <p>La arquitectura se vuelve más monumental y técnicamente compleja.</p>
+                      <p><strong>Rasgos principales</strong></p>
+                      <div>
+                        <ul>
+                          <li>Uso generalizado de la bóveda de cañón.</li>
+                          <li>Aparición de bóvedas de arista.</li>
+                          <li>Planttas de cruz latina</li>
+                          <li>Grandes portadas escultóricas.</li>
+                          <li>Desarrollo del claustro</li>
+                          <li>Escultura didáctica con función religiosa.</li>
+                          <li>Pintura mural de gran simbolismo.</li>
+                        </ul>
+                      </div>
+                      <p><strong>Significado cultural</strong></p>
+                      <p>El románico pleno creó un lenguaje artístico común en la Europa cristiana occidental. La escultura y la pintura tenían una función pedagógica: enseñar la doctrina a una población mayoritariamente analfabeta.</p>
+                      <p><strong>Ejemplos destacados</strong></p>
+                      <div>
+                        <ul>
+                          <li>Catedral de Santiago de Compostela</li>
+                          <li>Catedral de Jaca</li>
+                          <li>Basílica de San Isidoro de León</li>
+                          <li>Monasterio de Santo Domingo de Silos</li>
+                        </ul>
+                      </div>
+                      <div class="row">
+  
+                      <div class="col-4">
+                        <img src="{% static 'images/temas/romanico/sant-joan-de-boi.jpg' %}"
+                            alt="Sant Joan de Boí"
+                            class="romanico-etapa-img shadow-sm mb-3">
+                      </div>
+
+                      <div class="col-4">
+                        <img src="{% static 'images/temas/romanico/taul.jpg' %}"
+                            alt="Tahull"
+                            class="romanico-etapa-img shadow-sm mb-3">
+                      </div>
+
+                      <div class="col-4">
+                        <img src="{% static 'images/temas/romanico/santa-maria-de-ripoll.jpg' %}"
+                            alt="Santa María de Ripoll"
+                            class="romanico-etapa-img shadow-sm mb-3">
+                      </div>
+
+                    </div>
+                      </li>
+                      <h5><li>Tardorrománico o transición al gótico (finales del siglo XII – siglo XIII)</h5>
+                      
+                      
+                      </li>
+                    </ol>
+                  </div>
                 </div>              
               </div>
           </div>
@@ -1419,62 +1557,67 @@
   </div>
 </div>
 
-<!-- Modal retrato -->
-<div class="modal fade" id="modalAlfonsoRetrato" tabindex="-1" aria-labelledby="modalAlfonsoRetratoLabel" aria-hidden="true">
-  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="modalAlfonsoRetratoLabel">Alfonso XIII</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-      </div>
-      <div class="modal-body">
-        <img src="{% static 'images/sigloXX/alfonsoXIII/alfonso-xiii-retrato.jpg' %}" class="img-fluid rounded mb-3" alt="Retrato de Alfonso XIII">
-        <p>
-          Retrato del monarca en una etapa en la que la Corona seguía representando formalmente la continuidad del régimen de la Restauración, aunque bajo una estabilidad cada vez más frágil.
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
 
-<!-- Modal militar -->
-<div class="modal fade" id="modalAlfonsoMilitar" tabindex="-1" aria-labelledby="modalAlfonsoMilitarLabel" aria-hidden="true">
-  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="modalAlfonsoMilitarLabel">Alfonso XIII y el ejército</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
-      </div>
-      <div class="modal-body">
-        <img src="{% static 'images/sigloXX/alfonsoXIII/alfonso-xiii-militar.jpg' %}" class="img-fluid rounded mb-3" alt="Alfonso XIII en uniforme">
-        <p>
-          La identificación del rey con el ámbito militar fue un rasgo central de su imagen pública. Este vínculo reforzó su autoridad ante determinados sectores, pero también contribuyó a una creciente politización de la Corona.
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
+
 
 <!-- -------------------------------------------MODALES --------------------------------->
- <div class="modal fade" id="modalAtentado" tabindex="-1" aria-labelledby="modalAtentadoLabel" aria-hidden="true">
-  <div class="modal-dialog modal-md modal-dialog-centered modal-dialog-scrollable">
-    <div class="modal-content">
-      
-      <div class="modal-header">
-        <h5 class="modal-title" id="modalAtentadoLabel">
-          Atentado contra Alfonso XIII (1906)
+<div class="modal fade" id="modalCluny" tabindex="-1" aria-labelledby="modalClunyLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content rounded-4 shadow-lg">
+
+      <div class="modal-header bg-dark text-white">
+        <h5 class="modal-title" id="modalClunyLabel">
+          🏛️ La abadía de Cluny y la expansión del románico
         </h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
       </div>
 
       <div class="modal-body">
-        <img src="{% static 'images/sigloXX/atentado_Alfonso_XIII.jpg' %}" 
-             class="img-fluid rounded mb-3" 
-             alt="Atentado de Mateo Morral 1906">
 
-        <p>
-          El 31 de mayo de 1906, el anarquista Mateo Morral lanzó una bomba oculta en un ramo de flores contra la carroza real durante la boda de Alfonso XIII y Victoria Eugenia. El atentado no logró su objetivo, pero causó numerosas víctimas entre el público y el séquito.
-        </p>
+        <div class="row g-4 align-items-start">
+          <div class="col-lg-5">
+            <img src="{% static 'images/temas/romanico/abadia_cluny.jpg' %}"
+                 alt="Reconstrucción de la abadía de Cluny"
+                 class="img-fluid rounded shadow-sm w-100 mb-3">
+
+            <p class="small text-muted mb-0">
+              La abadía borgoñona de Cluny fue uno de los grandes centros espirituales, artísticos y políticos de la Europa medieval.
+            </p>
+          </div>
+
+          <div class="col-lg-7">
+            <h6 class="fw-bold">Un centro monástico de alcance europeo</h6>
+
+            <p>
+              Fundada en el año 910 por Guillermo de Aquitania, la abadía de Cluny se convirtió en el núcleo de una profunda reforma monástica que pretendía restaurar la disciplina benedictina, reforzar la vida litúrgica y liberar a los monasterios de la dependencia directa de los poderes laicos.
+            </p>
+
+            <p>
+              Su importancia no fue únicamente religiosa. Cluny creó una extensa red de monasterios dependientes de la casa madre, lo que permitió difundir modelos comunes de organización, liturgia, espiritualidad y arquitectura. Esta red favoreció la expansión del románico por buena parte de Europa occidental.
+            </p>
+
+            <h6 class="fw-bold mt-4">Cluny y los reinos cristianos peninsulares</h6>
+
+            <p>
+              En la Península Ibérica, la influencia cluniacense fue especialmente intensa desde los siglos XI y XII. Los reyes de León, Castilla, Navarra y Aragón apoyaron la reforma porque reforzaba sus vínculos con la cristiandad europea, consolidaba la autoridad papal y contribuía a la renovación de los monasterios hispánicos.
+            </p>
+
+            <p>
+              La implantación de Cluny estuvo relacionada también con el Camino de Santiago, la llegada de monjes franceses, la introducción de nuevas formas litúrgicas y la consolidación de un lenguaje artístico común: el románico.
+            </p>
+
+            <div class="alert alert-secondary mt-4 mb-0">
+              <strong>Idea clave:</strong> Cluny no solo difundió una reforma espiritual; también ayudó a crear una cultura visual común en la Europa románica.
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">
+          Cerrar
+        </button>
       </div>
 
     </div>

@@ -27,6 +27,9 @@ def inicioInglaterra(request):
 def romanico(request):    
     return render(request, 'espagna/temas/romanico.html')
 
+def edad_media(request):    
+    return render(request, 'espagna/edad_media.html')
+
 # ----------------------------SIGLO XVI--------------------------
 
     # ----------------------------ESPAÑA--------------------------
