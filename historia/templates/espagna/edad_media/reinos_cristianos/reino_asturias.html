@@ -1,0 +1,864 @@
+{% extends "bases/baseReinosCristianos.html" %}
+
+{% load static %}
+
+{% block titulo %} Reino de Asturias {% endblock %}
+
+{% block cabecera %} Reino de Asturias {% endblock %}
+
+{% block imgCabecera %}  {% endblock %}
+
+{% block contenido %}
+
+<style>
+  /* =========================================================
+     REINO DE ASTURIAS - ESTILO EDAD MEDIA
+     ========================================================= */
+
+  /* MENÚ EDAD MEDIA RESPONSIVE */
+  .navbar {
+    border-radius: 16px;
+  }
+
+  .navbar .nav-link,
+  .navbar .navbar-brand {
+    font-size: 0.95rem;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 991px) {
+    .navbar {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+
+    .navbar-collapse {
+      margin-top: 0.8rem;
+      background: #212529;
+      border-radius: 14px;
+      padding: 0.8rem;
+    }
+
+    .navbar-nav {
+      text-align: left;
+    }
+
+    .navbar .nav-link {
+      padding: 0.55rem 0.8rem;
+      border-radius: 10px;
+    }
+
+    .navbar .nav-link:hover {
+      background: rgba(255,255,255,0.12);
+    }
+
+    .dropdown-menu {
+      border-radius: 12px;
+      margin-top: 0.4rem;
+    }
+  }
+
+  /* TARJETAS */
+  .medieval-card {
+    overflow: hidden;
+    border-radius: 20px;
+    border: none;
+    transition: all .3s ease;
+    background: #fff;
+  }
+
+  .medieval-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0,0,0,.15);
+  }
+
+  .medieval-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* HERO */
+  .hero-medieval {
+    background: linear-gradient(135deg, #f8f4ec 0%, #efe7d8 100%);
+    border: 1px solid #ddd0b8;
+    border-radius: 24px;
+    padding: 3rem;
+    box-shadow: 0 10px 30px rgba(58,44,24,.08);
+    overflow: hidden;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    padding: .6rem 1rem;
+    background: #e8dfcf;
+    border: 1px solid #d2c3a5;
+    color: #6b4e2e;
+    font-weight: 700;
+    border-radius: 999px;
+  }
+
+  .hero-title {
+    color: #1f2937;
+    font-size: clamp(2rem, 4vw, 3.35rem);
+    line-height: 1.12;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    margin-bottom: 1.2rem;
+  }
+
+  .hero-text {
+    color: #263241;
+    font-size: 1.08rem;
+    line-height: 1.75;
+  }
+
+  .hero-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+    margin-top: 2rem;
+  }
+
+  .hero-chips span {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    background: #f4ede0;
+    border: 1px solid #d9ccb4;
+    color: #5f4a2c;
+    padding: .55rem 1rem;
+    border-radius: 999px;
+    font-weight: 600;
+  }
+
+  .hero-figure {
+    margin: 0;
+  }
+
+  .hero-figure img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(0,0,0,.15);
+    border: 4px solid #fff;
+  }
+
+  .hero-figure figcaption {
+    margin-top: .8rem;
+    color: #4b5563;
+    font-size: .95rem;
+    line-height: 1.55;
+  }
+   .contenedor{
+    background: linear-gradient(135deg, #f8f4ec 0%, #efe7d8 100%);
+    border: 1px solid #ddd0b8;
+    border-radius: 24px;
+   }
+  /* ASIDE */
+  .page-aside {
+    position: sticky;
+    top: 92px;
+  }
+
+  .aside-card {
+    background: #fff;
+    border: 1px solid #e7dfd2;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(58, 44, 24, 0.06);
+    padding: 1.25rem 1rem;
+  }
+
+  .aside-card h5 {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #1f2937;
+    margin-bottom: 1rem;
+  }
+
+  .aside-nav {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+  }
+
+  .aside-nav a {
+    text-decoration: none;
+    color: #334155;
+    font-size: 1rem;
+    padding: .9rem 1rem;
+    border-radius: 14px;
+    transition: all .2s ease;
+    border: 1px solid #c7d2fe;
+    background: #f8fafc;
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+  }
+
+  .aside-nav a:hover {
+    background: #eef2ff;
+    border-color: #93c5fd;
+    color: #1e3a8a;
+    transform: translateX(3px);
+  }
+
+  /* BLOQUES DE CONTENIDO */
+  .main-col {
+    width: 100%;
+  }
+
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: .9rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .section-icon {
+    width: 58px;
+    height: 58px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #e8d7bb, #d8be92);
+    box-shadow: 0 8px 20px rgba(92, 67, 33, .12);
+    font-size: 1.55rem;
+  }
+
+  .section-head h2 {
+    margin: 0;
+    color: #111827;
+    font-weight: 900;
+    font-size: clamp(1.8rem, 3vw, 2.35rem);
+    letter-spacing: -0.03em;
+  }
+
+  .section-block,
+  .intro-box {
+    background: #fff;
+    border: 1px solid #e7dfd2;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(58, 44, 24, .06);
+  }
+
+  .section-block p,
+  .intro-box p {
+    color: #111827;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    margin-bottom: 1.25rem;
+  }
+
+  .section-block p:last-child,
+  .intro-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 991px) {
+    .hero-medieval {
+      padding: 2.2rem;
+    }
+
+    .hero-figure img {
+      height: 300px;
+    }
+
+    .page-aside {
+      position: static;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .medieval-img {
+      height: 170px;
+    }
+
+    .hero-medieval {
+      padding: 1.5rem;
+      border-radius: 20px;
+    }
+
+    .hero-title {
+      font-size: 2rem;
+    }
+
+    .hero-text {
+      font-size: 1rem;
+    }
+
+    .hero-chips {
+      gap: .5rem;
+    }
+
+    .hero-chips span {
+      font-size: .9rem;
+      padding: .45rem .8rem;
+    }
+
+    .hero-figure img {
+      height: 240px;
+    }
+
+    .section-block,
+    .intro-box {
+      padding: 1.35rem;
+    }
+
+    .section-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+    }
+  }
+</style>
+
+<section class="hero-medieval my-4">
+  <div class="row align-items-center g-5">
+    <div class="col-lg-7">
+      <div class="hero-badge mb-4">
+        Primer núcleo cristiano del norte peninsular
+      </div>
+
+      <h1 class="hero-title">
+        El Reino de Asturias: de Covadonga a la formación del Reino de León
+      </h1>
+
+      <p class="hero-text">
+        El Reino de Asturias surgió en las montañas cantábricas tras la conquista musulmana de la Península en 711. Desde el pequeño núcleo de resistencia vinculado a Don Pelayo y Covadonga, se consolidó progresivamente una entidad política cristiana que convirtió Oviedo en centro de poder, impulsó la repoblación hacia el valle del Duero y elaboró una memoria histórica que lo presentaba como heredero de la monarquía visigoda.
+      </p>
+
+      <div class="hero-chips">
+        <span>🛡️ Covadonga</span>
+        <span>👑 Don Pelayo</span>
+        <span>⛪ Oviedo</span>
+        <span>🌾 Repoblación</span>
+        <span>🏛️ Prerrománico asturiano</span>
+      </div>
+    </div>
+
+    <div class="col-lg-5">
+      <figure class="hero-figure">
+        <img src="{% static 'images/edad_media/reinos_cristianos/asturias/pelayo.jpg' %}"
+             alt="Don Pelayo y el Reino de Asturias"
+             class="img-fluid">
+
+        <figcaption>
+          Don Pelayo y Covadonga simbolizan el origen legendario e histórico del primer reino cristiano del norte peninsular.
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<div class="row g-4 mt-4 contenedor">
+  <div class="col-lg-4">
+    <aside class="page-aside">
+      <div class="aside-card">
+        <h5>En esta página</h5>
+
+        <nav class="aside-nav">
+          <a href="#introduccion">🧭 Introducción</a>
+          <a href="#invasion711">⚔️ La invasión musulmana (711)</a>
+          <a href="#covadonga">🛡️ La batalla de Covadonga</a>
+          <a href="#pelayo">👑 Don Pelayo</a>
+          <a href="#consolidacion">🏔️ Consolidación del reino</a>
+          <a href="#alfonsoII">⛪ Alfonso II y Oviedo</a>
+          <a href="#santiago">✨ El descubrimiento de Santiago</a>
+          <a href="#alfonsoIII">⚜️ Alfonso III el Magno</a>
+          <a href="#repoblacion">🌾 La repoblación del Duero</a>
+          <a href="#prerromanico">🏛️ Arte prerrománico asturiano</a>
+          <a href="#legado">📜 El legado del Reino de Asturias</a>
+          <a href="#leon">👑 Del Reino de Asturias al Reino de León</a>
+          <a href="#reyes">👑 Reyes de Asturias</a>
+        </nav>
+      </div>
+    </aside>
+  </div>
+
+  <div class="col-lg-8">
+    <main class="main-col">
+      <section id="introduccion">
+        <div class="section-head">
+          <span class="section-icon">📌</span>
+          <h3>Introducción</h3>
+        </div>
+
+        <div class="intro-box section-block">
+          <p>
+            El Reino de Asturias constituye el primer núcleo político cristiano estable surgido en la Península Ibérica tras la conquista musulmana iniciada en el año 711. Su formación no puede entenderse únicamente como la supervivencia de pequeños grupos refugiados en las montañas cantábricas, sino como el resultado de un complejo proceso de reorganización política, militar y cultural que permitió la aparición de una nueva entidad estatal en el extremo norte peninsular. Desde sus modestos orígenes en las abruptas tierras astures, el reino evolucionó hasta convertirse en el principal referente político de la resistencia cristiana y en el embrión de los futuros reinos de León y Castilla.
+          </p>
+
+          <p>
+            La rápida expansión islámica provocó el colapso del Reino Visigodo de Toledo, que había dominado la Península desde finales del siglo V. Sin embargo, la conquista no fue homogénea ni absoluta. Las regiones montañosas del norte, caracterizadas por una geografía difícil y por una limitada integración en las estructuras administrativas visigodas, ofrecieron un espacio favorable para la resistencia. En este contexto surgió la figura de Don Pelayo, personaje situado entre la historia y la tradición, cuya victoria sobre una expedición musulmana en Covadonga, tradicionalmente fechada en torno al año 722, fue interpretada por las crónicas posteriores como el acontecimiento fundacional del nuevo reino.
+          </p>
+
+          <p>
+            Aunque durante siglos la historiografía presentó Covadonga como el inicio de una empresa continua destinada a restaurar la España visigoda, las investigaciones actuales ofrecen una visión más matizada. Los primeros monarcas asturianos no actuaron inicialmente guiados por un proyecto de reconquista peninsular, sino por la necesidad de consolidar su autoridad sobre un territorio reducido y heterogéneo. Solo a partir del siglo IX, especialmente durante los reinados de Alfonso II y Alfonso III, la monarquía asturiana desarrolló una elaborada ideología política que la presentaba como heredera legítima de los reyes visigodos y depositaria de la continuidad cristiana frente al poder islámico de al-Ándalus.
+          </p>
+
+          <p>
+            La consolidación del Reino de Asturias coincidió con un período de crecimiento político y territorial. Los sucesivos monarcas ampliaron progresivamente sus dominios hacia Galicia, Cantabria y la cuenca del Duero, impulsando procesos de repoblación que transformaron profundamente el paisaje humano del norte peninsular. Paralelamente, Oviedo se convirtió en la capital del reino y en un importante centro religioso y cultural. La construcción de iglesias, palacios y monasterios dio lugar al denominado arte prerrománico asturiano, una de las manifestaciones artísticas más originales de la Europa altomedieval.
+          </p>
+
+          <p>
+            Especial relevancia tuvo el descubrimiento, a comienzos del siglo IX, de la supuesta tumba del apóstol Santiago en Compostela. Este acontecimiento proporcionó a la monarquía asturiana un poderoso instrumento de legitimación política y religiosa. La promoción del culto jacobeo vinculó al reino con el conjunto de la cristiandad occidental y favoreció el desarrollo de las futuras rutas de peregrinación que convertirían Santiago de Compostela en uno de los principales centros espirituales de Europa.
+          </p>
+
+          <p>
+            A finales del siglo IX, bajo el reinado de Alfonso III el Magno, el Reino de Asturias alcanzó su máxima expansión territorial y su mayor grado de madurez institucional. Sin embargo, las dificultades sucesorias y la creciente importancia estratégica de los territorios situados en la cuenca del Duero condujeron al traslado del centro político hacia León. En el año 910, tras la división del reino entre los hijos de Alfonso III, se produjo el nacimiento del Reino de León, heredero directo de las estructuras políticas, culturales e ideológicas desarrolladas durante la etapa asturiana.
+          </p>
+
+          <p>
+            La importancia histórica del Reino de Asturias trasciende ampliamente sus dimensiones territoriales. Más allá de los debates sobre el concepto de Reconquista o sobre la verdadera naturaleza de sus orígenes, el reino asturiano fue el principal foco de reorganización política cristiana en la Alta Edad Media peninsular. Su legado se proyectó sobre los siglos posteriores a través de las instituciones monárquicas leonesas, del desarrollo del Camino de Santiago y de una memoria histórica que desempeñó un papel fundamental en la construcción de la identidad política de los reinos cristianos medievales.
+          </p>
+        </div>
+      </section>
+      <section id="invasion711">
+        <div class="section-head mt-3">
+          <span class="section-icon">⚔️</span>
+          <h3>La invasión musulmana de 711</h3>
+        </div>
+
+        <div class="intro-box section-block">
+          <p>
+            La invasión musulmana de la Península Ibérica en el año 711 constituye el punto de partida imprescindible para comprender el nacimiento del Reino de Asturias. La entrada de las tropas dirigidas por Tariq ibn Ziyad, procedentes del norte de África, se produjo en un contexto de profunda crisis interna del Reino Visigodo de Toledo. La monarquía visigoda, debilitada por luchas sucesorias, rivalidades aristocráticas y una limitada capacidad de integración territorial, no pudo ofrecer una resistencia eficaz ante un ejército reducido pero bien organizado.
+          </p>
+
+          <p>
+            El enfrentamiento decisivo tuvo lugar en la batalla de Guadalete, tradicionalmente situada en el verano de 711. En ella fue derrotado el rey Rodrigo, último monarca visigodo reconocido por buena parte de la tradición histórica. Más allá de los problemas que plantea la reconstrucción exacta de la batalla, su consecuencia política fue clara: el hundimiento del poder central visigodo y la apertura de la Península a una rápida expansión islámica. En apenas unos años, las principales ciudades del antiguo reino —Toledo, Mérida, Zaragoza, Sevilla o Córdoba— pasaron a integrarse en el nuevo marco político de al-Ándalus.
+          </p>
+
+          <p>
+            La rapidez de la conquista no se explica solo por la fuerza militar musulmana. Fue también consecuencia de la fragmentación interna del reino visigodo y de la existencia de pactos locales entre los conquistadores y determinadas élites hispanovisigodas. En muchos territorios, la incorporación al dominio islámico no se produjo mediante una ocupación militar directa e inmediata, sino a través de acuerdos de capitulación que permitieron conservar propiedades, jerarquías locales y prácticas religiosas a cambio del reconocimiento de la nueva autoridad.
+          </p>
+
+          <p>
+            Sin embargo, la conquista no tuvo la misma intensidad en todas las regiones. Las zonas montañosas del norte peninsular, especialmente el área cantábrica, quedaron más débilmente integradas en las estructuras políticas de al-Ándalus. Su difícil orografía, su menor riqueza agrícola y urbana, y la presencia de comunidades locales con fuertes tradiciones de autonomía favorecieron la aparición de espacios de resistencia o de control musulmán muy limitado. En este contexto se explica el surgimiento del núcleo asturiano.
+          </p>
+
+          <p>
+            Asturias no nació inicialmente como un gran proyecto político de restauración peninsular, sino como una respuesta local a la descomposición del poder visigodo y a la expansión islámica. Las montañas cantábricas ofrecieron un refugio defensivo y un marco territorial desde el que determinadas élites locales pudieron reorganizar su autoridad. La figura de Don Pelayo, vinculada por la tradición a la aristocracia visigoda o a las élites astures, simboliza precisamente esa transición entre el colapso del reino de Toledo y la formación de un nuevo poder cristiano en el norte.
+          </p>
+
+          <p>
+            La invasión de 711 fue, por tanto, mucho más que un acontecimiento militar. Supuso una ruptura política de enorme profundidad: desapareció la monarquía visigoda, se constituyó al-Ándalus como nuevo espacio de poder islámico y se crearon las condiciones para que, en las regiones septentrionales, surgieran nuevos núcleos cristianos independientes. Entre ellos, el Reino de Asturias fue el primero en alcanzar estabilidad dinástica, proyección territorial y una ideología política propia.
+          </p>
+        </div>
+      </section>
+      <section id="covadonga">
+        <div class="section-head">
+          <span class="section-icon mt-3">🛡️</span>
+          <h3>La batalla de Covadonga</h3>
+        </div>
+
+        <div class="intro-box section-block">
+          <p>
+            La batalla de Covadonga ocupa un lugar central en la memoria histórica del Reino de Asturias. Tradicionalmente fechada en torno al año 722, fue presentada por las crónicas cristianas posteriores como el primer gran triunfo frente al poder islámico y como el acontecimiento fundacional de la monarquía asturiana. Sin embargo, desde una perspectiva histórica actual, Covadonga debe entenderse más como un episodio de resistencia local en un territorio montañoso de difícil control que como una batalla de grandes dimensiones.
+          </p>
+
+          <p>
+            El enfrentamiento tuvo lugar en el contexto de la expansión musulmana por el norte peninsular tras la conquista de 711. Aunque al-Ándalus logró dominar las principales ciudades y vías de comunicación de la antigua Hispania visigoda, el control efectivo sobre las áreas cantábricas fue mucho más limitado. La orografía abrupta, la dispersión de los núcleos de población y la escasa rentabilidad económica de la zona dificultaban una presencia militar permanente.
+          </p>
+
+          <p>
+            Según la tradición, Don Pelayo, convertido en jefe de un pequeño grupo rebelde, se refugió en el entorno de Covadonga y resistió allí una expedición musulmana enviada para someter la región. Las fuentes cristianas, especialmente la Crónica de Alfonso III, magnificaron el episodio y lo dotaron de un claro significado providencial: la victoria habría demostrado la protección divina sobre el nuevo reino y la continuidad de la legitimidad cristiana tras el hundimiento visigodo.
+          </p>
+
+          <p>
+            Las fuentes musulmanas, por el contrario, conceden al episodio una importancia mucho menor. Algunas lo presentan como una escaramuza contra un reducido grupo de montañeses refugiados en zonas marginales. Esta diferencia entre las tradiciones documentales muestra cómo Covadonga fue adquiriendo progresivamente un valor simbólico mucho mayor que su posible dimensión militar inicial.
+          </p>
+
+          <p>
+            La importancia real de Covadonga no reside tanto en el número de combatientes ni en la magnitud táctica del enfrentamiento, sino en sus consecuencias políticas. La resistencia astur permitió consolidar un núcleo de poder independiente en torno a Pelayo y sus sucesores. A partir de ese momento, la monarquía asturiana fue construyendo una autoridad cada vez más estable sobre el territorio cantábrico, primero de forma limitada y después con creciente capacidad expansiva.
+          </p>
+
+          <p>
+            Covadonga se convirtió así en un mito político de enorme fuerza. Para los reyes asturianos de los siglos IX y X, el episodio permitió presentar el origen del reino como una restauración providencial del poder cristiano. Para la historiografía medieval posterior, fue interpretado como el inicio de la Reconquista. Hoy, más que como una gran batalla decisiva, Covadonga se comprende como un hecho histórico rodeado de memoria, propaganda política y construcción ideológica.
+          </p>
+        </div>
+      </section>
+      <section id="pelayo">
+        <div class="section-head">
+          <span class="section-icon mt-3">👑</span>
+          <h3>Don Pelayo</h3>
+        </div>
+
+        <div class="intro-box section-block">
+          <p>
+            Don Pelayo es una de las figuras más emblemáticas de la historia medieval española y el personaje tradicionalmente asociado al nacimiento del Reino de Asturias. Aunque los detalles de su vida están rodeados de incertidumbre y las fuentes contemporáneas son escasas, la memoria histórica lo convirtió en el primer monarca de la resistencia cristiana frente al avance islámico y en el fundador de una nueva dinastía que acabaría dando origen a los reinos cristianos del norte peninsular.
+          </p>
+
+          <p>
+            Las crónicas redactadas durante los siglos IX y X presentan a Pelayo como un noble de origen visigodo vinculado a la corte del Reino de Toledo. Según estas fuentes, tras la conquista musulmana de 711 se refugió en las montañas asturianas, donde logró reunir a diversos grupos locales descontentos con el nuevo dominio islámico. Sin embargo, los historiadores actuales consideran que su figura debe interpretarse en el contexto de una sociedad fronteriza donde convivían tradiciones indígenas astures, elementos de la aristocracia hispanovisigoda y nuevas realidades políticas surgidas tras la desaparición del reino visigodo.
+          </p>
+
+          <p>
+            La tradición atribuye a Don Pelayo el liderazgo de la resistencia que culminó en la batalla de Covadonga. Más allá de la dimensión exacta de aquel enfrentamiento, el episodio tuvo una enorme importancia simbólica porque permitió consolidar un núcleo político independiente en las montañas cantábricas. A partir de entonces, Pelayo se convirtió en la referencia de una nueva autoridad que, aunque limitada territorialmente, logró sobrevivir en un contexto de profundas transformaciones políticas.
+          </p>
+
+          <p>
+            Las fuentes medievales describen a Pelayo no solo como un caudillo militar, sino también como el restaurador de la legitimidad cristiana tras el colapso del Reino Visigodo. Esta interpretación fue impulsada especialmente por los monarcas asturianos del siglo IX, que necesitaban construir una genealogía prestigiosa para reforzar su autoridad. Presentar a Pelayo como heredero de la tradición visigoda permitía vincular la monarquía asturiana con el pasado político de Hispania y legitimar sus aspiraciones de expansión.
+          </p>
+
+          <p>
+            Durante su reinado, generalmente situado entre los años 718 y 737, el poder de Pelayo estuvo limitado a una parte del territorio asturiano. No obstante, su principal logro consistió en garantizar la supervivencia de un núcleo político autónomo capaz de resistir la presión de al-Ándalus. Esta continuidad permitió que sus sucesores desarrollaran estructuras de gobierno más complejas y ampliaran progresivamente el territorio bajo su control.
+          </p>
+
+          <p>
+            La figura de Don Pelayo adquirió una dimensión legendaria a lo largo de la Edad Media y de la Edad Moderna. Fue presentado como héroe nacional, defensor de la fe cristiana y símbolo de la resistencia frente a la invasión musulmana. Aunque la historiografía contemporánea distingue entre el personaje histórico y la construcción legendaria posterior, su importancia sigue siendo indiscutible. Pelayo representa el punto de partida de una experiencia política que acabaría desempeñando un papel fundamental en la configuración de los reinos cristianos medievales y, en última instancia, en la historia de España.
+          </p>
+        </div>
+      </section>
+      <section id="consolidacion">
+        <div class="section-head">
+          <span class="section-icon mt-3">🏔️</span>
+          <h3>La consolidación del Reino de Asturias</h3>
+        </div>
+
+        <div class="intro-box section-block">
+          <p>
+            Tras la etapa fundacional protagonizada por Don Pelayo y la resistencia de Covadonga, el principal desafío para los primeros monarcas asturianos fue garantizar la supervivencia y estabilidad del nuevo reino. Durante las décadas centrales del siglo VIII, Asturias pasó de ser un reducido núcleo de poder localizado en las montañas cantábricas a convertirse en una entidad política cada vez más organizada y capaz de proyectar su autoridad sobre amplios territorios del norte peninsular.
+          </p>
+
+          <p>
+            El proceso de consolidación comenzó bajo los sucesores inmediatos de Pelayo. Su hijo Favila gobernó brevemente entre los años 737 y 739, siendo sucedido por Alfonso I, considerado uno de los verdaderos artífices de la expansión del reino. Alfonso I aprovechó las dificultades internas que atravesaba al-Ándalus y las campañas militares desarrolladas por los musulmanes en otras regiones para extender la influencia asturiana sobre Galicia, Cantabria y diversos territorios situados al sur de la Cordillera Cantábrica.
+          </p>
+
+          <p>
+            Durante este período se produjo un fenómeno de enorme importancia histórica: la creación de una amplia zona fronteriza escasamente poblada entre el núcleo asturiano y las tierras controladas por al-Ándalus. Tradicionalmente conocida como el «desierto estratégico del Duero», esta franja actuó como espacio defensivo natural frente a posibles incursiones musulmanas y favoreció la seguridad del joven reino. Aunque la idea de un territorio completamente despoblado ha sido matizada por la investigación reciente, resulta evidente que la densidad demográfica de estas regiones disminuyó considerablemente durante los siglos VIII y IX.
+          </p>
+
+          <p>
+            Paralelamente, la monarquía asturiana fue desarrollando instituciones de gobierno más estables. Los reyes consolidaron su autoridad sobre las élites locales, organizaron la administración del territorio y fortalecieron sus vínculos con la Iglesia. Esta colaboración resultó esencial para legitimar el poder real y para difundir la imagen del reino como heredero de la tradición cristiana hispanovisigoda. La Iglesia, a su vez, encontró en la monarquía un instrumento de protección y expansión en una época marcada por la inestabilidad política.
+          </p>
+
+          <p>
+            Un papel destacado correspondió también a la construcción de una ideología monárquica propia. Los cronistas asturianos comenzaron a presentar a sus soberanos como continuadores legítimos de los reyes visigodos de Toledo. Esta visión no respondía únicamente a una interpretación histórica, sino a una necesidad política: reforzar la legitimidad de una dinastía relativamente reciente mediante su vinculación con el prestigioso pasado visigodo. De este modo, el Reino de Asturias dejó de percibirse como una simple resistencia regional para convertirse en el representante legítimo de la continuidad política cristiana en la Península.
+          </p>
+
+          <p>
+            La consolidación territorial y política alcanzó una nueva dimensión durante el reinado de Alfonso II el Casto (791-842). Bajo su gobierno, Oviedo se convirtió en la capital estable del reino y en un importante centro religioso y administrativo. Además, el descubrimiento de la supuesta tumba del apóstol Santiago en Compostela fortaleció enormemente el prestigio internacional de la monarquía asturiana y favoreció su integración en la Europa cristiana.
+          </p>
+
+          <p>
+            A comienzos del siglo IX, el Reino de Asturias había dejado atrás su carácter de pequeño enclave montañoso para convertirse en la principal potencia cristiana del norte peninsular. La consolidación de sus instituciones, la expansión de sus fronteras, el fortalecimiento de la autoridad monárquica y la elaboración de una identidad política propia sentaron las bases para el posterior desarrollo del Reino de León y para la expansión de los reinos cristianos durante los siglos siguientes.
+          </p>
+        </div>
+      </section>
+      <section id="alfonsoII">
+        <div class="section-head">
+          <span class="section-icon mt-3">⛪</span>
+          <h3>Alfonso II y la consolidación de Oviedo como capital del reino</h3>
+        </div>
+
+        <div class="intro-box section-block">
+          <p>
+            El reinado de Alfonso II el Casto (791-842) marcó un punto de inflexión en la historia del Reino de Asturias. Bajo su gobierno, la monarquía asturiana dejó de ser únicamente un poder regional surgido en las montañas cantábricas para convertirse en una entidad política plenamente consolidada, dotada de una capital estable, una administración más compleja y una creciente proyección internacional. Por ello, muchos historiadores consideran que fue durante su reinado cuando el Reino de Asturias alcanzó su auténtica madurez política.
+          </p>
+
+          <p>
+            Alfonso II accedió al trono en un período de importantes desafíos internos y externos. Al-Ándalus continuaba siendo una potencia militar muy superior en recursos y población, mientras que las luchas sucesorias habían generado tensiones dentro de la propia monarquía asturiana. Frente a estas dificultades, el rey desarrolló una política destinada a reforzar la autoridad real y a dotar al reino de una estructura institucional más sólida.
+          </p>
+
+          <p>
+            Uno de sus principales logros fue la consolidación definitiva de Oviedo como capital política y religiosa del reino. Fundada por su padre, Fruela I, la ciudad adquirió bajo Alfonso II una importancia extraordinaria. Allí se establecieron la corte, los principales órganos de gobierno y un conjunto de edificios religiosos y palaciegos que transformaron a Oviedo en el centro político de la monarquía asturiana. La ciudad se convirtió en un símbolo de estabilidad y en la expresión visible del fortalecimiento del poder regio.
+          </p>
+
+          <p>
+            Alfonso II impulsó un ambicioso programa constructivo que dio lugar a algunas de las obras más destacadas del arte prerrománico asturiano. Entre ellas sobresalen la iglesia de San Tirso, la Cámara Santa y diversos edificios vinculados al complejo palatino de Oviedo. Estas construcciones no solo respondían a necesidades religiosas o administrativas, sino que constituían también una manifestación del prestigio y la legitimidad de la monarquía.
+          </p>
+
+          <p>
+            Durante su reinado se desarrolló además una intensa labor ideológica destinada a vincular el Reino de Asturias con la desaparecida monarquía visigoda. La corte ovetense promovió la elaboración de crónicas y discursos políticos que presentaban a los reyes asturianos como herederos legítimos de los monarcas de Toledo. Esta continuidad visigoda proporcionaba una base de legitimidad a la expansión del reino y reforzaba su papel como principal referente político de la cristiandad peninsular.
+          </p>
+
+          <p>
+            El acontecimiento más trascendental del reinado fue, sin duda, el descubrimiento de la supuesta tumba del apóstol Santiago en Compostela, tradicionalmente fechado en torno al año 820. Alfonso II fue el primer monarca que acudió al lugar para venerar las reliquias, convirtiéndose simbólicamente en el primer peregrino jacobeo. Este hecho tuvo enormes consecuencias políticas y religiosas, ya que permitió situar al Reino de Asturias en el mapa espiritual de la Europa cristiana.
+          </p>
+
+          <p>
+            Las relaciones con el Imperio Carolingio también adquirieron una nueva dimensión durante esta etapa. Aunque Asturias permaneció independiente, la corte de Oviedo mantuvo contactos diplomáticos con el entorno de Carlomagno y sus sucesores. Estos vínculos reforzaron el prestigio internacional del reino y facilitaron su integración en las redes políticas y culturales de la Europa occidental cristiana.
+          </p>
+
+          <p>
+            Cuando Alfonso II murió en el año 842, dejó un reino más extenso, más organizado y mucho más respetado que el que había heredado. Oviedo se había consolidado como capital política y religiosa, la ideología neovisigoda estaba plenamente desarrollada y el culto jacobeo comenzaba a proyectar la influencia asturiana más allá de la Península. Su reinado constituye, por tanto, uno de los momentos decisivos en la construcción del Reino de Asturias y en la configuración de la futura España medieval.
+          </p>
+        </div>
+      </section>
+      <section id="santiago">
+        <div class="section-head">
+          <span class="section-icon mt-3">✨</span>
+          <h3>El descubrimiento de la tumba del apóstol Santiago</h3>
+        </div>
+
+        <div class="intro-box section-block">
+          <p>
+            Uno de los acontecimientos más trascendentales de la historia del Reino de Asturias fue el descubrimiento de la supuesta tumba del apóstol Santiago el Mayor en el primer tercio del siglo IX. Más allá de su dimensión religiosa, este hallazgo tuvo profundas consecuencias políticas, culturales y diplomáticas, contribuyendo decisivamente a reforzar el prestigio de la monarquía asturiana y a integrar el reino en el conjunto de la cristiandad occidental.
+          </p>
+
+          <p>
+            Según la tradición recogida en fuentes medievales, hacia el año 820 un ermitaño llamado Pelayo observó durante varias noches unas luces misteriosas sobre un bosque situado en las proximidades de Iria Flavia, en la actual Galicia. El fenómeno fue comunicado al obispo Teodomiro, quien ordenó investigar el lugar. Allí se descubrió un antiguo sepulcro que fue identificado como la tumba del apóstol Santiago el Mayor, uno de los discípulos más cercanos de Jesucristo. El lugar recibió el nombre de <em>Campus Stellae</em> («Campo de la Estrella»), origen tradicional del topónimo Compostela.
+          </p>
+
+          <p>
+            La identificación de aquellas reliquias como pertenecientes al apóstol no puede ser demostrada históricamente. De hecho, continúa siendo objeto de debate entre historiadores y arqueólogos. Sin embargo, lo verdaderamente relevante desde una perspectiva histórica es que la noticia fue aceptada por la Iglesia y por la monarquía asturiana, convirtiéndose rápidamente en un poderoso instrumento de legitimación religiosa y política.
+          </p>
+
+          <p>
+            Alfonso II el Casto comprendió inmediatamente la importancia del hallazgo. El monarca se desplazó personalmente hasta Compostela para venerar las reliquias, siendo considerado tradicionalmente el primer peregrino jacobeo. Su apoyo permitió consolidar el culto al apóstol y reforzó la vinculación entre la monarquía asturiana y la protección divina. En un momento en que el reino buscaba afirmar su legitimidad frente al poderoso emirato de Córdoba, disponer de la tumba de uno de los apóstoles de Cristo suponía una ventaja simbólica extraordinaria.
+          </p>
+
+          <p>
+            El descubrimiento tuvo además una enorme repercusión internacional. Santiago de Compostela pasó a convertirse progresivamente en uno de los principales centros de peregrinación de la cristiandad, junto a Roma y Jerusalén. Miles de peregrinos procedentes de Francia, Italia, Alemania, Inglaterra y otros territorios europeos comenzaron a recorrer los caminos que conducían al santuario gallego, favoreciendo el intercambio cultural, económico y artístico entre la Península Ibérica y el resto de Europa.
+          </p>
+
+          <p>
+            El desarrollo de las peregrinaciones impulsó la construcción de monasterios, hospitales, puentes, iglesias y nuevas poblaciones a lo largo de las rutas jacobeas. Este fenómeno contribuyó decisivamente a la difusión del arte románico, a la llegada de nuevas corrientes culturales y al fortalecimiento de las relaciones entre los reinos cristianos peninsulares y el mundo europeo. El Camino de Santiago se convirtió así en una auténtica vía de comunicación espiritual y cultural que transformó profundamente la sociedad medieval.
+          </p>
+
+          <p>
+            Desde el punto de vista político, el culto jacobeo reforzó la posición del Reino de Asturias como principal referente de la resistencia cristiana en la Península. Las crónicas de la época comenzaron a presentar al apóstol Santiago como protector de los reinos cristianos y defensor de la fe frente al islam. Esta asociación alcanzaría una enorme relevancia durante los siglos posteriores, cuando la figura de Santiago Matamoros pasó a ocupar un lugar destacado en el imaginario medieval hispánico.
+          </p>
+
+          <p>
+            El descubrimiento de la tumba compostelana constituye, por tanto, uno de los acontecimientos más influyentes de la Edad Media europea. Para el Reino de Asturias significó una fuente incomparable de prestigio religioso y legitimidad política; para Europa, el nacimiento de uno de los grandes centros de peregrinación cristiana. Su impacto fue tan profundo que todavía hoy el Camino de Santiago continúa siendo uno de los principales símbolos del patrimonio histórico y cultural del continente.
+          </p>
+        </div>
+      </section>
+      <section id="alfonsoIII">
+        <div class="section-head">
+          <span class="section-icon mt-3">⚜️</span>
+          <h3>Alfonso III el Magno</h3>
+        </div>
+
+        <div class="intro-box section-block">
+          <p>
+            Alfonso III (866-910), conocido por la historiografía como <strong>Alfonso III el Magno</strong>, fue el último gran monarca del Reino de Asturias y uno de los gobernantes más importantes de la Alta Edad Media peninsular. Bajo su reinado, el reino alcanzó su máxima expansión territorial, consolidó sus estructuras políticas y desarrolló una elaborada ideología que lo presentaba como heredero legítimo de la monarquía visigoda. Su gobierno representa el momento culminante de la historia asturiana antes del traslado definitivo del centro político a León.
+          </p>
+
+          <p>
+            Alfonso III accedió al trono en un contexto complejo, marcado por conflictos internos y por la constante rivalidad con el Emirato de Córdoba. A pesar de estas dificultades, demostró una notable capacidad política y militar. Durante sus más de cuarenta años de reinado fortaleció la autoridad de la monarquía, sofocó rebeliones nobiliarias y aseguró la estabilidad interna necesaria para impulsar la expansión territorial del reino.
+          </p>
+
+          <p>
+            Uno de los rasgos más destacados de su gobierno fue la ampliación de las fronteras hacia el sur. Aprovechando los problemas internos de al-Ándalus, las fuerzas asturianas avanzaron hasta la cuenca del río Duero, ocupando y reorganizando importantes territorios que habían quedado escasamente poblados durante las décadas anteriores. Ciudades como León, Astorga, Zamora o Simancas adquirieron una importancia estratégica creciente dentro del proceso de expansión cristiana.
+          </p>
+
+          <p>
+            Este avance estuvo acompañado por una intensa política de repoblación. Colonos procedentes de las montañas cantábricas, Galicia y otros territorios del norte se establecieron en las nuevas tierras incorporadas al reino. La repoblación permitió reforzar la defensa de la frontera, impulsar la actividad económica y consolidar la presencia cristiana en regiones que durante siglos habían constituido una zona de contacto entre los dominios asturianos y al-Ándalus.
+          </p>
+
+          <p>
+            Desde el punto de vista ideológico, el reinado de Alfonso III resultó fundamental para la construcción de la memoria histórica del reino. Durante esta etapa se redactaron importantes crónicas, como la <em>Crónica Albeldense</em> y las distintas versiones de la <em>Crónica de Alfonso III</em>, que presentaban a la monarquía asturiana como continuadora directa del Reino Visigodo de Toledo. Estas obras no solo relataban acontecimientos históricos, sino que buscaban legitimar el poder regio y justificar la expansión territorial mediante la idea de restauración del antiguo orden cristiano.
+          </p>
+
+          <p>
+            La actividad constructiva también alcanzó un notable desarrollo. Aunque el gran impulso del arte prerrománico había comenzado en reinados anteriores, durante la época de Alfonso III se levantaron nuevas iglesias y monasterios que reflejaban el creciente poder de la monarquía. Estas construcciones constituyen una de las manifestaciones artísticas más originales de la Europa altomedieval y simbolizan el florecimiento cultural alcanzado por el reino.
+          </p>
+
+          <p>
+            Sin embargo, los últimos años de su reinado estuvieron marcados por problemas sucesorios y tensiones familiares. Sus hijos se rebelaron contra él y terminaron forzando su abdicación en el año 910. Tras su muerte, el reino fue dividido entre sus herederos, lo que supuso el traslado del centro político hacia León y el inicio de una nueva etapa histórica. Aunque la dinastía continuó gobernando, el Reino de Asturias desapareció como entidad política independiente.
+          </p>
+
+          <p>
+            La figura de Alfonso III ocupa un lugar destacado en la historia medieval española porque bajo su gobierno el Reino de Asturias alcanzó su máximo desarrollo territorial, político y cultural. Su reinado consolidó las bases institucionales que heredaría el Reino de León y contribuyó decisivamente a configurar la identidad de los futuros reinos cristianos de la Península. Por ello, la historiografía lo considera con justicia el más grande de los monarcas asturianos y el verdadero arquitecto de la madurez política del reino.
+          </p>
+        </div>
+      </section>
+      <section id="repoblacion">
+        <div class="section-head">
+          <span class="section-icon mt-3">🌾</span>
+          <h3>La repoblación del valle del Duero</h3>
+        </div>
+
+        <div class="intro-box section-block">
+          <p>
+            Uno de los procesos más importantes en la consolidación del Reino de Asturias fue la repoblación de los territorios situados al sur de la Cordillera Cantábrica, especialmente en la cuenca del río Duero. Este fenómeno, desarrollado entre los siglos VIII y X, transformó profundamente el paisaje humano, económico y político del norte peninsular y permitió sentar las bases de la futura expansión de los reinos cristianos hacia el sur.
+          </p>
+
+          <p>
+            Tras la conquista musulmana de 711 y las posteriores campañas militares desarrolladas tanto por al-Ándalus como por los primeros monarcas asturianos, amplias zonas de la Meseta Norte experimentaron una notable reducción de población. Durante mucho tiempo, la historiografía interpretó esta situación como la existencia de un auténtico «desierto estratégico» entre el Duero y la Cordillera Cantábrica. Las investigaciones actuales han matizado esta visión, demostrando que la región nunca quedó completamente despoblada, aunque sí sufrió una importante disminución demográfica y una notable fragmentación de los asentamientos.
+          </p>
+
+          <p>
+            A medida que el Reino de Asturias fortalecía sus fronteras y ampliaba su influencia territorial, surgió la necesidad de ocupar de forma estable estas tierras. La repoblación perseguía varios objetivos simultáneos. Desde el punto de vista militar, permitía reforzar la defensa de la frontera frente a posibles incursiones procedentes de al-Ándalus. Desde una perspectiva económica, favorecía la explotación agrícola y ganadera de extensos territorios hasta entonces poco aprovechados. Finalmente, desde el plano político, contribuía a extender la autoridad de la monarquía sobre regiones cada vez más amplias.
+          </p>
+
+          <p>
+            Los nuevos pobladores procedían principalmente de Asturias, Galicia, Cantabria y otras regiones del norte peninsular. Junto a ellos también participaron comunidades mozárabes llegadas desde al-Ándalus, grupos de origen vasco y poblaciones locales que habían permanecido en la región. Esta diversidad contribuyó a crear una sociedad fronteriza dinámica y heterogénea, caracterizada por una notable capacidad de adaptación y por una fuerte vinculación con el territorio.
+          </p>
+
+          <p>
+            Las repoblaciones adoptaron distintas formas según las circunstancias de cada zona. En algunos casos fueron impulsadas directamente por la monarquía, que organizaba el asentamiento de comunidades enteras y otorgaba privilegios para favorecer su instalación. En otros, la iniciativa partió de nobles, monasterios o grupos de campesinos que ocupaban tierras abandonadas mediante el sistema conocido como <em>presura</em> o <em>aprisio</em>. Este mecanismo permitía adquirir derechos sobre terrenos previamente desocupados mediante su puesta en cultivo.
+          </p>
+
+          <p>
+            Durante los siglos IX y X surgieron o fueron reorganizadas importantes ciudades y núcleos defensivos como León, Astorga, Zamora, Toro, Simancas, Salamanca o Burgos. Estas poblaciones se convirtieron en centros de administración, comercio y defensa, desempeñando un papel fundamental en la consolidación del dominio cristiano sobre la Meseta Norte.
+          </p>
+
+          <p>
+            La repoblación tuvo también profundas consecuencias sociales. Los colonos recibían frecuentemente tierras y ciertos privilegios que favorecían la aparición de comunidades relativamente autónomas. Este proceso contribuyó al desarrollo de concejos y fueros locales, instituciones que desempeñarían un papel esencial en la organización política de los reinos cristianos durante los siglos posteriores.
+          </p>
+
+          <p>
+            La ocupación del valle del Duero representó mucho más que un simple movimiento demográfico. Constituyó una auténtica transformación territorial que permitió al Reino de Asturias abandonar definitivamente su condición de pequeño reino montañoso para convertirse en una potencia capaz de proyectar su influencia sobre la Meseta. Gracias a la repoblación, se consolidaron las bases económicas, militares y humanas que harían posible la expansión de los reinos de León y Castilla durante la Plena Edad Media.
+          </p>
+        </div>
+      </section>
+      <section id="prerromanico">
+        <div class="section-head">
+          <span class="section-icon mt-3">🏛️</span>
+          <h3>El arte prerrománico asturiano</h3>
+        </div>
+
+        <div class="intro-box section-block">
+          <p>
+            El arte prerrománico asturiano constituye una de las manifestaciones artísticas más originales y singulares de la Europa altomedieval. Desarrollado entre los siglos VIII y X bajo el patrocinio de los monarcas del Reino de Asturias, este estilo arquitectónico surgió en un contexto de consolidación política y de afirmación ideológica de la monarquía asturiana. Más allá de su valor artístico, estas construcciones reflejan la voluntad de los reyes de presentarse como herederos legítimos de la tradición visigoda y como representantes de la continuidad cristiana en la Península Ibérica tras la conquista musulmana.
+          </p>
+
+          <p>
+            El prerrománico asturiano no fue una simple continuación del arte visigodo ni una copia de modelos extranjeros. Aunque recibió influencias procedentes de la arquitectura tardoantigua, visigoda, carolingia e incluso bizantina, desarrolló soluciones propias que le otorgaron una personalidad única. La utilización de bóvedas de cañón reforzadas mediante arcos fajones, la presencia de cámaras superiores, la riqueza decorativa de capiteles y celosías, así como el empleo de contrafuertes exteriores, constituyen algunos de sus rasgos más característicos.
+          </p>
+
+          <p>
+            La evolución del estilo estuvo estrechamente ligada a los distintos reinados asturianos. Durante la etapa de Alfonso II el Casto (791-842), Oviedo se convirtió en el principal centro artístico del reino. En esta época se construyeron importantes edificios religiosos como San Tirso y la Cámara Santa, concebidos no solo como espacios de culto, sino también como símbolos del poder regio y de la legitimidad de la monarquía.
+          </p>
+
+          <p>
+            El período de máximo esplendor se alcanzó bajo el reinado de Ramiro I (842-850). A esta etapa pertenecen algunas de las obras más extraordinarias de la arquitectura medieval europea. Entre ellas destaca Santa María del Naranco, originalmente concebida como residencia palaciega real y transformada posteriormente en iglesia. Su extraordinaria armonía arquitectónica, la elegancia de sus proporciones y la calidad de sus soluciones constructivas la convierten en una de las joyas del patrimonio artístico español.
+          </p>
+
+          <p>
+            Junto a ella sobresale San Miguel de Lillo, situada en las proximidades del Naranco. Aunque solo se conserva una parte del edificio original, sigue siendo una muestra excepcional del refinamiento alcanzado por la arquitectura asturiana. Sus relieves decorativos, la complejidad de sus estructuras y la calidad de su ejecución reflejan el elevado nivel técnico de los talleres que trabajaban al servicio de la monarquía.
+          </p>
+
+          <p>
+            Otra obra fundamental es Santa Cristina de Lena, considerada una de las iglesias más originales del período. Su planta singular y la presencia de elementos inspirados en la tradición visigoda evidencian la capacidad de los arquitectos asturianos para combinar influencias diversas y crear soluciones innovadoras. El edificio constituye además un excelente ejemplo de la estrecha relación existente entre arquitectura, liturgia y poder político en la Alta Edad Media.
+          </p>
+
+          <p>
+            Durante el reinado de Alfonso III el Magno (866-910), el prerrománico asturiano alcanzó su última fase de desarrollo. A este período pertenecen monumentos tan destacados como San Salvador de Valdediós, conocido popularmente como «El Conventín». En estas construcciones se aprecia una creciente complejidad arquitectónica y una evolución que anticipa algunos elementos que más tarde serían característicos del arte románico.
+          </p>
+
+          <p>
+            El valor histórico del prerrománico asturiano trasciende el ámbito artístico. Estos edificios fueron instrumentos de representación del poder monárquico y expresiones materiales de la identidad política del Reino de Asturias. Sus iglesias y palacios simbolizaban la estabilidad alcanzada por la monarquía, la protección divina sobre el reino y la continuidad de la tradición cristiana hispánica.
+          </p>
+
+          <p>
+            En la actualidad, el conjunto monumental prerrománico de Oviedo y del Monte Naranco está reconocido como Patrimonio de la Humanidad por la UNESCO. Su conservación permite comprender no solo la evolución del arte medieval europeo, sino también el proceso de consolidación del Reino de Asturias y el papel fundamental que desempeñó en la configuración de los futuros reinos cristianos de la Península Ibérica.
+          </p>
+        </div>
+      </section>
+      <section id="legado">
+        <div class="section-head">
+          <span class="section-icon mt-3">📜</span>
+          <h3>El legado del Reino de Asturias</h3>
+        </div>
+
+        <div class="intro-box section-block">
+          <p>
+            Aunque el Reino de Asturias desapareció como entidad política independiente en el año 910 con el traslado de la capital a León, su influencia se proyectó durante siglos sobre la historia de la Península Ibérica. Lejos de constituir un episodio aislado, la experiencia asturiana sentó las bases políticas, culturales, religiosas e ideológicas de los futuros reinos cristianos medievales. Su legado fue determinante en la configuración de León, Castilla y, en última instancia, de la España medieval.
+          </p>
+
+          <p>
+            Desde el punto de vista político, el principal legado del Reino de Asturias fue la creación de una monarquía estable capaz de sobrevivir al colapso del Reino Visigodo y de construir nuevas estructuras de poder en el norte peninsular. Los reyes asturianos desarrollaron una administración cada vez más compleja, fortalecieron la autoridad de la Corona y establecieron una dinastía cuya continuidad sería heredada directamente por el Reino de León. Cuando la corte se trasladó a León a comienzos del siglo X, no se produjo una ruptura institucional, sino una evolución natural de un proyecto político iniciado en las montañas cantábricas dos siglos antes.
+          </p>
+
+          <p>
+            La ideología política elaborada por la monarquía asturiana tuvo igualmente una enorme trascendencia. Los cronistas de los siglos IX y X presentaron a los reyes asturianos como legítimos sucesores de la monarquía visigoda de Toledo. Esta idea de continuidad permitió dotar de legitimidad histórica a la expansión territorial de los reinos cristianos y contribuyó a la construcción de una memoria colectiva que tendría una influencia duradera en la historiografía medieval y moderna. Aunque la visión actual de la llamada Reconquista es mucho más compleja y matizada, resulta innegable que muchos de sus fundamentos ideológicos nacieron en la corte asturiana.
+          </p>
+
+          <p>
+            El Reino de Asturias dejó también una profunda huella cultural y religiosa. La promoción del culto a Santiago y el descubrimiento de la supuesta tumba apostólica en Compostela transformaron el noroeste peninsular en uno de los grandes centros espirituales de Europa. El Camino de Santiago, cuyo desarrollo comenzó durante la época asturiana, se convirtió en una de las principales vías de comunicación, intercambio cultural y difusión artística del continente durante toda la Edad Media.
+          </p>
+
+          <p>
+            En el ámbito artístico, el prerrománico asturiano constituye una de las aportaciones más originales de la Europa altomedieval. Monumentos como Santa María del Naranco, San Miguel de Lillo, Santa Cristina de Lena o San Salvador de Valdediós representan una síntesis única de influencias visigodas, carolingias y locales. Estas construcciones no solo reflejan el poder de la monarquía asturiana, sino que anticipan algunas de las soluciones arquitectónicas que más tarde caracterizarían al arte románico.
+          </p>
+
+          <p>
+            La expansión territorial impulsada por los monarcas asturianos y la repoblación del valle del Duero crearon además las condiciones necesarias para el desarrollo posterior de los grandes reinos cristianos peninsulares. Las nuevas ciudades, los sistemas de organización local y las comunidades de colonos asentadas en las tierras fronterizas se convertirían en elementos fundamentales de la estructura política y social de León y Castilla durante los siglos siguientes.
+          </p>
+
+          <p>
+            Más allá de sus realizaciones políticas y culturales, el Reino de Asturias ocupa un lugar singular en la memoria histórica española. Desde la Edad Media fue considerado el primer foco de resistencia frente a la conquista musulmana y el punto de partida de la expansión cristiana. Esta interpretación, reforzada por la tradición historiográfica posterior, convirtió a Covadonga, Don Pelayo y los primeros monarcas asturianos en símbolos de enorme relevancia para la construcción de las identidades históricas peninsulares.
+          </p>
+
+          <p>
+            El verdadero legado del Reino de Asturias reside, por tanto, en haber creado un marco político duradero en un momento de profunda transformación histórica. Desde las montañas cantábricas surgió una monarquía capaz de proyectarse sobre la mayor parte de la Península, de integrarse en la Europa cristiana y de transmitir a las generaciones posteriores una herencia institucional, cultural y simbólica que marcaría el desarrollo de la Edad Media hispánica. Pocos reinos tuvieron una influencia tan decisiva partiendo de unos orígenes tan modestos.
+          </p>
+        </div>
+      </section>
+      <section id="leon">
+        <div class="section-head">
+          <span class="section-icon mt-3">👑</span>
+          <h3>Del Reino de Asturias al Reino de León</h3>
+        </div>
+
+        <div class="intro-box section-block">
+          <p>
+            La transformación del Reino de Asturias en el Reino de León constituye uno de los procesos políticos más importantes de la Alta Edad Media peninsular. Lejos de representar la desaparición de una entidad y la creación de otra completamente nueva, este cambio fue el resultado de una evolución gradual derivada de la expansión territorial, el crecimiento demográfico y la necesidad de adaptar las estructuras de gobierno a una realidad cada vez más compleja.
+          </p>
+
+          <p>
+            Durante los siglos VIII y IX, el núcleo de poder asturiano había estado asentado en las montañas cantábricas, con Oviedo como principal centro político y religioso. Sin embargo, la expansión impulsada por los sucesivos monarcas, especialmente durante los reinados de Alfonso II y Alfonso III, desplazó progresivamente el centro de gravedad del reino hacia el sur. Las nuevas tierras incorporadas en la cuenca del Duero adquirieron una importancia económica, estratégica y militar creciente, convirtiéndose en el principal escenario de la expansión cristiana.
+          </p>
+
+          <p>
+            Entre las ciudades que experimentaron este desarrollo destacó León. Fundada sobre el antiguo campamento romano de la <em>Legio VII Gemina</em>, la ciudad ocupaba una posición privilegiada para controlar las comunicaciones entre el norte cantábrico y la Meseta. Su ubicación la convertía en un punto estratégico para organizar la defensa de la frontera, gestionar las nuevas repoblaciones y coordinar las campañas militares frente a al-Ándalus.
+          </p>
+
+          <p>
+            Durante el reinado de Alfonso III el Magno, León fue adquiriendo un protagonismo cada vez mayor dentro de la estructura política del reino. A finales del siglo IX, el avance de la frontera hacia el sur redujo la importancia defensiva de las montañas asturianas y favoreció el desarrollo de los territorios meseteños. La monarquía comenzó a mirar hacia León como el lugar más adecuado para dirigir un reino que ya no era únicamente cantábrico, sino que se extendía sobre amplias regiones del noroeste peninsular.
+          </p>
+
+          <p>
+            La transición se aceleró tras la crisis sucesoria que afectó al reino en los últimos años del gobierno de Alfonso III. Las tensiones entre el monarca y sus hijos desembocaron en una rebelión que obligó al rey a abdicar en el año 910. Tras su retirada, los territorios fueron repartidos entre sus herederos: García recibió León, Ordoño obtuvo Galicia y Fruela gobernó Asturias. Aunque esta división tuvo inicialmente un carácter dinástico, el peso político y estratégico de León hizo que la ciudad se convirtiera rápidamente en el principal centro de poder.
+          </p>
+
+          <p>
+            Con la instalación de la corte en León, la historiografía considera que nació formalmente el Reino de León. Sin embargo, la nueva monarquía heredó directamente las instituciones, la dinastía, la ideología política y la tradición histórica desarrolladas durante la etapa asturiana. Los reyes leoneses continuaron presentándose como sucesores legítimos de los monarcas asturianos y, a través de ellos, de los antiguos reyes visigodos de Toledo.
+          </p>
+
+          <p>
+            La continuidad fue especialmente visible en la utilización de las mismas estructuras administrativas, en el mantenimiento de las relaciones con la Iglesia y en la persistencia de la idea de restauración del orden cristiano peninsular. El traslado de la capital no supuso una ruptura, sino la adaptación de la monarquía a un nuevo escenario geográfico y político marcado por la expansión territorial y la creciente importancia de la Meseta Norte.
+          </p>
+
+          <p>
+            El Reino de León heredó además los grandes logros de la etapa asturiana: el prestigio derivado del culto jacobeo, la experiencia acumulada en la repoblación de la frontera, la tradición cultural del prerrománico y una sólida legitimidad dinástica. Desde esta base, los monarcas leoneses continuarían la expansión hacia el sur y desempeñarían un papel decisivo en la configuración política de la Península durante los siglos centrales de la Edad Media.
+          </p>
+
+          <p>
+            En consecuencia, el paso del Reino de Asturias al Reino de León debe entenderse como una evolución natural dentro del proceso de construcción de los reinos cristianos medievales. Asturias proporcionó los fundamentos políticos e ideológicos; León heredó ese legado y lo proyectó sobre un espacio territorial mucho más amplio. Ambos reinos forman parte de una misma continuidad histórica que explica el origen y desarrollo de la España medieval.
+          </p>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+
+  
+
+
+  
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

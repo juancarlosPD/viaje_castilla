@@ -30,9 +30,15 @@ def romanico(request):
 def edad_media(request):    
     return render(request, 'espagna/edad_media.html')
 
-# ----------------------------SIGLO XVI--------------------------
+# ----------------------------EDAD MEDIA--------------------------
 
-    # ----------------------------ESPAÑA--------------------------
+def reinos_cristianos(request):    
+    return render(request, 'espagna/edad_media/reinos_cristianos.html')
+
+def reino_asturias(request):    
+    return render(request, 'espagna/edad_media/reinos_cristianos/reino_asturias.html')
+
+# ----------------------------ESPAÑA--------------------------
 def sigloXVI(request):    
     return render(request, 'espagna/sigloXVI/inicioSigloXVI.html')
 

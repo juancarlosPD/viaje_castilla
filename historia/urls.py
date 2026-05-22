@@ -14,6 +14,10 @@ urlpatterns = [
     path('romanico/', views.romanico, name='romanico'),
     path('edad_media/', views.edad_media, name='edad_media'),
 
+    # ----------------------------EDAD MEDIA--------------------------
+    path('reinos_cristiano/', views.reinos_cristianos, name='reinos_cristianos'),
+    path('reino_asturias/', views.reino_asturias, name='reino_asturias'),
+
      # ----------------------------SIGLO XI--------------------------
     path('sigloXI/', views.sigloXI, name='sigloXI'),
     path('alfonsoVI/', views.alfonsoVI, name='alfonsoVI'),

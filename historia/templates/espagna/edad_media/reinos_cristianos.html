@@ -1,0 +1,285 @@
+{% extends "bases/baseReinosCristianos.html" %}
+
+{% load static %}
+
+{% block titulo %} Reinos cristianos {% endblock %}
+
+{% block cabecera %} Reinos cristianos {% endblock %}
+
+{% block imgCabecera %}  {% endblock %}
+
+{% block contenido %}
+
+<style>
+    /* MENÚ EDAD MEDIA RESPONSIVE */
+
+    .navbar {
+    border-radius: 16px;
+    }
+
+    .navbar .nav-link,
+    .navbar .navbar-brand {
+    font-size: 0.95rem;
+    white-space: nowrap;
+    }
+
+    @media (max-width: 991px) {
+
+    .navbar {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    .navbar-collapse {
+        margin-top: 0.8rem;
+        background: #212529;
+        border-radius: 14px;
+        padding: 0.8rem;
+    }
+
+    .navbar-nav {
+        text-align: left;
+    }
+
+    .navbar .nav-link {
+        padding: 0.55rem 0.8rem;
+        border-radius: 10px;
+    }
+
+    .navbar .nav-link:hover {
+        background: rgba(255,255,255,0.12);
+    }
+
+    .dropdown-menu {
+        border-radius: 12px;
+        margin-top: 0.4rem;
+    }
+    }
+    .medieval-card{
+    overflow:hidden;
+    border-radius:20px;
+    border:none;
+    transition:all .3s ease;
+    background:#fff;
+    }
+
+    .medieval-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+    }
+
+    .medieval-img{
+        width:100%;
+        height:220px;
+        object-fit:cover;
+        object-position:center;
+    }
+
+    @media (max-width:768px){
+
+    .medieval-img{
+            height:170px;
+        }
+
+    }
+
+    .page-aside {
+      position: sticky;
+      top: 92px;
+    }
+
+    .aside-card {
+      background: #fff;
+      border: 1px solid #e7dfd2;
+      border-radius: 18px;
+      box-shadow: 0 8px 24px rgba(58, 44, 24, 0.06);
+      padding: 1.25rem 1rem;
+    }
+
+    .aside-card h5 {
+      font-size: 1rem;
+      font-weight: 800;
+      color: #1f2937;
+      margin-bottom: 1rem;
+    }
+
+    .aside-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .aside-nav a {
+      text-decoration: none;
+      color: #334155;
+      font-size: 1rem;
+      padding: 0.9rem 1rem;
+      border-radius: 14px;
+      transition: all 0.2s ease;
+
+      border: 1px solid #c7d2fe;
+      background: #f8fafc;
+
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .aside-nav a:hover {
+      background: #eef2ff;
+      border-color: #93c5fd;
+      color: #1e3a8a;
+    }
+
+</style> 
+  
+<div class="row g-4 mt-4">
+      <!-- REINO DE ASTURIAS -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card medieval-card h-100">
+        <img src="{% static 'images/edad_media/reinos_cristianos/asturias/pelayo.jpg' %}"
+            class="medieval-img"
+            alt="Reino de Asturias">
+
+        <div class="card-body">           
+
+          <h5 class="card-title">El Reino de Asturias</h5>
+
+          <p class="card-text">
+            De Covadonga a Oviedo: el primer núcleo político cristiano del norte peninsular y origen simbólico de la expansión medieval.
+          </p>
+
+          <a href="{% url 'reino_asturias' %}" class="btn btn-outline-dark btn-sm">
+            Ver tema
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- REINO DE LEÓN -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card medieval-card h-100">
+        <img src="{% static 'images/edad_media/reinos_cristianos/leon/san_isidoro_leon.jpg' %}"
+            class="medieval-img "
+            alt="Reino de León">
+
+        <div class="card-body">
+
+          <h5 class="card-title">El Reino de León</h5>
+
+          <p class="card-text">
+            Heredero del reino asturiano, León se convirtió en una de las grandes potencias políticas de la Península durante la Alta Edad Media.
+          </p>
+
+          <a href="#" class="btn btn-outline-dark btn-sm">
+            Ver tema
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CASTILLA -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card medieval-card h-100">
+        <img src="{% static 'images/edad_media/reinos_cristianos/castilla/castillo_penafiel.jpg' %}"
+            class="medieval-img"
+            alt="Reino de Castilla">
+
+        <div class="card-body">
+
+          <h5 class="card-title">Castilla</h5>
+
+          <p class="card-text">
+            Nacida como tierra de frontera y fortalezas, Castilla lideró la expansión territorial hacia el sur durante la Reconquista.
+          </p>
+
+          <a href="#" class="btn btn-outline-dark btn-sm">
+            Ver tema
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAVARRA -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card medieval-card h-100">
+        <img src="{% static 'images/edad_media/reinos_cristianos/navarra/monasterio_leyre.jpg' %}"
+            class="medieval-img"
+            alt="Reino de Navarra">
+
+        <div class="card-body">
+
+          <h5 class="card-title">Navarra</h5>
+
+          <p class="card-text">
+            Entre montañas pirenaicas surgió el Reino de Navarra, clave en las relaciones entre la Península y el mundo franco.
+          </p>
+
+          <a href="#" class="btn btn-outline-dark btn-sm">
+            Ver tema
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ARAGÓN -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card medieval-card h-100">
+        <img src="{% static 'images/edad_media/reinos_cristianos/aragon/castillo_loarre.jpg' %}"
+            class="medieval-img"
+            alt="Reino de Aragón">
+
+        <div class="card-body">
+
+          <h5 class="card-title">Aragón</h5>
+
+          <p class="card-text">
+            Desde los Pirineos hasta el Mediterráneo, Aragón construyó una de las coronas más influyentes de la Edad Media hispánica.
+          </p>
+
+          <a href="#" class="btn btn-outline-dark btn-sm">
+            Ver tema
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONDADOS CATALANES -->
+  <div class="col-md-6 col-lg-4">
+    <div class="card medieval-card h-100">
+      <img src="{% static 'images/edad_media/reinos_cristianos/condados_catalanes/sant_pere_rodes.jpg' %}"
+          class="medieval-img"
+          alt="Condados Catalanes">
+
+      <div class="card-body">
+
+        <h5 class="card-title">Los Condados Catalanes</h5>
+
+        <p class="card-text">
+          Vinculados inicialmente al Imperio carolingio, los condados catalanes desarrollaron una identidad política y cultural propia.
+        </p>
+
+        <a href="#" class="btn btn-outline-dark btn-sm">
+          Ver tema
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+  
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
