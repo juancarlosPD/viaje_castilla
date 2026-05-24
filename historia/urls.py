@@ -17,6 +17,7 @@ urlpatterns = [
     # ----------------------------EDAD MEDIA--------------------------
     path('reinos_cristiano/', views.reinos_cristianos, name='reinos_cristianos'),
     path('reino_asturias/', views.reino_asturias, name='reino_asturias'),
+    path('reyes_asturias/', views.reyes_asturias, name='reyes_asturias'),
 
      # ----------------------------SIGLO XI--------------------------
     path('sigloXI/', views.sigloXI, name='sigloXI'),

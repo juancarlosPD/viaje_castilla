@@ -38,6 +38,9 @@ def reinos_cristianos(request):
 def reino_asturias(request):    
     return render(request, 'espagna/edad_media/reinos_cristianos/reino_asturias.html')
 
+def reyes_asturias(request):    
+    return render(request, 'espagna/edad_media/reinos_cristianos/reyes_asturias.html')
+
 # ----------------------------ESPAÑA--------------------------
 def sigloXVI(request):    
     return render(request, 'espagna/sigloXVI/inicioSigloXVI.html')

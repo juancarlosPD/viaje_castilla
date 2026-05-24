@@ -27,16 +27,18 @@
             max-height:70px;
             width:auto;
             object-fit:contain;
-            }
+        }
 
             @media (max-width:991px){
-
+            .logo-medieval{
+                max-height:40px;
+            }
             #logotipo{
                 padding-top:0.6rem;
             }
 
             #logotipo h1{
-                font-size:1.8rem;
+                font-size:1.4rem;
                 margin-bottom:0;
             }
 
@@ -46,22 +48,20 @@
     <body>
         <header>
             <div class="row align-items-center justify-content-center" id="logotipo">
-                <div class="col-md-1 d-none d-md-block text-center">
+                <div class="col-2 col-md-1 text-center">
                     <figure class="m-0">
                         <img src="{% static 'images/favicon1.png' %}"
                             alt="Logo"
-                            class="img-fluid logo-medieval">
+                            class="logo-medieval">
                     </figure>
                 </div>
-                <div class="col-md-8 text-center ">
-                    <h1>{% block cabecera %} {% endblock %}</h1>
+                <div class="col-8 col-md-8 text-center">
+                    <h1>{% block cabecera %}{% endblock %}</h1>
                 </div>
                 
-                <div class="col-md-1 text-center ">
-                    {% block imgCabecera %}  {% endblock %}
-                </div>
-                
-                
+                <div class="col-2 col-md-1 text-center">
+                    {% block imgCabecera %}{% endblock %}
+                </div>           
                 
             </div>           
             
