@@ -1,0 +1,535 @@
+{% extends "bases/baseReinosCristianos.html" %}
+
+{% load static %}
+
+{% block titulo %} Reino de León {% endblock %}
+
+{% block cabecera %} Reino de León {% endblock %}
+
+{% block imgCabecera %}  {% endblock %}
+
+{% block contenido %}
+
+<style>
+  /* =========================================================
+     REINO DE LEÓN
+     ========================================================= */
+
+  /* MENÚ EDAD MEDIA RESPONSIVE */
+  .navbar {
+    border-radius: 16px;
+  }
+
+  .navbar .nav-link,
+  .navbar .navbar-brand {
+    font-size: 0.95rem;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 991px) {
+    .navbar {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+
+    .navbar-collapse {
+      margin-top: 0.8rem;
+      background: #212529;
+      border-radius: 14px;
+      padding: 0.8rem;
+    }
+
+    .navbar-nav {
+      text-align: left;
+    }
+
+    .navbar .nav-link {
+      padding: 0.55rem 0.8rem;
+      border-radius: 10px;
+    }
+
+    .navbar .nav-link:hover {
+      background: rgba(255,255,255,0.12);
+    }
+
+    .dropdown-menu {
+      border-radius: 12px;
+      margin-top: 0.4rem;
+    }
+  }
+
+  /* TARJETAS */
+  .medieval-card {
+    overflow: hidden;
+    border-radius: 20px;
+    border: none;
+    transition: all .3s ease;
+    background: #fff;
+  }
+
+  .medieval-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0,0,0,.15);
+  }
+
+  .medieval-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* HERO */
+  .hero-medieval {
+    background: linear-gradient(135deg, #f8f4ec 0%, #efe7d8 100%);
+    border: 1px solid #ddd0b8;
+    border-radius: 24px;
+    padding: 3rem;
+    box-shadow: 0 10px 30px rgba(58,44,24,.08);
+    overflow: hidden;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    padding: .6rem 1rem;
+    background: #e8dfcf;
+    border: 1px solid #d2c3a5;
+    color: #6b4e2e;
+    font-weight: 700;
+    border-radius: 999px;
+  }
+
+  .hero-title {
+    color: #1f2937;
+    font-size: clamp(2rem, 4vw, 3.35rem);
+    line-height: 1.12;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    margin-bottom: 1.2rem;
+  }
+
+  .hero-text {
+    color: #263241;
+    font-size: 1.08rem;
+    line-height: 1.75;
+  }
+
+  .hero-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+    margin-top: 2rem;
+  }
+
+  .hero-chips span {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    background: #f4ede0;
+    border: 1px solid #d9ccb4;
+    color: #5f4a2c;
+    padding: .55rem 1rem;
+    border-radius: 999px;
+    font-weight: 600;
+  }
+
+  .hero-figure {
+    margin: 0;
+  }
+
+  .hero-figure img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(0,0,0,.15);
+    border: 4px solid #fff;
+  }
+
+  .hero-figure figcaption {
+    margin-top: .8rem;
+    color: #6b727c;
+    font-size: .95rem;
+    line-height: 1.55;
+  }
+  figcaption {
+    margin-top: .8rem;
+    color: #6b727c;
+  }
+   .contenedor{
+    background: linear-gradient(135deg, #f8f4ec 0%, #efe7d8 100%);
+    border: 1px solid #ddd0b8;
+    border-radius: 24px;
+   }
+  /* ASIDE */
+  .page-aside {
+    position: sticky;
+    top: 92px;
+    max-height: calc(100vh - 110px);
+  }
+
+  .aside-card {
+    background: #fff;
+    border: 1px solid #e7dfd2;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(58, 44, 24, 0.06);
+    padding: 1.25rem 1rem;
+    max-height: calc(100vh - 110px);
+    overflow-y: auto;
+    scrollbar-width: thin;
+  }
+
+  .aside-card h5 {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #1f2937;
+    margin-bottom: 1rem;
+  }
+
+  .aside-nav {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding-right: 0.25rem;
+  }
+
+  .aside-nav a {
+    text-decoration: none;
+    color: #334155;
+    font-size: 1rem;
+    padding: .9rem 1rem;
+    border-radius: 14px;
+    transition: all .2s ease;
+    border: 1px solid #c7d2fe;
+    background: #f8fafc;
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+  }
+
+  .aside-nav a:hover {
+    background: #eef2ff;
+    border-color: #93c5fd;
+    color: #1e3a8a;
+    transform: translateX(3px);
+  }
+
+  /* BLOQUES DE CONTENIDO */
+  .main-col {
+    width: 100%;
+  }
+
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: .9rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .section-icon {
+    width: 58px;
+    height: 58px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #e8d7bb, #d8be92);
+    box-shadow: 0 8px 20px rgba(92, 67, 33, .12);
+    font-size: 1.55rem;
+  }
+
+  .section-head h2 {
+    margin: 0;
+    color: #111827;
+    font-weight: 900;
+    font-size: clamp(1.8rem, 3vw, 2.35rem);
+    letter-spacing: -0.03em;
+  }
+
+  .section-block,
+  .intro-box {
+    background: #fff;
+    border: 1px solid #e7dfd2;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(58, 44, 24, .06);
+  }
+
+  .section-block p,
+  .intro-box p {
+    color: #111827;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    margin-bottom: 1.25rem;
+  }
+
+  .section-block p:last-child,
+  .intro-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 991px) {
+    .hero-medieval {
+      padding: 2.2rem;
+    }
+
+    .hero-figure img {
+      height: 300px;
+    }
+
+    .page-aside {
+       position: static;
+       max-height: none;
+    }
+    .aside-card {
+      max-height: none;
+      overflow-y: visible;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .medieval-img {
+      height: 170px;
+    }
+
+    .hero-medieval {
+      padding: 1.5rem;
+      border-radius: 20px;
+    }
+
+    .hero-title {
+      font-size: 2rem;
+    }
+
+    .hero-text {
+      font-size: 1rem;
+    }
+
+    .hero-chips {
+      gap: .5rem;
+    }
+
+    .hero-chips span {
+      font-size: .9rem;
+      padding: .45rem .8rem;
+    }
+
+    .hero-figure img {
+      height: 240px;
+    }
+
+    .section-block,
+    .intro-box {
+      padding: 1.35rem;
+    }
+
+    .section-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+    }
+  }
+  
+</style>
+
+<section class="hero-medieval my-4">
+  <div class="row align-items-center g-5">
+    <div class="col-lg-7">
+      <div class="hero-badge mb-4">
+       👑 Principal reino cristiano de la Plena Edad Media
+      </div>
+
+      <h1 class="hero-title">
+        El Reino de León: la expansión cristiana y la conquista de Toledo
+      </h1>
+
+      <p class="hero-text">
+        Nacido en 910 tras el traslado de la corte asturiana desde Oviedo a León,
+        el Reino de León se convirtió en la principal potencia cristiana de la
+        Península Ibérica durante los siglos X y XI. Desde sus fronteras en el
+        valle del Duero impulsó la repoblación de amplios territorios, frenó el
+        avance del Califato de Córdoba en Simancas y protagonizó una profunda
+        expansión política que culminó con la conquista de Toledo en 1085 bajo
+        Alfonso VI. Su legado jurídico, cultural y político desempeñó un papel
+        fundamental en la formación de los reinos medievales hispánicos.
+      </p>
+
+      <div class="hero-chips">
+        <span>🦁 León</span>
+        <span>⚔️ Simancas</span>
+        <span>👑 Alfonso VI</span>
+        <span>🏛️ Toledo</span>
+        <span>🚶 Camino de Santiago</span>
+      </div>
+    </div>
+
+    <div class="col-lg-5">
+      <figure class="hero-figure">
+        <img src="{% static 'images/edad_media/reinos_cristianos/leon/panteon_reyes.jpg' %}"
+             alt="Panteón de los reyes"
+             class="img-fluid">
+
+        <figcaption>
+          Panteón de los Reyes de San Isidoro de León. Conocido como la “Capilla Sixtina del Románico”. Es el símbolo visual, político, artístico y dinástico más poderoso del reino.
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<div class="row g-4 mt-4 contenedor">
+  <div class="col-lg-4">
+    <aside class="page-aside mb-3">
+      <div class="aside-card">
+        <h5>En esta página</h5>
+
+        <nav class="aside-nav">
+          <a href="#introduccion" class="aside-link">📜 Introducción</a>
+          <a href="#origenes" class="aside-link">🦁 Nacimiento del Reino de León</a>
+          <a href="#garciai" class="aside-link">👑 García I</a>
+          <a href="#ordonoii" class="aside-link">⚔️ Ordoño II</a>
+          <a href="#ramiroii" class="aside-link">🛡️ Ramiro II</a>
+          <a href="#simancas" class="aside-link">🏹 La batalla de Simancas</a>
+          <a href="#repoblacion" class="aside-link">🌾 La repoblación del valle del Duero</a>
+          <a href="#califato" class="aside-link">☪️ León frente al Califato</a>
+          <a href="#fernangonzalez" class="aside-link">🏰 Fernán González y Castilla</a>
+          <a href="#alfonsov" class="aside-link">📖 Alfonso V y el Fuero de León</a>
+          <a href="#fernandoi" class="aside-link">👑 Fernando I el Magno</a>
+          <a href="#alfonsovi" class="aside-link">⚜️ Alfonso VI</a>
+          <a href="#toledo" class="aside-link">🏛️ La conquista de Toledo</a>
+          <a href="#arte" class="aside-link">⛪ Arte y cultura leonesa</a>
+          <a href="#camino" class="aside-link">🚶 El Camino de Santiago</a>
+          <a href="#legado" class="aside-link">⭐ El legado del Reino de León</a>
+          <a href="{% url 'reyes_leon' %}" class="aside-link">⭐ Reyes de León</a>
+        </nav>
+      </div>
+    </aside>
+  </div>
+
+  <div class="col-lg-8">
+    <main class="main-col my-3">
+      <section id="introduccion">
+        <div class="section-head mt-3">
+          <span class="section-icon">📌</span>
+          <h3>Introducción</h3>
+        </div>
+
+        <div class="intro-box section-block">
+          <p>El Reino de León constituye una de las entidades políticas más importantes de la Edad Media peninsular. <strong>Surgido</strong> oficialmente <strong>en el año 910</strong> tras la división del Reino de Asturias entre los hijos de Alfonso III el Magno, heredó la tradición política, religiosa y cultural del reino asturiano y <strong>se convirtió durante los siglos X, XI y XII en la principal potencia cristiana de la Península Ibérica.</strong> </p>
+          <figure class="hero-figure">
+            <img src="{% static 'images/edad_media/reinos_cristianos/leon/san_isidoro.jpg' %}"
+                alt="San Isidoro"
+                class="img-fluid">
+
+            <figcaption>
+              San Isidoro fue el auténtico corazón político y religioso del Reino de León. Allí están enterrados muchos de sus monarcas y es probablemente el monumento más representativo de la monarquía leonesa.
+            </figcaption>
+          </figure>
+          <p class="mt-3">La elección de la ciudad de León como capital no fue casual. La antigua Legio VII Gemina, fundada por los romanos en el siglo I d. C., conservaba una posición estratégica privilegiada entre las montañas cantábricas y la Meseta Norte. Desde allí, los monarcas leoneses dirigieron la expansión hacia el valle del Duero, impulsaron la repoblación de amplios territorios fronterizos y desarrollaron una administración cada vez más compleja que permitió consolidar el poder regio sobre extensos dominios.</p>   
+          <p>Durante el siglo X, el Reino de León tuvo que enfrentarse al principal poder musulmán de la época: el Califato de Córdoba. Reyes como Ordoño II o Ramiro II lograron contener las ofensivas andalusíes y obtuvieron importantes victorias militares, entre las que destaca la batalla de <strong>Simancas (939)</strong>, considerada uno de los mayores triunfos cristianos de la Alta Edad Media. Paralelamente, la monarquía leonesa promovió la <strong>ocupación y organización de las tierras situadas al norte del río Duero</strong>, creando nuevas ciudades y fortaleciendo la frontera frente a al-Ándalus.</p>
+          <p>A partir del siglo XI, León alcanzó una posición de hegemonía política sobre los demás reinos cristianos peninsulares. Bajo Fernando I y, sobre todo, Alfonso VI, la monarquía leonesa amplió notablemente sus dominios y protagonizó uno de los acontecimientos más trascendentales de la Reconquista: la <strong>conquista de Toledo en 1085</strong>. La recuperación de la antigua capital visigoda tuvo un enorme valor simbólico, pues reforzó la idea de que los reyes leoneses eran los legítimos herederos de la monarquía hispanovisigoda.</p>          
+          <p>La historia independiente del reino concluyó en 1230, cuando Fernando III heredó simultáneamente las coronas de Castilla y León, unificando ambas bajo una misma monarquía. Sin embargo, el Reino de León mantuvo durante siglos una identidad propia, con instituciones, leyes y tradiciones diferenciadas. Su legado político, cultural y jurídico resultó esencial en la formación de la Corona de Castilla y, posteriormente, de la Monarquía Hispánica.</p>
+        </div>
+      </section>
+
+      <section id="origenes">
+        <div class="section-head mt-3">
+          <span class="section-icon">🦁</span>
+          <h3>Nacimiento del Reino de León</h3>
+        </div>
+
+        <div class="intro-box section-block">
+          <p>La creación del Reino de León en el año 910 no supuso la aparición de una entidad política completamente nueva, sino la transformación del Reino de Asturias en una monarquía con un centro de poder más orientado hacia la Meseta. El cambio fue consecuencia directa de la expansión territorial desarrollada durante el reinado de Alfonso III el Magno (866-910), que había llevado las fronteras cristianas hasta el valle del Duero y convertido a León en una ciudad cada vez más importante desde el punto de vista estratégico, militar y económico.</p>
+          <figure class="hero-figure">
+            <img src="{% static 'images/edad_media/reinos_cristianos/leon/arco_carcel.jpg' %}"
+                alt="San Isidoro"
+                class="img-fluid">
+
+            <figcaption class="text-center">
+              El Arco de la Cárcel: Testigo milenario de la historia de León
+            </figcaption>
+          </figure>
+          <p class="mt-3">Durante las décadas finales del siglo IX, el Reino de Asturias había dejado de ser una pequeña monarquía refugiada en las montañas cantábricas. Las campañas militares impulsadas por Alfonso III permitieron incorporar amplios territorios al norte del Duero y consolidar importantes núcleos urbanos como León, Astorga, Zamora o Simancas. Como consecuencia, el eje político del reino comenzó a desplazarse progresivamente desde las tierras asturianas hacia la Meseta.</p>
+          <p>La ciudad de León reunía condiciones excepcionales para convertirse en la nueva capital. Fundada por los romanos como campamento de la Legio VII Gemina, conservaba sus antiguas murallas y ocupaba una posición estratégica que facilitaba las comunicaciones entre Galicia, Asturias, Castilla y los territorios fronterizos con al-Ándalus. Además, se encontraba más próxima a las zonas de expansión y repoblación que constituían el principal objetivo político de la monarquía.</p>
+          <p>La transición se produjo tras la crisis sucesoria que afectó a Alfonso III en sus últimos años de reinado. Diversos conflictos familiares enfrentaron al monarca con sus hijos, provocando finalmente su abdicación. El reino fue entonces repartido entre los tres herederos:</p>
+          <div>
+            <ul>
+              <li>García I recibió León, Castilla y Álava.</li>
+              <li>Ordoño II obtuvo Galicia.</li>
+              <li>Fruela II conservó Asturias.</li>
+            </ul>
+          </div>
+          <p>Aunque inicialmente el reparto parecía fragmentar la herencia de Alfonso III, la realidad fue muy distinta. García I estableció su corte en León y convirtió la ciudad en la sede principal del poder político. Este hecho es considerado tradicionalmente el nacimiento del Reino de León, heredero directo de la monarquía asturiana.</p>
+          <p>La elección de León como capital reflejaba un cambio profundo en la evolución de los reinos cristianos peninsulares. Mientras que el Reino de Asturias había surgido como una organización defensiva refugiada en las montañas del norte, el Reino de León nació con una vocación claramente expansiva. Su centro político se situaba ahora en la frontera con la Meseta, desde donde podía dirigir las campañas militares, la repoblación y la organización de los nuevos territorios incorporados.</p>
+          <figure class="hero-figure">
+            <img src="{% static 'images/edad_media/reinos_cristianos/leon/mapa.jpg' %}"
+                alt="San Isidoro"
+                class="img-fluid">            
+          </figure>
+          <p class="mt-3">Sin embargo, la separación inicial duró poco tiempo. Tras la muerte de García I en 914, Ordoño II heredó el trono leonés y reunió nuevamente León y Galicia bajo una misma corona. Años después, Fruela II también accedería al trono leonés, demostrando que la división del antiguo reino asturiano había sido más una reorganización dinástica que una verdadera fragmentación política.</p>
+          <p>Por ello, los historiadores consideran que el Reino de León fue el continuador directo del Reino de Asturias. Mantuvo la misma dinastía, las mismas instituciones fundamentales y la misma idea política de ser heredero de la antigua monarquía visigoda. Lo que cambió fue el escenario geográfico desde el que se ejercía el poder: las montañas cantábricas dejaron de ser el centro de la monarquía y la ciudad de León pasó a convertirse en la capital del principal reino cristiano de la Península Ibérica.</p>
+        </div>
+      </section>
+      <section id="garciai">
+        <div class="section-head mt-3">
+          <span class="section-icon">👑</span>
+          <h3>García I</h3>
+        </div>
+
+        <div class="intro-box section-block">
+          <p>García I ocupa un lugar fundamental en la historia medieval peninsular por haber sido el primer monarca que gobernó desde León tras la transformación del antiguo Reino de Asturias. Aunque su reinado fue breve, apenas cuatro años, su importancia histórica radica en haber inaugurado una nueva etapa política que situó a la ciudad de León como centro del poder cristiano del norte peninsular.</p>
+          <p>Era el hijo mayor de Alfonso III el Magno, el monarca que había llevado al Reino de Asturias a su máxima expansión territorial. Durante los últimos años del reinado de su padre surgieron tensiones entre los distintos miembros de la familia real y parte de la nobleza. Estas disputas desembocaron en la abdicación de Alfonso III en el año 910 y en el reparto de sus dominios entre sus hijos.</p>
+          <figure class="hero-figure">
+            <img src="{% static 'images/edad_media/reinos_cristianos/leon/muralla.jpg' %}"
+                alt="San Isidoro"
+                class="img-fluid">
+            
+          </figure>
+          <p class="mt-3">A García le correspondieron los territorios más extensos y estratégicos: León, Castilla y Álava. La elección de León como sede de la corte marcó un cambio trascendental en la historia de los reinos cristianos. Por primera vez, el centro político dejaba definitivamente las montañas cantábricas para instalarse en la Meseta, más cerca de las zonas de expansión y de la frontera con al-Ándalus.</p>
+          <p>Durante su reinado continuó la política de fortalecimiento de las defensas del valle del Duero iniciada por Alfonso III. La frontera con los territorios musulmanes seguía siendo inestable y requería constantes esfuerzos de vigilancia, fortificación y repoblación. García impulsó la ocupación de tierras situadas entre el Duero y las montañas cantábricas, favoreciendo el asentamiento de población cristiana en zonas que durante décadas habían actuado como espacio fronterizo.</p>
+          <div class="row">
+            <div class="col-md-6">
+              <figure class="hero-figure">
+                <img src="{% static 'images/edad_media/reinos_cristianos/leon/monarca.jpg' %}"
+                    alt="Monarca"
+                    class="img-fluid">
+                <figcaption>Representación idealizada de un monarca altomedieval. No se conserva ninguna imagen contemporánea de García I.</figcaption>
+                
+              </figure>
+            </div>
+            <div class="col-md-6">
+              <p>Uno de los principales desafíos de su gobierno fue consolidar la autoridad real sobre los territorios castellanos. Castilla todavía no constituía un reino independiente, sino un conjunto de condados fronterizos sometidos formalmente a la Corona leonesa. La lejanía de algunas comarcas y el creciente poder de los nobles locales obligaban a los monarcas a mantener una presencia constante para garantizar la fidelidad de sus vasallos.</p>
+              <p>Aunque no protagonizó grandes campañas militares ni reformas de gran alcance, García I desempeñó un papel esencial al establecer las bases institucionales del nuevo reino. Su gobierno simboliza la continuidad entre Asturias y León, ya </p>
+            </div>
+          </div>
+          
+          <p>que no se produjo una ruptura política, sino simplemente el traslado del centro de gravedad de la monarquía hacia el interior peninsular.</p>
+          <p>García I murió en 914 sin descendencia legítima. Su hermano Ordoño II, que gobernaba Galicia, heredó el trono leonés y reunió nuevamente ambos territorios bajo una misma corona. Este hecho demostró que la división realizada tras la abdicación de Alfonso III había sido más una solución dinástica temporal que una verdadera fragmentación del reino.</p>
+        </div>
+      </section>
+
+
+    </main>
+  </div>
+</div>
+
+  
+
+
+  
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

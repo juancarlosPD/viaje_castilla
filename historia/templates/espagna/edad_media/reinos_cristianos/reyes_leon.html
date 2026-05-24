@@ -1,0 +1,1277 @@
+{% extends "bases/baseReinosCristianos.html" %}
+
+{% load static %}
+
+{% block titulo %} Reyes de León {% endblock %}
+
+{% block cabecera %} Reyes de León {% endblock %}
+
+{% block imgCabecera %}  {% endblock %}
+
+{% block contenido %}
+
+<style>
+  /* =========================================================
+     REINO DE ASTURIAS - ESTILO EDAD MEDIA
+     ========================================================= */
+
+  /* MENÚ EDAD MEDIA RESPONSIVE */
+  .navbar {
+    border-radius: 16px;
+  }
+
+  .navbar .nav-link,
+  .navbar .navbar-brand {
+    font-size: 0.95rem;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 991px) {
+    .navbar {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+
+    .navbar-collapse {
+      margin-top: 0.8rem;
+      background: #212529;
+      border-radius: 14px;
+      padding: 0.8rem;
+    }
+
+    .navbar-nav {
+      text-align: left;
+    }
+
+    .navbar .nav-link {
+      padding: 0.55rem 0.8rem;
+      border-radius: 10px;
+    }
+
+    .navbar .nav-link:hover {
+      background: rgba(255,255,255,0.12);
+    }
+
+    .dropdown-menu {
+      border-radius: 12px;
+      margin-top: 0.4rem;
+    }
+  }
+
+  /* TARJETAS */
+  .medieval-card {
+    overflow: hidden;
+    border-radius: 20px;
+    border: none;
+    transition: all .3s ease;
+    background: #fff;
+  }
+
+  .medieval-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0,0,0,.15);
+  }
+
+  .medieval-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* HERO */
+  .hero-medieval {
+    background: linear-gradient(135deg, #f8f4ec 0%, #efe7d8 100%);
+    border: 1px solid #ddd0b8;
+    border-radius: 24px;
+    padding: 3rem;
+    box-shadow: 0 10px 30px rgba(58,44,24,.08);
+    overflow: hidden;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    padding: .6rem 1rem;
+    background: #e8dfcf;
+    border: 1px solid #d2c3a5;
+    color: #6b4e2e;
+    font-weight: 700;
+    border-radius: 999px;
+  }
+
+  .hero-title {
+    color: #1f2937;
+    font-size: clamp(2rem, 4vw, 3.35rem);
+    line-height: 1.12;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    margin-bottom: 1.2rem;
+  }
+
+  .hero-text {
+    color: #263241;
+    font-size: 1.08rem;
+    line-height: 1.75;
+  }
+
+  .hero-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+    margin-top: 2rem;
+  }
+
+  .hero-chips span {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    background: #f4ede0;
+    border: 1px solid #d9ccb4;
+    color: #5f4a2c;
+    padding: .55rem 1rem;
+    border-radius: 999px;
+    font-weight: 600;
+  }
+
+  .hero-figure {
+    margin: 0;
+  }
+
+  .hero-figure img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(0,0,0,.15);
+    border: 4px solid #fff;
+  }
+
+  .hero-figure figcaption {
+    margin-top: .8rem;
+    color: #4b5563;
+    font-size: .95rem;
+    line-height: 1.55;
+  }
+   .contenedor{
+    background: linear-gradient(135deg, #f8f4ec 0%, #efe7d8 100%);
+    border: 1px solid #ddd0b8;
+    border-radius: 24px;
+   }
+  /* ASIDE */
+  .page-aside {
+    position: sticky;
+    top: 92px;
+  }
+
+  .aside-card {
+    background: #fff;
+    border: 1px solid #e7dfd2;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(58, 44, 24, 0.06);
+    padding: 1.25rem 1rem;
+  }
+
+  .aside-card h5 {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #1f2937;
+    margin-bottom: 1rem;
+  }
+
+  .aside-nav {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+  }
+
+  .aside-nav a {
+    text-decoration: none;
+    color: #334155;
+    font-size: 1rem;
+    padding: .9rem 1rem;
+    border-radius: 14px;
+    transition: all .2s ease;
+    border: 1px solid #c7d2fe;
+    background: #f8fafc;
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+  }
+
+  .aside-nav a:hover {
+    background: #eef2ff;
+    border-color: #93c5fd;
+    color: #1e3a8a;
+    transform: translateX(3px);
+  }
+
+  /* BLOQUES DE CONTENIDO */
+  .main-col {
+    width: 100%;
+  }
+
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: .9rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .section-icon {
+    width: 58px;
+    height: 58px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #e8d7bb, #d8be92);
+    box-shadow: 0 8px 20px rgba(92, 67, 33, .12);
+    font-size: 1.55rem;
+  }
+
+  .section-head h2 {
+    margin: 0;
+    color: #111827;
+    font-weight: 900;
+    font-size: clamp(1.8rem, 3vw, 2.35rem);
+    letter-spacing: -0.03em;
+  }
+
+  .section-block,
+  .intro-box {
+    background: #fff;
+    border: 1px solid #e7dfd2;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(58, 44, 24, .06);
+  }
+
+  .section-block p,
+  .intro-box p {
+    color: #111827;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    margin-bottom: 1.25rem;
+  }
+
+  .section-block p:last-child,
+  .intro-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 991px) {
+    .hero-medieval {
+      padding: 2.2rem;
+    }
+
+    .hero-figure img {
+      height: 300px;
+    }
+
+    .page-aside {
+      position: static;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .medieval-img {
+      height: 170px;
+    }
+
+    .hero-medieval {
+      padding: 1.5rem;
+      border-radius: 20px;
+    }
+
+    .hero-title {
+      font-size: 2rem;
+    }
+
+    .hero-text {
+      font-size: 1rem;
+    }
+
+    .hero-chips {
+      gap: .5rem;
+    }
+
+    .hero-chips span {
+      font-size: .9rem;
+      padding: .45rem .8rem;
+    }
+
+    .hero-figure img {
+      height: 240px;
+    }
+
+    .section-block,
+    .intro-box {
+      padding: 1.35rem;
+    }
+
+    .section-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+    }
+  }
+  .titulo-timeline {
+    font-size: 1.4rem;
+    font-weight: 800;
+  }
+
+  .alfonso-page {
+    background: linear-gradient(to bottom, #f7f4ee 0%, #f1ede6 100%);
+    min-height: 100vh;
+    padding-bottom: 4rem;
+  }
+
+  .alfonso-hero {
+    background: linear-gradient(135deg, #1b2a41 0%, #2f4b6e 100%);
+    color: #fff;
+    padding: 4rem 0 3rem;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .alfonso-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 85% 20%, rgba(255,255,255,0.12), transparent 30%);
+    pointer-events: none;
+  }
+
+  .hero-wrap {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-kicker {
+    display: inline-block;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.22);
+    color: #f8f5ef;
+    padding: 0.4rem 0.85rem;
+    border-radius: 999px;
+    font-size: 0.88rem;
+    letter-spacing: 0.02em;
+    margin-bottom: 1rem;
+  }
+
+  .alfonso-hero h1 {
+    font-size: 2.5rem;
+    line-height: 1.08;
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+
+  .alfonso-hero .lead {
+    font-size: 1.14rem;
+    max-width: 860px;
+    color: rgba(255,255,255,0.92);
+  }
+
+  .hero-chips {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.18);
+    color: #fff;
+    padding: 0.48rem 0.85rem;
+    border-radius: 999px;
+    font-size: 0.95rem;
+    backdrop-filter: blur(2px);
+  }
+
+  .hero-portrait {
+    max-width: 320px;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 16px 34px rgba(0,0,0,0.25);
+    border: 1px solid rgba(255,255,255,0.18);
+    background: rgba(255,255,255,0.08);
+  }
+
+  .hero-portrait img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+  }
+
+  .hero-caption {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.82);
+    padding-top: 0.55rem;
+  }
+
+  .content-shell {
+    max-width: 1380px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .page-grid {
+    display: grid;
+    grid-template-columns: 290px minmax(0, 1fr);
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .page-aside {
+    position: sticky;
+    top: 20px;
+    align-self: start;
+  }
+
+  .aside-card {
+    background: #fff;
+    border: 1px solid #e7dfd2;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(58, 44, 24, 0.06);
+    padding: 1.25rem 1rem;
+  }
+
+  .aside-card h5 {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #1f2937;
+    margin-bottom: 1rem;
+  }
+
+  .aside-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .aside-nav a,
+  .aside-dropbtn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    text-decoration: none;
+    background: #fff;
+    color: #1f3c88;
+    border: 1px solid #d6dff2;
+    border-radius: 10px;
+    padding: 0.7rem 0.9rem;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    text-align: left;
+  }
+
+  .aside-nav a:hover,
+  .aside-dropbtn:hover {
+    background: #f3f7ff;
+    border-color: #9eb8ea;
+  }
+
+  .aside-dropdown {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .aside-submenu {
+    display: none;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-top: 0.35rem;
+    margin-left: 0.8rem;
+  }
+
+  .aside-dropdown.open .aside-submenu {
+    display: flex;
+  }
+
+  .aside-submenu a {
+    font-size: 0.95rem;
+    padding: 0.6rem 0.8rem;
+    border-radius: 8px;
+    background: transparent;
+    border: none;
+    color: #03226b;
+  }
+
+  .aside-submenu a:hover {
+    background: #eef4ff;
+  }
+
+  .arrow {
+    font-size: 0.9rem;
+    transition: transform 0.2s ease;
+  }
+
+  .aside-dropdown.open .arrow {
+    transform: rotate(180deg);
+  }
+
+  .main-col {
+    min-width: 0;
+  }
+
+  .intro-box,
+  .content-card,
+  .highlight-card,
+  .quote-card {
+    background: #fff;
+    border: 1px solid #e7dfd2;
+    border-radius: 20px;
+    box-shadow: 0 10px 28px rgba(58, 44, 24, 0.06);
+  }
+
+  .intro-box {
+    padding: 1.4rem 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .intro-box p:last-child,
+  .content-card p:last-child,
+  .quote-card p:last-child {
+    margin-bottom: 0;
+  }
+
+  .section-block {
+    margin-bottom: 2rem;
+    scroll-margin-top: 100px;
+  }
+
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .section-head-inline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .section-head-inline h6 {
+    margin: 0;
+  }
+
+  .section-head-inline .section-link {
+    white-space: nowrap;
+  }
+
+  .section-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #d8c3a5, #f0e2ce);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    flex: 0 0 auto;
+    color: #493628;
+  }
+
+  .section-head h2 {
+    margin: 0;
+    font-size: 1.7rem;
+    font-weight: 800;
+    color: #1f2937;
+  }
+
+  .content-card {
+    padding: 1.5rem;
+  }
+
+  .content-card p {
+    color: #374151;
+    line-height: 1.8;
+    font-size: 1.02rem;
+    margin-bottom: 1rem;
+  }
+
+  .content-card ul {
+    margin-bottom: 0;
+  }
+
+  .content-card li {
+    margin-bottom: 0.55rem;
+    color: #374151;
+    line-height: 1.7;
+  }
+
+  .mini-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: 1.2rem;
+  }
+
+  .mini-grid_17 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1.2rem;
+  }
+
+  .highlight-card {
+    padding: 1rem;
+    height: 100%;
+    transition: all 0.25s ease;
+  }
+
+  .highlight-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.12);
+  }
+
+  .highlight-card h6 {
+    font-weight: 800;
+    color: #1f2937;
+    margin-bottom: 0.55rem;
+  }
+
+  .highlight-card p {
+    margin: 0;
+    color: #475569;
+    line-height: 1.65;
+    font-size: 0.96rem;
+  }
+
+  .icon-box {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #d8c3a5, #f0e2ce);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+  }
+
+  /* TIMELINE CORREGIDO */
+  .mini-timeline {
+    position: relative;
+    margin-top: 1.4rem;
+    padding-left: 2rem;
+  }
+
+  .mini-timeline::before {
+    content: "";
+    position: absolute;
+    left: 0.55rem;
+    top: 0.35rem;
+    bottom: 0.35rem;
+    width: 3px;
+    border-radius: 999px;
+    background: linear-gradient(to bottom, #b99870, #d7c2a5);
+  }
+
+  .t-item {
+    position: relative;
+    margin-bottom: 2rem;
+  }
+
+  .t-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .t-item::before {
+    content: "";
+    position: absolute;
+    left: -1.48rem;
+    top: 0.5rem;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #8b6a48;
+    box-shadow: 0 0 0 5px #efe4d5;
+    z-index: 2;
+  }
+
+  .t-date {
+    display: inline-block;
+    font-weight: 800;
+    color: #6b4f35;
+    background: #f4eadc;
+    border: 1px solid #ead8bf;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    margin-right: 0.55rem;
+    vertical-align: middle;
+  }
+
+  .t-item h3,
+  .t-item h6 {
+    font-weight: 800;
+    color: #1f2937;
+    margin-bottom: 0.6rem;
+    line-height: 1.3;
+  }
+
+  .t-item p {
+    margin-bottom: 0.5rem;
+    color: #475569;
+    line-height: 1.7;
+  }
+
+  .t-item p:last-child {
+    margin-bottom: 0;
+  }
+
+  .section-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 0.35rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .section-link i {
+    transition: transform 0.2s ease;
+  }
+
+  .section-link:hover i {
+    transform: translateX(3px);
+  }
+
+  .img-block {
+    margin-top: 1.25rem;
+  }
+
+  .img-frame {
+    background: #faf8f4;
+    border: 1px solid #e5dacb;
+    border-radius: 18px;
+    overflow: hidden;
+  }
+
+  .img-frame img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    max-height: 460px;
+    cursor: pointer;
+  }
+
+  .img-note {
+    padding: 0.85rem 1rem;
+    font-size: 0.92rem;
+    color: #5b6472;
+    background: #fcfbf8;
+    border-top: 1px solid #e5dacb;
+  }
+
+  .quote-card {
+    padding: 1.25rem 1.35rem;
+    margin-top: 1rem;
+    border-left: 5px solid #b99870;
+  }
+
+  .quote-card p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #334155;
+    margin-bottom: 0.65rem;
+  }
+
+  .quote-author {
+    font-size: 0.92rem;
+    color: #6b7280;
+    font-weight: 600;
+  }
+
+  .summary-band {
+    margin-top: 1.25rem;
+    background: linear-gradient(135deg, #f3e8da 0%, #f8f2e9 100%);
+    border: 1px solid #e4d5bf;
+    border-radius: 18px;
+    padding: 1rem 1.15rem;
+  }
+
+  .summary-band strong {
+    color: #3d2d1f;
+  }
+
+  .final-box {
+    background: linear-gradient(135deg, #23344f 0%, #314a6b 100%);
+    color: #fff;
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: 0 16px 36px rgba(27, 42, 65, 0.18);
+  }
+
+  .final-box h3 {
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+
+  .final-box p {
+    color: rgba(255,255,255,0.94);
+    line-height: 1.8;
+    margin-bottom: 0.9rem;
+  }
+
+  .final-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  .link-atentado {
+    color: #8b0000;
+    font-weight: 600;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  .link-atentado:hover {
+    color: #c1121f;
+  }
+
+  .timeline-head {
+  align-items: flex-start;
+  margin-bottom: 1.4rem;
+}
+
+.timeline-head-text {
+  min-width: 0;
+  flex: 1;
+}
+
+.timeline-head-text h2 {
+  margin: 0 0 0.7rem 0;
+  font-size: 2.2rem;
+  line-height: 1.15;
+  font-weight: 800;
+  color: #1f2937;
+}
+
+.timeline-head-text p {
+  margin: 0;
+  font-size: 1.08rem;
+  line-height: 1.75;
+  color: #475569;
+  max-width: none;
+}
+.timeline-wrapper {
+  background: linear-gradient(135deg, #fbf8f2 0%, #f3ede3 100%);
+  border: 1px solid #e2d6c3;
+  border-radius: 22px;
+  padding: 1.8rem 1.8rem 1.6rem;
+  box-shadow: 
+    0 12px 30px rgba(58, 44, 24, 0.10),
+    0 2px 6px rgba(58, 44, 24, 0.05);
+  margin-top: 1.2rem;
+}
+
+.mini-timeline::before {
+  background: linear-gradient(to bottom, #a07c52, #d2b48c);
+  width: 4px;
+}
+
+.t-item::before {
+  width: 15px;
+  height: 15px;
+  background: #7a5c3e;
+}
+.timeline-stage {
+  position: relative;
+  margin: 2rem 0 1rem;
+  padding-left: 0.2rem;
+}
+
+.timeline-stage span {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #6b4f35;
+  background: #efe4d5;
+  border: 1px solid #dcc7a8;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+}
+.timeline-stage::after {
+  content: "";
+  display: block;
+  margin-top: 0.6rem;
+  height: 2px;
+  background: linear-gradient(to right, #d7c2a5, transparent);
+}
+.section-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.6rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #7a5c3e;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.section-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: #c8b08d;
+  transition: all 0.2s ease;
+}
+
+.section-link:hover {
+  color: #3d2d1f;
+}
+
+.section-link:hover::after {
+  background: #3d2d1f;
+}
+
+.section-link i {
+  transition: transform 0.2s ease;
+}
+
+.section-link:hover i {
+  transform: translateX(4px);
+}
+  @media (max-width: 1199px) {
+    .page-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .page-aside {
+      position: static;
+    }
+
+    .mini-grid,
+    .mini-grid_17 {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-portrait {
+      margin-top: 1.5rem;
+      max-width: 100%;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .alfonso-hero {
+      padding: 3rem 0 2.2rem;
+    }
+
+    .alfonso-hero h1 {
+      font-size: 2rem;
+    }
+
+    .section-head h2 {
+      font-size: 1.4rem;
+    }
+
+    .content-card,
+    .intro-box,
+    .final-box {
+      padding: 1.2rem;
+    }
+
+    .mini-timeline {
+      padding-left: 1.6rem;
+    }
+
+    .mini-timeline::before {
+      left: 0.45rem;
+    }
+
+    .t-item::before {
+      left: -1.2rem;
+    }
+
+    .t-item h3,
+    .t-item h6 {
+      font-size: 1.05rem;
+    }
+    .timeline-head-text h2 {
+      font-size: 1.8rem;
+    }
+
+    .timeline-head-text p {
+      font-size: 1rem;
+    }
+  }
+</style>
+
+<section class="content-card" id="cronologia-reino-leon">
+  <div class="section-head timeline-head">
+    <div class="section-icon">🦁</div>
+    <div class="timeline-head-text">
+      <h2>Los reyes del Reino de León</h2>
+      <p>
+        Desde el año 910, con García I, el Reino de León se convirtió en el principal heredero político del Reino de Asturias. Durante los siglos X, XI y XII, sus monarcas impulsaron la expansión hacia el Duero, enfrentaron el poder del Califato de Córdoba, favorecieron la repoblación, consolidaron instituciones propias y proyectaron su autoridad sobre Galicia, Castilla y buena parte del occidente peninsular.
+      </p>
+    </div>
+  </div>
+
+  <div class="timeline-wrapper">
+    <div class="mini-timeline">
+
+      <article class="t-item">
+        <h4><span class="t-date">910-914</span> García I</h4>
+        <div>
+          <ul>
+            <li>Primer rey de León tras la división del Reino de Asturias.</li>
+            <li>Establece León como centro político del nuevo reino.</li>
+            <li>Continúa la expansión hacia el valle del Duero.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="t-item">
+        <h4><span class="t-date">914-924</span> Ordoño II</h4>
+        <div>
+          <ul>
+            <li>Reúne León y Galicia bajo su autoridad.</li>
+            <li>Convierte León en capital efectiva del reino.</li>
+            <li>Realiza campañas militares contra al-Ándalus.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="t-item">
+        <h4><span class="t-date">924-925</span> Fruela II</h4>
+        <div>
+          <ul>
+            <li>Había sido rey de Asturias antes de acceder al trono leonés.</li>
+            <li>Reúne brevemente la herencia de Alfonso III.</li>
+            <li>Su muerte abre un periodo de conflictos sucesorios.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="t-item">
+        <h4><span class="t-date">925-931</span> Alfonso IV</h4>
+        <div>
+          <ul>
+            <li>Accede al trono en un contexto de inestabilidad nobiliaria.</li>
+            <li>Abdica inicialmente para retirarse a la vida monástica.</li>
+            <li>Su intento de recuperar el poder provoca el enfrentamiento con Ramiro II.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="t-item">
+        <h4><span class="t-date">931-951</span> Ramiro II</h4>
+        <div>
+          <ul>
+            <li>Uno de los grandes monarcas militares del Reino de León.</li>
+            <li>Derrota a las fuerzas califales en la batalla de Simancas.</li>
+            <li>Refuerza la autoridad leonesa frente a Córdoba y la nobleza castellana.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="t-item">
+        <h4><span class="t-date">951-956</span> Ordoño III</h4>
+        <div>
+          <ul>
+            <li>Debe afrontar rebeliones internas y tensiones con Castilla.</li>
+            <li>Mantiene la presión militar sobre al-Ándalus.</li>
+            <li>Consolida la continuidad de la monarquía leonesa tras Ramiro II.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="t-item">
+        <h4><span class="t-date">956-958 / 960-966</span> Sancho I "el Craso"</h4>
+        <div>
+          <ul>
+            <li>Su reinado estuvo marcado por conflictos internos y deposiciones.</li>
+            <li>Recupera el trono con apoyo navarro y cordobés.</li>
+            <li>Refleja la complejidad política del siglo X leonés.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="t-item">
+        <h4><span class="t-date">958-960</span> Ordoño IV</h4>
+        <div>
+          <ul>
+            <li>Accede al trono con apoyo de sectores nobiliarios contrarios a Sancho I.</li>
+            <li>Su poder fue breve y muy disputado.</li>
+            <li>Termina desplazado tras la restauración de Sancho I.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="t-item">
+        <h4><span class="t-date">966-984</span> Ramiro III</h4>
+        <div>
+          <ul>
+            <li>Accede al trono siendo menor de edad.</li>
+            <li>Su reinado coincide con el ascenso militar de Almanzor.</li>
+            <li>Debe enfrentarse a rebeliones nobiliarias y a la pérdida de autoridad real.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="t-item">
+        <h4><span class="t-date">984-999</span> Bermudo II</h4>
+        <div>
+          <ul>
+            <li>Conocido como “el Gotoso”.</li>
+            <li>Su reinado estuvo condicionado por las campañas de Almanzor.</li>
+            <li>León sufrió graves ataques, incluido el saqueo de la ciudad.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="t-item">
+        <h4><span class="t-date">999-1028</span> Alfonso V</h4>
+        <div>
+          <ul>
+            <li>Reconstruye León tras las devastaciones de Almanzor.</li>
+            <li>Promulga el Fuero de León de 1017.</li>
+            <li>Refuerza la organización política y jurídica del reino.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="t-item">
+        <h4><span class="t-date">1028-1037</span> Bermudo III</h4>
+        <div>
+          <ul>
+            <li>Último rey leonés de la dinastía astur-leonesa.</li>
+            <li>Se enfrenta a Castilla y Navarra por el control territorial.</li>
+            <li>Muere en la batalla de Tamarón frente a Fernando de Castilla.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="t-item">
+        <h4><span class="t-date">1037-1065</span> Fernando I</h4>
+        <div>
+          <ul>
+            <li>Primer rey de León de la dinastía navarra.</li>
+            <li>Une León y Castilla bajo su autoridad.</li>
+            <li>Impulsa la expansión hacia el sur y convierte León en gran potencia peninsular.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="t-item">
+        <h4><span class="t-date">1065-1072</span> Alfonso VI</h4>
+        <div>
+          <ul>
+            <li>Recibe inicialmente el Reino de León tras la división de Fernando I.</li>
+            <li>Tras conflictos familiares, reunifica León, Castilla y Galicia.</li>
+            <li>Protagoniza uno de los reinados más decisivos de la Edad Media hispánica.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="t-item">
+        <h4><span class="t-date">1072-1109</span> Alfonso VI</h4>
+        <div>
+          <ul>
+            <li>Rey de León, Castilla y Galicia.</li>
+            <li>Conquista Toledo en 1085, hecho clave de la expansión cristiana.</li>
+            <li>Refuerza el Camino de Santiago y la apertura europea del reino.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="t-item">
+        <h4><span class="t-date">1109-1126</span> Urraca I</h4>
+        <div>
+          <ul>
+            <li>Primera mujer que reina de pleno derecho en León y Castilla.</li>
+            <li>Su reinado estuvo marcado por conflictos con Alfonso I de Aragón.</li>
+            <li>Mantiene la continuidad dinástica tras Alfonso VI.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="t-item">
+        <h4><span class="t-date">1126-1157</span> Alfonso VII "el Emperador"</h4>
+        <div>
+          <ul>
+            <li>Se proclama emperador en León en 1135.</li>
+            <li>Representa la máxima formulación de la idea imperial leonesa.</li>
+            <li>A su muerte divide sus dominios entre sus hijos: León para Fernando II y Castilla para Sancho III.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="t-item">
+        <h4><span class="t-date">1157-1188</span> Fernando II</h4>
+        <div>
+          <ul>
+            <li>Reina sobre León tras la separación de Castilla.</li>
+            <li>Impulsa la expansión hacia Extremadura.</li>
+            <li>Refuerza la personalidad política del Reino de León.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="t-item">
+        <h4><span class="t-date">1188-1230</span> Alfonso IX</h4>
+        <div>
+          <ul>
+            <li>Último rey privativo de León.</li>
+            <li>Convoca las Cortes de León de 1188, consideradas una de las primeras asambleas parlamentarias europeas.</li>
+            <li>Conquista importantes plazas en Extremadura, como Cáceres, Mérida y Badajoz.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="t-item">
+        <h4><span class="t-date">1230</span> Unión definitiva con Castilla</h4>
+        <div>
+          <ul>
+            <li>Tras la muerte de Alfonso IX, Fernando III hereda el Reino de León.</li>
+            <li>Se produce la unión definitiva de León y Castilla bajo una misma corona.</li>
+            <li>El Reino de León mantiene su identidad jurídica e institucional dentro de la Corona de Castilla.</li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+  
+
+
+  
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
