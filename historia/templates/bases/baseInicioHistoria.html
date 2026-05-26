@@ -19,7 +19,7 @@
         <script src="{% static 'librerias/jquery-ui-1.13.1.custom/jquery-ui.min.js' %}"></script>       
         <!-- <link rel="stylesheet" href="{% static 'css/estilos.css' %}"> -->
         <link rel="stylesheet" href="{% static 'css/prueba.css' %}">
-        <link rel="icon" type="image/png" href="{% static 'images/favicon1.png' %}">
+        <link rel="icon" type="image/png" href="{% static 'images/favicon1.png' %}" >
 
         {% block head %} {% endblock %}
 
@@ -28,16 +28,18 @@
             max-height:70px;
             width:auto;
             object-fit:contain;
-            }
+        }
 
             @media (max-width:991px){
-
+            .logo-medieval{
+                max-height:40px;
+            }
             #logotipo{
                 padding-top:0.6rem;
             }
 
             #logotipo h1{
-                font-size:1.8rem;
+                font-size:1.4rem;
                 margin-bottom:0;
             }
 
@@ -47,22 +49,20 @@
     <body>
         <header>
             <div class="row align-items-center justify-content-center" id="logotipo">
-                <div class="col-md-1 d-none d-md-block text-center">
+                <div class="col-2 col-md-1 text-center">
                     <figure class="m-0">
                         <img src="{% static 'images/favicon1.png' %}"
                             alt="Logo"
-                            class="img-fluid logo-medieval">
+                            class="logo-medieval my-2">
                     </figure>
                 </div>
-                <div class="col-md-8 text-center ">
-                    <h1>{% block cabecera %} {% endblock %}</h1>
+                <div class="col-8 col-md-8 text-center">
+                    <h1>{% block cabecera %}{% endblock %}</h1>
                 </div>
                 
-                <div class="col-md-1 text-center ">
-                    {% block imgCabecera %}  {% endblock %}
-                </div>
-                
-                
+                <div class="col-2 col-md-1 text-center">
+                    {% block imgCabecera %}{% endblock %}
+                </div>           
                 
             </div>           
             
@@ -81,48 +81,60 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="menuEdadMedia">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'inicioHistoria' %}">España</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link active" href="{% url 'edad_media' %}">Edad Media</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'reyes_timeline' %}">Introducción</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'reyes_timeline' %}">Visigodos</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'reyes_timeline' %}">Al-Ándalus</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'reinos_cristianos' %}">Reinos cristianos</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'reyes_timeline' %}">Reconquista</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'reyes_timeline' %}">Reyes Católicos</a>
-                    </li>
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">              
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="temasEdadMedia" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        Temas
+                        🦴 Antigüedad
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="temasEdadMedia">
                         <li>
-                            <a class="dropdown-item" href="{% url 'romanico' %}">Camino de Santiago</a>
+                            <a class="dropdown-item" href="{% url 'romanico' %}">Prehistoria</a>
+                            <a class="dropdown-item" href="{% url 'romanico' %}">Hispania romana</a>
+                            <a class="dropdown-item" href="{% url 'romanico' %}">Reino visigodo</a>
+                        </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="temasEdadMedia" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        ☪️ Edad Media
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="temasEdadMedia">
+                        <li>
+                            <a class="dropdown-item" href="{% url 'romanico' %}">Al-Ándalus</a>
+                            <a class="dropdown-item" href="{% url 'edad_media' %}">Reconquista</a>                            
+                        </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="temasEdadMedia" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        👑 Monarquía Hispánica
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="temasEdadMedia">
+                        <li>
+                            <a class="dropdown-item" href="{% url 'romanico' %}">Reyes Católicos</a>
+                            <a class="dropdown-item" href="{% url 'romanico' %}">Casa de Austria</a>
+                            <a class="dropdown-item" href="{% url 'romanico' %}">Casa de Borbón</a>
+                            <a class="dropdown-item" href="{% url 'romanico' %}">Imperio español</a>                            
+                        </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="temasEdadMedia" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        🏛️ España contemporánea
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="temasEdadMedia">
+                        <li>
+                            <a class="dropdown-item" href="{% url 'sigloXIX' %}">Siglo XIX</a>
+                            <a class="dropdown-item" href="{% url 'romanico' %}">Restauración</a>
+                            <a class="dropdown-item" href="{% url 'segundaRepublica' %}">Segunda República</a>
+                            <a class="dropdown-item" href="{% url 'romanico' %}">Guerra Civil</a>
+                            <a class="dropdown-item" href="{% url 'romanico' %}">Franquismo</a>
+                            <a class="dropdown-item" href="{% url 'romanico' %}">Transición</a>                           
                         </li>
                         </ul>
                     </li>

@@ -1,41 +1,580 @@
-{% extends "basePersonal.html" %}
+{% extends "bases/baseInicioHistoria.html" %}
 
 {% load static %}
 
-{% block titulo %} Inicio Historia {% endblock %}
+{% block titulo %} Historia de España {% endblock %}
+
+{% block cabecera %} Historia de España {% endblock %}
+
+{% block imgCabecera %}  {% endblock %}
 
 {% block contenido %}
 
-<div class="container  mt-5 justify-content-center text-center">
-    <div class="row mb-3">
-        <div class="col-md-2 "></div>
-        <div class="col-md-2 "><a style="text-decoration:none ;" href="{% url 'inicioEspagna' %}">España</a> </div>
-        <div class="col-md-2 "><a style="text-decoration:none ;" href="{% url 'inicioInglaterra' %}">Inglaterra</a> </div>
-        <div class="col-md-2 ">Alemania</div>
-        <div class="col-md-2 ">Francia</div>
+<style>
+ 
+
+  /* MENÚ EDAD MEDIA RESPONSIVE */
+  .navbar {
+    border-radius: 16px;
+  }
+
+  .navbar .nav-link,
+  .navbar .navbar-brand {
+    font-size: 0.95rem;
+    white-space: nowrap;
+  }
+
+  .section-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 0.35rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: #8b0000;
+  }
+
+  @media (max-width: 991px) {
+    .navbar {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+
+    .navbar-collapse {
+      margin-top: 0.8rem;
+      background: #212529;
+      border-radius: 14px;
+      padding: 0.8rem;
+    }
+
+    .navbar-nav {
+      text-align: left;
+    }
+
+    .navbar .nav-link {
+      padding: 0.55rem 0.8rem;
+      border-radius: 10px;
+    }
+
+    .navbar .nav-link:hover {
+      background: rgba(255,255,255,0.12);
+    }
+
+    .dropdown-menu {
+      border-radius: 12px;
+      margin-top: 0.4rem;
+    }
+  }
+
+  /* TARJETAS */
+  .medieval-card {
+    overflow: hidden;
+    border-radius: 20px;
+    border: none;
+    transition: all .3s ease;
+    background: #fff;
+  }
+
+  .medieval-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0,0,0,.15);
+  }
+
+  .medieval-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* HERO */
+  .hero-medieval {
+    background: linear-gradient(135deg, #f8f4ec 0%, #efe7d8 100%);
+    border: 1px solid #ddd0b8;
+    border-radius: 24px;
+    padding: 3rem;
+    box-shadow: 0 10px 30px rgba(58,44,24,.08);
+    overflow: hidden;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    padding: .6rem 1rem;
+    background: #e8dfcf;
+    border: 1px solid #d2c3a5;
+    color: #6b4e2e;
+    font-weight: 700;
+    border-radius: 999px;
+  }
+
+  .hero-title {
+    color: #1f2937;
+    font-size: clamp(2rem, 4vw, 3.35rem);
+    line-height: 1.12;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    margin-bottom: 1.2rem;
+  }
+
+  .hero-text {
+    color: #263241;
+    font-size: 1.08rem;
+    line-height: 1.75;
+  }
+
+  .hero-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+    margin-top: 2rem;
+  }
+
+  .hero-chips span {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    background: #f4ede0;
+    border: 1px solid #d9ccb4;
+    color: #5f4a2c;
+    padding: .55rem 1rem;
+    border-radius: 999px;
+    font-weight: 600;
+  }
+
+  .hero-figure {
+    margin: 0;
+  }
+
+  .hero-figure img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(0,0,0,.15);
+    border: 4px solid #fff;
+  }
+
+  .hero-figure figcaption {
+    margin-top: .8rem;
+    color: #6b727c;
+    font-size: .95rem;
+    line-height: 1.55;
+  }
+  figcaption {
+    margin-top: .8rem;
+    color: #6b727c;
+  }
+   .contenedor{
+    background: linear-gradient(135deg, #f8f4ec 0%, #efe7d8 100%);
+    border: 1px solid #ddd0b8;
+    border-radius: 24px;
+   }
+  /* ASIDE */
+  .page-aside {
+    position: sticky;
+    top: 92px;
+    max-height: calc(100vh - 110px);
+  }
+
+  .aside-card {
+    background: #fff;
+    border: 1px solid #e7dfd2;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(58, 44, 24, 0.06);
+    padding: 1.25rem 1rem;
+    max-height: calc(100vh - 110px);
+    overflow-y: auto;
+    scrollbar-width: thin;
+  }
+
+  .aside-card h5 {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #1f2937;
+    margin-bottom: 1rem;
+  }
+
+  .aside-nav {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding-right: 0.25rem;
+  }
+
+  .aside-nav a {
+    text-decoration: none;
+    color: #334155;
+    font-size: 1rem;
+    padding: .9rem 1rem;
+    border-radius: 14px;
+    transition: all .2s ease;
+    border: 1px solid #c7d2fe;
+    background: #f8fafc;
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+  }
+
+  .aside-nav a:hover {
+    background: #eef2ff;
+    border-color: #93c5fd;
+    color: #1e3a8a;
+    transform: translateX(3px);
+  }
+
+  /* BLOQUES DE CONTENIDO */
+  .main-col {
+    width: 100%;
+  }
+
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: .9rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .section-icon {
+    width: 58px;
+    height: 58px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #e8d7bb, #d8be92);
+    box-shadow: 0 8px 20px rgba(92, 67, 33, .12);
+    font-size: 1.55rem;
+  }
+
+  .section-head h2 {
+    margin: 0;
+    color: #111827;
+    font-weight: 900;
+    font-size: clamp(1.8rem, 3vw, 2.35rem);
+    letter-spacing: -0.03em;
+  }
+
+  .section-block,
+  .intro-box {
+    background: #fff;
+    border: 1px solid #e7dfd2;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(58, 44, 24, .06);
+  }
+
+  .section-block p,
+  .intro-box p {
+    color: #111827;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    margin-bottom: 1.25rem;
+  }
+
+  .section-block p:last-child,
+  .intro-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 991px) {
+    .hero-medieval {
+      padding: 2.2rem;
+    }
+
+    .hero-figure img {
+      height: 300px;
+    }
+
+    .page-aside {
+       position: static;
+       max-height: none;
+    }
+    .aside-card {
+      max-height: none;
+      overflow-y: visible;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .medieval-img {
+      height: 170px;
+    }
+
+    .hero-medieval {
+      padding: 1.5rem;
+      border-radius: 20px;
+    }
+
+    .hero-title {
+      font-size: 2rem;
+    }
+
+    .hero-text {
+      font-size: 1rem;
+    }
+
+    .hero-chips {
+      gap: .5rem;
+    }
+
+    .hero-chips span {
+      font-size: .9rem;
+      padding: .45rem .8rem;
+    }
+
+    .hero-figure img {
+      height: 240px;
+    }
+
+    .section-block,
+    .intro-box {
+      padding: 1.35rem;
+    }
+
+    .section-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+    }
+  }
+  
+</style>
+
+<section class="hero-medieval my-4">
+  <div class="row align-items-center g-5">
+    <div class="col-lg-7">
+      <div class="hero-badge mb-4">
+       🇪🇸 Más de 3.000 años de historia
+      </div>
+
+      <h1>
+          Historia de España:
+          <span>un viaje a través del tiempo</span>
+      </h1>
+
+      <p>
+        España posee una de las trayectorias históricas más extensas y fascinantes de Europa.
+        Desde las primeras comunidades prehistóricas y las pinturas de Altamira hasta la
+        construcción del Estado democrático actual, la Península Ibérica ha sido escenario
+        de civilizaciones, conquistas, reinos, imperios y profundas transformaciones políticas,
+        sociales y culturales.
+
+        A lo largo de estas páginas recorreremos la Hispania romana, el Reino visigodo,
+        Al-Ándalus, los reinos cristianos medievales, la expansión de la Monarquía Hispánica,
+        el Imperio español, la España contemporánea y los acontecimientos que han configurado
+        la nación actual. Un recorrido riguroso y visual por más de tres mil años de historia.
+      </p>
+
+      <div class="hero-chips">
+        <span>🏺 Hispania romana</span>
+        <span>⚔️ Edad Media</span>
+        <span>👑 Monarquía Hispánica</span>
+        <span>🌍 Imperio español</span>
+        <span>🏛️ España contemporánea</span>
+      </div>
     </div>
-    <img class="img-fluid mt-3" src="{% static 'images/inicioHistoria1.jpg' %}" alt="">
+
+    <div class="col-lg-5">
+      <figure class="hero-figure">
+        <img src="{% static 'images/portada/1.png' %}"
+             alt="Panteón de los reyes"
+             class="img-fluid">
+
+        <figcaption>
+          La historia de España es el resultado de la interacción de múltiples pueblos,
+          culturas y civilizaciones que, a lo largo de los siglos, configuraron una de las
+          naciones más influyentes de Europa y del mundo.
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<div class="row g-4 mt-4 contenedor">
+  <div class="col-lg-4">
+    <aside class="page-aside mb-3">
+      <div class="aside-card">
+        <h5>En esta página</h5>
+
+        <nav class="aside-nav">
+          <a href="#prehistoria" class="aside-link">
+              🦴 Prehistoria
+          </a>
+
+          <a href="#hispania" class="aside-link">
+              🏛️ Hispania romana
+          </a>
+
+          <a href="#visigodos" class="aside-link">
+              ⚔️ Reino visigodo
+          </a>
+
+          <a href="#alandalus" class="aside-link">
+              ☪️ Al-Ándalus
+          </a>
+
+          <a href="#reconquista" class="aside-link">
+              🛡️ Reconquista
+          </a>
+
+          <a href="#reyescatolicos" class="aside-link">
+              👑 Reyes Católicos
+          </a>
+
+          <a href="#imperio" class="aside-link">
+              🌍 Imperio español
+          </a>
+
+          <a href="#austrias" class="aside-link">
+              🏰 Casa de Austria
+          </a>
+
+          <a href="#borbones" class="aside-link">
+              ⚜️ Casa de Borbón
+          </a>
+
+          <a href="#xix" class="aside-link">
+              🚂 Siglo XIX
+          </a>
+
+          <a href="#restauracion" class="aside-link">
+              🏛️ Restauración
+          </a>
+
+          <a href="#segundarepublica" class="aside-link">
+              🗳️ Segunda República
+          </a>
+
+          <a href="#guerracivil" class="aside-link">
+              🔥 Guerra Civil
+          </a>
+
+          <a href="#franquismo" class="aside-link">
+              🇪🇸 Franquismo
+          </a>
+
+          <a href="#transicion" class="aside-link">
+              🤝 Transición
+          </a>
+
+          <a href="#actualidad" class="aside-link">
+              📅 España actual
+          </a>
+          <a href="#recursos" class="aside-link">📚 Recursos</a>
+        </nav>
+      </div>
+    </aside>
+  </div>
+
+  <div class="col-lg-8">
+    <main class="main-col my-3">
+      <section id="prehistoria">
+        <div class="section-head mt-3">
+          <span class="section-icon">🦴</span>
+          <h3>Prehistoria</h3>
+        </div>
+
+        <div class="intro-box section-block">
+          <p>
+            La Prehistoria constituye el periodo más extenso de la historia de la Península Ibérica, abarcando desde la llegada de los primeros grupos humanos hace más de un millón de años hasta la aparición de la escritura y de las primeras sociedades históricas. Durante estos milenios se produjo una profunda evolución tecnológica, económica y cultural que transformó comunidades de cazadores-recolectores en sociedades agrícolas y ganaderas cada vez más complejas.
+
+            La Península conserva algunos de los testimonios prehistóricos más importantes de Europa, desde los yacimientos de Atapuerca, fundamentales para el estudio de la evolución humana, hasta las extraordinarias pinturas rupestres de Altamira, consideradas una de las máximas expresiones artísticas del Paleolítico. Estos vestigios permiten reconstruir los orígenes de los pueblos que habitaron el territorio y comprender los cambios que sentaron las bases de las futuras civilizaciones peninsulares.
+          </p>
+          <figure class="hero-figure">
+            <img src="{% static 'images/prehistoria/altamira.webp' %}"
+                alt="altamira"
+                class="img-fluid">
+          <div class="text-center">               
+            
+            <a  href="{% url 'inicioHistoria' %}" class="btn btn-outline-dark btn-xl mt-4">Ver tema</a>
+          </div>
+           
+        </div>
+      </section>
+
+      <section id="hispania">
+        <div class="section-head mt-3">
+          <span class="section-icon">🏛️</span>
+          <h3>Hispania romana</h3>
+        </div>
+
+        <div class="intro-box section-block">
+          <p>
+            La conquista romana de la Península Ibérica, iniciada en el año 218 a. C. durante la Segunda Guerra Púnica, transformó profundamente el territorio y marcó el comienzo de una nueva etapa histórica conocida como Hispania romana. A lo largo de más de seis siglos, Roma incorporó progresivamente la península a su imperio, imponiendo sus instituciones, su lengua, su derecho y sus formas de organización política y económica.
+
+            La romanización constituyó uno de los procesos más decisivos de la historia de España. Las ciudades, las calzadas, los acueductos, los teatros y las obras públicas integraron Hispania en una extensa red comercial y cultural que se extendía desde Britania hasta Oriente. La difusión del latín, origen de las lenguas romances peninsulares, así como la implantación del derecho romano y del cristianismo, dejaron una huella duradera que continúa siendo uno de los pilares fundamentales de la identidad histórica española.
+          </p>
+          <figure class="hero-figure">
+            <img src="{% static 'images/hispania_romana/acueducto.jpg' %}"
+                alt="acueducto"
+                class="img-fluid">
+          <div class="text-center">               
+            
+            <a  href="{% url 'inicioHistoria' %}" class="btn btn-outline-dark btn-xl mt-4">Ver tema</a>
+          </div>
+           
+        </div>
+      </section>
+
+
+      <section id="recursos">
+        <div class="section-head mt-3">
+          <span class="section-icon">📚</span>
+          <h3>Recursos</h3>
+        </div>
+
+        <div class="intro-box section-block">      
+          <h4>Podcast</h4>
+          <div>
+            <ul>
+              <li><a target="_blank" class="section-link" href="https://www.ivoox.com/batalla-simancas-del-939-1-2-audios-mp3_rf_144145709_1.html">Medievalia. La Batalla de Simancas del 939</a></li>
+              <li><a target="_blank" class="section-link" href="https://memoriasdeuntambor.com/la-frontera-del-duero">Memorias de un tambor. La frontera del Duero</a></li>
+              <li><a target="_blank" class="section-link" href="https://memoriasdeuntambor.com/84-la-ciudad-medieval">Memorias de un tambor. La ciudad medieval</a></li>
+            </ul>
+          </div>
+          <h4>Vídeos</h4>
+          <div>
+            <ul>
+              <li><a target="_blank" class="section-link" href="https://www.youtube.com/watch?v=RbsxiItds_A">Historia Ex Hispania. Batalla de Simancas, 939</a></li>
+              <li><a target="_blank" class="section-link" href="https://www.youtube.com/watch?v=RbsxiItds_A">Vestigios. La Batalla de Simancas (939) 🛡️ ¿La Mayor Humillación de Abderramán III?</a></li>
+              <li><a target="_blank" class="section-link" href="https://www.youtube.com/watch?v=UlAku_aRmfM">La Historia de España - Memorias Hispánicas. Ramiro II de León y la batalla de Simancas-Alhándega</a></li>
+              <li><a target="_blank" class="section-link" href="https://www.youtube.com/playlist?list=PLVw8hISUcZM6eeYoM22lErMISc3_jMZQd">La Reconquista (de José Javier Esparza)</a></li>
+             
+            </ul>
+          </div>
+          <h4>Web</h4>
+          <div>
+            <ul>
+              <li><a target="_blank" class="section-link" href="https://www.youtube.com/watch?v=RbsxiItds_A">Historia Ex Hispania. Batalla de Simancas, 939</a></li>
+              <li><a target="_blank" class="section-link" href="https://es.wikipedia.org/wiki/Fernando_I_de_Le%C3%B3n">Wikipedia. Fernando I de León</a></li>
+              
+            </ul>
+          </div>
+          
+        </div>
+      </section>
     
+    </main>
+  </div>
 </div>
+
+  
+
+
+  
+  
+
+  
+
+
+
+
+
+
+
 
 
 
 {% endblock %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

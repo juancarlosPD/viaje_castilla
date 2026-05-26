@@ -2,15 +2,15 @@ from django.urls import path
 from historia import views
 
 urlpatterns = [
-    path('inicioPersonal/', views.inicioPersonal, name='inicioPersonal'),
-    path('inicioFilosofia/', views.inicioFilosofia, name='inicioFilosofia'),
+    # path('inicioPersonal/', views.inicioPersonal, name='inicioPersonal'),
+    # path('inicioFilosofia/', views.inicioFilosofia, name='inicioFilosofia'),
     path('inicioHistoria/', views.inicioHistoria, name='inicioHistoria'),
-    path('inicioClasica/', views.inicioClasica, name='inicioClasica'),
+    # path('inicioClasica/', views.inicioClasica, name='inicioClasica'),
     path('reyesEspagna/', views.reyesEspagna, name='reyesEspagna'),
 
     # ----------------------------HISTORIA--------------------------
-    path('inicioEspagna/', views.inicioEspagna, name='inicioEspagna'),
-    path('inicioInglaterra/', views.inicioInglaterra, name='inicioInglaterra'),
+    # path('inicioEspagna/', views.inicioEspagna, name='inicioEspagna'),
+    # path('inicioInglaterra/', views.inicioInglaterra, name='inicioInglaterra'),
     path('romanico/', views.romanico, name='romanico'),
     path('edad_media/', views.edad_media, name='edad_media'),
 

@@ -1,4 +1,4 @@
-{% extends "bases/baseReinosCristianos.html" %}
+{% extends "bases/baseInicioHistoria.html" %}
 
 {% load static %}
 
@@ -24,6 +24,16 @@
   .navbar .navbar-brand {
     font-size: 0.95rem;
     white-space: nowrap;
+  }
+
+   .section-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 0.35rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: #8b0000;
   }
 
   @media (max-width: 991px) {
@@ -392,6 +402,7 @@
           <a href="#legado">📜 El legado del Reino de Asturias</a>
           <a href="#leon">👑 Del Reino de Asturias al Reino de León</a>
           <a href="{% url 'reyes_asturias' %}">👑 Reyes de Asturias</a>
+          <a href="#recursos" class="aside-link">📚 Recursos</a>
         </nav>
       </div>
     </aside>
@@ -1086,6 +1097,38 @@
           <p>
             En consecuencia, el paso del Reino de Asturias al Reino de León debe entenderse como una evolución natural dentro del proceso de construcción de los reinos cristianos medievales. Asturias proporcionó los fundamentos políticos e ideológicos; León heredó ese legado y lo proyectó sobre un espacio territorial mucho más amplio. Ambos reinos forman parte de una misma continuidad histórica que explica el origen y desarrollo de la España medieval.
           </p>
+        </div>
+      </section>
+      <section id="recursos">
+        <div class="section-head mt-3">
+          <span class="section-icon">📚</span>
+          <h3>Recursos</h3>
+        </div>
+
+        <div class="intro-box section-block">      
+          <h4>Podcast</h4>
+          <div>
+            <ul>
+              <li><a target="_blank" class="section-link" href="">-</a></li>
+             
+            </ul>
+          </div>
+          <h4>Vídeos</h4>
+          <div>
+            <ul>
+              <li><a target="_blank" class="section-link" href="https://www.youtube.com/watch?v=3AJ5T1f_7sk">España Legendaria. El Día que Nació España: Don Pelayo y la Batalla de Covadonga</a></li>
+              <li><a target="_blank" class="section-link" href="https://www.youtube.com/watch?v=aXjDG-iUoyE">Historia Hispana. Año 794, ASTURIAS Lucha Por Sobrevivir - Batalla de Lutos.</a></li>
+              <li><a target="_blank" class="section-link" href="https://www.youtube.com/playlist?list=PLVw8hISUcZM6eeYoM22lErMISc3_jMZQd">La Reconquista (de José Javier Esparza)</a></li>
+            </ul>
+          </div>
+          <h4>Web</h4>
+          <div>
+            <ul>
+              <li><a target="_blank" class="section-link" href="">-</a></li>
+              
+            </ul>
+          </div>
+          
         </div>
       </section>
     </main>
