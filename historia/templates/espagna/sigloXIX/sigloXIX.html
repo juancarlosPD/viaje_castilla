@@ -11,7 +11,21 @@
 {% block contenido %}
 
 <style>
-  
+  .img-retrato {
+    max-width: 700px;
+    width: auto;    
+    max-height: 500px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .img-panoramica {
+    max-width: 1100px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
   .navbar {
     border-radius: 16px;
   }
@@ -466,13 +480,7 @@
                 El siglo XIX constituye uno de los periodos más trascendentales y complejos de la historia de España. Durante estos cien años el país experimentó una profunda transformación política, económica y social que puso fin al Antiguo Régimen y sentó las bases de la España contemporánea. La invasión napoleónica, la Guerra de la Independencia y la Constitución de Cádiz de 1812 abrieron una etapa marcada por la confrontación entre absolutismo y liberalismo, dos modelos políticos enfrentados que protagonizarían gran parte de la vida pública española.
               </p>
             </div>
-          </div>
-
-          
-          
-          <p>
-          El siglo XIX constituye uno de los periodos más trascendentales y complejos de la historia de España. Durante estos cien años el país experimentó una profunda transformación política, económica y social que puso fin al Antiguo Régimen y sentó las bases de la España contemporánea. La invasión napoleónica, la Guerra de la Independencia y la Constitución de Cádiz de 1812 abrieron una etapa marcada por la confrontación entre absolutismo y liberalismo, dos modelos políticos enfrentados que protagonizarían gran parte de la vida pública española.
-          </p>
+          </div>         
 
           <p>
           La centuria estuvo caracterizada por una constante inestabilidad institucional. Revueltas, pronunciamientos militares, cambios de régimen, guerras civiles y crisis económicas se sucedieron en un intento de definir el futuro político del país. El reinado de Fernando VII, las guerras carlistas, el gobierno de Isabel II, la Revolución de 1868, la Primera República y la posterior Restauración borbónica reflejan la dificultad de construir un sistema político estable en una sociedad en plena transformación.
@@ -485,6 +493,518 @@
           <p>
           A pesar de sus conflictos y contradicciones, el siglo XIX fue el laboratorio donde nacieron muchas de las instituciones, debates y problemas que marcarían la España del siglo XX. Comprender esta época resulta fundamental para entender el origen de la democracia española, la configuración del Estado liberal y los desafíos que acompañaron la construcción de la España contemporánea.
           </p>
+        </div>
+      </section>
+
+      <section id="carlosiv">
+        <div class="section-head mt-3">
+          <span class="section-icon">👑</span>
+          <h3>Carlos IV (1788-1808)</h3>
+        </div>
+
+        <figure>
+          <img src="{% static 'images/sigloXIX/carlosIV.jpg' %}"
+              alt="Carlos IV"
+              class="img-fluid img-retrato">
+        </figure>
+
+        <div class="intro-box section-block">
+          <p>
+            El reinado de Carlos IV marcó el comienzo de una de las etapas más convulsas de la historia de España.
+            Aunque heredó una monarquía aparentemente sólida de su padre Carlos III, los acontecimientos
+            internacionales transformaron por completo la situación política del país. La Revolución Francesa,
+            las guerras europeas y la creciente influencia de Napoleón Bonaparte pusieron a prueba la capacidad
+            de la Corona para mantener la estabilidad.
+          </p>
+          <p>
+          Durante estos años adquirió gran protagonismo Manuel Godoy, favorito real y principal figura política
+          del reino. Sus decisiones, unidas al deterioro económico, las derrotas militares y las tensiones dentro
+          de la propia familia real, provocaron una profunda crisis que culminó con el Motín de Aranjuez y las
+          abdicaciones de Bayona en 1808. Aquellos acontecimientos abrieron el camino a la Guerra de la
+          Independencia y al nacimiento de la España contemporánea.
+        </p>
+
+          <div class="text-center">
+            <a href="#" class="btn btn-outline-dark btn-xl mt-4">
+              Ver tema
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="independencia">
+        <div class="section-head mt-3">
+          <span class="section-icon">⚔️</span>
+          <h3>Guerra de la Independencia (1808-1814)</h3>
+        </div>
+
+        <figure>
+          <img src="{% static 'images/sigloXIX/guerra_independencia.jpg' %}"
+              alt="Guerra de la Independencia Española"
+              class="img-fluid img-panoramica">
+        </figure>
+
+        <div class="intro-box section-block">
+          <p>
+            La Guerra de la Independencia constituye uno de los episodios más trascendentales de la historia de España y marca el inicio de la Edad Contemporánea en nuestro país. El conflicto comenzó en 1808 cuando Napoleón Bonaparte aprovechó la crisis de la monarquía borbónica para ocupar la Península Ibérica e imponer en el trono español a su hermano José Bonaparte. La reacción popular frente a la ocupación francesa desencadenó una guerra de enorme intensidad que combinó levantamientos populares, grandes batallas campales y una constante guerra de guerrillas.
+          </p>
+
+          <p>
+            Durante seis años, España se convirtió en uno de los principales escenarios de las guerras napoleónicas. La resistencia de ciudades como Zaragoza, Gerona o Cádiz, junto con la ayuda militar británica dirigida por Wellington, contribuyó al desgaste del poderoso ejército francés. Al mismo tiempo, la guerra provocó una profunda transformación política y social, favoreciendo el surgimiento del liberalismo y la convocatoria de las Cortes de Cádiz, donde se elaboró la Constitución de 1812. La victoria final sobre Napoleón permitió el regreso de Fernando VII, aunque los conflictos entre absolutismo y liberalismo marcarían el resto del siglo XIX español.
+          </p>
+
+          <div class="text-center">
+            <a href="#" class="btn btn-outline-dark btn-xl mt-4">
+              Ver tema
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="cadiz1812">
+        <div class="section-head mt-3">
+          <span class="section-icon">📜</span>
+          <h3>La Constitución de Cádiz (1812)</h3>
+        </div>
+
+        <figure>
+          <img src="{% static 'images/sigloXIX/constitucion1.jpg' %}"
+              alt="Promulgación de la Constitución de Cádiz de 1812"
+              class="img-fluid img-panoramica">
+        </figure>
+
+        <div class="intro-box section-block">
+          <p>
+            En plena Guerra de la Independencia, mientras gran parte de España permanecía ocupada por las tropas napoleónicas, la ciudad de Cádiz se convirtió en el principal centro de resistencia política frente a Francia. Allí se reunieron las Cortes de Cádiz, una asamblea formada por representantes de distintos territorios de la monarquía española que asumió la soberanía nacional en ausencia de Fernando VII. El resultado de sus trabajos fue la aprobación, el 19 de marzo de 1812, de la primera constitución española, conocida popularmente como «La Pepa».
+          </p>
+
+          <p>
+            La Constitución de Cádiz supuso una auténtica revolución política para su tiempo. Proclamó la soberanía nacional, estableció la división de poderes, reconoció la igualdad jurídica de los ciudadanos y limitó la autoridad absoluta del monarca. Aunque su vigencia efectiva fue breve debido al retorno del absolutismo con Fernando VII, sus principios inspiraron buena parte del constitucionalismo español y latinoamericano durante el siglo XIX. Por ello, la Constitución de 1812 es considerada uno de los documentos fundamentales en la construcción del Estado liberal español.
+          </p>
+
+          <div class="text-center">
+            <a href="#" class="btn btn-outline-dark btn-xl mt-4">
+              Ver tema
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="fernandovii">
+        <div class="section-head mt-3">
+          <span class="section-icon">👑</span>
+          <h3>Fernando VII (1814-1833)</h3>
+        </div>
+
+        <figure class="historia-figure">
+          <img src="{% static 'images/sigloXIX/fernandoVII.jpg' %}"
+              alt="Fernando VII"
+              class="img-fluid img-retrato">
+        </figure>
+
+        <div class="intro-box section-block">
+          <p>
+            Fernando VII es una de las figuras más controvertidas de la historia de España. Hijo de Carlos IV, accedió al trono en medio de la crisis provocada por la invasión napoleónica y las abdicaciones de Bayona de 1808. Durante la Guerra de la Independencia permaneció retenido en Francia, mientras gran parte de la población española lo consideraba el legítimo monarca y símbolo de la resistencia frente a la ocupación francesa. Su regreso en 1814 fue recibido con entusiasmo por amplios sectores de la sociedad, que esperaban el restablecimiento de la normalidad tras años de guerra.
+          </p>
+
+          <p>
+            Sin embargo, Fernando VII decidió abolir la Constitución de Cádiz y restaurar el absolutismo, iniciando un periodo marcado por la confrontación entre liberales y absolutistas. A lo largo de su reinado se sucedieron pronunciamientos militares, cambios de régimen y profundas tensiones políticas, destacando el Trienio Liberal (1820-1823) y la posterior Década Ominosa. Además, durante estos años España perdió la mayor parte de su imperio americano, mientras que la cuestión sucesoria abierta por la Pragmática Sanción acabaría desencadenando las Guerras Carlistas tras su muerte en 1833.
+          </p>
+
+          <div class="text-center">
+            <a href="#" class="btn btn-outline-dark btn-xl mt-4">
+              Ver tema
+            </a>
+          </div>
+        </div>
+      </section>
+      
+      <section id="emancipacion">
+        <div class="section-head mt-3">
+          <span class="section-icon">🌎</span>
+          <h3>La Independencia de América</h3>
+        </div>
+
+        <figure class="historia-figure">
+          <img src="{% static 'images/sigloXIX/independencia_america/portada.png' %}"
+              alt="Independencia de la América española"
+              class="img-fluid img-panoramica">
+        </figure>
+
+        <div class="intro-box section-block">
+          <p>
+            La independencia de las colonias americanas fue uno de los procesos más trascendentales del siglo XIX y supuso la desaparición de la mayor parte del Imperio español construido desde el siglo XVI. Aprovechando la crisis provocada por la invasión napoleónica de España en 1808 y el debilitamiento de la autoridad de la monarquía, numerosos territorios americanos comenzaron a formar juntas de gobierno y a reclamar una mayor autonomía política. Lo que inicialmente surgió como una respuesta a la ausencia del rey acabó transformándose en un amplio movimiento independentista.
+          </p>
+
+          <p>
+            Entre 1810 y 1826, líderes como Simón Bolívar, José de San Martín, Antonio José de Sucre o Miguel Hidalgo encabezaron campañas militares y revoluciones que dieron lugar al nacimiento de nuevas naciones independientes en Hispanoamérica. La pérdida de estos territorios tuvo profundas consecuencias para España, tanto económicas como políticas, y alteró de manera definitiva el equilibrio de poder en el continente americano. Al finalizar el proceso, España solo conservó Cuba, Puerto Rico y Filipinas como principales posesiones ultramarinas.
+          </p>
+
+          <div class="text-center">
+            <a href="#" class="btn btn-outline-dark btn-xl mt-4">
+              Ver tema
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="carlistas">
+        <div class="section-head mt-3">
+          <span class="section-icon">⚔️</span>
+          <h3>Las Guerras Carlistas</h3>
+        </div>
+
+        <figure class="historia-figure">
+          <img src="{% static 'images/sigloXIX/guerras_carlistas/portada.png' %}"
+              alt="Guerras Carlistas"
+              class="img-fluid img-panoramica">
+        </figure>
+
+        <div class="intro-box section-block">
+          <p>
+            Las Guerras Carlistas fueron una serie de conflictos civiles que marcaron profundamente la historia de España durante gran parte del siglo XIX. Su origen se encuentra en la disputa por la sucesión al trono tras la muerte de Fernando VII en 1833. Mientras los partidarios de Isabel II defendían la legitimidad de la nueva reina y el avance del liberalismo, los seguidores de su tío, Carlos María Isidro de Borbón, reclamaban sus derechos al trono y defendían una monarquía tradicional basada en el absolutismo, la religión católica y los fueros históricos.
+          </p>
+
+          <p>
+            Entre 1833 y 1876 se desarrollaron tres guerras carlistas que afectaron especialmente al País Vasco, Navarra, Cataluña, Aragón y el Maestrazgo. Más allá de una simple disputa dinástica, estos enfrentamientos reflejaron el choque entre dos modelos de sociedad: uno ligado a las estructuras tradicionales del Antiguo Régimen y otro inspirado en los principios del Estado liberal. Aunque los carlistas fueron finalmente derrotados, el movimiento mantuvo una notable influencia política y social durante décadas, dejando una profunda huella en la evolución política de la España contemporánea.
+          </p>
+
+          <div class="text-center">
+            <a href="{% url 'guerrasCarlistas' %}" class="btn btn-outline-dark btn-xl mt-4">
+              Ver tema
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="isabelii">
+        <div class="section-head mt-3">
+          <span class="section-icon">👑</span>
+          <h3>Isabel II (1833-1868)</h3>
+        </div>
+
+        <figure class="historia-figure">
+          <img src="{% static 'images/sigloXIX/isabelii/portada.png' %}"
+              alt="Reinado de Isabel II"
+              class="img-fluid img-retrato">
+        </figure>
+
+        <div class="intro-box section-block">
+          <p>
+            El reinado de Isabel II fue una de las etapas más complejas y decisivas de la construcción del Estado liberal en España. Proclamada reina siendo todavía una niña tras la muerte de Fernando VII en 1833, su acceso al trono provocó el estallido de la Primera Guerra Carlista y abrió un largo periodo de enfrentamiento entre las fuerzas conservadoras y liberales. Durante su minoría de edad gobernaron como regentes su madre, María Cristina de Borbón, y posteriormente el general Baldomero Espartero, en un contexto marcado por la inestabilidad política y los continuos conflictos internos.
+          </p>
+
+          <p>
+            Una vez alcanzada la mayoría de edad, Isabel II reinó durante más de dos décadas en las que se consolidaron muchas de las instituciones fundamentales del Estado liberal. Sin embargo, el sistema político estuvo dominado por la intervención constante del ejército en la vida pública, los pronunciamientos militares, la corrupción y la alternancia entre moderados y progresistas. A pesar de importantes avances económicos y administrativos, el creciente descontento político y social terminó desembocando en la Revolución de 1868, conocida como «La Gloriosa», que puso fin a su reinado y abrió un nuevo periodo de experimentación política en España.
+          </p>
+
+          <div class="text-center">
+            <a href="{% url 'isabelII' %}" class="btn btn-outline-dark btn-xl mt-4">
+              Ver tema
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="revolucion1868">
+        <div class="section-head mt-3">
+          <span class="section-icon">🔥</span>
+          <h3>La Gloriosa (1868)</h3>
+        </div>
+
+        <figure class="historia-figure">
+          <img src="{% static 'images/sigloXIX/la_gloriosa/portada.png' %}"
+              alt="La Revolución Gloriosa de 1868"
+              class="img-fluid img-panoramica">
+        </figure>
+
+        <div class="intro-box section-block">
+          <p>
+            La Revolución de 1868, conocida popularmente como «La Gloriosa», puso fin al reinado de Isabel II y abrió uno de los periodos más convulsos y apasionantes de la historia contemporánea española. El descontento acumulado durante años por la corrupción política, la crisis económica, el autoritarismo gubernamental y la exclusión de amplios sectores de la sociedad desembocó en un levantamiento militar iniciado en Cádiz por los almirantes y generales Juan Bautista Topete, Francisco Serrano y Juan Prim.
+          </p>
+
+          <p>
+            La revolución obtuvo rápidamente el apoyo de amplios sectores de la población y culminó con la derrota de las fuerzas leales a la reina en la batalla de Alcolea. Isabel II partió al exilio en Francia y comenzó el llamado Sexenio Democrático (1868-1874), una etapa caracterizada por la búsqueda de nuevas fórmulas políticas para España. Durante esos años se aprobaron importantes reformas, se promulgó la Constitución de 1869 y se intentó construir un régimen más democrático, aunque la inestabilidad política acabaría dificultando el éxito de aquel proyecto.
+          </p>
+
+          <div class="text-center">
+            <a href="#" class="btn btn-outline-dark btn-xl mt-4">
+              Ver tema
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="amadeo">
+        <div class="section-head mt-3">
+          <span class="section-icon">👑</span>
+          <h3>Amadeo I de Saboya (1870-1873)</h3>
+        </div>
+
+        <figure class="historia-figure">
+          <img src="{% static 'images/sigloXIX/amadeoI/portada.jpg' %}"
+              alt="Amadeo I de Saboya"
+              class="img-fluid img-retrato">
+        </figure>
+
+        <div class="intro-box section-block">
+          <p>
+            Tras la Revolución de 1868 y el destronamiento de Isabel II, España inició la búsqueda de un nuevo monarca que pudiera encabezar un régimen liberal y constitucional. Después de numerosas negociaciones diplomáticas, las Cortes eligieron como rey a Amadeo de Saboya, hijo del monarca italiano Víctor Manuel II. Amadeo llegó a España en 1870 con la intención de consolidar una monarquía democrática, pero desde el primer momento tuvo que enfrentarse a enormes dificultades políticas y sociales.
+          </p>
+
+          <p>
+            Su reinado estuvo marcado por la falta de apoyos sólidos, la división entre los partidos políticos, el estallido de la Tercera Guerra Carlista, la insurrección independentista en Cuba y la oposición de amplios sectores de la sociedad. Además, pocos días antes de su llegada fue asesinado el general Juan Prim, principal impulsor de su candidatura y una de las figuras políticas más influyentes del momento. Incapaz de estabilizar el país y agotado por la continua crisis política, Amadeo I abdicó en febrero de 1873, abriendo el camino a la proclamación de la Primera República.
+          </p>
+
+          <div class="text-center">
+            <a href="#" class="btn btn-outline-dark btn-xl mt-4">
+              Ver tema
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="primerarepublica">
+        <div class="section-head mt-3">
+          <span class="section-icon">🏛️</span>
+          <h3>La Primera República (1873-1874)</h3>
+        </div>
+
+        <figure class="historia-figure">
+          <img src="{% static 'images/sigloXIX/primera_republica/portada.png' %}"
+              alt="Primera República Española"
+              class="img-fluid img-panoramica">
+        </figure>
+
+        <div class="intro-box section-block">
+          <p>
+            La Primera República Española fue proclamada el 11 de febrero de 1873 tras la abdicación de Amadeo I de Saboya. Por primera vez en la historia de España desaparecía la monarquía y el país intentaba organizarse bajo una forma de gobierno republicana. Sin embargo, la nueva república nació en un contexto extremadamente complicado, marcado por profundas divisiones políticas, conflictos sociales, la Tercera Guerra Carlista y la insurrección independentista en Cuba.
+          </p>
+
+          <p>
+            Durante sus escasos once meses de existencia se sucedieron cuatro presidentes —Estanislao Figueras, Francisco Pi y Margall, Nicolás Salmerón y Emilio Castelar— reflejando la enorme inestabilidad del régimen. Uno de los episodios más graves fue la Revolución Cantonal, en la que diversas ciudades proclamaron cantones autónomos desafiando la autoridad del gobierno central. Finalmente, el golpe de Estado del general Pavía en enero de 1874 puso fin a la experiencia republicana y abrió el camino a la restauración de la monarquía borbónica pocos meses después.
+          </p>
+
+          <div class="text-center">
+            <a href="#" class="btn btn-outline-dark btn-xl mt-4">
+              Ver tema
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="restauracion">
+        <div class="section-head mt-3">
+          <span class="section-icon">⚜️</span>
+          <h3>La Restauración Borbónica (1874-1931)</h3>
+        </div>
+
+        <figure class="historia-figure">
+          <img src="{% static 'images/sigloXIX/restauracion_borbonica/portada.png' %}"
+              alt="La Restauración Borbónica"
+              class="img-fluid img-panoramica">
+        </figure>
+
+        <div class="intro-box section-block">
+          <p>
+            La Restauración Borbónica comenzó en diciembre de 1874 con el pronunciamiento del general Martínez Campos en Sagunto, que puso fin a la Primera República y restauró la monarquía en la persona de Alfonso XII, hijo de Isabel II. El nuevo régimen fue diseñado principalmente por Antonio Cánovas del Castillo, quien pretendía proporcionar a España la estabilidad política que había faltado durante gran parte del siglo XIX. Para ello se estableció una monarquía constitucional basada en la alternancia pacífica de los dos grandes partidos dinásticos: el Conservador y el Liberal.
+          </p>
+
+          <p>
+            Durante varias décadas, la Restauración logró proporcionar una relativa estabilidad institucional y favorecer el desarrollo económico del país. Sin embargo, el sistema político estuvo marcado por el caciquismo, el fraude electoral y la exclusión de amplios sectores sociales de la vida política. A medida que avanzaba el tiempo, crecieron los movimientos obreros, los nacionalismos periféricos y las críticas al régimen. Aunque la Restauración sobrevivió a numerosas crisis, el impacto del Desastre de 1898 y las tensiones del primer tercio del siglo XX terminarían debilitando un sistema que acabaría desapareciendo con la proclamación de la Segunda República en 1931.
+          </p>
+
+          <div class="text-center">
+            <a href="#" class="btn btn-outline-dark btn-xl mt-4">
+              Ver tema
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="alfonsoxii">
+        <div class="section-head mt-3">
+          <span class="section-icon">👑</span>
+          <h3>Alfonso XII (1874-1885)</h3>
+        </div>
+
+        <figure class="historia-figure">
+          <img src="{% static 'images/sigloXIX/alfonso_XII/portada.png' %}"
+              alt="Alfonso XII"
+              class="img-fluid img-retrato">
+        </figure>
+
+        <div class="intro-box section-block">
+          <p>
+            Alfonso XII accedió al trono de España en 1874 tras la restauración de la monarquía borbónica, poniendo fin a la inestabilidad política del Sexenio Democrático. Hijo de Isabel II, regresó del exilio para convertirse en el símbolo de una nueva etapa caracterizada por la búsqueda de estabilidad institucional y reconciliación nacional. Su proclamación fue impulsada por Antonio Cánovas del Castillo, arquitecto del sistema político de la Restauración, que pretendía superar décadas de guerras civiles, pronunciamientos militares y continuos cambios de régimen.
+          </p>
+
+          <p>
+            Durante su reinado se consolidó el sistema político de la Restauración, basado en la alternancia pacífica entre conservadores y liberales. Alfonso XII logró ganarse una notable popularidad gracias a su cercanía con la población y a su imagen de monarca moderado. Bajo su reinado concluyeron la Tercera Guerra Carlista y la Guerra de los Diez Años en Cuba, contribuyendo a una relativa pacificación del país. Sin embargo, su prematura muerte en 1885, a los veintisiete años de edad, truncó un reinado que muchos contemporáneos consideraron fundamental para la estabilización de la España de finales del siglo XIX.
+          </p>
+
+          <div class="text-center">
+            <a href="#" class="btn btn-outline-dark btn-xl mt-4">
+              Ver tema
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="regencia">
+        <div class="section-head mt-3">
+          <span class="section-icon">👑</span>
+          <h3>La Regencia de María Cristina de Austria (1885-1902)</h3>
+        </div>
+
+        <figure class="historia-figure">
+          <img src="{% static 'images/sigloXIX/maria_cristina_austria/portada.png' %}"
+              alt="Regencia de María Cristina de Austria"
+              class="img-fluid img-retrato">
+        </figure>
+
+        <div class="intro-box section-block">
+          <p>
+            Tras la muerte de Alfonso XII en 1885, la Corona quedó en una situación delicada, ya que el heredero aún no había nacido. Su viuda, María Cristina de Austria, asumió la regencia mientras esperaba el nacimiento del futuro Alfonso XIII, que llegó al mundo en mayo de 1886. Durante los diecisiete años de regencia, María Cristina desempeñó un papel fundamental como garante de la estabilidad política, respetando el sistema diseñado por Cánovas del Castillo y favoreciendo la alternancia pacífica entre conservadores y liberales.
+          </p>
+
+          <p>
+            Aunque este periodo estuvo marcado por una relativa estabilidad institucional y por el crecimiento económico derivado de la industrialización, también surgieron importantes desafíos. El movimiento obrero ganó fuerza, crecieron los nacionalismos periféricos en Cataluña y el País Vasco, y aumentaron las tensiones coloniales en Cuba y Filipinas. La regencia culminó con el Desastre de 1898, cuando España perdió sus últimas grandes colonias de ultramar. A pesar de estas dificultades, María Cristina logró preservar la monarquía hasta la mayoría de edad de Alfonso XIII en 1902, garantizando la continuidad del régimen de la Restauración.
+          </p>
+
+          <div class="text-center">
+            <a href="#" class="btn btn-outline-dark btn-xl mt-4">
+              Ver tema
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="desastre98">
+        <div class="section-head mt-3">
+          <span class="section-icon">💥</span>
+          <h3>El Desastre del 98</h3>
+        </div>
+
+        <figure class="historia-figure">
+          <img src="{% static 'images/sigloXIX/desastre_98/portada.png' %}"
+              alt="El Desastre de 1898"
+              class="img-fluid img-panoramica">
+        </figure>
+
+        <div class="intro-box section-block">
+          <p>
+            El Desastre del 98 constituye uno de los acontecimientos más traumáticos de la historia contemporánea de España. En 1898, tras una breve guerra contra Estados Unidos, España perdió sus últimas grandes colonias de ultramar: Cuba, Puerto Rico y Filipinas. Aquella derrota puso fin al imperio que durante siglos había convertido a la monarquía española en una de las principales potencias mundiales y provocó una profunda crisis política, económica y moral en el país.
+          </p>
+
+          <p>
+            Más allá de las pérdidas territoriales, el Desastre del 98 generó una intensa reflexión sobre las causas de la decadencia nacional. Intelectuales, políticos y militares comenzaron a cuestionar el funcionamiento del sistema de la Restauración y a plantear la necesidad de modernizar España. Surgió así el regeneracionismo y la llamada Generación del 98, un grupo de escritores y pensadores que analizaron críticamente la realidad del país. Aunque la derrota supuso el final definitivo del imperio colonial español, también abrió un periodo de debate y renovación que marcaría buena parte de la vida política e intelectual del siglo XX.
+          </p>
+
+          <div class="text-center">
+            <a href="" class="btn btn-outline-dark btn-xl mt-4">
+              Ver tema
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="sociedad">
+        <div class="section-head mt-3">
+          <span class="section-icon">🚂</span>
+          <h3>Sociedad e Industrialización</h3>
+        </div>
+
+        <figure class="historia-figure">
+          <img src="{% static 'images/sigloXIX/sociedad_industrializacion/portada.png' %}"
+              alt="Sociedad e Industrialización en la España del siglo XIX"
+              class="img-fluid img-panoramica">
+        </figure>
+
+        <div class="intro-box section-block">
+          <p>
+            El siglo XIX transformó profundamente la sociedad española. Aunque España continuó siendo un país mayoritariamente agrario durante gran parte del periodo, comenzaron a desarrollarse importantes cambios económicos y sociales impulsados por la industrialización, el crecimiento urbano y la modernización de las comunicaciones. Las antiguas estructuras heredadas del Antiguo Régimen fueron desapareciendo progresivamente, mientras surgían nuevas clases sociales vinculadas al capitalismo industrial y financiero.
+          </p>
+
+          <p>
+            La industrialización avanzó de forma desigual. Cataluña se convirtió en el principal centro de la industria textil, mientras que el País Vasco experimentó un fuerte desarrollo siderúrgico y minero en las últimas décadas del siglo. La expansión del ferrocarril conectó regiones antes aisladas, facilitó el comercio y aceleró la integración económica del país. Paralelamente, el crecimiento de las ciudades dio lugar a nuevos problemas sociales, como las malas condiciones laborales, la pobreza urbana y la aparición de movimientos obreros inspirados por el socialismo y el anarquismo.
+          </p>
+
+          <p>
+            Estos cambios transformaron la vida cotidiana de millones de personas. La burguesía consolidó su influencia económica y política, mientras que obreros y campesinos comenzaron a organizarse para reclamar mejoras laborales y sociales. A finales del siglo XIX, España seguía estando menos industrializada que las grandes potencias europeas, pero las bases de la sociedad contemporánea ya habían quedado definitivamente establecidas.
+          </p>
+
+          <div class="text-center">
+            <a href="#" class="btn btn-outline-dark btn-xl mt-4">
+              Ver tema
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="cultura">
+        <div class="section-head mt-3">
+          <span class="section-icon">🎨</span>
+          <h3>Cultura y pensamiento</h3>
+        </div>
+
+        <figure class="historia-figure">
+          <img src="{% static 'images/sigloXIX/cultura_pensamiento/portada.png' %}"
+              alt="Cultura y pensamiento en la España del siglo XIX"
+              class="img-fluid img-panoramica">
+        </figure>
+
+        <div class="intro-box section-block">
+          <p>
+            El siglo XIX fue una época de extraordinaria riqueza intelectual y cultural en España. Los profundos cambios políticos, sociales y económicos vividos durante la centuria influyeron directamente en la literatura, la filosofía, la pintura y el pensamiento político. La sociedad española debatió intensamente sobre cuestiones como la libertad, la nación, la religión, el progreso, la educación o la modernización del país, generando corrientes ideológicas que marcarían también buena parte del siglo XX.
+          </p>
+
+          <p>
+            En el ámbito artístico, el Romanticismo dominó las primeras décadas del siglo, exaltando la libertad individual, los sentimientos y el interés por la historia nacional. Más tarde surgieron el Realismo y el Naturalismo, que reflejaron de forma crítica la realidad social de la época. Escritores como José de Espronceda, Gustavo Adolfo Bécquer, Benito Pérez Galdós, Leopoldo Alas «Clarín» o Emilia Pardo Bazán renovaron profundamente la literatura española y dejaron algunas de las obras más importantes de nuestra tradición cultural.
+          </p>
+
+          <p>
+            La crisis provocada por el Desastre de 1898 impulsó además una profunda reflexión sobre el presente y el futuro de España. Intelectuales como Miguel de Unamuno, Azorín, Pío Baroja, Ramiro de Maeztu o Antonio Machado, vinculados a la llamada Generación del 98, analizaron las causas de la decadencia nacional y plantearon nuevos caminos para la regeneración del país. Gracias a ellos, el siglo XIX concluyó dejando un extraordinario legado cultural que sigue siendo fundamental para comprender la identidad española contemporánea.
+          </p>
+
+          <div class="text-center">
+            <a href="#" class="btn btn-outline-dark btn-xl mt-4">
+              Ver tema
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="legado">
+        <div class="section-head mt-3">
+          <span class="section-icon">⭐</span>
+          <h3>El legado del siglo XIX</h3>
+        </div>
+
+        <figure class="historia-figure">
+          <img src="{% static 'images/sigloXIX/legado/portada.png' %}"
+              alt="El legado del siglo XIX en España"
+              class="img-fluid img-panoramica">
+        </figure>
+
+        <div class="intro-box section-block">
+          <p>
+            El siglo XIX transformó profundamente España y sentó muchas de las bases políticas, económicas y sociales del país contemporáneo. A lo largo de cien años se produjo el paso definitivo del Antiguo Régimen a una sociedad liberal, desaparecieron los privilegios estamentales, se consolidó la propiedad privada moderna y surgieron nuevas instituciones representativas. Fue una época marcada por guerras, revoluciones, pronunciamientos militares y profundas divisiones ideológicas, pero también por importantes avances en la construcción del Estado moderno.
+          </p>
+
+          <p>
+            Durante este periodo se desarrollaron el constitucionalismo, el parlamentarismo y los primeros partidos políticos modernos. La expansión del ferrocarril, la industrialización, el crecimiento de las ciudades y la aparición del movimiento obrero transformaron la economía y la vida cotidiana de millones de personas. Al mismo tiempo, la pérdida del Imperio americano y el Desastre de 1898 obligaron a los españoles a replantearse su papel en el mundo y a reflexionar sobre los desafíos del futuro.
+          </p>
+
+          <p>
+            Muchos de los grandes debates que marcaron la historia de España durante los siglos XIX y XX —la relación entre tradición y modernidad, el papel de la Iglesia, la organización territorial del Estado, la cuestión social o la participación política de los ciudadanos— tienen sus raíces en esta centuria. Por ello, comprender el siglo XIX resulta fundamental para entender la España actual y los procesos históricos que han configurado su identidad contemporánea.
+          </p>
+
+          <div class="text-center">
+            <a href="" class="btn btn-outline-dark btn-xl mt-4">
+              Ver tema
+            </a>
+          </div>
         </div>
       </section>
 
