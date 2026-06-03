@@ -1,0 +1,490 @@
+{% extends "bases/baseInicioHistoria.html" %}
+
+{% load static %}
+
+{% block titulo %} Cultura y pensamiento durante el siglo XIX {% endblock %}
+
+{% block cabecera %}  Cultura y pensamiento durante el siglo XIX {% endblock %}
+
+{% block imgCabecera %}  {% endblock %}
+
+{% block contenido %}
+
+<style>
+  .img-retrato {
+    max-width: 700px;
+    width: auto;    
+    max-height: 500px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .img-panoramica {
+    max-width: 1100px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  .navbar {
+    border-radius: 16px;
+  }
+
+  .navbar .nav-link,
+  .navbar .navbar-brand {
+    font-size: 0.95rem;
+    white-space: nowrap;
+  }
+
+  .section-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 0.35rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: #8b0000;
+  }
+
+  @media (max-width: 991px) {
+    .navbar {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+
+    .navbar-collapse {
+      margin-top: 0.8rem;
+      background: #212529;
+      border-radius: 14px;
+      padding: 0.8rem;
+    }
+
+    .navbar-nav {
+      text-align: left;
+    }
+
+    .navbar .nav-link {
+      padding: 0.55rem 0.8rem;
+      border-radius: 10px;
+    }
+
+    .navbar .nav-link:hover {
+      background: rgba(255,255,255,0.12);
+    }
+
+    .dropdown-menu {
+      border-radius: 12px;
+      margin-top: 0.4rem;
+    }
+  }
+
+  /* TARJETAS */
+  .medieval-card {
+    overflow: hidden;
+    border-radius: 20px;
+    border: none;
+    transition: all .3s ease;
+    background: #fff;
+  }
+
+  .medieval-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0,0,0,.15);
+  }
+
+  .medieval-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* HERO */
+  .hero-medieval {
+    background: linear-gradient(135deg, #f8f4ec 0%, #efe7d8 100%);
+    border: 1px solid #ddd0b8;
+    border-radius: 24px;
+    padding: 3rem;
+    box-shadow: 0 10px 30px rgba(58,44,24,.08);
+    overflow: hidden;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    padding: .6rem 1rem;
+    background: #e8dfcf;
+    border: 1px solid #d2c3a5;
+    color: #6b4e2e;
+    font-weight: 700;
+    border-radius: 999px;
+  }
+
+  .hero-title {
+    color: #1f2937;
+    font-size: clamp(2rem, 4vw, 3.35rem);
+    line-height: 1.12;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    margin-bottom: 1.2rem;
+  }
+
+  .hero-text {
+    color: #263241;
+    font-size: 1.08rem;
+    line-height: 1.75;
+  }
+
+  .hero-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+    margin-top: 2rem;
+  }
+
+  .hero-chips span {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    background: #f4ede0;
+    border: 1px solid #d9ccb4;
+    color: #5f4a2c;
+    padding: .55rem 1rem;
+    border-radius: 999px;
+    font-weight: 600;
+  }
+
+  .hero-figure {
+    margin: 0;
+  }
+
+  .hero-figure img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(0,0,0,.15);
+    border: 4px solid #fff;
+  }
+
+  .hero-figure figcaption {
+    margin-top: .8rem;
+    color: #6b727c;
+    font-size: .95rem;
+    line-height: 1.55;
+  }
+  figcaption {
+    margin-top: .8rem;
+    color: #6b727c;
+  }
+   .contenedor{
+    background: linear-gradient(135deg, #f8f4ec 0%, #efe7d8 100%);
+    border: 1px solid #ddd0b8;
+    border-radius: 24px;
+   }
+  /* ASIDE */
+  .page-aside {
+    position: sticky;
+    top: 92px;
+    max-height: calc(100vh - 110px);
+  }
+
+  .aside-card {
+    background: #fff;
+    border: 1px solid #e7dfd2;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(58, 44, 24, 0.06);
+    padding: 1.25rem 1rem;
+    max-height: calc(100vh - 110px);
+    overflow-y: auto;
+    scrollbar-width: thin;
+  }
+
+  .aside-card h5 {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #1f2937;
+    margin-bottom: 1rem;
+  }
+
+  .aside-nav {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding-right: 0.25rem;
+  }
+
+  .aside-nav a {
+    text-decoration: none;
+    color: #334155;
+    font-size: 1rem;
+    padding: .9rem 1rem;
+    border-radius: 14px;
+    transition: all .2s ease;
+    border: 1px solid #c7d2fe;
+    background: #f8fafc;
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+  }
+
+  .aside-nav a:hover {
+    background: #eef2ff;
+    border-color: #93c5fd;
+    color: #1e3a8a;
+    transform: translateX(3px);
+  }
+
+  /* BLOQUES DE CONTENIDO */
+  .main-col {
+    width: 100%;
+  }
+
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: .9rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .section-icon {
+    width: 58px;
+    height: 58px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #e8d7bb, #d8be92);
+    box-shadow: 0 8px 20px rgba(92, 67, 33, .12);
+    font-size: 1.55rem;
+  }
+
+  .section-head h2 {
+    margin: 0;
+    color: #111827;
+    font-weight: 900;
+    font-size: clamp(1.8rem, 3vw, 2.35rem);
+    letter-spacing: -0.03em;
+  }
+
+  .section-block,
+  .intro-box {
+    background: #fff;
+    border: 1px solid #e7dfd2;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(58, 44, 24, .06);
+  }
+
+  .section-block p,
+  .intro-box p {
+    color: #111827;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    margin-bottom: 1.25rem;
+  }
+
+  .section-block p:last-child,
+  .intro-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 991px) {
+    .hero-medieval {
+      padding: 2.2rem;
+    }
+
+    .hero-figure img {
+      height: 300px;
+    }
+
+    .page-aside {
+       position: static;
+       max-height: none;
+    }
+    .aside-card {
+      max-height: none;
+      overflow-y: visible;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .medieval-img {
+      height: 170px;
+    }
+
+    .hero-medieval {
+      padding: 1.5rem;
+      border-radius: 20px;
+    }
+
+    .hero-title {
+      font-size: 2rem;
+    }
+
+    .hero-text {
+      font-size: 1rem;
+    }
+
+    .hero-chips {
+      gap: .5rem;
+    }
+
+    .hero-chips span {
+      font-size: .9rem;
+      padding: .45rem .8rem;
+    }
+
+    .hero-figure img {
+      height: 240px;
+    }
+
+    .section-block,
+    .intro-box {
+      padding: 1.35rem;
+    }
+
+    .section-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+    }
+  }
+  
+</style>
+
+<section class="hero-medieval my-4">
+  <div class="row align-items-center g-5">
+
+    <div class="col-lg-7">
+      <div class="hero-badge mb-4">
+        🎨 Literatura, ciencia y pensamiento en la España del siglo XIX
+      </div>
+
+      <h1>
+        Cultura y pensamiento:
+        <span>el despertar intelectual de la España contemporánea</span>
+      </h1>
+
+      <p>
+        El siglo XIX fue una época de profundas transformaciones culturales e intelectuales.
+        Mientras el país atravesaba guerras, revoluciones y cambios políticos constantes,
+        escritores, artistas, científicos y pensadores contribuyeron a renovar la vida
+        intelectual española y a conectarla con las grandes corrientes europeas.
+      </p>
+
+      <p>
+        Romanticismo, Realismo y Naturalismo marcaron la evolución de la literatura y las artes,
+        mientras que el desarrollo de la prensa, la expansión de la enseñanza y el auge del
+        debate político favorecieron la difusión de nuevas ideas. Figuras como Mariano José de
+        Larra, Gustavo Adolfo Bécquer, Benito Pérez Galdós o Emilia Pardo Bazán reflejaron en
+        sus obras las inquietudes y contradicciones de una sociedad en transformación.
+      </p>
+
+      <p>
+        Al mismo tiempo, surgieron movimientos intelectuales como el krausismo y la Institución
+        Libre de Enseñanza, que impulsaron una visión más moderna de la educación, la ciencia y
+        el progreso. La cultura se convirtió así en uno de los principales motores de la
+        modernización de la España contemporánea.
+      </p>
+
+      <div class="hero-chips">
+        <span>📚 Romanticismo</span>
+        <span>✍️ Bécquer y Larra</span>
+        <span>📖 Galdós y Pardo Bazán</span>
+        <span>🏫 Institución Libre de Enseñanza</span>
+        <span>📰 Expansión de la prensa</span>
+      </div>
+    </div>
+
+    <div class="col-lg-5">
+      <figure class="hero-figure">
+        <img src="{% static 'images/sigloXIX/cultura_pensamiento/portada.png' %}"
+             alt="Cultura y pensamiento en la España del siglo XIX"
+             class="img-fluid">
+
+        <figcaption>
+          La literatura, la educación, la prensa y el pensamiento liberal impulsaron
+          una profunda renovación cultural que acompañó la construcción de la España
+          contemporánea.
+        </figcaption>
+      </figure>
+    </div>
+
+  </div>
+</section>
+
+<div class="row g-4 mt-4 contenedor">
+  <div class="col-lg-4">
+    <aside class="page-aside mb-3">
+      <div class="aside-card">
+        <h5>En esta página</h5>
+        <nav class="aside-nav">
+          <a href="#introduccion" class="aside-link">📜 Introducción</a>
+          <a href="#romanticismo" class="aside-link">🎭 El Romanticismo</a>
+          <a href="#larra" class="aside-link">✍️ Mariano José de Larra</a>
+          <a href="#becquer" class="aside-link">🖋️ Gustavo Adolfo Bécquer</a>
+          <a href="#realismo" class="aside-link">📚 El Realismo literario</a>
+          <a href="#galdos" class="aside-link">📖 Benito Pérez Galdós</a>
+          <a href="#pardo-bazan" class="aside-link">👩‍🏫 Emilia Pardo Bazán</a>
+          <a href="#prensa" class="aside-link">📰 La expansión de la prensa</a>
+          <a href="#krausismo" class="aside-link">💡 El krausismo</a>
+          <a href="#institucion-libre" class="aside-link">🏫 Institución Libre de Enseñanza</a>
+          <a href="#ciencia" class="aside-link">🔬 Ciencia y progreso</a>
+          <a href="#arte" class="aside-link">🎨 Arte y pintura del siglo XIX</a>
+          <a href="#musica" class="aside-link">🎼 Música y sociedad</a>
+          <a href="#generacion98" class="aside-link">📘 Los orígenes de la Generación del 98</a>
+          <a href="#legado" class="aside-link">⭐ El legado cultural del siglo XIX</a>
+          <a href="#recursos" class="aside-link">📚 Recursos</a>
+        </nav>
+      </div>
+    </aside>
+  </div>
+
+  <div class="col-lg-8">
+    <main class="main-col my-3">
+      <section id="introduccion">
+        <div class="section-head mt-3">
+          <span class="section-icon">📜</span>
+          <h3>Introducción</h3>
+        </div>
+
+        <figure>
+          <img src="{% static 'images/sigloXIX/cultura_pensamiento/introduccion.png' %}"
+              alt="Guerra de la Independencia Española"
+              class="img-fluid img-panoramica">
+        </figure>
+
+        <div class="intro-box section-block">
+          <p> El siglo XIX fue una de las etapas más fecundas y transformadoras de la historia cultural española. Mientras el país atravesaba guerras, revoluciones, cambios dinásticos y profundas tensiones políticas, la literatura, la filosofía, la educación y las ciencias experimentaron un notable desarrollo. España vivió un intenso debate intelectual sobre su identidad, su futuro y su lugar dentro de una Europa que avanzaba rápidamente hacia la modernidad. </p>
+          <p> Las nuevas corrientes culturales llegaron desde Francia, Alemania e Inglaterra, influyendo decisivamente en escritores, artistas y pensadores españoles. El Romanticismo, surgido durante la primera mitad del siglo, exaltó la libertad individual, los sentimientos y la recuperación del pasado histórico. Más adelante, el Realismo y el Naturalismo ofrecieron una visión más crítica y objetiva de la sociedad, reflejando los problemas políticos, económicos y sociales de una nación en constante transformación. </p>
+          <p> La expansión de la prensa escrita y el aumento progresivo de la alfabetización permitieron que las ideas circulasen con una rapidez desconocida hasta entonces. Los periódicos se convirtieron en auténticos foros de debate político e intelectual, mientras que las novelas por entregas acercaban la literatura a amplias capas de la población. La cultura dejó de ser patrimonio exclusivo de las élites y comenzó a alcanzar a sectores cada vez más amplios de la sociedad. </p>
+          <p> Paralelamente, el pensamiento español experimentó una profunda renovación gracias a corrientes filosóficas como el krausismo, que defendía la tolerancia, la libertad de conciencia y la importancia de la educación como motor del progreso. Estas ideas inspiraron la creación de instituciones renovadoras como la Institución Libre de Enseñanza, que desempeñaría un papel fundamental en la modernización cultural y científica del país durante las décadas finales del siglo. </p>
+          <p> Figuras como Mariano José de Larra, Gustavo Adolfo Bécquer, Benito Pérez Galdós, Emilia Pardo Bazán, Joaquín Costa o Francisco Giner de los Ríos simbolizan la riqueza intelectual de este periodo. Sus obras y reflexiones ayudaron a interpretar los cambios de la sociedad española y dejaron una profunda huella en generaciones posteriores. </p>
+          <p> El final del siglo estuvo marcado por la crisis nacional provocada por el Desastre de 1898 y la pérdida de las últimas colonias ultramarinas. Este acontecimiento impulsó una intensa reflexión colectiva sobre los problemas del país y abrió el camino a nuevas corrientes de pensamiento que tendrían una enorme influencia en la España del siglo XX. La cultura y el pensamiento del siglo XIX constituyen, por tanto, uno de los pilares fundamentales sobre los que se construyó la España contemporánea. </p>
+        </div>
+      </section>
+    
+    </main>
+  </div>
+</div>
+
+  
+
+
+  
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

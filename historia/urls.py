@@ -69,6 +69,7 @@ urlpatterns = [
     path('monedas1868/', views.monedas1868, name='monedas1868'),
     path('escritoresxix/', views.escritoresxix, name='escritoresxix'),
     path('maria_cristina_hasburgo/', views.maria_cristina_hasburgo, name='maria_cristina_hasburgo'),
+    path('cultura_pensamiento/', views.cultura_pensamiento, name='cultura_pensamiento'),
 
     # ----------------------------SIGLO XX--------------------------
     path('sigloXX/', views.sigloXX, name='sigloXX'),

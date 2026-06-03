@@ -163,6 +163,9 @@ def escritoresxix(request):
 def maria_cristina_hasburgo(request):    
     return render(request, 'espagna/sigloXIX/maria_cristina_hasburgo.html')
 
+def cultura_pensamiento(request):    
+    return render(request, 'espagna/sigloXIX/cultura_pensamiento.html')
+
 # ----------------------------SIGLO XX--------------------------
 def sigloXX(request):    
     return render(request, 'espagna/sigloXX/sigloXX.html')
