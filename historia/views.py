@@ -119,7 +119,7 @@ def ilustracion(request):
 
 # ----------------------------SIGLO XIX--------------------------
 def carlosIV(request):    
-    return render(request, 'espagna/sigloXIX/carlosIV.html')
+    return render(request, 'espagna/sigloXIX/carlosIV_1.html')
 
 def independencia(request):    
     return render(request, 'espagna/sigloXIX/guerraIndependencia.html')
