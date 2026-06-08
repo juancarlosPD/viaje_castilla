@@ -11,6 +11,111 @@
 {% block contenido %}
 
 <style>
+
+  .timeline-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin: 1.5rem 0;
+  }
+
+  .timeline-btn {
+    border: 1px solid #b89b5e;
+    background: #f8f1df;
+    color: #4a3418;
+    padding: 0.45rem 0.9rem;
+    border-radius: 999px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .timeline-btn.active,
+  .timeline-btn:hover {
+    background: #7a4f1d;
+    color: #fff;
+  }
+
+  .timeline {
+    position: relative;
+    margin-top: 2rem;
+    padding-left: 2rem;
+    border-left: 4px solid #b89b5e;
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 1.8rem;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -2.55rem;
+    top: 0.3rem;
+    width: 1rem;
+    height: 1rem;
+    background: #7a4f1d;
+    border: 3px solid #f5ead0;
+    border-radius: 50%;
+  }
+
+  .timeline-year {
+    display: inline-block;
+    background: #7a4f1d;
+    color: white;
+    padding: 0.3rem 0.7rem;
+    border-radius: 0.4rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline-content {
+    background: #fffaf0;
+    border: 1px solid #ead8b7;
+    border-radius: 0.8rem;
+    padding: 1rem 1.2rem;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  }
+
+  .timeline-content h4 {
+    color: #4a3418;
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline-content p {
+    margin-bottom: 0;
+    line-height: 1.65;
+  }
+
+  .timeline-item.oculto {
+    display: none;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .timeline {
+      padding-left: 1.5rem;
+    }
+
+    .timeline-item::before {
+      left: -2.05rem;
+    }
+
+    .timeline-content {
+      padding: 0.9rem;
+    }
+  }
   .img-retrato {
     max-width: 700px;
     width: auto;    
@@ -414,6 +519,8 @@
         <nav class="aside-nav">
           <a href="#introduccion" class="aside-link">📜 Introducción</a>
 
+          <a href="#cronologia" class="aside-link">🕰️ Cronología interactiva del siglo XIX español</a>
+
           <a href="#carlosiv" class="aside-link">👑 Carlos IV</a>
 
           <a href="#independencia" class="aside-link">⚔️ Guerra de la Independencia</a>
@@ -447,6 +554,8 @@
           <a href="#cultura" class="aside-link">🎨 Cultura y pensamiento</a>
 
           <a href="#legado" class="aside-link">⭐ El legado del siglo XIX</a>
+          
+          <a href="{% url 'galeria_personajes' %}" class="aside-link">⭐ Galería personajes históricos siglo XIX</a>
 
           <a href="#recursos" class="aside-link">📚 Recursos</a>
         </nav>
@@ -458,30 +567,20 @@
     <main class="main-col my-3">
       <section id="introduccion">
         <div class="section-head mt-3">
-          <span class="section-icon">📌</span>
-          <h3>Introducción</h3>
+          <span class="section-icon">👑</span>
+          <h3>Introduccion</h3>
         </div>
 
+        <figure>
+          <img src="{% static 'images/sigloXIX/introduccion.png' %}"
+              alt="Carlos IV"
+              class="img-fluid img-panoramica">
+        </figure>
+
         <div class="intro-box section-block">
-          <div class="row">
-            <div class="col-md-6">
-                <figure >
-                  <img src="{% static 'images/sigloXIX/constitucion_cadiz.png' %}"
-                      alt="constitucion cadiz"
-                      class="img-fluid">
-
-                  <figcaption class="text-center mt-3">
-                    Constitucion de Cádiz de 1812
-                  </figcaption>
-                </figure>
-            </div>
-            <div class="col-md-6">
-              <p>
-                El siglo XIX constituye uno de los periodos más trascendentales y complejos de la historia de España. Durante estos cien años el país experimentó una profunda transformación política, económica y social que puso fin al Antiguo Régimen y sentó las bases de la España contemporánea. La invasión napoleónica, la Guerra de la Independencia y la Constitución de Cádiz de 1812 abrieron una etapa marcada por la confrontación entre absolutismo y liberalismo, dos modelos políticos enfrentados que protagonizarían gran parte de la vida pública española.
-              </p>
-            </div>
-          </div>         
-
+          <p>
+            El siglo XIX constituye uno de los periodos más trascendentales y complejos de la historia de España. Durante estos cien años el país experimentó una profunda transformación política, económica y social que puso fin al Antiguo Régimen y sentó las bases de la España contemporánea. La invasión napoleónica, la Guerra de la Independencia y la Constitución de Cádiz de 1812 abrieron una etapa marcada por la confrontación entre absolutismo y liberalismo, dos modelos políticos enfrentados que protagonizarían gran parte de la vida pública española.
+          </p>
           <p>
           La centuria estuvo caracterizada por una constante inestabilidad institucional. Revueltas, pronunciamientos militares, cambios de régimen, guerras civiles y crisis económicas se sucedieron en un intento de definir el futuro político del país. El reinado de Fernando VII, las guerras carlistas, el gobierno de Isabel II, la Revolución de 1868, la Primera República y la posterior Restauración borbónica reflejan la dificultad de construir un sistema político estable en una sociedad en plena transformación.
           </p>
@@ -493,6 +592,309 @@
           <p>
           A pesar de sus conflictos y contradicciones, el siglo XIX fue el laboratorio donde nacieron muchas de las instituciones, debates y problemas que marcarían la España del siglo XX. Comprender esta época resulta fundamental para entender el origen de la democracia española, la configuración del Estado liberal y los desafíos que acompañaron la construcción de la España contemporánea.
           </p>
+                  
+        </div>
+      </section>
+
+      <section id="cronologia">
+        <div class="section-head mt-3">
+          <span class="section-icon">🕰️</span>
+          <h3>Cronología interactiva del siglo XIX español</h3>
+        </div>
+
+        <figure>
+          <img src="{% static 'images/sigloXIX/cronologia_siglo_xix.png' %}"
+              alt="Cronología del siglo XIX español"
+              class="img-fluid img-panoramica imagen-ampliable"
+              data-bs-toggle="modal"
+              data-bs-target="#modalCronologiaSigloXIX">
+        </figure>
+
+        <div class="modal fade" id="modalCronologiaSigloXIX" tabindex="-1" aria-hidden="true">
+          <div class="modal-dialog modal-fullscreen modal-dialog-centered">
+            <div class="modal-content modal-imagen-grande">
+              <button type="button"
+                      class="btn-close btn-close-white boton-cerrar-imagen"
+                      data-bs-dismiss="modal"
+                      aria-label="Cerrar"></button>
+
+              <div class="modal-body modal-body-imagen">
+                <img src="{% static 'images/sigloXIX/cronologia_siglo_xix.png' %}"
+                    alt="Cronología ampliada del siglo XIX español"
+                    class="imagen-modal-cronologia">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="intro-box section-block">
+          <p>
+            El siglo XIX español fue una sucesión de crisis políticas, guerras, revoluciones,
+            cambios dinásticos, reformas liberales y conflictos sociales que transformaron
+            profundamente el país. Esta cronología permite recorrer de forma ordenada los
+            principales acontecimientos desde la crisis final del Antiguo Régimen hasta el
+            Desastre de 1898.
+          </p>
+
+          <div class="timeline-filters">
+            <button class="timeline-btn active" onclick="filtrarCronologia('todos', this)">Todos</button>
+            <button class="timeline-btn" onclick="filtrarCronologia('guerra', this)">Guerras</button>
+            <button class="timeline-btn" onclick="filtrarCronologia('politica', this)">Política</button>
+            <button class="timeline-btn" onclick="filtrarCronologia('constitucion', this)">Constituciones</button>
+            <button class="timeline-btn" onclick="filtrarCronologia('america', this)">América</button>
+            <button class="timeline-btn" onclick="filtrarCronologia('cultura', this)">Cultura</button>
+          </div>
+
+          <div class="timeline">
+
+            <div class="timeline-item politica">
+              <div class="timeline-year">1808</div>
+              <div class="timeline-content">
+                <h4>Motín de Aranjuez y abdicaciones de Bayona</h4>
+                <p>
+                  La crisis de la monarquía de Carlos IV culmina con el Motín de Aranjuez,
+                  la caída de Godoy y las abdicaciones forzadas en Bayona. Napoleón coloca
+                  en el trono español a su hermano José Bonaparte.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-item guerra">
+              <div class="timeline-year">1808-1814</div>
+              <div class="timeline-content">
+                <h4>Guerra de la Independencia</h4>
+                <p>
+                  España se levanta contra la ocupación francesa. La guerra combina ejército
+                  regular, guerrilla popular y apoyo británico. Supone el inicio de la crisis
+                  definitiva del Antiguo Régimen.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-item constitucion">
+              <div class="timeline-year">1812</div>
+              <div class="timeline-content">
+                <h4>Constitución de Cádiz</h4>
+                <p>
+                  Las Cortes reunidas en Cádiz aprueban la primera gran constitución liberal
+                  española. Proclama la soberanía nacional, la división de poderes y limita
+                  el absolutismo monárquico.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-item politica">
+              <div class="timeline-year">1814</div>
+              <div class="timeline-content">
+                <h4>Regreso de Fernando VII</h4>
+                <p>
+                  Fernando VII vuelve a España y restaura el absolutismo, anulando la obra
+                  legislativa de Cádiz. Comienza una etapa de persecución del liberalismo.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-item politica">
+              <div class="timeline-year">1820-1823</div>
+              <div class="timeline-content">
+                <h4>Trienio Liberal</h4>
+                <p>
+                  El pronunciamiento de Riego obliga a Fernando VII a aceptar la Constitución
+                  de 1812. La experiencia liberal termina con la intervención de los Cien Mil
+                  Hijos de San Luis.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-item america">
+              <div class="timeline-year">1810-1825</div>
+              <div class="timeline-content">
+                <h4>Independencia de la América española</h4>
+                <p>
+                  La mayor parte de los territorios americanos se independizan. España pierde
+                  casi todo su imperio continental, conservando únicamente Cuba, Puerto Rico
+                  y Filipinas.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-item politica">
+              <div class="timeline-year">1833</div>
+              <div class="timeline-content">
+                <h4>Muerte de Fernando VII</h4>
+                <p>
+                  La muerte del rey abre la regencia de María Cristina y el conflicto sucesorio
+                  entre isabelinos y carlistas.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-item guerra">
+              <div class="timeline-year">1833-1840</div>
+              <div class="timeline-content">
+                <h4>Primera Guerra Carlista</h4>
+                <p>
+                  Enfrenta a los partidarios de Isabel II, vinculados al liberalismo, contra
+                  los carlistas, defensores del absolutismo, la tradición y los fueros.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-item politica">
+              <div class="timeline-year">1833-1868</div>
+              <div class="timeline-content">
+                <h4>Reinado de Isabel II</h4>
+                <p>
+                  Periodo de consolidación del Estado liberal, alternancia de moderados y
+                  progresistas, pronunciamientos militares y fuerte inestabilidad política.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-item constitucion">
+              <div class="timeline-year">1837</div>
+              <div class="timeline-content">
+                <h4>Constitución de 1837</h4>
+                <p>
+                  Texto liberal progresista que intenta conciliar soberanía nacional,
+                  derechos individuales y monarquía constitucional.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-item constitucion">
+              <div class="timeline-year">1845</div>
+              <div class="timeline-content">
+                <h4>Constitución de 1845</h4>
+                <p>
+                  Constitución moderada que refuerza la autoridad de la Corona y restringe
+                  la participación política.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-item politica">
+              <div class="timeline-year">1854-1856</div>
+              <div class="timeline-content">
+                <h4>Bienio Progresista</h4>
+                <p>
+                  Nueva etapa reformista impulsada tras la Vicalvarada. Se promueven reformas
+                  económicas, administrativas y desamortizadoras.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-item politica">
+              <div class="timeline-year">1868</div>
+              <div class="timeline-content">
+                <h4>La Gloriosa</h4>
+                <p>
+                  Revolución que expulsa del trono a Isabel II y abre el Sexenio Democrático,
+                  una de las etapas políticas más intensas del siglo.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-item constitucion">
+              <div class="timeline-year">1869</div>
+              <div class="timeline-content">
+                <h4>Constitución de 1869</h4>
+                <p>
+                  Una de las constituciones más democráticas del siglo XIX español. Reconoce
+                  amplios derechos individuales y establece la monarquía parlamentaria.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-item politica">
+              <div class="timeline-year">1871-1873</div>
+              <div class="timeline-content">
+                <h4>Reinado de Amadeo I</h4>
+                <p>
+                  Amadeo de Saboya intenta encarnar una monarquía democrática, pero la falta
+                  de apoyos, la guerra carlista y la conflictividad política provocan su abdicación.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-item politica">
+              <div class="timeline-year">1873-1874</div>
+              <div class="timeline-content">
+                <h4>Primera República</h4>
+                <p>
+                  Breve experiencia republicana marcada por la división interna, el cantonalismo,
+                  la guerra carlista y la guerra de Cuba.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-item politica">
+              <div class="timeline-year">1874</div>
+              <div class="timeline-content">
+                <h4>Restauración borbónica</h4>
+                <p>
+                  El pronunciamiento de Martínez Campos restaura la monarquía en la figura
+                  de Alfonso XII. Cánovas diseña un sistema basado en el turno de partidos.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-item constitucion">
+              <div class="timeline-year">1876</div>
+              <div class="timeline-content">
+                <h4>Constitución de 1876</h4>
+                <p>
+                  Texto constitucional de la Restauración. Establece una monarquía parlamentaria
+                  flexible, compatible con el dominio político de conservadores y liberales.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-item cultura">
+              <div class="timeline-year">1870-1890</div>
+              <div class="timeline-content">
+                <h4>Realismo y transformación cultural</h4>
+                <p>
+                  La literatura realista y naturalista alcanza gran desarrollo con autores
+                  como Benito Pérez Galdós, Clarín, Emilia Pardo Bazán y Valera.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-item politica">
+              <div class="timeline-year">1885</div>
+              <div class="timeline-content">
+                <h4>Muerte de Alfonso XII</h4>
+                <p>
+                  Comienza la regencia de María Cristina de Habsburgo. El sistema de la
+                  Restauración continúa, pero aumentan las tensiones sociales y territoriales.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-item guerra america">
+              <div class="timeline-year">1895-1898</div>
+              <div class="timeline-content">
+                <h4>Guerra de Cuba</h4>
+                <p>
+                  La nueva insurrección cubana desemboca en una guerra prolongada que termina
+                  con la intervención de Estados Unidos.
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-item guerra america">
+              <div class="timeline-year">1898</div>
+              <div class="timeline-content">
+                <h4>Desastre del 98</h4>
+                <p>
+                  España pierde Cuba, Puerto Rico y Filipinas. El impacto político, moral e
+                  intelectual abre una profunda reflexión sobre la decadencia nacional.
+                </p>
+              </div>
+            </div>
+
+          </div>
         </div>
       </section>
 
@@ -554,7 +956,7 @@
           </p>
 
           <div class="text-center">
-            <a href="#" class="btn btn-outline-dark btn-xl mt-4">
+            <a href="{% url 'independencia' %}" class="btn btn-outline-dark btn-xl mt-4">
               Ver tema
             </a>
           </div>
@@ -1050,21 +1452,22 @@
   </div>
 </div>
 
-  
+<script>
+  function filtrarCronologia(categoria, boton) {
+    const items = document.querySelectorAll('.timeline-item');
+    const botones = document.querySelectorAll('.timeline-btn');
 
+    botones.forEach(btn => btn.classList.remove('active'));
+    boton.classList.add('active');
 
-  
-  
-
-  
-
-
-
-
-
-
-
-
-
+    items.forEach(item => {
+      if (categoria === 'todos' || item.classList.contains(categoria)) {
+        item.classList.remove('oculto');
+      } else {
+        item.classList.add('oculto');
+      }
+    });
+  }
+</script>
 
 {% endblock %}

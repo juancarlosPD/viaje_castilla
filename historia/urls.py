@@ -70,6 +70,8 @@ urlpatterns = [
     path('escritoresxix/', views.escritoresxix, name='escritoresxix'),
     path('maria_cristina_hasburgo/', views.maria_cristina_hasburgo, name='maria_cristina_hasburgo'),
     path('cultura_pensamiento/', views.cultura_pensamiento, name='cultura_pensamiento'),
+    path('galeria_personajes/', views.galeria_personajes, name='galeria_personajes'),
+
 
     # ----------------------------SIGLO XX--------------------------
     path('sigloXX/', views.sigloXX, name='sigloXX'),

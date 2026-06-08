@@ -119,7 +119,7 @@ def ilustracion(request):
 
 # ----------------------------SIGLO XIX--------------------------
 def carlosIV(request):    
-    return render(request, 'espagna/sigloXIX/carlosIV_1.html')
+    return render(request, 'espagna/sigloXIX/carlosIV.html')
 
 def independencia(request):    
     return render(request, 'espagna/sigloXIX/guerraIndependencia.html')
@@ -165,6 +165,9 @@ def maria_cristina_hasburgo(request):
 
 def cultura_pensamiento(request):    
     return render(request, 'espagna/sigloXIX/cultura_pensamiento.html')
+
+def galeria_personajes(request):    
+    return render(request, 'espagna/sigloXIX/galeria_personajes.html')
 
 # ----------------------------SIGLO XX--------------------------
 def sigloXX(request):    

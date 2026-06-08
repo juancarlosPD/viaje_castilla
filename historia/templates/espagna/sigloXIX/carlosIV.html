@@ -1,462 +1,1510 @@
-{% extends "bases/basesigloXIX.html" %}
+{% extends "bases/baseInicioHistoria.html" %}
 
 {% load static %}
 
-{% block titulo %} carlos iv {% endblock %}
+{% block titulo %} Carlos IV {% endblock %}
 
-{% block cabecera %} Carlos IV {% endblock %}
+{% block cabecera %}  Carlos IV {% endblock %}
 
-
+{% block imgCabecera %}  {% endblock %}
 
 {% block contenido %}
 
-<div class="container  mt-5 justify-content-center text-center">
-    <div class="row mb-4 ">
-        
-        <div class="col-md-3 text-start border">
-            <figure>
-            <img class="imagenInicio" src="{% static 'images/sigloXIX/carlosIV.jpg' %}" alt="">
-            </figure>
-            <figcaption>
-            Carlos IV de España, llamado <strong> <span> «el Cazador» (1788-1808)</span></strong></br></br>
-            <strong> <span> Rey de España </span></strong>desde el 14 de diciembre de 1788 hasta el 19 de marzo de 1808. </br>
-            <strong> Hijo y sucesor</strong> de Carlos III y de María Amalia de Sajonia y de Polonia.<br> 
-            <strong> Nacimiento:</strong> 11 de noviembre de 1748, Palacio Real de Portici, Portici, Italia<br>
-            <strong> Fallecimiento:</strong> 20 de enero de 1819, Palacio Barberini, Roma, Italia<br>
-            <strong> Cónyuge:</strong> María Luisa de Parma (m. 1765–1819)<br>
-            <strong> Hijos: </strong>Fernando VII de España, Carlos María Isidro de Borbón<br>
-            
-            </figcaption> 
-            <p></p>
+<style>
+  .img-retrato {
+    max-width: 700px;
+    width: auto;    
+    max-height: 500px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .img-panoramica {
+    max-width: 1100px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  .navbar {
+    border-radius: 16px;
+  }
+
+  .navbar .nav-link,
+  .navbar .navbar-brand {
+    font-size: 0.95rem;
+    white-space: nowrap;
+  }
+
+  .section-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 0.35rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: #8b0000;
+  }
+
+  @media (max-width: 991px) {
+    .navbar {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+
+    .navbar-collapse {
+      margin-top: 0.8rem;
+      background: #212529;
+      border-radius: 14px;
+      padding: 0.8rem;
+    }
+
+    .navbar-nav {
+      text-align: left;
+    }
+
+    .navbar .nav-link {
+      padding: 0.55rem 0.8rem;
+      border-radius: 10px;
+    }
+
+    .navbar .nav-link:hover {
+      background: rgba(255,255,255,0.12);
+    }
+
+    .dropdown-menu {
+      border-radius: 12px;
+      margin-top: 0.4rem;
+    }
+  }
+
+  /* TARJETAS */
+  .medieval-card {
+    overflow: hidden;
+    border-radius: 20px;
+    border: none;
+    transition: all .3s ease;
+    background: #fff;
+  }
+
+  .medieval-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0,0,0,.15);
+  }
+
+  .medieval-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* HERO */
+  .hero-medieval {
+    background: linear-gradient(135deg, #f8f4ec 0%, #efe7d8 100%);
+    border: 1px solid #ddd0b8;
+    border-radius: 24px;
+    padding: 3rem;
+    box-shadow: 0 10px 30px rgba(58,44,24,.08);
+    overflow: hidden;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    padding: .6rem 1rem;
+    background: #e8dfcf;
+    border: 1px solid #d2c3a5;
+    color: #6b4e2e;
+    font-weight: 700;
+    border-radius: 999px;
+  }
+
+  .hero-title {
+    color: #1f2937;
+    font-size: clamp(2rem, 4vw, 3.35rem);
+    line-height: 1.12;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    margin-bottom: 1.2rem;
+  }
+
+  .hero-text {
+    color: #263241;
+    font-size: 1.08rem;
+    line-height: 1.75;
+  }
+
+  .hero-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+    margin-top: 2rem;
+  }
+
+  .hero-chips span {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    background: #f4ede0;
+    border: 1px solid #d9ccb4;
+    color: #5f4a2c;
+    padding: .55rem 1rem;
+    border-radius: 999px;
+    font-weight: 600;
+  }
+
+  .hero-figure {
+    margin: 0;
+  }
+
+  .hero-figure img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(0,0,0,.15);
+    border: 4px solid #fff;
+  }
+
+  .hero-figure figcaption {
+    margin-top: .8rem;
+    color: #6b727c;
+    font-size: .95rem;
+    line-height: 1.55;
+  }
+  figcaption {
+    margin-top: .8rem;
+    color: #6b727c;
+  }
+   .contenedor{
+    background: linear-gradient(135deg, #f8f4ec 0%, #efe7d8 100%);
+    border: 1px solid #ddd0b8;
+    border-radius: 24px;
+   }
+  /* ASIDE */
+  .page-aside {
+    position: sticky;
+    top: 92px;
+    max-height: calc(100vh - 110px);
+  }
+
+  .aside-card {
+    background: #fff;
+    border: 1px solid #e7dfd2;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(58, 44, 24, 0.06);
+    padding: 1.25rem 1rem;
+    max-height: calc(100vh - 110px);
+    overflow-y: auto;
+    scrollbar-width: thin;
+  }
+
+  .aside-card h5 {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #1f2937;
+    margin-bottom: 1rem;
+  }
+
+  .aside-nav {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding-right: 0.25rem;
+  }
+
+  .aside-nav a {
+    text-decoration: none;
+    color: #334155;
+    font-size: 1rem;
+    padding: .9rem 1rem;
+    border-radius: 14px;
+    transition: all .2s ease;
+    border: 1px solid #c7d2fe;
+    background: #f8fafc;
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+  }
+
+  .aside-nav a:hover {
+    background: #eef2ff;
+    border-color: #93c5fd;
+    color: #1e3a8a;
+    transform: translateX(3px);
+  }
+
+  /* BLOQUES DE CONTENIDO */
+  .main-col {
+    width: 100%;
+  }
+
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: .9rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .section-icon {
+    width: 58px;
+    height: 58px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #e8d7bb, #d8be92);
+    box-shadow: 0 8px 20px rgba(92, 67, 33, .12);
+    font-size: 1.55rem;
+  }
+
+  .section-head h2 {
+    margin: 0;
+    color: #111827;
+    font-weight: 900;
+    font-size: clamp(1.8rem, 3vw, 2.35rem);
+    letter-spacing: -0.03em;
+  }
+
+  .section-block,
+  .intro-box {
+    background: #fff;
+    border: 1px solid #e7dfd2;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(58, 44, 24, .06);
+  }
+
+  .section-block p,
+  .intro-box p {
+    color: #111827;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    margin-bottom: 1.25rem;
+  }
+
+  .section-block p:last-child,
+  .intro-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 991px) {
+    .hero-medieval {
+      padding: 2.2rem;
+    }
+
+    .hero-figure img {
+      height: 300px;
+    }
+
+    .page-aside {
+       position: static;
+       max-height: none;
+    }
+    .aside-card {
+      max-height: none;
+      overflow-y: visible;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .medieval-img {
+      height: 170px;
+    }
+
+    .hero-medieval {
+      padding: 1.5rem;
+      border-radius: 20px;
+    }
+
+    .hero-title {
+      font-size: 2rem;
+    }
+
+    .hero-text {
+      font-size: 1rem;
+    }
+
+    .hero-chips {
+      gap: .5rem;
+    }
+
+    .hero-chips span {
+      font-size: .9rem;
+      padding: .45rem .8rem;
+    }
+
+    .hero-figure img {
+      height: 240px;
+    }
+
+    .section-block,
+    .intro-box {
+      padding: 1.35rem;
+    }
+
+    .section-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+    }
+  }
+  
+</style>
+
+<section class="hero-medieval my-4">
+  <div class="row align-items-center g-5">
+
+    <div class="col-lg-7">
+      <div class="hero-badge mb-4">
+        👑 El reinado de Carlos IV (1788-1808)
+      </div>
+
+      <h1>
+        Carlos IV:
+        <span>la crisis del Antiguo Régimen en España</span>
+      </h1>
+
+      <p>
+        El reinado de Carlos IV marcó el inicio de una de las etapas más complejas y
+        decisivas de la historia contemporánea española. Aunque heredó la monarquía de
+        su padre, Carlos III, las profundas transformaciones que sacudían Europa,
+        especialmente la Revolución Francesa, alteraron profundamente el equilibrio
+        político del país.
+      </p>
+
+      <p>
+        Durante estos años, España pasó de ser una potencia relativamente estable a
+        enfrentarse a graves problemas económicos, conflictos internacionales y una
+        creciente crisis de autoridad. La influencia del valido Manuel Godoy, las
+        guerras contra Francia y Gran Bretaña, así como las tensiones dentro de la
+        propia familia real, contribuyeron al deterioro de la monarquía.
+      </p>
+
+      <p>
+        El reinado culminó con los acontecimientos de Aranjuez, la abdicación del rey
+        y la intervención de Napoleón Bonaparte, hechos que desencadenaron la Guerra de
+        la Independencia y abrieron el camino hacia el final del Antiguo Régimen en
+        España.
+      </p>
+
+      <div class="hero-chips">
+        <span>👑 Carlos IV</span>
+        <span>⚔️ Revolución Francesa</span>
+        <span>🏛️ Manuel Godoy</span>
+        <span>🚢 Trafalgar</span>
+        <span>🇫🇷 Napoleón</span>
+        <span>🔥 Motín de Aranjuez</span>
+      </div>
+    </div>
+
+    <div class="col-lg-5">
+      <figure class="hero-figure">
+        <img src="{% static 'images/sigloXIX/carlos_iv/portada.png' %}"
+             alt="Carlos IV y la crisis del Antiguo Régimen"
+             class="img-fluid">
+
+        <figcaption>
+          El reinado de Carlos IV coincidió con la Revolución Francesa, el ascenso de
+          Napoleón y la crisis definitiva de la monarquía borbónica que desembocó en la
+          Guerra de la Independencia.
+        </figcaption>
+      </figure>
+    </div>
+
+  </div>
+</section>
+
+<div class="row g-4 mt-4 contenedor">
+  <div class="col-lg-4">
+    <aside class="page-aside mb-3">
+      <div class="aside-card">
+        <h5>En esta página</h5>
+
+        <nav class="aside-nav">
+          <a href="#introduccion" class="aside-link">👑 Introducción</a>
+          <a href="#ascenso" class="aside-link">🏛️ La llegada al trono</a>
+          <a href="#revolucion-francesa" class="aside-link">🇫🇷 La Revolución Francesa</a>
+          <a href="#godoy" class="aside-link">🎖️ Manuel Godoy</a>
+          <a href="#guerras" class="aside-link">⚔️ España en guerra</a>
+          <a href="#trafalgar" class="aside-link">🚢 La batalla de Trafalgar</a>
+          <a href="#crisis" class="aside-link">📉 La crisis de la monarquía</a>
+          <a href="#fernando" class="aside-link">👑 Fernando, príncipe de Asturias</a>
+          <a href="#aranjuez" class="aside-link">🔥 El Motín de Aranjuez</a>
+          <a href="#bayona" class="aside-link">📜 Las Abdicaciones de Bayona</a>
+          <a href="#napoleon" class="aside-link">🦅 Napoleón y España</a>
+          <a href="#independencia" class="aside-link">⚔️ Guerra de la Independencia</a>
+          <a href="#sociedad" class="aside-link">🏘️ La sociedad española</a>
+          <a href="#economia" class="aside-link">💰 Economía y Hacienda</a>
+          <a href="#cultura" class="aside-link">🎨 Cultura e Ilustración tardía</a>
+          <a href="#legado" class="aside-link">⭐ El legado de Carlos IV</a>
+          <a href="#recursos" class="aside-link">📚 Recursos</a>
+        </nav>
+
+      </div>
+    </aside>
+  </div>
+
+  <div class="col-lg-8">
+    <main class="main-col my-3">
+      <section id="introduccion">
+
+        <div class="section-head mt-3">
+          <span class="section-icon">👑</span>
+          <h3>Introducción</h3>
         </div>
-        <div class="col-md-9 text-start mt-2 ">
-            <p>Rey carente de talento y voluntad, que delegó en sus validos</p>
-            <h5>Gobierno del <span  data-bs-toggle="modal" data-bs-target="#floridablanca">
-            <strong> conde de Floridablanca</strong> </span>(1777-1792)</h5>
-            <!-------------------------------------------- MODAL -->
-            <div class="modal fade" id="floridablanca" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Conde de Floridablanca</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body container-fluid">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <img src="{% static 'images/sigloXIX/floridablanca.jpg' %}" alt="">
-                        </div>
-                        <div class="col-md-6 border"> 
-                            <h5>Notas básicas</h5>
-                            <p></p>
-                        </div>
 
-                    </div>
-                    
-                </div>
-                
-                </div>
-            </div>
-            </div>
+        <figure>
+          <img src="{% static 'images/sigloXIX/carlos_iv/introduccion.png' %}"
+              alt="Carlos IV y la crisis del Antiguo Régimen"
+              class="img-fluid img-panoramica">
+        </figure>
 
-             <!---------------------------------------------------------------------------------------------------------- -->
+        <div class="intro-box section-block">
 
+          <p>
+            El reinado de <strong>Carlos IV</strong> (1788-1808) constituye uno de los periodos más decisivos de la historia de España. Aunque heredó una monarquía fortalecida por las reformas ilustradas de su padre, <strong>Carlos III</strong>, las profundas transformaciones que estaban sacudiendo Europa terminaron desencadenando una crisis política, económica y social que puso fin al Antiguo Régimen y abrió las puertas de la España contemporánea.
+          </p>
 
-            <p>Esta época viene marcada por el estallido de la Revolución Francesa en 1789.</p>
-            <p> Conforme llegan las noticias de Francia, el nerviosismo de la corona crece y acaba por cerrar las Cortes. 
-                El aislamiento parece ser la receta para evitar la propagación de las ideas revolucionarias a España. 
-                Floridablanca estableció controles en la frontera para impedir la expansión de las ideas revolucionarias y efectuó una fuerte presión diplomática en apoyo a Luis XVI. 
-                También puso fin a los proyectos reformistas del reinado anterior y los sustituyó por el conservadurismo y la represión</p>
-            <h5>Gobierno del <span  data-bs-toggle="modal" data-bs-target="#aranda">
-            <strong> conde de Aranda</strong> </span>(1792)</h5>
-            <!-------------------------------------------- MODAL -->
-            <div class="modal fade" id="aranda" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Conde de Aranda</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                    <div class="modal-body container-fluid">
-                        <div class="row">
-                                <div class="col-md-6">
-                                    <img src="{% static 'images/sigloXIX/condeAranda.jpg' %}" alt="">
-                                </div>
-                                <div class="col-md-6 border">
-                                    <h5>Notas básicas</h5>
-                                    <p></p>
-                                </div>
+          <p>
+            Cuando Carlos IV accedió al trono, España seguía siendo una de las principales monarquías europeas. Sin embargo, apenas un año después estalló la <strong>Revolución Francesa de 1789</strong>, un acontecimiento que alteró profundamente el equilibrio político del continente. La ejecución del rey Luis XVI en 1793 conmocionó a todas las monarquías europeas y obligó a España a replantear completamente su política exterior.
+          </p>
 
-                            </div>
-                        
-                        </div>
-                    
-                    </div>
-                </div>
-            </div>
+          <p>
+            Durante este periodo destacó la figura de <strong>Manuel Godoy</strong>, favorito de los reyes y principal dirigente político de la monarquía. Su ascenso al poder estuvo rodeado de polémica y generó una fuerte oposición entre amplios sectores de la nobleza y de la población. Bajo su influencia, España pasó de combatir a la Francia revolucionaria a convertirse en aliada de Napoleón Bonaparte, una decisión que tendría consecuencias trascendentales para el país.
+          </p>
 
-             <!---------------------------------------------------------------------------------------------------------- -->
-            <p>El rey le encomienda la difícil papeleta de salvar la vida de su primo el rey Luis XVI. 
-                Sin embargo el rey francés fue guillotinado y quedó proclamada la República. 
-                Esto precipitó la caída del conde de Aranda y la llegada al poder de Manuel Godoy el 15 de noviembre de 1792. </p>
+          <p>
+            Los continuos conflictos bélicos, las derrotas militares y las dificultades económicas debilitaron progresivamente la autoridad de la Corona. La derrota naval de <strong>Trafalgar</strong> en 1805 supuso la práctica destrucción de la armada española, mientras que la presencia creciente de tropas francesas en territorio peninsular incrementó el malestar popular y las tensiones dentro de la propia familia real.
+          </p>
 
-            <h5>Gobierno de <span  data-bs-toggle="modal" data-bs-target="#godoy">
-            <strong> Manuel de Godoy</strong> </span>(1792-1808)</h5>
-            <!-------------------------------------------- MODAL GODOY -------------------------------------------------------->
-            <div class="modal fade" id="godoy" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Manuel de Godoy</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                            <div class="col-md-6">
-                                <img src="{% static 'images/sigloXIX/godoy.jpg' %}" alt="">
-                            </div>
-                            <div class="col-md-6 ">
-                                 
-                                <p>A lo largo de su valimiento, lleno de luces y sombras, logró mantener la situación de España ante el poderío de Francia con una <strong>política exterior pragmática</strong> </p>
-                                <p>En el interior trató de llevar a cabo un <strong>programa reformista ilustrado</strong> que generó un profundo rechazo en muchos grupos sociales, en especial entre la nobleza y el clero.</p>
-                                <p>Godoy, uno de los personajes más <strong>vilipendiados</strong> de la historia de España, ha sido objeto en los últimos tiempos de una serie de estudios rehabilitadores coincidentes con el 150.º aniversario de su muerte.</p>
-                            </div>
+          <p>
+            La crisis alcanzó su punto culminante en marzo de 1808 con el <strong>Motín de Aranjuez</strong>, que provocó la caída de Godoy y la abdicación de Carlos IV en favor de su hijo Fernando. Poco después, Napoleón aprovechó el conflicto dinástico para intervenir directamente en los asuntos españoles y obligó a padre e hijo a renunciar a sus derechos al trono durante las llamadas <strong>Abdicaciones de Bayona</strong>.
+          </p>
 
-                        </div>
-                    
-                    </div>
-                    
-                </div>
-                
-               
-            </div>
-            </div>
+          <p>
+            Estos acontecimientos desencadenaron la <strong>Guerra de la Independencia (1808-1814)</strong>, uno de los conflictos más importantes de la historia de España. Al mismo tiempo, iniciaron el proceso de transformación política que acabaría poniendo fin al Antiguo Régimen y daría paso al liberalismo y a la construcción del Estado contemporáneo.
+          </p>
 
-             <!---------------------------------------------------------------------------------------------------------- -->
-            <p>De pensamiento ilustrado.<br><br> Luis XVI fue guillotinado en enero de <strong>1793</strong>, lo que generalizó una guerra de las potencias europeas contra 
-                la Francia revolucionaria conocida como la <span  data-bs-toggle="modal" data-bs-target="#guerraConvencion">
-            <strong> Guerra de la Convención</strong> </span>, en la que España participó y fue derrotada. Godoy suscribió con Francia la <span  data-bs-toggle="modal" data-bs-target="#pazBasilea">
-            <strong> Paz de Basilea de 1795</strong> </span>. En agradecimiento el rey Carlos IV le concedió el título de <strong>príncipe de la Paz</strong>.<br>
-                <!-------------------------------------------- MODAL GUERRA DE CONVENCIÓN----------------------------------------------- -->
-            <div class="modal fade" id="guerraConvencion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Guerra de la convención</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                            
-                            <div class="col-md-12 ">
-                                
-                                <p>Enfrentó a Francia conta España y Portugal desde 1793 a 1795</p>
-                                <p>La guerra se libró en los Pirineos orientales, los Pirineos occidentales, en el puerto francés de Tolón y en el mar. </p>
-                                <p>A partir de 1794 las tropas españolas se vieron forzadas a la retirada. Los franceses ocuparon Figueras, Irún, San Sebastián, Bilbao, Vitoria y Miranda de Ebro.</p>
-                                <p>La República francesa devolvió a España las plazas ocupadas, a cambio del territorio hispano de la isla de La Española —colonia de Santo Domingo—.</p>
-                            </div>
+          <p>
+            Por todo ello, el reinado de Carlos IV representa mucho más que el final de una dinastía o de un gobierno. Constituye el momento en el que la España ilustrada del siglo XVIII entró en contacto con las fuerzas revolucionarias y nacionalistas que estaban transformando Europa, dando comienzo a una nueva etapa histórica cuyas consecuencias se extenderían durante todo el siglo XIX.
+          </p>
 
-                        </div>
-                    
-                    </div>
-                    
-                </div>
-                
-               
-            </div>
-            </div>
+        </div>
 
-             <!---------------------------------------------------------------------------------------------------------- -->
-              <!-------------------------------------------- MODAL PAZ DE BASILEA------------------------------------------------------->
-            <div class="modal fade" id="pazBasilea" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Paz de Basilea</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                            
-                            <div class="col-md-12 ">
-                               
-                                <p>Francia devolvió a España las plazas ocupadas, a cambio del territorio hispano de la isla de La Española —colonia de Santo Domingo—.</p>
-                                <p>La modestia de las reivindicaciones francesas se debió a que pretendía la reconciliación con España y reeditar la alianza frente al común enemigo británico</p>
-                            </div>
+      </section>
 
-                        </div>
-                    
-                    </div>
-                    
-                </div>
-                
-               
-            </div>
-            </div>
+      <section id="ascenso">
 
-             <!---------------------------------------------------------------------------------------------------------- -->
-                
-                
-                <strong> En 1796</strong>, concluida la fase más radical de la Revolución, Godoy firmó el <span  data-bs-toggle="modal" data-bs-target="#ildefonso">
-            <strong> Tratado de san Ildefonso</strong> </span>y España se convirtió en aliada de Francia. 
-                Este cambio de postura buscaba el enfrentamiento con Gran Bretaña, principal adversario de la Francia revolucionaria y tradicional enemiga de España con la que disputaba la hegemonía marítima y, concretamente, el comercio con América. 
-                La escuadra española sufrió la derrota frente al <span  data-bs-toggle="modal" data-bs-target="#caboVicente">
-            <strong> Cabo de San Vicente</strong> </span> en 1797.<br><br>
-                En <strong>1801 </strong>Godoy firmó el <strong>Convenio de Aranjuez</strong> por el que ponía a disposición de Napoleón la escuadra española, lo que implicaba de nuevo la guerra contra Gran Bretaña.<br><br>
-                En <strong>1801</strong> declara la guerra a Portugal, principal aliado británico en el continente, antes de que lo hiciera Francia. Este conflicto, conocido como la<span  data-bs-toggle="modal" data-bs-target="#guerraNaranjas">
-            <strong> guerra de las naranjas</strong> </span>, significó la ocupación de Olivenza por España, que además obtuvo el compromiso de Portugal de impedir el atraque de buques británicos en sus puertos.
+        <div class="section-head mt-3">
+          <span class="section-icon">🏛️</span>
+          <h3>La llegada al trono</h3>
+        </div>
 
-                </p>
-                <p>En <strong>1805 </strong>, la derrota de la escuadra franco-española en la <span  data-bs-toggle="modal" data-bs-target="#trafalgar">
-            <strong> batalla de Trafalgar</strong> </span> por la Armada británica modificó la situación 
-                    radicalmente. Frente a la hegemonía de Gran Bretaña en los mares, Napoleón recurrió al bloqueo continental, medida a la que se sumó España. .</p>
-                <p>En <strong>1807</strong> se firmó el <span  data-bs-toggle="modal" data-bs-target="#fontainebleau">
-            <strong> Tratado de Fontainebleau</strong> </span> que estableció el reparto de Portugal entre Francia, España y el propio Godoy, y el derecho de paso por España de las tropas francesas encargadas de su ocupación</p>
-                <p>A finales de <strong>1807</strong> se produjo la <span  data-bs-toggle="modal" data-bs-target="#conjuraEscorial">
-            <strong> Conjura del Escorial</strong> </span>, que se presentó como una conspiración encabezada por Fernando, príncipe de Asturias, que pretendía la sustitución de Godoy y el destronamiento de su propio padre</p>
-                <p>En marzo de <strong>1808</strong>, ante la evidencia de la ocupación francesa, Godoy aconsejó a los reyes que abandonaran la península y se refugiaran en América.​ Pero se produjo el <span  data-bs-toggle="modal" data-bs-target="#motinAranjuez">
-            <strong> motín de Aranjuez</strong> </span>, levantamiento popular atizado por el príncipe Fernando y los nobles opuestos a Godoy, contra los reyes aprovechando su presencia en el palacio de Aranjuez.​ Godoy fue hecho preso por los amotinados. Carlos IV, enfermo y desanimado, abdicó en su hijo Fernando VII ante el cariz de los acontecimientos</p>
-            </div>
+        <figure>
+          <img src="{% static 'images/sigloXIX/carlos_iv/llegada_trono.png' %}"
+              alt="Proclamación de Carlos IV como rey de España"
+              class="img-fluid img-panoramica">
+        </figure>
 
-            <!-------------------------------------------- MODAL TRATADO DE SAN ILDEFONSO------------------------------------------------------->
-            <div class="modal fade" id="ildefonso" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Tratado de San Ildefonso</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                            
-                            <div class="col-md-12 ">
-                                
-                                <p class="text-start">Según los términos del acuerdo, ambos Estados convenían en mantener una política militar conjunta frente a Reino Unido, 
-                                que en esos momentos amenazaba a la flota española en sus viajes a América.</p>
-                            </div>
+        <div class="intro-box section-block">
 
-                        </div>
-                    
-                    </div>
-                    
-                </div>
-                
-               
-            </div>
-            </div>
+          <p>
+            El 14 de diciembre de 1788 falleció <strong>Carlos III</strong>, uno de los monarcas más importantes de la historia de España. Su reinado había estado marcado por las reformas ilustradas, la modernización de la administración, el impulso de la economía y el fortalecimiento de las instituciones del Estado. A su muerte le sucedió su hijo <strong>Carlos IV</strong>, que contaba entonces con cuarenta años de edad.
+          </p>
 
-             <!---------------------------------------------------------------------------------------------------------- -->
+          <p>
+            Carlos IV había nacido en Nápoles en 1748, cuando su padre ocupaba el trono del Reino de Nápoles y Sicilia. Recibió una educación propia de un príncipe ilustrado y destacó por su afición a la caza, la música y las actividades manuales. Sin embargo, desde muy pronto mostró escaso interés por los asuntos de gobierno y una personalidad mucho menos enérgica que la de su padre.
+          </p>
 
-             <!-------------------------------------------- MODAL CABO SAN VICENTE------------------------------------------------------->
-            <div class="modal fade" id="caboVicente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Cabo San Vicente</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                            
-                            <div class="col-md-12 ">
-                                
-                                <p class="text-start">Se desarrolló en 1797 frente al cabo de San Vicente, en el extremo occidental de la costa portuguesa del Algarve. España se encontraba en aquel momento aliada a la Francia revolucionaria merced al Tratado de San Ildefonso, que la comprometía a enfrentarse a Inglaterra.</p>
-                                <p class="text-start">La escuadra española, formada por 24 navíos de línea, 7 fragatas y un bergantín, con un total de 2638 cañones al mando del teniente general José de Córdova. Entre los buques de la flota española se encontraba el Santísima Trinidad, entonces el mayor buque de guerra del mundo, con 136 cañones y el único con cuatro cubiertas de artillería</p>
-                                <p class="text-start">La flota inglesa, con 15 navíos de línea, cuatro fragatas, dos balandros y un cúter, con un total de 1430 cañones y al mando de John Jervis</p>
-                                <p class="text-start">Se saldó con una victoria para los ingleses</p>
-                            </div>
+          <p>
+            Cuando accedió al trono, España parecía encontrarse en una situación relativamente favorable. Las reformas emprendidas durante el siglo XVIII habían mejorado las infraestructuras, impulsado el comercio y fortalecido la administración. Madrid se había convertido en una capital moderna y la monarquía mantenía un amplio imperio que se extendía por América, Asia y diversos territorios europeos.
+          </p>
 
-                        </div>
-                    
-                    </div>
-                    
-                </div>
-                
-               
-            </div>
-            </div>
+          <p>
+            No obstante, bajo esa apariencia de estabilidad comenzaban a surgir importantes desafíos. Las finanzas públicas seguían siendo frágiles, existían fuertes desigualdades sociales y muchos sectores privilegiados se resistían a las reformas impulsadas por la Ilustración. Además, Europa estaba entrando en una etapa de creciente tensión política que pronto afectaría directamente a la monarquía española.
+          </p>
 
-             <!---------------------------------------------------------------------------------------------------------- -->
-             <!-------------------------------------------- MODAL GUERRA DE LAS NARANJASE------------------------------------------------------->
-            <div class="modal fade" id="guerraNaranjas" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Guerra de las naranjas</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                            
-                            <div class="col-md-12 ">
-                                
-                                <p class="text-start">En 1801, Napoleón conminó a Portugal para que rompiera su alianza tradicional con Inglaterra y cerrara sus puertos a los barcos ingleses. </p>
-                                <p class="text-start">En el tratado de Madrid de 1801 España se comprometía a declarar la guerra a Portugal si la nación vecina mantenía su apoyo a los ingleses. Ante la negativa portuguesa a someterse a las pretensiones franco-españolas, se desencadenó la llamada Guerra de las Naranjas.</p>
-                                <p class="text-start">La campaña militar apenas duró dieciocho días entre mayo y junio de 1801 y se saldó con Victoria de Godoy</p>
-                                <p class="text-start">La guerra de las Naranjas recibió este nombre debido al ramo de naranjas que Godoy hizo llegar a la reina María Luisa cuando sitiaba la ciudad de Elvas</p>
-                            </div>
+          <p>
+            Carlos IV decidió inicialmente mantener a los principales ministros de su padre para garantizar la continuidad del gobierno. Entre ellos destacaba el conde de Floridablanca, una de las figuras más influyentes del reformismo ilustrado. Sin embargo, los acontecimientos que se desarrollaban en Francia obligarían muy pronto a replantear completamente la política de la Corona.
+          </p>
 
-                        </div>
-                    
-                    </div>
-                    
-                </div>
-                
-               
-            </div>
-            </div>
+          <p>
+            Apenas unos meses después de la llegada al trono de Carlos IV, estalló la <strong>Revolución Francesa de 1789</strong>. Lo que en un primer momento parecía una crisis interna de la monarquía francesa terminó convirtiéndose en un movimiento revolucionario que transformó Europa y puso en cuestión los fundamentos mismos del Antiguo Régimen. Ningún monarca europeo pudo permanecer indiferente ante aquellos acontecimientos, y España tampoco sería una excepción.
+          </p>
 
-             <!---------------------------------------------------------------------------------------------------------- -->
+          <p>
+            De este modo, Carlos IV inició su reinado heredando una monarquía poderosa y relativamente estable, pero pronto tuvo que enfrentarse a una época de cambios profundos e imprevisibles. La Revolución Francesa, el ascenso de Napoleón y las crecientes dificultades internas acabarían convirtiendo su reinado en uno de los más turbulentos de la historia de España.
+          </p>
 
-             <!-------------------------------------------- MODAL BATALLA TRAFALGAR------------------------------------------------------->
-            <div class="modal fade" id="trafalgar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Batalla de Trafalgar</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                            
-                            <div class="col-md-12 ">
-                                <strong></strong>
-                                <p class="text-start">Combate naval que enfrentó a Gran Bretaña contra Francia y España y que tuvo lugar frente al cabo Trafalgar, en Barbate, el 21 de octubre de 1805.</p>
-                                <p class="text-start">La armada de <strong>Francia</strong>, con el apoyo de la de España: comandadas por el almirante francés <strong>Pierre Villeneuve</strong> y el teniente general español Federico Gravina, al mando de 33 buques de guerra, 15 españoles y 18 franceses.</p>
-                                <p class="text-start">La flota de <strong>Gran Bretaña</strong>: liderada por el vicealmirante inglés Horatio <strong>Nelson</strong>, que contaba con 27 naves. Gran Bretaña era aliada de Austria, Rusia, Nápoles y Suecia, con las que había formado la Tercera Coalición, una alianza antifrancesa.</p>
-                                <p class="text-start">Al mismo tiempo Napoleón concentró gran cantidad de tropas a orillas del Canal de la Mancha con el objetivo de invadir Inglaterra cuando le llegaran las noticias de la destrucción de la flota enemiga.</p>
-                                <p class="text-start">Debido a su superioridad en estrategia, experiencia y armamento, los británicos lograron derrotar a sus enemigos, aunque estos los superaban en número.</p>
-                                <p class="text-start">En la batalla perdió la vida el vicealmirante Nelson</p>
-                                <h6 class="text-start">Consecuencias</h6>
-                                <ul>
-                                    <li class="text-start">El debilitamiento de la flota española implicó que España no pudiera proteger debidamente sus colonias americanas. Esto contribuyó a que se desarrollaran los procesos de independencia hispanoamericanos</li>
-                                    <li class="text-start">La flota británica quedó intacta y permaneció siendo la mayor del mundo durante más de 100 años.</li>
-                                    <li class="text-start">Napoleón no pudo concretar la invasión a Gran Bretaña, por lo que desvió su atención a sus rivales continentales.</li>
-                                </ul>
-                            </div>
+        </div>
 
-                        </div>
-                    
-                    </div>
-                    
-                </div>
-                
-               
-            </div>
-            </div>
+      </section>
 
-             <!---------------------------------------------------------------------------------------------------------- -->
+      <section id="revolucion-francesa">
 
-             <!-------------------------------------------- MODAL Tratado de Fontainebleau------------------------------------------------------->
-            <div class="modal fade" id="fontainebleau" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Tratado de Fontainebleau</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                            
-                            <div class="col-md-12 ">
-                                
-                                <p class="text-start">Firmado en 1807 entre Godoy y Napoleón. En él se estipulaba la invasión militar conjunta franco-española de Portugal aliada del Reino Unido de Gran Bretaña y se permitía para ello el paso de las tropas francesas por territorio español.</p>
-                            </div>
+        <div class="section-head mt-3">
+          <span class="section-icon">🇫🇷</span>
+          <h3>La Revolución Francesa</h3>
+        </div>
 
-                        </div>
-                    
-                    </div>
-                    
-                </div>
-                
-               
-            </div>
-            </div>
+        <figure>
+          <img src="{% static 'images/sigloXIX/carlos_iv/revolucion_francesa.png' %}"
+              alt="La Revolución Francesa y su impacto en España"
+              class="img-fluid img-panoramica">
+        </figure>
 
-             <!---------------------------------------------------------------------------------------------------------- -->
+        <div class="intro-box section-block">
 
-             <!-------------------------------------------- MODAL Conjura de El Escorial------------------------------------------------------->
-            <div class="modal fade" id="conjuraEscorial" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Conjura de El Escorial</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                            
-                            <div class="col-md-12 ">
-                                
-                                <p class="text-start">Fue una conspiración fallida encabezada por el príncipe de Asturias Fernando de Borbón para provocar la caída del ‘’favorito’’ Manuel Godoy y poner bajo control a la reina María Luisa de Parma, su principal apoyo. La suerte que correría el rey Carlos IV de España nunca estuvo clara.</p>
-                                <p class="text-start">Fue descubierta el 27 de octubre de 1807 durante una estancia de la familia real en el Monasterio de El Escorial, de ahí el nombre que recibe.</p>
-                                <p class="text-start">Paradójicamente de la "conjura de El Escorial" salió fortalecido el príncipe Fernando —considerado víctima de la ambición de su madre y de Godoy—, y los desprestigiados fueron Godoy, la reina y el "débil" Carlos IV. </p>
-                            </div>
+          <p>
+            Apenas unos meses después de la llegada al trono de Carlos IV, Europa se vio sacudida por un acontecimiento que transformaría profundamente la historia del continente: la <strong>Revolución Francesa de 1789</strong>. Lo que comenzó como una crisis política y financiera de la monarquía francesa terminó convirtiéndose en una revolución que puso en cuestión los fundamentos del Antiguo Régimen y alteró el equilibrio político europeo.
+          </p>
 
-                        </div>
-                    
-                    </div>
-                    
-                </div>
-                
-               
-            </div>
-            </div>
+          <p>
+            Durante siglos, las monarquías europeas habían basado su legitimidad en el principio del <strong>derecho divino de los reyes</strong>. Según esta concepción, el poder procedía de Dios y debía ser obedecido por los súbditos. Sin embargo, las ideas de la Ilustración defendían la soberanía nacional, la igualdad jurídica y la limitación del poder absoluto, planteamientos que fueron ganando fuerza durante la segunda mitad del siglo XVIII.
+          </p>
 
-             <!---------------------------------------------------------------------------------------------------------- -->
+          <p>
+            La situación estalló en Francia debido a una profunda crisis económica, agravada por las malas cosechas, el endeudamiento del Estado y el descontento social. El 14 de julio de 1789, la toma de la <strong>Bastilla</strong> por el pueblo de París se convirtió en el símbolo del inicio de la Revolución. A partir de entonces comenzaron a desaparecer los privilegios feudales y se proclamaron los principios de libertad, igualdad y ciudadanía.
+          </p>
 
-             <!-------------------------------------------- MODAL motín de Aranjuez------------------------------------------------------->
-            <div class="modal fade" id="motinAranjuez" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Motín de Aranjuez</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                            
-                            <div class="col-md-12 ">
-                                
-                                <p class="text-start"> Levantamiento de la ciudad de Aranjuez ocurrió entre el 17 y el 18 de marzo de 1808</p>
-                                <h6 class="text-start">Causas</h6>
-                                <ul>
-                                    <li class="text-start">La impaciencia de Fernando VII por reinar, algo que sumado a la creencia de que la reina María Luisa y Godoy mantenían una relación daría como resultado las intrigas que el príncipe preparó para conseguir la abdicación de su progenitor.</li>
-                                    <li class="text-start">El desastre de Trafalgar. La gran crisis económica en la que España se había sumergido atacaba directamente a las clases más bajas. Además, en este punto, el clero temía que dicha crisis obligara al Gobierno a desamortizar sus propiedades.</li>
-                                    <li class="text-start">La presencia de las tropas francesas en España, a razón del tratado de Fontainebleau para la conquista conjunta de Portugal, habían crecido considerablemente.</li>
-                                    <li class="text-start">Godoy comenzó a sospechar que era el comienzo de una invasión napoleónica. Decidió que la familia real viajara hasta Aranjuez para, en caso de necesidad, siguiera su camino hasta Sevilla para embarcar hacia América, como ya habría hecho el monarca portugués.</li>
-                                   
-                                </ul>
-                                <p class="text-start">El día 17 empieza a correr el rumor del viaje real y la muchedumbre, poco espontánea, se agolpa ante las puertas del Palacio Real de la ciudad. Esta muchedumbre ha sido organizada a conciencia por los fernandinos, aristócratas que apoyaban la figura del príncipe. En Madrid, otra masa de gente ataca el palacio de Godoy, el cual intentó salvar su vida escondiéndose como pudo.</p>
-                                <p class="text-start">Finalmente, el día 19 sería trasladado al cuartel de Guardias de Corps. Será Fernando VII el que salve al mismísimo Godoy del linchamiento, consiguiendo además que su padre renuncie y abdique en él para comenzar a reinar como Fernando VII.</p>
-                                <p class="text-start">El día 23, tan sólo cuatro días tras la llegada del nuevo monarca Murat entra en Madrid, en nombre de Bonaparte, el cual invalida la abdicación del rey Carlos IV y decide intervenir en el enfrentamiento de ambos en Bayona, camino del exilio.</p>
-                            </div>
+          <p>
+            En un primer momento, la corte española observó los acontecimientos con preocupación, pero sin intervenir directamente. Carlos IV y sus ministros esperaban que la crisis pudiera resolverse dentro del marco de la monarquía francesa. Sin embargo, la situación se radicalizó rápidamente y el temor comenzó a extenderse entre las monarquías europeas.
+          </p>
 
-                        </div>
-                    
-                    </div>
-                    
-                </div>
-                
-               
-            </div>
-            </div>
+          <p>
+            La ejecución del rey <strong>Luis XVI</strong> y de la reina María Antonieta en 1793 supuso un auténtico shock para las casas reales del continente. Por primera vez una revolución había derrocado y ejecutado a un monarca legítimo. Para Carlos IV el acontecimiento resultó especialmente inquietante, ya que Luis XVI era primo de la familia real española y pertenecía también a la dinastía de los Borbones.
+          </p>
 
-             <!---------------------------------------------------------------------------------------------------------- -->
-        
-        
-    </div>
+          <p>
+            Como consecuencia, España abandonó su neutralidad y se unió a la coalición de potencias europeas que intentaban frenar la expansión revolucionaria. Comenzó así la llamada <strong>Guerra de la Convención</strong> (1793-1795), en la que los ejércitos españoles combatieron contra la Francia revolucionaria en los Pirineos.
+          </p>
+
+          <p>
+            Sin embargo, los resultados militares fueron decepcionantes. Las tropas francesas lograron penetrar en territorio español y demostraron una capacidad de movilización muy superior a la de los ejércitos tradicionales del Antiguo Régimen. Finalmente, España se vio obligada a firmar la <strong>Paz de Basilea</strong> en 1795, poniendo fin al conflicto.
+          </p>
+
+          <p>
+            Paradójicamente, pocos años después de combatir contra la Francia revolucionaria, España terminaría convirtiéndose en su aliada. Este cambio de orientación política estuvo estrechamente ligado al ascenso de una figura que dominaría la vida política española durante gran parte del reinado: <strong>Manuel Godoy</strong>.
+          </p>
+
+          <p>
+            La Revolución Francesa no solo modificó la política exterior española. También despertó temores entre las autoridades, que reforzaron la censura y el control ideológico para impedir la difusión de las ideas revolucionarias. A pesar de ello, conceptos como la soberanía nacional, los derechos individuales o el constitucionalismo comenzaron a circular entre sectores ilustrados y liberales, sembrando las semillas de las futuras transformaciones políticas del siglo XIX.
+          </p>
+
+          <p>
+            De este modo, la Revolución Francesa marcó el comienzo de una nueva época. Ningún acontecimiento influyó tanto en el reinado de Carlos IV ni tuvo consecuencias tan profundas para la historia de España. Las decisiones adoptadas ante aquella crisis terminarían conduciendo, años después, a la intervención de Napoleón, a la Guerra de la Independencia y al nacimiento del liberalismo español.
+          </p>
+
+        </div>
+
+      </section>
+
+      <section id="godoy">
+
+        <div class="section-head mt-3">
+          <span class="section-icon">🎖️</span>
+          <h3>Manuel Godoy</h3>
+        </div>
+
+        <figure>
+          <img src="{% static 'images/sigloXIX/carlos_iv/godoy.png' %}"
+              alt="Manuel Godoy, favorito de Carlos IV"
+              class="img-fluid img-panoramica">
+        </figure>
+
+        <div class="intro-box section-block">
+
+          <p>
+            Ninguna figura estuvo tan estrechamente ligada al reinado de Carlos IV como
+            <strong>Manuel Godoy</strong>. Admirado por unos y profundamente odiado por otros,
+            se convirtió en el personaje más influyente de la política española durante buena
+            parte del periodo comprendido entre 1792 y 1808. Su ascenso fue tan rápido como
+            extraordinario y su trayectoria marcaría decisivamente el destino de la monarquía
+            española.
+          </p>
+
+          <p>
+            Godoy nació en Badajoz en 1767 en el seno de una familia hidalga de escasos
+            recursos. En su juventud ingresó en la Guardia de Corps, el cuerpo encargado de
+            la protección personal de los reyes. Su presencia en la corte le permitió ganarse
+            rápidamente la confianza de Carlos IV y de la reina María Luisa de Parma,
+            convirtiéndose en uno de sus colaboradores más cercanos.
+          </p>
+
+          <p>
+            Su carrera política fue meteórica. En apenas unos años pasó de ser un joven oficial
+            prácticamente desconocido a ocupar los puestos más importantes del gobierno.
+            En 1792 fue nombrado primer secretario de Estado, equivalente al cargo de jefe de
+            gobierno. Muchos contemporáneos consideraron que su ascenso se debía más al favor
+            real que a su experiencia política, lo que alimentó rumores y críticas que lo
+            acompañarían durante toda su vida.
+          </p>
+
+          <p>
+            Durante los primeros años de su gobierno tuvo que enfrentarse a uno de los mayores
+            desafíos de la época: la Revolución Francesa. Tras la ejecución de Luis XVI,
+            España participó en la Guerra de la Convención contra la Francia revolucionaria.
+            Aunque el conflicto terminó con resultados poco favorables para la monarquía
+            española, Godoy logró negociar la <strong>Paz de Basilea</strong> en 1795,
+            acuerdo que puso fin a la guerra y le valió el título de
+            <strong>«Príncipe de la Paz»</strong>.
+          </p>
+
+          <p>
+            Sin embargo, la política internacional española dio un giro radical pocos años
+            después. Convencido de que Gran Bretaña constituía la principal amenaza para los
+            intereses españoles, Godoy impulsó una alianza con Francia. Primero con el
+            Directorio revolucionario y más tarde con Napoleón Bonaparte. Esta decisión
+            arrastró a España a una serie de conflictos que tendrían consecuencias desastrosas.
+          </p>
+
+          <p>
+            La alianza franco-española condujo a enfrentamientos navales contra Gran Bretaña y
+            culminó en la derrota de <strong>Trafalgar</strong> en 1805. La destrucción de buena
+            parte de la flota hispano-francesa debilitó gravemente el poder marítimo español y
+            afectó al comercio con América, incrementando las dificultades económicas de la
+            monarquía.
+          </p>
+
+          <p>
+            Mientras tanto, la figura de Godoy se hacía cada vez más impopular. Amplios sectores
+            de la nobleza, del clero y de la población lo consideraban responsable de las
+            derrotas militares, de la crisis económica y de la creciente dependencia respecto a
+            Francia. La oposición encontró además un poderoso aliado en el príncipe Fernando,
+            heredero de la Corona, que veía en Godoy un obstáculo para acceder al poder.
+          </p>
+
+          <p>
+            Las tensiones alcanzaron su punto máximo cuando Napoleón obtuvo autorización para
+            que sus tropas atravesaran España con el objetivo de invadir Portugal. Miles de
+            soldados franceses entraron en la Península y fueron ocupando posiciones
+            estratégicas. Pronto quedó claro que el emperador tenía planes mucho más ambiciosos
+            que una simple campaña militar contra Portugal.
+          </p>
+
+          <p>
+            En marzo de 1808 estalló el <strong>Motín de Aranjuez</strong>, una revuelta popular
+            dirigida contra Godoy y apoyada por los partidarios de Fernando. La multitud asaltó
+            su residencia y el favorito fue detenido. Pocos días después, Carlos IV se vio
+            obligado a abdicar en favor de su hijo. Con la caída de Godoy terminaba una etapa
+            decisiva de la historia española, aunque los acontecimientos posteriores demostrarían
+            que la crisis de la monarquía estaba lejos de haber concluido.
+          </p>
+
+          <p>
+            A lo largo de los siglos, la figura de Manuel Godoy ha sido objeto de intensos
+            debates historiográficos. Para algunos fue un político ambicioso cuya actuación
+            contribuyó al desastre de 1808; para otros, un reformista que intentó modernizar
+            España en circunstancias extraordinariamente difíciles. Sea cual sea la valoración,
+            resulta indudable que su influencia sobre Carlos IV y sobre la política española fue
+            enorme y que su nombre quedó inseparablemente unido al final del Antiguo Régimen.
+          </p>
+
+        </div>
+
+      </section>
+
+      <section id="guerras">
+
+        <div class="section-head mt-3">
+          <span class="section-icon">⚔️</span>
+          <h3>España en guerra</h3>
+        </div>
+
+        <figure>
+          <img src="{% static 'images/sigloXIX/carlos_iv/guerras.png' %}"
+              alt="España en guerra durante el reinado de Carlos IV"
+              class="img-fluid img-panoramica">
+        </figure>
+
+        <div class="intro-box section-block">
+
+          <p>
+            Uno de los rasgos más característicos del reinado de Carlos IV fue la participación casi continua de España en conflictos internacionales. Las guerras transformaron profundamente la política exterior, debilitaron la economía, agotaron las finanzas públicas y contribuyeron decisivamente a la crisis que acabaría derribando a la monarquía. Durante apenas dos décadas, España pasó de combatir contra la Francia revolucionaria a convertirse en su aliada, enfrentándose después a la principal potencia naval de la época: Gran Bretaña.
+          </p>
+
+          <p>
+            El primer gran conflicto fue la <strong>Guerra de la Convención (1793-1795)</strong>. La ejecución de Luis XVI y María Antonieta conmocionó a las monarquías europeas y llevó a España a declarar la guerra a la Francia revolucionaria. Inicialmente los ejércitos españoles obtuvieron algunos éxitos en los Pirineos, pero pronto la situación cambió. Las tropas francesas demostraron una gran capacidad de movilización y penetraron en territorio español, obligando finalmente a la Corona a negociar la paz.
+          </p>
+
+          <p>
+            El conflicto concluyó con la <strong>Paz de Basilea</strong> de 1795, negociada por Manuel Godoy. Aunque el acuerdo puso fin a la guerra, supuso un importante cambio estratégico. España abandonó su tradicional enfrentamiento con Francia y comenzó a acercarse progresivamente a la nueva potencia surgida de la Revolución.
+          </p>
+
+          <p>
+            Apenas un año después, en 1796, se firmó el <strong>Tratado de San Ildefonso</strong>, mediante el cual España se convertía en aliada de Francia contra Gran Bretaña. Esta decisión alteró completamente el equilibrio internacional y arrastró a la monarquía española a una larga serie de conflictos marítimos que perjudicaron gravemente el comercio con América.
+          </p>
+
+          <p>
+            La superioridad naval británica se hizo evidente desde los primeros enfrentamientos. La Marina Real británica controlaba las principales rutas oceánicas y bloqueaba frecuentemente los puertos españoles. Las comunicaciones con las colonias americanas se volvieron cada vez más difíciles, reduciendo los ingresos procedentes del comercio ultramarino y agravando los problemas financieros del Estado.
+          </p>
+
+          <p>
+            En este contexto se produjo la llamada <strong>Guerra de las Naranjas</strong> en 1801. Se trató de una breve campaña militar contra Portugal, tradicional aliado de Gran Bretaña. El ejército español, dirigido por Godoy, obtuvo una rápida victoria que obligó a los portugueses a firmar la paz y ceder la plaza de Olivenza. Aunque el éxito fortaleció momentáneamente la posición de Godoy, no resolvió los problemas de fondo que afectaban a la monarquía.
+          </p>
+
+          <p>
+            La situación internacional cambió nuevamente con el ascenso de <strong>Napoleón Bonaparte</strong>. Convertido en el hombre más poderoso de Europa, el emperador francés buscó consolidar una alianza estrecha con España para combatir a Gran Bretaña. La monarquía española quedó cada vez más subordinada a los intereses franceses, circunstancia que despertó crecientes recelos entre amplios sectores de la sociedad.
+          </p>
+
+          <p>
+            Las continuas guerras tuvieron un elevado coste económico. El Estado necesitaba recursos para mantener ejércitos, construir barcos y financiar campañas militares. Los impuestos aumentaron, la deuda pública creció y las dificultades económicas se extendieron por buena parte del país. Al mismo tiempo, la población sufría los efectos de malas cosechas, epidemias y crisis de abastecimiento.
+          </p>
+
+          <p>
+            Muchos contemporáneos comenzaron a responsabilizar a Manuel Godoy de los fracasos diplomáticos y militares. Su política exterior, basada en la alianza con Francia, fue cada vez más criticada. Sin embargo, otros historiadores han señalado que España se encontraba atrapada entre dos grandes potencias —Francia y Gran Bretaña— y que disponía de escaso margen para actuar de forma independiente.
+          </p>
+
+          <p>
+            A comienzos del siglo XIX la monarquía española se encontraba profundamente debilitada. La guerra permanente había agotado los recursos del Estado y reducido el prestigio internacional del país. La culminación de este proceso llegaría en 1805 con la derrota de Trafalgar, un desastre naval que marcaría el inicio de la crisis definitiva del reinado de Carlos IV.
+          </p>
+
+        </div>
+
+      </section>
+
+      <section id="trafalgar">
+
+        <div class="section-head mt-3">
+          <span class="section-icon">🚢</span>
+          <h3>La batalla de Trafalgar</h3>
+        </div>
+
+        <figure>
+          <img src="{% static 'images/sigloXIX/carlos_iv/trafalgar.png' %}"
+              alt="La batalla de Trafalgar"
+              class="img-fluid img-panoramica">
+        </figure>
+
+        <div class="intro-box section-block">
+
+          <p>
+            La <strong>batalla de Trafalgar</strong>, librada el 21 de octubre de 1805 frente al cabo Trafalgar, en la costa de Cádiz, fue uno de los acontecimientos más decisivos del reinado de Carlos IV y una de las mayores derrotas navales de la historia de España. El enfrentamiento supuso el hundimiento definitivo de las aspiraciones marítimas de Napoleón y marcó el inicio del declive del poder naval español.
+          </p>
+
+          <p>
+            Desde finales del siglo XVIII, España se había convertido en aliada de Francia mediante los Tratados de San Ildefonso. Esta alianza obligó a la monarquía española a participar en los conflictos que enfrentaban a Napoleón Bonaparte con Gran Bretaña. El objetivo francés era destruir la superioridad naval británica y abrir el camino para una posible invasión de las islas británicas.
+          </p>
+
+          <p>
+            Para lograrlo, Napoleón ordenó reunir una gran flota combinada formada por buques franceses y españoles. El mando fue confiado al almirante francés <strong>Pierre-Charles Villeneuve</strong>, mientras que entre los principales mandos españoles destacaban figuras de enorme prestigio como <strong>Federico Gravina</strong> y <strong>Cosme Damián Churruca</strong>.
+          </p>
+
+          <p>
+            La flota franco-española estaba compuesta por treinta y tres navíos de línea, frente a los veintisiete de la Royal Navy británica. Sobre el papel, la superioridad numérica parecía favorecer a la alianza franco-española. Sin embargo, los británicos contaban con marineros mejor entrenados, una organización más eficiente y el liderazgo excepcional del almirante <strong>Horatio Nelson</strong>.
+          </p>
+
+          <p>
+            El combate comenzó en la mañana del 21 de octubre. Rompiendo las tácticas navales tradicionales, Nelson dividió su flota en dos columnas y lanzó un ataque directo contra la línea enemiga. La maniobra consiguió fragmentar la formación franco-española y provocar una batalla caótica en la que la disciplina y experiencia británicas resultaron decisivas.
+          </p>
+
+          <p>
+            Los marinos españoles combatieron con extraordinario valor. Navíos como el <strong>Santisíma Trinidad</strong>, el mayor buque de guerra de su tiempo, resistieron durante horas bajo un intenso fuego enemigo. Otros comandantes, como Churruca, continuaron dirigiendo la defensa incluso después de resultar gravemente heridos.
+          </p>
+          <figure>
+            <img src="{% static 'images/sigloXIX/carlos_iv/santisima_trinidad.png' %}"
+                alt="La batalla de Trafalgar"
+                class="img-fluid img-panoramica">
+          </figure>
+
+          <p>
+            La batalla terminó con una derrota total para la flota aliada. Veintidós navíos franco-españoles fueron capturados o destruidos, mientras que los británicos no perdieron ninguno. Paradójicamente, el propio Nelson murió durante el combate, convirtiéndose en uno de los grandes héroes nacionales británicos.
+          </p>
+
+          <p>
+            Las consecuencias para España fueron enormes. La Armada perdió gran parte de sus mejores barcos, marinos y oficiales. Aunque el Imperio español conservó sus territorios americanos durante algunos años más, la capacidad para proteger las rutas oceánicas quedó gravemente reducida. Desde entonces, Gran Bretaña ejerció una supremacía naval prácticamente indiscutida durante más de un siglo.
+          </p>
+
+          <p>
+            Trafalgar también tuvo importantes repercusiones económicas. El comercio con América se volvió más vulnerable, disminuyeron los ingresos de la Corona y aumentaron las dificultades financieras del Estado. La derrota reforzó además las críticas contra Manuel Godoy y contra la política de alianza con Francia, que cada vez era más impopular entre amplios sectores de la sociedad española.
+          </p>
+
+          <p>
+            Para Napoleón, Trafalgar significó el abandono definitivo de cualquier proyecto de invasión de Gran Bretaña. A partir de entonces, el emperador concentró sus esfuerzos en dominar Europa continental. Para España, sin embargo, la derrota marcó el comienzo de una crisis cada vez más profunda que culminaría pocos años después con la invasión francesa, el Motín de Aranjuez y la Guerra de la Independencia.
+          </p>
+
+          <p>
+            Hoy, Trafalgar sigue siendo recordada como una de las batallas navales más importantes de la historia. Representa al mismo tiempo el heroísmo de los marinos españoles y el inicio de una nueva etapa en la que España dejó de ser una de las grandes potencias marítimas del mundo.
+          </p>
+
+        </div>
+
+      </section>
+
+      <section id="crisis">
+
+        <div class="section-head mt-3">
+          <span class="section-icon">📉</span>
+          <h3>La crisis de la monarquía</h3>
+        </div>
+
+        <figure>
+          <img src="{% static 'images/sigloXIX/carlos_iv/crisis_monarquia.png' %}"
+              alt="La crisis de la monarquía de Carlos IV"
+              class="img-fluid img-panoramica">
+        </figure>
+
+        <div class="intro-box section-block">
+
+          <p>
+            A comienzos del siglo XIX, la monarquía de Carlos IV atravesaba una profunda crisis que afectaba a todos los ámbitos de la vida política, económica y social. Tras años de guerras, derrotas militares y dificultades financieras, la autoridad de la Corona se encontraba seriamente debilitada. La estabilidad heredada de Carlos III había desaparecido y el prestigio de la monarquía sufría un deterioro cada vez más evidente.
+          </p>
+
+          <p>
+            Uno de los principales problemas era la situación económica. Las continuas guerras contra Francia y Gran Bretaña habían agotado las finanzas del Estado. Los gastos militares crecían sin cesar mientras disminuían los ingresos procedentes del comercio con América. El bloqueo naval británico dificultaba las comunicaciones con las colonias y reducía notablemente la llegada de metales preciosos y mercancías.
+          </p>
+
+          <p>
+            A estas dificultades se sumaron varias malas cosechas que provocaron escasez de alimentos y un aumento de los precios. En numerosas regiones se extendieron el hambre, la pobreza y el descontento popular. La población observaba con preocupación cómo la situación empeoraba mientras la corte parecía incapaz de ofrecer soluciones eficaces.
+          </p>
+
+          <p>
+            La figura de <strong>Manuel Godoy</strong> concentró gran parte de las críticas. Como principal ministro y favorito de los reyes, fue considerado por muchos el responsable de los fracasos diplomáticos y militares. Su enorme influencia sobre Carlos IV y María Luisa despertaba recelos entre la nobleza, el clero y amplios sectores de la población. Los rumores y ataques contra su persona se multiplicaron en toda España.
+          </p>
+
+          <p>
+            Al mismo tiempo, la propia familia real se encontraba profundamente dividida. El heredero de la Corona, el príncipe <strong>Fernando</strong>, mantenía una relación cada vez más conflictiva con sus padres y con Godoy. A su alrededor comenzó a formarse un grupo de nobles y políticos que aspiraban a apartar al favorito del poder y acelerar la llegada del futuro Fernando VII al trono.
+          </p>
+
+          <p>
+            Las tensiones alcanzaron un punto crítico en 1807 con el llamado <strong>Proceso de El Escorial</strong>. Fernando fue acusado de conspirar contra su padre y de mantener contactos secretos con Napoleón. Aunque finalmente recibió el perdón real, el episodio puso de manifiesto la grave fractura existente dentro de la propia familia real y dañó aún más la imagen de la monarquía.
+          </p>
+
+          <p>
+            Mientras tanto, Napoleón Bonaparte observaba atentamente la situación. El emperador francés comprendió que España atravesaba una crisis interna que podía ser aprovechada en beneficio de Francia. La debilidad política de la monarquía borbónica facilitó cada vez más la intervención francesa en los asuntos españoles.
+          </p>
+
+          <p>
+            La firma del <strong>Tratado de Fontainebleau</strong> en 1807 permitió la entrada de tropas francesas en la Península con el pretexto de invadir Portugal. Sin embargo, conforme los soldados de Napoleón fueron ocupando ciudades estratégicas españolas, crecieron las sospechas de que sus verdaderas intenciones iban mucho más allá de una simple operación militar contra los portugueses.
+          </p>
+
+          <p>
+            La población comenzó a percibir que el país estaba perdiendo su independencia política. El descontento contra Godoy se transformó progresivamente en una crisis general de confianza hacia el gobierno y hacia la propia Corona. Muchos españoles consideraban que la monarquía había sido incapaz de defender los intereses nacionales frente a la creciente influencia francesa.
+          </p>
+
+          <p>
+            A comienzos de 1808 la situación era explosiva. La combinación de crisis económica, división política, rivalidades familiares y presencia militar francesa había creado un escenario extremadamente inestable. Bastaba un acontecimiento desencadenante para provocar el colapso del sistema.
+          </p>
+
+          <p>
+            Ese acontecimiento llegaría pocas semanas después con el <strong>Motín de Aranjuez</strong>, una revuelta que derribó a Godoy, obligó a Carlos IV a abdicar y abrió una crisis dinástica que Napoleón aprovecharía para intervenir directamente en España. La crisis de la monarquía había alcanzado así su punto culminante.
+          </p>
+
+        </div>
+
+      </section>
+
+      <section id="fernando">
+
+        <div class="section-head mt-3">
+          <span class="section-icon">👑</span>
+          <h3>Fernando, príncipe de Asturias</h3>
+        </div>
+
+        <figure>
+          <img src="{% static 'images/sigloXIX/carlos_iv/fernandoVII.png' %}"
+              alt="Fernando, príncipe de Asturias"
+              class="img-fluid img-panoramica">
+        </figure>
+
+        <div class="intro-box section-block">
+
+          <p>
+            Mientras la popularidad de Carlos IV y Manuel Godoy disminuía progresivamente, la figura del príncipe <strong>Fernando de Borbón</strong>, heredero de la Corona y futuro Fernando VII, comenzó a ganar protagonismo en la vida política española. Para muchos sectores de la sociedad, Fernando representaba la esperanza de un cambio de rumbo capaz de poner fin a la crisis que atravesaba la monarquía.
+          </p>
+
+          <p>
+            Fernando había nacido en 1784 y era el hijo mayor de Carlos IV y María Luisa de Parma. Desde su infancia fue educado para convertirse en rey, aunque su formación estuvo marcada por las tensiones existentes en la corte. Con el paso de los años desarrolló una profunda desconfianza hacia Manuel Godoy, a quien consideraba responsable de la pérdida de influencia de la familia real y de los problemas que afectaban al país.
+          </p>
+
+          <p>
+            Alrededor del príncipe comenzó a formarse un grupo de nobles, militares y políticos descontentos con el gobierno. Este sector, conocido como el <strong>partido fernandino</strong>, veía en Fernando una alternativa frente al creciente poder de Godoy. La rivalidad entre ambos grupos terminó dividiendo profundamente la corte y debilitando aún más a la monarquía.
+          </p>
+
+          <p>
+            La imagen pública del príncipe contrastaba con la de Godoy. Mientras el favorito era acusado de corrupción, nepotismo y excesiva cercanía a Francia, Fernando aparecía ante muchos españoles como un heredero legítimo dispuesto a restaurar el prestigio de la Corona. Esta percepción contribuyó a incrementar su popularidad entre amplios sectores de la población.
+          </p>
+
+          <p>
+            La tensión alcanzó un primer momento crítico en 1807 con el llamado
+            <strong>Proceso de El Escorial</strong>. Las autoridades descubrieron una conspiración organizada por personas próximas al príncipe que pretendían apartar a Godoy del poder e incluso forzar cambios en el gobierno. Fernando fue detenido y sometido a interrogatorio, llegando a reconocer su participación en los hechos.
+          </p>
+
+          <p>
+            Sin embargo, Carlos IV decidió perdonar a su hijo y evitar una crisis dinástica abierta. Aunque el príncipe recuperó su posición en la corte, la relación con sus padres quedó profundamente deteriorada. El episodio demostró hasta qué punto la familia real se encontraba dividida y cómo la lucha por el poder había alcanzado el corazón mismo de la monarquía.
+          </p>
+
+          <p>
+            Mientras tanto, Fernando intentó también aproximarse a Napoleón Bonaparte. Creía que el emperador francés podría apoyarle frente a Godoy y facilitar su llegada al trono. Sin embargo, Napoleón tenía sus propios planes para España y utilizó hábilmente las disputas internas de la familia real para aumentar la influencia francesa sobre el país.
+          </p>
+
+          <p>
+            A comienzos de 1808, el prestigio del príncipe era considerablemente superior al de sus padres. En muchas ciudades circulaban retratos, proclamas y rumores favorables a Fernando, que era visto como el futuro salvador de la nación. Su popularidad se convirtió en un factor decisivo durante los acontecimientos que estaban a punto de producirse.
+          </p>
+
+          <p>
+            Cuando estalló el <strong>Motín de Aranjuez</strong> en marzo de 1808, gran parte de los sublevados actuaron en nombre del príncipe. La caída de Godoy y la posterior abdicación de Carlos IV permitieron finalmente que Fernando accediera al trono como Fernando VII. Sin embargo, su reinado apenas comenzaría antes de que Napoleón interviniera directamente en los asuntos españoles.
+          </p>
+
+          <p>
+            La figura de Fernando durante estos años sigue siendo objeto de debate entre los historiadores. Para algunos contemporáneos fue el símbolo de la resistencia frente a Godoy y la influencia francesa; para otros, un político inexperto que supo aprovechar el descontento popular en beneficio propio. En cualquier caso, su ascenso marcó el inicio de una nueva etapa en la historia de España.
+          </p>
+
+        </div>
+
+      </section>
+
+      <section id="aranjuez">
+
+        <div class="section-head mt-3">
+          <span class="section-icon">🔥</span>
+          <h3>El Motín de Aranjuez</h3>
+        </div>
+
+        <figure>
+          <img src="{% static 'images/sigloXIX/carlos_iv/motin_aranjuez.png' %}"
+              alt="El Motín de Aranjuez de 1808"
+              class="img-fluid img-panoramica">
+        </figure>
+
+        <div class="intro-box section-block">
+
+          <p>
+            El <strong>Motín de Aranjuez</strong>, ocurrido entre los días 17 y 19 de marzo de 1808, constituye uno de los acontecimientos más importantes del reinado de Carlos IV y el punto culminante de la crisis que venía afectando a la monarquía española. La revuelta provocó la caída de Manuel Godoy, la abdicación del rey y abrió una crisis dinástica que facilitaría la intervención de Napoleón en los asuntos españoles.
+          </p>
+
+          <p>
+            En los meses previos al motín, la situación del país era extremadamente delicada. La derrota de Trafalgar había debilitado el prestigio de la monarquía, la economía atravesaba graves dificultades y miles de soldados franceses se encontraban ya en territorio español tras la firma del Tratado de Fontainebleau. Muchos españoles sospechaban que Napoleón tenía intenciones ocultas y que el gobierno era incapaz de defender la independencia nacional.
+          </p>
+
+          <p>
+            Gran parte del descontento popular se dirigía contra <strong>Manuel Godoy</strong>, considerado responsable de los fracasos políticos y militares del reino. Su influencia sobre Carlos IV y María Luisa de Parma despertaba una fuerte oposición entre la nobleza y amplios sectores de la población. Al mismo tiempo, los partidarios del príncipe Fernando trabajaban activamente para apartar al favorito del poder.
+          </p>
+
+          <p>
+            A comienzos de marzo de 1808, la familia real se trasladó al Palacio de Aranjuez. Allí comenzaron a circular rumores según los cuales Godoy planeaba trasladar a los reyes hacia Andalucía e incluso embarcarlos hacia América para evitar caer bajo la influencia francesa. Estas noticias provocaron una enorme inquietud entre la población y aceleraron los acontecimientos.
+          </p>
+
+          <p>
+            Durante la noche del 17 al 18 de marzo estalló la revuelta. Grupos de soldados, vecinos y partidarios de Fernando recorrieron las calles de Aranjuez exigiendo la destitución de Godoy. La multitud asaltó edificios oficiales y buscó al favorito por todo el palacio. El movimiento contó además con el apoyo de numerosos nobles vinculados al partido fernandino.
+          </p>
+
+          <p>
+            Tras varias horas de búsqueda, Godoy fue encontrado escondido en una estancia del palacio. La multitud intentó lincharlo y solo la intervención de algunos militares evitó su muerte. El antiguo hombre fuerte de la monarquía fue arrestado y perdió inmediatamente todo su poder político.
+          </p>
+
+          <p>
+            El éxito de la revuelta colocó a Carlos IV en una situación insostenible. Convencido de que había perdido el apoyo popular y presionado por los partidarios de su hijo, el rey decidió abdicar el 19 de marzo de 1808 en favor del príncipe Fernando. Por primera vez en siglos, una movilización popular había provocado directamente la caída de un monarca español.
+          </p>
+
+          <p>
+            La noticia fue recibida con entusiasmo en buena parte del país. Fernando VII fue proclamado rey y numerosas ciudades celebraron el acontecimiento con fiestas, repiques de campanas y manifestaciones de apoyo. Para muchos españoles, el nuevo monarca representaba la esperanza de superar la crisis política y recuperar la estabilidad perdida.
+          </p>
+
+          <p>
+            Sin embargo, la aparente victoria fernandina resultó efímera. Napoleón observó con atención los acontecimientos y comprendió que la división de la familia real le ofrecía una oportunidad única para intervenir en España. Carlos IV, arrepentido de su abdicación, solicitó además la ayuda del emperador francés para recuperar el trono.
+          </p>
+
+          <p>
+            Pocas semanas después, padre e hijo serían convocados por Napoleón a la ciudad francesa de Bayona. Allí se desarrollaría una compleja maniobra política que terminaría con la renuncia de ambos a la Corona española y la entrega del trono a José Bonaparte.
+          </p>
+
+          <p>
+            El Motín de Aranjuez marcó así el final efectivo del reinado de Carlos IV y el derrumbe de la autoridad de la monarquía borbónica. Aunque los participantes creían estar resolviendo la crisis, en realidad estaban abriendo el camino hacia una etapa aún más convulsa: la ocupación francesa y la Guerra de la Independencia.
+          </p>
+
+        </div>
+
+      </section>
+
+      <section id="bayona">
+
+        <div class="section-head mt-3">
+          <span class="section-icon">📜</span>
+          <h3>Las Abdicaciones de Bayona</h3>
+        </div>
+
+        <figure>
+          <img src="{% static 'images/sigloXIX/carlos_iv/abdicaciones_bayona.png' %}"
+              alt="Las Abdicaciones de Bayona de 1808"
+              class="img-fluid img-panoramica">
+        </figure>
+
+        <div class="intro-box section-block">
+
+          <p>
+            Las <strong>Abdicaciones de Bayona</strong> constituyen uno de los episodios más trascendentales de la historia de España. Entre abril y mayo de 1808, Napoleón Bonaparte consiguió que Carlos IV y Fernando VII renunciaran sucesivamente a sus derechos al trono español, permitiéndole colocar a su hermano José Bonaparte como rey de España. Con esta maniobra política, el emperador francés aprovechó la crisis de la monarquía borbónica para intervenir directamente en los asuntos españoles.
+          </p>
+
+          <p>
+            Tras el Motín de Aranjuez, Fernando VII había sido proclamado rey entre grandes muestras de entusiasmo popular. Sin embargo, la situación política seguía siendo extremadamente inestable. Carlos IV consideraba inválida su abdicación y continuaba reclamando la Corona, mientras que miles de soldados franceses ocupaban ya posiciones estratégicas en la Península.
+          </p>
+
+          <p>
+            Napoleón observó la disputa entre padre e hijo como una oportunidad excepcional. Presentándose como mediador entre ambos, invitó a los miembros de la familia real española a reunirse con él en territorio francés. Fernando VII, convencido de que obtendría el respaldo del emperador para consolidar su posición, aceptó acudir al encuentro.
+          </p>
+
+          <p>
+            A finales de abril de 1808, Fernando abandonó España y se dirigió a la ciudad francesa de <strong>Bayona</strong>. Allí descubrió rápidamente que Napoleón no tenía intención de apoyarlo. Poco después llegaron también Carlos IV y María Luisa de Parma, acompañados por Manuel Godoy, que había sido liberado tras su caída en Aranjuez.
+          </p>
+
+          <p>
+            Durante las reuniones celebradas en Bayona, el emperador ejerció una enorme presión sobre la familia real española. Carlos IV denunció que había sido obligado a abdicar y reclamó la devolución de sus derechos al trono. Napoleón aprovechó el enfrentamiento familiar para presentarse como árbitro de la situación.
+          </p>
+
+          <p>
+            El 5 de mayo de 1808 Fernando VII renunció a la Corona en favor de su padre. Inmediatamente después, Carlos IV cedió sus derechos a Napoleón, quien se convirtió formalmente en depositario de la soberanía española. De esta manera, mediante una compleja cadena de cesiones, el emperador obtuvo la legitimidad necesaria para reorganizar la monarquía según sus intereses.
+          </p>
+
+          <p>
+            Una vez asegurado el control político de la situación, Napoleón designó a su hermano <strong>José Bonaparte</strong> como nuevo rey de España. La decisión formaba parte de su proyecto de reorganización de Europa bajo la influencia francesa y pretendía incorporar España al sistema político creado por el Imperio napoleónico.
+          </p>
+
+          <p>
+            Mientras estos acontecimientos se desarrollaban en Bayona, la situación en España se deterioraba rápidamente. La población contemplaba con indignación cómo la familia real permanecía retenida en Francia mientras las tropas napoleónicas ocupaban ciudades y fortalezas estratégicas. La sensación de traición y humillación nacional se extendió por todo el país.
+          </p>
+
+          <p>
+            El levantamiento del <strong>2 de mayo de 1808</strong> en Madrid, ocurrido precisamente durante las negociaciones de Bayona, fue una de las primeras manifestaciones de resistencia contra la ocupación francesa. La brutal represión ejercida por las tropas napoleónicas aumentó aún más el rechazo popular hacia el nuevo régimen.
+          </p>
+
+          <p>
+            Desde el punto de vista jurídico, las Abdicaciones de Bayona plantearon un grave problema de legitimidad. Muchos españoles consideraron que tanto Carlos IV como Fernando VII habían actuado bajo presión y que las renuncias carecían de validez. Como consecuencia, surgieron juntas locales y provinciales que afirmaban gobernar en nombre del rey legítimo, Fernando VII.
+          </p>
+
+          <p>
+            Las Abdicaciones de Bayona marcaron el hundimiento definitivo de la monarquía de Carlos IV y el comienzo de una nueva etapa histórica. La imposición de José Bonaparte desencadenó la Guerra de la Independencia y favoreció el nacimiento de un movimiento político que acabaría transformando profundamente España durante el siglo XIX.
+          </p>
+
+        </div>
+
+      </section>
+
+      <section id="napoleon">
+
+        <div class="section-head mt-3">
+          <span class="section-icon">🦅</span>
+          <h3>Napoleón y España</h3>
+        </div>
+
+        <figure>
+          <img src="{% static 'images/sigloXIX/carlos_iv/napoleon_espana.png' %}"
+              alt="Napoleón Bonaparte y España"
+              class="img-fluid img-panoramica">
+        </figure>
+
+        <div class="intro-box section-block">
+
+          <p>
+            La figura de <strong>Napoleón Bonaparte</strong> marcó profundamente la historia de España a comienzos del siglo XIX. Lo que inicialmente había sido una alianza estratégica entre la monarquía de Carlos IV y la Francia napoleónica terminó convirtiéndose en una intervención directa que provocó el derrumbe de la monarquía borbónica y desencadenó uno de los conflictos más importantes de la historia española: la Guerra de la Independencia.
+          </p>
+
+          <p>
+            Tras consolidar su poder en Francia y proclamarse emperador en 1804, Napoleón se convirtió en el gobernante más poderoso de Europa. Sus ejércitos derrotaron sucesivamente a Austria, Prusia y Rusia, extendiendo la influencia francesa por gran parte del continente. España, debilitada por las guerras y dependiente de la alianza francesa, quedó cada vez más subordinada a los intereses del Imperio napoleónico.
+          </p>
+
+          <p>
+            Uno de los principales objetivos de Napoleón era derrotar económicamente a Gran Bretaña. Para ello impulsó el llamado <strong>Bloqueo Continental</strong>, una estrategia destinada a impedir el comercio británico con Europa. Portugal, tradicional aliado de los británicos, se negó a participar en dicho bloqueo, convirtiéndose en un objetivo prioritario para Francia.
+          </p>
+
+          <p>
+            En octubre de 1807 se firmó el <strong>Tratado de Fontainebleau</strong>, por el que España autorizaba el paso de tropas francesas a través de su territorio para invadir Portugal. Oficialmente se trataba de una operación militar conjunta entre ambos países. Sin embargo, Napoleón aprovechó la situación para introducir decenas de miles de soldados en la Península y ocupar posiciones estratégicas.
+          </p>
+
+          <p>
+            Ciudades como Pamplona, Barcelona, Burgos, Salamanca o San Sebastián fueron quedando bajo control francés sin apenas resistencia. La presencia de tropas extranjeras comenzó a despertar una creciente inquietud entre la población española, que observaba con preocupación cómo el país parecía estar siendo ocupado por un ejército aliado.
+          </p>
+
+          <p>
+            Al mismo tiempo, Napoleón siguió atentamente la crisis política que enfrentaba a Carlos IV, Fernando VII y Manuel Godoy. El emperador comprendió que las divisiones internas de la monarquía española le ofrecían una oportunidad excepcional para intervenir directamente en los asuntos del reino.
+          </p>
+
+          <p>
+            Tras el Motín de Aranjuez y la abdicación de Carlos IV, Napoleón convocó a los miembros de la familia real a la ciudad francesa de Bayona. Allí logró que Fernando VII y Carlos IV renunciaran sucesivamente a sus derechos dinásticos durante las llamadas <strong>Abdicaciones de Bayona</strong>. De este modo, el emperador obtuvo el control político de la Corona española.
+          </p>
+
+          <p>
+            Una vez conseguida la cesión de los derechos al trono, Napoleón nombró rey de España a su hermano <strong>José Bonaparte</strong>. Aunque José intentó introducir reformas inspiradas en los principios ilustrados, gran parte de la población española rechazó su legitimidad y lo consideró un monarca impuesto por una potencia extranjera.
+          </p>
+
+          <p>
+            La reacción popular no tardó en producirse. El levantamiento del <strong>2 de mayo de 1808</strong> en Madrid mostró que amplios sectores de la sociedad estaban dispuestos a resistir la ocupación francesa. La dura represión ordenada por el mariscal Murat alimentó aún más el sentimiento antifrancés y extendió la insurrección por toda la Península.
+          </p>
+
+          <p>
+            A partir de ese momento, Napoleón tuvo que enfrentarse a una resistencia inesperada. Lo que había comenzado como una operación política relativamente sencilla se transformó en una larga y costosa guerra. Los ejércitos franceses se encontraron con la oposición de tropas regulares, guerrillas populares y fuerzas británicas dirigidas por Arthur Wellesley, futuro duque de Wellington.
+          </p>
+
+          <p>
+            La intervención napoleónica tuvo consecuencias de enorme alcance. Por un lado, provocó la Guerra de la Independencia y la destrucción de buena parte del país. Por otro, aceleró el nacimiento del liberalismo español y favoreció la convocatoria de las Cortes de Cádiz y la aprobación de la Constitución de 1812.
+          </p>
+
+          <p>
+            Cuando Napoleón fue finalmente derrotado en Europa, España recuperó a Fernando VII como rey. Sin embargo, el país había cambiado profundamente. La invasión francesa había puesto fin al viejo equilibrio político del Antiguo Régimen y abierto el camino a las transformaciones que caracterizarían todo el siglo XIX español.
+          </p>
+
+        </div>
+
+      </section>
+
+      <section id="independencia">
+
+        <div class="section-head mt-3">
+          <span class="section-icon">⚔️</span>
+          <h3>La Guerra de la Independencia</h3>
+        </div>
+
+        <figure>
+          <img src="{% static 'images/sigloXIX/carlos_iv/guerra_independencia.png' %}"
+              alt="La Guerra de la Independencia Española"
+              class="img-fluid img-panoramica">
+        </figure>
+
+        <div class="intro-box section-block">
+
+          <p>
+            La <strong>Guerra de la Independencia Española (1808-1814)</strong> fue uno de los conflictos más trascendentales de la historia de España. Más que una simple guerra contra una potencia extranjera, supuso una auténtica revolución política y social que puso fin al Antiguo Régimen y abrió el camino hacia la España contemporánea. Durante seis años, el país se convirtió en uno de los principales escenarios de las guerras napoleónicas y en el símbolo de la resistencia europea frente al Imperio francés.
+          </p>
+
+          <p>
+            El conflicto tuvo su origen en la ocupación francesa de España y en las Abdicaciones de Bayona. Cuando Napoleón impuso a su hermano José Bonaparte como rey, gran parte de la población consideró ilegítima la nueva monarquía. El sentimiento de defensa de la religión, de la patria y del rey Fernando VII se convirtió en un poderoso elemento de movilización popular.
+          </p>
+
+          <p>
+            El acontecimiento que marcó el inicio de la guerra fue el <strong>levantamiento del 2 de mayo de 1808</strong> en Madrid. Miles de ciudadanos se enfrentaron espontáneamente a las tropas francesas cuando intentaban trasladar a los últimos miembros de la familia real a Francia. La insurrección fue duramente reprimida por las fuerzas del mariscal Murat, pero su ejemplo se extendió rápidamente por toda España.
+          </p>
+
+          <p>
+            En pocas semanas surgieron <strong>juntas provinciales</strong> que asumieron la representación de la soberanía nacional ante la ausencia de un rey legítimo. Estas instituciones organizaron la resistencia contra Francia y coordinaron los esfuerzos militares en distintas regiones del país. Por primera vez, amplios sectores de la sociedad participaron activamente en la vida política.
+          </p>
+
+          <p>
+            Uno de los primeros grandes éxitos españoles fue la <strong>Batalla de Bailén</strong>, librada en julio de 1808. El ejército del general Francisco Javier Castaños derrotó a las tropas francesas del general Dupont, logrando la primera gran derrota de un ejército napoleónico en campo abierto. La victoria tuvo una enorme repercusión internacional y demostró que el aparentemente invencible ejército francés podía ser derrotado.
+          </p>
+
+          <p>
+            Sin embargo, Napoleón reaccionó personalmente. A finales de 1808 entró en España al frente de la Grande Armée con más de doscientos mil soldados. Los franceses recuperaron Madrid y ocuparon buena parte del territorio peninsular. A pesar de ello, la resistencia española continuó mediante una combinación de ejércitos regulares, milicias locales y guerrillas.
+          </p>
+
+          <p>
+            La <strong>guerrilla</strong> se convirtió en una de las características más originales del conflicto. Pequeños grupos armados atacaban convoyes, correos y destacamentos franceses, dificultando enormemente el control del territorio. Figuras como El Empecinado, Espoz y Mina o Julián Sánchez "El Charro" alcanzaron gran notoriedad por sus acciones contra los invasores.
+          </p>
+
+          <p>
+            A partir de 1808, Gran Bretaña intervino directamente en la guerra. Las tropas británicas dirigidas por <strong>Arthur Wellesley</strong>, futuro duque de Wellington, desembarcaron en Portugal y colaboraron con españoles y portugueses en la lucha contra Francia. Esta alianza resultó decisiva para el desenlace del conflicto.
+          </p>
+
+          <p>
+            Mientras se desarrollaban los combates, también se produjo una profunda transformación política. Las <strong>Cortes de Cádiz</strong>, reunidas en una ciudad que nunca llegó a ser ocupada por los franceses, elaboraron la primera constitución liberal de la historia de España. La Constitución de 1812 proclamó principios como la soberanía nacional, la división de poderes y la igualdad jurídica de los ciudadanos.
+          </p>
+
+          <p>
+            A partir de 1812 la situación militar comenzó a cambiar. La derrota de Napoleón en Rusia obligó al emperador a retirar tropas de la Península. Wellington aprovechó esta circunstancia para lanzar una ofensiva que culminó con importantes victorias aliadas en Arapiles, Vitoria y San Marcial.
+          </p>
+
+          <p>
+            Finalmente, en 1813 Napoleón reconoció la derrota y firmó el <strong>Tratado de Valençay</strong>, por el que devolvía la Corona española a Fernando VII. Las últimas tropas francesas abandonaron España en 1814, poniendo fin a seis años de guerra.
+          </p>
+
+          <p>
+            Las consecuencias del conflicto fueron enormes. España sufrió cientos de miles de muertos, la destrucción de numerosas ciudades y una grave crisis económica. Sin embargo, la guerra también impulsó el nacimiento del liberalismo español, fortaleció el sentimiento nacional y transformó para siempre la vida política del país.
+          </p>
+
+          <p>
+            La Guerra de la Independencia fue, por tanto, mucho más que una lucha militar contra Francia. Representó el choque entre dos épocas históricas y marcó el comienzo de un siglo XIX caracterizado por la confrontación entre absolutismo y liberalismo, una tensión que condicionaría la historia de España durante décadas.
+          </p>
+
+        </div>
+
+      </section>
+
+      <section id="sociedad">
+
+        <div class="section-head mt-3">
+          <span class="section-icon">🏘️</span>
+          <h3>La sociedad española a comienzos del siglo XIX</h3>
+        </div>
+
+        <figure>
+          <img src="{% static 'images/sigloXIX/carlos_iv/sociedad_espanola.png' %}"
+              alt="La sociedad española durante el reinado de Carlos IV"
+              class="img-fluid img-panoramica">
+        </figure>
+
+        <div class="intro-box section-block">
+
+          <p>
+            Durante el reinado de Carlos IV, la sociedad española seguía organizada según los principios del <strong>Antiguo Régimen</strong>. La posición social de cada individuo dependía en gran medida de su nacimiento, y los privilegios jurídicos, económicos y fiscales continuaban reservados a determinados grupos. Sin embargo, bajo esta aparente estabilidad comenzaban a surgir cambios que transformarían profundamente la sociedad española a lo largo del siglo XIX.
+          </p>
+
+          <p>
+            La población española rondaba los once millones de habitantes y se distribuía principalmente en el medio rural. Más del ochenta por ciento de los españoles vivía en pueblos y aldeas, dependiendo directamente de la agricultura y la ganadería para su subsistencia. Las ciudades eran relativamente pequeñas en comparación con otras capitales europeas, aunque Madrid, Barcelona, Valencia, Sevilla y Cádiz experimentaban un crecimiento progresivo.
+          </p>
+
+          <p>
+            La sociedad se dividía tradicionalmente en tres grandes estamentos: nobleza, clero y estado llano. La <strong>nobleza</strong>, aunque representaba una minoría de la población, conservaba importantes privilegios y poseía una gran parte de las tierras del país. Los grandes aristócratas ocupaban los principales cargos políticos y militares, mientras que numerosos hidalgos disfrutaban de prestigio social aunque no siempre contaran con grandes recursos económicos.
+          </p>
+
+          <p>
+            El <strong>clero</strong> constituía otro de los pilares fundamentales de la sociedad. La Iglesia Católica ejercía una enorme influencia sobre la vida cotidiana, la educación y la cultura. Monasterios, conventos, parroquias y obispados desempeñaban además un importante papel económico gracias a las extensas propiedades que controlaban. La religión impregnaba todos los aspectos de la vida social y política del país.
+          </p>
+
+          <p>
+            El grupo más numeroso era el <strong>estado llano</strong>, formado por campesinos, artesanos, comerciantes, profesionales liberales y trabajadores urbanos. Dentro de este amplio conjunto existían enormes diferencias económicas. Mientras algunos comerciantes y propietarios acumulaban importantes fortunas, millones de campesinos vivían en condiciones muy modestas y dependían de cosechas frecuentemente irregulares.
+          </p>
+
+          <p>
+            Las condiciones de vida eran especialmente duras para gran parte de la población rural. Las malas cosechas, las epidemias y las crisis de subsistencia podían provocar periodos de hambre y pobreza. A comienzos del siglo XIX, las dificultades económicas derivadas de las guerras y del bloqueo comercial agravaron aún más la situación de numerosos sectores populares.
+          </p>
+
+          <p>
+            A pesar de ello, durante el siglo XVIII habían comenzado a desarrollarse nuevas actividades económicas impulsadas por las reformas ilustradas. El comercio con América, la creación de manufacturas y el crecimiento de algunos puertos favorecieron el surgimiento de una pequeña pero influyente <strong>burguesía</strong> formada por comerciantes, empresarios, funcionarios y profesionales cualificados.
+          </p>
+
+          <p>
+            La educación seguía siendo limitada para la mayor parte de la población. El analfabetismo afectaba a una gran proporción de los españoles, especialmente en las zonas rurales. Sin embargo, las ideas ilustradas promovidas durante el reinado de Carlos III habían impulsado la creación de instituciones educativas, academias científicas y sociedades económicas que difundían nuevos conocimientos y fomentaban el progreso.
+          </p>
+
+          <p>
+            Las mujeres desempeñaban un papel fundamental en la economía familiar y en la vida cotidiana, aunque estaban excluidas de la participación política y contaban con escasos derechos jurídicos. Tanto en el campo como en la ciudad contribuían activamente al sostenimiento de los hogares mediante trabajos agrícolas, artesanales o comerciales.
+          </p>
+
+          <p>
+            La llegada de la Revolución Francesa y posteriormente la invasión napoleónica introdujeron nuevas ideas políticas y sociales. Conceptos como libertad, igualdad jurídica, soberanía nacional o ciudadanía comenzaron a difundirse entre determinados sectores de la población, cuestionando progresivamente las estructuras tradicionales del Antiguo Régimen.
+          </p>
+
+          <p>
+            La Guerra de la Independencia aceleró estos cambios. La movilización popular, la aparición de juntas de gobierno y la reunión de las Cortes de Cádiz permitieron la participación política de grupos sociales que hasta entonces habían permanecido alejados de las decisiones del Estado. El proceso culminaría con la Constitución de 1812, que simbolizó el nacimiento de una nueva concepción de la sociedad y del poder político.
+          </p>
+
+          <p>
+            De este modo, la sociedad española de la época de Carlos IV se encontraba en una situación de transición. Aunque seguía conservando las características propias del Antiguo Régimen, los acontecimientos de comienzos del siglo XIX estaban preparando el terreno para profundas transformaciones que cambiarían para siempre la historia de España.
+          </p>
+
+        </div>
+
+      </section>
+
+      <section id="economia">
+
+        <div class="section-head mt-3">
+          <span class="section-icon">💰</span>
+          <h3>Economía y Hacienda</h3>
+        </div>
+
+        <figure>
+          <img src="{% static 'images/sigloXIX/carlos_iv/economia_hacienda.png' %}"
+              alt="Economía y Hacienda durante el reinado de Carlos IV"
+              class="img-fluid img-panoramica">
+        </figure>
+
+        <div class="intro-box section-block">
+
+          <p>
+            La situación económica fue uno de los principales problemas a los que tuvo que enfrentarse el reinado de Carlos IV. Aunque la monarquía heredó parte de la prosperidad generada durante las reformas ilustradas del siglo XVIII, las guerras, las crisis agrícolas y el creciente endeudamiento del Estado terminaron provocando un grave deterioro de las finanzas públicas. A comienzos del siglo XIX, la Hacienda española atravesaba una de las etapas más difíciles de su historia.
+          </p>
+
+          <p>
+            La economía española seguía siendo fundamentalmente agraria. La mayor parte de la población vivía en el campo y dependía directamente de la agricultura para su subsistencia. Los cereales constituían la base de la producción agrícola, aunque también tenían gran importancia cultivos como la vid, el olivo y diversos productos destinados al comercio regional.
+          </p>
+
+          <p>
+            Sin embargo, la productividad agrícola continuaba siendo relativamente baja. Las técnicas de cultivo apenas habían evolucionado, gran parte de las tierras pertenecían a nobles, instituciones eclesiásticas o municipios, y las malas cosechas podían desencadenar rápidamente crisis de abastecimiento. Durante los últimos años del siglo XVIII y los primeros del XIX se produjeron varios periodos de escasez que afectaron gravemente a la población.
+          </p>
+
+          <p>
+            El comercio con América seguía siendo uno de los pilares fundamentales de la economía española. Los puertos de Cádiz, Sevilla, La Coruña o Barcelona mantenían intensas relaciones con las colonias americanas, importando metales preciosos, productos agrícolas y materias primas. Estos intercambios proporcionaban importantes ingresos a la Corona y favorecían el desarrollo de determinados sectores comerciales.
+          </p>
+
+          <p>
+            No obstante, las guerras contra Gran Bretaña alteraron profundamente esta situación. El dominio británico de los mares dificultó las comunicaciones con América y redujo considerablemente el tráfico comercial. El bloqueo naval impuesto por la Royal Navy afectó tanto a las exportaciones como a las importaciones, perjudicando a comerciantes, armadores y productores de numerosas regiones españolas.
+          </p>
+
+          <p>
+            Las continuas campañas militares exigían además enormes recursos económicos. El mantenimiento de ejércitos, la construcción de barcos y la financiación de operaciones militares obligaron al Estado a aumentar el gasto público de forma constante. Los ingresos ordinarios resultaban insuficientes para cubrir estas necesidades, lo que provocó un crecimiento acelerado de la deuda.
+          </p>
+
+          <p>
+            Para intentar solucionar el problema, los gobiernos recurrieron a diversas medidas extraordinarias. Se incrementaron determinados impuestos, se emitieron nuevos títulos de deuda pública y se solicitaron préstamos. Sin embargo, estas actuaciones apenas lograron contener el deterioro financiero que sufría la Hacienda Real.
+          </p>
+
+          <p>
+            Una de las decisiones más controvertidas fue la denominada <strong>desamortización de Godoy</strong>, iniciada en 1798. El gobierno autorizó la venta de determinadas propiedades pertenecientes a instituciones eclesiásticas y obras pías con el objetivo de obtener recursos para reducir la deuda pública. Aunque la medida proporcionó ingresos inmediatos, también generó tensiones con amplios sectores de la Iglesia y no resolvió los problemas estructurales de la Hacienda.
+          </p>
+
+          <p>
+            Paralelamente, algunas regiones experimentaron un notable crecimiento económico. Cataluña desarrolló una importante industria textil, especialmente vinculada a la fabricación de indianas. Barcelona se consolidó como uno de los principales centros económicos del país, mientras que otras ciudades portuarias ampliaban sus actividades comerciales y manufactureras.
+          </p>
+
+          <p>
+            A pesar de estos avances, el conjunto de la economía española mostraba importantes debilidades. La dependencia de la agricultura, las dificultades del transporte interior, el peso de los privilegios estamentales y la insuficiencia de recursos fiscales limitaban las posibilidades de crecimiento. Las reformas ilustradas habían iniciado un proceso de modernización, pero éste todavía se encontraba lejos de completarse.
+          </p>
+
+          <p>
+            La invasión napoleónica y la Guerra de la Independencia agravaron aún más la situación. Numerosas infraestructuras fueron destruidas, el comercio quedó paralizado en muchas zonas y la producción agrícola sufrió importantes retrocesos. Cuando Fernando VII regresó al trono en 1814, la economía española se encontraba profundamente debilitada.
+          </p>
+
+          <p>
+            En definitiva, la economía durante el reinado de Carlos IV reflejó las contradicciones de una España que intentaba modernizarse mientras seguía arrastrando muchas de las estructuras heredadas del Antiguo Régimen. La crisis financiera de la monarquía se convirtió en uno de los factores que contribuyeron al colapso político de 1808 y a las profundas transformaciones que marcarían el siglo XIX español.
+          </p>
+
+        </div>
+
+      </section>
+
+      <section id="cultura">
+
+        <div class="section-head mt-3">
+          <span class="section-icon">🎨</span>
+          <h3>Cultura e Ilustración tardía</h3>
+        </div>
+
+        <figure>
+          <img src="{% static 'images/sigloXIX/carlos_iv/cultura_ilustracion.png' %}"
+              alt="Cultura e Ilustración tardía durante el reinado de Carlos IV"
+              class="img-fluid img-panoramica">
+        </figure>
+
+        <div class="intro-box section-block">
+
+          <p>
+            A pesar de las dificultades políticas y militares que marcaron el reinado de Carlos IV, España continuó experimentando un notable desarrollo cultural e intelectual durante las últimas décadas del siglo XVIII y los primeros años del XIX. La influencia de la <strong>Ilustración</strong>, impulsada durante el reinado de Carlos III, siguió presente en numerosos ámbitos de la vida pública, favoreciendo el avance de la educación, las ciencias, las artes y el pensamiento reformista.
+          </p>
+
+          <p>
+            La Ilustración defendía la confianza en la razón, el conocimiento y el progreso como instrumentos para mejorar la sociedad. Los ilustrados españoles consideraban que el atraso económico y cultural del país podía superarse mediante reformas educativas, científicas y administrativas. Aunque muchas de estas ideas encontraron resistencia entre los sectores más conservadores, continuaron ejerciendo una importante influencia durante el reinado de Carlos IV.
+          </p>
+
+          <p>
+            Uno de los principales centros de difusión del pensamiento ilustrado fueron las
+            <strong>Sociedades Económicas de Amigos del País</strong>. Estas instituciones promovían la agricultura, la industria, el comercio y la educación mediante la organización de conferencias, publicaciones y proyectos de modernización. Su actividad contribuyó a extender nuevas ideas entre las élites urbanas y los sectores reformistas.
+          </p>
+
+          <p>
+            La enseñanza experimentó también avances significativos. Se impulsaron escuelas, academias y centros de formación destinados a mejorar la preparación técnica y científica de la población. Instituciones como la Real Academia Española, la Real Academia de la Historia o el Real Gabinete de Historia Natural continuaron desarrollando una intensa labor cultural y científica.
+          </p>
+
+          <p>
+            En el ámbito científico destacaron figuras como <strong>Antonio José Cavanilles</strong>, uno de los botánicos más importantes de la época, y numerosos naturalistas, médicos e ingenieros que participaron en expediciones científicas tanto en la Península como en los territorios americanos. Estas investigaciones permitieron ampliar el conocimiento sobre la geografía, la flora, la fauna y los recursos del Imperio español.
+          </p>
+
+          <p>
+            La literatura reflejaba igualmente las inquietudes intelectuales del momento. Muchos escritores continuaron defendiendo ideales ilustrados basados en la educación, la utilidad social del conocimiento y la crítica de las supersticiones. Sin embargo, a finales del reinado comenzaron a aparecer las primeras influencias del <strong>Romanticismo</strong>, movimiento que cobraría gran importancia durante las décadas posteriores.
+          </p>
+
+          <p>
+            El gran protagonista artístico de la época fue sin duda <strong>Francisco de Goya</strong>. Pintor de cámara de Carlos IV, Goya desarrolló una obra extraordinaria que refleja tanto el esplendor de la corte como las contradicciones y tensiones de la sociedad española. Sus retratos de la familia real constituyen algunos de los testimonios más valiosos para comprender la España de comienzos del siglo XIX.
+          </p>
+
+          <p>
+            Con el paso de los años, la obra de Goya adquirió un tono cada vez más crítico y personal. Sus pinturas y grabados mostraban la irracionalidad, la violencia y las contradicciones de su tiempo. Por ello, muchos historiadores consideran que representa el puente entre el mundo ilustrado del siglo XVIII y la sensibilidad moderna del siglo XIX.
+          </p>
+
+          <p>
+            La prensa y las publicaciones periódicas experimentaron un notable crecimiento. Aunque la censura seguía siendo importante, los periódicos y revistas contribuyeron a difundir nuevas ideas políticas, económicas y culturales. Este desarrollo favoreció la aparición de una opinión pública cada vez más interesada por los asuntos nacionales e internacionales.
+          </p>
+
+          <p>
+            Sin embargo, la Revolución Francesa provocó una reacción de temor entre las autoridades. El gobierno reforzó la vigilancia sobre libros, periódicos y publicaciones extranjeras para impedir la difusión de ideas consideradas peligrosas. A pesar de estas restricciones, conceptos como libertad, ciudadanía, soberanía nacional o derechos individuales comenzaron a circular entre sectores ilustrados y reformistas.
+          </p>
+
+          <p>
+            La invasión napoleónica y la Guerra de la Independencia aceleraron la transformación intelectual del país. Muchos ilustrados apoyaron inicialmente algunas reformas impulsadas por los franceses, mientras que otros participaron activamente en la resistencia nacional. De este debate surgirían las corrientes políticas que dominarían la España del siglo XIX.
+          </p>
+
+          <p>
+            La cultura durante el reinado de Carlos IV representa así una etapa de transición entre dos mundos. Por un lado, pervivían los ideales racionalistas y reformistas de la Ilustración; por otro, comenzaban a aparecer nuevas sensibilidades políticas, artísticas y sociales que anticipaban la llegada de la España contemporánea.
+          </p>
+
+        </div>
+
+      </section>
+
+      <section id="legado">
+
+        <div class="section-head mt-3">
+          <span class="section-icon">⭐</span>
+          <h3>El legado de Carlos IV</h3>
+        </div>
+
+        <figure>
+          <img src="{% static 'images/sigloXIX/carlos_iv/legado_carlos_iv.png' %}"
+              alt="El legado histórico de Carlos IV"
+              class="img-fluid img-panoramica">
+        </figure>
+
+        <div class="intro-box section-block">
+
+          <p>
+            El reinado de <strong>Carlos IV (1788-1808)</strong> ocupa un lugar singular en la historia de España. Durante mucho tiempo fue recordado principalmente como una etapa de decadencia, marcada por las derrotas militares, la influencia de Manuel Godoy, la intervención napoleónica y el colapso de la monarquía borbónica. Sin embargo, la historiografía moderna ha ofrecido una visión más matizada, considerando su reinado como un periodo de transición entre la España ilustrada del siglo XVIII y la España contemporánea del siglo XIX.
+          </p>
+
+          <p>
+            Cuando Carlos IV accedió al trono heredó una monarquía fortalecida por las reformas de Carlos III y un imperio que todavía se extendía por buena parte de América. Sin embargo, pocos años después tuvo que enfrentarse a acontecimientos extraordinarios que escapaban al control de cualquier gobernante europeo: la Revolución Francesa, las guerras revolucionarias, el ascenso de Napoleón y la transformación política del continente.
+          </p>
+
+          <p>
+            Las decisiones adoptadas por la Corona durante este periodo siguen siendo objeto de debate entre los historiadores. Algunos consideran que la dependencia de Francia y la política desarrollada por Godoy contribuyeron a debilitar la posición internacional de España. Otros subrayan que la monarquía española se encontraba atrapada entre las dos grandes potencias de la época, Francia y Gran Bretaña, y disponía de escaso margen para actuar con independencia.
+          </p>
+
+          <p>
+            Desde el punto de vista político, el principal legado del reinado fue la crisis que desembocó en la desaparición práctica del Antiguo Régimen. El Motín de Aranjuez, las Abdicaciones de Bayona y la invasión napoleónica provocaron el derrumbe de las estructuras tradicionales de poder y abrieron un proceso revolucionario que transformaría profundamente la historia de España.
+          </p>
+
+          <p>
+            La Guerra de la Independencia surgida tras la caída de Carlos IV tuvo consecuencias decisivas. Durante el conflicto aparecieron nuevas formas de participación política, se desarrolló un fuerte sentimiento nacional y se inició el enfrentamiento entre absolutismo y liberalismo que caracterizaría gran parte del siglo XIX español.
+          </p>
+
+          <p>
+            En el terreno institucional, las Cortes de Cádiz y la Constitución de 1812 nacieron como respuesta a la crisis desencadenada durante los últimos años del reinado. Aunque Carlos IV nunca llegó a gobernar bajo principios constitucionales, los acontecimientos de su época favorecieron indirectamente la aparición del primer régimen liberal español.
+          </p>
+
+          <p>
+            El legado cultural de este periodo también fue extraordinario. La Ilustración española alcanzó sus últimas manifestaciones de gran relevancia y figuras como <strong>Francisco de Goya</strong> dejaron algunas de las obras más importantes de la historia del arte europeo. Los retratos de la familia real, las escenas de la Guerra de la Independencia y las Pinturas Negras constituyen hoy un testimonio incomparable de aquella época de cambios y contradicciones.
+          </p>
+
+          <p>
+            En el ámbito económico, el reinado puso de manifiesto las limitaciones estructurales de la Hacienda española y la necesidad de profundas reformas. La crisis financiera, el endeudamiento y las dificultades comerciales anticiparon muchos de los problemas que los gobiernos españoles tendrían que afrontar durante las décadas posteriores.
+          </p>
+
+          <p>
+            Desde una perspectiva histórica más amplia, Carlos IV representa el final de una etapa iniciada con la llegada de los Borbones al trono español a comienzos del siglo XVIII. Su reinado marcó el ocaso del mundo ilustrado y del sistema político heredado del Antiguo Régimen, mientras comenzaban a surgir las fuerzas que darían forma a la España contemporánea.
+          </p>
+
+          <p>
+            La imagen personal de Carlos IV ha sido tradicionalmente eclipsada por figuras como Manuel Godoy, Fernando VII o Napoleón Bonaparte. Sin embargo, el monarca gobernó durante uno de los periodos más complejos y convulsos de la historia europea. Su reinado coincidió con el fin de una época y el nacimiento de otra, convirtiéndolo en un protagonista involuntario de una transformación histórica de enorme magnitud.
+          </p>
+
+          <p>
+            Por todo ello, el legado de Carlos IV no debe medirse únicamente por los éxitos o fracasos de su gobierno, sino por el profundo impacto que los acontecimientos de su tiempo tuvieron sobre España. Bajo su reinado se cerró definitivamente el ciclo histórico del siglo XVIII y se abrieron las puertas a la España liberal, constitucional y contemporánea que se desarrollaría a lo largo del siglo XIX.
+          </p>
+
+        </div>
+
+      </section>
     
+    </main>
+  </div>
 </div>
-<h3 class="mt-5">Recursos </h3>
-    <hr>
-    <p><p><u>Documentales</u></p></p>
-    <div>    
-        <ul>
-            <li><a href="https://www.youtube.com/watch?v=d1WoGh4OMoQ&list=PLTg9oK7EhhS1jHvWBFVA-jDv_v5YjY6A3&index=121" target="_blank" style="text-decoration:none ;">La batalla de Trafalgar</a>.</li>
-            
-        </ul>
-    </div>
+
+  
+
+
+  
+  
+
+  
+
+
+
+
+
+
+
+
 
 
 {% endblock %}

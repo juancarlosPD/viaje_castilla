@@ -1,450 +1,536 @@
-{% extends "bases/basesigloXIX.html" %}
+{% extends "bases/baseInicioHistoria.html" %}
 
 {% load static %}
 
-{% block titulo %} independencia {% endblock %}
+{% block titulo %} Guerra de la Independencia {% endblock %}
 
-{% block cabecera %} Guerra de la Independencia {% endblock %}
+{% block cabecera %}  Guerra de la Independencia {% endblock %}
 
 {% block imgCabecera %}  {% endblock %}
 
 {% block contenido %}
 
-    <div class="row mb-4 ">
-        <h2>La crisis de 1808</h2>
-        <hr>
-        <div class="col-md-9 text-start mt-3">
-            <h5><u> El motín de Aranjuez (marzo de 1808) y la caída de Godoy.</u></h5>
-            <p>El Motín de Aranjuez fue un levantamiento popular ocurrido el 18 de marzo de 1808 por las calles de esta localidad
-            madrileña. Se desencadenó debido a varias <strong>causas:</strong> </p>
-            <ul>
-                <li>La derrota de Trafalgar</li>
-                <li>El descontento popular contra Godoy</li>
-                <li>Las intrigas de la Corte donde se iba creando un núcleo de apoyo al príncipe Fernando, formado por aristócratas
-            recelosos del poder absoluto de Godoy, y escandalizados por sus supuestas relaciones con la reina María Luisa de Parma.</li>
-                <li>La presencia de tropas francesas en España, en virtud del tratado de Fontainebleau se había ido haciendo
-            amenazante a medida que iban ocupando diversas localidades españolas (Burgos, Salamanca, Pamplona, San
-            Sebastián, Barcelona…).</li>
-                <li>La presencia de estas tropas terminó por alarmar a Godoy que en marzo de 1808 llevó a la
-            familia real a Aranjuez para que en caso de necesidad seguir camino hacia el sur, hacia Sevilla o América</li>
-            </ul> 
-            <p>El <strong> resultado  </strong>fue la caída de Godoy y la abdicación de Carlos IV en Fernando VII.</p>
-              
-            <p> <strong> Godoy era despreciado por diversos motivos:</strong></p>
-            <ul>
-                <li>De origen hidalgo, fue elevado de forma meteórica al poder por Carlos IV, quien lo colmó de títulos y honores, lo casó con una prima suya, lo dotó de una inmensa riqueza y le confió los más altos cargos del Estado, ante la incapacidad de las camarillas cortesanas del inicio de su reinado.  </li>
-                <li>Algunas reformas emprendidas por Godoy tienen como fin limitar o controlar el poder de la Alta Nobleza.</li>
-                <li>Tampoco podía contar con los ilustrados, a los que había decepcionado con el corto alcance de sus reformas.</li>
-                <li>Todos creían que las negociaciones con Napoleón lo beneficiaban a él y perjudicaban a España.</li>
-                <li>Francia tampoco lo consideraba un aliado fiable y pidió a Carlos IV su destitución.</li>
-            </ul>
-           
-        </div>
-        <div class="col-md-3">
-            <figure>
-                    <img class="imagenInicio" src="{% static 'images/sigloXIX/godoy(1).jpg' %}" alt="">
-                </figure>
-                <figcaption>Godoy </figcaption>    
-            <figure>
-                    <img class="imagenInicio" src="{% static 'images/sigloXIX/palacioAranjuez.jpg' %}" alt="">
-                </figure>
-                <figcaption>Palacio de Aranjuez </figcaption>
-            
-        </div>
-    </div>
-    <div class="row mb-4 text-start mt-3">
-        <div class="col-md-9">
-            <h5><u> Las abdicaciones de Bayona (abril de 1808).</u></h5>
-                <p>La caída de Godoy y de Carlos IV y la elevación al trono de Fernando VII agravaron la
-            crisis de la monarquía española. Esto favoreció los planes de Napoleón que logró atraer a la
-            familia real a la localidad francesa de Bayona, en <strong>abril de 1808 </strong>.
-            Allí, Napoleón obtuvo las abdicaciones de los monarcas, Carlos IV y Fernando VII,
-            renunciando a sus derechos a la corona española. Napoleón decidió entonces entregar el reino
-            de España a su hermano José I, lo que desembocaría en la oposición del pueblo español y en el
-            inicio de la Guerra de la Independencia (1808–1813) iniciada con el levantamiento del
-            pueblo de Madrid el 2 de mayo de 1808, secundado por el resto del país.</p>
-        </div>
-        <div class="col-md-3">
-            <figure>
-                <img class="imagenInicio img-fluid" src="{% static 'images/sigloXIX/bayona.jpg' %}" alt="">
-            </figure>
-            <figcaption>Bayona </figcaption>
-        </div>
-            
-        
-    </div>
-    <div class="row mb-4 text-start mt-3">
-        <div class="col-md-3 pt-5">
-            <figure>
-                    <img class="imagenInicio img-fluid" src="{% static 'images/sigloXIX/2demayo.jpg' %}" alt="">
-            </figure>
-            <figcaption>Fusilamientos del 2 de mayo </figcaption>    
-        </div>
-                   
+<style>
+  .img-retrato {
+    max-width: 700px;
+    width: auto;    
+    max-height: 500px;
+    display: block;
+    margin: 0 auto;
+  }
 
-        <div class="col-md-9 text-start mt-3">
-            <h5><u> El levantamiento contra los franceses (2 de mayo de 1808).</u></h5>
-            <p>El <strong> 2 de mayo de 1808</strong>, el pueblo de Madrid irritado por la conducta de los franceses, la sensación de ocupación y la sospecha de que sacar del Palacio Real al infante Francisco de Paula —último miembro de la familia real que permanecía todavía en Madrid-,
-            estalló en cólera y surgió el choque con el ejército francés. La lucha tuvo carácter popular. En
-            efecto, las guarniciones militares en Madrid tenían la orden de no intervenir contra los
-            franceses; solo algunos oficiales, como los capitanes <strong> Luis Daoiz y Pedro Velarde</strong> del cuartel de Monteleón
-            desobedecieron las órdenes y se unieron a la rebelión. El ejército francés, al mando del general
-            <strong>Murat</strong>, lugarteniente de Napoleón en España, con un <strong>ejército de 30.000 hombres</strong>  reprimió
-            duramente el levantamiento popular, con un saldo de cientos de muertos: en la noche del 2 al 3
-            de mayo un centenar de prisioneros eran fusilados en <strong>la montaña de
-            Príncipe Pío y en la Moncloa. Este hecho fue inmortalizados por Goya. </strong> 
-            Destacar que esta reacción popular fué muy distinta a la actitud de la Junta de Gobierno que abogaba por colaborar con las tropas francesas. Sin embargo la renuncia de Fernando VII, a quien el pueblo llamó “el Deseado”, se interpretó
-            como impuesta por la fuerza. 
-            </p>
-            <p>Finalmente La noticia de las abdicaciones de Bayona contribuyó a la extensión del movimiento por toda España.</p>
-        </div>
+  .img-panoramica {
+    max-width: 1100px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  .navbar {
+    border-radius: 16px;
+  }
+
+  .navbar .nav-link,
+  .navbar .navbar-brand {
+    font-size: 0.95rem;
+    white-space: nowrap;
+  }
+
+  .section-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 0.35rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: #8b0000;
+  }
+
+  @media (max-width: 991px) {
+    .navbar {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+
+    .navbar-collapse {
+      margin-top: 0.8rem;
+      background: #212529;
+      border-radius: 14px;
+      padding: 0.8rem;
+    }
+
+    .navbar-nav {
+      text-align: left;
+    }
+
+    .navbar .nav-link {
+      padding: 0.55rem 0.8rem;
+      border-radius: 10px;
+    }
+
+    .navbar .nav-link:hover {
+      background: rgba(255,255,255,0.12);
+    }
+
+    .dropdown-menu {
+      border-radius: 12px;
+      margin-top: 0.4rem;
+    }
+  }
+
+  /* TARJETAS */
+  .medieval-card {
+    overflow: hidden;
+    border-radius: 20px;
+    border: none;
+    transition: all .3s ease;
+    background: #fff;
+  }
+
+  .medieval-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0,0,0,.15);
+  }
+
+  .medieval-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* HERO */
+  .hero-medieval {
+    background: linear-gradient(135deg, #f8f4ec 0%, #efe7d8 100%);
+    border: 1px solid #ddd0b8;
+    border-radius: 24px;
+    padding: 3rem;
+    box-shadow: 0 10px 30px rgba(58,44,24,.08);
+    overflow: hidden;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    padding: .6rem 1rem;
+    background: #e8dfcf;
+    border: 1px solid #d2c3a5;
+    color: #6b4e2e;
+    font-weight: 700;
+    border-radius: 999px;
+  }
+
+  .hero-title {
+    color: #1f2937;
+    font-size: clamp(2rem, 4vw, 3.35rem);
+    line-height: 1.12;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    margin-bottom: 1.2rem;
+  }
+
+  .hero-text {
+    color: #263241;
+    font-size: 1.08rem;
+    line-height: 1.75;
+  }
+
+  .hero-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+    margin-top: 2rem;
+  }
+
+  .hero-chips span {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    background: #f4ede0;
+    border: 1px solid #d9ccb4;
+    color: #5f4a2c;
+    padding: .55rem 1rem;
+    border-radius: 999px;
+    font-weight: 600;
+  }
+
+  .hero-figure {
+    margin: 0;
+  }
+
+  .hero-figure img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(0,0,0,.15);
+    border: 4px solid #fff;
+  }
+
+  .hero-figure figcaption {
+    margin-top: .8rem;
+    color: #6b727c;
+    font-size: .95rem;
+    line-height: 1.55;
+  }
+  figcaption {
+    margin-top: .8rem;
+    color: #6b727c;
+  }
+   .contenedor{
+    background: linear-gradient(135deg, #f8f4ec 0%, #efe7d8 100%);
+    border: 1px solid #ddd0b8;
+    border-radius: 24px;
+   }
+  /* ASIDE */
+  .page-aside {
+    position: sticky;
+    top: 92px;
+    max-height: calc(100vh - 110px);
+  }
+
+  .aside-card {
+    background: #fff;
+    border: 1px solid #e7dfd2;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(58, 44, 24, 0.06);
+    padding: 1.25rem 1rem;
+    max-height: calc(100vh - 110px);
+    overflow-y: auto;
+    scrollbar-width: thin;
+  }
+
+  .aside-card h5 {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #1f2937;
+    margin-bottom: 1rem;
+  }
+
+  .aside-nav {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding-right: 0.25rem;
+  }
+
+  .aside-nav a {
+    text-decoration: none;
+    color: #334155;
+    font-size: 1rem;
+    padding: .9rem 1rem;
+    border-radius: 14px;
+    transition: all .2s ease;
+    border: 1px solid #c7d2fe;
+    background: #f8fafc;
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+  }
+
+  .aside-nav a:hover {
+    background: #eef2ff;
+    border-color: #93c5fd;
+    color: #1e3a8a;
+    transform: translateX(3px);
+  }
+
+  /* BLOQUES DE CONTENIDO */
+  .main-col {
+    width: 100%;
+  }
+
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: .9rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .section-icon {
+    width: 58px;
+    height: 58px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #e8d7bb, #d8be92);
+    box-shadow: 0 8px 20px rgba(92, 67, 33, .12);
+    font-size: 1.55rem;
+  }
+
+  .section-head h2 {
+    margin: 0;
+    color: #111827;
+    font-weight: 900;
+    font-size: clamp(1.8rem, 3vw, 2.35rem);
+    letter-spacing: -0.03em;
+  }
+
+  .section-block,
+  .intro-box {
+    background: #fff;
+    border: 1px solid #e7dfd2;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(58, 44, 24, .06);
+  }
+
+  .section-block p,
+  .intro-box p {
+    color: #111827;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    margin-bottom: 1.25rem;
+  }
+
+  .section-block p:last-child,
+  .intro-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 991px) {
+    .hero-medieval {
+      padding: 2.2rem;
+    }
+
+    .hero-figure img {
+      height: 300px;
+    }
+
+    .page-aside {
+       position: static;
+       max-height: none;
+    }
+    .aside-card {
+      max-height: none;
+      overflow-y: visible;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .medieval-img {
+      height: 170px;
+    }
+
+    .hero-medieval {
+      padding: 1.5rem;
+      border-radius: 20px;
+    }
+
+    .hero-title {
+      font-size: 2rem;
+    }
+
+    .hero-text {
+      font-size: 1rem;
+    }
+
+    .hero-chips {
+      gap: .5rem;
+    }
+
+    .hero-chips span {
+      font-size: .9rem;
+      padding: .45rem .8rem;
+    }
+
+    .hero-figure img {
+      height: 240px;
+    }
+
+    .section-block,
+    .intro-box {
+      padding: 1.35rem;
+    }
+
+    .section-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+    }
+  }
+  
+</style>
+
+<section class="hero-medieval my-4">
+  <div class="row align-items-center g-5">
+
+    <div class="col-lg-7">
+      <div class="hero-badge mb-4">
+        ⚔️ Guerra de la Independencia (1808-1814)
+      </div>
+
+      <h1>
+        La Guerra de la Independencia:
+        <span>la lucha de España contra el Imperio napoleónico</span>
+      </h1>
+
+      <p>
+        La Guerra de la Independencia fue uno de los acontecimientos más trascendentales
+        de la historia de España. El conflicto estalló en 1808 tras la ocupación
+        francesa del país y las abdicaciones de Bayona, mediante las cuales Napoleón
+        Bonaparte obligó a Carlos IV y Fernando VII a renunciar al trono para colocar
+        como rey de España a su hermano José Bonaparte.
+      </p>
+
+      <p>
+        Lo que comenzó como una crisis dinástica se transformó rápidamente en una
+        auténtica guerra nacional. El levantamiento popular del 2 de mayo de 1808 en
+        Madrid desencadenó una insurrección generalizada contra las tropas francesas.
+        Junto a los ejércitos regulares surgieron guerrillas que hostigaron
+        constantemente a los invasores y desempeñaron un papel decisivo en el desarrollo
+        del conflicto.
+      </p>
+
+      <p>
+        Durante seis años, España se convirtió en uno de los principales escenarios de
+        las guerras napoleónicas. La resistencia española, apoyada por el Reino Unido,
+        logró finalmente expulsar a los franceses. La guerra provocó enormes pérdidas
+        humanas y materiales, pero también impulsó importantes cambios políticos, entre
+        ellos la convocatoria de las Cortes de Cádiz y la promulgación de la
+        Constitución de 1812, considerada el nacimiento del liberalismo español.
+      </p>
+
+      <div class="hero-chips">
+        <span>⚔️ 2 de Mayo de 1808</span>
+        <span>🇫🇷 Napoleón Bonaparte</span>
+        <span>👑 José I Bonaparte</span>
+        <span>🔥 Guerrillas</span>
+        <span>🇬🇧 Wellington</span>
+        <span>📜 Constitución de 1812</span>
+      </div>
     </div>
-    <div class="row mb-4 text-start mt-3">
-        <div class="col-md-9 text-start mt-3">
-            <h5><u> La monarquía de José Bonaparte (1808-1813).</u></h5>
-            <p>Su llegada a Madrid, el 20 de julio, ocurrió en plena Guerra de la Independencia. Fue proclamado rey en Madrid el 25 de julio, pero tuvo que huir ante la derrota de las tropas francesas en la batalla de Bailén. Finalmente, la intervención del propio emperador Bonaparte, junto con el grueso de su ejército, consiguió que pudiese establecer su gobierno en la capital.</p>
-            <p>Promulgó el <strong>Estatuto de Bayona</strong> en un intento de ganarse el apoyo de los ilustrados españoles, 
-                los llamados afrancesados, sin lograr hacer triunfar el programa reformista de su gobierno. 
-                El hecho de que fuese impuesto por el invasor, así como sus medidas liberales e ilustradas, 
-                toparon con la hostilidad popular y le enajenaron el apoyo del pueblo español, incluso de muchos de 
-                los propios ilustrados.</p>
-                <p>Durante su reinado se le conoció con el apodo de <strong>Pepe Botella</strong> , en referencia a un supuesto 
-                    alcoholismo, que parece seguro que no era cierto.​ El pueblo de Madrid también le apodó 
-                    <strong>El rey plazuelas</strong> , puesto que abrió muchas plazas en la capital, principalmente derribando iglesias
-                    y conventos. La más importante fue la plaza de Oriente, delante del Palacio Real.</p>
-                <p>Tras la derrota en la <strong>batalla de los Arapiles</strong> , el 22 de julio de 1812, abandonó Madrid para ir hacia 
-                    Francia; a su paso por Vitoria, fue alcanzado por las tropas del duque de Wellington que derrotaron a 
-                    su ejército. Salió de España definitivamente el 13 de junio de 1813.</p>
-                <p>La mayoría del país no
-                    reconoció a las autoridades oficiales y
-                    sólo vieron como rey a Fernando VII,
-                    pero como estaba ausente, en su nombre
-                    surgirán juntas <strong> Juntas Locales y luego
-                    Provinciales</strong>. Más tarde, para organizar
-                    la resistencia y dar un gobierno central
-                    al país, constituyeron, mediante el envío
-                    de dos representantes de cada una, una
-                    <strong>Junta Suprema Central</strong>. Primero
-                    residió en Aranjuez, luego, ante el
-                    avance francés, se retiró a Sevilla y, por
-                    último, a Cádiz, donde terminó disolviéndose (enero de 1810) pasando el poder a un <strong> Consejo
-                    de Regencia.</strong> </p>
-        </div>
-        <div class="col-md-3 pt-5">
-            <figure>
-                <img class="imagenInicio img-fluid" src="{% static 'images/sigloXIX/joseBonaparte.jpg' %}" alt="">
-            </figure>
-            <figcaption>José Bonaparte </figcaption>
-        </div>
+
+    <div class="col-lg-5">
+      <figure class="hero-figure">
+        <img src="{% static 'images/sigloXIX/guerra_independencia/portada.png' %}"
+             alt="La Guerra de la Independencia Española"
+             class="img-fluid">
+
+        <figcaption>
+          Entre 1808 y 1814, España protagonizó una dura lucha contra la ocupación
+          napoleónica. La resistencia popular, las guerrillas y la ayuda británica
+          permitieron derrotar al ejército francés y marcaron el inicio de la España
+          contemporánea.
+        </figcaption>
+      </figure>
     </div>
-    <div class="row mb-4 ">
-        <h2>La Guerra de la Independencia</h2>
-        <hr>
-        <div class="col-md-3">
-            <figure>
-                <img class="imagenInicio img-fluid" src="{% static 'images/sigloXIX/generalCastanos.jpg' %}" alt="">
-            </figure>
-            <figcaption>General Castaños </figcaption>
-        </div>
-        <div class="col-md-9 text-start mt-3">
-            <h5><u> La primera fase: los éxitos iniciales (junio-noviembre de 1808).</u></h5>
-            
-            <p>El hecho más destacado de esta primera fase de la guerra fue <strong> la batalla de Bailén</strong>, donde un ejército francés
-            dirigido por el <strong> general Dupont</strong> fue derrotado el 19 de julio por un ejército español
-            improvisado por algunas juntas provinciales de Andalucía, y de manera destacada por la de
-            Sevilla, comandado por el <strong> general Castaños</strong>. La derrota de Bailén tuvo una doble repercusión:
-            estratégica y propagandística. Por primera vez era derrotado un ejército napoleónico en campo
-            abierto. Sus consecuencias fueron importantes: José I abandonó Madrid, donde acababa de
-            llegar, con los pocos afrancesados que habían abrazado su causa y las tropas francesas se
-            retiraron al norte del Ebro. Napoleón, para vengar esta derrota, decidió entrar personalmente en
-            España, al frente de un poderoso ejército: <strong>la Grande Armée</strong>, un poderoso ejército de 250.000 soldados bien entrenados. </p>
+
+  </div>
+</section>
+
+<div class="row g-4 mt-4 contenedor">
+  <div class="col-lg-4">
+    <aside class="page-aside mb-3">
+      <div class="aside-card">
+        <h5>En esta página</h5>
+
+        <nav class="aside-nav">
+          <a href="#introduccion" class="aside-link">⚔️ Introducción</a>
+          <a href="#antecedentes" class="aside-link">👑 Antecedentes</a>
+          <a href="#bayona" class="aside-link">📜 Abdicaciones de Bayona</a>
+          <a href="#dos-mayo" class="aside-link">🔥 El 2 de mayo de 1808</a>
+          <a href="#levantamiento" class="aside-link">🏘️ El levantamiento popular</a>
+          <a href="#juntas" class="aside-link">🏛️ Juntas y resistencia</a>
+          <a href="#guerrilla" class="aside-link">🌲 La guerra de guerrillas</a>
+          <a href="#bailen" class="aside-link">🛡️ La batalla de Bailén</a>
+          <a href="#napoleon" class="aside-link">🦅 Napoleón en España</a>
+          <a href="#jose-i" class="aside-link">👑 José I Bonaparte</a>
+          <a href="#cadiz" class="aside-link">📜 Las Cortes de Cádiz</a>
+          <a href="#constitucion-1812" class="aside-link">⚖️ Constitución de 1812</a>
+          <a href="#wellington" class="aside-link">🇬🇧 Wellington y los aliados</a>
+          <a href="#victoria-final" class="aside-link">🏆 La victoria final</a>
+          <a href="#consecuencias" class="aside-link">📉 Consecuencias de la guerra</a>
+          <a href="#legado" class="aside-link">⭐ El legado de la guerra</a>
+          <a href="#recursos" class="aside-link">📚 Recursos</a>
+        </nav>
+
+      </div>
+    </aside>
+  </div>
+
+  <div class="col-lg-8">
+    <main class="main-col my-3">
+      <section id="introduccion">
+        <div class="section-head mt-3">
+          <span class="section-icon">⚔️</span>
+          <h3>La Guerra de la Independencia Española</h3>
         </div>
 
-    </div>
-    <div class="row mb-4 ">
-        <h5><u> La segunda fase: el apogeo francés (noviembre de 1808-primavera de 1812)</u></h5>
-        <div class="col-md-9 text-start mt-3">
-            <p>El emperador francés, que había subestimado en principio la capacidad
-                de resistencia española, entra en España en  noviembre de 1808. En diciembre toma Madrid, donde vuelve a colocar a su
-                hermano. Napoleón abandonaba España dejando un fuerte ejército bajo la dirección del general Soult. </p>
-            <p>En el otro extremo peninsular,<strong> Zaragoza</strong>, cae en poder de los franceses cuando era prácticamente un montón de ruinas
-                (febrero de 1809). Tras otro largo sitio, también caía <strong>Gerona</strong> (diciembre de 1809). Antes, en
-                noviembre, el ejército español era derrotado en la batalla de Ocaña por el rey José, abriéndose
-                a los franceses las puertas de Sierra Morena y el dominio de <strong>Andalucía</strong>, que es ocupada
-                (enero–febrero de 1810), menos <strong>Cádiz</strong> que, abastecida desde el mar por los ingleses, quedó
-                libre toda la Guerra, de lo que se derivaron unas consecuencias trascendentales para la historia
-                de España: la elaboración allí de la primera constitución española.
-            </p>
-            <p>Un hecho decisivo en esta fase fue la acción de la <strong> guerra de guerrillas</strong> que
-                supo aplicar un fuerte desgaste, con la que se minaba la moral de las tropas francesas
-                y se les impedía el control efectivo del territorio. Los guerrilleros eran hombres del pueblo que
-                se agrupaban en bandas o guerrillas de algunos centenares de combatientes. Hostilizaban a los
-                destacamentos franceses, desorganizando su retaguardia y causándoles todas las bajas posibles.
-                Conocían el terreno y contaban con la complicidad de las poblaciones, de las que obtenían
-                víveres o información, permitiéndoles burlar la persecución de fuerzas muy superiores. Entre
-                los jefes de guerrillas destacan el navarro <strong> Francisco Espoz y Mina, el cura Merino y Juan
-                Martín Díaz “el Empecinado” </strong>y otros muchos, cuya aportación al éxito final de la guerra fue
-                muy valiosa. </p>
+        <figure>
+          <img src="{% static 'images/sigloXIX/guerra_independencia/introduccion.png' %}"
+              alt="La Guerra de la Independencia Española"
+              class="img-fluid img-panoramica">
+        </figure>
+
+        <div class="intro-box section-block">
+          <p>
+            La Guerra de la Independencia (1808-1814) fue uno de los acontecimientos más
+            trascendentales de la historia contemporánea de España. Durante seis años,
+            el país se convirtió en escenario de una dura lucha contra la ocupación
+            francesa impulsada por Napoleón Bonaparte, cuyo objetivo era incorporar la
+            monarquía española a la órbita del Imperio francés y consolidar su dominio
+            sobre Europa.
+          </p>
+
+          <p>
+            El conflicto tuvo su origen en la profunda crisis que atravesaba la monarquía
+            borbónica durante el reinado de Carlos IV. Las tensiones políticas internas,
+            la creciente impopularidad de Manuel Godoy y la intervención de Napoleón en
+            los asuntos españoles desembocaron en las Abdicaciones de Bayona de 1808.
+            Allí, Carlos IV y Fernando VII renunciaron al trono bajo presión francesa,
+            permitiendo que Napoleón nombrara rey de España a su hermano José Bonaparte.
+          </p>
+
+          <p>
+            La respuesta de gran parte de la población fue inmediata. El levantamiento
+            popular del 2 de mayo de 1808 en Madrid marcó el inicio de una resistencia
+            nacional que pronto se extendió por todo el territorio. Junto a los ejércitos
+            regulares surgieron las célebres guerrillas, pequeños grupos de combatientes
+            que hostigaban constantemente a las tropas francesas y dificultaban su control
+            del país.
+          </p>
+
+          <p>
+            La guerra adquirió una dimensión internacional cuando el Reino Unido intervino
+            en apoyo de los españoles. Las campañas dirigidas por el general Wellington,
+            unidas a la resistencia popular y al desgaste sufrido por los ejércitos
+            napoleónicos, terminaron inclinando la balanza a favor de los aliados.
+          </p>
+
+          <p>
+            Más allá de su importancia militar, la Guerra de la Independencia transformó
+            profundamente la vida política española. Mientras se combatía contra los
+            franceses, las Cortes reunidas en Cádiz elaboraron la Constitución de 1812,
+            uno de los textos fundamentales del liberalismo europeo. De este modo, la
+            guerra no solo supuso la expulsión de los invasores, sino también el inicio
+            de la España contemporánea y el cuestionamiento definitivo de las estructuras
+            del Antiguo Régimen.
+          </p>
         </div>
-        <div class="col-md-3 mt-5 ">
-            <figure>
-                <img class="imagenInicio img-fluid" src="{% static 'images/sigloXIX/empecinado.jpg' %}" alt="">
-            </figure>
-            <figcaption>Juan Martín el Empecinado </figcaption>
-        </div>
-    </div>
-    <div class="row mb-4 ">
-        <h5><u> La tercera y última fase de la guerra: la ofensiva final anglo-española (primavera de 1812-agosto de 1813). Las consecuencias de la guerra.</u></h5>
-        <div class="col-md-9 text-start mt-3">
-            <p>La tercera y última fase de la guerra se inició en la primavera de 1812, cuando Napoleón se vio obligado a
-            retirar de España una parte muy importante de sus tropas para engrosar la Grande Armée que se preparaba para
-            la invasión de Rusia. El debilitamiento de las tropas francesas fue aprovechado por las tropas anglo-portuguesas y
-            españolas del <strong> duque de Wellington</strong>. Militar prudente y experimentado, dirigía al ejército inglés que había desembarcado en Lisboa en 1809. </p>
-            <p>En 1811, Wellington iniciaba una nueva ofensiva desde Lisboa, permitiéndole recuperar Ciudad Rodrigo (enero de 1812) y Badajoz
-            (abril de 1812). También Wellington triunfaba en Los Arapiles (Salamanca, julio de 1812). </p>
-            <p>El desastre de Rusia aceleró la derrota francesa. Napoleón retiró más hombres para
-            asegurar la defensa de Francia. Las tropas francesas en España, en consecuencia, iniciaron el
-            repliegue hacia su país, mientras Wellington emprendía la ofensiva final. En la batalla de
-            Vitoria (junio de 1813) eran derrotados los franceses y José I se vio obligado a cruzar la
-            frontera. Todavía se mantenía Soult ocupando San Sebastián y Pamplona, pero derrotado en la
-            batalla de San Marcial (agosto de 1813) tuvo también que pasar a Francia. </p>
-            <p>En diciembre de 1813 Napoleón firmaba el <strong> tratado de Valençay</strong>, por el que Fernando
-            VII era repuesto en el trono y ponía punto final a la guerra. </p>
-            <p>Los efectos de la guerra fueron desastrosos para España. Se calcula que hubo medio
-            millón de muertos, cifra considerable para un país que contaba, en 1808, con unos once
-            millones de habitantes. Ciudades como Zaragoza, Gerona o San Sebastián quedaron arrasadas;
-            en otras se destruyeron edificios y monumentos artísticos; una parte importante de las obras
-            artísticas fueron robadas por los franceses. El comercio colonial cayó en picado. El anterior
-            ritmo de crecimiento industrial se perdió, con máquinas y manufacturas destruidas. El campo
-            quedó arrasado, con pérdida de cosechas y cabezas de ganado. Además, la Hacienda Pública
-            quedó todavía más arruinada. Por último, la guerra afectó al proceso de independencia de la
-            América española. </p>
-        </div>
+      </section>
     
-        <div class="col-md-3 pt-4">
-                <figure>
-                    <img class="imagenInicio img-fluid" src="{% static 'images/sigloXIX/wellington.jpg' %}" alt="">
-                </figure>
-                <figcaption>Duque de Wellington </figcaption>
-        </div>
-    </div>
+    </main>
+  </div>
+</div>
 
-    <div class="row mb-4 text-start">
-        <h2>La independencia americana entre 1810 y 1814</h2>
-        <hr>
-        <p>El vacío de poder en la Península a partir de 1808 agravó los problemas que, desde el
-            siglo XVIII, tenía la monarquía española para mantener su inmenso imperio colonial. Entre las
-            causas de la emancipación de las colonias españolas hay que destacar:
-        </p>
-        <div>
-            <ul>
-                <li>El ejemplo que supuso la independencia de los Estados Unidos de Norteamérica en 1776.</li>
-                <li>La influencia de las ideas de libertad de la Ilustración y de la Revolución francesa.</li>
-                <li>La influencia de Inglaterra, que deseaba comerciar libremente con aquellos territorios.</li>
-                <li>El deseo de las clases altas y medias de las colonias —los criollos— de liberarse de la ad-
-                ministración colonial y asumir el mando en sus respectivos territorios.</li>
-            </ul>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <figure>
-                <img class="imagenInicio img-fluid" src="{% static 'images/sigloXIX/firmaIndependenciaVenezuela.jpg' %}" alt="">
-            </figure>                
-        </div>
-        <div class="col-md-6 text-start">
-            <p>La lucha por la independencia <strong>empezó en 1810 y
-            terminó en 1824</strong>. En 1810, en plena guerra de la
-            Independencia española, aparecieron las primeras
-            Juntas independentistas en Caracas y Buenos
-            Aires, y se produjeron revueltas antiespañolas en
-            Bogotá y México. En julio de <strong>1811 se proclamó la
-            independencia de Venezuela</strong> , que tuvo
-            como principal figura a <strong>Simón Bolívar</strong>, líder mili-
-            tar y espiritual de la lucha contra el colonialismo
-            español. En febrero de 1812, se aprobaba la Cons-
-            titución del Estado Libre de Quito, un mes antes
-            de la promulgación de la Constitución de Cádiz.
-            Mientras tanto, la insurrección se había generali-
-            zado con la aparición de nuevas juntas y nuevos
-            focos de oposición a la dominación colonial. La
-            antigua monarquía española vivía, pues, procesos
-            paralelos a uno y otro lado del Atlántico, con un
-            lenguaje similar, en el que predominaban concep-
-            tos como independencia, soberanía, derechos y
-            juntas. Uno de los próceres de la independencia,
-            el <strong>general San Martín</strong>, sirve de ejemplo de esa
-            dualidad: en 1808 participó como oficial español en la batalla de Bailén contra los franceses,
-            por lo que fue ascendido, y en <strong>1813</strong>, a las órdenes del <strong>nuevo gobierno argentino</strong> ,derrotaba a
-            las tropas españolas en San Lorenzo.</p>
-        </div>
-    </div>
-    <div class="row mb-4 text-start">
-        <h2>La vida política en la España patriota (1808-1814)</h2>
-        <hr>
-        <p>Las viejas instituciones políticas de la monarquía quedaron muy pronto desbordadas por el levantamiento contra los franceses. El hecho de que la familia real se encontrara fuera de España
-        aumentaba la sensación de vacío de poder, sobre todo por la ausencia de Fernando VII, al que
-        la España patriota reconocía como único rey.</p>
-        <p>Algunas autoridades dudaron sobre el camino a seguir. Una parte de la población veía con
-        desconfianza a los ricos y a los poderosos, a los que muchos consideraban primero cómplices
-        de Godoy y luego de los franceses. Hubo que improvisar nuevas formas de organización para
-        hacer frente a una situación totalmente nueva. En las ciudades sublevadas se formaron Juntas
-        que sustituían a las instituciones anteriores. <strong>Las Juntas</strong> tendrán en muchos casos
-        un origen popular, pero estarán formadas principalmente por militares, clérigos y cargos públicos, sobre todo municipales. Nada más formarse, las Juntas tomaban decisiones urgentes,
-        como reclutar tropas contra los franceses, conseguir armas y dinero y mandar emisarios a otras
-        ciudades. La formación de Juntas será una constante en la España del siglo XIX, siempre en
-        momentos críticos o revolucionarios.</p>
-        <p>Muchas Juntas locales se coordinaron en sus provincias hasta formar una <strong>Junta Provincial</strong>.
-        Este proceso culminó en septiembre de 1808 con la creación en Aranjuez de la <strong>Junta Central</strong>,
-        que actuó como gobierno efectivo en la España patriota y tomó decisiones tan importantes
-        como la convocatoria de elecciones a Cortes. En 1810, la Junta Central fue sustituida por una
-        regencia de cinco miembros, que gobernará en nombre de Fernando VII.</p>
-        <p>Con la elección a lo largo de 1810 de las <strong>Cortes generales y extraordinarias</strong>, la España patriota pudo hacer oír su voz y elegir a sus representantes. Reunidas en Cádiz, a salvo del ejército
-        francés, las Cortes declararon en su primer decreto (septiembre de 1810) que en ellas residía
-        <strong>«la soberanía nacional»</strong>. Esta declaración revolucionaria rompía con el principio de la soberanía de origen divino de la monarquía absoluta. Para la mayoría de los diputados de las Cortes
-        de Cádiz, la soberanía venía de la nación, es decir, del mismo pueblo que luchaba contra los
-        franceses por la independencia nacional.</p>
-        <p>La España patriota, libre del ejército francés, vivió desde el principio un
-        gran debate de ideas sobre el futuro del país. A pesar de que la mayoría de
-        los españoles eran analfabetos, la imprenta tuvo un papel clave a la hora
-        de difundir las nuevas propuestas políticas a través de folletos y periódicos.
-        Se trataba de crear una verdadera opinión pública que apoyara las reformas
-        políticas. Se ha calculado que durante la guerra de la Independencia se publicaron más periódicos —unos 300— que en todo el siglo XVIII.</p>
-    </div>
-    <div class="row mb-4 text-start">
-        <h2>Las Cortes de Cádiz y la Constitución de 1812</h2>
-        <hr>
-        <div class="row">
-            <div class="col-md-4">
-                <figure>
-                    <img class="imagenInicio img-fluid" src="{% static 'images/sigloXIX/cortesCadiz.jpg' %}" alt="">
-                    <figcaption>Las Cortes de Cádiz </figcaption>
-                </figure>
-            
-            </div>
-            <div class="col-md-8">
-                <p>Con la elección de las Cortes en 1810 y la posterior promulgación de la Constitución se cerró el
-                proceso iniciado en 1808 para dotar a la España patriota de un marco político propio. La Cons-
-                titución de Cádiz sería durante mucho tiempo el texto de referencia del liberalismo español.</p>
-                <h5><u>Las Cortes</u></h5>
-                <p>Las Cortes fueron elegidas por un sistema electoral que en la época resultaba bastante de-
-                mocrático: tenían derecho a voto los españoles varones mayores de 25 años. Lo primero que
-                hicieron las Cortes al reunirse en la Isla de León (Cádiz) fue declararse soberanas (decreto de
-                septiembre de 1810). Otra medida importante fue el decreto de libertad de imprenta (no-
-                viembre de 1810). De esta forma, la prensa tuvo por primera vez un marco legal que le permitía
-                informar y opinar con cierta libertad. Otras reformas adoptadas por las Cortes de Cádiz en sus
-                tres años de existencia fueron:</p>
-                <div>
-                    <ul>
-                        <li>La abolición de la tortura.</li>
-                        <li>La supresión del feudalismo.</li>
-                        <li>La aprobación de normas para la elección de los ayuntamientos.</li>
-                        <li>La supresión de la Inquisición.</li>
-                    </ul>
-                </div>
-                
-            </div>
-            <h5><u>La Constitución de 1812</u></h5>
-            <p>Pero la medida de mayor trascendencia fue la aprobación en 1812 de la Constitución de Cádiz.
-            Se trata de una Constitución muy larga y en muchos sentidos revolucionaria, aunque contiene
-            algunas concesiones a la tradición española y es muy respetuosa con la religión católica. Entre
-            sus 384 artículos, destacan los siguientes:</p>
-            <div>
-                <ul>
-                    <li>Art. 3.º: Soberanía nacional.</li>
-                    <li>Art. 4.º: la nación protege «la libertad civil, la propiedad y los demás derechos legítimos de
-                    todos los individuos que la componen».</li>
-                    <li>Art. 12.º: la religión católica es la «única verdadera».</li>
-                    <li>Art. 18.º: son ciudadanos los españoles de «ambos hemisferios», es decir, de la Península y de América.</li>
-                    <li>Art. 168.º: la persona del rey es «sagrada e inviolable».</li>
-                    <li>Art. 362.º: crea la Milicia Nacional.</li>
-                    <li>Art. 371.º: libertad de imprenta.</li>
-                </ul>
-            </div>
-            <h5><u>Absolutistas y liberales entre 1810 y 1814</u></h5>
-            <p>Las sesiones de las Cortes de Cádiz se celebraban en un ambiente muy apasionado. El público
-            asistente apoyaba o censuraba las intervenciones de los diputados y contribuía a dar vivacidad a
-            los debates. Pero había además una vida política muy activa en la ciudad, tanto en las tertulias
-            de los cafés como en los numerosos periódicos que se publicaban en ella. Existía, por tanto,
-            un clima de libertad que era nuevo en España y que permitía expresar ideas opuestas. Surgieron
-            así dos sectores o partidos enfrentados: los liberales y los absolutistas o «serviles», como los
-            llamaban sus enemigos. Los liberales eran partidarios de las Cortes, de la soberanía nacional, de
-            las reformas y de la Constitución. Los absolutistas pretendían mantener la monarquía absoluta
-            y el poder del rey sin los límites que marcaba la Constitución. La mayoría de los diputados de
-            las Cortes eran liberales y los absolutistas representaban la oposición parlamentaria. La misma
-            división se daba entre los periódicos y en la opinión pública en general.</p>
-
-            <h5><u>Un lenguaje moderno</u></h5>
-            <p>En ese ambiente de libertad surgió un nuevo lenguaje formado por nuevas palabras o nuevos
-            significados. El adjetivo liberal, por ejemplo, pasó de su significado tradicional, como sinó-
-            nimo de «generoso», a su nuevo signiicado político. Del adjetivo «liberal» se pasó al sustan-
-            tivo («un liberal», «los liberales»), que designaba a los partidarios de la libertad. De ahí vi‑
-            no enseguida la palabra liberalismo, inventada en España en esta época. Otros conceptos
-            importantes, pero no nuevos, fueron soberanía nacional, ciudadano, opinión pública y
-            nación, entendida de una forma revolucionaria: como comunidad política formada por ciuda-
-            danos libres e iguales.</p>
-            <p>La Constitución de Cádiz supuso en España el comienzo de la modernidad política y fue admi-
-            rada e imitada en otros países. Pero tuvo también grandes enemigos, dentro y fuera de España.
-            Se ha dicho que creaba un sistema político demasiado avanzado para un país atrasado como
-            era la España de la época, que tenía un 90 por ciento de analfabetos. Tras ser abolida por
-            Fernando VII en 1814, la Constitución de Cádiz fue restablecida en 1820 y 1836, aunque ya
-            por poco tiempo.</p>
-        </div>
-    </div>
-    <div class="row mb-4 text-start">
-        <h2>El fin de la guerra y el regreso de Fernando VII</h2>
-        <hr>
-        <div class="col-md-6">
-            <p>El año 1812 fue el más importante de la guerra de la Independencia. Los franceses empezaron
-            a perder terreno, los patriotas aprobaron la Constitución de Cádiz y los problemas de abastecimiento, sobre todo en Madrid, hicieron de 1812 el año del hambre. En julio se produjo la
-            <strong>batalla de Los Arapiles</strong> (Salamanca), que concluyó con la victoria de las tropas españolas e
-            inglesas, a las órdenes de Wellington, sobre el ejército francés. José I tuvo que abandonar Madrid y refugiarse en Valencia. Napoleón, que luchaba con su ejército en Rusia, se vio obligado a
-            sacar de España a más de la mitad de sus hombres. El ejército napoleónico, cada vez más débil,
-            fue nuevamente derrotado en la <strong>batalla de Vitoria</strong> (junio de 1813) y obligado a
-            cruzar la frontera francesa. La derrota de Napoleón en Europa en abril de 1814 supuso el fin
-            definitivo de la guerra de la Independencia.</p>
-            <p>Mientras tanto, Fernando VII, que pasó toda la guerra en Francia, había firmado con Napoleón el Tratado de Valençay (diciembre de 1813), que ponía fin a la guerra entre España y
-            Francia y hacía posible el regreso de Fernando a España. Las Cortes, instaladas en Madrid, no
-            reconocieron el Tratado de Valençay, considerando que el
-            rey no podía tomar por su cuenta una decisión de tanta
-            trascendencia. Este desencuentro entre las Cortes y Fernando VII anunciaba problemas aún más graves. A pesar
-            de todo, los liberales confiaban en que el rey aceptaría
-            la Constitución. Pero Fernando VII no quería un sistema
-            político, la monarquía constitucional, que recortaba su
-            poder. Contaba además con el apoyo de los absolutistas. En el mes de abril, un grupo de diputados de este
-            partido publicó un manifiesto a favor de la monarquía
-            absoluta y contra la Constitución. Este documento sería
-            conocido desde entonces como <strong>El Manifiesto de los Persas</strong>, por empezar recordando las costumbres políticas de
-            los antiguos persas.</p>
-            <p>Fernando VII entró en España el 22 de marzo de 1814 y
-            el 4 de mayo firmó en Valencia un decreto disolviendo
-            las Cortes y restableciendo la monarquía absoluta. Los
-            capitanes generales de Valencia y Castilla la Nueva, Elío
-            y Eguía, tuvieron un papel clave en la restauración del
-            absolutismo. Fue el primer golpe de Estado de la España
-            contemporánea y puso fin a la experiencia liberal de las
-            Cortes y de la Constitución.</p>
-        </div>
-        <div class="col-md-6">
-            <figure>
-                <img class="imagenInicio img-fluid" src="{% static 'images/sigloXIX/batallaVitoria.jpg' %}" alt="">
-                <figcaption>La batalla de Vitoria </figcaption>
-            </figure>
-        </div>
-
-    </div>
+  
 
 
-    <h3 class="mt-5">Recursos </h3>
-    <hr>
-    <p><p><u>Películas</u></p></p>
-    <div>    
-        <ul>
-            <li><a href="https://www.youtube.com/watch?v=XBfNm-X8hAM" target="_blank" style="text-decoration:none ;">La emancipación de Hispanoamérica I. Academia Play</a>.</li>
-            <li><a href="https://www.youtube.com/watch?v=EPzeaiL4tyQ" target="_blank" style="text-decoration:none ;">La emancipación de Hispanoamérica II. Academia Play</a>.</li>
-            <li><a href="https://www.youtube.com/watch?v=Iwmlb54wD8E" target="_blank" style="text-decoration:none ;">La emancipación de Hispanoamérica III. Academia Play</a>.</li>
-        </ul>
-    </div>
+  
+  
+
+  
+
+
+
+
+
+
+
+
 
 
 {% endblock %}
