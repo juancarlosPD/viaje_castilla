@@ -11,6 +11,16 @@
 {% block contenido %}
 
 <style>
+  .personaje-link{
+    color:#8b0000;
+    font-weight:600;
+    text-decoration:none;
+    border-bottom:1px dotted #8b0000;
+  }
+
+  .personaje-link:hover{
+      color:#b22222;
+  }
   .personaje-cabecera {
     max-width: 900px;
     margin: 0 auto 2rem auto;
@@ -546,6 +556,8 @@
         <h5>En esta página</h5>
 
         <nav class="aside-nav">
+
+          <!-- REYES Y REGENTES -->
           <button class="aside-link aside-toggle py-3"
                   type="button"
                   data-bs-toggle="collapse"
@@ -558,11 +570,17 @@
             <a href="#fernando-vii" class="aside-link aside-sublink">Fernando VII</a>
             <a href="#maria-cristina-borbon" class="aside-link aside-sublink">María Cristina de Borbón</a>
             <a href="#isabel-ii" class="aside-link aside-sublink">Isabel II</a>
+            <a href="#serrano" class="aside-link aside-sublink">Francisco Serrano (Regente)</a>
             <a href="#amadeo-i" class="aside-link aside-sublink">Amadeo I</a>
             <a href="#alfonso-xii" class="aside-link aside-sublink">Alfonso XII</a>
             <a href="#maria-cristina-austria" class="aside-link aside-sublink">María Cristina de Austria</a>
+
+            <!-- Nuevos -->
+            <a href="#alfonso-xiii" class="aside-link aside-sublink">Alfonso XIII</a>
+            
           </div>
 
+          <!-- POLÍTICOS Y ESTADISTAS -->
           <button class="aside-link aside-toggle py-3"
                   type="button"
                   data-bs-toggle="collapse"
@@ -575,12 +593,23 @@
             <a href="#espartero" class="aside-link aside-sublink">Espartero</a>
             <a href="#narvaez" class="aside-link aside-sublink">Narváez</a>
             <a href="#odonnell" class="aside-link aside-sublink">O'Donnell</a>
+            <a href="#serrano" class="aside-link aside-sublink">Serrano</a>
             <a href="#prim" class="aside-link aside-sublink">General Prim</a>
             <a href="#canovas" class="aside-link aside-sublink">Cánovas</a>
             <a href="#sagasta" class="aside-link aside-sublink">Sagasta</a>
             <a href="#castelar" class="aside-link aside-sublink">Emilio Castelar</a>
+
+            <!-- Nuevos -->
+            <a href="#pi-margall" class="aside-link aside-sublink">Pi y Margall</a>
+            <a href="#salmeron" class="aside-link aside-sublink">Nicolás Salmerón</a>
+            <a href="#mendizabal" class="aside-link aside-sublink">Mendizábal</a>
+            <a href="#martinez-rosa" class="aside-link aside-sublink">Martínez de la Rosa</a>
+            <a href="#topete" class="aside-link aside-sublink">Topete</a>
+            <a href="#silvela" class="aside-link aside-sublink">Silvela</a>
+            <a href="#maura" class="aside-link aside-sublink">Antonio Maura</a>
           </div>
 
+          <!-- MILITARES -->
           <button class="aside-link aside-toggle py-3"
                   type="button"
                   data-bs-toggle="collapse"
@@ -589,11 +618,21 @@
           </button>
 
           <div class="collapse aside-submenu" id="menu-militares">
-            <a href="#agustina" class="aside-link aside-sublink">Agustina de Aragón</a>
+            <a href="#agustina-aragon" class="aside-link aside-sublink">Agustina de Aragón</a>
             <a href="#wellington" class="aside-link aside-sublink">Wellington</a>
             <a href="#riego" class="aside-link aside-sublink">Rafael del Riego</a>
+
+            <!-- Nuevos -->
+            <a href="#daoiz-velarde" class="aside-link aside-sublink">Daoiz y Velarde</a>
+            <a href="#palafox" class="aside-link aside-sublink">Palafox</a>
+            <a href="#empecinado" class="aside-link aside-sublink">El Empecinado</a>
+            <a href="#zumalacarregui" class="aside-link aside-sublink">Zumalacárregui</a>
+            <a href="#cabrera" class="aside-link aside-sublink">Ramón Cabrera</a>
+            <a href="#martinez-campos" class="aside-link aside-sublink">Martínez Campos</a>
+            <a href="#mina" class="aside-link aside-sublink">Espoz y Mina</a>
           </div>
 
+          <!-- ESCRITORES E INTELECTUALES -->
           <button class="aside-link aside-toggle py-3"
                   type="button"
                   data-bs-toggle="collapse"
@@ -609,8 +648,16 @@
             <a href="#clarin" class="aside-link aside-sublink">Clarín</a>
             <a href="#rosalia" class="aside-link aside-sublink">Rosalía de Castro</a>
             <a href="#pardo-bazan" class="aside-link aside-sublink">Emilia Pardo Bazán</a>
+
+            <!-- Nuevos -->
+            <a href="#espronceda" class="aside-link aside-sublink">José de Espronceda</a>
+            <a href="#mesonero" class="aside-link aside-sublink">Mesonero Romanos</a>
+            <a href="#valera" class="aside-link aside-sublink">Juan Valera</a>
+            <a href="#menendez-pelayo" class="aside-link aside-sublink">Menéndez Pelayo</a>
+            <a href="#concepcion-arenal" class="aside-link aside-sublink">Concepción Arenal</a>
           </div>
 
+          <!-- PENSADORES Y REGENERACIONISTAS -->
           <button class="aside-link aside-toggle py-3"
                   type="button"
                   data-bs-toggle="collapse"
@@ -618,100 +665,164 @@
             💡 Pensadores y regeneracionistas
           </button>
 
-          <div class="collapse aside-submenu " id="menu-pensadores">
+          <div class="collapse aside-submenu" id="menu-pensadores">
             <a href="#joaquin-costa" class="aside-link aside-sublink">Joaquín Costa</a>
+
+            <!-- Nuevos -->
+            <a href="#mallada" class="aside-link aside-sublink">Lucas Mallada</a>
+            <a href="#azcarate" class="aside-link aside-sublink">Gumersindo de Azcárate</a>
+            <a href="#giner-rios" class="aside-link aside-sublink">Giner de los Ríos</a>
+            <a href="#altamira" class="aside-link aside-sublink">Rafael Altamira</a>
+            <a href="#sanz-rio" class="aside-link aside-sublink">Julián Sanz del Río</a>
+            <a href="#fernando-castro" class="aside-link aside-sublink">Fernando de Castro</a>
           </div>
 
-          <a href="#recursos" class="aside-link">            📚 Recursos
-          </a>
+          <a href="#recursos" class="aside-link">📚 Recursos</a>
 
         </nav>
+
 
       </div>
     </aside>
   </div>
 
   <div class="col-lg-8">
-    <main class="main-col my-3">
+    <main class="main-col my-3">       
+      
       <article class="personaje-cabecera" id="carlos-iv">
+
         <div class="personaje-etiqueta">
-          <h3> Carlos IV (1748–1819)</h3>
+          <h3>👑 Carlos IV (1748–1819)</h3>
         </div>
+
         <img src="{% static 'images/sigloXIX/carlosIV.jpg' %}"
             alt="Carlos IV"
             class="personaje-img">
 
         <div class="personaje-body">
-          
-          
-          <p class="personaje-rol mt-2 text-center">Rey de España entre 1788 y 1808</p>
-          <div class="text-start">
-            <p >
-              Su reinado estuvo marcado por la Revolución Francesa, la influencia de Manuel
-              Godoy, la crisis de la monarquía y el inicio del proceso que desembocó en la
-              Guerra de la Independencia.
-            </p>
-            <p>
-              Carlos IV accedió al trono en 1788, en vísperas del estallido de la
-              Revolución Francesa. Su reinado quedó condicionado por la crisis del
-              Antiguo Régimen, la presión internacional y la creciente influencia de
-              Manuel Godoy.
-            </p>
 
-            <p>
-              La derrota naval de Trafalgar, el desprestigio de la monarquía, el Motín
-              de Aranjuez y las Abdicaciones de Bayona hicieron de su reinado una etapa
-              decisiva en el hundimiento del sistema político tradicional.
-            </p>
+          <p class="personaje-rol mt-2 text-center">
+            Rey de España (1788–1808)
+          </p>
+
+          <div class="personaje-fechas text-center mb-3">
+            <span><strong>Reinado:</strong> 1788–1808</span> ·
+            <span><strong>Dinastía:</strong> Borbón</span> ·
+            <span><strong>Contexto:</strong> Crisis del Antiguo Régimen</span>
           </div>
-          
-        </div>
-      </article>
 
-      <article class="personaje-cabecera" id="fernando-vii">
-        <div class="personaje-etiqueta">
-          <h3> Fernando VII (1784–1833)</h3>
+          <div class="text-start">
+
+            <p>
+              Carlos IV reinó en uno de los periodos más convulsos de la historia de España.
+              Su reinado estuvo marcado por la Revolución Francesa, la crisis del Antiguo Régimen
+              y la creciente influencia de su valido Manuel Godoy.
+            </p>
+
+            <p>
+              La política exterior osciló entre la guerra contra Francia revolucionaria y la
+              posterior alianza con Napoleón, decisiones que debilitaron gravemente al Estado.
+            </p>
+
+            <p>
+              La derrota naval de Trafalgar (1805) y el creciente descontento social desembocaron
+              en el Motín de Aranjuez (1808), que provocó su abdicación en favor de Fernando VII.
+            </p>
+
+            <p>
+              Tras las Abdicaciones de Bayona vivió exiliado en Francia e Italia hasta su muerte.
+            </p>
+
+          </div>
+
+          <div class="personaje-context mt-4">
+            <h4>Contexto histórico</h4>
+            <ul>
+              <li>Crisis del Antiguo Régimen.</li>
+              <li>Influencia de Manuel Godoy.</li>
+              <li>Guerra contra Francia y alianza con Napoleón.</li>
+              <li>Motín de Aranjuez y abdicaciones de Bayona.</li>
+            </ul>
+          </div>
+
+          <div class="related-links mt-3">
+            <h4>Relacionado</h4>
+            <ul>
+              <li><a href="#godoy" class="personaje-link">Manuel Godoy</a></li>
+              <li><a href="#fernando-vii" class="personaje-link">Fernando VII</a></li>
+              <li><a href="#motin-aranjuez" class="personaje-link">Motín de Aranjuez</a></li>
+            </ul>
+          </div>
+
         </div>
+
+      </article>      
+      
+      <article class="personaje-cabecera" id="fernando-vii">
+
+        <div class="personaje-etiqueta">
+          <h3>👑 Fernando VII (1784–1833)</h3>
+        </div>
+
         <img src="{% static 'images/sigloXIX/fernandoVII.jpg' %}"
             alt="Fernando VII"
             class="personaje-img">
 
         <div class="personaje-body">
-          
-          
-          <p class="personaje-rol mt-2 text-center">Rey de España en 1808 y entre 1814 y 1833</p>
-          <div class="text-start">
-            <p>
-              Fernando VII fue una de las figuras más controvertidas del siglo XIX español.
-              Su nombre quedó asociado a la crisis de la monarquía borbónica, la Guerra de la
-              Independencia, la restauración absolutista y el conflicto entre liberalismo y
-              absolutismo que marcó profundamente la España contemporánea.
-            </p>
 
-            <p>
-              Hijo de Carlos IV y María Luisa de Parma, alcanzó una enorme popularidad durante
-              el Motín de Aranjuez, cuando fue presentado como alternativa frente al desprestigio
-              de Manuel Godoy y de la corte. Sin embargo, las Abdicaciones de Bayona lo apartaron
-              del trono y facilitaron la imposición de José Bonaparte por Napoleón.
-            </p>
+          <p class="personaje-rol mt-2 text-center">
+            Rey de España (1808; 1814–1833)
+          </p>
 
-            <p>
-              Tras la derrota francesa, Fernando VII regresó a España en 1814 y abolió la
-              Constitución de Cádiz, restaurando el absolutismo. Su reinado estuvo marcado por
-              la represión de los liberales, el Trienio Liberal, la Década Ominosa y la pérdida
-              definitiva de la mayor parte del imperio americano.
-            </p>
-
-            <p>
-              Su muerte en 1833 abrió una nueva crisis sucesoria por la derogación de la Ley
-              Sálica y el reconocimiento de su hija Isabel II como heredera, lo que provocó el
-              estallido de la Primera Guerra Carlista y consolidó la división política entre
-              carlistas y liberales.
-            </p>
+          <div class="personaje-fechas text-center mb-3">
+            <span><strong>Reinado:</strong> 1808 / 1814–1833</span> ·
+            <span><strong>Dinastía:</strong> Borbón</span> ·
+            <span><strong>Contexto:</strong> Absolutismo y liberalismo</span>
           </div>
-          
+
+          <div class="text-start">
+
+            <p>
+              Fernando VII es una de las figuras más controvertidas de la historia de España.
+              Su reinado estuvo marcado por la Guerra de la Independencia, la Constitución de 1812
+              y la dura restauración absolutista de 1814.
+            </p>
+
+            <p>
+              Durante el Trienio Liberal (1820–1823) se vio obligado a aceptar la Constitución,
+              pero recuperó el absolutismo tras la intervención de los Cien Mil Hijos de San Luis.
+            </p>
+
+            <p>
+              Su decisión de abolir la Ley Sálica permitió la sucesión de Isabel II y desencadenó
+              las guerras carlistas.
+            </p>
+
+          </div>
+
+          <div class="personaje-context mt-4">
+            <h4>Contexto histórico</h4>
+            <ul>
+              <li>Guerra de la Independencia.</li>
+              <li>Constitución de 1812.</li>
+              <li>Trienio Liberal.</li>
+              <li>Inicio del carlismo.</li>
+            </ul>
+          </div>
+
+          <div class="related-links mt-3">
+            <h4>Relacionado</h4>
+            <ul>
+              <li><a href="#riegos" class="personaje-link">Rafael del Riego</a></li>
+              <li><a href="#trienio-liberal" class="personaje-link">Trienio Liberal</a></li>
+              <li><a href="#isabel-ii" class="personaje-link">Isabel II</a></li>
+            </ul>
+          </div>
+
         </div>
+
       </article>
+
 
       <article class="personaje-cabecera" id="maria-cristina-borbon">
 
@@ -725,73 +836,71 @@
 
         <div class="personaje-body">
 
+          <!-- Rol principal -->
           <p class="personaje-rol mt-2 text-center">
             Reina consorte de España y regente entre 1833 y 1840
           </p>
 
+          <!-- Metadatos -->
+          <div class="personaje-fechas text-center mb-3">
+            <span><strong>Nacimiento:</strong> 1806 (Palermo)</span> ·
+            <span><strong>Fallecimiento:</strong> 1878 (Le Havre)</span> ·
+            <span><strong>Regencia:</strong> 1833–1840</span> ·
+            <span><strong>Dinastía:</strong> Borbón-Dos Sicilias</span>
+          </div>
+
           <div class="text-start">
 
             <p>
-              María Cristina de Borbón desempeñó un papel decisivo en la transición entre el
-              absolutismo de Fernando VII y la construcción del Estado liberal español. Su
-              regencia coincidió con uno de los periodos más complejos de la historia
-              contemporánea de España, marcado por la Primera Guerra Carlista y por las
-              profundas transformaciones políticas que pusieron fin al Antiguo Régimen.
+              María Cristina de Borbón desempeñó un papel decisivo en la transición entre el absolutismo
+              de Fernando VII y la construcción del Estado liberal. Su regencia coincidió con uno de los
+              periodos más convulsos del siglo XIX español, marcado por la Primera Guerra Carlista y por
+              profundas reformas políticas y económicas.
             </p>
 
             <p>
-              Nacida en Palermo en 1806, pertenecía a la rama napolitana de los Borbones.
-              Contrajo matrimonio con Fernando VII en 1829 y se convirtió en la cuarta esposa
-              del monarca. De esta unión nacieron Isabel y Luisa Fernanda. La ausencia de un
-              heredero varón llevó a Fernando VII a promulgar la Pragmática Sanción, que
-              permitía reinar a las mujeres y garantizaba los derechos sucesorios de su hija
-              Isabel.
+              A la muerte de Fernando VII en 1833, asumió la regencia en nombre de la joven Isabel II.
+              Para asegurar la continuidad dinástica frente al carlismo, buscó el apoyo de los liberales
+              y promovió medidas clave como el Estatuto Real de 1834 y la desamortización de Mendizábal,
+              que sentaron las bases del nuevo Estado liberal.
             </p>
 
             <p>
-              A la muerte de Fernando VII en 1833, María Cristina asumió la regencia en nombre
-              de la futura Isabel II, que apenas contaba con tres años de edad. La decisión de
-              reconocer a Isabel como heredera fue rechazada por los partidarios de Carlos
-              María Isidro, hermano del rey fallecido, dando lugar al estallido de la Primera
-              Guerra Carlista.
+              Su regencia estuvo marcada por tensiones entre moderados y progresistas y por una creciente
+              oposición a su figura. En 1840, tras el ascenso de Espartero, renunció a la regencia y marchó
+              al exilio, aunque siguió influyendo en la política española a través de su hija Isabel II.
             </p>
 
-            <p>
-              Aunque inicialmente era partidaria de mantener buena parte del sistema
-              absolutista, la necesidad de obtener el apoyo de los liberales frente al
-              carlismo la llevó a impulsar importantes reformas. Durante su regencia se aprobó
-              el Estatuto Real de 1834, se produjo la desamortización de Mendizábal y se
-              consolidaron muchas de las bases políticas y económicas del nuevo régimen
-              liberal.
-            </p>
+          </div>
 
-            <p>
-              Los años de su gobierno estuvieron marcados por continuas tensiones entre
-              moderados y progresistas, frecuentes crisis ministeriales y una creciente
-              oposición a su figura. Además, su matrimonio secreto con el guardia de corps
-              Agustín Fernando Muñoz alimentó numerosas polémicas y contribuyó a erosionar su
-              popularidad.
-            </p>
 
-            <p>
-              En 1840, tras el triunfo político del general Espartero y el aumento de la
-              presión progresista, María Cristina renunció a la regencia y marchó al exilio en
-              Francia. Sin embargo, continuó influyendo en la política española durante años,
-              especialmente a través de su hija Isabel II.
-            </p>
+          <!-- Contexto histórico -->
+          <div class="personaje-context mt-4">
+            <h4>Contexto histórico</h4>
+            <ul>
+              <li>Regente durante la Primera Guerra Carlista.</li>
+              <li>Impulsora de reformas clave del primer liberalismo español.</li>
+              <li>Figura central en la transición del absolutismo al Estado liberal.</li>
+              <li>Su regencia marcó el inicio del reinado de Isabel II.</li>
+            </ul>
+          </div>
 
-            <p>
-              Su figura ocupa un lugar fundamental en la historia del siglo XIX español. Bajo
-              su regencia se desarrolló la Primera Guerra Carlista, se inició la implantación
-              del liberalismo y se sentaron las bases institucionales que definirían gran
-              parte de la evolución política de España durante las décadas siguientes.
-            </p>
-
+          <!-- Enlaces relacionados -->
+          <div class="related-links mt-3">
+            <h4>Relacionado</h4>
+            <ul>
+              <li><a href="#fernando-vii" class="personaje-link">Fernando VII</a></li>
+              <li><a href="#isabel-ii" class="personaje-link">Isabel II</a></li>
+              <li><a href="#primera-guerra-carlista" class="personaje-link">Primera Guerra Carlista</a></li>
+              <li><a href="#mendizabal" class="personaje-link">Desamortización de Mendizábal</a></li>
+              <li><a href="#espartero" class="personaje-link">Baldomero Espartero</a></li>
+            </ul>
           </div>
 
         </div>
 
       </article>
+
 
       <article class="personaje-cabecera" id="isabel-ii">
 
@@ -805,61 +914,134 @@
 
         <div class="personaje-body">
 
+          <!-- Rol principal -->
           <p class="personaje-rol mt-2 text-center">
             Reina de España entre 1833 y 1868
           </p>
 
+          <!-- Metadatos -->
+          <div class="personaje-fechas text-center mb-3">
+            <span><strong>Nacimiento:</strong> 1830 (Madrid)</span> ·
+            <span><strong>Fallecimiento:</strong> 1904 (París)</span> ·
+            <span><strong>Reinado:</strong> 1833–1868</span> ·
+            <span><strong>Dinastía:</strong> Borbón</span>
+          </div>
+
+          <div class="text-start">
+
+          <p>
+            Isabel II reinó durante uno de los periodos más inestables del siglo XIX español.
+            Accedió al trono en 1833 siendo una niña, en un contexto marcado por la Primera
+            Guerra Carlista y por la construcción del Estado liberal. Su reinado estuvo
+            condicionado por la pugna entre moderados y progresistas y por continuas crisis
+            políticas.
+          </p>
+
+          <p>
+            Durante su mandato se consolidó el sistema constitucional, se desarrolló la
+            administración moderna y se impulsaron reformas económicas y sociales. Sin embargo,
+            la inestabilidad ministerial, el peso de los pronunciamientos militares y las
+            tensiones internas del liberalismo debilitaron la monarquía isabelina.
+          </p>
+
+          <p>
+            La creciente oposición política y social culminó en la Revolución de 1868, que la
+            obligó a exiliarse. Su caída abrió paso al Sexenio Democrático, un periodo de
+            experimentación política que transformó profundamente la historia contemporánea de
+            España.
+          </p>
+
+        </div>
+
+
+          <!-- Contexto histórico -->
+          <div class="personaje-context mt-4">
+            <h4>Contexto histórico</h4>
+            <ul>
+              <li>Sucesión que desencadena la Primera Guerra Carlista.</li>
+              <li>Consolidación del Estado liberal durante su minoría de edad.</li>
+              <li>Reinado marcado por la inestabilidad política y el protagonismo militar.</li>
+              <li>Caída tras la Revolución de 1868 y comienzo del Sexenio Democrático.</li>
+            </ul>
+          </div>
+
+          <!-- Enlaces relacionados -->
+          <div class="related-links mt-3">
+            <h4>Relacionado</h4>
+            <ul>
+              <li><a href="#maria-cristina-borbon" class="personaje-link">María Cristina de Borbón</a></li>
+              <li><a href="#espartero" class="personaje-link">Baldomero Espartero</a></li>
+              <li><a href="#primera-guerra-carlista" class="personaje-link">Primera Guerra Carlista</a></li>
+              <li><a href="#la-gloriosa" class="personaje-link">Revolución de 1868</a></li>
+              <li><a href="#amadeo-i" class="personaje-link">Amadeo I</a></li>
+            </ul>
+          </div>
+
+        </div>
+
+      </article>
+
+      <article class="personaje-cabecera" id="serrano">
+
+        <div class="personaje-etiqueta">
+          <h3>👑 Francisco Serrano y Domínguez — Regente (1810–1885)</h3>
+        </div>
+
+        <img src="{% static 'images/sigloXIX/generalSerrano2.jpg' %}"
+            alt="Francisco Serrano"
+            class="personaje-img">
+
+        <div class="personaje-body">
+
+          <p class="personaje-rol mt-2 text-center">
+            Regente del Reino (1869–1871)
+          </p>
+
+          <div class="personaje-fechas text-center mb-3">
+            <span><strong>Regencia:</strong> 1869–1871</span> ·
+            <span><strong>Dinastía:</strong> —</span> ·
+            <span><strong>Contexto:</strong> Sexenio Democrático</span>
+          </div>
+
           <div class="text-start">
 
             <p>
-              Isabel II protagonizó uno de los reinados más largos y complejos de la España
-              contemporánea. Durante sus treinta y cinco años en el trono se consolidó el
-              Estado liberal, se desarrollaron las primeras infraestructuras modernas y se
-              sucedieron constantes crisis políticas, pronunciamientos militares y cambios de
-              gobierno que marcaron profundamente la historia del siglo XIX.
+              Tras la Revolución Gloriosa de 1868 y el destronamiento de Isabel II, Francisco
+              Serrano asumió la jefatura del Estado como regente mientras las Cortes buscaban
+              un nuevo monarca para España.
             </p>
 
             <p>
-              Accedió al trono en 1833 con apenas tres años de edad tras la muerte de su
-              padre, Fernando VII. La derogación de la Ley Sálica permitió su sucesión, pero
-              desencadenó la oposición de los partidarios de Carlos María Isidro, hermano del
-              rey fallecido. Esta disputa originó la Primera Guerra Carlista, un conflicto que
-              enfrentó durante años a carlistas y liberales y que condicionó toda la política
-              española del periodo.
+              Su regencia fue un periodo clave del Sexenio Democrático. Bajo su autoridad se
+              aprobó la Constitución de 1869, uno de los textos más avanzados del
+              constitucionalismo español, que establecía una monarquía democrática y amplias
+              libertades civiles.
             </p>
 
             <p>
-              Durante su minoría de edad gobernaron como regentes su madre, María Cristina de
-              Borbón, y posteriormente el general Baldomero Espartero. En estos años se
-              implantó definitivamente el liberalismo, se aprobaron nuevas constituciones y se
-              inició la transformación de las estructuras heredadas del Antiguo Régimen.
+              Su mandato concluyó con la llegada de Amadeo I en 1871, aunque Serrano siguió
+              desempeñando un papel político relevante durante los años siguientes.
             </p>
 
-            <p>
-              Declarada mayor de edad en 1843, Isabel II ejerció personalmente la Corona en
-              una etapa dominada por la influencia de destacados militares y políticos como
-              Narváez, O'Donnell, Espartero y Prim. Bajo su reinado se desarrolló la red
-              ferroviaria española, se impulsó la modernización económica y se produjo una
-              intensa actividad política caracterizada por la alternancia entre moderados y
-              progresistas.
-            </p>
+          </div>
 
-            <p>
-              Sin embargo, la corrupción política, las dificultades económicas, la creciente
-              oposición democrática y el desgaste de la monarquía fueron debilitando su
-              posición. La Revolución de 1868, conocida como «La Gloriosa», puso fin a su
-              reinado y la obligó a exiliarse en Francia tras treinta y cinco años en el
-              trono.
-            </p>
+          <div class="personaje-context mt-4">
+            <h4>Contexto histórico</h4>
+            <ul>
+              <li>Revolución de 1868.</li>
+              <li>Sexenio Democrático.</li>
+              <li>Constitución de 1869.</li>
+              <li>Transición hacia la monarquía de Amadeo I.</li>
+            </ul>
+          </div>
 
-            <p>
-              Su caída abrió el Sexenio Democrático, una etapa de profundas transformaciones
-              políticas que incluyó el reinado de Amadeo I, la Primera República y,
-              finalmente, la Restauración borbónica. Aunque fue una figura muy controvertida,
-              Isabel II ocupa un lugar central en la historia de la construcción de la España
-              liberal y constitucional.
-            </p>
-
+          <div class="related-links mt-3">
+            <h4>Relacionado</h4>
+            <ul>
+              <li><a href="#prim" class="personaje-link">Juan Prim</a></li>
+              <li><a href="#amadeo-i" class="personaje-link">Amadeo I</a></li>
+              <li><a href="#la-gloriosa" class="personaje-link">Revolución de 1868</a></li>
+            </ul>
           </div>
 
         </div>
@@ -873,73 +1055,67 @@
         </div>
 
         <img src="{% static 'images/sigloXIX/amadeoSaboya1.jpg' %}"
-            alt="Amadeo I de Saboya"
+            alt="Amadeo I"
             class="personaje-img">
 
         <div class="personaje-body">
 
           <p class="personaje-rol mt-2 text-center">
-            Rey de España entre 1870 y 1873
+            Rey de España (1870–1873)
           </p>
+
+          <div class="personaje-fechas text-center mb-3">
+            <span><strong>Reinado:</strong> 1870–1873</span> ·
+            <span><strong>Dinastía:</strong> Saboya</span> ·
+            <span><strong>Contexto:</strong> Sexenio Democrático</span>
+          </div>
 
           <div class="text-start">
 
             <p>
-              Amadeo I de Saboya fue el primer y único monarca de la dinastía Saboya en
-              España. Su breve reinado representó uno de los intentos más ambiciosos de
-              construir una monarquía democrática y parlamentaria tras la Revolución de
-              1868, que había destronado a Isabel II. Sin embargo, la profunda división
-              política del país hizo imposible la consolidación de su proyecto.
+              Amadeo I fue elegido rey por las Cortes tras la Revolución de 1868, en un intento de
+              instaurar una monarquía democrática en España. Su reinado estuvo marcado por una fuerte
+              inestabilidad política, la división entre los partidos y la falta de apoyos sólidos en un
+              país profundamente polarizado.
             </p>
 
             <p>
-              Hijo del rey Víctor Manuel II de Italia, Amadeo fue elegido por las Cortes
-              españolas como nuevo monarca tras una larga búsqueda de un candidato capaz
-              de encarnar los ideales del liberalismo europeo. Su elección estuvo
-              estrechamente vinculada al general Juan Prim, principal impulsor de la
-              Revolución Gloriosa y defensor de una monarquía constitucional moderna.
+              La muerte de su principal valedor, el general Prim, dejó al nuevo monarca sin respaldo
+              político efectivo. A ello se sumaron conflictos como la guerra en Cuba, la oposición
+              republicana y carlista y la incapacidad de los gobiernos para mantener la estabilidad.
             </p>
 
             <p>
-              El destino quiso que Prim fuera asesinado pocos días antes de la llegada de
-              Amadeo a España en diciembre de 1870. La desaparición de su principal apoyo
-              político dejó al nuevo rey aislado desde el comienzo de su reinado. A partir
-              de ese momento tuvo que enfrentarse simultáneamente a republicanos,
-              carlistas, alfonsinos partidarios del regreso de los Borbones y a las
-              continuas rivalidades entre los propios partidos liberales.
+              Ante la imposibilidad de gobernar en un clima de violencia y fragmentación, Amadeo I
+              abdicó en 1873. Su marcha abrió paso a la Primera República, uno de los periodos más
+              singulares y breves de la historia contemporánea de España.
             </p>
 
-            <p>
-              Durante su reinado estalló la Tercera Guerra Carlista, continuó la Guerra de
-              Cuba iniciada en 1868 y se sucedieron frecuentes crisis ministeriales que
-              dificultaron enormemente la gobernabilidad. A pesar de sus esfuerzos por
-              respetar el sistema constitucional y mantenerse al margen de las luchas
-              partidistas, la inestabilidad política terminó por hacer inviable su
-              permanencia en el trono.
-            </p>
+          </div>
 
-            <p>
-              El 11 de febrero de 1873, cansado de las divisiones y de la falta de apoyo,
-              Amadeo presentó su abdicación ante las Cortes. En su mensaje de despedida
-              afirmó que todos los que agravaban los males de España eran españoles, una
-              frase que ha pasado a la historia como símbolo de la complejidad política de
-              la época.
-            </p>
 
-            <p>
-              Su renuncia provocó la proclamación inmediata de la Primera República,
-              inaugurando una nueva etapa de experimentación política. Aunque su reinado
-              apenas duró poco más de dos años, Amadeo I es recordado como un monarca
-              honesto, respetuoso con las instituciones y comprometido con los principios
-              del constitucionalismo liberal en una de las etapas más convulsas de la
-              historia contemporánea española.
-            </p>
+          <div class="personaje-context mt-4">
+            <h4>Contexto histórico</h4>
+            <ul>
+              <li>Sexenio Democrático.</li>
+              <li>Asesinato de Prim.</li>
+              <li>Inestabilidad parlamentaria.</li>
+            </ul>
+          </div>
 
+          <div class="related-links mt-3">
+            <h4>Relacionado</h4>
+            <ul>
+              <li><a href="#prim" class="personaje-link">Juan Prim</a></li>
+              <li><a href="#castelar" class="personaje-link">Emilio Castelar</a></li>
+              <li><a href="#primera-republica" class="personaje-link">Primera República</a></li>
+            </ul>
           </div>
 
         </div>
 
       </article>
+
 
       <article class="personaje-cabecera" id="alfonso-xii">
 
@@ -953,73 +1129,71 @@
 
         <div class="personaje-body">
 
+          <!-- Rol principal -->
           <p class="personaje-rol mt-2 text-center">
             Rey de España entre 1874 y 1885
           </p>
 
+          <!-- Metadatos -->
+          <div class="personaje-fechas text-center mb-3">
+            <span><strong>Nacimiento:</strong> 1857 (Madrid)</span> ·
+            <span><strong>Fallecimiento:</strong> 1885 (El Pardo)</span> ·
+            <span><strong>Reinado:</strong> 1874–1885</span> ·
+            <span><strong>Dinastía:</strong> Borbón</span>
+          </div>
+
           <div class="text-start">
 
-            <p>
-              Alfonso XII fue el monarca que restauró la dinastía borbónica tras el fracaso
-              del Sexenio Democrático. Su reinado inauguró una etapa de relativa estabilidad
-              política conocida como la Restauración, un sistema diseñado para poner fin a
-              décadas de pronunciamientos militares, revoluciones y enfrentamientos civiles
-              que habían caracterizado gran parte del siglo XIX español.
-            </p>
+          <p>
+            Alfonso XII accedió al trono en 1874 tras el pronunciamiento de Martínez Campos,
+            poniendo fin al convulso Sexenio Democrático. Su reinado marcó el inicio de la
+            Restauración borbónica, un periodo que buscó estabilizar la vida política mediante
+            un sistema constitucional y la alternancia pactada entre conservadores y liberales.
+          </p>
 
-            <p>
-              Hijo de Isabel II, nació en Madrid en 1857 y pasó parte de su juventud en el
-              exilio tras la Revolución Gloriosa de 1868. Durante esos años recibió una
-              formación cuidadosamente orientada a prepararlo para el ejercicio de la Corona.
-              Su figura fue promovida por Antonio Cánovas del Castillo como la mejor opción
-              para restaurar la monarquía y garantizar la estabilidad institucional del país.
-            </p>
+          <p>
+            Durante su mandato se consolidó el nuevo régimen, se pacificó el país tras la
+            Tercera Guerra Carlista y se puso fin a la insurrección cubana con la Paz de Zanjón.
+            Su figura, moderada y conciliadora, contribuyó a reforzar la legitimidad de la
+            monarquía en un contexto de reconstrucción institucional.
+          </p>
 
-            <p>
-              En diciembre de 1874, el pronunciamiento del general Martínez Campos en
-              Sagunto proclamó rey a Alfonso XII y puso fin a la Primera República. Su
-              llegada al trono fue recibida con esperanza por amplios sectores de la sociedad,
-              cansados de la inestabilidad política y de los continuos conflictos que habían
-              sacudido España durante los años anteriores.
-            </p>
+          <p>
+            La muerte prematura de Alfonso XII en 1885 abrió un periodo de regencia bajo
+            María Cristina de Austria, pero su reinado dejó asentadas las bases del sistema
+            político que dominaría la España de finales del siglo XIX.
+          </p>
 
-            <p>
-              Durante su reinado concluyó la Tercera Guerra Carlista con la derrota de los
-              partidarios de Carlos VII y se logró una importante pacificación del país.
-              También avanzó la resolución de la Guerra de los Diez Años en Cuba, aunque la
-              cuestión colonial continuaría siendo uno de los grandes problemas de la España
-              de finales del siglo XIX.
-            </p>
+          </div>
 
-            <p>
-              Alfonso XII desempeñó un papel moderador dentro del sistema político diseñado
-              por Cánovas, basado en la alternancia pacífica entre conservadores y liberales.
-              Aunque el verdadero poder político recaía en los gobiernos y en los líderes de
-              los partidos dinásticos, la figura del rey contribuyó a dotar de legitimidad y
-              estabilidad a la Restauración.
-            </p>
 
-            <p>
-              Su popularidad aumentó notablemente tras la epidemia de cólera de 1885, cuando
-              visitó personalmente las zonas afectadas y mostró una actitud cercana a la
-              población. Este comportamiento reforzó su imagen como un monarca responsable y
-              comprometido con los problemas del país.
-            </p>
+          <!-- Contexto histórico -->
+          <div class="personaje-context mt-4">
+            <h4>Contexto histórico</h4>
+            <ul>
+              <li>Restauración borbónica tras el Sexenio Democrático.</li>
+              <li>Fin de la Tercera Guerra Carlista.</li>
+              <li>Pacificación del país y consolidación del sistema canovista.</li>
+              <li>Resolución de la Guerra de los Diez Años en Cuba.</li>
+            </ul>
+          </div>
 
-            <p>
-              La muerte prematura de Alfonso XII en 1885, a los veintisiete años de edad,
-              supuso una grave pérdida para el régimen restauracionista. Su viuda, María
-              Cristina de Habsburgo-Lorena, asumió la regencia mientras esperaba el
-              nacimiento del futuro Alfonso XIII. A pesar de la brevedad de su reinado,
-              Alfonso XII es recordado como el monarca que logró devolver la estabilidad a
-              España tras una de las etapas más turbulentas de su historia contemporánea.
-            </p>
-
+          <!-- Enlaces relacionados -->
+          <div class="related-links mt-3">
+            <h4>Relacionado</h4>
+            <ul>
+              <li><a href="#isabel-ii" class="personaje-link">Isabel II</a></li>
+              <li><a href="#maria-cristina-austria" class="personaje-link">María Cristina de Austria</a></li>
+              <li><a href="#tercera-guerra-carlista" class="personaje-link">Tercera Guerra Carlista</a></li>
+              <li><a href="#restauracion" class="personaje-link">Restauración borbónica</a></li>
+              <li><a href="#canovas" class="personaje-link">Antonio Cánovas del Castillo</a></li>
+            </ul>
           </div>
 
         </div>
 
       </article>
+
 
       <article class="personaje-cabecera" id="maria-cristina-austria">
 
@@ -1033,79 +1207,141 @@
 
         <div class="personaje-body">
 
+          <!-- Rol principal -->
           <p class="personaje-rol mt-2 text-center">
             Reina consorte de España y regente entre 1885 y 1902
           </p>
 
+          <!-- Metadatos -->
+          <div class="personaje-fechas text-center mb-3">
+            <span><strong>Nacimiento:</strong> 1858 (Gross Seelowitz, Austria)</span> ·
+            <span><strong>Fallecimiento:</strong> 1929 (Madrid)</span> ·
+            <span><strong>Regencia:</strong> 1885–1902</span> ·
+            <span><strong>Dinastía:</strong> Habsburgo-Lorena</span>
+          </div>
+
           <div class="text-start">
 
             <p>
-              María Cristina de Austria fue una de las figuras más importantes de la
-              Restauración borbónica. Su larga regencia garantizó la continuidad de la
-              monarquía tras la muerte prematura de Alfonso XII y permitió mantener la
-              estabilidad institucional durante uno de los periodos más delicados de la
-              historia contemporánea española.
+              María Cristina de Austria asumió la regencia tras la muerte de Alfonso XII en 1885,
+              garantizando la continuidad de la monarquía hasta la mayoría de edad de Alfonso XIII.
+              Su regencia se desarrolló en un clima político relativamente estable gracias al
+              Pacto del Pardo, que consolidó la alternancia pacífica entre conservadores y liberales
+              dentro del sistema de la Restauración.
             </p>
 
             <p>
-              Nacida en 1858 en la ciudad austríaca de Gross Seelowitz, pertenecía a la Casa
-              de Habsburgo-Lorena, una de las dinastías más influyentes de Europa. Contrajo
-              matrimonio con Alfonso XII en 1879 y se convirtió en reina consorte de España.
-              Su carácter discreto, prudente y profundamente religioso contrastó con la
-              personalidad más cercana y popular de su esposo.
+              Durante su gobierno se reforzó el modelo canovista, se impulsaron reformas
+              administrativas y se mantuvo la estabilidad institucional. Sin embargo, también
+              afrontó desafíos importantes, como el auge de los nacionalismos periféricos, el
+              movimiento obrero y la creciente tensión social en las últimas décadas del siglo XIX.
             </p>
 
             <p>
-              La muerte de Alfonso XII en noviembre de 1885 la situó en el centro de la vida
-              política española. Embarazada en el momento del fallecimiento del rey, asumió la
-              regencia mientras se esperaba el nacimiento del heredero. Meses después dio a
-              luz a Alfonso XIII, que fue proclamado rey desde el mismo momento de su
-              nacimiento.
+              Su regencia concluyó en 1902 con la proclamación de la mayoría de edad de Alfonso XIII.
+              Su figura es recordada por su prudencia política y por haber preservado la continuidad
+              del sistema restauracionista en un periodo de transición clave para la monarquía.
             </p>
 
-            <p>
-              Durante los diecisiete años de regencia, María Cristina actuó con una notable
-              neutralidad política y respetó escrupulosamente el sistema parlamentario de la
-              Restauración diseñado por Cánovas del Castillo. Su papel fue esencial para
-              mantener el equilibrio entre conservadores y liberales mediante el denominado
-              turno pacífico de partidos.
-            </p>
+          </div>
 
-            <p>
-              Su regencia coincidió con importantes transformaciones económicas y sociales,
-              pero también con graves dificultades. El acontecimiento más traumático fue la
-              Guerra Hispano-Estadounidense de 1898, que culminó con la pérdida de Cuba,
-              Puerto Rico y Filipinas. El llamado Desastre del 98 provocó una profunda crisis
-              nacional y abrió un intenso debate sobre las causas de la decadencia española.
-            </p>
 
-            <p>
-              A pesar de las tensiones políticas y de las críticas dirigidas contra el sistema
-              restauracionista, María Cristina consiguió preservar la continuidad de la Corona
-              en circunstancias extremadamente complejas. Su prudencia y capacidad para actuar
-              como árbitro institucional fueron ampliamente reconocidas por contemporáneos y
-              observadores extranjeros.
-            </p>
+          <!-- Contexto histórico -->
+          <div class="personaje-context mt-4">
+            <h4>Contexto histórico</h4>
+            <ul>
+              <li>Regente durante la Restauración borbónica.</li>
+              <li>Garantizó la continuidad de la monarquía tras la muerte de Alfonso XII.</li>
+              <li>Su regencia coincidió con el Desastre del 98.</li>
+              <li>Actuó como figura moderadora en el sistema canovista.</li>
+            </ul>
+          </div>
 
-            <p>
-              En 1902 concluyó oficialmente su regencia cuando Alfonso XIII alcanzó la mayoría
-              de edad y asumió personalmente el ejercicio de la Corona. María Cristina
-              continuó siendo una figura de gran influencia moral dentro de la familia real
-              hasta su fallecimiento en 1929.
-            </p>
-
-            <p>
-              Su regencia constituye uno de los periodos más estables de la España del siglo
-              XIX y principios del XX. Gracias a su actuación, la monarquía superó momentos de
-              enorme incertidumbre y logró mantenerse como eje del sistema político durante
-              una etapa decisiva de la historia española.
-            </p>
-
+          <!-- Enlaces relacionados -->
+          <div class="related-links mt-3">
+            <h4>Relacionado</h4>
+            <ul>
+              <li><a href="#alfonso-xii" class="personaje-link">Alfonso XII</a></li>
+              <li><a href="#alfonso-xiii" class="personaje-link">Alfonso XIII</a></li>
+              <li><a href="#restauracion" class="personaje-link">Restauración borbónica</a></li>
+              <li><a href="#desastre-98" class="personaje-link">Desastre del 98</a></li>
+              <li><a href="#canovas" class="personaje-link">Antonio Cánovas del Castillo</a></li>
+            </ul>
           </div>
 
         </div>
 
       </article>
+
+      <article class="personaje-cabecera" id="alfonso-xiii">
+
+        <div class="personaje-etiqueta">
+          <h3>👑 Alfonso XIII (1886–1941)</h3>
+        </div>
+
+        <img src="{% static 'images/sigloXIX/alfonsoXIII.jpg' %}"
+            alt="Alfonso XIII"
+            class="personaje-img">
+
+        <div class="personaje-body">
+
+          <p class="personaje-rol mt-2 text-center">
+            Rey de España (1886–1931)
+          </p>
+
+          <div class="personaje-fechas text-center mb-3">
+            <span><strong>Nacimiento:</strong> 1886 (Madrid)</span> ·
+            <span><strong>Fallecimiento:</strong> 1941 (Roma)</span> ·
+            <span><strong>Dinastía:</strong> Borbón</span> ·
+            <span><strong>Periodo:</strong> Final del XIX y primera mitad del XX</span>
+          </div>
+
+          <div class="text-start">
+
+            <p>
+              Alfonso XIII nació rey tras la muerte de su padre, Alfonso XII, y su madre,
+              María Cristina de Austria, ejerció la regencia hasta 1902. Su figura pertenece
+              ya al tránsito entre los siglos XIX y XX, pero su nacimiento y la regencia
+              forman parte del cierre del XIX español.
+            </p>
+
+            <p>
+              Su reinado estuvo marcado por la crisis del sistema de la Restauración, la
+              guerra de Marruecos, el auge de los nacionalismos y la creciente conflictividad
+              social. Su apoyo a la dictadura de Primo de Rivera deterioró su imagen pública.
+            </p>
+
+            <p>
+              En 1931 abandonó España tras la proclamación de la Segunda República. Murió en
+              el exilio en 1941.
+            </p>
+
+          </div>
+
+          <div class="personaje-context mt-4">
+            <h4>Contexto histórico</h4>
+            <ul>
+              <li>Fin del sistema de la Restauración.</li>
+              <li>Regencia de María Cristina de Austria.</li>
+              <li>Crisis colonial y guerra de Marruecos.</li>
+              <li>Caída de la monarquía en 1931.</li>
+            </ul>
+          </div>
+
+          <div class="related-links mt-3">
+            <h4>Relacionado</h4>
+            <ul>
+              <li><a href="#maria-cristina-austria" class="personaje-link">María Cristina de Austria</a></li>
+              <li><a href="#canovas" class="personaje-link">Cánovas del Castillo</a></li>
+              <li><a href="#sagasta" class="personaje-link">Sagasta</a></li>
+            </ul>
+          </div>
+
+        </div>
+
+      </article>
+
+
 
       <article class="personaje-cabecera" id="godoy">
 
@@ -1119,80 +1355,75 @@
 
         <div class="personaje-body">
 
+          <!-- Rol principal -->
           <p class="personaje-rol mt-2 text-center">
             Primer ministro y valido de Carlos IV
           </p>
 
+          <!-- Metadatos -->
+          <div class="personaje-fechas text-center mb-3">
+            <span><strong>Nacimiento:</strong> 1767 (Badajoz)</span> ·
+            <span><strong>Fallecimiento:</strong> 1851 (París)</span> ·
+            <span><strong>Cargo:</strong> Primer ministro y valido</span> ·
+            <span><strong>Periodo:</strong> Crisis del Antiguo Régimen</span>
+          </div>
+
           <div class="text-start">
 
-            <p>
-              Manuel Godoy fue una de las figuras más influyentes y controvertidas de la
-              España de finales del siglo XVIII y comienzos del XIX. Durante más de una
-              década dirigió la política de la monarquía de Carlos IV y concentró un poder
-              excepcional, convirtiéndose en el principal protagonista de los acontecimientos
-              que condujeron a la crisis definitiva del Antiguo Régimen.
-            </p>
+            <div class="text-start">
 
-            <p>
-              Nacido en Badajoz en 1767 en el seno de una familia hidalga de escasos recursos,
-              ingresó muy joven en la Guardia de Corps. Su rápida ascensión en la corte fue
-              extraordinaria. Gracias a la confianza de Carlos IV y de la reina María Luisa de
-              Parma, acumuló títulos, honores y responsabilidades hasta convertirse en el
-              hombre más poderoso de España después de los propios monarcas.
-            </p>
+              <p>
+                Manuel Godoy fue el principal valido de Carlos IV y una de las figuras más influyentes
+                de la política española de finales del siglo XVIII y comienzos del XIX. Su ascenso
+                meteórico y su enorme poder despertaron recelos entre amplios sectores de la sociedad,
+                especialmente en un contexto marcado por la Revolución Francesa y la crisis del
+                Antiguo Régimen.
+              </p>
 
-            <p>
-              Como principal ministro tuvo que enfrentarse a un escenario internacional
-              extraordinariamente complejo. La Revolución Francesa alteró el equilibrio
-              político europeo y obligó a España a redefinir continuamente sus alianzas.
-              Godoy impulsó primero la guerra contra la Francia revolucionaria y, tras la Paz
-              de Basilea de 1795, promovió una alianza con Francia que marcaría la política
-              exterior española durante los años siguientes.
-            </p>
+              <p>
+                Dirigió la política exterior española en un periodo de alianzas cambiantes con Francia
+                y Gran Bretaña, decisiones que desembocaron en graves consecuencias como la derrota de
+                Trafalgar. Su figura quedó asociada al descontento popular que culminó en el Motín de
+                Aranjuez, donde fue depuesto y obligado a abandonar el poder.
+              </p>
 
-            <p>
-              La estrecha colaboración con Francia condujo a España a participar en conflictos
-              contra Gran Bretaña, con consecuencias desastrosas para la economía y la marina.
-              La derrota de Trafalgar en 1805 supuso un golpe devastador para el poder naval
-              español y aceleró el deterioro del prestigio del gobierno.
-            </p>
+              <p>
+                Tras las abdicaciones de Bayona acompañó a la familia real al exilio. Su legado sigue
+                siendo objeto de debate: para algunos, símbolo de decadencia política; para otros, un
+                reformista frustrado en un tiempo convulso y contradictorio.
+              </p>
 
-            <p>
-              Su figura despertó una enorme oposición entre amplios sectores de la nobleza,
-              parte del pueblo y el entorno del príncipe Fernando. Las acusaciones de
-              corrupción, favoritismo y ambición personal alimentaron una intensa campaña
-              contra él que terminó convirtiéndolo en el personaje más odiado de la corte.
-            </p>
+            </div>
 
-            <p>
-              La crisis alcanzó su punto culminante con el Motín de Aranjuez de marzo de 1808.
-              Una multitud alentada por los partidarios de Fernando asaltó su residencia,
-              provocando su caída política y la abdicación de Carlos IV. Estos acontecimientos
-              abrieron el camino a las Abdicaciones de Bayona y a la intervención directa de
-              Napoleón en los asuntos españoles.
-            </p>
+          </div>
 
-            <p>
-              Tras la Guerra de la Independencia vivió la mayor parte de su vida en el exilio,
-              primero acompañando a Carlos IV y posteriormente residiendo en Francia e Italia.
-              Aunque durante mucho tiempo fue presentado como el principal responsable de la
-              crisis de la monarquía, los historiadores actuales ofrecen una visión más
-              matizada y destacan las enormes dificultades internacionales a las que tuvo que
-              enfrentarse.
-            </p>
+          <!-- Contexto histórico -->
+          <div class="personaje-context mt-4">
+            <h4>Contexto histórico</h4>
+            <ul>
+              <li>Figura clave en la crisis final del Antiguo Régimen.</li>
+              <li>Protagonista del Motín de Aranjuez y la caída de Carlos IV.</li>
+              <li>Responsable de la política exterior en plena Revolución Francesa.</li>
+              <li>Su gestión influyó en el camino hacia las Abdicaciones de Bayona.</li>
+            </ul>
+          </div>
 
-            <p>
-              Manuel Godoy sigue siendo uno de los personajes más debatidos de la historia de
-              España. Para algunos simboliza la decadencia de la monarquía borbónica; para
-              otros fue un reformista que intentó modernizar el país en un periodo marcado por
-              acontecimientos extraordinarios que escapaban al control de cualquier gobernante.
-            </p>
-
+          <!-- Enlaces relacionados -->
+          <div class="related-links mt-3">
+            <h4>Relacionado</h4>
+            <ul>
+              <li><a href="#carlos-iv" class="personaje-link">Carlos IV</a></li>
+              <li><a href="#fernando-vii" class="personaje-link">Fernando VII</a></li>
+              <li><a href="#motin-aranjuez" class="personaje-link">Motín de Aranjuez</a></li>
+              <li><a href="#trafalgar" class="personaje-link">Batalla de Trafalgar</a></li>
+              <li><a href="#abdicaciones-bayona" class="personaje-link">Abdicaciones de Bayona</a></li>
+            </ul>
           </div>
 
         </div>
 
       </article>
+
 
       <article class="personaje-cabecera" id="espartero">
 
@@ -1206,78 +1437,72 @@
 
         <div class="personaje-body">
 
+          <!-- Rol principal -->
           <p class="personaje-rol mt-2 text-center">
             Militar, regente de España y líder del liberalismo progresista
           </p>
 
+          <!-- Metadatos -->
+          <div class="personaje-fechas text-center mb-3">
+            <span><strong>Nacimiento:</strong> 1793 (Granátula de Calatrava)</span> ·
+            <span><strong>Fallecimiento:</strong> 1879 (Logroño)</span> ·
+            <span><strong>Rol militar:</strong> General progresista</span> ·
+            <span><strong>Conflictos:</strong> Guerra de la Independencia, Independencia de América, Primera Guerra Carlista</span>
+          </div>
+
           <div class="text-start">
 
             <p>
-              Baldomero Espartero fue una de las figuras políticas y militares más influyentes
-              de la España del siglo XIX. Héroe de guerra, regente del reino y símbolo del
-              liberalismo progresista, su trayectoria refleja la enorme importancia que los
-              militares tuvieron en la vida política española durante gran parte de la época
-              contemporánea.
+              Baldomero Espartero fue uno de los militares y políticos más influyentes del siglo XIX
+              español. Su prestigio se consolidó durante la Primera Guerra Carlista, donde su victoria
+              y el Convenio de Vergara lo convirtieron en símbolo del liberalismo progresista y en una
+              figura clave para la consolidación del nuevo Estado constitucional.
             </p>
 
             <p>
-              Nacido en Granátula de Calatrava (Ciudad Real) en 1793, inició su carrera
-              militar durante la Guerra de la Independencia contra las tropas napoleónicas.
-              Posteriormente participó en campañas en América durante los últimos años del
-              Imperio español, adquiriendo una valiosa experiencia militar que marcaría el
-              resto de su vida.
+              Tras la caída de María Cristina de Borbón, asumió la regencia entre 1840 y 1843, un
+              periodo marcado por tensiones entre progresistas y moderados y por su intento de
+              fortalecer un liberalismo más avanzado. Su estilo de gobierno, percibido como autoritario
+              por sus adversarios, provocó su caída y un nuevo exilio.
             </p>
 
             <p>
-              Su gran prestigio llegó durante la Primera Guerra Carlista (1833-1840). Como
-              comandante del ejército liberal logró importantes victorias frente a las fuerzas
-              carlistas y culminó el conflicto con el histórico Abrazo de Vergara de 1839,
-              acuerdo que permitió la incorporación de gran parte del ejército carlista al
-              ejército nacional y contribuyó decisivamente al final de la guerra.
+              Aunque regresó a la vida política en momentos puntuales —incluida su breve candidatura
+              al trono en 1870—, Espartero pasó sus últimos años retirado. Su figura quedó asociada a
+              la defensa del progresismo y a la búsqueda de estabilidad en un siglo marcado por
+              pronunciamientos y conflictos civiles.
             </p>
 
-            <p>
-              Convertido en héroe nacional, Espartero adquirió una enorme popularidad y se
-              convirtió en el principal referente del liberalismo progresista. La caída de
-              María Cristina de Borbón en 1840 le abrió el camino hacia la regencia del reino,
-              que ejerció entre 1840 y 1843 en nombre de la joven Isabel II.
-            </p>
+          </div>
 
-            <p>
-              Durante su regencia intentó impulsar reformas de carácter liberal, pero su forma
-              de gobierno generó crecientes críticas. Su tendencia a concentrar poder y la
-              dureza con la que reprimió algunas revueltas, especialmente el bombardeo de
-              Barcelona en 1842, provocaron una fuerte oposición política y social.
-            </p>
 
-            <p>
-              En 1843 fue derrocado por una coalición de moderados y progresistas descontentos,
-              lo que le obligó a exiliarse en Gran Bretaña. Sin embargo, su prestigio continuó
-              siendo enorme y regresó años después a la vida política española. A lo largo de
-              las décadas siguientes siguió siendo una figura de referencia para amplios
-              sectores liberales.
-            </p>
+          <!-- Contexto histórico -->
+          <div class="personaje-context mt-4">
+            <h4>Contexto histórico</h4>
+            <ul>
+              <li>Figura clave del liberalismo progresista.</li>
+              <li>Protagonista del final de la Primera Guerra Carlista.</li>
+              <li>Regente durante la minoría de edad de Isabel II.</li>
+              <li>Ejemplo del papel político de los militares en el siglo XIX.</li>
+            </ul>
+          </div>
 
-            <p>
-              Tras la Revolución Gloriosa de 1868, que destronó a Isabel II, numerosos
-              españoles vieron en Espartero un posible candidato al trono. Sin embargo, el
-              veterano militar rechazó la Corona y apoyó finalmente la elección de Amadeo de
-              Saboya como nuevo rey de España.
-            </p>
-
-            <p>
-              Fallecido en 1879, Espartero fue uno de los personajes más admirados de su
-              tiempo. Para sus partidarios representó la defensa de la libertad y del
-              constitucionalismo; para sus detractores simbolizó el excesivo protagonismo del
-              ejército en la política. En cualquier caso, su influencia fue decisiva en la
-              construcción de la España liberal del siglo XIX.
-            </p>
-
+          <!-- Enlaces relacionados -->
+          <div class="related-links mt-3">
+            <h4>Relacionado</h4>
+            <ul>
+              <li><a href="#isabel-ii" class="personaje-link">Isabel II</a></li>
+              <li><a href="#maria-cristina-borbon" class="personaje-link">María Cristina de Borbón</a></li>
+              <li><a href="#primera-guerra-carlista" class="personaje-link">Primera Guerra Carlista</a></li>
+              <li><a href="#abrazo-vergara" class="personaje-link">Abrazo de Vergara</a></li>
+              <li><a href="#progresismo" class="personaje-link">Liberalismo progresista</a></li>
+            </ul>
           </div>
 
         </div>
 
       </article>
+
 
       <article class="personaje-cabecera" id="narvaez">
 
@@ -1291,82 +1516,72 @@
 
         <div class="personaje-body">
 
+          <!-- Rol principal -->
           <p class="personaje-rol mt-2 text-center">
             Militar, político y principal líder del liberalismo moderado
           </p>
 
+          <!-- Metadatos -->
+          <div class="personaje-fechas text-center mb-3">
+            <span><strong>Nacimiento:</strong> 1800 (Loja, Granada)</span> ·
+            <span><strong>Fallecimiento:</strong> 1868 (Madrid)</span> ·
+            <span><strong>Cargo:</strong> Presidente del Consejo de Ministros</span> ·
+            <span><strong>Periodo:</strong> Década Moderada (1844–1854)</span>
+          </div>
+
           <div class="text-start">
 
             <p>
-              Ramón María Narváez fue una de las figuras más influyentes de la España de
-              Isabel II. Militar de gran prestigio y destacado dirigente del Partido
-              Moderado, desempeñó un papel fundamental en la consolidación del Estado
-              liberal durante las décadas centrales del siglo XIX. Su personalidad
-              autoritaria y su firme defensa del orden le valieron el sobrenombre de
-              «El Espadón de Loja».
+              Ramón María Narváez fue una de las figuras centrales del moderantismo y uno de los
+              políticos más influyentes del reinado de Isabel II. Su liderazgo se consolidó tras la
+              Primera Guerra Carlista y durante la Década Moderada, periodo en el que impulsó un
+              modelo de monarquía constitucional fuertemente centralizado y apoyado en el orden y la
+              autoridad.
             </p>
 
             <p>
-              Nacido en Loja (Granada) en 1800, inició muy joven su carrera militar.
-              Participó en los convulsos acontecimientos políticos del primer tercio del
-              siglo XIX y pronto se alineó con los defensores del liberalismo moderado.
-              Su ascenso político estuvo estrechamente ligado a la lucha entre moderados
-              y progresistas que caracterizó el reinado de Isabel II.
+              Desde la presidencia del Consejo de Ministros promovió reformas clave como la Guardia
+              Civil, la Ley de Ayuntamientos y la Constitución de 1845, que reforzaron el poder de la
+              Corona y limitaron el alcance del liberalismo progresista. Su estilo político, firme y
+              autoritario, le granjeó tanto apoyos como una fuerte oposición.
             </p>
 
             <p>
-              Durante la Primera Guerra Carlista destacó por sus capacidades militares y
-              adquirió una reputación que le permitió convertirse en uno de los hombres
-              fuertes del régimen isabelino. Su oposición al regente Espartero fue clave
-              para la caída de este en 1843 y para la proclamación anticipada de la
-              mayoría de edad de Isabel II.
+              Narváez ejerció el poder en varias etapas a lo largo del reinado de Isabel II, convirtiéndose
+              en uno de los pilares del sistema isabelino. Su figura simboliza la consolidación del
+              liberalismo conservador en la España del siglo XIX.
             </p>
 
-            <p>
-              Narváez fue varias veces presidente del Consejo de Ministros y se convirtió
-              en la figura dominante de la llamada Década Moderada (1844-1854). Bajo su
-              liderazgo se impulsó la Constitución de 1845, que reforzaba el poder de la
-              Corona y limitaba algunos de los principios más avanzados del liberalismo
-              progresista.
-            </p>
+          </div>
 
-            <p>
-              Entre las principales reformas de este periodo destacaron la creación de la
-              Guardia Civil en 1844, la reorganización de la administración del Estado y
-              la firma del Concordato de 1851 con la Santa Sede. Estas medidas
-              contribuyeron a fortalecer las instituciones del nuevo régimen liberal y a
-              dotar al Estado de una mayor estabilidad.
-            </p>
 
-            <p>
-              Su forma de gobernar estuvo marcada por una firme defensa del orden público
-              y por la utilización frecuente de medidas represivas contra la oposición.
-              Para sus partidarios representaba la estabilidad y la defensa de las
-              instituciones; para sus críticos simbolizaba el autoritarismo y la
-              limitación de las libertades políticas.
-            </p>
+          <!-- Contexto histórico -->
+          <div class="personaje-context mt-4">
+            <h4>Contexto histórico</h4>
+            <ul>
+              <li>Figura clave del liberalismo moderado.</li>
+              <li>Protagonista de la Década Moderada (1844–1854).</li>
+              <li>Impulsor de la Constitución de 1845 y la Guardia Civil.</li>
+              <li>Rival político de Espartero y O'Donnell.</li>
+            </ul>
+          </div>
 
-            <p>
-              A lo largo de su carrera alternó el poder con otros grandes protagonistas
-              de la época, especialmente Espartero y O'Donnell. Las luchas entre
-              moderados, progresistas y unionistas marcaron buena parte de la vida
-              política española durante el reinado de Isabel II.
-            </p>
-
-            <p>
-              Falleció en 1868, apenas unos meses antes de la Revolución Gloriosa que
-              destronó a Isabel II. Su muerte simbolizó el final de una generación de
-              militares-políticos que había dominado la vida pública española durante
-              gran parte del siglo XIX. Narváez sigue siendo recordado como uno de los
-              principales arquitectos del liberalismo moderado y de la construcción del
-              Estado español contemporáneo.
-            </p>
-
+          <!-- Enlaces relacionados -->
+          <div class="related-links mt-3">
+            <h4>Relacionado</h4>
+            <ul>
+              <li><a href="#isabel-ii" class="personaje-link">Isabel II</a></li>
+              <li><a href="#espartero" class="personaje-link">Baldomero Espartero</a></li>
+              <li><a href="#odonnell" class="personaje-link">Leopoldo O'Donnell</a></li>
+              <li><a href="#constitucion-1845" class="personaje-link">Constitución de 1845</a></li>
+              <li><a href="#guardia-civil" class="personaje-link">Creación de la Guardia Civil</a></li>
+            </ul>
           </div>
 
         </div>
 
       </article>
+
 
       <article class="personaje-cabecera" id="odonnell">
 
@@ -1380,85 +1595,100 @@
 
         <div class="personaje-body">
 
+          <!-- Rol principal -->
           <p class="personaje-rol mt-2 text-center">
             Militar, político y fundador de la Unión Liberal
           </p>
 
+          <!-- Metadatos -->
+          <div class="personaje-fechas text-center mb-3">
+            <span><strong>Nacimiento:</strong> 1809 (Santa Cruz de Tenerife)</span> ·
+            <span><strong>Fallecimiento:</strong> 1867 (Biarritz)</span> ·
+            <span><strong>Cargo:</strong> Presidente del Consejo de Ministros</span> ·
+            <span><strong>Periodo:</strong> Unión Liberal (1854–1866)</span>
+          </div>
+
           <div class="text-start">
 
             <p>
-              Leopoldo O'Donnell fue una de las figuras políticas y militares más destacadas
-              de la España isabelina. General de prestigio, presidente del Consejo de
-              Ministros en varias ocasiones y fundador de la Unión Liberal, desempeñó un
-              papel fundamental en la búsqueda de una vía política intermedia entre los
-              moderados y los progresistas durante las décadas centrales del siglo XIX.
+              Leopoldo O'Donnell fue uno de los grandes protagonistas de la España isabelina.
+              Militar de prestigio, estadista y fundador de la Unión Liberal, buscó una vía
+              política intermedia entre moderados y progresistas durante las décadas centrales
+              del siglo XIX.
             </p>
 
             <p>
-              Nacido en Santa Cruz de Tenerife en 1809, pertenecía a una familia de origen
-              irlandés establecida en España desde el siglo XVIII. Ingresó muy joven en el
-              ejército y participó en diversos conflictos militares, adquiriendo una sólida
-              experiencia que le permitió ascender rápidamente dentro de las fuerzas armadas.
+              Nacido en 1809 en una familia de origen irlandés, ingresó muy joven en el ejército
+              y participó en diversos conflictos militares. Su actuación en la Primera Guerra
+              Carlista consolidó su reputación como uno de los generales más capaces del bando
+              liberal.
             </p>
 
             <p>
-              Durante la Primera Guerra Carlista combatió en el bando liberal y destacó por
-              sus capacidades militares. Al igual que otros generales de su época, combinó
-              la carrera militar con la actividad política, convirtiéndose en uno de los
-              principales protagonistas de la vida pública española.
+              Su carrera política se intensificó durante el reinado de Isabel II. El
+              pronunciamiento de Vicálvaro en 1854 —la célebre «Vicalvarada»— lo situó en el
+              centro de la vida política y abrió paso al Bienio Progresista. Aunque inicialmente
+              colaboró con los progresistas, pronto buscó una fórmula más moderada que permitiera
+              estabilizar el sistema.
             </p>
 
             <p>
-              Su nombre quedó especialmente ligado a la Revolución de 1854. El
-              pronunciamiento de Vicálvaro, conocido popularmente como la «Vicalvarada»,
-              desencadenó una crisis política que abrió paso al Bienio Progresista. Aunque
-              inicialmente colaboró con los progresistas, pronto buscó una fórmula política
-              más moderada que permitiera estabilizar el sistema.
+              Con este objetivo fundó la Unión Liberal, un partido que pretendía unir a los
+              sectores moderados del progresismo y a los reformistas del moderantismo. Gracias a
+              esta plataforma, O'Donnell se convirtió en una figura central de la política
+              española durante los años cincuenta y sesenta.
             </p>
 
             <p>
-              Con este objetivo fundó la Unión Liberal, un partido que pretendía reunir a
-              los sectores más moderados del progresismo y a los elementos más reformistas
-              del moderantismo. Gracias a esta formación, O'Donnell logró convertirse en una
-              de las figuras centrales de la política española durante los años cincuenta y
-              sesenta del siglo XIX.
+              Durante sus gobiernos impulsó una política exterior activa destinada a reforzar el
+              prestigio internacional de España. La Guerra de África (1859–1860), concluida con
+              la victoria española y el Tratado de Wad-Ras, aumentó notablemente su popularidad y
+              la de la monarquía.
             </p>
 
             <p>
-              Durante sus gobiernos impulsó una política de prestigio internacional que
-              buscaba reforzar la imagen de España como potencia europea. Bajo su dirección
-              se desarrollaron importantes campañas militares en el exterior, entre las que
-              destacó la Guerra de África (1859-1860), concluida con la victoria española y
-              el Tratado de Wad-Ras. Este éxito aumentó enormemente su popularidad y la de
-              la monarquía de Isabel II.
+              Sin embargo, las tensiones políticas internas, las dificultades económicas y la
+              creciente oposición al régimen isabelino fueron debilitando su posición. Las
+              rivalidades con Narváez y otros dirigentes reflejaron las profundas divisiones del
+              liberalismo español.
             </p>
 
             <p>
-              Sin embargo, las dificultades económicas, las tensiones políticas y la
-              creciente oposición al régimen isabelino fueron debilitando progresivamente su
-              posición. Las rivalidades con Narváez y otros líderes políticos reflejaban las
-              profundas divisiones existentes dentro del liberalismo español.
-            </p>
-
-            <p>
-              Falleció en 1867, apenas un año antes de la Revolución Gloriosa que puso fin
-              al reinado de Isabel II. Su muerte privó al régimen de uno de sus principales
-              apoyos en un momento de creciente inestabilidad.
-            </p>
-
-            <p>
-              O'Donnell es recordado como uno de los grandes estadistas del reinado de
-              Isabel II. Su intento de crear un espacio político centrista mediante la Unión
-              Liberal y su protagonismo en la política exterior española lo convierten en una
-              figura esencial para comprender la evolución política de la España del siglo
-              XIX.
+              Falleció en 1867, un año antes de la Revolución Gloriosa que destronó a Isabel II.
+              Su figura sigue siendo esencial para comprender la evolución política de la España
+              del siglo XIX.
             </p>
 
           </div>
 
+          <!-- Contexto histórico -->
+          <div class="personaje-context mt-4">
+            <h4>Contexto histórico</h4>
+            <ul>
+              <li>Figura clave del reinado de Isabel II.</li>
+              <li>Fundador de la Unión Liberal, espacio político centrista.</li>
+              <li>Protagonista de la Vicalvarada y del Bienio Progresista.</li>
+              <li>Impulsor de la Guerra de África y del Tratado de Wad-Ras.</li>
+            </ul>
+          </div>
+
+          <!-- Enlaces relacionados -->
+          <div class="related-links mt-3">
+            <h4>Relacionado</h4>
+            <ul>
+              <li><a href="#narvaez" class="personaje-link">Ramón María Narváez</a></li>
+              <li><a href="#isabel-ii" class="personaje-link">Isabel II</a></li>
+              <li><a href="#vicalvarada" class="personaje-link">Vicalvarada</a></li>
+              <li><a href="#union-liberal" class="personaje-link">Unión Liberal</a></li>
+              <li><a href="#guerra-africa" class="personaje-link">Guerra de África (1859–1860)</a></li>
+            </ul>
+          </div>
+
         </div>
 
-      </article>
+      </article>     
+
+
 
       <article class="personaje-cabecera" id="prim">
 
@@ -1472,84 +1702,103 @@
 
         <div class="personaje-body">
 
+          <!-- Rol principal -->
           <p class="personaje-rol mt-2 text-center">
             Militar, político y principal impulsor de la Revolución de 1868
           </p>
 
+          <!-- Metadatos -->
+          <div class="personaje-fechas text-center mb-3">
+            <span><strong>Nacimiento:</strong> 1814 (Reus, Tarragona)</span> ·
+            <span><strong>Fallecimiento:</strong> 1870 (Madrid)</span> ·
+            <span><strong>Rol militar:</strong> General progresista</span> ·
+            <span><strong>Conflictos:</strong> Primera Guerra Carlista, Guerra de África, Revolución de 1868</span>
+          </div>
+
           <div class="text-start">
 
             <p>
-              Juan Prim fue una de las personalidades más brillantes y carismáticas de la
-              España del siglo XIX. Militar de gran prestigio, líder progresista y figura
-              clave de la Revolución Gloriosa de 1868, desempeñó un papel decisivo en el
-              derrumbe del régimen de Isabel II y en la búsqueda de un nuevo modelo político
-              para España.
+              Juan Prim fue una de las personalidades más brillantes y carismáticas de la España
+              del siglo XIX. Militar de prestigio, líder progresista y figura clave de la
+              Revolución Gloriosa de 1868, desempeñó un papel decisivo en el derrumbe del régimen
+              de Isabel II y en la búsqueda de un nuevo modelo político para España.
             </p>
 
             <p>
-              Nacido en Reus (Tarragona) en 1814, inició muy joven su carrera militar y
-              participó en la Primera Guerra Carlista, donde destacó por su valentía y
-              capacidad de mando. Su éxito en el campo de batalla le permitió ascender
-              rápidamente dentro del ejército y adquirir una notable popularidad entre los
+              Nacido en Reus en 1814, inició muy joven su carrera militar y destacó en la Primera
+              Guerra Carlista por su valentía y capacidad de mando. Su éxito en el campo de batalla
+              le permitió ascender rápidamente y convertirse en una figura popular entre los
               sectores liberales.
             </p>
 
             <p>
-              A diferencia de otros generales de su época, Prim combinó su carrera militar
-              con una intensa actividad política. Se convirtió en uno de los principales
-              representantes del progresismo y defendió la ampliación de las libertades
-              políticas, la modernización del país y una monarquía constitucional más abierta
-              y representativa.
+              A diferencia de otros generales de su época, Prim combinó su carrera militar con una
+              intensa actividad política. Se convirtió en uno de los principales representantes del
+              progresismo, defendiendo la ampliación de las libertades políticas, la modernización
+              del país y una monarquía constitucional más abierta y representativa.
             </p>
 
             <p>
-              Durante las décadas de 1850 y 1860 participó en diversas campañas militares,
-              entre ellas la Guerra de África (1859-1860), donde obtuvo un enorme prestigio
-              nacional. Sus éxitos militares y su capacidad de liderazgo reforzaron su imagen
-              como una de las figuras más destacadas de la vida pública española.
+              Durante la Guerra de África (1859–1860) obtuvo un enorme prestigio nacional gracias a
+              su brillante actuación militar. Este éxito reforzó su imagen como uno de los líderes
+              más destacados de la España del momento.
             </p>
 
             <p>
-              La creciente oposición al gobierno de Isabel II llevó a Prim a convertirse en
-              uno de los principales organizadores de la Revolución de 1868. Junto a otros
-              militares y políticos, encabezó el movimiento que expulsó a la reina y abrió
-              una nueva etapa política conocida como el Sexenio Democrático.
+              La creciente oposición al gobierno de Isabel II lo llevó a convertirse en uno de los
+              principales organizadores de la Revolución de 1868. Junto a Serrano y Topete encabezó
+              el movimiento que expulsó a la reina y abrió el Sexenio Democrático.
             </p>
 
             <p>
-              Tras el triunfo revolucionario, Prim asumió un papel central en la dirección
-              del país. Convencido de que España necesitaba una monarquía democrática,
-              impulsó la búsqueda de un nuevo rey capaz de garantizar la estabilidad del
-              sistema constitucional. Después de numerosas negociaciones internacionales,
-              logró que Amadeo de Saboya aceptara la Corona española.
+              Tras el triunfo revolucionario, Prim asumió un papel central en la dirección del
+              país. Convencido de la necesidad de una monarquía democrática, impulsó la búsqueda de
+              un nuevo rey para España. Tras complejas negociaciones internacionales, logró que
+              Amadeo de Saboya aceptara la Corona.
             </p>
 
             <p>
               Sin embargo, el destino truncó sus planes. El 27 de diciembre de 1870 sufrió un
-              atentado en Madrid cuando regresaba del Congreso de los Diputados. Gravemente
-              herido, falleció tres días después, precisamente cuando Amadeo I llegaba a
-              España para asumir el trono.
+              atentado en Madrid cuando regresaba del Congreso. Gravemente herido, falleció tres
+              días después, coincidiendo con la llegada de Amadeo I a España.
             </p>
 
             <p>
               Su muerte privó al nuevo régimen de su principal dirigente y protector. Muchos
-              historiadores consideran que la desaparición de Prim fue uno de los factores
-              que contribuyeron al fracaso de la monarquía de Amadeo I y a la posterior
-              inestabilidad política que desembocó en la Primera República.
+              historiadores consideran que la desaparición de Prim fue uno de los factores que
+              contribuyeron al fracaso de la monarquía de Amadeo I y a la posterior inestabilidad
+              política que desembocó en la Primera República.
             </p>
 
-            <p>
-              Juan Prim es recordado como uno de los grandes reformistas del siglo XIX
-              español. Militar brillante, político pragmático y defensor de una España más
-              moderna y liberal, su figura ocupa un lugar destacado entre los protagonistas
-              de la construcción de la España contemporánea.
-            </p>
+          </div>
 
+          <!-- Contexto histórico -->
+          <div class="personaje-context mt-4">
+            <h4>Contexto histórico</h4>
+            <ul>
+              <li>Figura clave del progresismo español.</li>
+              <li>Protagonista de la Revolución de 1868.</li>
+              <li>Impulsor de la monarquía democrática de Amadeo I.</li>
+              <li>Su asesinato marcó el inicio de la inestabilidad del Sexenio Democrático.</li>
+            </ul>
+          </div>
+
+          <!-- Enlaces relacionados -->
+          <div class="related-links mt-3">
+            <h4>Relacionado</h4>
+            <ul>
+              <li><a href="#serrano" class="personaje-link">Francisco Serrano</a></li>
+              <li><a href="#amadeo-i" class="personaje-link">Amadeo I</a></li>
+              <li><a href="#la-gloriosa" class="personaje-link">Revolución de 1868</a></li>
+              <li><a href="#guerra-africa" class="personaje-link">Guerra de África</a></li>
+              <li><a href="#sexenio-democratico" class="personaje-link">Sexenio Democrático</a></li>
+            </ul>
           </div>
 
         </div>
 
       </article>
+
 
       <article class="personaje-cabecera" id="canovas">
 
@@ -1563,92 +1812,98 @@
 
         <div class="personaje-body">
 
+          <!-- Rol principal -->
           <p class="personaje-rol mt-2 text-center">
             Político, historiador y arquitecto de la Restauración borbónica
           </p>
 
+          <!-- Metadatos -->
+          <div class="personaje-fechas text-center mb-3">
+            <span><strong>Nacimiento:</strong> 1828 (Málaga)</span> ·
+            <span><strong>Fallecimiento:</strong> 1897 (Mondragón)</span> ·
+            <span><strong>Cargo:</strong> Presidente del Consejo de Ministros</span> ·
+            <span><strong>Periodo:</strong> Restauración borbónica (1874–1897)</span>
+          </div>
+
           <div class="text-start">
 
             <p>
-              Antonio Cánovas del Castillo fue una de las figuras políticas más influyentes
-              de la historia contemporánea española. Intelectual, historiador y estadista,
-              diseñó el sistema político de la Restauración borbónica y dominó la vida
-              política española durante las últimas décadas del siglo XIX. Su obra marcó
-              profundamente la evolución institucional de España hasta comienzos del siglo XX.
+              Antonio Cánovas del Castillo fue una de las figuras políticas más influyentes de la
+              España contemporánea. Intelectual, historiador y estadista, diseñó el sistema
+              político de la Restauración borbónica y dominó la vida pública española durante las
+              últimas décadas del siglo XIX.
             </p>
 
             <p>
               Nacido en Málaga en 1828, destacó desde joven por su brillante formación
-              intelectual y su interés por la historia y la política. Participó activamente
-              en la vida pública durante el reinado de Isabel II y pronto se convirtió en uno
-              de los principales representantes del liberalismo conservador.
+              intelectual. Durante el reinado de Isabel II participó activamente en la vida
+              parlamentaria y fue uno de los redactores del Manifiesto de Manzanares (1854), texto
+              clave del Bienio Progresista.
             </p>
 
             <p>
-              Durante el reinado de Isabel II ocupó diversos cargos políticos y adquirió una
-              sólida experiencia parlamentaria. Fue uno de los redactores del Manifiesto de
-              Manzanares de 1854, documento fundamental del Bienio Progresista, aunque con el
-              paso del tiempo evolucionó hacia posiciones más conservadoras y pragmáticas.
+              Tras la Revolución de 1868 y el Sexenio Democrático, Cánovas defendió la necesidad
+              de restaurar la monarquía borbónica para garantizar la estabilidad política. Su
+              estrategia culminó en 1874 con la proclamación de Alfonso XII, iniciando la etapa de
+              la Restauración.
             </p>
 
             <p>
-              La Revolución Gloriosa de 1868 y el posterior Sexenio Democrático reforzaron su
-              convicción de que España necesitaba un sistema político estable que evitara los
-              continuos pronunciamientos militares y las crisis institucionales. Por ello se
-              convirtió en el principal defensor de la restauración de la dinastía borbónica
-              en la persona de Alfonso XII, hijo de Isabel II.
+              Su gran obra política fue la creación de un sistema basado en la monarquía
+              constitucional, el parlamentarismo y la alternancia pactada entre conservadores y
+              liberales, el llamado «turno pacífico». Este modelo buscaba evitar los frecuentes
+              pronunciamientos militares que habían marcado el siglo XIX.
             </p>
 
             <p>
-              Su gran obra política fue la Restauración de 1874. Cánovas diseñó un sistema
-              basado en la monarquía constitucional, el parlamentarismo y la alternancia
-              pacífica entre dos grandes partidos, el Conservador y el Liberal. Este modelo,
-              conocido como «turno pacífico», pretendía garantizar la estabilidad política y
-              evitar las frecuentes revoluciones que habían caracterizado gran parte del siglo
-              XIX español.
+              Bajo su liderazgo se aprobó la Constitución de 1876, una de las más duraderas de la
+              historia de España. Aunque el sistema restauracionista aportó estabilidad, también
+              fue criticado por el caciquismo, la manipulación electoral y la exclusión de
+              movimientos republicanos, obreros y nacionalistas.
             </p>
 
             <p>
-              Bajo su liderazgo se aprobó la Constitución de 1876, una de las más duraderas
-              de la historia de España. Este texto estableció el marco jurídico de la
-              Restauración y permitió una etapa de relativa estabilidad institucional que se
-              prolongó durante varias décadas.
+              En sus últimos años tuvo que afrontar la crisis colonial en Cuba y Filipinas, un
+              desafío que marcó profundamente su acción de gobierno. El 8 de agosto de 1897 fue
+              asesinado por el anarquista Michele Angiolillo en el balneario de Santa Águeda.
             </p>
 
             <p>
-              Sin embargo, el sistema canovista también recibió numerosas críticas. El
-              caciquismo, la manipulación electoral y la exclusión de amplios sectores
-              políticos limitaron el carácter verdaderamente democrático del régimen. Además,
-              el crecimiento de los movimientos obreros, republicanos y nacionalistas puso de
-              manifiesto algunas de sus debilidades estructurales.
+              Cánovas es recordado como el gran arquitecto de la Restauración. Admirado por unos
+              como un brillante estadista y criticado por otros por las limitaciones democráticas
+              del sistema, su figura es indispensable para comprender la España de finales del
+              siglo XIX.
             </p>
 
-            <p>
-              En los últimos años de su vida tuvo que enfrentarse a la creciente crisis
-              colonial en Cuba y Filipinas. El conflicto cubano se convirtió en uno de los
-              mayores desafíos de la política española y condicionó profundamente la acción
-              de sus gobiernos.
-            </p>
+          </div>
 
-            <p>
-              El 8 de agosto de 1897 fue asesinado en el balneario de Santa Águeda
-              (Guipúzcoa) por el anarquista Michele Angiolillo. Su muerte causó una enorme
-              conmoción nacional y simbolizó el final de una época dominada por su influencia
-              política.
-            </p>
+          <!-- Contexto histórico -->
+          <div class="personaje-context mt-4">
+            <h4>Contexto histórico</h4>
+            <ul>
+              <li>Diseñador del sistema político de la Restauración borbónica.</li>
+              <li>Impulsor de la Constitución de 1876.</li>
+              <li>Protagonista del turno pacífico entre conservadores y liberales.</li>
+              <li>Figura clave en la crisis colonial de 1895–1898.</li>
+            </ul>
+          </div>
 
-            <p>
-              Antonio Cánovas del Castillo es recordado como el gran arquitecto de la
-              Restauración. Admirado por unos como un brillante estadista y criticado por
-              otros por las limitaciones democráticas del sistema que creó, su figura resulta
-              indispensable para comprender la España de finales del siglo XIX.
-            </p>
-
+          <!-- Enlaces relacionados -->
+          <div class="related-links mt-3">
+            <h4>Relacionado</h4>
+            <ul>
+              <li><a href="#alfonso-xii" class="personaje-link">Alfonso XII</a></li>
+              <li><a href="#sagasta" class="personaje-link">Práxedes Mateo Sagasta</a></li>
+              <li><a href="#restauracion" class="personaje-link">Restauración borbónica</a></li>
+              <li><a href="#constitucion-1876" class="personaje-link">Constitución de 1876</a></li>
+              <li><a href="#desastre-98" class="personaje-link">Crisis colonial (1895–1898)</a></li>
+            </ul>
           </div>
 
         </div>
 
       </article>
+
 
       <article class="personaje-cabecera" id="sagasta">
 
@@ -1662,85 +1917,95 @@
 
         <div class="personaje-body">
 
+          <!-- Rol principal -->
           <p class="personaje-rol mt-2 text-center">
             Político liberal y principal dirigente del Partido Liberal durante la Restauración
           </p>
 
+          <!-- Metadatos -->
+          <div class="personaje-fechas text-center mb-3">
+            <span><strong>Nacimiento:</strong> 1825 (Torrecilla en Cameros, La Rioja)</span> ·
+            <span><strong>Fallecimiento:</strong> 1903 (Madrid)</span> ·
+            <span><strong>Cargo:</strong> Presidente del Consejo de Ministros</span> ·
+            <span><strong>Periodo:</strong> Restauración borbónica (1874–1903)</span>
+          </div>
+
           <div class="text-start">
 
             <p>
-              Práxedes Mateo Sagasta fue una de las figuras políticas más relevantes de la
-              España del siglo XIX y el principal contrapunto político de Antonio Cánovas del
-              Castillo durante la Restauración. Defensor del liberalismo progresista y del
-              parlamentarismo, desempeñó un papel fundamental en la consolidación del sistema
-              político restauracionista y en la ampliación de las libertades civiles en España.
+              Práxedes Mateo Sagasta fue una de las figuras políticas más influyentes de la España
+              del siglo XIX y el principal contrapunto de Antonio Cánovas del Castillo durante la
+              Restauración. Líder del Partido Liberal, defendió un liberalismo progresista,
+              parlamentario y reformista.
             </p>
 
             <p>
-              Nacido en Torrecilla en Cameros (La Rioja) en 1825, cursó estudios de
-              ingeniería antes de dedicarse plenamente a la política. Desde muy joven se
-              vinculó al liberalismo progresista y participó activamente en los movimientos
-              políticos que pretendían ampliar los derechos y libertades reconocidos por el
-              Estado español.
+              Nacido en 1825, estudió ingeniería antes de dedicarse plenamente a la política. Desde
+              muy joven se vinculó al progresismo y destacó como periodista y orador, convirtiéndose
+              en una de las voces más influyentes contra el régimen moderado de Isabel II.
             </p>
 
             <p>
-              Durante el reinado de Isabel II destacó como parlamentario y periodista,
-              convirtiéndose en una de las voces más influyentes del progresismo. Su oposición
-              al régimen moderado lo llevó a participar en conspiraciones y movimientos
-              revolucionarios que buscaban reformar profundamente el sistema político.
+              Participó activamente en la Revolución de 1868, que destronó a Isabel II y abrió el
+              Sexenio Democrático. Durante este periodo ocupó cargos ministeriales y contribuyó a la
+              construcción del nuevo régimen político.
             </p>
 
             <p>
-              Sagasta desempeñó un papel destacado en la Revolución Gloriosa de 1868, que
-              provocó la caída de Isabel II y abrió el Sexenio Democrático. Durante este
-              periodo ocupó importantes cargos ministeriales y participó activamente en la
-              construcción del nuevo régimen político surgido tras la revolución.
+              Tras la Restauración borbónica, aceptó el sistema diseñado por Cánovas y se convirtió
+              en líder del Partido Liberal. Junto a él protagonizó el «turno pacífico», mecanismo de
+              alternancia pactada entre conservadores y liberales para garantizar la estabilidad
+              política.
             </p>
 
             <p>
-              Tras la Restauración borbónica de 1874, aceptó el nuevo sistema diseñado por
-              Cánovas del Castillo y se convirtió en líder del Partido Liberal. Junto a
-              Cánovas protagonizó el denominado «turno pacífico», mecanismo mediante el cual
-              conservadores y liberales se alternaban en el gobierno para garantizar la
-              estabilidad política y evitar los frecuentes pronunciamientos militares que
-              habían caracterizado décadas anteriores.
+              Durante sus gobiernos impulsó reformas fundamentales, entre ellas la implantación del
+              sufragio universal masculino en 1890, una de las medidas más trascendentales de la
+              España contemporánea. También promovió leyes que ampliaban la libertad de prensa,
+              asociación y reunión.
             </p>
 
             <p>
-              Durante sus diversos gobiernos impulsó importantes reformas que ampliaron las
-              libertades públicas y modernizaron el sistema político. Entre ellas destacó la
-              implantación del sufragio universal masculino en 1890, una de las medidas más
-              trascendentales de la España de finales del siglo XIX. También promovió una
-              legislación más favorable a la libertad de prensa, asociación y reunión.
+              Aunque compartía con Cánovas la defensa de la monarquía constitucional, Sagasta
+              representaba el sector más aperturista del régimen. Su capacidad para negociar y
+              alcanzar acuerdos le otorgó un gran prestigio político.
             </p>
 
             <p>
-              Aunque compartía con Cánovas la defensa de la monarquía constitucional y del
-              sistema de la Restauración, Sagasta representaba el sector más reformista y
-              aperturista del régimen. Su capacidad para negociar y alcanzar acuerdos le
-              permitió convertirse en uno de los políticos más respetados de su tiempo.
+              Sus últimos años estuvieron marcados por la crisis colonial y el Desastre del 98,
+              acontecimientos que cuestionaron la eficacia del sistema restauracionista. Falleció en
+              1903 tras una larga trayectoria de servicio público.
             </p>
 
-            <p>
-              Los últimos años de su carrera estuvieron marcados por la crisis colonial y el
-              Desastre de 1898. Durante este periodo tuvo que afrontar la pérdida de Cuba,
-              Puerto Rico y Filipinas, acontecimientos que provocaron una profunda crisis
-              nacional y cuestionaron la eficacia del sistema político restauracionista.
-            </p>
+          </div>
 
-            <p>
-              Fallecido en 1903, Sagasta dejó tras de sí una larga trayectoria de servicio
-              público y una profunda influencia sobre la evolución del liberalismo español.
-              Junto a Cánovas del Castillo forma el gran binomio político de la Restauración,
-              una etapa fundamental para comprender la España contemporánea.
-            </p>
+          <!-- Contexto histórico -->
+          <div class="personaje-context mt-4">
+            <h4>Contexto histórico</h4>
+            <ul>
+              <li>Líder del liberalismo progresista durante la Restauración.</li>
+              <li>Protagonista del turno pacífico junto a Cánovas.</li>
+              <li>Impulsor del sufragio universal masculino (1890).</li>
+              <li>Figura clave durante la crisis colonial y el Desastre del 98.</li>
+            </ul>
+          </div>
 
+          <!-- Enlaces relacionados -->
+          <div class="related-links mt-3">
+            <h4>Relacionado</h4>
+            <ul>
+              <li><a href="#canovas" class="personaje-link">Antonio Cánovas del Castillo</a></li>
+              <li><a href="#alfonso-xii" class="personaje-link">Alfonso XII</a></li>
+              <li><a href="#restauracion" class="personaje-link">Restauración borbónica</a></li>
+              <li><a href="#sufragio-1890" class="personaje-link">Sufragio universal masculino (1890)</a></li>
+              <li><a href="#desastre-98" class="personaje-link">Desastre del 98</a></li>
+            </ul>
           </div>
 
         </div>
 
       </article>
+
 
       <article class="personaje-cabecera" id="castelar">
 
@@ -1754,95 +2019,399 @@
 
         <div class="personaje-body">
 
+          <!-- Rol principal -->
           <p class="personaje-rol mt-2 text-center">
             Político, escritor, orador y presidente de la Primera República Española
           </p>
 
+          <!-- Metadatos -->
+          <div class="personaje-fechas text-center mb-3">
+            <span><strong>Nacimiento:</strong> 1832 (Cádiz)</span> ·
+            <span><strong>Fallecimiento:</strong> 1899 (San Pedro del Pinatar)</span> ·
+            <span><strong>Cargo:</strong> Presidente del Poder Ejecutivo</span> ·
+            <span><strong>Periodo:</strong> Primera República (1873–1874)</span>
+          </div>
+
           <div class="text-start">
 
             <p>
-              Emilio Castelar fue una de las figuras intelectuales y políticas más brillantes
-              de la España del siglo XIX. Periodista, profesor universitario, escritor y
-              excepcional orador parlamentario, se convirtió en el principal referente del
-              republicanismo español durante las décadas centrales de la centuria y en uno de
-              los grandes defensores de las libertades políticas y los principios democráticos.
+              Emilio Castelar fue una de las figuras intelectuales y políticas más brillantes de la
+              España del siglo XIX. Escritor, profesor universitario, periodista y orador excepcional,
+              se convirtió en el principal referente del republicanismo español y en uno de los
+              grandes defensores de las libertades públicas.
             </p>
 
             <p>
-              Nacido en Cádiz en 1832, pasó gran parte de su juventud en Alicante antes de
-              trasladarse a Madrid para cursar estudios universitarios. Muy pronto destacó por
-              sus extraordinarias cualidades como escritor y conferenciante, convirtiéndose en
-              una de las voces más influyentes del liberalismo democrático español.
+              Nacido en Cádiz en 1832, destacó desde muy joven por su talento literario y su
+              capacidad oratoria. Durante el reinado de Isabel II desarrolló una intensa actividad
+              periodística y política, defendiendo la libertad de prensa, la soberanía nacional y la
+              ampliación de los derechos ciudadanos. Su oposición al régimen isabelino le llevó al
+              exilio en varias ocasiones.
             </p>
 
             <p>
-              Durante el reinado de Isabel II desarrolló una intensa actividad periodística y
-              política. Sus discursos en defensa de las libertades públicas, la soberanía
-              nacional y la ampliación de los derechos ciudadanos le otorgaron una enorme
-              popularidad entre los sectores progresistas y republicanos. Su oposición al
-              régimen isabelino le llevó en varias ocasiones al exilio y a sufrir persecución
-              política.
+              La Revolución de 1868 abrió una nueva etapa en su carrera. Elegido diputado,
+              participó activamente en los debates sobre el futuro político de España y se convirtió
+              en uno de los líderes más influyentes del republicanismo democrático.
             </p>
 
             <p>
-              La Revolución Gloriosa de 1868 abrió una nueva etapa en su carrera. Castelar fue
-              elegido diputado y participó activamente en los debates sobre el futuro sistema
-              político español. Aunque respetó inicialmente la monarquía democrática de
-              Amadeo I, continuó defendiendo la instauración de una república como la mejor
-              forma de gobierno para España.
+              Tras la proclamación de la Primera República en 1873, Castelar ocupó diversos cargos
+              de responsabilidad hasta convertirse en presidente del Poder Ejecutivo. Su gobierno se
+              caracterizó por un intento de estabilizar el país en un contexto extremadamente
+              convulso, marcado por la guerra carlista, la insurrección cantonal y la crisis
+              económica.
             </p>
 
             <p>
-              Tras la abdicación de Amadeo I en febrero de 1873, las Cortes proclamaron la
-              Primera República. Castelar se convirtió rápidamente en una de sus principales
-              figuras y asumió la presidencia del Poder Ejecutivo entre septiembre de 1873 y
-              enero de 1874, en uno de los momentos más difíciles de la historia contemporánea
-              española.
+              Su defensa de un republicanismo ordenado y moderado lo llevó a enfrentarse a los
+              sectores más radicales. En enero de 1874 fue apartado del poder tras el golpe del
+              general Pavía, que puso fin al régimen republicano parlamentario.
             </p>
 
             <p>
-              Durante su mandato tuvo que hacer frente simultáneamente a la Tercera Guerra
-              Carlista, a la Guerra de Cuba y a la insurrección cantonal. Convencido de que la
-              supervivencia del Estado era prioritaria, reforzó la autoridad del gobierno y
-              otorgó amplios poderes al ejército, alejándose temporalmente de algunas de las
-              posiciones más idealistas del republicanismo federal.
+              Tras la Restauración borbónica, Castelar continuó siendo una figura influyente en la
+              vida intelectual y política española, aunque alejado de los cargos de gobierno. Su
+              prestigio como orador y pensador liberal se mantuvo hasta su muerte en 1899.
             </p>
 
             <p>
-              A pesar de sus esfuerzos, la República continuó debilitándose. En enero de 1874,
-              tras perder una votación parlamentaria, el golpe del general Pavía puso fin al
-              régimen republicano. Castelar aceptó el resultado y se retiró temporalmente de
-              la primera línea política.
+              Castelar es recordado como uno de los grandes defensores de la democracia, la libertad
+              de expresión y el republicanismo en la España contemporánea.
+            </p>
+
+          </div>
+
+          <!-- Contexto histórico -->
+          <div class="personaje-context mt-4">
+            <h4>Contexto histórico</h4>
+            <ul>
+              <li>Figura clave del republicanismo español del siglo XIX.</li>
+              <li>Protagonista de la Primera República (1873–1874).</li>
+              <li>Defensor de las libertades públicas y del parlamentarismo.</li>
+              <li>Orador y pensador influyente durante la Restauración.</li>
+            </ul>
+          </div>
+
+          <!-- Enlaces relacionados -->
+          <div class="related-links mt-3">
+            <h4>Relacionado</h4>
+            <ul>
+              <li><a href="#primera-republica" class="personaje-link">Primera República</a></li>
+              <li><a href="#pi-margall" class="personaje-link">Francisco Pi y Margall</a></li>
+              <li><a href="#salmeron" class="personaje-link">Nicolás Salmerón</a></li>
+              <li><a href="#pavia" class="personaje-link">Golpe de Pavía (1874)</a></li>
+              <li><a href="#republicanismo" class="personaje-link">Republicanismo español</a></li>
+            </ul>
+          </div>
+
+        </div>
+
+      </article>
+     
+      
+
+      <article class="personaje-cabecera" id="wellington">
+
+        <div class="personaje-etiqueta">
+          <h3>⚔️ Arthur Wellesley, duque de Wellington (1769–1852)</h3>
+        </div>
+
+        <img src="{% static 'images/sigloXIX/wellington.jpg' %}"
+            alt="Duque de Wellington"
+            class="personaje-img">
+
+        <div class="personaje-body">
+
+          <!-- Rol principal -->
+          <p class="personaje-rol mt-2 text-center">
+            General británico y uno de los principales vencedores de Napoleón
+          </p>
+
+          <!-- Bloque de metadatos -->
+          <div class="personaje-fechas text-center mb-3">
+            <span><strong>Nacimiento:</strong> 1769 (Dublín)</span> ·
+            <span><strong>Fallecimiento:</strong> 1852 (Walmer Castle)</span> ·
+            <span><strong>Rol:</strong> Militar y estadista británico</span> ·
+            <span><strong>Periodo:</strong> Guerras Napoleónicas</span>
+          </div>
+
+          <div class="text-start">
+
+            <p>
+              Arthur Wellesley, más conocido como el duque de Wellington, fue uno de los
+              grandes estrategas militares de la Europa contemporánea y una figura clave
+              en la derrota del Imperio napoleónico. Su intervención en la Guerra de la
+              Independencia española resultó decisiva para expulsar a las tropas francesas
+              de la Península Ibérica.
             </p>
 
             <p>
-              Durante la Restauración borbónica continuó desarrollando una importante labor
-              parlamentaria e intelectual. Aunque nunca renunció a sus ideales republicanos,
-              adoptó posiciones cada vez más moderadas y se convirtió en una figura respetada
-              incluso por muchos de sus adversarios políticos.
+              Procedente de una familia aristocrática angloirlandesa, inició su carrera
+              militar en la India, donde obtuvo victorias que consolidaron la presencia
+              británica en el subcontinente. Su prestigio le situó al frente de las fuerzas
+              enviadas a Portugal en 1808 para apoyar la resistencia contra Napoleón.
             </p>
 
             <p>
-              Su prestigio se debió tanto a su pensamiento político como a sus extraordinarias
-              capacidades oratorias. Considerado por muchos contemporáneos como el mejor
-              orador español del siglo XIX, sus discursos llenaban teatros y parlamentos y
-              eran admirados incluso fuera de España.
+              Durante la Guerra de la Independencia dirigió una compleja coalición de
+              tropas británicas, portuguesas y españolas. Su estrategia defensiva en
+              Portugal, combinada con ofensivas selectivas, frenó el avance francés y
+              cambió el rumbo del conflicto.
             </p>
 
             <p>
-              Emilio Castelar falleció en 1899 dejando una profunda huella en la historia
-              política e intelectual española. Su defensa de la libertad, la democracia y la
-              educación lo convierten en una de las figuras más admiradas del liberalismo y
-              del republicanismo español del siglo XIX.
+              Sus victorias en Talavera (1809), Salamanca (1812) y especialmente Vitoria
+              (1813) precipitaron el derrumbe del dominio napoleónico en España. Tras ello,
+              llevó la guerra al sur de Francia hasta la caída del emperador.
             </p>
 
+            <p>
+              Su prestigio culminó en 1815 con la victoria en Waterloo, donde derrotó
+              definitivamente a Napoleón junto al ejército prusiano de Blücher. Más tarde
+              desarrolló una destacada carrera política en el Reino Unido, llegando a ser
+              primer ministro.
+            </p>
+
+            <p>
+              En España su figura permanece ligada a la memoria de la Guerra de la
+              Independencia. Aunque la resistencia española fue esencial, la dirección
+              militar de Wellington permitió coordinar el esfuerzo aliado y transformar
+              una guerra defensiva en una ofensiva victoriosa.
+            </p>
+
+          </div>
+
+          <!-- Contexto histórico -->
+          <div class="personaje-context mt-4">
+            <h4>Contexto histórico</h4>
+            <ul>
+              <li>Protagonista aliado en la Guerra de la Independencia española.</li>
+              <li>Figura clave en la derrota del Imperio napoleónico.</li>
+              <li>Participó en la política británica como primer ministro.</li>
+            </ul>
+          </div>
+
+          <!-- Enlaces relacionados -->
+          <div class="related-links mt-3">
+            <h4>Relacionado</h4>
+            <ul>
+              <li><a href="#guerra-independencia" class="personaje-link">Guerra de la Independencia</a></li>
+              <li><a href="#napoleon" class="personaje-link">Napoleón Bonaparte</a></li>
+              <li><a href="#riegos" class="personaje-link">Rafael del Riego</a></li>
+            </ul>
           </div>
 
         </div>
 
       </article>
 
-   
+      <article class="personaje-cabecera" id="riego">
+
+        <div class="personaje-etiqueta">
+          <h3>⚔️ Rafael del Riego (1784–1823)</h3>
+        </div>
+
+        <img src="{% static 'images/sigloXIX/riego.jpg' %}"
+            alt="Rafael del Riego"
+            class="personaje-img">
+
+        <div class="personaje-body">
+
+          <!-- Rol principal -->
+          <p class="personaje-rol mt-2 text-center">
+            Militar liberal y líder del pronunciamiento de 1820
+          </p>
+
+          <!-- Metadatos -->
+          <div class="personaje-fechas text-center mb-3">
+            <span><strong>Nacimiento:</strong> 1784 (Tuña, Asturias)</span> ·
+            <span><strong>Fallecimiento:</strong> 1823 (Madrid)</span> ·
+            <span><strong>Rol militar:</strong> Coronel del ejército</span> ·
+            <span><strong>Periodo:</strong> Trienio Liberal (1820–1823)</span>
+          </div>
+
+          <div class="text-start">
+
+            <p>
+              Rafael del Riego fue uno de los grandes símbolos del liberalismo español. Su
+              pronunciamiento de 1820 obligó a Fernando VII a restaurar la Constitución de 1812
+              e inauguró el Trienio Liberal, una de las etapas más decisivas del primer
+              constitucionalismo español.
+            </p>
+
+            <p>
+              Nacido en Tuña (Asturias) en 1784, inició su carrera militar en el contexto de las
+              guerras napoleónicas. Participó en la Guerra de la Independencia y fue hecho
+              prisionero en varias ocasiones, experiencias que reforzaron su compromiso con las
+              ideas liberales.
+            </p>
+
+            <p>
+              Tras la restauración absolutista de 1814, Riego se integró en las conspiraciones
+              liberales contra el régimen de Fernando VII. En enero de 1820 encabezó un
+              pronunciamiento militar en Las Cabezas de San Juan (Sevilla), exigiendo el retorno
+              a la Constitución de 1812.
+            </p>
+
+            <p>
+              Aunque su levantamiento no obtuvo inicialmente un apoyo masivo, la presión
+              política y social obligó al rey a aceptar la Constitución. Riego se convirtió en
+              un héroe popular y en un símbolo del liberalismo exaltado.
+            </p>
+
+            <p>
+              Durante el Trienio Liberal ocupó diversos cargos militares y políticos, aunque su
+              figura generó tensiones entre los sectores moderados y exaltados del liberalismo.
+              Su defensa de un constitucionalismo más radical lo situó en el centro de la vida
+              política del periodo.
+            </p>
+
+            <p>
+              La intervención de los Cien Mil Hijos de San Luis en 1823 puso fin al régimen
+              constitucional. Riego fue capturado tras intentar reorganizar la resistencia
+              liberal. Juzgado por traición, fue ejecutado en Madrid el 7 de noviembre de 1823.
+            </p>
+
+            <p>
+              Su muerte lo convirtió en mártir del liberalismo español. Su nombre y su himno —
+              el célebre «Himno de Riego»— se convirtieron en símbolos de la lucha por la
+              libertad y la Constitución.
+            </p>
+
+          </div>
+
+          <!-- Contexto histórico -->
+          <div class="personaje-context mt-4">
+            <h4>Contexto histórico</h4>
+            <ul>
+              <li>Figura clave del primer liberalismo español.</li>
+              <li>Protagonista del pronunciamiento de 1820.</li>
+              <li>Símbolo del Trienio Liberal (1820–1823).</li>
+              <li>Ejecutado tras la restauración absolutista de Fernando VII.</li>
+            </ul>
+          </div>
+
+          <!-- Enlaces relacionados -->
+          <div class="related-links mt-3">
+            <h4>Relacionado</h4>
+            <ul>
+              <li><a href="#fernando-vii" class="personaje-link">Fernando VII</a></li>
+              <li><a href="#constitucion-1812" class="personaje-link">Constitución de 1812</a></li>
+              <li><a href="#trienio-liberal" class="personaje-link">Trienio Liberal</a></li>
+              <li><a href="#cien-mil-hijos" class="personaje-link">Cien Mil Hijos de San Luis</a></li>
+              <li><a href="#liberalismo" class="personaje-link">Liberalismo español</a></li>
+            </ul>
+          </div>
+
+        </div>
+
+      </article>
+
+      <article class="personaje-cabecera" id="agustina-aragon">
+
+        <div class="personaje-etiqueta">
+          <h3>🕊️ Agustina de Aragón (1786–1857)</h3>
+        </div>
+
+        <img src="{% static 'images/sigloXIX/agustina_aragon.jpg' %}"
+            alt="Agustina de Aragón"
+            class="personaje-img">
+
+        <div class="personaje-body">
+
+          <!-- Rol principal -->
+          <p class="personaje-rol mt-2 text-center">
+            Heroína popular de la Guerra de la Independencia
+          </p>
+
+          <!-- Metadatos -->
+          <div class="personaje-fechas text-center mb-3">
+            <span><strong>Nacimiento:</strong> 1786 (Barcelona)</span> ·
+            <span><strong>Fallecimiento:</strong> 1857 (Ceuta)</span> ·
+            <span><strong>Conflicto:</strong> Guerra de la Independencia (1808–1814)</span> ·
+            <span><strong>Reconocimientos:</strong> Sargento honorario del Ejército</span>
+          </div>
+
+          <div class="text-start">
+
+            <p>
+              Agustina Raimunda María Zaragoza Doménech, conocida como <strong>Agustina de Aragón</strong>,
+              es una de las figuras más emblemáticas de la Guerra de la Independencia. Su célebre
+              intervención durante el primer sitio de Zaragoza la convirtió en símbolo de la
+              resistencia popular frente a las tropas napoleónicas.
+            </p>
+
+            <p>
+              Nacida en Barcelona en 1786, pasó su juventud entre Aragón y Cataluña. En 1808, al
+              estallar la guerra contra Francia, se encontraba en Zaragoza, ciudad que pronto se
+              convertiría en uno de los principales escenarios de la resistencia española.
+            </p>
+
+            <p>
+              El episodio que la hizo legendaria tuvo lugar el 2 de julio de 1808. Durante un
+              intenso ataque francés, una batería española quedó momentáneamente desatendida tras
+              la muerte o retirada de sus artilleros. Agustina, presente en la zona, se acercó al
+              cañón, encendió la mecha y disparó contra las tropas enemigas, logrando frenar su
+              avance y reanimar la defensa española.
+            </p>
+
+            <p>
+              Su gesto fue rápidamente difundido por toda España y Europa, convirtiéndola en un
+              símbolo de valentía y patriotismo. Las autoridades militares la recompensaron con el
+              grado honorario de sargento y con diversas distinciones.
+            </p>
+
+            <p>
+              Agustina continuó participando en la defensa de Zaragoza durante los sucesivos
+              asedios, sufriendo heridas y viviendo de primera mano la dureza de la guerra. Tras la
+              caída de la ciudad, fue hecha prisionera, aunque logró escapar y reincorporarse a la
+              lucha en otros frentes.
+            </p>
+
+            <p>
+              Tras la guerra llevó una vida discreta, aunque su figura siguió siendo celebrada por
+              la literatura, la pintura y la memoria popular. Murió en Ceuta en 1857, donde vivía
+              junto a su familia.
+            </p>
+
+            <p>
+              Con el tiempo, Agustina de Aragón se convirtió en una de las grandes heroínas
+              nacionales, comparable a figuras como Daoiz, Velarde o El Empecinado, y su imagen
+              continúa siendo un referente del coraje civil frente a la adversidad.
+            </p>
+
+          </div>
+
+          <!-- Contexto histórico -->
+          <div class="personaje-context mt-4">
+            <h4>Contexto histórico</h4>
+            <ul>
+              <li>Heroína popular de la Guerra de la Independencia.</li>
+              <li>Protagonista del primer sitio de Zaragoza (1808).</li>
+              <li>Símbolo del patriotismo y la resistencia civil.</li>
+              <li>Figura destacada en la memoria histórica del siglo XIX.</li>
+            </ul>
+          </div>
+
+          <!-- Enlaces relacionados -->
+          <div class="related-links mt-3">
+            <h4>Relacionado</h4>
+            <ul>
+              <li><a href="#guerra-independencia" class="personaje-link">Guerra de la Independencia</a></li>
+              <li><a href="#sitios-zaragoza" class="personaje-link">Sitios de Zaragoza</a></li>
+              <li><a href="#empecinado" class="personaje-link">El Empecinado</a></li>
+              <li><a href="#daoiz-velarde" class="personaje-link">Daoiz y Velarde</a></li>
+              <li><a href="#napoleon" class="personaje-link">Napoleón Bonaparte</a></li>
+            </ul>
+          </div>
+
+        </div>
+
+      </article>
+
+
+
     
     </main>
   </div>

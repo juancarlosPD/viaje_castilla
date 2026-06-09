@@ -166,7 +166,7 @@ def maria_cristina_hasburgo(request):
 def cultura_pensamiento(request):    
     return render(request, 'espagna/sigloXIX/cultura_pensamiento.html')
 
-def galeria_personajes(request):    
+def personajes_xix(request):    
     return render(request, 'espagna/sigloXIX/galeria_personajes.html')
 
 # ----------------------------SIGLO XX--------------------------

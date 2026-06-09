@@ -11,6 +11,16 @@
 {% block contenido %}
 
 <style>
+  .personaje-link{
+    color:#8b0000;
+    font-weight:600;
+    text-decoration:none;
+    border-bottom:1px dotted #8b0000;
+  }
+
+  .personaje-link:hover{
+      color:#b22222;
+  }
 
   .timeline-filters {
     display: flex;
@@ -555,7 +565,7 @@
 
           <a href="#legado" class="aside-link">⭐ El legado del siglo XIX</a>
           
-          <a href="{% url 'galeria_personajes' %}" class="aside-link">⭐ Galería personajes históricos siglo XIX</a>
+          <a href="{% url 'personajes_xix' %}" class="aside-link">⭐ Galería personajes históricos siglo XIX</a>
 
           <a href="#recursos" class="aside-link">📚 Recursos</a>
         </nav>
@@ -647,6 +657,7 @@
 
           <div class="timeline">
 
+            <!-- 1808 -->
             <div class="timeline-item politica">
               <div class="timeline-year">1808</div>
               <div class="timeline-content">
@@ -659,6 +670,7 @@
               </div>
             </div>
 
+            <!-- Guerra de la Independencia -->
             <div class="timeline-item guerra">
               <div class="timeline-year">1808-1814</div>
               <div class="timeline-content">
@@ -671,6 +683,18 @@
               </div>
             </div>
 
+            <!-- Independencia Hispanoamérica -->
+            <div class="timeline-item guerra">
+              <div class="timeline-year">1808-1833</div>
+              <div class="timeline-content">
+                <h4>Guerra de la Independencia de Hispanoamérica</h4>
+                <p>
+                  Conflicto colonial: las posesiones americanas se emancipan. España pierde casi todo su imperio ultramarino.
+                </p>
+              </div>
+            </div>
+
+            <!-- 1812 -->
             <div class="timeline-item constitucion">
               <div class="timeline-year">1812</div>
               <div class="timeline-content">
@@ -683,6 +707,7 @@
               </div>
             </div>
 
+            <!-- 1814 -->
             <div class="timeline-item politica">
               <div class="timeline-year">1814</div>
               <div class="timeline-content">
@@ -694,6 +719,7 @@
               </div>
             </div>
 
+            <!-- Trienio Liberal -->
             <div class="timeline-item politica">
               <div class="timeline-year">1820-1823</div>
               <div class="timeline-content">
@@ -706,6 +732,18 @@
               </div>
             </div>
 
+            <!-- Guerra Realista -->
+            <div class="timeline-item guerra">
+              <div class="timeline-year">1822-1823</div>
+              <div class="timeline-content">
+                <h4>Guerra realista</h4>
+                <p>
+                  Sublevación absolutista contra el Trienio Liberal. Finaliza con la intervención francesa de los Cien Mil Hijos de San Luis.
+                </p>
+              </div>
+            </div>
+
+            <!-- Independencia América -->
             <div class="timeline-item america">
               <div class="timeline-year">1810-1825</div>
               <div class="timeline-content">
@@ -718,6 +756,18 @@
               </div>
             </div>
 
+            <!-- Guerra de los Agraviados (1827) -->
+            <div class="timeline-item guerra">
+              <div class="timeline-year">1827</div>
+              <div class="timeline-content">
+                <h4>Guerra de los Agraviados</h4>
+                <p>
+                  Rebelión absolutista en Cataluña contra las reformas liberales. El ejército real sofoca el levantamiento.
+                </p>
+              </div>
+            </div>
+
+            <!-- 1833 -->
             <div class="timeline-item politica">
               <div class="timeline-year">1833</div>
               <div class="timeline-content">
@@ -729,6 +779,7 @@
               </div>
             </div>
 
+            <!-- Primera Guerra Carlista -->
             <div class="timeline-item guerra">
               <div class="timeline-year">1833-1840</div>
               <div class="timeline-content">
@@ -740,6 +791,7 @@
               </div>
             </div>
 
+            <!-- Reinado Isabel II -->
             <div class="timeline-item politica">
               <div class="timeline-year">1833-1868</div>
               <div class="timeline-content">
@@ -751,6 +803,7 @@
               </div>
             </div>
 
+            <!-- Constitución 1837 -->
             <div class="timeline-item constitucion">
               <div class="timeline-year">1837</div>
               <div class="timeline-content">
@@ -762,6 +815,18 @@
               </div>
             </div>
 
+            <!-- Segunda Guerra Carlista -->
+            <div class="timeline-item guerra">
+              <div class="timeline-year">1846-1849</div>
+              <div class="timeline-content">
+                <h4>Segunda Guerra Carlista</h4>
+                <p>
+                  Levantamiento carlista en Cataluña tras el fracaso del matrimonio de Isabel II. Conflicto limitado pero persistente.
+                </p>
+              </div>
+            </div>
+
+            <!-- Constitución 1845 -->
             <div class="timeline-item constitucion">
               <div class="timeline-year">1845</div>
               <div class="timeline-content">
@@ -773,6 +838,7 @@
               </div>
             </div>
 
+            <!-- Bienio Progresista -->
             <div class="timeline-item politica">
               <div class="timeline-year">1854-1856</div>
               <div class="timeline-content">
@@ -784,6 +850,29 @@
               </div>
             </div>
 
+            <!-- Guerra de África -->
+            <div class="timeline-item guerra">
+              <div class="timeline-year">1859-1860</div>
+              <div class="timeline-content">
+                <h4>Guerra de África</h4>
+                <p>
+                  España combate al sultanato de Marruecos. La victoria refuerza el prestigio militar del reinado de Isabel II.
+                </p>
+              </div>
+            </div>
+
+            <!-- Guerra del Pacífico -->
+            <div class="timeline-item guerra">
+              <div class="timeline-year">1864-1866</div>
+              <div class="timeline-content">
+                <h4>Guerra del Pacífico</h4>
+                <p>
+                  Enfrentamiento naval entre España y Perú-Chile. Bombardeos de Valparaíso y Callao.
+                </p>
+              </div>
+            </div>
+
+            <!-- La Gloriosa -->
             <div class="timeline-item politica">
               <div class="timeline-year">1868</div>
               <div class="timeline-content">
@@ -795,6 +884,7 @@
               </div>
             </div>
 
+            <!-- Constitución 1869 -->
             <div class="timeline-item constitucion">
               <div class="timeline-year">1869</div>
               <div class="timeline-content">
@@ -806,6 +896,18 @@
               </div>
             </div>
 
+            <!-- Guerra de los Diez Años -->
+            <div class="timeline-item guerra america">
+              <div class="timeline-year">1868-1878</div>
+              <div class="timeline-content">
+                <h4>Guerra de los Diez Años</h4>
+                <p>
+                  Primer gran intento independentista cubano. España mantiene la isla tras una guerra larga y costosa.
+                </p>
+              </div>
+            </div>
+
+            <!-- Reinado Amadeo I -->
             <div class="timeline-item politica">
               <div class="timeline-year">1871-1873</div>
               <div class="timeline-content">
@@ -817,6 +919,7 @@
               </div>
             </div>
 
+            <!-- Primera República -->
             <div class="timeline-item politica">
               <div class="timeline-year">1873-1874</div>
               <div class="timeline-content">
@@ -828,6 +931,29 @@
               </div>
             </div>
 
+            <!-- Tercera Guerra Carlista -->
+            <div class="timeline-item guerra">
+              <div class="timeline-year">1872-1876</div>
+              <div class="timeline-content">
+                <h4>Tercera Guerra Carlista</h4>
+                <p>
+                  Último gran conflicto carlista. Derrota definitiva del movimiento y consolidación del Estado liberal.
+                </p>
+              </div>
+            </div>
+
+            <!-- Guerra Chiquita -->
+            <div class="timeline-item guerra america">
+              <div class="timeline-year">1879-1880</div>
+              <div class="timeline-content">
+                <h4>Guerra Chiquita</h4>
+                <p>
+                  Nuevo levantamiento cubano, breve pero significativo, preludio de la guerra final.
+                </p>
+              </div>
+            </div>
+
+            <!-- Restauración -->
             <div class="timeline-item politica">
               <div class="timeline-year">1874</div>
               <div class="timeline-content">
@@ -839,6 +965,7 @@
               </div>
             </div>
 
+            <!-- Constitución 1876 -->
             <div class="timeline-item constitucion">
               <div class="timeline-year">1876</div>
               <div class="timeline-content">
@@ -850,6 +977,18 @@
               </div>
             </div>
 
+            <!-- Revolución Filipina -->
+            <div class="timeline-item guerra america">
+              <div class="timeline-year">1896-1897</div>
+              <div class="timeline-content">
+                <h4>Revolución Filipina</h4>
+                <p>
+                  Insurrección independentista contra el dominio español. Debilita el control colonial en Filipinas.
+                </p>
+              </div>
+            </div>
+
+            <!-- Cultura -->
             <div class="timeline-item cultura">
               <div class="timeline-year">1870-1890</div>
               <div class="timeline-content">
@@ -861,6 +1000,7 @@
               </div>
             </div>
 
+            <!-- Muerte Alfonso XII -->
             <div class="timeline-item politica">
               <div class="timeline-year">1885</div>
               <div class="timeline-content">
@@ -872,6 +1012,7 @@
               </div>
             </div>
 
+            <!-- Guerra de Cuba -->
             <div class="timeline-item guerra america">
               <div class="timeline-year">1895-1898</div>
               <div class="timeline-content">
@@ -883,6 +1024,18 @@
               </div>
             </div>
 
+            <!-- Guerra Hispano-Estadounidense -->
+            <div class="timeline-item guerra america">
+              <div class="timeline-year">1898</div>
+              <div class="timeline-content">
+                <h4>Guerra Hispano-Estadounidense</h4>
+                <p>
+                  Enfrentamiento con Estados Unidos por Cuba y Filipinas. La derrota precipita el fin del imperio colonial.
+                </p>
+              </div>
+            </div>
+
+            <!-- Desastre del 98 -->
             <div class="timeline-item guerra america">
               <div class="timeline-year">1898</div>
               <div class="timeline-content">
@@ -895,6 +1048,7 @@
             </div>
 
           </div>
+
         </div>
       </section>
 
@@ -912,14 +1066,14 @@
 
         <div class="intro-box section-block">
           <p>
-            El reinado de Carlos IV marcó el comienzo de una de las etapas más convulsas de la historia de España.
+            El reinado de <a href="{% url 'personajes_xix' %}#carlos-iv" class="personaje-link"> Carlos IV </a> marcó el comienzo de una de las etapas más convulsas de la historia de España.
             Aunque heredó una monarquía aparentemente sólida de su padre Carlos III, los acontecimientos
             internacionales transformaron por completo la situación política del país. La Revolución Francesa,
             las guerras europeas y la creciente influencia de Napoleón Bonaparte pusieron a prueba la capacidad
             de la Corona para mantener la estabilidad.
           </p>
           <p>
-          Durante estos años adquirió gran protagonismo Manuel Godoy, favorito real y principal figura política
+          Durante estos años adquirió gran protagonismo <a href="{% url 'personajes_xix' %}#carlos-iv" class="personaje-link"> Manuel Godoy </a>, favorito real y principal figura política
           del reino. Sus decisiones, unidas al deterioro económico, las derrotas militares y las tensiones dentro
           de la propia familia real, provocaron una profunda crisis que culminó con el Motín de Aranjuez y las
           abdicaciones de Bayona en 1808. Aquellos acontecimientos abrieron el camino a la Guerra de la
