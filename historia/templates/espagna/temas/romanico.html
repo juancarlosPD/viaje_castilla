@@ -1,480 +1,154 @@
-{% extends "bases/basesromanico.html" %}
+{% extends "bases/baseInicioHistoria.html" %}
+
 {% load static %}
 
-{% block cabecera %}El Románico{% endblock %}
+{% block titulo %} Románico {% endblock %}
 
-{% block imgCabecera %}
-<figure class="m-0 text-center">
-  <img class="img-fluid logo-romanico-cabecera"
-       src="{% static 'images/temas/romanico/vallespinoso_de_aguilar.jpg' %}"
-       alt="El Románico1">
-</figure>
-{% endblock %}
+{% block cabecera %} Románico {% endblock %}
 
-{% block logoCabecera %}
-<img src="{% static 'images/favicon.jpg' %}"
-     alt="El Románico2"
-     class="img-fluid logo-romanico-principal">
-{% endblock %}
-
-{% block title %}El Románico{% endblock %}
+{% block imgCabecera %}  {% endblock %}
 
 {% block contenido %}
+
 <style>
-  /* =====================================================
-     ESTRUCTURA GENERAL
-  ===================================================== */
-
-  .titulo-timeline {
-    font-size: 1.4rem;
-    font-weight: 800;
+  .personaje-link{
+    color:#8b0000;
+    font-weight:600;
+    text-decoration:none;
+    border-bottom:1px dotted #8b0000;
   }
 
-  .alfonso-page {
-    background: linear-gradient(to bottom, #f7f4ee 0%, #f1ede6 100%);
-    min-height: 100vh;
-    padding-bottom: 4rem;
+  .personaje-link:hover{
+      color:#b22222;
   }
 
-  .content-shell {
-    max-width: 1380px;
-    margin: 0 auto;
-    padding: 0 1rem;
-  }
-
-  .main-col {
-    min-width: 0;
-  }
-
-  /* =====================================================
-     CABECERA ROMÁNICO
-  ===================================================== */
-
-  .logo-romanico-principal {
-    max-width: 95px;
-    height: auto;
-    object-fit: contain;
-  }
-
-  .logo-romanico-cabecera {
-    max-width: 95px;
-    height: auto;
-    object-fit: cover;
-    border-radius: 6px;
-  }
-
-  #logotipo h1 {
-    margin: 0;
-    white-space: nowrap;
-  }
-
-  @media (min-width: 576px) {
-    #logotipo {
-      display: grid !important;
-      grid-template-columns: 120px 1fr 120px;
-      align-items: center;
-      gap: 1rem;
-      padding: 1rem 1.5rem;
-    }
-
-    #logotipo .col-2:first-child,
-    #logotipo .col-sm-2:first-child,
-    #logotipo .col-md-1:first-child {
-      grid-column: 1;
-      text-align: left !important;
-      width: auto !important;
-      max-width: none !important;
-      flex: none !important;
-      display: block !important;
-    }
-
-    #logotipo .col-8,
-    #logotipo .col-sm-8,
-    #logotipo .col-md-8 {
-      grid-column: 2;
-      text-align: center !important;
-      width: auto !important;
-      max-width: none !important;
-      flex: none !important;
-      display: block !important;
-    }
-
-    #logotipo .col-2:last-child,
-    #logotipo .col-sm-2:last-child,
-    #logotipo .col-md-1:last-child {
-      grid-column: 3;
-      text-align: right !important;
-      width: auto !important;
-      max-width: none !important;
-      flex: none !important;
-      display: block !important;
-    }
-
-    .logo-romanico-principal {
-      max-width: 90px;
-    }
-
-    .logo-romanico-cabecera {
-      max-width: 95px;
-    }
-  }
-
-  @media (max-width: 575px) {
-    #logotipo {
-      display: grid !important;
-      grid-template-columns: 44px 1fr 96px;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.75rem 0.8rem;
-    }
-
-    #logotipo .col-2:first-child,
-    #logotipo .col-sm-2:first-child,
-    #logotipo .col-md-1:first-child {
-      grid-column: 1;
-      grid-row: 1;
-      width: auto !important;
-      display: block !important;
-      text-align: left !important;
-    }
-
-    #logotipo .col-8,
-    #logotipo .col-sm-8,
-    #logotipo .col-md-8 {
-      grid-column: 2;
-      grid-row: 1;
-      width: auto !important;
-      text-align: center !important;
-    }
-
-    #logotipo .col-2:last-child,
-    #logotipo .col-sm-2:last-child,
-    #logotipo .col-md-1:last-child {
-      display: none !important;
-    }
-
-    #logotipo h1 {
-      font-size: 1.25rem;
-      font-weight: 800;
-      margin: 0;
-      white-space: nowrap;
-    }
-
-    .logo-romanico-principal {
-      max-width: 34px;
-    }
-
-    #logotipo::before {
-      content: "☰ Menú";
-      grid-column: 3;
-      grid-row: 1;
-      background: #1f2933;
-      color: #fff;
-      font-weight: 800;
-      font-size: 0.82rem;
-      padding: 0.45rem 0.65rem;
-      border-radius: 999px;
-      text-align: center;
-      cursor: pointer;
-    }
-
-    nav.navbar {
-      display: none !important;
-    }
-
-    body.menu-open nav.navbar {
-      display: flex !important;
-      flex-direction: column;
-      align-items: stretch;
-      border-radius: 14px;
-      margin-top: 0.5rem !important;
-    }
-
-    body.menu-open nav.navbar .navbar-brand,
-    body.menu-open nav.navbar .nav-item {
-      display: block !important;
-      width: 100%;
-      padding: 0.55rem 0.8rem;
-      margin: 0 !important;
-    }
-
-    .dropdown-menu {
-      width: 100%;
-      text-align: center;
-    }
-  }
-
-  /* =====================================================
-     HERO PRINCIPAL
-  ===================================================== */
-
-  .alfonso-hero {
-    background: linear-gradient(135deg, #1b2a41 0%, #2f4b6e 100%);
-    color: #fff;
-    padding: 4rem 0 3rem;
-    margin-bottom: 2rem;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .alfonso-hero::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 85% 20%, rgba(255,255,255,0.12), transparent 30%);
-    pointer-events: none;
-  }
-
-  .hero-wrap {
-    position: relative;
-    z-index: 2;
-  }
-
-  .hero-kicker {
-    display: inline-block;
-    background: rgba(255,255,255,0.12);
-    border: 1px solid rgba(255,255,255,0.22);
-    color: #f8f5ef;
-    padding: 0.4rem 0.85rem;
-    border-radius: 999px;
-    font-size: 0.88rem;
-    letter-spacing: 0.02em;
-    margin-bottom: 1rem;
-  }
-
-  .alfonso-hero h1 {
-    font-size: 2.5rem;
-    line-height: 1.08;
-    font-weight: 800;
-    margin-bottom: 1rem;
-  }
-
-  .alfonso-hero .lead {
-    font-size: 1.14rem;
-    max-width: 860px;
-    color: rgba(255,255,255,0.92);
-  }
-
-  .hero-chips {
-    margin-top: 1.5rem;
+  .timeline-filters {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.65rem;
+    gap: 0.6rem;
+    margin: 1.5rem 0;
   }
 
-  .chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
-    background: rgba(255,255,255,0.12);
-    border: 1px solid rgba(255,255,255,0.18);
-    color: #fff;
-    padding: 0.48rem 0.85rem;
+  .timeline-btn {
+    border: 1px solid #b89b5e;
+    background: #f8f1df;
+    color: #4a3418;
+    padding: 0.45rem 0.9rem;
     border-radius: 999px;
-    font-size: 0.95rem;
-    backdrop-filter: blur(2px);
-  }
-
-  .hero-portrait {
-    max-width: 320px;
-    border-radius: 22px;
-    overflow: hidden;
-    box-shadow: 0 16px 34px rgba(0,0,0,0.25);
-    border: 1px solid rgba(255,255,255,0.18);
-    background: rgba(255,255,255,0.08);
-  }
-
-  .hero-portrait img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+    font-weight: 600;
     cursor: pointer;
   }
 
-  .hero-caption {
-    font-size: 0.85rem;
-    color: rgba(255,255,255,0.82);
-    padding-top: 0.55rem;
+  .timeline-btn.active,
+  .timeline-btn:hover {
+    background: #7a4f1d;
+    color: #fff;
   }
 
-  /* =====================================================
-     LAYOUT PRINCIPAL Y ASIDE
-  ===================================================== */
-
-  .page-grid {
-    display: grid;
-    grid-template-columns: 290px minmax(0, 1fr);
-    gap: 2rem;
-    align-items: start;
+  .timeline {
+    position: relative;
+    margin-top: 2rem;
+    padding-left: 2rem;
+    border-left: 4px solid #b89b5e;
   }
 
-  .page-aside {
-    position: sticky;
-    top: 20px;
-    align-self: start;
+  .timeline-item {
+    position: relative;
+    margin-bottom: 1.8rem;
+    animation: fadeIn 0.3s ease;
   }
 
-  .aside-card {
-    background: #fff;
-    border: 1px solid #e7dfd2;
-    border-radius: 18px;
-    box-shadow: 0 8px 24px rgba(58, 44, 24, 0.06);
-    padding: 1.25rem 1rem;
+  .timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -2.55rem;
+    top: 0.3rem;
+    width: 1rem;
+    height: 1rem;
+    background: #7a4f1d;
+    border: 3px solid #f5ead0;
+    border-radius: 50%;
   }
 
-  .aside-card h5 {
-    font-size: 1rem;
-    font-weight: 800;
-    color: #1f2937;
-    margin-bottom: 1rem;
+  .timeline-year {
+    display: inline-block;
+    background: #7a4f1d;
+    color: white;
+    padding: 0.3rem 0.7rem;
+    border-radius: 0.4rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
   }
 
-  .aside-nav {
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
+  .timeline-content {
+    background: #fffaf0;
+    border: 1px solid #ead8b7;
+    border-radius: 0.8rem;
+    padding: 1rem 1.2rem;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
   }
 
-  .aside-nav a,
-  .aside-dropbtn {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    text-decoration: none;
-    background: #fff;
-    color: #1f3c88;
-    border: 1px solid #d6dff2;
-    border-radius: 10px;
-    padding: 0.7rem 0.9rem;
-    font-size: 1rem;
-    transition: all 0.2s ease;
-    cursor: pointer;
-    text-align: left;
+  .timeline-content h4 {
+    color: #4a3418;
+    margin-bottom: 0.5rem;
   }
 
-  .aside-nav a:hover,
-  .aside-dropbtn:hover {
-    background: #f3f7ff;
-    border-color: #9eb8ea;
+  .timeline-content p {
+    margin-bottom: 0;
+    line-height: 1.65;
   }
 
-  .aside-dropdown {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .aside-submenu {
+  .timeline-item.oculto {
     display: none;
-    flex-direction: column;
-    gap: 0.25rem;
-    margin-top: 0.35rem;
-    margin-left: 0.8rem;
   }
 
-  .aside-dropdown.open .aside-submenu {
-    display: flex;
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
-  .aside-submenu a {
+  @media (max-width: 768px) {
+    .timeline {
+      padding-left: 1.5rem;
+    }
+
+    .timeline-item::before {
+      left: -2.05rem;
+    }
+
+    .timeline-content {
+      padding: 0.9rem;
+    }
+  }
+  .img-retrato {
+    max-width: 700px;
+    width: auto;    
+    max-height: 500px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .img-panoramica {
+    max-width: 1100px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  .navbar {
+    border-radius: 16px;
+  }
+
+  .navbar .nav-link,
+  .navbar .navbar-brand {
     font-size: 0.95rem;
-    padding: 0.6rem 0.8rem;
-    border-radius: 8px;
-    background: transparent;
-    border: none;
-    color: #03226b;
-  }
-
-  .aside-submenu a:hover {
-    background: #eef4ff;
-  }
-
-  .arrow {
-    font-size: 0.9rem;
-    transition: transform 0.2s ease;
-  }
-
-  .aside-dropdown.open .arrow {
-    transform: rotate(180deg);
-  }
-
-  /* =====================================================
-     BLOQUES DE CONTENIDO
-  ===================================================== */
-
-  .intro-box,
-  .content-card,
-  .highlight-card,
-  .quote-card {
-    background: #fff;
-    border: 1px solid #e7dfd2;
-    border-radius: 20px;
-    box-shadow: 0 10px 28px rgba(58, 44, 24, 0.06);
-  }
-
-  .intro-box {
-    padding: 1.4rem 1.5rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .content-card {
-    padding: 1.5rem;
-  }
-
-  .content-card p {
-    color: #374151;
-    line-height: 1.8;
-    font-size: 1.02rem;
-    margin-bottom: 1rem;
-  }
-
-  .intro-box p:last-child,
-  .content-card p:last-child,
-  .quote-card p:last-child {
-    margin-bottom: 0;
-  }
-
-  .content-card ul {
-    margin-bottom: 0;
-  }
-
-  .content-card li {
-    margin-bottom: 0.55rem;
-    color: #374151;
-    line-height: 1.7;
-  }
-
-  .section-block {
-    margin-bottom: 2rem;
-    scroll-margin-top: 100px;
-  }
-
-  .section-head {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 1rem;
-  }
-
-  .section-icon {
-    width: 46px;
-    height: 46px;
-    border-radius: 14px;
-    background: linear-gradient(135deg, #d8c3a5, #f0e2ce);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.25rem;
-    flex: 0 0 auto;
-    color: #493628;
-  }
-
-  .section-head h2 {
-    margin: 0;
-    font-size: 1.7rem;
-    font-weight: 800;
-    color: #1f2937;
+    white-space: nowrap;
   }
 
   .section-link {
@@ -487,453 +161,317 @@
     color: #8b0000;
   }
 
-  .section-head-inline {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
+  @media (max-width: 991px) {
+    .navbar {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+
+    .navbar-collapse {
+      margin-top: 0.8rem;
+      background: #212529;
+      border-radius: 14px;
+      padding: 0.8rem;
+    }
+
+    .navbar-nav {
+      text-align: left;
+    }
+
+    .navbar .nav-link {
+      padding: 0.55rem 0.8rem;
+      border-radius: 10px;
+    }
+
+    .navbar .nav-link:hover {
+      background: rgba(255,255,255,0.12);
+    }
+
+    .dropdown-menu {
+      border-radius: 12px;
+      margin-top: 0.4rem;
+    }
   }
 
-  .section-head-inline h6 {
-    margin: 0;
+  /* TARJETAS */
+  .medieval-card {
+    overflow: hidden;
+    border-radius: 20px;
+    border: none;
+    transition: all .3s ease;
+    background: #fff;
   }
 
-  .section-head-inline .section-link {
-    white-space: nowrap;
-  }
-
-  /* =====================================================
-     TARJETAS Y GRIDS
-  ===================================================== */
-
-  .mini-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    margin-top: 1.2rem;
-  }
-
-  .mini-grid_17 {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    margin-top: 1.2rem;
-  }
-
-  .highlight-card {
-    padding: 1rem;
-    height: 100%;
-    transition: all 0.25s ease;
-  }
-
-  .highlight-card:hover {
+  .medieval-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 14px 28px rgba(0,0,0,0.12);
+    box-shadow: 0 10px 30px rgba(0,0,0,.15);
   }
 
-  .highlight-card h6 {
-    font-weight: 800;
-    color: #1f2937;
-    margin-bottom: 0.55rem;
+  .medieval-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    object-position: center;
   }
 
-  .highlight-card p {
-    margin: 0;
-    color: #475569;
-    line-height: 1.65;
-    font-size: 0.96rem;
-  }
-
-  .icon-box {
-    width: 60px;
-    height: 60px;
-    margin: 0 auto;
-    border-radius: 16px;
-    background: linear-gradient(135deg, #d8c3a5, #f0e2ce);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.6rem;
-    box-shadow: 0 6px 14px rgba(0,0,0,0.08);
-  }
-
-  /* =====================================================
-     TIMELINE
-  ===================================================== */
-
-  .timeline {
-    position: relative;
-    margin-top: 1.4rem;
-    padding-left: 1.2rem;
-  }
-
-  .timeline::before {
-    content: "";
-    position: absolute;
-    left: 9px;
-    top: 0;
-    bottom: 0;
-    width: 3px;
-    border-radius: 999px;
-    background: linear-gradient(to bottom, #b99870, #d7c2a5);
-  }
-
-  .t-item {
-    position: relative;
-    padding-left: 1.5rem;
-    margin-bottom: 1.25rem;
-  }
-
-  .t-item:last-child {
-    margin-bottom: 0;
-  }
-
-  .t-item::before {
-    content: "";
-    position: absolute;
-    left: -0.05rem;
-    top: 0.35rem;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: #8b6a48;
-    box-shadow: 0 0 0 4px #efe4d5;
-  }
-
-  .t-date {
-    display: inline-block;
-    font-weight: 800;
-    color: #6b4f35;
-    background: #f4eadc;
-    border: 1px solid #ead8bf;
-    padding: 0.2rem 0.6rem;
-    border-radius: 999px;
-    font-size: 0.85rem;
-    margin-bottom: 0.4rem;
-  }
-
-  .t-item h6 {
-    font-weight: 800;
-    color: #1f2937;
-    margin-bottom: 0.35rem;
-  }
-
-  .t-item p {
-    margin: 0;
-    color: #475569;
-    line-height: 1.7;
-  }
-
-  /* =====================================================
-     IMÁGENES Y CITAS
-  ===================================================== */
-  .romanico-etapa-img{
-    width:100%;
-    height:260px;
-    object-fit:cover;
-    object-position:center;
-    border-radius:12px;
-  
-  }
-  .img-block {
-    margin-top: 1.25rem;
-  }
-
-  .img-frame {
-    background: #faf8f4;
-    border: 1px solid #e5dacb;
-    border-radius: 18px;
+  /* HERO */
+  .hero-medieval {
+    background: linear-gradient(135deg, #f8f4ec 0%, #efe7d8 100%);
+    border: 1px solid #ddd0b8;
+    border-radius: 24px;
+    padding: 3rem;
+    box-shadow: 0 10px 30px rgba(58,44,24,.08);
     overflow: hidden;
   }
 
-  .img-frame img {
-    width: 100%;
-    display: block;
-    object-fit: cover;
-    max-height: 460px;
-    cursor: pointer;
+  .hero-badge {
+    display: inline-block;
+    padding: .6rem 1rem;
+    background: #e8dfcf;
+    border: 1px solid #d2c3a5;
+    color: #6b4e2e;
+    font-weight: 700;
+    border-radius: 999px;
   }
 
-  .img-note {
-    padding: 0.85rem 1rem;
-    font-size: 0.92rem;
-    color: #5b6472;
-    background: #fcfbf8;
-    border-top: 1px solid #e5dacb;
+  .hero-title {
+    color: #1f2937;
+    font-size: clamp(2rem, 4vw, 3.35rem);
+    line-height: 1.12;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    margin-bottom: 1.2rem;
   }
 
-  .quote-card {
-    padding: 1.25rem 1.35rem;
-    margin-top: 1rem;
-    border-left: 5px solid #b99870;
+  .hero-text {
+    color: #263241;
+    font-size: 1.08rem;
+    line-height: 1.75;
   }
 
-  .quote-card p {
-    font-size: 1rem;
-    line-height: 1.8;
-    color: #334155;
-    margin-bottom: 0.65rem;
+  .hero-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+    margin-top: 2rem;
   }
 
-  .quote-author {
-    font-size: 0.92rem;
-    color: #6b7280;
+  .hero-chips span {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    background: #f4ede0;
+    border: 1px solid #d9ccb4;
+    color: #5f4a2c;
+    padding: .55rem 1rem;
+    border-radius: 999px;
     font-weight: 600;
   }
 
-  .summary-band {
-    margin-top: 1.25rem;
-    background: linear-gradient(135deg, #f3e8da 0%, #f8f2e9 100%);
-    border: 1px solid #e4d5bf;
-    border-radius: 18px;
-    padding: 1rem 1.15rem;
+  .hero-figure {
+    margin: 0;
   }
 
-  .summary-band strong {
-    color: #3d2d1f;
+  .hero-figure img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(0,0,0,.15);
+    border: 4px solid #fff;
   }
 
-  .final-box {
-    background: linear-gradient(135deg, #23344f 0%, #314a6b 100%);
-    color: #fff;
+  .hero-figure figcaption {
+    margin-top: .8rem;
+    color: #6b727c;
+    font-size: .95rem;
+    line-height: 1.55;
+  }
+  figcaption {
+    margin-top: .8rem;
+    color: #6b727c;
+  }
+   .contenedor{
+    background: linear-gradient(135deg, #f8f4ec 0%, #efe7d8 100%);
+    border: 1px solid #ddd0b8;
     border-radius: 24px;
-    padding: 2rem;
-    box-shadow: 0 16px 36px rgba(27, 42, 65, 0.18);
+   }
+  /* ASIDE */
+  .page-aside {
+    position: sticky;
+    top: 92px;
+    max-height: calc(100vh - 110px);
   }
 
-  .final-box h3 {
+  .aside-card {
+    background: #fff;
+    border: 1px solid #e7dfd2;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(58, 44, 24, 0.06);
+    padding: 1.25rem 1rem;
+    max-height: calc(100vh - 110px);
+    overflow-y: auto;
+    scrollbar-width: thin;
+  }
+
+  .aside-card h5 {
+    font-size: 1rem;
     font-weight: 800;
+    color: #1f2937;
     margin-bottom: 1rem;
   }
 
-  .final-box p {
-    color: rgba(255,255,255,0.94);
-    line-height: 1.8;
-    margin-bottom: 0.9rem;
+  .aside-nav {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding-right: 0.25rem;
   }
 
-  .final-box p:last-child {
+  .aside-nav a {
+    text-decoration: none;
+    color: #334155;
+    font-size: 1rem;
+    padding: .9rem 1rem;
+    border-radius: 14px;
+    transition: all .2s ease;
+    border: 1px solid #c7d2fe;
+    background: #f8fafc;
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+  }
+
+  .aside-nav a:hover {
+    background: #eef2ff;
+    border-color: #93c5fd;
+    color: #1e3a8a;
+    transform: translateX(3px);
+  }
+
+  /* BLOQUES DE CONTENIDO */
+  .main-col {
+    width: 100%;
+  }
+
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: .9rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .section-icon {
+    width: 58px;
+    height: 58px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #e8d7bb, #d8be92);
+    box-shadow: 0 8px 20px rgba(92, 67, 33, .12);
+    font-size: 1.55rem;
+  }
+
+  .section-head h2 {
+    margin: 0;
+    color: #111827;
+    font-weight: 900;
+    font-size: clamp(1.8rem, 3vw, 2.35rem);
+    letter-spacing: -0.03em;
+  }
+
+  .section-block,
+  .intro-box {
+    background: #fff;
+    border: 1px solid #e7dfd2;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(58, 44, 24, .06);
+  }
+
+  .section-block p,
+  .intro-box p {
+    color: #111827;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    margin-bottom: 1.25rem;
+  }
+
+  .section-block p:last-child,
+  .intro-box p:last-child {
     margin-bottom: 0;
   }
 
-  .object-fit-cover {
-    object-fit: cover;
-  }
-
-  .img-wrapper {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-  }
-
-  .img-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .link-atentado {
-    color: #8b0000;
-    font-weight: 600;
-    text-decoration: underline;
-    cursor: pointer;
-  }
-
-  .link-atentado:hover {
-    color: #c1121f;
-  }
-
-  .romanico-img{
-    height: 320px;
-    object-fit: cover;
-    border-radius: 16px;
-  }
-
-  /* Tablet */
-  @media (max-width: 992px){
-
-    .romanico-img{
-      height: 260px;
+  /* RESPONSIVE */
+  @media (max-width: 991px) {
+    .hero-medieval {
+      padding: 2.2rem;
     }
 
-  }
-
-  /* Móvil */
-  @media (max-width: 768px){
-
-    .romanico-img{
-      height: 190px;
-    }
-
-  }
-
-  /* =====================================================
-     RESPONSIVE GENERAL
-  ===================================================== */
-
-  @media (max-width: 1199px) {
-    .alfonso-hero {
-      padding: 3.2rem 0 2.5rem;
-    }
-
-    .page-grid {
-      grid-template-columns: 1fr;
+    .hero-figure img {
+      height: 300px;
     }
 
     .page-aside {
-      position: static;
+       position: static;
+       max-height: none;
     }
-
-    .hero-wrap .row {
-      row-gap: 2rem;
-    }
-
-    .alfonso-hero h1 {
-      font-size: 2.3rem;
-      line-height: 1.12;
-    }
-
-    .alfonso-hero .lead {
-      font-size: 1.05rem;
-      line-height: 1.8;
-    }
-
-    .hero-chips,
-    .d-flex.flex-wrap.gap-3.mt-4 {
-      gap: 0.7rem !important;
-    }
-
-    .chip,
-    .badge-soft {
-      font-size: 0.92rem;
-      padding: 0.52rem 0.85rem;
-    }
-
-    .hero-portrait {
-      margin: 0 auto;
-      max-width: 540px;
-    }
-
-    .hero-portrait img {
-      height: 420px;
-      object-fit: cover;
-    }
-
-    .hero-caption {
-      text-align: center;
-      padding-inline: 1rem;
-      font-size: 0.95rem;
-    }
-
-    .mini-grid,
-    .mini-grid_17 {
-      grid-template-columns: repeat(2, 1fr);
+    .aside-card {
+      max-height: none;
+      overflow-y: visible;
     }
   }
 
-  @media (max-width: 767px) {
-    .alfonso-hero {
-      padding: 2.4rem 0 2rem;
+  @media (max-width: 768px) {
+    .medieval-img {
+      height: 170px;
     }
 
-    .hero-kicker,
-    .badge-soft {
-      font-size: 0.82rem;
-    }
-
-    .alfonso-hero h1 {
-      font-size: 1.95rem;
-      line-height: 1.08;
-      margin-bottom: 1.1rem;
-    }
-
-    .alfonso-hero .lead {
-      font-size: 1rem;
-      line-height: 1.75;
-    }
-
-    .content-shell {
-      padding: 0 0.7rem;
-    }
-
-    .content-card,
-    .intro-box,
-    .final-box {
-      padding: 1.1rem;
-      border-radius: 18px;
-    }
-
-    .section-head {
-      gap: 0.65rem;
-      align-items: flex-start;
-    }
-
-    .section-head h2 {
-      font-size: 1.35rem;
-      line-height: 1.2;
-    }
-
-    .section-icon {
-      width: 42px;
-      height: 42px;
-      font-size: 1.1rem;
-    }
-
-    .hero-portrait {
-      max-width: 100%;
+    .hero-medieval {
+      padding: 1.5rem;
       border-radius: 20px;
     }
 
-    .hero-portrait img {
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
-      object-position: center;
+    .hero-title {
+      font-size: 2rem;
     }
 
-    .hero-caption {
-      text-align: center;
-      font-size: 0.9rem;
-      line-height: 1.6;
-      padding-inline: 0.5rem;
-      margin-top: 0.8rem;
+    .hero-text {
+      font-size: 1rem;
     }
 
-    .mini-grid,
-    .mini-grid_17 {
-      grid-template-columns: 1fr;
+    .hero-chips {
+      gap: .5rem;
     }
 
-    .timeline {
-      padding-left: 1rem;
+    .hero-chips span {
+      font-size: .9rem;
+      padding: .45rem .8rem;
     }
 
-    .t-item {
-      padding-left: 1.3rem;
+    .hero-figure img {
+      height: 240px;
     }
 
-    .d-flex.flex-wrap.gap-3.mt-4 {
-      gap: 0.55rem !important;
+    .section-block,
+    .intro-box {
+      padding: 1.35rem;
     }
 
-    .romanico-plano{
-    height: 320px;
-
-    object-fit: contain;
-
-    background: #f8f5ef;
-
-    padding: .5rem;
+    .section-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
     }
-    
   }
+  
 </style>
 
-  <section class="alfonso-hero">
-    
-    <div class="container hero-wrap">
-      <div class="row align-items-center g-4">
-        <div class="col-lg-8">
+<section class="hero-medieval my-4">
+  <div class="row align-items-center g-5">
+    <div class="col-lg-7">
           <span class="badge-soft badge-republica">⛪ Arte, fe y poder medieval</span>
           <h1 class="display-3 fw-bold mt-4">El Románico: el nacimiento del arte europeo medieval</h1>
           
@@ -954,7 +492,7 @@
           </div>
         </div>
 
-        <div class="col-lg-4">
+    <div class="col-lg-5">
           <div class="hero-portrait">
             <img src="{% static 'images/temas/romanico/iglesia_san_martin.jpg' %}"
                 alt="Iglesia de San Martin"
@@ -965,19 +503,19 @@
             El románico se convirtió en el gran lenguaje artístico y espiritual de la Europa medieval, extendiéndose por monasterios, iglesias y rutas de peregrinación entre los siglos XI y XIII.
           </div>
         </div>
-      </div>
-    </div>
-  </section>
+  </div>
+</section>
 
-  <div class="content-shell">
-    <div class="page-grid">
+<div class="row g-4 mt-4 contenedor">
+  <div class="col-lg-4">
+    <aside class="page-aside mb-3">
+      <div class="aside-card">
+        <h5>En esta página</h5>
 
-      <aside class="page-aside">
-        <div class="aside-card">
-          <h5>En esta página</h5>
           <nav class="aside-nav">  
              <a href="#introduccion">📜 Introducción</a>         
              <a href="#contexto">⚔️ Contexto histórico</a>
+             <a href="{% url 'viaje_castilla' %}">🏰 Viaje a Castilla</a>
              <a href="#camino">🚶Camino de Santiago</a>
              <a href="#arquitectura">⛪Arquitectura románica</a>
              <a href="#escultura">🗿 Escultura románica</a>
@@ -990,11 +528,13 @@
              <a href="#legado">📚 Legado del románico</a>
 
           </nav>
-        </div>
-      </aside>
+      </div>
+    </aside>
+  </div>
 
-      <main class="main-col">
-         <section id="introduccion" class="section-block">
+  <div class="col-lg-8">
+    <main class="main-col my-3">
+        <section id="introduccion" class="section-block">
           <div class="section-head">
             <span class="section-icon">📜</span>
             <h2> Introducción</h2>
@@ -1467,19 +1007,19 @@
                       <div class="col-4">
                         <img src="{% static 'images/temas/romanico/sant-joan-de-boi.jpg' %}"
                             alt="Sant Joan de Boí"
-                            class="romanico-etapa-img shadow-sm mb-3">
+                            class="romanico-plano img-fluid rounded shadow-sm mb-3 w-100">
                       </div>
 
                       <div class="col-4">
                         <img src="{% static 'images/temas/romanico/taul.jpg' %}"
                             alt="Tahull"
-                            class="romanico-etapa-img shadow-sm mb-3">
+                            class="romanico-plano img-fluid rounded shadow-sm mb-3 w-100">
                       </div>
 
                       <div class="col-4">
                         <img src="{% static 'images/temas/romanico/santa-maria-de-ripoll.jpg' %}"
                             alt="Santa María de Ripoll"
-                            class="romanico-etapa-img shadow-sm mb-3">
+                            class="romanico-plano img-fluid rounded shadow-sm mb-3 w-100">
                       </div>
 
                     </div>
@@ -1501,7 +1041,7 @@
                         <ul>
                           <li>Uso generalizado de la bóveda de cañón.</li>
                           <li>Aparición de bóvedas de arista.</li>
-                          <li>Planttas de cruz latina</li>
+                          <li>Plantas de cruz latina</li>
                           <li>Grandes portadas escultóricas.</li>
                           <li>Desarrollo del claustro</li>
                           <li>Escultura didáctica con función religiosa.</li>
@@ -1524,19 +1064,19 @@
                       <div class="col-4">
                         <img src="{% static 'images/temas/romanico/sant-joan-de-boi.jpg' %}"
                             alt="Sant Joan de Boí"
-                            class="romanico-etapa-img shadow-sm mb-3">
+                            class="romanico-plano img-fluid rounded shadow-sm mb-3 w-100">
                       </div>
 
                       <div class="col-4">
                         <img src="{% static 'images/temas/romanico/taul.jpg' %}"
                             alt="Tahull"
-                            class="romanico-etapa-img shadow-sm mb-3">
+                            class="romanico-plano img-fluid rounded shadow-sm mb-3 w-100">
                       </div>
 
                       <div class="col-4">
                         <img src="{% static 'images/temas/romanico/santa-maria-de-ripoll.jpg' %}"
                             alt="Santa María de Ripoll"
-                            class="romanico-etapa-img shadow-sm mb-3">
+                            class="romanico-plano img-fluid rounded shadow-sm mb-3 w-100">
                       </div>
 
                     </div>
@@ -1552,13 +1092,48 @@
           </div>
 
         </section>
-      </main>
-    </div>
+
+
+      <section id="recursos">
+        <div class="section-head mt-3">
+          <span class="section-icon">📚</span>
+          <h3>Recursos</h3>
+        </div>
+
+        <div class="intro-box section-block">      
+          <h4>Podcast</h4>
+          <div>
+            <ul>
+              <li><a target="_blank" class="section-link" href="https://www.ivoox.com/batalla-simancas-del-939-1-2-audios-mp3_rf_144145709_1.html">Medievalia. La Batalla de Simancas del 939</a></li>
+              <li><a target="_blank" class="section-link" href="https://memoriasdeuntambor.com/la-frontera-del-duero">Memorias de un tambor. La frontera del Duero</a></li>
+              <li><a target="_blank" class="section-link" href="https://memoriasdeuntambor.com/84-la-ciudad-medieval">Memorias de un tambor. La ciudad medieval</a></li>
+            </ul>
+          </div>
+          <h4>Vídeos</h4>
+          <div>
+            <ul>
+              <li><a target="_blank" class="section-link" href="https://www.youtube.com/watch?v=RbsxiItds_A">Historia Ex Hispania. Batalla de Simancas, 939</a></li>
+              <li><a target="_blank" class="section-link" href="https://www.youtube.com/watch?v=RbsxiItds_A">Vestigios. La Batalla de Simancas (939) 🛡️ ¿La Mayor Humillación de Abderramán III?</a></li>
+              <li><a target="_blank" class="section-link" href="https://www.youtube.com/watch?v=UlAku_aRmfM">La Historia de España - Memorias Hispánicas. Ramiro II de León y la batalla de Simancas-Alhándega</a></li>
+              <li><a target="_blank" class="section-link" href="https://www.youtube.com/playlist?list=PLVw8hISUcZM6eeYoM22lErMISc3_jMZQd">La Reconquista (de José Javier Esparza)</a></li>
+             
+            </ul>
+          </div>
+          <h4>Web</h4>
+          <div>
+            <ul>
+              <li><a target="_blank" class="section-link" href="https://www.youtube.com/watch?v=RbsxiItds_A">Historia Ex Hispania. Batalla de Simancas, 939</a></li>
+              <li><a target="_blank" class="section-link" href="https://es.wikipedia.org/wiki/Fernando_I_de_Le%C3%B3n">Wikipedia. Fernando I de León</a></li>
+              
+            </ul>
+          </div>
+          
+        </div>
+      </section>
+    
+    </main>
   </div>
 </div>
-
-
-
 
 <!-- -------------------------------------------MODALES --------------------------------->
 <div class="modal fade" id="modalCluny" tabindex="-1" aria-labelledby="modalClunyLabel" aria-hidden="true">
@@ -1625,22 +1200,21 @@
 </div>
 
 <script>
-  function toggleSubmenu(button) {
-    const dropdown = button.parentElement;
-    dropdown.classList.toggle("open");
+  function filtrarCronologia(categoria, boton) {
+    const items = document.querySelectorAll('.timeline-item');
+    const botones = document.querySelectorAll('.timeline-btn');
+
+    botones.forEach(btn => btn.classList.remove('active'));
+    boton.classList.add('active');
+
+    items.forEach(item => {
+      if (categoria === 'todos' || item.classList.contains(categoria)) {
+        item.classList.remove('oculto');
+      } else {
+        item.classList.add('oculto');
+      }
+    });
   }
-  function toggleRomanicoMenu() {
-    document.getElementById("romanicoMenu").classList.toggle("open");
-  }
-  document.addEventListener("DOMContentLoaded", function () {
-    const logo = document.getElementById("logotipo");
-    if (logo) {
-      logo.addEventListener("click", function (e) {
-        if (window.innerWidth <= 575 && e.clientX > window.innerWidth - 120) {
-          document.body.classList.toggle("menu-open");
-        }
-      });
-    }
-  });
 </script>
+
 {% endblock %}

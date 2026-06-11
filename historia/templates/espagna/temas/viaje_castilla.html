@@ -1,0 +1,2379 @@
+{% extends "bases/baseInicioHistoria.html" %}
+
+{% load static %}
+
+{% block titulo %} Viaje a Castilla {% endblock %}
+
+{% block cabecera %} Viaje a Castilla {% endblock %}
+
+{% block imgCabecera %}  {% endblock %}
+
+{% block contenido %}
+
+<style>
+  .personaje-link{
+    color:#8b0000;
+    font-weight:600;
+    text-decoration:none;
+    border-bottom:1px dotted #8b0000;
+  }
+
+  .personaje-link:hover{
+      color:#b22222;
+  }
+
+  .timeline-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin: 1.5rem 0;
+  }
+
+  .timeline-btn {
+    border: 1px solid #b89b5e;
+    background: #f8f1df;
+    color: #4a3418;
+    padding: 0.45rem 0.9rem;
+    border-radius: 999px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .timeline-btn.active,
+  .timeline-btn:hover {
+    background: #7a4f1d;
+    color: #fff;
+  }
+
+  .timeline {
+    position: relative;
+    margin-top: 2rem;
+    padding-left: 2rem;
+    border-left: 4px solid #b89b5e;
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 1.8rem;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -2.55rem;
+    top: 0.3rem;
+    width: 1rem;
+    height: 1rem;
+    background: #7a4f1d;
+    border: 3px solid #f5ead0;
+    border-radius: 50%;
+  }
+
+  .timeline-year {
+    display: inline-block;
+    background: #7a4f1d;
+    color: white;
+    padding: 0.3rem 0.7rem;
+    border-radius: 0.4rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline-content {
+    background: #fffaf0;
+    border: 1px solid #ead8b7;
+    border-radius: 0.8rem;
+    padding: 1rem 1.2rem;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  }
+
+  .timeline-content h4 {
+    color: #4a3418;
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline-content p {
+    margin-bottom: 0;
+    line-height: 1.65;
+  }
+
+  .timeline-item.oculto {
+    display: none;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .timeline {
+      padding-left: 1.5rem;
+    }
+
+    .timeline-item::before {
+      left: -2.05rem;
+    }
+
+    .timeline-content {
+      padding: 0.9rem;
+    }
+  }
+  .img-retrato {
+    max-width: 700px;
+    width: auto;    
+    max-height: 500px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .img-panoramica {
+    max-width: 1100px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  .navbar {
+    border-radius: 16px;
+  }
+
+  .navbar .nav-link,
+  .navbar .navbar-brand {
+    font-size: 0.95rem;
+    white-space: nowrap;
+  }
+
+  .section-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 0.35rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: #8b0000;
+  }
+
+  @media (max-width: 991px) {
+    .navbar {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+
+    .navbar-collapse {
+      margin-top: 0.8rem;
+      background: #212529;
+      border-radius: 14px;
+      padding: 0.8rem;
+    }
+
+    .navbar-nav {
+      text-align: left;
+    }
+
+    .navbar .nav-link {
+      padding: 0.55rem 0.8rem;
+      border-radius: 10px;
+    }
+
+    .navbar .nav-link:hover {
+      background: rgba(255,255,255,0.12);
+    }
+
+    .dropdown-menu {
+      border-radius: 12px;
+      margin-top: 0.4rem;
+    }
+  }
+
+  /* TARJETAS */
+  .medieval-card {
+    overflow: hidden;
+    border-radius: 20px;
+    border: none;
+    transition: all .3s ease;
+    background: #fff;
+  }
+
+  .medieval-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0,0,0,.15);
+  }
+
+  .medieval-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  /* HERO */
+  .hero-medieval {
+    background: linear-gradient(135deg, #f8f4ec 0%, #efe7d8 100%);
+    border: 1px solid #ddd0b8;
+    border-radius: 24px;
+    padding: 3rem;
+    box-shadow: 0 10px 30px rgba(58,44,24,.08);
+    overflow: hidden;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    padding: .6rem 1rem;
+    background: #e8dfcf;
+    border: 1px solid #d2c3a5;
+    color: #6b4e2e;
+    font-weight: 700;
+    border-radius: 999px;
+  }
+
+  .hero-title {
+    color: #1f2937;
+    font-size: clamp(2rem, 4vw, 3.35rem);
+    line-height: 1.12;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    margin-bottom: 1.2rem;
+  }
+
+  .hero-text {
+    color: #263241;
+    font-size: 1.08rem;
+    line-height: 1.75;
+  }
+
+  .hero-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+    margin-top: 2rem;
+  }
+
+  .hero-chips span {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    background: #f4ede0;
+    border: 1px solid #d9ccb4;
+    color: #5f4a2c;
+    padding: .55rem 1rem;
+    border-radius: 999px;
+    font-weight: 600;
+  }
+
+  .hero-figure {
+    margin: 0;
+  }
+
+  .hero-figure img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(0,0,0,.15);
+    border: 4px solid #fff;
+  }
+
+  .hero-figure figcaption {
+    margin-top: .8rem;
+    color: #6b727c;
+    font-size: .95rem;
+    line-height: 1.55;
+  }
+  figcaption {
+    margin-top: .8rem;
+    color: #6b727c;
+  }
+   .contenedor{
+    background: linear-gradient(135deg, #f8f4ec 0%, #efe7d8 100%);
+    border: 1px solid #ddd0b8;
+    border-radius: 24px;
+   }
+  /* ASIDE */
+  .page-aside {
+    position: sticky;
+    top: 92px;
+    max-height: calc(100vh - 110px);
+  }
+
+  .aside-card {
+    background: #fff;
+    border: 1px solid #e7dfd2;
+    border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(58, 44, 24, 0.06);
+    padding: 1.25rem 1rem;
+    max-height: calc(100vh - 110px);
+    overflow-y: auto;
+    scrollbar-width: thin;
+  }
+
+  .aside-card h5 {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #1f2937;
+    margin-bottom: 1rem;
+  }
+
+  .aside-nav {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding-right: 0.25rem;
+  }
+
+  .aside-nav a {
+    text-decoration: none;
+    color: #334155;
+    font-size: 1rem;
+    padding: .9rem 1rem;
+    border-radius: 14px;
+    transition: all .2s ease;
+    border: 1px solid #c7d2fe;
+    background: #f8fafc;
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+  }
+
+  .aside-nav a:hover {
+    background: #eef2ff;
+    border-color: #93c5fd;
+    color: #1e3a8a;
+    transform: translateX(3px);
+  }
+
+  /* BLOQUES DE CONTENIDO */
+  .main-col {
+    width: 100%;
+  }
+
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: .9rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .section-icon {
+    width: 58px;
+    height: 58px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #e8d7bb, #d8be92);
+    box-shadow: 0 8px 20px rgba(92, 67, 33, .12);
+    font-size: 1.55rem;
+  }
+
+  .section-head h2 {
+    margin: 0;
+    color: #111827;
+    font-weight: 900;
+    font-size: clamp(1.8rem, 3vw, 2.35rem);
+    letter-spacing: -0.03em;
+  }
+
+  .section-block,
+  .intro-box {
+    background: #fff;
+    border: 1px solid #e7dfd2;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(58, 44, 24, .06);
+  }
+
+  .section-block p,
+  .intro-box p {
+    color: #111827;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    margin-bottom: 1.25rem;
+  }
+
+  .section-block p:last-child,
+  .intro-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 991px) {
+    .hero-medieval {
+      padding: 2.2rem;
+    }
+
+    .hero-figure img {
+      height: 300px;
+    }
+
+    .page-aside {
+       position: static;
+       max-height: none;
+    }
+    .aside-card {
+      max-height: none;
+      overflow-y: visible;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .medieval-img {
+      height: 170px;
+    }
+
+    .hero-medieval {
+      padding: 1.5rem;
+      border-radius: 20px;
+    }
+
+    .hero-title {
+      font-size: 2rem;
+    }
+
+    .hero-text {
+      font-size: 1rem;
+    }
+
+    .hero-chips {
+      gap: .5rem;
+    }
+
+    .hero-chips span {
+      font-size: .9rem;
+      padding: .45rem .8rem;
+    }
+
+    .hero-figure img {
+      height: 240px;
+    }
+
+    .section-block,
+    .intro-box {
+      padding: 1.35rem;
+    }
+
+    .section-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+    }
+  }
+  
+</style>
+
+<section class="hero-medieval my-4">
+  <div class="row align-items-center g-5">
+    <div class="col-lg-7">
+      <div class="hero-badge mb-4">
+        🏛️ Los Viajeros Intrépidos descubren el románico castellano
+      </div>
+
+      <h1>
+        Viaje a Castilla León
+      </h1>
+
+      <p class="hero-lead">
+        Una ruta de amigos por Palencia, Burgos, León y Segovia para conocer de cerca
+        la arquitectura, la escultura y el paisaje espiritual del románico. Iglesias,
+        monasterios, capiteles, pórticos y pueblos históricos serán el hilo conductor
+        de un viaje pensado para aprender, disfrutar y compartir camino.
+      </p>
+
+      <div class="hero-chips">
+        <span>⛪ Románico palentino</span>
+        <span>🏰 Burgos medieval</span>
+        <span>👑 León y sus reyes</span>
+        <span>🌉 Segovia monumental</span>
+        <span>🧭 Viajeros Intrépidos</span>
+      </div>
+    </div>
+
+    <div class="col-lg-5">
+      <figure class="hero-figure">
+        <img src="{% static 'images/edad_media/viaje_castilla/portada.jpeg' %}"
+             alt="Viajeros Intrépidos en ruta por el románico de Castilla"
+             class="img-fluid">
+
+        <figcaption>
+          Un viaje por Castilla León para descubrir el románico entre amigos: Palencia, Burgos,
+          León y Segovia como escenarios de historia, arte y aventura compartida.
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<div class="row g-4 mt-4 contenedor">
+  <div class="col-lg-4">
+    <aside class="page-aside mb-3">
+      <div class="aside-card">
+        <h5>En esta página</h5>
+
+        <nav class="aside-nav">
+
+          <a href="#introduccion" class="aside-link">🏰 Introducción al viaje</a>
+
+          <a href="#castilla-romanica" class="aside-link">🗺️ La Castilla León del Románico</a>
+
+          <a href="#ruta-general" class="aside-link">🚗 La ruta de los Viajeros Intrépidos</a>
+
+          <a href="#segovia" class="aside-link">🏛️ Día 1 · Segovia</a>
+
+          <a href="#burgos-silos" class="aside-link">⛪ Día 2 · Burgos y Silos</a>
+
+          <a href="#palencia-carrion" class="aside-link">🕍 Día 3 · Palencia y Carrión de los Condes</a>
+
+          <a href="#montana-palentina" class="aside-link">🏔️ Día 4 · Románico Norte y Montaña Palentina</a>
+
+          <a href="#leon" class="aside-link">👑 Día 5 · León y la Capilla Sixtina del Románico</a>
+
+          <a href="#zamora" class="aside-link">⚔️ Día 6 · Zamora, ciudad románica</a>
+
+          <a href="#toro" class="aside-link">🍷 Día 7 · Toro y San Pedro de la Nave</a>
+
+          <a href="#arte-romanico" class="aside-link">🎨 Claves para entender el Románico</a>
+
+          <a href="#camino-santiago" class="aside-link">🥾 El Camino de Santiago</a>
+
+          <a href="#personajes" class="aside-link">👑 Reyes, monjes y constructores</a>
+
+          <a href="#mapas" class="aside-link">🗺️ Mapas interactivos</a>
+
+          <a href="#galeria" class="aside-link">📸 Galería fotográfica</a>
+
+          <a href="#biblioteca" class="aside-link">📚 Biblioteca del viajero</a>
+
+          <a href="#legado" class="aside-link">⭐ El legado del Románico</a>
+
+          <a href="#recursos" class="aside-link">🔎 Recursos y enlaces</a>
+
+        </nav>
+      </div>
+    </aside>
+  </div>
+
+  <div class="col-lg-8">
+    <main class="main-col my-3">
+        <section id="introduccion">
+
+          <div class="section-head mt-3">
+            <span class="section-icon">🏰</span>
+            <h3>Introducción · Los Viajeros Intrépidos asaltan la Castilla del Románico</h3>
+          </div>
+
+          <figure>
+            <img src="{% static 'images/edad_media/viaje_castilla/introduccion.png' %}"
+                alt="Viaje por la Castilla del Románico"
+                class="img-fluid img-panoramica">
+          </figure>
+
+          <div class="intro-box section-block">
+
+            <p>
+              Hay viajes que se hacen para descansar, otros para descubrir paisajes y algunos para conocer ciudades.
+              Nuestro viaje pertenece a una categoría diferente: la de las expediciones que buscan comprender una época.
+              Durante siete días, los <strong>Viajeros Intrépidos</strong> recorreremos algunos de los territorios más fascinantes
+              de la España medieval para adentrarnos en el mundo del <strong>arte románico</strong>, una de las expresiones culturales
+              más importantes de la Europa del siglo XI y XII.
+            </p>
+
+            <p>
+              La ruta nos llevará por las antiguas tierras de Castilla y León, atravesando ciudades monumentales,
+              monasterios, aldeas, iglesias rurales y antiguos caminos de peregrinación. Desde los templos románicos
+              escondidos entre montañas de la Montaña Palentina hasta las grandes catedrales que anunciaban el nacimiento
+              del gótico, seguiremos las huellas de reyes, monjes, peregrinos, artesanos y canteros que levantaron un
+              patrimonio excepcional hace casi mil años.
+            </p>
+
+            <p>
+              Aunque el objetivo principal del viaje es el descubrimiento del románico, nuestra ruta permitirá también
+              comprender el contexto histórico en el que surgieron estas construcciones. Durante los siglos centrales
+              de la Edad Media, los reinos cristianos del norte peninsular experimentaron un notable crecimiento político,
+              económico y cultural. El avance de la Reconquista, la consolidación del Camino de Santiago y el desarrollo
+              de poderosos monasterios favorecieron la construcción de centenares de iglesias que aún hoy sobreviven como
+              testimonio de aquella época.
+            </p>
+
+            <p>
+              Visitaremos lugares tan emblemáticos como Segovia, Burgos, León, Zamora y Toro, pero también pequeñas joyas
+              menos conocidas que figuran entre los mejores ejemplos del románico europeo. Descubriremos los capiteles
+              historiados de Moarves de Ojeda, la monumentalidad de Frómista, el esplendor del monasterio de Silos,
+              la llamada «Capilla Sixtina del Románico» en León y la singular iglesia visigoda de San Pedro de la Nave,
+              uno de los edificios más extraordinarios de toda la arquitectura altomedieval española.
+            </p>
+
+            <p>
+              Este recorrido no pretende ser únicamente una sucesión de monumentos. La intención es comprender qué nos
+              cuentan estas piedras milenarias. Cada portada, cada capitel y cada pintura mural constituyen auténticos
+              libros esculpidos destinados a transmitir mensajes religiosos, políticos y sociales a una población que
+              en gran medida no sabía leer. El románico fue, en cierto modo, el gran lenguaje visual de la Europa medieval.
+            </p>
+
+            <p>
+              A lo largo de esta página iremos reuniendo información histórica, artística y práctica sobre cada una de las
+              etapas del viaje. Servirá como cuaderno de preparación de la expedición y como guía para interpretar los
+              monumentos que encontraremos en el camino. Nuestro objetivo no será únicamente visitar iglesias, sino aprender
+              a observarlas, entenderlas y disfrutarlas.
+            </p>
+
+            <p>
+              Comienza así una nueva aventura de los <strong>Viajeros Intrépidos</strong>, una expedición que nos llevará por
+              algunas de las tierras más bellas e históricas de España para descubrir el extraordinario legado de la Castilla
+              medieval y del arte románico.
+            </p>
+
+          </div>
+
+        </section>
+
+        <section id="castilla-romanica">
+
+          <div class="section-head mt-3">
+            <span class="section-icon">🗺️</span>
+            <h3>La Castilla del Románico</h3>
+          </div>
+
+          <figure>
+            <img src="{% static 'images/edad_media/viaje_castilla/castilla_romanico.png' %}"
+                alt="La Castilla del Románico"
+                class="img-fluid img-panoramica">
+          </figure>
+
+          <div class="intro-box section-block">
+
+            <p>
+              Hablar del románico en España es hablar inevitablemente de Castilla y León. Ningún otro territorio de la
+              Península conserva una concentración tan extraordinaria de iglesias, monasterios, ermitas y conjuntos
+              monumentales construidos entre los siglos XI y XIII. Estas tierras constituyen uno de los grandes
+              laboratorios del arte medieval europeo y permiten recorrer, casi sin interrupción, la evolución completa
+              del románico desde sus formas más tempranas hasta su transición hacia el gótico.
+            </p>
+
+            <p>
+              Durante aquellos siglos, los reinos de León y Castilla experimentaron una profunda transformación.
+              La expansión hacia el sur, el crecimiento de las ciudades, la consolidación del poder monárquico y la
+              llegada constante de peregrinos a Santiago de Compostela impulsaron una intensa actividad constructiva.
+              Monasterios, obispados, nobles y comunidades rurales financiaron centenares de edificios religiosos que
+              hoy constituyen uno de los patrimonios históricos más valiosos de Europa.
+            </p>
+
+            <p>
+              El Camino de Santiago desempeñó un papel decisivo en este proceso. A través de él llegaron nuevas ideas,
+              técnicas arquitectónicas, artistas y corrientes culturales procedentes de Francia e Italia. Los canteros
+              y escultores que recorrían Europa difundieron un lenguaje artístico común que acabó dando forma a un estilo
+              fácilmente reconocible por sus gruesos muros, arcos de medio punto, bóvedas de piedra y extraordinarios
+              programas escultóricos.
+            </p>
+
+            <p>
+              Sin embargo, la Castilla del Románico no es únicamente la de las grandes ciudades monumentales. Junto a
+              catedrales, colegiatas y monasterios aparecen pequeñas iglesias rurales construidas para aldeas de apenas
+              unas decenas de habitantes. Muchas de ellas han llegado prácticamente intactas hasta nuestros días,
+              convirtiéndose en auténticas cápsulas del tiempo que permiten contemplar el paisaje medieval casi sin
+              alteraciones.
+            </p>
+
+            <p>
+              Nuestra ruta atraviesa algunos de los territorios más representativos de este patrimonio. Segovia nos
+              mostrará la convivencia entre el legado romano, el románico y la arquitectura gótica. Burgos y Silos
+              permitirán comprender la importancia de los monasterios en la cultura medieval. Palencia, conocida por
+              muchos especialistas como la provincia con mayor concentración de románico de Europa, nos abrirá las
+              puertas de un patrimonio excepcional que culmina en la Montaña Palentina, uno de los grandes tesoros
+              artísticos todavía poco conocidos por el gran público.
+            </p>
+
+            <p>
+              León nos conducirá a uno de los conjuntos pictóricos más importantes del continente europeo, mientras que
+              Zamora ofrecerá una de las imágenes urbanas medievales mejor conservadas de España. Finalmente, Toro y
+              San Pedro de la Nave nos permitirán contemplar la transición entre el mundo visigodo y el románico,
+              completando así un recorrido de más de quinientos años de historia arquitectónica.
+            </p>
+
+            <p>
+              La riqueza de esta región no reside únicamente en la cantidad de monumentos conservados, sino también en
+              su diversidad. A lo largo del viaje encontraremos iglesias rurales de dimensiones modestas, poderosos
+              monasterios benedictinos, colegiatas vinculadas a la monarquía, fortalezas fronterizas y conjuntos urbanos
+              que todavía conservan el trazado heredado de la Edad Media.
+            </p>
+
+            <p>
+              Recorrer la Castilla del Románico supone viajar a una época en la que la piedra se convirtió en el gran
+              medio de expresión de una sociedad profundamente religiosa. Cada capitel, cada portada y cada pintura mural
+              fueron concebidos para transmitir mensajes y enseñar historias a los fieles. Aprender a interpretar ese
+              lenguaje será uno de los principales objetivos de esta expedición de los <strong>Viajeros Intrépidos</strong>.
+            </p>
+
+          </div>
+
+        </section>
+
+        <section id="ruta-general">
+
+          <div class="section-head mt-3">
+            <span class="section-icon">🚗</span>
+            <h3>La ruta de los Viajeros Intrépidos</h3>
+          </div>
+
+          <figure>
+            <img src="{% static 'images/edad_media/viaje_castilla/ruta.png' %}"
+                alt="Ruta de los Viajeros Intrépidos por Castilla y León"
+                class="img-fluid img-panoramica">
+          </figure>
+
+          <div class="intro-box section-block">
+
+            <p>
+              La expedición de los <strong>Viajeros Intrépidos</strong> recorrerá durante siete días algunos de los grandes
+              escenarios históricos y artísticos de Castilla y León. El itinerario combina ciudades monumentales,
+              monasterios, pequeñas iglesias rurales, paisajes de montaña y algunos de los conjuntos románicos más
+              importantes de Europa.
+            </p>
+
+            <p>
+              La ruta comenzará en <strong>Segovia</strong>, ciudad donde conviven el legado romano, el esplendor medieval
+              y uno de los cascos históricos más bellos de España. Desde allí avanzaremos hacia <strong>Burgos</strong> y
+              <strong>Santo Domingo de Silos</strong>, dos lugares esenciales para comprender la fuerza espiritual,
+              política y artística de la Castilla medieval.
+            </p>
+
+            <p>
+              El tercer día estará dedicado a <strong>Palencia</strong> y <strong>Carrión de los Condes</strong>, corazón del
+              Camino de Santiago y puerta de entrada a uno de los territorios con mayor concentración de románico de toda
+              Europa. Al día siguiente nos adentraremos en el <strong>Románico Norte</strong> y la <strong>Montaña Palentina</strong>,
+              visitando enclaves como <strong>Aguilar de Campoo</strong>, <strong>Moarves de Ojeda</strong> y la iglesia de
+              <strong>San Juan Bautista</strong>, una de las joyas escultóricas del románico rural castellano.
+            </p>
+
+            <p>
+              La quinta jornada nos llevará a <strong>León</strong>, donde la basílica de San Isidoro conserva el
+              extraordinario Panteón de los Reyes, conocido como la <strong>Capilla Sixtina del Románico</strong>. Después,
+              la ruta continuará hacia <strong>Zamora</strong>, una de las ciudades con mayor densidad de iglesias románicas
+              de la Península, antes de concluir en <strong>Toro</strong> y en la iglesia de <strong>San Pedro de la Nave</strong>,
+              testimonio excepcional del arte visigodo y puente perfecto entre la Antigüedad tardía y la Edad Media.
+            </p>
+
+            <p>
+              No será un viaje lineal en el sentido turístico habitual. Será una ruta para mirar despacio, comparar estilos,
+              reconocer símbolos, entender capiteles, situar monasterios en su contexto y descubrir cómo el paisaje, la
+              historia y la arquitectura se entrelazan en estas tierras. Cada etapa permitirá comprender una faceta distinta
+              del románico: el urbano, el monástico, el rural, el jacobeo, el pictórico y el fronterizo.
+            </p>
+
+            <p>
+              El itinerario previsto queda organizado en siete jornadas:
+            </p>
+
+            <div class="table-responsive my-4">
+              <table class="table table-bordered table-hover align-middle">
+                <thead class="table-light">
+                  <tr>
+                    <th>Día</th>
+                    <th>Etapa</th>
+                    <th>Lugares principales</th>
+                    <th>Claves del recorrido</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Día 1</strong></td>
+                    <td>Segovia</td>
+                    <td>Casco histórico, iglesias románicas, acueducto, alcázar y catedral</td>
+                    <td>Ciudad monumental donde conviven Roma, el Románico, el Gótico y la Castilla medieval.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Día 2</strong></td>
+                    <td>Burgos y Silos</td>
+                    <td>Burgos, catedral, casco histórico y monasterio de Santo Domingo de Silos</td>
+                    <td>Capital castellana, memoria del Cid y uno de los monasterios más influyentes de la Edad Media.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Día 3</strong></td>
+                    <td>Palencia y Carrión de los Condes</td>
+                    <td>Palencia, Carrión de los Condes, Camino de Santiago</td>
+                    <td>Territorio clave del románico palentino y del mundo jacobeo.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Día 4</strong></td>
+                    <td>Románico Norte y Montaña Palentina</td>
+                    <td>Aguilar de Campoo, Moarves de Ojeda, iglesia de San Juan Bautista</td>
+                    <td>Románico rural, capiteles historiados y paisaje de montaña.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Día 5</strong></td>
+                    <td>León</td>
+                    <td>Basílica de San Isidoro, Panteón de los Reyes, casco histórico leonés</td>
+                    <td>La llamada Capilla Sixtina del Románico y uno de los grandes centros del reino leonés.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Día 6</strong></td>
+                    <td>Zamora</td>
+                    <td>Catedral, iglesias románicas, murallas y casco histórico</td>
+                    <td>Una de las ciudades románicas más importantes de España.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Día 7</strong></td>
+                    <td>Toro y San Pedro de la Nave</td>
+                    <td>Colegiata de Toro, casco histórico, San Pedro de la Nave</td>
+                    <td>Final de ruta entre el románico del Duero y una joya visigoda excepcional.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p>
+              Esta página nace como cuaderno de viaje previo. Aquí iremos reuniendo información histórica, artística,
+              mapas, fotografías, lecturas recomendadas y notas prácticas para que la expedición no sea solo una visita,
+              sino una verdadera inmersión en la Castilla medieval.
+            </p>
+
+          </div>
+
+        </section>
+
+        <section id="segovia">
+
+          <div class="section-head mt-3">
+            <span class="section-icon">🏛️</span>
+            <h3>Día 1 · Segovia, entre Roma y Castilla</h3>
+          </div>
+
+          <figure>
+            <img src="{% static 'images/edad_media/viaje_castilla/segovia/introduccion.png' %}"
+                alt="Segovia monumental"
+                class="img-fluid img-panoramica">
+          </figure>
+
+          <div class="intro-box section-block">
+
+            <p>
+              La expedición de los <strong>Viajeros Intrépidos</strong> comienza en una de las ciudades más monumentales de España.
+              Pocas localidades permiten realizar un viaje tan completo por la historia como Segovia. En apenas unos kilómetros
+              conviven el legado de Roma, el arte románico, la arquitectura gótica, las huellas de la monarquía castellana y uno
+              de los conjuntos urbanos medievales mejor conservados de Europa.
+            </p>
+
+            <p>
+              Aunque el objetivo principal de esta ruta es el descubrimiento del románico, Segovia constituye una introducción
+              perfecta al mundo medieval que encontraremos durante los días siguientes. La ciudad experimentó un extraordinario
+              desarrollo durante los siglos XI y XII, cuando la repoblación impulsada por los reyes castellanos convirtió este
+              enclave estratégico en uno de los principales centros urbanos del reino.
+            </p>
+
+            <p>
+              Aquel crecimiento favoreció la construcción de numerosas iglesias románicas, muchas de las cuales han llegado hasta
+              nuestros días conservando sus características galerías porticadas, una de las señas de identidad del románico
+              castellano. La abundancia de templos permitió que Segovia llegara a ser conocida como la ciudad de las iglesias.
+            </p>
+
+            <p>
+              El recorrido por la ciudad permitirá además comprender cómo evolucionó la arquitectura medieval. Desde las primeras
+              construcciones románicas hasta la espectacular catedral gótica del siglo XVI, Segovia ofrece una auténtica lección
+              de historia del arte al aire libre.
+            </p>
+            <div class="section-head mt-5">
+            
+            <h3>Lugares principales de la jornada</h3>
+          </div>
+
+          <div class="intro-box section-block" style="background-color: #e8dfcf;">
+            <h4>🏺 El Acueducto</h4>
+            <figure>
+              <img src="{% static 'images/edad_media/viaje_castilla/segovia/acueducto.jpg' %}"
+                  alt="Segovia monumental"
+                  class="img-fluid img-panoramica">
+            </figure>
+
+            <p>
+              La imagen más emblemática de Segovia es su extraordinario acueducto romano, construido entre finales del siglo I
+              y comienzos del siglo II d.C. Con más de quince kilómetros de longitud y cerca de treinta metros de altura en su
+              tramo más espectacular, constituye una de las mayores obras de ingeniería conservadas del mundo romano.
+            </p>
+
+            <p>
+              Su presencia dominando el acceso a la ciudad recuerda que la historia de Segovia comenzó mucho antes de la Edad
+              Media. Durante casi dos mil años ha permanecido en uso y se ha convertido en uno de los símbolos más reconocibles
+              de España.
+            </p>
+
+            <h4>⛪ Iglesia de San Martín</h4>
+
+            <figure>
+              <img src="{% static 'images/edad_media/viaje_castilla/segovia/iglesia_san_martin.jpg' %}"
+                  alt="Segovia monumental"
+                  class="img-fluid img-panoramica">
+            </figure>
+
+            <p>
+              Situada en la Plaza de Medina del Campo, es uno de los mejores ejemplos del románico segoviano. Destaca por su
+              elegante galería porticada, formada por una sucesión de arcos sostenidos por columnas decoradas con capiteles
+              esculpidos.
+            </p>
+
+            <p>
+              Este tipo de galerías constituye una de las características más singulares del románico castellano y será una de
+              las constantes que encontraremos a lo largo del viaje.
+            </p>
+
+            <h4>⛪ Iglesia de San Millán</h4>
+
+            <figure>
+              <img src="{% static 'images/edad_media/viaje_castilla/segovia/iglesia_san_millan.jpg' %}"
+                  alt="Segovia monumental"
+                  class="img-fluid img-panoramica">
+            </figure>
+
+            <p>
+              Considerada por muchos especialistas como el principal templo románico de Segovia, presenta influencias procedentes
+              de Aragón y del Camino de Santiago. Su estructura, sus torres y la riqueza de su arquitectura permiten comprender
+              el elevado nivel artístico alcanzado por la ciudad durante el siglo XII.
+            </p>
+
+            <h4>⛪ Iglesia de la Vera Cruz</h4>
+
+            <figure>
+              <img src="{% static 'images/edad_media/viaje_castilla/segovia/iglesia_vera_cruz.jpg' %}"
+                  alt="Segovia monumental"
+                  class="img-fluid img-panoramica">
+            </figure>
+
+            <p>
+              A las afueras de la ciudad se encuentra uno de los edificios más singulares de toda Castilla. Su planta
+              dodecagonal recuerda a las construcciones asociadas a los templarios y a los Santos Lugares de Jerusalén.
+            </p>
+
+            <p>
+              El templo, construido a comienzos del siglo XIII, constituye una de las visitas imprescindibles para cualquier
+              aficionado al arte medieval.
+            </p>
+
+            <h4>🏰 El Alcázar</h4>
+              <figure>
+                <img src="{% static 'images/edad_media/viaje_castilla/segovia/alcazar.jpg' %}"
+                    alt="Segovia monumental"
+                    class="img-fluid img-panoramica">
+              </figure>
+
+            <p>
+              Elevándose sobre un promontorio rocoso entre los valles del Eresma y el Clamores, el Alcázar ofrece una de las
+              imágenes más espectaculares de la arquitectura militar europea.
+            </p>
+
+            <p>
+              Fue residencia de numerosos monarcas castellanos y escenario de acontecimientos fundamentales de la historia de
+              España. La tradición afirma que aquí fue proclamada reina Isabel la Católica en 1474.
+            </p>
+
+            <h4>⛪ La Catedral</h4>
+
+            <figure>
+              <img src="{% static 'images/edad_media/viaje_castilla/segovia/catedral.jpg' %}"
+                  alt="Segovia monumental"
+                  class="img-fluid img-panoramica">
+            </figure>
+
+            <p>
+              Conocida como la «Dama de las Catedrales», fue levantada ya en pleno siglo XVI. Aunque pertenece al gótico tardío,
+              su visita permite comprender la evolución artística que se produjo tras el románico y que culminaría en las grandes
+              catedrales castellanas.
+            </p>
+
+          </div>
+
+          </div>
+
+          
+
+          
+
+          <div class="section-head mt-5">
+            <span class="section-icon">🎯</span>
+            <h3>Qué debemos observar</h3>
+          </div>
+
+          <div class="intro-box section-block">
+
+            <ul>
+              <li>Las galerías porticadas del románico segoviano.</li>
+              <li>Los capiteles historiados y decorativos.</li>
+              <li>Las diferencias entre arquitectura románica y gótica.</li>
+              <li>La integración de la ciudad medieval dentro de la muralla.</li>
+              <li>La influencia del Camino de Santiago en la arquitectura local.</li>
+              <li>La posición estratégica de Segovia en la meseta castellana.</li>
+              <li>La continuidad histórica entre Roma, la Edad Media y la España moderna.</li>
+            </ul>
+
+          </div>
+
+          <div class="section-head mt-5">
+            <span class="section-icon">💡</span>
+            <h3>Curiosidades para los Viajeros Intrépidos</h3>
+          </div>
+
+          <div class="intro-box section-block">
+
+            <p>
+              La leyenda popular afirmaba que el Acueducto fue construido por el diablo en una sola noche para ayudar a una
+              muchacha que estaba cansada de transportar agua cada día.
+            </p>
+
+            <p>
+              Segovia llegó a contar con más de una veintena de iglesias románicas dentro de su recinto urbano, una cifra
+              excepcional para una ciudad de la época.
+            </p>
+
+            <p>
+              Walt Disney se inspiró parcialmente en el Alcázar de Segovia para diseñar algunos de los castillos más famosos de
+              sus películas de animación.
+            </p>
+
+            <p>
+              Desde la torre de la catedral puede contemplarse una de las mejores panorámicas de toda Castilla.
+            </p>
+
+          </div>
+
+        </section>
+
+        <section id="burgos-silos">
+
+          <div class="section-head mt-3">
+            <span class="section-icon">⛪</span>
+            <h3>Día 2 · Burgos y Santo Domingo de Silos</h3>
+          </div>
+
+          <figure>
+            <img src="{% static 'images/edad_media/viaje_castilla/burgos/introduccion.png' %}"
+                alt="Burgos y Santo Domingo de Silos"
+                class="img-fluid img-panoramica">
+          </figure>
+
+          <div class="intro-box section-block">
+
+            <p>
+              La segunda jornada de los <strong>Viajeros Intrépidos</strong> nos llevará al corazón histórico de Castilla.
+              Pocas ciudades representan mejor el poder político, económico y religioso de la Castilla medieval que Burgos.
+              Fundada en el año 884 por orden del conde Diego Rodríguez Porcelos, pronto se convirtió en una de las principales
+              ciudades del reino y en un punto estratégico de primer orden dentro del Camino de Santiago.
+            </p>
+
+            <p>
+              Durante siglos, Burgos fue residencia real, centro comercial, sede episcopal y lugar de paso obligado para
+              miles de peregrinos europeos. Su riqueza quedó reflejada en monumentos excepcionales que todavía hoy dominan
+              el paisaje urbano. La ciudad conserva además una estrecha relación con una de las figuras más legendarias de
+              la historia medieval española: Rodrigo Díaz de Vivar, el Cid Campeador.
+            </p>
+
+            <p>
+              La jornada continuará en el monasterio de <strong>Santo Domingo de Silos</strong>, uno de los grandes focos
+              espirituales y culturales de la Europa medieval. Su famoso claustro románico está considerado una de las
+              obras maestras absolutas de la escultura románica occidental.
+            </p>
+
+            <p>
+              Si Segovia nos permitió comprender el desarrollo urbano del románico castellano, Burgos y Silos nos mostrarán
+              la relación entre el poder, la religión, el arte y la cultura en la Castilla de los siglos XI y XII.
+            </p>
+            <div class="section-head mt-5">
+              <span class="section-icon">🏰</span>
+              <h3>Burgos, capital histórica de Castilla</h3> 
+            </div>
+            <div class="intro-box section-block" style="background-color: #e8dfcf;">
+
+              <h4>⛪ La Catedral de Burgos</h4>
+              <figure>
+                <img src="{% static 'images/edad_media/viaje_castilla/burgos/catedral.jpg' %}"
+                    alt="Catedral de Burgos"
+                    class="img-fluid img-panoramica">
+              </figure>
+
+              <p>
+                Declarada Patrimonio Mundial por la UNESCO, la Catedral de Burgos es una de las grandes obras maestras
+                del gótico europeo. Su construcción comenzó en 1221 bajo el reinado de Fernando III y se prolongó durante
+                varios siglos, incorporando elementos góticos, renacentistas y barrocos.
+              </p>
+
+              <p>
+                Aunque cronológicamente supera el periodo románico, su visita resulta imprescindible para comprender la
+                evolución artística que siguió al románico y culminó en las grandes catedrales medievales.
+              </p>
+
+              <h4>⚔️ El Cid Campeador</h4>
+              <figure>
+                <img src="{% static 'images/edad_media/viaje_castilla/burgos/cid.jpg' %}"
+                    alt="El Cid Campeador"
+                    class="img-fluid img-panoramica">
+              </figure>
+              <p>
+                Burgos está íntimamente ligada a la figura de Rodrigo Díaz de Vivar, conocido universalmente como el Cid.
+                Caballero castellano del siglo XI, se convirtió en protagonista de una de las epopeyas más importantes de
+                la literatura medieval española.
+              </p>
+
+            <p>
+              Paseando por la ciudad encontraremos numerosos recuerdos de su figura, desde la famosa estatua ecuestre hasta
+              referencias en plazas, calles y monumentos.
+            </p>
+
+            <h4>🚶 El Camino de Santiago</h4>
+
+              <p>
+                Burgos fue una de las etapas más importantes del Camino Francés. Miles de peregrinos cruzaron sus calles
+                durante siglos, contribuyendo al desarrollo económico y cultural de la ciudad.
+              </p>
+
+              <p>
+                La influencia jacobea se percibe todavía hoy en la estructura urbana y en numerosos edificios históricos.
+              </p>
+
+              <h4>🏛️ Centro histórico</h4>
+              <figure>
+                <img src="{% static 'images/edad_media/viaje_castilla/burgos/centro.jpg' %}"
+                    alt="Centro histórico de Burgos"
+                    class="img-fluid img-panoramica">
+              </figure>
+              <p>
+                El casco antiguo conserva importantes vestigios medievales, plazas históricas, iglesias, conventos y antiguos
+                edificios vinculados a la actividad comercial de una de las ciudades más prósperas de la Castilla medieval.
+              </p>
+
+            </div>
+            <div class="section-head mt-5">
+              <span class="section-icon">🙏</span>
+              <h3>El monasterio de Santo Domingo de Silos</h3>
+            </div>
+
+            <div class="intro-box section-block" style="background-color: #e8dfcf;">
+              <figure>
+                <img src="{% static 'images/edad_media/viaje_castilla/burgos/monasterio_silos.jpg' %}"
+                    alt="Monasterio de Santo Domingo de Silos"
+                    class="img-fluid img-panoramica">
+              </figure>
+              <p>
+                Situado en un hermoso valle de la provincia de Burgos, el monasterio de Santo Domingo de Silos constituye una
+                de las grandes joyas del románico europeo. Su origen se remonta a la Alta Edad Media, aunque alcanzó su máximo
+                esplendor durante el siglo XI bajo el impulso del abad Domingo, posteriormente canonizado.
+              </p>
+
+              <h4>🏛️ El claustro románico</h4>
+              <figure>
+                <img src="{% static 'images/edad_media/viaje_castilla/burgos/claustro_silos.jpg' %}"
+                    alt="Claustro de Santo Domingo de Silos"
+                    class="img-fluid img-panoramica">
+              </figure>
+              <p>
+                El claustro de Silos es uno de los lugares más extraordinarios que visitaremos durante todo el viaje.
+                Sus columnas dobles, capiteles esculpidos y relieves historiados representan algunos de los ejemplos más
+                refinados de la escultura románica occidental.
+              </p>
+
+              <p>
+                Los famosos paneles esculpidos narran escenas de la vida de Cristo con una calidad artística excepcional.
+                Muchos especialistas consideran este conjunto una auténtica enciclopedia visual del románico.
+              </p>
+
+              <h4>🎵 El canto gregoriano</h4>
+              <div class="text-center my-4">
+                <a href="https://open.spotify.com/intl-es/album/1WGcSADmiZ62FDuRh3r8wz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-success">
+                  🎵 Chant. Monjes benedictinos del Monasterio de Silos
+                </a>
+              </div>
+              <p>
+                Silos es también conocido internacionalmente por su tradición musical. Los monjes benedictinos han conservado
+                durante siglos el canto gregoriano, una de las expresiones más características de la espiritualidad medieval.
+              </p>
+
+              <p>
+                Escuchar a los monjes cantar en la iglesia del monasterio constituye una experiencia difícil de olvidar y
+                permite acercarse al ambiente espiritual que impregnaba estos centros religiosos.
+              </p>
+
+              <h4>📚 Un centro cultural de la Edad Media</h4>
+
+              <p>
+                Los monasterios no eran únicamente lugares de oración. También funcionaban como bibliotecas, escuelas,
+                talleres artísticos y centros de copia de manuscritos. Gracias a ellos se conservaron numerosos textos de la
+                Antigüedad clásica y de la cultura cristiana medieval.
+              </p>
+
+            </div>
+            
+            <div class="section-head mt-5">
+              <span class="section-icon">🎯</span>
+              <h3>Qué debemos observar</h3>
+            </div>
+
+            <div class="intro-box section-block" style="background-color: #e8dfcf;">
+
+              <ul>
+                <li>La transición artística entre el románico y el gótico.</li>
+                <li>Las esculturas y relieves del claustro de Silos.</li>
+                <li>La importancia del Camino de Santiago en el desarrollo de Burgos.</li>
+                <li>La figura histórica y legendaria del Cid Campeador.</li>
+                <li>La función cultural de los monasterios medievales.</li>
+                <li>Los capiteles historiados y su simbolismo religioso.</li>
+                <li>La relación entre arte, poder y religión en la Castilla medieval.</li>
+              </ul>
+
+            </div>
+
+            <div class="section-head mt-5">
+              <span class="section-icon">💡</span>
+              <h3>Curiosidades para los Viajeros Intrépidos</h3>
+            </div>
+
+            <div class="intro-box section-block" style="background-color: #e8dfcf;">
+
+              <p>
+                La Catedral de Burgos es la única catedral española declarada Patrimonio Mundial de forma independiente,
+                sin formar parte de un conjunto histórico más amplio.
+              </p>
+
+              <p>
+                El Cid y su esposa Jimena descansan enterrados bajo el cimborrio de la catedral.
+              </p>
+
+              <p>
+                El claustro de Silos ha sido estudiado por historiadores del arte de todo el mundo y aparece en prácticamente
+                todos los manuales universitarios dedicados al románico europeo.
+              </p>
+
+              <p>
+                El disco <em>Chant</em>, grabado por los monjes de Silos en 1994, se convirtió inesperadamente en un éxito
+                internacional y vendió millones de copias en todo el mundo.
+              </p>
+
+            </div>
+          </div>
+        </section>        
+        
+        <section id="palencia-carrion">
+
+          <div class="section-head mt-3">
+            <span class="section-icon">🕍</span>
+            <h3>Día 3 · Palencia y Carrión de los Condes, corazón del Románico castellano</h3>
+          </div>
+
+          <figure>
+            <img src="{% static 'images/edad_media/viaje_castilla/palencia_carrion/introduccion.png' %}"
+                alt="Palencia y Carrión de los Condes"
+                class="img-fluid img-panoramica">
+          </figure>
+
+          <div class="intro-box section-block">
+
+            <p>
+              La tercera jornada de los <strong>Viajeros Intrépidos</strong> nos adentra en uno de los territorios esenciales
+              para comprender el románico castellano. La provincia de Palencia conserva una concentración excepcional de
+              iglesias, monasterios, ermitas y restos escultóricos de los siglos XI, XII y XIII, hasta el punto de ser considerada
+              por muchos especialistas como una de las grandes capitales europeas del románico.
+            </p>
+
+            <p>
+              Palencia y Carrión de los Condes nos permitirán entender la importancia del <strong>Camino de Santiago</strong>
+              como vía de difusión artística, espiritual y cultural. A través de esta ruta llegaron peregrinos, monjes, artistas,
+              escultores y modelos arquitectónicos procedentes de Francia y de otros territorios europeos, transformando
+              profundamente el paisaje medieval castellano.
+            </p>
+
+            <p>
+              En esta etapa veremos cómo el románico no fue solo un estilo artístico, sino también una forma de organizar el
+              territorio, de expresar el poder religioso y de transmitir mensajes a una sociedad profundamente marcada por la fe.
+              Las portadas, los capiteles y los relieves funcionaban como auténticos libros de piedra destinados a enseñar,
+              impresionar y emocionar.
+            </p>
+
+            <p>
+              La jornada combinará el patrimonio urbano de Palencia con el ambiente jacobeo de Carrión de los Condes, una de las
+              villas medievales más importantes del Camino. Será una etapa especialmente útil para preparar la visita del día
+              siguiente al Románico Norte y a la Montaña Palentina.
+            </p>
+
+            <div class="section-head mt-5">
+              <h3>Lugares principales de la jornada</h3>
+            </div>
+
+            <div class="intro-box section-block" style="background-color: #e8dfcf;">
+
+              <h4>⛪ La Catedral de Palencia</h4>
+
+              <figure>
+                <img src="{% static 'images/edad_media/viaje_castilla/palencia_carrion/catedral_palencia.jpg' %}"
+                    alt="Catedral de Palencia"
+                    class="img-fluid img-panoramica">
+              </figure>
+
+              <p>
+                La Catedral de Palencia, conocida popularmente como la <strong>Bella Desconocida</strong>, es uno de los grandes
+                templos góticos de Castilla. Aunque su fábrica principal pertenece al gótico, su visita resulta fundamental para
+                comprender la evolución del arte medieval en la ciudad y la continuidad entre el mundo románico y las grandes
+                catedrales de los siglos posteriores.
+              </p>
+
+              <p>
+                Bajo la catedral se conserva la cripta de San Antolín, uno de los espacios más antiguos y singulares del conjunto.
+                Este ámbito subterráneo conecta con los orígenes altomedievales del templo y permite percibir cómo los grandes
+                edificios medievales fueron creciendo sobre lugares de culto anteriores.
+              </p>
+
+              <h4>⛪ Iglesia de San Miguel de Palencia</h4>
+
+              <figure>
+                <img src="{% static 'images/edad_media/viaje_castilla/palencia_carrion/san_miguel_palencia.jpg' %}"
+                    alt="Iglesia de San Miguel de Palencia"
+                    class="img-fluid img-panoramica">
+              </figure>
+
+              <p>
+                La iglesia de San Miguel es uno de los edificios más característicos de Palencia. Su poderosa torre, de aspecto
+                casi militar, domina el perfil urbano y recuerda la estrecha relación entre arquitectura religiosa y función
+                defensiva en muchas ciudades medievales.
+              </p>
+
+              <p>
+                El templo muestra rasgos de transición entre el románico tardío y el gótico, lo que lo convierte en una parada
+                muy interesante para observar cómo los arcos, las bóvedas y las proporciones arquitectónicas fueron cambiando
+                durante los siglos centrales de la Edad Media.
+              </p>
+
+              <h4>🚶 Carrión de los Condes</h4>
+
+              <figure>
+                <img src="{% static 'images/edad_media/viaje_castilla/palencia_carrion/carrion_de_los_condes.jpg' %}"
+                    alt="Carrión de los Condes"
+                    class="img-fluid img-panoramica">
+              </figure>
+
+              <p>
+                Carrión de los Condes fue una de las villas más importantes del Camino de Santiago en Castilla. Durante la Edad
+                Media contó con hospitales, monasterios, iglesias y una intensa vida vinculada al paso de peregrinos. Su propio
+                nombre recuerda la importancia de los linajes nobiliarios que controlaron este territorio.
+              </p>
+
+              <p>
+                Caminar por Carrión permite imaginar el ambiente de una villa jacobea medieval: peregrinos entrando por sus
+                caminos, mercaderes, monjes, hospitales de acogida y templos concebidos para recibir a viajeros procedentes de
+                toda Europa.
+              </p>
+
+              <h4>⛪ Iglesia de Santa María del Camino</h4>
+
+              <figure>
+                <img src="{% static 'images/edad_media/viaje_castilla/palencia_carrion/santa_maria_del_camino.jpg' %}"
+                    alt="Iglesia de Santa María del Camino"
+                    class="img-fluid img-panoramica">
+              </figure>
+
+              <p>
+                La iglesia de Santa María del Camino es uno de los templos más representativos de Carrión de los Condes. Su
+                propia advocación recuerda la relación directa de la villa con la ruta jacobea. El edificio conserva elementos
+                románicos de gran interés y constituye una de las visitas esenciales de la jornada.
+              </p>
+
+              <p>
+                Su portada y su estructura permiten comprender la función de estas iglesias como lugares de culto, descanso y
+                referencia espiritual para los peregrinos que atravesaban Castilla camino de Santiago.
+              </p>
+
+              <h4>⛪ Iglesia de Santiago de Carrión de los Condes</h4>
+
+              <figure>
+                <img src="{% static 'images/edad_media/viaje_castilla/palencia_carrion/iglesia_santiago_carrion.jpg' %}"
+                    alt="Iglesia de Santiago de Carrión de los Condes"
+                    class="img-fluid img-panoramica">
+              </figure>
+
+              <p>
+                La iglesia de Santiago conserva una de las portadas escultóricas más importantes del románico castellano. Su
+                friso con Cristo en Majestad rodeado por los apóstoles constituye una auténtica lección visual de teología
+                medieval tallada en piedra.
+              </p>
+
+              <p>
+                Esta portada es uno de los grandes momentos del viaje. En ella se aprecia con claridad la función didáctica del
+                arte románico: enseñar la doctrina cristiana mediante imágenes poderosas, fácilmente reconocibles por los fieles
+                y peregrinos.
+              </p>
+
+              <h4>🏛️ Monasterio de San Zoilo</h4>
+
+              <figure>
+                <img src="{% static 'images/edad_media/viaje_castilla/palencia_carrion/san_zoilo.jpg' %}"
+                    alt="Monasterio de San Zoilo"
+                    class="img-fluid img-panoramica">
+              </figure>
+
+              <p>
+                El monasterio de San Zoilo fue uno de los grandes centros religiosos de Carrión de los Condes. Vinculado al Camino
+                de Santiago y a importantes familias nobiliarias, desempeñó un papel fundamental en la vida espiritual y cultural
+                de la villa.
+              </p>
+
+              <p>
+                Aunque el conjunto actual conserva elementos de distintas épocas, su importancia histórica ayuda a comprender el
+                peso que tuvieron los monasterios en la organización del territorio, la asistencia a los peregrinos y la difusión
+                de la cultura medieval.
+              </p>
+
+            </div>
+
+            <div class="section-head mt-5">
+              <span class="section-icon">🎯</span>
+              <h3>Qué debemos observar</h3>
+            </div>
+
+            <div class="intro-box section-block" style="background-color: #e8dfcf;">
+
+              <ul>
+                <li>La importancia del Camino de Santiago como vía de difusión del románico.</li>
+                <li>La diferencia entre el románico pleno y las formas de transición hacia el gótico.</li>
+                <li>Las portadas escultóricas como auténticos libros de piedra.</li>
+                <li>La presencia de Cristo en Majestad, apóstoles y escenas bíblicas en la escultura románica.</li>
+                <li>La función de monasterios, hospitales e iglesias en las villas jacobeas.</li>
+                <li>El papel de Palencia como uno de los grandes territorios del románico europeo.</li>
+                <li>La relación entre nobleza, monacato, peregrinación y arte medieval.</li>
+              </ul>
+
+            </div>
+
+            <div class="section-head mt-5">
+              <span class="section-icon">💡</span>
+              <h3>Curiosidades para los Viajeros Intrépidos</h3>
+            </div>
+
+            <div class="intro-box section-block" style="background-color: #e8dfcf;">
+
+              <p>
+                La Catedral de Palencia recibe el nombre de la <strong>Bella Desconocida</strong> porque, pese a su enorme valor
+                artístico, durante mucho tiempo fue menos conocida que otras grandes catedrales castellanas.
+              </p>
+
+              <p>
+                Carrión de los Condes fue una etapa fundamental del Camino de Santiago y llegó a contar con varios hospitales para
+                peregrinos, lo que refleja la importancia de la villa en la Edad Media.
+              </p>
+
+              <p>
+                La portada de la iglesia de Santiago de Carrión es una de las obras maestras de la escultura románica peninsular y
+                uno de los mejores ejemplos de cómo la piedra se utilizaba para transmitir mensajes religiosos.
+              </p>
+
+              <p>
+                Palencia conserva en su provincia una de las mayores concentraciones de arquitectura románica de Europa, con
+                centenares de iglesias repartidas por pueblos, villas y paisajes rurales.
+              </p>
+
+            </div>
+
+          </div>
+
+          
+
+        </section>
+        
+        <section id="montana-palentina">
+
+          <div class="section-head mt-3">
+            <span class="section-icon">🏔️</span>
+            <h3>Día 4 · Románico Norte y Montaña Palentina, el gran tesoro oculto del románico español</h3>
+          </div>
+
+          <figure>
+            <img src="{% static 'images/edad_media/viaje_castilla/montana_palentina/introduccion.png' %}"
+                alt="Románico Norte y Montaña Palentina"
+                class="img-fluid img-panoramica">
+          </figure>
+
+          <div class="intro-box section-block">
+
+            <p>
+              Si existe un lugar donde el románico parece haber permanecido congelado en el tiempo, ese lugar es la
+              <strong>Montaña Palentina</strong>. La cuarta jornada de los <strong>Viajeros Intrépidos</strong> nos conducirá a
+              uno de los territorios más fascinantes y menos conocidos del patrimonio medieval europeo. Entre valles,
+              montañas, bosques y pequeñas aldeas se conserva una extraordinaria concentración de iglesias románicas que han
+              llegado hasta nuestros días prácticamente intactas.
+            </p>
+
+            <p>
+              A diferencia de las grandes ciudades visitadas en jornadas anteriores, aquí nos encontraremos con un románico
+              profundamente rural. Son templos construidos para pequeñas comunidades campesinas, alejados de los grandes
+              centros de poder, pero dotados de una calidad artística sorprendente. Precisamente esa relativa aislación ha
+              permitido que muchos edificios hayan sobrevivido durante siglos sin apenas alteraciones.
+            </p>
+
+            <p>
+              El denominado <strong>Románico Norte</strong> constituye uno de los conjuntos monumentales más importantes de
+              Europa. La comarca reúne algunas de las mejores portadas, capiteles, canecillos y galerías porticadas del arte
+              medieval español. Cada iglesia parece esconder una obra maestra diferente.
+            </p>
+
+            <p>
+              Durante esta jornada visitaremos algunos de los lugares más emblemáticos de la comarca, desde la histórica villa
+              de Aguilar de Campoo hasta las extraordinarias esculturas de Moarves de Ojeda, auténticos tesoros ocultos en el
+              corazón de Castilla.
+            </p>
+
+            <div class="section-head mt-5">
+              <h3>Lugares principales de la jornada</h3>
+            </div>
+
+            <div class="intro-box section-block" style="background-color: #e8dfcf;">
+
+              <h4>🏰 Aguilar de Campoo</h4>
+
+              <figure>
+                <img src="{% static 'images/edad_media/viaje_castilla/montana_palentina/aguilar_campoo.jpg' %}"
+                    alt="Aguilar de Campoo"
+                    class="img-fluid img-panoramica">
+              </figure>
+
+              <p>
+                Considerada la capital del Románico Norte, Aguilar de Campoo constituye el punto de partida ideal para
+                explorar la Montaña Palentina. Su casco histórico conserva importantes testimonios medievales, dominados por
+                la silueta del castillo que vigila la población desde lo alto de una colina.
+              </p>
+
+              <p>
+                La villa desempeñó un papel estratégico durante la Edad Media y se convirtió en uno de los principales centros
+                de organización del territorio. Actualmente alberga además el principal centro de interpretación del románico
+                de la comarca.
+              </p>
+
+              <h4>⛪ Monasterio de Santa María la Real</h4>
+
+              <figure>
+                <img src="{% static 'images/edad_media/viaje_castilla/montana_palentina/santa_maria_real.jpg' %}"
+                    alt="Monasterio de Santa María la Real"
+                    class="img-fluid img-panoramica">
+              </figure>
+
+              <p>
+                Situado en Aguilar de Campoo, este monasterio premostratense constituye uno de los grandes referentes del
+                patrimonio medieval castellano. Tras décadas de restauración se ha convertido en símbolo de la recuperación y
+                protección del románico español.
+              </p>
+
+              <p>
+                Su iglesia, su claustro y los espacios monásticos permiten comprender la importancia que tuvieron estas
+                instituciones en la organización económica, cultural y espiritual de la Edad Media.
+              </p>
+
+              <h4>⛪ Iglesia de San Juan Bautista de Moarves de Ojeda</h4>
+
+              <figure>
+                <img src="{% static 'images/edad_media/viaje_castilla/montana_palentina/moarves_ojeda.jpg' %}"
+                    alt="San Juan Bautista de Moarves de Ojeda"
+                    class="img-fluid img-panoramica">
+              </figure>
+
+              <p>
+                Para muchos especialistas, la portada de San Juan Bautista constituye una de las obras maestras absolutas del
+                románico español. El friso escultórico que recorre su fachada muestra una extraordinaria representación de
+                Cristo rodeado por los apóstoles y otros personajes bíblicos.
+              </p>
+
+              <p>
+                La riqueza de los detalles, la expresividad de las figuras y el excelente estado de conservación convierten
+                esta iglesia en una de las visitas más esperadas de todo el viaje.
+              </p>
+
+              <h4>⛪ Monasterio de San Andrés de Arroyo</h4>
+
+              <figure>
+                <img src="{% static 'images/edad_media/viaje_castilla/montana_palentina/san_andres_arroyo.jpg' %}"
+                    alt="Monasterio de San Andrés de Arroyo"
+                    class="img-fluid img-panoramica">
+              </figure>
+
+              <p>
+                Fundado en el siglo XII por una noble castellana, este monasterio cisterciense conserva uno de los claustros
+                más elegantes de Castilla. La sobriedad arquitectónica característica del Císter contrasta con la riqueza
+                decorativa observada en otros templos románicos de la comarca.
+              </p>
+
+              <p>
+                El conjunto ofrece una magnífica oportunidad para comprender la diversidad de corrientes artísticas que
+                coexistieron durante la Edad Media.
+              </p>
+
+              <h4>⛪ Santa Cecilia de Vallespinoso de Aguilar</h4>
+
+              <figure>
+                <img src="{% static 'images/edad_media/viaje_castilla/montana_palentina/santa_cecilia.jpg' %}"
+                    alt="Santa Cecilia de Vallespinoso"
+                    class="img-fluid img-panoramica">
+              </figure>
+
+              <p>
+                Construida sobre un impresionante promontorio rocoso, Santa Cecilia ofrece una de las imágenes más
+                espectaculares del románico palentino. Su emplazamiento domina el paisaje y parece surgir directamente de la
+                montaña.
+              </p>
+
+              <p>
+                La combinación de naturaleza y arquitectura convierte este lugar en uno de los rincones más fotogénicos de
+                toda la ruta.
+              </p>
+
+              <h4>⛪ Ermita de Santa Eulalia</h4>
+
+              <figure>
+                <img src="{% static 'images/edad_media/viaje_castilla/montana_palentina/santa_eulalia.jpg' %}"
+                    alt="Ermita de Santa Eulalia"
+                    class="img-fluid img-panoramica">
+              </figure>
+
+              <p>
+                Esta pequeña ermita resume a la perfección el espíritu del Románico Norte: construcciones modestas,
+                perfectamente integradas en el paisaje y dotadas de una sorprendente riqueza escultórica.
+              </p>
+
+              <p>
+                Los canecillos y capiteles conservados permiten observar de cerca la extraordinaria creatividad de los
+                escultores medievales.
+              </p>
+
+            </div>
+            <div class="section-head mt-5">
+            <span class="section-icon">🎯</span>
+            <h3>Qué debemos observar</h3>
+          </div>
+
+            <div class="intro-box section-block" style="background-color: #e8dfcf;">
+
+              <ul>
+                <li>La perfecta integración entre paisaje y arquitectura medieval.</li>
+                <li>Las diferencias entre el románico urbano y el románico rural.</li>
+                <li>Los capiteles historiados y sus programas iconográficos.</li>
+                <li>Los canecillos y figuras escultóricas que decoran cornisas y aleros.</li>
+                <li>La portada de Moarves de Ojeda, una de las grandes obras maestras del románico español.</li>
+                <li>La influencia del monacato en la organización del territorio.</li>
+                <li>La conservación excepcional de numerosos templos prácticamente intactos desde la Edad Media.</li>
+              </ul>
+
+            </div>
+
+            <div class="section-head mt-5">
+              <span class="section-icon">💡</span>
+              <h3>Curiosidades para los Viajeros Intrépidos</h3>
+            </div>
+
+            <div class="intro-box section-block" style="background-color: #e8dfcf;">
+
+              <p>
+                Muchos historiadores consideran la Montaña Palentina como la mayor concentración de románico rural conservada
+                de Europa.
+              </p>
+
+              <p>
+                La portada de Moarves de Ojeda aparece en prácticamente todos los manuales universitarios dedicados al románico
+                español.
+              </p>
+
+              <p>
+                El aislamiento geográfico de muchos pueblos contribuyó a preservar iglesias que apenas han sufrido reformas
+                durante ochocientos años.
+              </p>
+
+              <p>
+                Santa Cecilia de Vallespinoso es uno de los templos más fotografiados de Castilla y León gracias a su
+                espectacular emplazamiento sobre una roca que domina todo el valle.
+              </p>
+
+              <p>
+                La Fundación Santa María la Real de Aguilar de Campoo ha desempeñado un papel fundamental en el estudio,
+                restauración y difusión internacional del Románico Norte.
+              </p>
+
+            </div>
+
+          </div>
+
+          
+
+        </section>
+        
+        <section id="leon">
+
+            <div class="section-head mt-3">
+              <span class="section-icon">👑</span>
+              <h3>Día 5 · León y la Capilla Sixtina del Románico</h3>
+            </div>
+
+            <figure>
+              <img src="{% static 'images/edad_media/viaje_castilla/leon/introduccion.png' %}"
+                  alt="León y San Isidoro"
+                  class="img-fluid img-panoramica">
+            </figure>
+
+            <div class="intro-box section-block">
+
+              <p>
+                La quinta jornada de los <strong>Viajeros Intrépidos</strong> nos conduce a una de las ciudades más importantes
+                de la España medieval. Antes de que Castilla alcanzara su máximo esplendor, León fue la capital de uno de los
+                reinos cristianos más poderosos de la Península. Desde aquí gobernaron monarcas que impulsaron la Reconquista,
+                promovieron el Camino de Santiago y favorecieron el desarrollo artístico y cultural que acabaría dando lugar a
+                algunas de las obras maestras del románico europeo.
+              </p>
+
+              <p>
+                León conserva un extraordinario patrimonio histórico, pero existe un lugar que destaca por encima de todos:
+                la <strong>Basílica de San Isidoro</strong>. En su interior se encuentra el célebre <strong>Panteón de los Reyes</strong>,
+                conocido universalmente como la <strong>Capilla Sixtina del Románico</strong>. Las pinturas que cubren sus bóvedas
+                constituyen uno de los conjuntos pictóricos medievales mejor conservados de Europa.
+              </p>
+
+              <p>
+                Esta jornada permitirá descubrir una faceta distinta del románico. Hasta ahora hemos contemplado iglesias,
+                esculturas y monasterios; en León tendremos la oportunidad de admirar la pintura medieval en todo su esplendor,
+                comprendiendo cómo el color, la iconografía y la narración visual desempeñaban un papel esencial en la cultura
+                religiosa del siglo XII.
+              </p>
+
+              <p>
+                Además de San Isidoro, la ciudad ofrece un magnífico recorrido por más de dos mil años de historia, desde el
+                campamento romano de la Legio VII Gemina hasta las grandes obras del gótico castellano.
+              </p>
+
+              <div class="section-head mt-5">
+                <h3>Lugares principales de la jornada</h3>
+              </div>
+
+              <div class="intro-box section-block" style="background-color: #e8dfcf;">
+
+                <h4>👑 Basílica de San Isidoro</h4>
+
+                <figure>
+                  <img src="{% static 'images/edad_media/viaje_castilla/leon/san_isidoro.jpg' %}"
+                      alt="Basílica de San Isidoro"
+                      class="img-fluid img-panoramica">
+                </figure>
+
+                <p>
+                  La Basílica de San Isidoro constituye uno de los conjuntos monumentales más importantes de toda la España
+                  medieval. Fue impulsada por los reyes leoneses como panteón dinástico y como centro religioso de primer orden.
+                </p>
+
+                <p>
+                  Su arquitectura, sus esculturas y las colecciones conservadas en el museo convierten la visita en una auténtica
+                  inmersión en la cultura del Reino de León durante los siglos XI y XII.
+                </p>
+
+                <h4>🎨 El Panteón de los Reyes</h4>
+
+                <figure>
+                  <img src="{% static 'images/edad_media/viaje_castilla/leon/panteon_reyes.jpg' %}"
+                      alt="Panteón de los Reyes"
+                      class="img-fluid img-panoramica">
+                </figure>
+
+                <p>
+                  Este espacio constituye uno de los grandes momentos de todo el viaje. Las pinturas que decoran las bóvedas han
+                  llegado hasta nuestros días con una conservación extraordinaria, permitiendo contemplar escenas bíblicas,
+                  representaciones simbólicas y uno de los calendarios agrícolas medievales más famosos de Europa.
+                </p>
+
+                <p>
+                  Los colores, la expresividad de las figuras y la riqueza iconográfica convierten este lugar en una auténtica
+                  cápsula del tiempo. No es difícil comprender por qué muchos especialistas lo consideran la «Capilla Sixtina
+                  del Románico».
+                </p>
+
+                <h4>⚰️ El Panteón Real</h4>
+
+                <figure>
+                  <img src="{% static 'images/edad_media/viaje_castilla/leon/panteon_real.jpg' %}"
+                      alt="Panteón Real"
+                      class="img-fluid img-panoramica">
+                </figure>
+
+                <p>
+                  Bajo las bóvedas decoradas descansan algunos de los principales monarcas del Reino de León. El lugar fue
+                  concebido como espacio funerario para la dinastía leonesa y constituye una fuente excepcional para conocer
+                  la historia política de la Alta Edad Media peninsular.
+                </p>
+
+                <p>
+                  La estrecha relación entre monarquía, religión y arte resulta especialmente visible en este conjunto.
+                </p>
+
+                <h4>🏛️ La Real Colegiata y Museo de San Isidoro</h4>
+
+                <figure>
+                  <img src="{% static 'images/edad_media/viaje_castilla/leon/museo_san_isidoro.jpg' %}"
+                      alt="Museo de San Isidoro"
+                      class="img-fluid img-panoramica">
+                </figure>
+
+                <p>
+                  El museo alberga algunas de las piezas más valiosas del arte medieval español. Destacan códices, esculturas,
+                  relicarios, marfiles y objetos litúrgicos que permiten comprender el extraordinario nivel cultural alcanzado
+                  por el Reino de León.
+                </p>
+
+                <p>
+                  Entre sus tesoros figura el famoso Cáliz de Doña Urraca, una de las piezas más conocidas del patrimonio
+                  medieval leonés.
+                </p>
+
+                <h4>⛪ Catedral de León</h4>
+
+                <figure>
+                  <img src="{% static 'images/edad_media/viaje_castilla/leon/catedral.jpg' %}"
+                      alt="Catedral de León"
+                      class="img-fluid img-panoramica">
+                </figure>
+
+                <p>
+                  Aunque pertenece al gótico pleno, la Catedral de León constituye una visita imprescindible. Es famosa por sus
+                  espectaculares vidrieras medievales, consideradas entre las mejores conservadas del mundo.
+                </p>
+
+                <p>
+                  La visita permite comprender la evolución artística que siguió al románico y culminó en las grandes catedrales
+                  góticas de los siglos XIII y XIV.
+                </p>
+
+                <h4>🚶 Barrio Húmedo y casco histórico</h4>
+
+                <figure>
+                  <img src="{% static 'images/edad_media/viaje_castilla/leon/barrio_humedo.jpg' %}"
+                      alt="Barrio Húmedo de León"
+                      class="img-fluid img-panoramica">
+                </figure>
+
+                <p>
+                  El centro histórico conserva parte del trazado heredado de la ciudad medieval y permite recorrer plazas,
+                  iglesias y antiguas calles vinculadas al Camino de Santiago.
+                </p>
+
+                <p>
+                  El Barrio Húmedo constituye además uno de los lugares más animados de León y ofrece una magnífica oportunidad
+                  para disfrutar de la gastronomía local tras una intensa jornada de visitas.
+                </p>
+
+              </div>
+                  <div class="section-head mt-5">
+              <span class="section-icon">🎯</span>
+              <h3>Qué debemos observar</h3>
+            </div>
+
+            <div class="intro-box section-block" style="background-color: #e8dfcf;">
+
+              <ul>
+                <li>Las pinturas originales del siglo XII conservadas en el Panteón de los Reyes.</li>
+                <li>La representación de escenas bíblicas y del calendario agrícola medieval.</li>
+                <li>La relación entre arte, monarquía y religión en el Reino de León.</li>
+                <li>Las diferencias entre pintura románica y escultura románica.</li>
+                <li>La transición artística entre el románico y el gótico.</li>
+                <li>Las vidrieras de la Catedral de León y su efecto luminoso.</li>
+                <li>La importancia histórica del Reino de León en la España medieval.</li>
+              </ul>
+
+            </div>
+
+            <div class="section-head mt-5">
+              <span class="section-icon">💡</span>
+              <h3>Curiosidades para los Viajeros Intrépidos</h3>
+            </div>
+
+            <div class="intro-box section-block" style="background-color: #e8dfcf;">
+
+              <p>
+                Las pinturas del Panteón de los Reyes se consideran uno de los conjuntos pictóricos románicos mejor conservados
+                de toda Europa.
+              </p>
+
+              <p>
+                El sobrenombre de «Capilla Sixtina del Románico» fue acuñado por historiadores del arte impresionados por la
+                calidad y extensión de las pinturas murales.
+              </p>
+
+              <p>
+                León fue capital de uno de los reinos cristianos más poderosos de la Península durante siglos, mucho antes del
+                predominio político de Castilla.
+              </p>
+
+              <p>
+                La Catedral de León posee cerca de 1.800 metros cuadrados de vidrieras medievales, una de las mayores superficies
+                conservadas del mundo.
+              </p>
+
+              <p>
+                El Panteón Real alberga los restos de más de veinte miembros de la realeza leonesa, convirtiéndose en uno de los
+                conjuntos funerarios medievales más importantes de España.
+              </p>
+
+            </div>
+
+          </div>
+
+      
+
+        </section>
+        
+        <section id="zamora">
+
+          <div class="section-head mt-3">
+            <span class="section-icon">⚔️</span>
+            <h3>Día 6 · Zamora, la ciudad del Románico</h3>
+          </div>
+
+          <figure>
+            <img src="{% static 'images/edad_media/viaje_castilla/zamora/introduccion.png' %}"
+                alt="Zamora románica"
+                class="img-fluid img-panoramica">
+          </figure>
+
+          <div class="intro-box section-block">
+
+            <p>
+              La sexta jornada de los <strong>Viajeros Intrépidos</strong> nos llevará a una de las ciudades medievales más
+              fascinantes de España. Zamora posee una relación tan estrecha con el románico que muchos historiadores la conocen
+              simplemente como la <strong>Ciudad del Románico</strong>. Ninguna otra ciudad española conserva tal concentración
+              de iglesias románicas dentro de un mismo núcleo urbano.
+            </p>
+
+            <p>
+              Durante los siglos XI y XII, Zamora ocupó una posición estratégica en la frontera entre los reinos cristianos y
+              los territorios musulmanes. Su importancia militar, política y religiosa favoreció la construcción de numerosos
+              templos, murallas y edificios que todavía hoy configuran uno de los conjuntos históricos más impresionantes de
+              Castilla y León.
+            </p>
+
+            <p>
+              La ciudad desempeñó además un papel fundamental en algunos de los episodios más conocidos de la historia medieval
+              española. El famoso asedio de Zamora, inmortalizado por las leyendas del Cid y por el célebre episodio de la
+              muerte de Sancho II, forma parte inseparable de la memoria histórica castellana.
+            </p>
+
+            <p>
+              Pasear por Zamora supone recorrer un auténtico museo al aire libre donde iglesias, calles empedradas, palacios y
+              murallas permiten imaginar cómo era una ciudad medieval hace casi mil años.
+            </p>
+
+            <div class="section-head mt-5">
+              <h3>Lugares principales de la jornada</h3>
+            </div>
+
+            <div class="intro-box section-block" style="background-color: #e8dfcf;">
+
+              <h4>⛪ Catedral de Zamora</h4>
+
+              <figure>
+                <img src="{% static 'images/edad_media/viaje_castilla/zamora/catedral.jpg' %}"
+                    alt="Catedral de Zamora"
+                    class="img-fluid img-panoramica">
+              </figure>
+
+              <p>
+                La Catedral de Zamora constituye uno de los grandes símbolos del románico español. Construida durante el siglo
+                XII, destaca por su extraordinaria cúpula gallonada cubierta por escamas de piedra, una de las imágenes más
+                características de toda la arquitectura medieval peninsular.
+              </p>
+
+              <p>
+                Su silueta domina el valle del Duero y representa uno de los ejemplos más originales del románico europeo.
+                Desde sus alrededores se obtienen algunas de las mejores vistas de la ciudad.
+              </p>
+
+              <h4>🏰 Castillo de Zamora</h4>
+
+              <figure>
+                <img src="{% static 'images/edad_media/viaje_castilla/zamora/castillo.jpg' %}"
+                    alt="Castillo de Zamora"
+                    class="img-fluid img-panoramica">
+              </figure>
+
+              <p>
+                Situado junto a la catedral, el castillo formaba parte del complejo sistema defensivo que protegía la ciudad.
+                Aunque ha sufrido transformaciones a lo largo de los siglos, conserva elementos que permiten comprender la
+                importancia estratégica de Zamora durante la Reconquista.
+              </p>
+
+              <p>
+                Desde sus murallas se disfruta de una magnífica panorámica sobre el río Duero y el casco histórico.
+              </p>
+
+              <h4>⛪ Iglesia de San Claudio de Olivares</h4>
+
+              <figure>
+                <img src="{% static 'images/edad_media/viaje_castilla/zamora/san_claudio.jpg' %}"
+                    alt="San Claudio de Olivares"
+                    class="img-fluid img-panoramica">
+              </figure>
+
+              <p>
+                Considerada una de las joyas del románico zamorano, esta iglesia conserva una extraordinaria portada decorada
+                y un magnífico conjunto escultórico. Su emplazamiento junto al Duero la convierte además en uno de los rincones
+                más bellos de la ciudad.
+              </p>
+
+              <p>
+                Es un magnífico ejemplo de la calidad artística alcanzada por los talleres románicos zamoranos.
+              </p>
+
+              <h4>⛪ Iglesia de Santiago del Burgo</h4>
+
+              <figure>
+                <img src="{% static 'images/edad_media/viaje_castilla/zamora/santiago_burgo.jpg' %}"
+                    alt="Santiago del Burgo"
+                    class="img-fluid img-panoramica">
+              </figure>
+
+              <p>
+                Situada en pleno centro urbano, esta iglesia es uno de los edificios románicos mejor conservados de Zamora.
+                Su equilibrio arquitectónico y la pureza de sus líneas permiten apreciar las características esenciales del
+                románico castellano.
+              </p>
+
+              <p>
+                La visita ofrece una excelente oportunidad para comparar distintos estilos y soluciones arquitectónicas dentro
+                del propio románico zamorano.
+              </p>
+
+              <h4>⛪ Iglesia de la Magdalena</h4>
+
+              <figure>
+                <img src="{% static 'images/edad_media/viaje_castilla/zamora/magdalena.jpg' %}"
+                    alt="Iglesia de la Magdalena"
+                    class="img-fluid img-panoramica">
+              </figure>
+
+              <p>
+                La Magdalena es una de las iglesias más elegantes de la ciudad. Su portada, sus capiteles y especialmente el
+                sepulcro románico conservado en el interior figuran entre las obras maestras de la escultura medieval zamorana.
+              </p>
+
+              <p>
+                Constituye una parada imprescindible para los aficionados a la iconografía y a la escultura funeraria medieval.
+              </p>
+
+              <h4>🏛️ Murallas y casco histórico</h4>
+
+              <figure>
+                <img src="{% static 'images/edad_media/viaje_castilla/zamora/murallas.jpg' %}"
+                    alt="Murallas de Zamora"
+                    class="img-fluid img-panoramica">
+              </figure>
+
+              <p>
+                Zamora conserva importantes tramos de sus murallas medievales, testimonio de una ciudad que durante siglos fue
+                considerada una plaza fuerte de primer orden.
+              </p>
+
+              <p>
+                Recorrer sus calles permite descubrir numerosas iglesias románicas adicionales, plazas históricas, miradores
+                sobre el Duero y rincones que mantienen intacto el ambiente medieval.
+              </p>
+
+            </div>
+            <div class="section-head mt-5">
+              <span class="section-icon">🎯</span>
+              <h3>Qué debemos observar</h3>
+            </div>
+
+            <div class="intro-box section-block" style="background-color: #e8dfcf;">
+
+              <ul>
+                <li>La espectacular cúpula gallonada de la Catedral de Zamora.</li>
+                <li>Las diferencias entre las diversas iglesias románicas de la ciudad.</li>
+                <li>La relación entre arquitectura religiosa y defensiva.</li>
+                <li>Los capiteles, portadas y esculturas funerarias.</li>
+                <li>La importancia estratégica del río Duero en la historia de Zamora.</li>
+                <li>La conservación excepcional del casco histórico medieval.</li>
+                <li>La evolución de una ciudad fronteriza durante la Reconquista.</li>
+              </ul>
+
+            </div>
+
+            <div class="section-head mt-5">
+              <span class="section-icon">💡</span>
+              <h3>Curiosidades para los Viajeros Intrépidos</h3>
+            </div>
+
+            <div class="intro-box section-block" style="background-color: #e8dfcf;">
+
+              <p>
+                Zamora llegó a contar con más de veinte iglesias románicas dentro de su recinto urbano, una concentración única
+                en España.
+              </p>
+
+              <p>
+                La famosa expresión «Zamora no se ganó en una hora» procede del largo asedio sufrido por la ciudad durante el
+                conflicto entre los hijos de Fernando I.
+              </p>
+
+              <p>
+                La cúpula de la Catedral de Zamora inspiró posteriormente otras construcciones medievales del reino leonés.
+              </p>
+
+              <p>
+                El río Duero ofrece algunas de las mejores panorámicas urbanas de Castilla y León, especialmente al atardecer.
+              </p>
+
+              <p>
+                Muchos visitantes descubren en Zamora uno de los cascos históricos medievales mejor conservados y menos masificados
+                de toda España.
+              </p>
+
+            </div>
+
+          </div>
+
+
+
+        </section>
+        
+        <section id="toro">
+
+          <div class="section-head mt-3">
+            <span class="section-icon">🍷</span>
+            <h3>Día 7 · Toro y San Pedro de la Nave, entre el Románico y el reino visigodo</h3>
+          </div>
+
+          <figure>
+            <img src="{% static 'images/edad_media/viaje_castilla/toro/introduccion.png' %}"
+                alt="Toro y San Pedro de la Nave"
+                class="img-fluid img-panoramica">
+          </figure>
+
+          <div class="intro-box section-block">
+
+            <p>
+              La última jornada de los <strong>Viajeros Intrépidos</strong> nos llevará a dos lugares excepcionales que
+              permitirán poner el broche final a nuestra expedición por la Castilla medieval. Tras varios días recorriendo
+              iglesias románicas, monasterios y ciudades históricas, visitaremos primero la monumental ciudad de
+              <strong>Toro</strong> y concluiremos el viaje en una auténtica joya de la arquitectura altomedieval:
+              <strong>San Pedro de la Nave</strong>.
+            </p>
+
+            <p>
+              Toro fue una de las ciudades más importantes del Reino de León y posteriormente de la Corona de Castilla.
+              Su posición estratégica sobre el valle del Duero favoreció el desarrollo de una poderosa villa medieval que
+              todavía conserva un extraordinario patrimonio artístico y urbano.
+            </p>
+
+            <p>
+              La jornada culminará con la visita a San Pedro de la Nave, una de las iglesias visigodas mejor conservadas
+              de Europa. Construida varios siglos antes del nacimiento del románico, constituye un magnífico ejemplo de
+              la arquitectura hispánica anterior a la invasión musulmana y permite comprender algunos de los orígenes
+              culturales que acabarían influyendo en el arte medieval posterior.
+            </p>
+
+            <p>
+              Será una jornada especialmente interesante porque permitirá contemplar dos momentos muy distintos de la
+              historia artística española: el románico pleno de Toro y la arquitectura visigoda de finales del siglo VII.
+            </p>
+
+            <div class="section-head mt-5">
+              <h3>Lugares principales de la jornada</h3>
+            </div>
+
+            <div class="intro-box section-block" style="background-color: #e8dfcf;">
+
+              <h4>⛪ Colegiata de Santa María la Mayor de Toro</h4>
+
+              <figure>
+                <img src="{% static 'images/edad_media/viaje_castilla/toro/colegiata.jpg' %}"
+                    alt="Colegiata de Toro"
+                    class="img-fluid img-panoramica">
+              </figure>
+
+              <p>
+                La Colegiata constituye la gran joya monumental de Toro y uno de los edificios románicos más importantes de
+                Castilla y León. Construida entre los siglos XII y XIII, presenta una extraordinaria combinación de elementos
+                románicos y protogóticos.
+              </p>
+
+              <p>
+                Su característica cúpula gallonada recuerda a la de la Catedral de Zamora y forma parte de uno de los grupos
+                arquitectónicos más originales del románico hispano.
+              </p>
+
+              <h4>🎨 El Pórtico de la Majestad</h4>
+
+              <figure>
+                <img src="{% static 'images/edad_media/viaje_castilla/toro/portico_majestad.jpg' %}"
+                    alt="Pórtico de la Majestad"
+                    class="img-fluid img-panoramica">
+              </figure>
+
+              <p>
+                Si existe una visita imprescindible en Toro, es su extraordinario Pórtico de la Majestad. A diferencia de la
+                mayoría de portadas medievales, conserva gran parte de su policromía original, permitiendo contemplar cómo
+                eran realmente las esculturas medievales cuando fueron creadas.
+              </p>
+
+              <p>
+                El conjunto ofrece una experiencia única. Los vivos colores permiten imaginar el impacto visual que estas
+                obras producían sobre los fieles medievales.
+              </p>
+
+              <h4>🏰 Mirador del Espolón y vistas sobre el Duero</h4>
+
+              <figure>
+                <img src="{% static 'images/edad_media/viaje_castilla/toro/mirador_duero.jpg' %}"
+                    alt="Mirador del Espolón"
+                    class="img-fluid img-panoramica">
+              </figure>
+
+              <p>
+                Desde los miradores de Toro se disfruta de una de las panorámicas más espectaculares del valle del Duero.
+                La posición elevada de la ciudad explica buena parte de su importancia estratégica durante la Edad Media.
+              </p>
+
+              <p>
+                El paisaje combina historia, naturaleza y cultura vitivinícola en una de las imágenes más representativas
+                de Castilla y León.
+              </p>
+
+              <h4>🏛️ Casco histórico de Toro</h4>
+
+              <figure>
+                <img src="{% static 'images/edad_media/viaje_castilla/toro/casco_historico.jpg' %}"
+                    alt="Casco histórico de Toro"
+                    class="img-fluid img-panoramica">
+              </figure>
+
+              <p>
+                Toro conserva numerosas iglesias medievales, palacios, conventos y edificios históricos que reflejan la
+                importancia alcanzada por la ciudad durante los siglos XII al XV.
+              </p>
+
+              <p>
+                Sus calles permiten comprender la evolución de una villa castellana vinculada tanto al comercio como a la
+                nobleza y a la monarquía.
+              </p>
+
+              <h4>⛪ Iglesia de San Pedro de la Nave</h4>
+
+              <figure>
+                <img src="{% static 'images/edad_media/viaje_castilla/toro/san_pedro_nave.jpg' %}"
+                    alt="San Pedro de la Nave"
+                    class="img-fluid img-panoramica">
+              </figure>
+
+              <p>
+                San Pedro de la Nave constituye una de las grandes joyas de la arquitectura visigoda europea. Fue construida
+                a finales del siglo VII, más de cuatrocientos años antes del auge del románico que hemos estado contemplando
+                durante todo el viaje.
+              </p>
+
+              <p>
+                El edificio fue desmontado piedra a piedra y trasladado a su emplazamiento actual durante el siglo XX para
+                evitar que quedara sumergido por las aguas del embalse de Ricobayo.
+              </p>
+
+              <h4>🪨 Los capiteles visigodos</h4>
+
+              <figure>
+                <img src="{% static 'images/edad_media/viaje_castilla/toro/capiteles_visigodos.jpg' %}"
+                    alt="Capiteles visigodos"
+                    class="img-fluid img-panoramica">
+              </figure>
+
+              <p>
+                Los capiteles de San Pedro de la Nave muestran algunas de las esculturas más impresionantes de la España
+                visigoda. Destacan especialmente las escenas bíblicas de Daniel en el foso de los leones y el sacrificio
+                de Isaac.
+              </p>
+
+              <p>
+                Estas obras permiten comprender cómo era el arte hispánico antes de la llegada del islam y antes del
+                desarrollo del románico.
+              </p>
+
+            </div>
+            <div class="section-head mt-5">
+              <span class="section-icon">🎯</span>
+              <h3>Qué debemos observar</h3>
+            </div>
+
+            <div class="intro-box section-block" style="background-color: #e8dfcf;">
+
+              <ul>
+                <li>La transición entre el arte visigodo y el románico.</li>
+                <li>La policromía conservada del Pórtico de la Majestad.</li>
+                <li>Las similitudes entre la Colegiata de Toro y la Catedral de Zamora.</li>
+                <li>Los relieves visigodos de San Pedro de la Nave.</li>
+                <li>La evolución de la escultura religiosa entre los siglos VII y XII.</li>
+                <li>La importancia estratégica del valle del Duero.</li>
+                <li>Las diferencias entre arquitectura visigoda, románica y gótica.</li>
+              </ul>
+
+            </div>
+
+            <div class="section-head mt-5">
+              <span class="section-icon">💡</span>
+              <h3>Curiosidades para los Viajeros Intrépidos</h3>
+            </div>
+
+            <div class="intro-box section-block" style="background-color: #e8dfcf;">
+
+              <p>
+                El Pórtico de la Majestad de Toro conserva una de las policromías medievales más espectaculares de Europa.
+              </p>
+
+              <p>
+                San Pedro de la Nave estuvo a punto de desaparecer bajo las aguas del embalse de Ricobayo. Su traslado fue una
+                auténtica proeza arqueológica e ingenieril.
+              </p>
+
+              <p>
+                La iglesia fue construida cuando aún existía el Reino Visigodo de Toledo, antes de la invasión musulmana del año 711.
+              </p>
+
+              <p>
+                Toro fue escenario de importantes acontecimientos históricos, incluida la famosa Batalla de Toro de 1476,
+                decisiva en la consolidación del reinado de Isabel la Católica.
+              </p>
+
+              <p>
+                Tras visitar San Pedro de la Nave, los Viajeros Intrépidos habrán recorrido más de cinco siglos de historia
+                de la arquitectura medieval española, desde el mundo visigodo hasta el románico pleno y los inicios del gótico.
+              </p>
+
+            </div>
+
+          </div>
+
+          
+
+        </section>
+
+
+    
+    </main>
+  </div>
+</div>
+
+<script>
+  function filtrarCronologia(categoria, boton) {
+    const items = document.querySelectorAll('.timeline-item');
+    const botones = document.querySelectorAll('.timeline-btn');
+
+    botones.forEach(btn => btn.classList.remove('active'));
+    boton.classList.add('active');
+
+    items.forEach(item => {
+      if (categoria === 'todos' || item.classList.contains(categoria)) {
+        item.classList.remove('oculto');
+      } else {
+        item.classList.add('oculto');
+      }
+    });
+  }
+</script>
+
+{% endblock %}

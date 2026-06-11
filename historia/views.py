@@ -27,6 +27,9 @@ def inicioInglaterra(request):
 def romanico(request):    
     return render(request, 'espagna/temas/romanico.html')
 
+def viaje_castilla(request):    
+    return render(request, 'espagna/temas/viaje_castilla.html')
+
 def edad_media(request):    
     return render(request, 'espagna/edad_media.html')
 
@@ -58,10 +61,7 @@ def carlosI(request):
     return render(request, 'espagna/sigloXVI/carlosI.html')
 
 def felipeII(request):    
-    return render(request, 'espagna/sigloXVI/felipeII.html')  
-
-def sigloXIX(request):    
-    return render(request, 'espagna/sigloXIX/sigloXIX.html')
+    return render(request, 'espagna/sigloXVI/felipeII.html')
 
 def restauracion(request):    
     return render(request, 'espagna/sigloXIX/restauracion.html')
@@ -118,6 +118,9 @@ def ilustracion(request):
     return render(request, 'espagna/sigloXVIII/ilustracion.html')
 
 # ----------------------------SIGLO XIX--------------------------
+def sigloXIX(request):    
+    return render(request, 'espagna/sigloXIX/sigloXIX.html')
+
 def carlosIV(request):    
     return render(request, 'espagna/sigloXIX/carlosIV.html')
 
