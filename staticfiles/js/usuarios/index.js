@@ -1,5 +1,0 @@
-function listadoFarmacos(){
-    $.ajax({
-        url:
-    })
-}
