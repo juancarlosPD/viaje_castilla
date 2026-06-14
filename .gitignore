@@ -3,3 +3,5 @@ __pycache__/
 *.pyc
 staticfiles/
 *.sqlite3
+media/
+.vscode/
