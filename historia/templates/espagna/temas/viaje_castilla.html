@@ -6,7 +6,13 @@
 
 {% block cabecera %} Viaje a Castilla León {% endblock %}
 
-{% block imgCabecera %}  {% endblock %}
+{% block imgCabecera %}
+  <figure class="m-0">
+      <img src="{% static 'images/viajeros.jpg' %}"
+          alt="Logo"
+          class="img-fluid logo-medieval">
+  </figure>
+{% endblock %}
 
 {% block contenido %}
 
